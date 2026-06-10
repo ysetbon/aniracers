@@ -68,12 +68,40 @@ Everything below is what you need to modify it safely.
 ## Multiplayer protocol (JSON over WebSocket)
 Client→Server: `{t:'create',name,animal}` · `{t:'join',code,name,animal}` ·
 `{t:'ready',v:bool}` · `{t:'start',world}` (host; server REJECTS unless all ready) ·
+`{t:'nextround'}` (host, after a race) · `{t:'placed',ob}` (one per player per build phase) ·
 `{t:'st',...}` state · `{t:'ev',...}` event.
 Server→Client: `{t:'room',code,you,host,players}` · `{t:'players',players,host}` ·
-`{t:'start',world,players}` · relayed `st`/`ev` with `id` of sender · `{t:'left',id}` · `{t:'err',m}`.
+`{t:'start',world,players}` · `{t:'placing',round}` · `{t:'placed',id,ob}` (relayed to ALL,
+sender included) · `{t:'roundstart',round}` (when every player placed; re-runs wb→go) ·
+relayed `st`/`ev` with `id` of sender · `{t:'left',id}` · `{t:'err',m}`.
 State packet: `{x,z,r,s,al,fx:{b,fl,sh,sp},tt,fin}` (sh = shieldLvl+1 or 0).
 Events (`ev.a`): `cannon{sp}` · `rockets{ids}` · `hook{target}` · `zap{ids}` ·
-`haz{h,x,z,rot,hid}` · `mummy{x,z}` · `hzdone{hid}` · `pick{i}` · `ram{target}`.
+`haz{h,x,z,rot,hid}` · `mummy{x,z}` · `hzdone{hid}` · `pick{i}` · `ram{target}` ·
+`wallhit{wid,col,d}` (placed-wall lane damage; only the damager's client sends it).
+
+## Online rounds (Ultimate-Chicken-Horse style, ROUND OBSTACLES section)
+OFFLINE: the start screen has an "OBSTACLE COURSE" checkbox (`#obsChk` →
+`offlineObstacleMode`). When on, `startRace()` opens the build phase BEFORE round 1;
+after the player places, each AI rival places a random obstacle (`aiRandomObstacle()`,
+oil-weighted, never near the start) and `startNextRound()` skips the wb/go handshake
+and goes straight to the countdown. The end screen's NEXT ROUND button loops it.
+Player-placed champions get `champion:'you'` (endRace win check works offline too).
+
+After an online race the host presses NEXT ROUND → `placing` state: camera zooms to a
+bird's-eye view (fog lifted), every player picks ONE obstacle (`#placePanel` cards) and
+clicks the road (raycast → `nearestIdx`; rejected off-road or within 12 idx of the start).
+Obstacles live in `placedObstacles[]` (server-relay order = identical on all clients;
+`oid` = index) and PERSIST across rounds; `resetObstacles()` restores them each round.
+Kinds: `wall` (8 lane columns × 3 bricks; each lane needs 1–2 hits to crack, then
+karts/projectiles pass through that slice; knock = 1 dmg/lane w/ 0.55s cooldown,
+projectile = 1 dmg/lane — damager broadcasts `wallhit`; NPCs reverse briefly if blocked;
+flying karts pass over) · `oil` (3 permanent slicks, re-arm 2.5s after triggering) ·
+`farmer` (patrols ±13 idx around his spot weaving across the road, spin-out on touch) ·
+`kart` (champion NPC: host-simulated like bots, `netId='c<owner>_<oid>'`, `k.champion`
+= owner id — if it finishes 1st, `endRace` crowns its owner the winner).
+`roundstart` → `startNextRound()`: `clearTransient()` + `resetObstacles()` +
+`resetKartForRound()` for every kart (leavers stay hidden/finished), then the normal
+preroll→wb→go handshake restarts the countdown. No page reload.
 **Design: victim-authoritative.** Each client simulates only its own kart; weapons spawn
 visuals everywhere but only the victim's own client applies damage to itself.
 Invite links: `?server=wss://...&room=CODE` prefill + auto-open the lobby.

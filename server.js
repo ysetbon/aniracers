@@ -64,6 +64,18 @@ function checkGo(room){
   if(!room.started || room.went) return;
   if(room.players.size > 0 && [...room.players.keys()].every(id => room.wb.has(id))) sendGo(room);
 }
+// next round (Ultimate-Chicken-Horse style): everyone places ONE obstacle, then
+// the race restarts on the same course once every current player has placed
+function checkPlaced(room){
+  if(!room.placing) return;
+  if(room.players.size > 0 && [...room.players.keys()].every(id => room.placedSet.has(id))){
+    room.placing = false;
+    room.wb = new Set(); room.went = false;        // re-run the synced-start handshake
+    clearTimeout(room.goTimer);
+    room.goTimer = setTimeout(() => sendGo(room), 15000);
+    bc(room, {t:'roundstart', round: room.round});
+  }
+}
 
 wss.on('connection', ws => {
   const myId = String(nextId++);
@@ -108,8 +120,20 @@ wss.on('connection', ws => {
           if(!taken.has(a)) players.push({id:'b'+(bi++), name:BOT_NAMES[a], animal:a, ready:true, bot:true});
       }
       const msg = {t:'start', world: m.world === 'beach' ? 'beach' : 'castle', players};
-      bc(myRoom, msg);                              // everyone else
+      bc(myRoom, msg, myId);                        // everyone else
       ws.send(JSON.stringify(msg));                 // and the host
+    }
+    else if(m.t === 'nextround' && myRoom && myRoom.host === myId && myRoom.started && !myRoom.placing){
+      myRoom.round = (myRoom.round || 1) + 1;
+      myRoom.placing = true;
+      myRoom.placedSet = new Set();
+      bc(myRoom, {t:'placing', round: myRoom.round});
+    }
+    else if(m.t === 'placed' && myRoom && myRoom.placing && !myRoom.placedSet.has(myId)){
+      myRoom.placedSet.add(myId);
+      // relay the obstacle to everyone (sender included, so all clients share one code path)
+      bc(myRoom, {t:'placed', id: myId, ob: m.ob});
+      checkPlaced(myRoom);
     }
     else if(m.t === 'wb' && myRoom && myRoom.started){
       myRoom.wb.add(myId);
@@ -126,6 +150,7 @@ wss.on('connection', ws => {
     myRoom.players.delete(myId);
     bc(myRoom, {t:'left', id: myId});
     checkGo(myRoom); // a leaver may be the one everyone was waiting for
+    checkPlaced(myRoom);
     if(myRoom.players.size === 0){ clearTimeout(myRoom.goTimer); rooms.delete(myRoom.code); }
     else if(myRoom.host === myId){
       myRoom.host = [...myRoom.players.keys()][0];  // promote a new host
@@ -135,5 +160,7 @@ wss.on('connection', ws => {
 });
 
 httpServer.listen(PORT, () => {
-  console.log('AniRacers: game + relay on http://0.0.0.0:' + PORT + '  (open in browser to play)');
+  // listens on all interfaces; advertise a URL a browser can actually open
+  console.log('AniRacers: game + relay on http://localhost:' + PORT + '  (open in browser to play)');
+  console.log('  LAN friends can use your machine\'s IP, e.g. http://192.168.x.x:' + PORT);
 });

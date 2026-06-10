@@ -54,6 +54,32 @@
     display:flex;align-items:center;justify-content:center;touch-action:none}
   .tbtn:active{background:rgba(255,255,255,.25)}
   #fireBtn{background:rgba(227,52,47,.55)}
+  /* obstacle placement phase (between online rounds) */
+  #placePanel{position:fixed;top:0;left:0;right:0;z-index:8;display:none;
+    flex-direction:column;align-items:center;gap:8px;padding:10px;pointer-events:none;
+    color:#fff;text-shadow:0 2px 0 rgba(0,0,0,.6)}
+  #placeTitle{font-size:26px;font-weight:900;font-style:italic;letter-spacing:1px;color:#ffd33d}
+  #placeHint{font-size:14px;opacity:.95;background:rgba(18,19,26,.6);padding:5px 14px;border-radius:10px}
+  #obCards{display:flex;gap:10px;flex-wrap:wrap;justify-content:center;pointer-events:auto}
+  .obCard{width:132px;padding:10px 8px;border-radius:12px;background:var(--panel);
+    border:2px solid rgba(255,255,255,.18);cursor:pointer;text-align:center;
+    transition:transform .1s,border-color .1s,box-shadow .1s}
+  .obCard:hover{transform:translateY(-2px)}
+  .obCard.sel{border-color:#ffd33d;box-shadow:0 0 14px rgba(255,211,61,.5)}
+  .obCard.off{opacity:.4;pointer-events:none}
+  .obCard .em{font-size:30px}
+  .obCard b{display:block;font-size:13px;margin:4px 0 2px}
+  .obCard span{font-size:10.5px;opacity:.8;line-height:1.3;display:block}
+  /* small screens: shrink the cards and let the box scroll sideways */
+  @media (max-width:640px), (max-height:480px){
+    #placeTitle{font-size:18px}
+    #placeHint{font-size:12px}
+    #obCards{flex-wrap:nowrap;overflow-x:auto;max-width:100vw;padding:0 6px;justify-content:flex-start}
+    .obCard{width:96px;flex:0 0 auto;padding:6px 5px}
+    .obCard .em{font-size:22px}
+    .obCard b{font-size:11px}
+    .obCard span{font-size:9px}
+  }
   @media (pointer:coarse){ #touch{display:flex} }
 </style>
 </head>
@@ -69,6 +95,21 @@
 </div>
 <div id="speed" class="hud">0</div>
 <div id="msg"><span id="msgTxt"></span></div>
+
+<div id="placePanel">
+  <div id="placeTitle">ROUND 2 &mdash; PLACE AN OBSTACLE</div>
+  <div id="obCards">
+    <div class="obCard" data-ob="wall"><div class="em">&#129521;</div><b>BRICK WALL</b>
+      <span>Blocks the road! Crack one lane (1&ndash;2 hits) to slip through</span></div>
+    <div class="obCard" data-ob="oil"><div class="em">&#128739;&#65039;</div><b>OIL PATCH</b>
+      <span>Three slippery slicks that never dry up</span></div>
+    <div class="obCard" data-ob="farmer"><div class="em">&#129489;&#8205;&#127806;</div><b>ANGRY FARMER</b>
+      <span>Patrols the road and tackles any racer he touches</span></div>
+    <div class="obCard" data-ob="kart"><div class="em">&#127950;&#65039;</div><b>CHAMPION KART</b>
+      <span>Adds a new racer &mdash; if it wins the race, YOU win!</span></div>
+  </div>
+  <div id="placeHint">Pick an obstacle from the box, then click a spot on the road!</div>
+</div>
 
 <div id="touch">
   <div class="grp"><div class="tbtn" id="leftBtn">&#9664;</div><div class="tbtn" id="rightBtn">&#9654;</div></div>
@@ -93,6 +134,10 @@
     </table>
     <p style="font-size:12px;opacity:.7">&#42; Yellow/Red shields reflect cannonballs &amp; rockets and spin out anyone you touch. Yellow hazards drop <b>behind</b> your kart &mdash; the mummy chases down everyone ahead of you!</p>
     <p><b>Drive:</b> W/&#9650; gas &mdash; release it and you slowly coast to a stop &middot; S/&#9660; brake &amp; reverse &middot; A/D steer &middot; <b>Z</b> look back &middot; <b>Use power:</b> Space &middot; 3 laps. Rivals shoot back.</p>
+    <p style="margin-top:10px"><label style="cursor:pointer">
+      <input type="checkbox" id="obsChk" style="transform:scale(1.3);margin-right:7px;vertical-align:middle">
+      &#129521; <b>OBSTACLE COURSE</b> &mdash; before every race (even the first!) you and your
+      rivals each place an obstacle on the road: walls, oil, an angry farmer or a champion kart!</label></p>
     <p style="margin-top:10px"><b>Choose your world:</b></p>
     <div style="display:flex;gap:10px;justify-content:center;flex-wrap:wrap">
       <button class="go" id="startCastle" style="font-size:17px;padding:11px 18px;margin-top:6px">&#127984; CASTLE VALLEY</button>
@@ -157,7 +202,10 @@
   <div class="card">
     <h1 id="endTitle">FINISH!</h1>
     <p id="endText" style="font-size:20px"></p>
+    <button class="go" id="nextRoundBtn" style="display:none;background:linear-gradient(180deg,#9be7a0,#2fb344);
+      box-shadow:0 5px 0 #1a7d2b,0 10px 20px rgba(0,0,0,.5)">NEXT ROUND &#8594;</button>
     <button class="go" onclick="location.reload()">RACE AGAIN</button>
+    <p id="endWait" style="display:none;opacity:.8">Waiting for the host to start the next round&hellip;</p>
   </div>
 </div>
 
@@ -878,30 +926,54 @@ function makeKart(bodyColor, animal){
   return {g,wheels,flame,jets,shield};
 }
 
-function spawnKart(name, bodyColor, animal, gridIdx, isPlayer){
+function gridSpawn(gridIdx){
   const back = (Math.floor(gridIdx/2)+1)*5;
   const side = (gridIdx%2? 1:-1)*3.2;
   const i0=(N - Math.round(back/ (curve.getLength()/N))) % N;
   const p=samples[i0].clone().add(normals[i0].clone().multiplyScalar(side));
-  const rot=Math.atan2(tangents[i0].x,tangents[i0].z);
+  return {p, rot:Math.atan2(tangents[i0].x,tangents[i0].z),
+          i0, total0:-Math.round(back/(curve.getLength()/N))};
+}
+function spawnKart(name, bodyColor, animal, gridIdx, isPlayer){
+  const s=gridSpawn(gridIdx);
   const parts=makeKart(bodyColor,animal);
-  parts.g.position.copy(p);
-  parts.g.rotation.y=rot;
+  parts.g.position.copy(s.p);
+  parts.g.rotation.y=s.rot;
   return {
-    name, isPlayer, parts,
+    name, isPlayer, parts, gridIdx,
     remote:false, netId:null, hookedT:0,
     netPos:null, netRot:0, netAlt:0, netSpeed:0, netFx:null, netTotal:null, netFin:false,
-    pos:p.clone(), rot, speed:0,
-    idxPrev:i0, total:-Math.round(back/(curve.getLength()/N)),
+    pos:s.p.clone(), rot:s.rot, speed:0,
+    idxPrev:s.i0, total:s.total0,
     lap:1, finished:false, finishPos:0,
     spin:0, spinAng:0,
     boost:0, boostMul:1,
     shieldT:0, shieldLvl:0,
     ram:0, fly:0, alt:0, held:0,
     grapple:0, grappleTarget:null, tether:null, warpFx:0, warping:0, warpStartIdx:0, mummyCd:0,
+    farmerCd:0, wallCd:0, wallBack:0,
     brick:null, whites:0,
     aiSpeed: 38.5 + Math.random()*1.5, aiOffset:(Math.random()-.5)*6, fireCd:4+Math.random()*4
   };
+}
+// put a kart back on its grid slot for the next round, wiping every race effect
+function resetKartForRound(k){
+  const s=gridSpawn(k.gridIdx);
+  releaseGrapple(k);
+  k.pos.copy(s.p); k.rot=s.rot; k.speed=0;
+  k.idxPrev=s.i0; k.total=s.total0; k.lap=1;
+  k.finished=false; k.finishPos=0;
+  k.spin=0; k.spinAng=0; k.boost=0; k.boostMul=1;
+  k.shieldT=0; k.shieldLvl=0; k.ram=0; k.fly=0; k.alt=0; k.held=0;
+  k.warpFx=0; k.warping=0; k.mummyCd=0; k.hookedT=0; k.farmerCd=0; k.wallCd=0; k.wallBack=0;
+  k.brick=null; k.whites=0;
+  k.netPos=null; k.netTotal=null; k.netFin=false; k.netFx=null;
+  k.fireCd=4+Math.random()*4;
+  k.parts.g.position.copy(k.pos);
+  k.parts.g.rotation.set(0,k.rot,0);
+  k.parts.flame.visible=false;
+  k.parts.jets.forEach(j=>j.visible=false);
+  k.parts.shield.visible=false;
 }
 
 let player=null;
@@ -1192,6 +1264,227 @@ function stepHazards(dt){
   }
 }
 
+/* ============================ ROUND OBSTACLES (online rounds) ============================ */
+// Ultimate-Chicken-Horse style: after every online race the players each place ONE
+// obstacle on the course. Obstacles persist for all following rounds on this course.
+let round=1, placeSel=null, placedThisRound=false, roundPlacedCount=0;
+const placedObstacles=[]; // {kind,'i'|x/z..., owner} in server-relay order (same on every client)
+const walls=[];           // {oid, m, cols[], p, tan, nor} — each col = one lane slice
+const permOils=[];        // {m, cd}
+const farmers=[];         // {m, i0, ph}
+function wallColFromLat(lat){
+  return Math.min(7, Math.max(0, Math.floor((lat+HALF_W)/(ROAD_W/8))));
+}
+const trackCenter=new THREE.Vector3();
+samples.forEach(s=>trackCenter.add(s)); trackCenter.multiplyScalar(1/N);
+
+function makeWallAt(i){
+  const g=new THREE.Group();
+  g.position.copy(samples[i]);
+  g.rotation.y=Math.atan2(tangents[i].x,tangents[i].z);
+  scene.add(g);
+  const brickCols=[0xb5651d,0x9a4f12];
+  const cols=[], bw=ROAD_W/8;
+  for(let c=0;c<8;c++){
+    const hp=1+(Math.random()<.5?1:0); // each lane: 1 or 2 hits to crack
+    const bricks=[];
+    for(let r=0;r<3;r++){
+      const b=new THREE.Mesh(new THREE.BoxGeometry(bw*.94,1.05,.95),
+        new THREE.MeshLambertMaterial({color:brickCols[(r+c)%2]}));
+      b.position.set(-HALF_W+bw*(c+.5), .58+r*1.12, 0);
+      b.castShadow=true; b.receiveShadow=true; g.add(b); bricks.push(b);
+    }
+    cols.push({hp, maxHp:hp, bricks});
+  }
+  return {g, cols};
+}
+function makeFarmer(){
+  const g=new THREE.Group();
+  const M=c=>new THREE.MeshLambertMaterial({color:c});
+  const bx=(w,h,d,x,y,z,c)=>{
+    const m=new THREE.Mesh(new THREE.BoxGeometry(w,h,d),M(c));
+    m.position.set(x,y,z); m.castShadow=true; g.add(m); return m;
+  };
+  bx(.5,.9,.42, .28,.45,0, 0x2f5fb3);      // denim legs
+  bx(.5,.9,.42,-.28,.45,0, 0x2f5fb3);
+  bx(1.2,1.1,.7, 0,1.45,0, 0x2f5fb3);      // overalls
+  bx(1.25,.5,.72, 0,2.0,0, 0xc62828);      // red shirt
+  bx(.32,1.05,.34, .76,1.7,.25, 0xc62828); // arms out, ready to tackle
+  bx(.32,1.05,.34,-.76,1.7,.25, 0xc62828);
+  bx(.8,.8,.75, 0,2.7,0, 0xe8b88a);        // head
+  bx(.12,.16,.05, .18,2.76,.39, 0x111111); // eyes
+  bx(.12,.16,.05,-.18,2.76,.39, 0x111111);
+  bx(.4,.1,.12, 0,2.5,.39, 0x7a4a28);      // grumpy mouth
+  bx(1.55,.12,1.55, 0,3.14,0, 0xd9a83c);   // straw hat
+  bx(.8,.45,.8, 0,3.4,0, 0xd9a83c);
+  bx(.1,2.3,.1, 1.0,1.9,.35, 0x8d5a2b);    // pitchfork
+  bx(.52,.1,.1, 1.0,3.0,.35, 0x9e9e9e);
+  for(const sx of [-.18,0,.18]) bx(.06,.42,.06, 1.0+sx,3.25,.35, 0x9e9e9e);
+  return g;
+}
+const CHAMP_NAMES={chicken:'CLUCKY',dog:'BUDDY',sheep:'FLUFFY',cat:'MITTENS',frog:'JUMPY'};
+const CHAMP_COLORS=[0xff6f00,0x8d6e63,0x00897b,0xd81b60,0x5e35b1];
+function spawnObstacle(ob){
+  if(ob.kind==='wall'){
+    const i=((ob.i%N)+N)%N;
+    const {g, cols}=makeWallAt(i);
+    walls.push({oid:ob.oid, m:g, cols,
+      p:samples[i].clone(), tan:tangents[i].clone(), nor:normals[i].clone()});
+  }
+  else if(ob.kind==='oil'){
+    const i=((ob.i%N)+N)%N, tan=tangents[i], nor=normals[i];
+    for(const [a,l] of [[0,0],[3,2.6],[-3,-2.6]]){ // three slicks staggered along the road
+      const m=makeOil();
+      m.position.set(ob.x+tan.x*a+nor.x*l*.6, .13, ob.z+tan.z*a+nor.z*l*.6);
+      scene.add(m);
+      permOils.push({m, cd:0});
+    }
+  }
+  else if(ob.kind==='farmer'){
+    const m=makeFarmer();
+    const i=((ob.i%N)+N)%N;
+    m.position.copy(samples[i]);
+    scene.add(m);
+    farmers.push({m, i0:i, ph:0});
+  }
+  else if(ob.kind==='kart'){
+    const gi=karts.length;
+    const animal=ob.animal||'chicken';
+    const k=spawnKart(CHAMP_NAMES[animal]||'CHAMP', CHAMP_COLORS[gi%CHAMP_COLORS.length], animal, gi, false);
+    k.netId='c'+ob.owner+'_'+ob.oid;
+    k.bot=true;
+    k.champion=ob.owner;            // if this kart wins, that player wins too
+    k.remote = net? !net.host : false; // the host simulates champions like NPCs
+    karts.push(k);
+  }
+}
+function addPlacedObstacle(ownerId, ob){
+  ob=Object.assign({}, ob, {owner:ownerId, oid:placedObstacles.length});
+  placedObstacles.push(ob);
+  spawnObstacle(ob);
+  roundPlacedCount++;
+  if(state==='placing' && placedThisRound && net)
+    $g('placeHint').textContent='Placed! Waiting for the other players... ('
+      +Math.min(roundPlacedCount,net.roster.length)+'/'+net.roster.length+')';
+  beep(520,.12,'triangle',.06);
+}
+function damageWallCol(w, col, dmg, fromNet){
+  const c=w.cols[col];
+  if(!c||c.hp<=0) return false;
+  c.hp=Math.max(0, c.hp-dmg);
+  if(!fromNet) NEV({a:'wallhit', wid:w.oid, col, d:dmg});
+  if(c.hp<=0){
+    c.bricks.forEach(b=>{
+      if(b.visible){ b.visible=false; explode(w.m.localToWorld(b.position.clone()), 0xb5651d, 4); }
+    });
+    beep(200,.14,'square',.08);
+  }
+  if(w.cols.every(cc=>cc.hp<=0)){
+    w.m.visible=false;
+    explode(w.p.clone().setY(1.2), 0xb5651d, 16);
+    beep(120,.35,'sawtooth',.12);
+    if(player && w.p.distanceTo(player.pos)<40) shake=Math.max(shake,.5);
+  }
+  return c.hp<=0;
+}
+function wallByOid(oid){ return walls.find(w=>w.oid===oid); }
+function stepObstacles(dt){
+  for(const k of karts){
+    if(k.wallCd>0) k.wallCd-=dt;
+    if(k.wallBack>0) k.wallBack-=dt;
+    if(k.farmerCd>0) k.farmerCd-=dt;
+  }
+  // walls: each lane cracks on its own (1–2 hits); open lanes let karts through
+  for(const w of walls){
+    if(!w.m.visible) continue;
+    for(const k of karts){
+      if(k.remote||k.finished||k.alt>2.4||k.warping>0) continue; // fly (or warp) over it!
+      const dx=k.pos.x-w.p.x, dz=k.pos.z-w.p.z;
+      const along=dx*w.tan.x+dz*w.tan.z, lat=dx*w.nor.x+dz*w.nor.z;
+      if(Math.abs(along)>=1.9) continue;
+      const col=wallColFromLat(lat);
+      if(w.cols[col].hp<=0) continue; // cracked lane — slip through
+      if(Math.abs(lat)<HALF_W+.6){
+        const s=along>=0?1:-1;
+        k.pos.x+=w.tan.x*(1.9-Math.abs(along))*s;
+        k.pos.z+=w.tan.z*(1.9-Math.abs(along))*s;
+        const hitSpeed=Math.abs(k.speed);
+        k.speed*=-.32; // bounce back
+        if(k.wallCd<=0 && hitSpeed>6){
+          k.wallCd=.55;
+          const cracked=damageWallCol(w, col, 1, false);
+          explode(k.pos.clone().setY(1.2), 0xb5651d, 7);
+          if(k.isPlayer){
+            shake=Math.max(shake,.45);
+            const left=w.cols[col].hp;
+            showMsg(left<=0? 'LANE OPEN!' : 'KNOCK! '+left+' TO CRACK', 800);
+          } else if(!cracked) k.wallBack=.45; // NPC: tiny reverse, then try again
+          beep(180,.15,'square',.1);
+        }
+      }
+    }
+  }
+  // permanent oil patches: spin out, then re-arm after a moment
+  for(const o of permOils){
+    if(o.cd>0){ o.cd-=dt; o.m.material.opacity=.35; continue; }
+    o.m.material.opacity=.9;
+    for(const k of karts){
+      if(k.remote||k.finished||k.alt>1.5||k.spin>0) continue;
+      const dx=k.pos.x-o.m.position.x, dz=k.pos.z-o.m.position.z;
+      if(dx*dx+dz*dz<6.2){
+        spinOut(k,true);
+        if(k.spin>0){ o.cd=2.5; if(k.isPlayer) showMsg('OIL!'); }
+        break;
+      }
+    }
+  }
+  // the angry farmer patrols around his spot, weaving across the road
+  for(const f of farmers){
+    f.ph+=dt;
+    const off=Math.sin(f.ph*.7)*13;                 // back & forth along the track
+    const lat=Math.sin(f.ph*1.6)*(HALF_W-2.2);      // weave across the width
+    const j=((Math.round(f.i0+off))%N+N)%N;
+    const tx=samples[j].x+normals[j].x*lat, tz=samples[j].z+normals[j].z*lat;
+    const mvx=tx-f.m.position.x, mvz=tz-f.m.position.z;
+    f.m.position.set(tx, Math.abs(Math.sin(f.ph*9))*.3, tz); // running bob
+    if(mvx*mvx+mvz*mvz>1e-6) f.m.rotation.y=Math.atan2(mvx,mvz);
+    f.m.rotation.z=Math.sin(f.ph*9)*.06;
+    for(const k of karts){
+      if(k.remote||k.finished||k.alt>1.5||k.farmerCd>0) continue;
+      const dx=k.pos.x-f.m.position.x, dz=k.pos.z-f.m.position.z;
+      if(dx*dx+dz*dz<5.5){
+        k.farmerCd=1.5;
+        spinOut(k);
+        if(k.isPlayer) showMsg('THE FARMER GOT YOU!');
+        beep(200,.3,'sawtooth',.1);
+      }
+    }
+  }
+}
+// every round restarts with the obstacles fresh: walls rebuilt, farmer back home
+function resetObstacles(){
+  for(const w of walls){
+    w.m.visible=true;
+    w.cols.forEach(c=>{ c.hp=c.maxHp; c.bricks.forEach(b=>b.visible=true); });
+  }
+  for(const o of permOils){ o.cd=0; o.m.material.opacity=.9; }
+  for(const f of farmers){
+    f.ph=0;
+    f.m.position.copy(samples[f.i0]); f.m.position.y=0;
+  }
+}
+function clearTransient(){
+  for(const h of hazards) scene.remove(h.m);
+  hazards.length=0;
+  for(const p of projectiles) scene.remove(p.m);
+  projectiles.length=0;
+  for(const z of zaps) scene.remove(z.l);
+  zaps.length=0;
+  for(const p of particles) scene.remove(p.m);
+  particles.length=0;
+  for(const p of pickups){ p.active=true; p.respawn=0; p.m.visible=true; }
+}
+
 function raceOrder(){
   return [...karts].sort((a,b)=>{
     const ap=a.finished?a.finishPos:99, bp=b.finished?b.finishPos:99;
@@ -1362,9 +1655,13 @@ function usePower(k){
 
 /* ============================ INPUT ============================ */
 const keys={};
+const DEV=new URLSearchParams(location.search).has('dev');
 addEventListener('keydown',e=>{
   keys[e.code]=true;
   if(e.code==='Space'){ e.preventDefault(); if(state==='race') usePower(player); }
+  // dev cheat (?dev=1): K = finish the race instantly, for testing the round flow
+  if(DEV && e.code==='KeyK' && state==='race' && player && !player.finished)
+    player.total=N*TOTAL_LAPS;
 });
 addEventListener('keyup',e=>keys[e.code]=false);
 const tstate={left:false,right:false,gas:false};
@@ -1419,11 +1716,15 @@ function beginCountdown(){
   beep(440,.15);
 }
 
+let offlineObstacleMode=false;
 function startRace(world){
   if(karts.length===0) setupOffline();
   buildWorld(world);
   document.getElementById('startOverlay').style.display='none';
-  beginCountdown();
+  offlineObstacleMode=document.getElementById('obsChk').checked;
+  // obstacle course: the building starts BEFORE the first race, round 1
+  if(offlineObstacleMode) startPlacing(1);
+  else beginCountdown();
 }
 document.getElementById('startCastle').addEventListener('click',()=>startRace('castle'));
 document.getElementById('startBeach').addEventListener('click',()=>startRace('beach'));
@@ -1633,29 +1934,35 @@ function stepKart(k, dt){
       if(right) k.rot-=steerPow*dt;
       k.speed=THREE.MathUtils.clamp(k.speed,-16,maxSp);
     } else if(!k.isPlayer && (state==='race'||state==='done')){
-      const look=(idx+9)%N;
-      const target=tmpV.copy(samples[look]).add(normals[look].clone().multiplyScalar(k.aiOffset*.6));
+      const look=(idx+(k.wallBack>0?6:9))%N;
+      const laneBias=k.wallBack>0? k.aiOffset*1.4 : k.aiOffset*.6;
+      const target=tmpV.copy(samples[look]).add(normals[look].clone().multiplyScalar(laneBias));
       const want=Math.atan2(target.x-k.pos.x, target.z-k.pos.z);
       let diff=want-k.rot;
       while(diff>Math.PI)diff-=2*Math.PI; while(diff<-Math.PI)diff+=2*Math.PI;
       k.rot+=THREE.MathUtils.clamp(diff, -2.6*dt, 2.6*dt);
-      let sp=k.aiSpeed;
-      const gap=player.total-k.total;
-      if(gap>25) sp*=1.07; else if(gap<-25) sp*=.93;
-      sp*=k.boostMul; if(k.grapple>0) sp=80; if(k.fly>0) sp=Math.max(sp,66);
-      if(!onRoad && k.fly<=0) sp=Math.min(sp,18);
-      k.speed += THREE.MathUtils.clamp(sp-k.speed, -40*dt, 26*dt);
-      k.fireCd-=dt;
-      if(k.fireCd<=0){
-        k.fireCd=4+Math.random()*5;
-        const fwd=new THREE.Vector3(Math.sin(k.rot),0,Math.cos(k.rot));
-        for(const o of karts){ // shoot at humans only (local player or remote racers)
-          if(o===k||o.finished||!(o.isPlayer||o.remote)||o.bot) continue;
-          const toT=tmpV.copy(o.pos).sub(k.pos);
-          if(toT.length()<32 && toT.normalize().dot(fwd)>.85){
-            fireStraight(k, 46, 0, true);
-            NEVk(k,{a:'cannon',sp:0});
-            break;
+      if(k.wallBack>0){
+        k.speed=Math.max(k.speed-50*dt, -9); // short reverse after hitting a solid lane
+        k.speed=THREE.MathUtils.clamp(k.speed, -9, 4);
+      } else {
+        let sp=k.aiSpeed;
+        const gap=player.total-k.total;
+        if(gap>25) sp*=1.07; else if(gap<-25) sp*=.93;
+        sp*=k.boostMul; if(k.grapple>0) sp=80; if(k.fly>0) sp=Math.max(sp,66);
+        if(!onRoad && k.fly<=0) sp=Math.min(sp,18);
+        k.speed += THREE.MathUtils.clamp(sp-k.speed, -40*dt, 26*dt);
+        k.fireCd-=dt;
+        if(k.fireCd<=0){
+          k.fireCd=4+Math.random()*5;
+          const fwd=new THREE.Vector3(Math.sin(k.rot),0,Math.cos(k.rot));
+          for(const o of karts){ // shoot at humans only (local player or remote racers)
+            if(o===k||o.finished||!(o.isPlayer||o.remote)||o.bot) continue;
+            const toT=tmpV.copy(o.pos).sub(k.pos);
+            if(toT.length()<32 && toT.normalize().dot(fwd)>.85){
+              fireStraight(k, 46, 0, true);
+              NEVk(k,{a:'cannon',sp:0});
+              break;
+            }
           }
         }
       }
@@ -1754,6 +2061,23 @@ function stepProjectiles(dt){
     }
     pr.m.position.addScaledVector(pr.vel,dt);
     let dead=pr.life<=0;
+    // placed walls stop cannonballs & rockets — and red fire chips them down fast.
+    // damage only counts on the shooter's client (then syncs), so it isn't doubled
+    for(const w of walls){
+      if(!w.m.visible) continue;
+      const wx=pr.m.position.x-w.p.x, wz=pr.m.position.z-w.p.z;
+      const along=wx*w.tan.x+wz*w.tan.z, lat=wx*w.nor.x+wz*w.nor.z;
+      if(Math.abs(along)>=1.4) continue;
+      const col=wallColFromLat(lat);
+      if(w.cols[col].hp<=0) continue; // shot passes through open lane
+      if(Math.abs(lat)<HALF_W){
+        explode(pr.m.position, 0xb5651d, 10);
+        if(!net || pr.owner===player || isLocalBot(pr.owner)) damageWallCol(w, col, 1, false);
+        beep(240,.2,'square',.08);
+        dead=true; break;
+      }
+    }
+    if(!dead)
     for(const k of karts){
       if(k===pr.owner||k.finished) continue;
       if(k.alt>1.5) continue; // flying over the shot
@@ -1797,10 +2121,29 @@ function endRace(){
   state='done';
   const order=raceOrder();
   const place=order.indexOf(player)+1;
-  setTimeout(()=>{
-    document.getElementById('endTitle').textContent = place===1? 'CLUCK YEAH! YOU WIN!' : 'FINISH!';
+  endRace._t=setTimeout(()=>{
+    if(state==='placing') return; // the next round already started its build phase
+    const winner=order[0];
+    let title = place===1? 'CLUCK YEAH! YOU WIN!' : 'FINISH!';
+    let extra='';
+    // champion karts race FOR the player who placed them
+    if(winner && winner.champion){
+      const mine = net? winner.champion===net.id : winner.champion==='you';
+      if(mine){
+        title='YOUR CHAMPION WON \u2014 YOU WIN!';
+        extra=' '+winner.name+' brought home the trophy for you!';
+      } else {
+        const op=net && net.roster.find(p=>p.id===winner.champion);
+        extra=' '+winner.name+' won the race for '+(op? op.name : winner.champion)+'!';
+      }
+    }
+    document.getElementById('endTitle').textContent = title;
     document.getElementById('endText').textContent =
-      'You placed '+place+suffix[Math.min(place,4)-1]+' of '+karts.length+'.';
+      'You placed '+place+suffix[Math.min(place,4)-1]+' of '+karts.length+'.'+extra;
+    // next round: online it's the host's call; offline obstacle mode it's all yours
+    const online = net && net.ws && net.ws.readyState===1;
+    $g('nextRoundBtn').style.display = (online? net.host : offlineObstacleMode)? 'inline-block' : 'none';
+    $g('endWait').style.display = (online && !net.host)? 'block' : 'none';
     document.getElementById('endOverlay').style.display='flex';
   },1400);
   showMsg(place===1?'1st!!':'FINISH',1500);
@@ -1885,6 +2228,9 @@ function netMsg(m){
       k.netFx=m.fx||{}; k.netTotal=m.tt; k.netFin=!!m.fin;
     }}
   else if(m.t==='ev'){ netEvent(m); }
+  else if(m.t==='placing'){ startPlacing(m.round); }
+  else if(m.t==='placed'){ addPlacedObstacle(m.id, m.ob||{}); }
+  else if(m.t==='roundstart'){ startNextRound(m.round); }
   else if(m.t==='left'){ const k=kartById(m.id); if(k) k.finished=true;
     net.roster=net.roster.filter(p=>p.id!==m.id);
     if(state==='wait') renderRoster(); }
@@ -1954,7 +2300,124 @@ function netEvent(m){
     const tv=m.target===net.id? player : kartById(m.target);
     if(tv&&(tv===player||isLocalBot(tv))) spinOut(tv);
   }
+  else if(m.a==='wallhit'){
+    const w=wallByOid(m.wid);
+    if(w) damageWallCol(w, m.col!=null? m.col : 4, m.d||1, true);
+  }
 }
+
+/* ============================ ROUND PLACEMENT PHASE ============================ */
+// the whole room zooms out to a bird's-eye view of the course and everyone
+// drops ONE obstacle on the road before the rematch starts
+function startPlacing(r){
+  round=r;
+  state='placing';
+  clearTimeout(endRace._t);
+  $g('endOverlay').style.display='none';
+  $g('placePanel').style.display='flex';
+  $g('placeTitle').textContent='ROUND '+r+' \u2014 PLACE AN OBSTACLE';
+  $g('placeHint').textContent='Pick an obstacle from the box, then click a spot on the road!';
+  placeSel=null; placedThisRound=false; roundPlacedCount=0;
+  document.querySelectorAll('.obCard').forEach(c=>c.classList.remove('sel','off'));
+  if(player){ player.warpFx=0; player.warping=0; } // never zoom out inside the warp vortex
+  clearTransient();                 // tidy the course for the aerial view
+  karts.forEach(releaseGrapple);
+  // lift the fog so the whole course is visible from above
+  scene.fog.near=900; scene.fog.far=1000;
+  showMsg('BUILD!',1300);
+  beep(700,.2,'triangle',.08);
+}
+function sendPlacement(ob){
+  if(placedThisRound) return;
+  placedThisRound=true;
+  document.querySelectorAll('.obCard').forEach(c=>{c.classList.remove('sel');c.classList.add('off');});
+  if(net && net.ws.readyState===1){
+    net.ws.send(JSON.stringify({t:'placed', ob}));
+    $g('placeHint').textContent='Placed! Waiting for the other players...';
+  } else {
+    // offline: you place yours, then each rival grabs one from the box too
+    addPlacedObstacle('you', ob);
+    $g('placeHint').textContent='Your rivals are picking their obstacles...';
+    const rivals=karts.filter(k=>!k.isPlayer && !k.champion);
+    rivals.forEach((r,ri)=>setTimeout(()=>{
+      if(state==='placing') addPlacedObstacle(r.name, aiRandomObstacle());
+    }, 450*(ri+1)));
+    setTimeout(()=>{ if(state==='placing') startNextRound(round); }, 450*rivals.length+1000);
+  }
+}
+function aiRandomObstacle(){
+  const kinds=['oil','oil','farmer','wall']; // oil is the rivals' favorite
+  const kind=kinds[Math.random()*kinds.length|0];
+  const i=14+(Math.random()*(N-28)|0); // never right at the start line
+  const lat=(Math.random()-.5)*(ROAD_W-6);
+  return {kind, i,
+    x:+(samples[i].x+normals[i].x*lat).toFixed(1),
+    z:+(samples[i].z+normals[i].z*lat).toFixed(1)};
+}
+function startNextRound(r){
+  round=r;
+  $g('placePanel').style.display='none';
+  $g('endOverlay').style.display='none';
+  clearTimeout(endRace._t);
+  finishCounter=0;
+  clearTransient();
+  resetObstacles();
+  for(const k of karts){
+    // players who left the room stay out of the rematch
+    const gone = net && k.netId && !k.bot && !net.roster.some(p=>p.id===k.netId);
+    if(gone){ k.finished=true; k.finishPos=99; k.parts.g.visible=false; continue; }
+    resetKartForRound(k);
+  }
+  updateHUDPower();
+  scene.fog.color.setHex(FOG0.color);
+  scene.fog.near=FOG0.near; scene.fog.far=FOG0.far;
+  camSnap=true;
+  if(net){
+    // same synced-start handshake as the first race: wb -> server 'go' -> countdown
+    state='preroll'; pendingWb=true;
+    showMsg('ROUND '+r+'!',15000);
+  } else {
+    // offline: nobody to wait for — straight into the countdown
+    showMsg('ROUND '+r+'!',1300);
+    beginCountdown();
+  }
+}
+$g('nextRoundBtn').addEventListener('click',()=>{
+  if(net && net.ws.readyState===1) net.ws.send(JSON.stringify({t:'nextround'}));
+  else if(offlineObstacleMode) startPlacing(round+1);
+});
+document.querySelectorAll('.obCard').forEach(card=>{
+  card.addEventListener('click',()=>{
+    if(state!=='placing'||placedThisRound) return;
+    placeSel=card.dataset.ob;
+    document.querySelectorAll('.obCard').forEach(c=>c.classList.toggle('sel',c===card));
+    if(placeSel==='kart'){
+      // a champion doesn't need a road spot — it joins the starting grid
+      const animals=['chicken','dog','sheep','cat','frog'];
+      sendPlacement({kind:'kart', animal:animals[Math.random()*5|0]});
+    } else {
+      $g('placeHint').textContent='Now click a spot on the road!';
+    }
+  });
+});
+const placeRay=new THREE.Raycaster(),
+      placePlane=new THREE.Plane(new THREE.Vector3(0,1,0),0),
+      placePt=new THREE.Vector3();
+canvas.addEventListener('pointerdown',e=>{
+  if(state!=='placing'||placedThisRound||!placeSel||placeSel==='kart') return;
+  placeRay.setFromCamera(new THREE.Vector2(e.clientX/innerWidth*2-1, -(e.clientY/innerHeight)*2+1), camera);
+  if(!placeRay.ray.intersectPlane(placePlane, placePt)) return;
+  const i=nearestIdx(placePt);
+  const d=distToCenter(placePt,i);
+  if(d>HALF_W+8){ showMsg('CLICK THE ROAD!',900); return; }
+  if(Math.min(i,N-i)<12){ showMsg('NOT AT THE START!',900); return; }
+  // from this high up clicks are imprecise — snap near-misses onto the road
+  const lat=THREE.MathUtils.clamp(
+    (placePt.x-samples[i].x)*normals[i].x+(placePt.z-samples[i].z)*normals[i].z,
+    -(HALF_W-2), HALF_W-2);
+  placePt.set(samples[i].x+normals[i].x*lat, 0, samples[i].z+normals[i].z*lat);
+  sendPlacement({kind:placeSel, i, x:+placePt.x.toFixed(1), z:+placePt.z.toFixed(1)});
+});
 
 /* ============================ LOOP ============================ */
 let last=performance.now()/1000, perf=0;
@@ -1979,6 +2442,7 @@ function simStep(){
       stepPickups(dt);
       stepProjectiles(dt);
       stepHazards(dt);
+      stepObstacles(dt);
       stepParticles(dt);
     }
   }
@@ -2036,7 +2500,15 @@ function loop(){
     camera.updateProjectionMatrix();
   }
 
-  if(player){
+  if(state==='placing'){
+    // bird's-eye build view: hover above the course so the whole road is visible
+    const camH=240/Math.min(1,camera.aspect||1);
+    const target=tmpV.set(trackCenter.x, camH, trackCenter.z+camH*.18);
+    camera.position.lerp(target, 1-Math.pow(.0005,dt));
+    camera.lookAt(trackCenter.x, 0, trackCenter.z);
+    scene.fog.near=900; scene.fog.far=1000; // keep the fog lifted (warp cleanup restores it)
+  }
+  else if(player){
   const fwd=new THREE.Vector3(Math.sin(player.rot),0,Math.cos(player.rot));
   // Z = rear-view mirror: camera jumps in front of the kart, looking back
   const lookBack = !!keys.KeyZ;
