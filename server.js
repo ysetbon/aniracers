@@ -18,6 +18,13 @@ const httpServer = http.createServer((req, res) => {
     });
   } else if(url === '/healthz'){
     res.writeHead(200, {'Content-Type': 'text/plain'}); res.end('ok');
+  } else if(url.startsWith('/room/')){
+    // invite links ask which animals are already taken before showing the picker
+    const room = rooms.get(url.slice(6).toUpperCase());
+    res.writeHead(200, {'Content-Type': 'application/json', 'Access-Control-Allow-Origin': '*'});
+    res.end(JSON.stringify(room
+      ? {exists: true, started: room.started, taken: [...takenAnimals(room)]}
+      : {exists: false, started: false, taken: []}));
   } else {
     res.writeHead(404); res.end('Not found');
   }

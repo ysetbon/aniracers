@@ -1475,6 +1475,21 @@ document.getElementById('btnInvite').addEventListener('click',()=>{
     document.getElementById('startOverlay').style.display='none';
     document.getElementById('lobbyOverlay').style.display='flex';
   }
+  // invite link: ask the server which animals are taken and grey them out
+  const code=(el('roomCode').value||'').toUpperCase();
+  if(/^[A-Z0-9]{4}$/.test(code)){
+    const base=el('srvUrl').value.trim().replace(/^ws/,'http').replace(/\/+$/,'');
+    fetch(base+'/room/'+code).then(r=>r.json()).then(info=>{
+      if(!info||!info.taken||!info.taken.length) return;
+      const sel=el('animalSel');
+      let firstFree=null;
+      for(const o of [...sel.options]){
+        if(info.taken.includes(o.value)){ o.disabled=true; o.textContent+=' — taken'; }
+        else if(firstFree===null) firstFree=o.value;
+      }
+      if(firstFree!==null) sel.value=firstFree;
+    }).catch(()=>{});
+  }
 })();
 
 /* ============================ SIM ============================ */
@@ -1943,10 +1958,11 @@ function netEvent(m){
 
 /* ============================ LOOP ============================ */
 let last=performance.now()/1000, perf=0;
-function loop(){
-  requestAnimationFrame(loop);
+// simulation + networking, separated from rendering: this must keep running even
+// when the tab is hidden (rAF stops there) or our kart/NPCs freeze for everyone else
+function simStep(){
   const now=performance.now()/1000;
-  let dt=Math.min(.05, now-last); last=now; perf=now;
+  const dt=Math.min(.05, now-last); last=now; perf=now;
 
   if(state==='countdown'){
     const prev=Math.ceil(countT);
@@ -1966,6 +1982,25 @@ function loop(){
       stepParticles(dt);
     }
   }
+
+  if(net&&player&&(state==='race'||state==='done')) netTick(now);
+  // hidden tab can't render a frame, so report world-built right away
+  if(pendingWb && state==='preroll' && document.hidden && net && net.ws.readyState===1){
+    pendingWb=false;
+    net.ws.send(JSON.stringify({t:'wb'}));
+  }
+  return dt;
+}
+// worker timers keep ticking in background tabs — use one to drive the sim there
+try{
+  const tickWorker=new Worker(URL.createObjectURL(
+    new Blob(['setInterval(()=>postMessage(0),50);'],{type:'text/javascript'})));
+  tickWorker.onmessage=()=>{ if(document.hidden) simStep(); };
+}catch(e){}
+
+function loop(){
+  requestAnimationFrame(loop);
+  const dt=simStep();
 
   if(windBlades) windBlades.rotation.z += dt*.9;
   for(const f of animFlags){
@@ -2028,7 +2063,6 @@ function loop(){
     elLap.textContent='LAP '+Math.min(player.lap,TOTAL_LAPS)+'/'+TOTAL_LAPS;
     elSpeed.textContent=Math.round(Math.max(0,player.speed)*3.1)+' km/h';
   }
-  if(net&&player&&(state==='race'||state==='done')) netTick(now);
 
   renderer.render(scene,camera);
   // first frame of the new world is on screen (shaders compiled) -> tell the server we're ready
