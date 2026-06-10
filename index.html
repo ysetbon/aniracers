@@ -1409,16 +1409,21 @@ function showMsg(txt, hold){
 
 /* ============================ GAME STATE ============================ */
 let state='wait';
-let countT=0;
+let countT=0, countEnd=0, pendingWb=false;
 const TOTAL_LAPS=3;
 let finishCounter=0;
+// countdown follows the WALL CLOCK (frame hitches while the world uploads to the
+// GPU must not stretch it, or online clients drift apart)
+function beginCountdown(){
+  state='countdown'; countT=3.5; countEnd=performance.now()/1000+3.5;
+  beep(440,.15);
+}
 
 function startRace(world){
   if(karts.length===0) setupOffline();
   buildWorld(world);
   document.getElementById('startOverlay').style.display='none';
-  state='countdown'; countT=3.5;
-  beep(440,.15);
+  beginCountdown();
 }
 document.getElementById('startCastle').addEventListener('click',()=>startRace('castle'));
 document.getElementById('startBeach').addEventListener('click',()=>startRace('beach'));
@@ -1857,6 +1862,7 @@ function netMsg(m){
         k.rot=k.netRot||k.rot; k.speed=k.netSpeed||0;
       } }
   else if(m.t==='start'){ netStartRace(m.world,m.players); }
+  else if(m.t==='go'){ if(state==='preroll') beginCountdown(); }
   else if(m.t==='st'){ const k=kartById(m.b||m.id);
     if(k&&k.remote){
       if(!k.netPos) k.netPos=new THREE.Vector3();
@@ -1873,7 +1879,10 @@ function netStartRace(world,roster){
   $g('startOverlay').style.display='none';
   setupOnline(roster,net.id);
   buildWorld(world);
-  state='countdown'; countT=3.5; beep(440,.15);
+  // synced start: wait on the grid until EVERY client has built + rendered the
+  // world, then the server's 'go' starts the same countdown everywhere
+  state='preroll'; pendingWb=true;
+  showMsg('GET READY...',15000);
 }
 let lastSt=0;
 function netTick(now){
@@ -1941,15 +1950,15 @@ function loop(){
 
   if(state==='countdown'){
     const prev=Math.ceil(countT);
-    countT-=dt;
+    countT=countEnd-now; // wall clock, immune to frame hitches
     const cur=Math.ceil(countT);
     if(cur!==prev && cur>0){ showMsg(''+cur); beep(440,.15); }
     if(countT<=0){ state='race'; showMsg('GO!'); beep(880,.35); }
   }
 
-  if(state==='race'||state==='done'||state==='countdown'){
-    for(const k of karts) stepKart(k, state==='countdown'?0:dt);
-    if(state!=='countdown'){
+  if(state==='race'||state==='done'||state==='countdown'||state==='preroll'){
+    for(const k of karts) stepKart(k, (state==='countdown'||state==='preroll')?0:dt);
+    if(state==='race'||state==='done'){
       kartCollisions();
       stepPickups(dt);
       stepProjectiles(dt);
@@ -2022,6 +2031,11 @@ function loop(){
   if(net&&player&&(state==='race'||state==='done')) netTick(now);
 
   renderer.render(scene,camera);
+  // first frame of the new world is on screen (shaders compiled) -> tell the server we're ready
+  if(pendingWb && state==='preroll' && net && net.ws.readyState===1){
+    pendingWb=false;
+    net.ws.send(JSON.stringify({t:'wb'}));
+  }
 }
 loop();
 updateHUDPower();

@@ -46,6 +46,17 @@ function bc(room, msg, exceptId){
   for(const [id,p] of room.players)
     if(id !== exceptId && p.ws.readyState === 1) p.ws.send(s);
 }
+// synced race start: GO is broadcast once every client reported its world is built
+function sendGo(room){
+  if(room.went) return;
+  room.went = true;
+  clearTimeout(room.goTimer);
+  bc(room, {t:'go'});
+}
+function checkGo(room){
+  if(!room.started || room.went) return;
+  if(room.players.size > 0 && [...room.players.keys()].every(id => room.wb.has(id))) sendGo(room);
+}
 
 wss.on('connection', ws => {
   const myId = String(nextId++);
@@ -80,6 +91,8 @@ wss.on('connection', ws => {
       if(![...myRoom.players.values()].every(p => p.ready))
         return ws.send(JSON.stringify({t:'err', m:'Not everyone is ready yet'}));
       myRoom.started = true;
+      myRoom.wb = new Set(); // who finished building the world
+      myRoom.goTimer = setTimeout(() => sendGo(myRoom), 15000); // never hang on a crashed client
       const players = roster(myRoom);
       if(m.bots){ // host opted in: fill the empty slots with NPCs using the leftover animals
         const taken = takenAnimals(myRoom);
@@ -91,6 +104,10 @@ wss.on('connection', ws => {
       bc(myRoom, msg);                              // everyone else
       ws.send(JSON.stringify(msg));                 // and the host
     }
+    else if(m.t === 'wb' && myRoom && myRoom.started){
+      myRoom.wb.add(myId);
+      checkGo(myRoom);
+    }
     else if((m.t === 'st' || m.t === 'ev') && myRoom){
       m.id = myId;
       bc(myRoom, m, myId);                          // relay to the rest of the room
@@ -101,7 +118,8 @@ wss.on('connection', ws => {
     if(!myRoom) return;
     myRoom.players.delete(myId);
     bc(myRoom, {t:'left', id: myId});
-    if(myRoom.players.size === 0) rooms.delete(myRoom.code);
+    checkGo(myRoom); // a leaver may be the one everyone was waiting for
+    if(myRoom.players.size === 0){ clearTimeout(myRoom.goTimer); rooms.delete(myRoom.code); }
     else if(myRoom.host === myId){
       myRoom.host = [...myRoom.players.keys()][0];  // promote a new host
       bc(myRoom, {t:'players', players:roster(myRoom), host:myRoom.host});
