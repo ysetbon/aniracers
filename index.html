@@ -141,6 +141,9 @@
           background:linear-gradient(180deg,#9be7ff,#4fc3f7);box-shadow:0 5px 0 #1976a2,0 10px 20px rgba(0,0,0,.5)">&#128203; COPY INVITE</button>
       </p>
       <div id="hostStart" style="display:none">
+        <p style="margin:4px 0 10px"><label style="cursor:pointer;font-size:15px">
+          <input type="checkbox" id="botsChk" checked style="transform:scale(1.3);margin-right:6px;vertical-align:middle">
+          &#129302; Fill empty slots with NPC racers</label></p>
         <button class="go" id="netCastle" style="font-size:15px;padding:9px 14px">&#127984; START: CASTLE</button>
         <button class="go" id="netBeach" style="font-size:15px;padding:9px 14px;
           background:linear-gradient(180deg,#ffb27d,#ff7e5f);box-shadow:0 5px 0 #b34d31">&#127796; START: BEACH</button>
@@ -925,7 +928,12 @@ function setupOnline(roster,myId){
   roster.forEach((pl,gi)=>{
     const kk=spawnKart(pl.name, ANIMAL_COLORS[pl.animal]||0x888888, pl.animal, gi, pl.id===myId);
     kk.netId=pl.id;
-    if(pl.id===myId) player=kk; else kk.remote=true;
+    if(pl.id===myId) player=kk;
+    else {
+      kk.bot=!!pl.bot;
+      // NPCs are simulated by the HOST (local AI there); everyone else interpolates them
+      kk.remote = pl.bot ? !net.host : true;
+    }
     karts.push(kk);
   });
   initPlayerLayers();
@@ -1095,7 +1103,7 @@ function dropHazard(owner,type,opt){
   const h={type,m,owner,arm:1.1,life:type==='oil'?16:14,pulse:Math.random()*6,
     id:(opt&&opt.id)||Math.random().toString(36).slice(2,8)};
   hazards.push(h);
-  if(!opt && owner===player) NEV({a:'haz',h:type,x:pos.x,z:pos.z,rot:rotY,hid:h.id});
+  if(!opt) NEVk(owner,{a:'haz',h:type,x:pos.x,z:pos.z,rot:rotY,hid:h.id});
 }
 function launchMummy(owner,opt){
   const m=makeMummy();
@@ -1104,7 +1112,7 @@ function launchMummy(owner,opt){
   scene.add(m);
   hazards.push({type:'mummy',m,owner,arm:.4,life:8,pulse:0});
   explode(m.position, 0xe9e4d2, 10);
-  if(!opt && owner===player) NEV({a:'mummy',x:owner.pos.x,z:owner.pos.z});
+  if(!opt) NEVk(owner,{a:'mummy',x:owner.pos.x,z:owner.pos.z});
 }
 function stepHazards(dt){
   for(let i=hazards.length-1;i>=0;i--){
@@ -1254,7 +1262,7 @@ function usePower(k){
       }
       // no one ahead (leading the race): dumb-fire straight, no aim assist
       fireStraight(k, 44, spread, false);
-      if(k===player) NEV({a:'cannon',sp:spread});
+      NEVk(k,{a:'cannon',sp:spread});
       beep(600,.12);
     }
     else if(L===1){ // grappling hook: rope onto the nearest kart in front of you
@@ -1272,7 +1280,7 @@ function usePower(k){
       if(t){
         k.grapple=2.4; k.grappleTarget=t;
         // hooked: the victim is slowed down (LEGO Racers behavior)
-        if(t.remote){ if(k===player) NEV({a:'hook',target:t.netId}); }
+        if(t.remote){ NEVk(k,{a:'hook',target:t.netId}); }
         else t.speed=Math.min(t.speed, 24);
         explode(t.pos, 0xffd54f, 8);
         if(t.isPlayer) showMsg('HOOKED!');
@@ -1299,7 +1307,7 @@ function usePower(k){
         zapVisual(k.pos,t.pos);
         if(t.remote) zids.push(t.netId); else spinOut(t);
       });
-      if(k===player&&zids.length) NEV({a:'zap',ids:zids});
+      if(zids.length) NEVk(k,{a:'zap',ids:zids});
       if(k.isPlayer){ shake=Math.max(shake,.5); if(ts.length) showMsg('ZAP!'); }
       beep(1000,.25,'sawtooth'); beep(1400,.18,'sawtooth',.06);
     }
@@ -1309,7 +1317,7 @@ function usePower(k){
         const t=ts.length? ts[i%ts.length] : null;
         fireHomingAt(k, t, (i-1)*.16);
       }
-      if(k===player) NEV({a:'rockets',ids:ts.map(t=>t.netId).filter(Boolean)});
+      NEVk(k,{a:'rockets',ids:ts.map(t=>t.netId).filter(Boolean)});
       if(k.isPlayer) shake=Math.max(shake,.25);
       beep(600,.12); beep(760,.12,'square',.06);
     }
@@ -1426,10 +1434,10 @@ document.getElementById('backOffline').addEventListener('click',e=>{
 document.getElementById('btnCreate').addEventListener('click',()=>lobbyEnter(true));
 document.getElementById('btnJoin').addEventListener('click',()=>lobbyEnter(false));
 document.getElementById('netCastle').addEventListener('click',()=>{
-  if(net&&net.ws.readyState===1) net.ws.send(JSON.stringify({t:'start',world:'castle'}));
+  if(net&&net.ws.readyState===1) net.ws.send(JSON.stringify({t:'start',world:'castle',bots:$g('botsChk').checked}));
 });
 document.getElementById('netBeach').addEventListener('click',()=>{
-  if(net&&net.ws.readyState===1) net.ws.send(JSON.stringify({t:'start',world:'beach'}));
+  if(net&&net.ws.readyState===1) net.ws.send(JSON.stringify({t:'start',world:'beach',bots:$g('botsChk').checked}));
 });
 document.getElementById('btnReady').addEventListener('click',()=>{
   if(!net||net.ws.readyState!==1) return;
@@ -1621,9 +1629,14 @@ function stepKart(k, dt){
       if(k.fireCd<=0){
         k.fireCd=4+Math.random()*5;
         const fwd=new THREE.Vector3(Math.sin(k.rot),0,Math.cos(k.rot));
-        const toP=tmpV.copy(player.pos).sub(k.pos);
-        if(toP.length()<32 && toP.normalize().dot(fwd)>.85 && !player.finished){
-          fireStraight(k, 46, 0, true);
+        for(const o of karts){ // shoot at humans only (local player or remote racers)
+          if(o===k||o.finished||!(o.isPlayer||o.remote)||o.bot) continue;
+          const toT=tmpV.copy(o.pos).sub(k.pos);
+          if(toT.length()<32 && toT.normalize().dot(fwd)>.85){
+            fireStraight(k, 46, 0, true);
+            NEVk(k,{a:'cannon',sp:0});
+            break;
+          }
         }
       }
     }
@@ -1702,7 +1715,8 @@ function stepPickups(dt){
             setTimeout(()=>{ if(k.brick) usePower(k); }, 1200+Math.random()*2500);
           }
         }
-        if(k.isPlayer){ updateHUDPower(); NEV({a:'pick',i:pickups.indexOf(p)}); }
+        if(k.isPlayer) updateHUDPower();
+        NEVk(k,{a:'pick',i:pickups.indexOf(p)});
         break;
       }
     }
@@ -1774,8 +1788,11 @@ function endRace(){
 }
 
 /* ============================ ONLINE MULTIPLAYER ============================ */
-let net=null; // {ws,id,host,roster}
+let net=null; // {ws,id,host,roster,wantAnimal}
 function NEV(o){ if(net&&net.ws&&net.ws.readyState===1){ o.t='ev'; net.ws.send(JSON.stringify(o)); } }
+// a bot that THIS client simulates (we are the host) — its events go out tagged with b:botId
+function isLocalBot(k){ return !!k.bot && !k.remote; }
+function NEVk(k,o){ if(k===player) NEV(o); else if(isLocalBot(k)){ o.b=k.netId; NEV(o); } }
 function kartById(id){ return karts.find(k=>k.netId===id); }
 const $g=id=>document.getElementById(id);
 function lobbyShow(inRoom){
@@ -1796,7 +1813,7 @@ function lobbyEnter(create){
   const animal=$g('animalSel').value;
   $g('lobbyMsg').textContent='Connecting...';
   netConnect($g('srvUrl').value.trim(), ws=>{
-    net={ws,id:null,host:false,roster:[]};
+    net={ws,id:null,host:false,roster:[],wantAnimal:animal};
     $g('lobbyMsg').textContent='';
     if(create) ws.send(JSON.stringify({t:'create',name,animal}));
     else ws.send(JSON.stringify({t:'join',code:($g('roomCode').value||'').trim().toUpperCase(),name,animal}));
@@ -1824,12 +1841,23 @@ function renderRoster(){
 }
 function netMsg(m){
   if(m.t==='room'){ net.id=m.you; net.host=!!m.host; net.roster=m.players;
-    $g('codeShow').textContent=m.code; lobbyShow(true); renderRoster(); }
+    $g('codeShow').textContent=m.code; lobbyShow(true); renderRoster();
+    // the server keeps animals unique per room — tell us if ours got swapped
+    const me=net.roster.find(p=>p.id===net.id);
+    if(me&&net.wantAnimal&&me.animal!==net.wantAnimal)
+      $g('waitMsg').textContent='That animal was taken — you race as the '+me.animal.toUpperCase()+'!'; }
   else if(m.t==='err'){ $g('lobbyMsg').textContent=m.m; $g('waitMsg').textContent=m.m; }
-  else if(m.t==='players'){ net.roster=m.players; net.host=(m.host===net.id);
-    if(state==='wait') renderRoster(); }
+  else if(m.t==='players'){ const wasHost=net.host;
+    net.roster=m.players; net.host=(m.host===net.id);
+    if(state==='wait') renderRoster();
+    else if(net.host&&!wasHost) // old host left mid-race: WE adopt the NPCs
+      for(const k of karts) if(k.bot&&k.remote){
+        k.remote=false;
+        if(k.netPos) k.pos.copy(k.netPos);
+        k.rot=k.netRot||k.rot; k.speed=k.netSpeed||0;
+      } }
   else if(m.t==='start'){ netStartRace(m.world,m.players); }
-  else if(m.t==='st'){ const k=kartById(m.id);
+  else if(m.t==='st'){ const k=kartById(m.b||m.id);
     if(k&&k.remote){
       if(!k.netPos) k.netPos=new THREE.Vector3();
       k.netPos.set(m.x,0,m.z); k.netRot=m.r; k.netAlt=m.al||0; k.netSpeed=m.s||0;
@@ -1851,15 +1879,20 @@ let lastSt=0;
 function netTick(now){
   if(!net||net.ws.readyState!==1||now-lastSt<.08) return;
   lastSt=now;
-  const k=player;
-  net.ws.send(JSON.stringify({t:'st',
-    x:+k.pos.x.toFixed(2), z:+k.pos.z.toFixed(2), r:+k.rot.toFixed(3),
-    s:+k.speed.toFixed(1), al:+k.alt.toFixed(2),
-    fx:{b:k.boost>0?1:0, fl:k.fly>0?1:0, sh:k.shieldT>0?(k.shieldLvl+1):0, sp:k.spin>0?1:0},
-    tt:k.total, fin:k.finished?1:0}));
+  const send=k=>{
+    const o={t:'st',
+      x:+k.pos.x.toFixed(2), z:+k.pos.z.toFixed(2), r:+k.rot.toFixed(3),
+      s:+k.speed.toFixed(1), al:+k.alt.toFixed(2),
+      fx:{b:k.boost>0?1:0, fl:k.fly>0?1:0, sh:k.shieldT>0?(k.shieldLvl+1):0, sp:k.spin>0?1:0},
+      tt:k.total, fin:k.finished?1:0};
+    if(k!==player) o.b=k.netId; // host speaking on behalf of an NPC
+    net.ws.send(JSON.stringify(o));
+  };
+  send(player);
+  for(const k of karts) if(isLocalBot(k)) send(k);
 }
 function netEvent(m){
-  const rk=kartById(m.id); // the sender's kart on our side
+  const rk=kartById(m.b||m.id); // the sender's kart on our side (m.b = host-driven NPC)
   if(m.a==='cannon'&&rk){ fireStraight(rk,44,m.sp||0,false); }
   else if(m.a==='burst'&&rk){ fireStraight(rk,54,-.12,true); fireStraight(rk,54,0,true); fireStraight(rk,54,.12,true); }
   else if(m.a==='rockets'&&rk){
@@ -1873,12 +1906,14 @@ function netEvent(m){
       player.hookedT=2.4; player.speed=Math.min(player.speed,24);
       if(player.shieldT<=0) showMsg('HOOKED!');
     }
+    else if(tv&&isLocalBot(tv)){ tv.hookedT=2.4; tv.speed=Math.min(tv.speed,24); }
   }
   else if(m.a==='zap'&&rk){
     (m.ids||[]).forEach(tid=>{
       const tv=tid===net.id? player : kartById(tid);
       if(tv) zapVisual(rk.pos,tv.pos);
       if(tid===net.id&&player) spinOut(player);
+      else if(tv&&isLocalBot(tv)) spinOut(tv);
     });
   }
   else if(m.a==='haz'&&rk){ dropHazard(rk, m.h, {x:m.x,z:m.z,rot:m.rot||0,id:m.hid}); }
@@ -1891,7 +1926,10 @@ function netEvent(m){
     const p=pickups[m.i];
     if(p&&p.active){ p.active=false; p.m.visible=false; p.respawn=5; }
   }
-  else if(m.a==='ram'&&m.target===net.id&&player){ spinOut(player); }
+  else if(m.a==='ram'){
+    const tv=m.target===net.id? player : kartById(m.target);
+    if(tv&&(tv===player||isLocalBot(tv))) spinOut(tv);
+  }
 }
 
 /* ============================ LOOP ============================ */

@@ -30,6 +30,16 @@ let nextId = 1;
 const ALPHA = 'ABCDEFGHJKLMNPQRSTUVWXYZ23456789';
 const makeCode = () => Array.from({length:4}, () => ALPHA[Math.random()*ALPHA.length|0]).join('');
 
+// animals are UNIQUE per room: if your pick is taken you get the first free one
+const ANIMALS = ['chicken','dog','sheep','cat','frog'];
+const BOT_NAMES = {chicken:'CLUCKY', dog:'REX', sheep:'WOOLY', cat:'WHISKERS', frog:'HOPPER'};
+const takenAnimals = room => new Set([...room.players.values()].map(p => p.animal));
+function assignAnimal(room, want){
+  const taken = room ? takenAnimals(room) : new Set();
+  if(ANIMALS.includes(want) && !taken.has(want)) return want;
+  return ANIMALS.find(a => !taken.has(a)) || 'chicken';
+}
+
 const roster = room => [...room.players.entries()].map(([id,p]) => ({id, name:p.name, animal:p.animal, ready:!!p.ready}));
 function bc(room, msg, exceptId){
   const s = JSON.stringify(msg);
@@ -47,7 +57,7 @@ wss.on('connection', ws => {
     if(m.t === 'create'){
       let code; do{ code = makeCode(); }while(rooms.has(code));
       myRoom = { code, host: myId, started: false, players: new Map() };
-      myRoom.players.set(myId, {ws, name: String(m.name||'RACER').slice(0,10), animal: m.animal||'chicken', ready:false});
+      myRoom.players.set(myId, {ws, name: String(m.name||'RACER').slice(0,10), animal: assignAnimal(null, m.animal), ready:false});
       rooms.set(code, myRoom);
       ws.send(JSON.stringify({t:'room', code, you:myId, host:true, players:roster(myRoom)}));
     }
@@ -56,7 +66,7 @@ wss.on('connection', ws => {
       if(!room)        return ws.send(JSON.stringify({t:'err', m:'Room not found'}));
       if(room.started) return ws.send(JSON.stringify({t:'err', m:'Race already started'}));
       if(room.players.size >= 5) return ws.send(JSON.stringify({t:'err', m:'Room is full (max 5)'}));
-      room.players.set(myId, {ws, name: String(m.name||'RACER').slice(0,10), animal: m.animal||'chicken', ready:false});
+      room.players.set(myId, {ws, name: String(m.name||'RACER').slice(0,10), animal: assignAnimal(room, m.animal), ready:false});
       myRoom = room;
       ws.send(JSON.stringify({t:'room', code:room.code, you:myId, host:false, players:roster(room)}));
       bc(room, {t:'players', players:roster(room), host:room.host}, myId);
@@ -70,7 +80,14 @@ wss.on('connection', ws => {
       if(![...myRoom.players.values()].every(p => p.ready))
         return ws.send(JSON.stringify({t:'err', m:'Not everyone is ready yet'}));
       myRoom.started = true;
-      const msg = {t:'start', world: m.world === 'beach' ? 'beach' : 'castle', players: roster(myRoom)};
+      const players = roster(myRoom);
+      if(m.bots){ // host opted in: fill the empty slots with NPCs using the leftover animals
+        const taken = takenAnimals(myRoom);
+        let bi = 1;
+        for(const a of ANIMALS)
+          if(!taken.has(a)) players.push({id:'b'+(bi++), name:BOT_NAMES[a], animal:a, ready:true, bot:true});
+      }
+      const msg = {t:'start', world: m.world === 'beach' ? 'beach' : 'castle', players};
       bc(myRoom, msg);                              // everyone else
       ws.send(JSON.stringify(msg));                 // and the host
     }
