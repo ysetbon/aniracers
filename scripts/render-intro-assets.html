@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Render Intro Assets</title>
+<style>html,body{margin:0;overflow:hidden;background:#000}</style>
+</head>
+<body>
+<canvas id="c"></canvas>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script>
+const MODE=new URLSearchParams(location.search).get('mode')||'hero';
+const W=1536,H=1024;
+
+function makeDriver(type){
+  const d=new THREE.Group();
+  const M=c=>new THREE.MeshLambertMaterial({color:c});
+  const bx=(w,h,dd,x,y,z,c)=>{
+    const m=new THREE.Mesh(new THREE.BoxGeometry(w,h,dd),M(c));
+    m.position.set(x,y,z); m.castShadow=true; d.add(m); return m;
+  };
+  if(type==='chicken'){
+    bx(.95,.85,.75, 0,1.5,0, 0xf5f5f0);
+    bx(.18,.5,.62,  .58,1.5,0, 0xe6e6dc);
+    bx(.18,.5,.62, -.58,1.5,0, 0xe6e6dc);
+    bx(.62,.6,.62,  0,2.28,.05, 0xf5f5f0);
+    bx(.22,.16,.32, 0,2.24,.46, 0xf2a200);
+    bx(.16,.24,.14, 0,1.99,.42, 0xd92b1c);
+    bx(.18,.22,.5,  0,2.68,.05, 0xd92b1c);
+    bx(.09,.09,.05,  .19,2.4,.37, 0x111111);
+    bx(.09,.09,.05, -.19,2.4,.37, 0x111111);
+    bx(.3,.22,.18,  0,1.45,-.45, 0xe6e6dc);
+  } else if(type==='dog'){
+    bx(.95,.85,.72, 0,1.5,0, 0x8d5a2b);
+    bx(.62,.58,.6,  0,2.27,.05, 0x8d5a2b);
+    bx(.34,.26,.32, 0,2.13,.46, 0xa9713a);
+    bx(.15,.12,.1,  0,2.23,.63, 0x111111);
+    bx(.14,.06,.18, 0,1.99,.5,  0xe06070);
+    bx(.16,.44,.3,  .39,2.28,0, 0x5e3a18);
+    bx(.16,.44,.3, -.39,2.28,0, 0x5e3a18);
+    bx(.1,.1,.05,   .17,2.42,.36, 0x111111);
+    bx(.1,.1,.05,  -.17,2.42,.36, 0x111111);
+    bx(.14,.14,.55, 0,1.65,-.55, 0x8d5a2b);
+  } else if(type==='sheep'){
+    bx(1.05,.9,.85, 0,1.5,0, 0xf0ede2);
+    bx(.3,.3,.3,   .45,1.95,.2, 0xfaf7ec);
+    bx(.3,.3,.3,  -.45,1.95,-.15, 0xfaf7ec);
+    bx(.32,.32,.32, .1,2.0,-.35, 0xfaf7ec);
+    bx(.55,.55,.58, 0,2.25,.18, 0x4a4a4a);
+    bx(.68,.26,.5,  0,2.6,.02, 0xf0ede2);
+    bx(.3,.14,.2,   .42,2.32,.12, 0x3a3a3a);
+    bx(.3,.14,.2,  -.42,2.32,.12, 0x3a3a3a);
+    bx(.3,.2,.12,   0,2.1,.49, 0x6b6b6b);
+    bx(.09,.09,.05,  .15,2.36,.48, 0xffffff);
+    bx(.09,.09,.05, -.15,2.36,.48, 0xffffff);
+  } else if(type==='frog'){
+    bx(.92,.7,.72, 0,1.45,0, 0x4caf50);
+    bx(.6,.45,.12,  0,1.42,.36, 0xd8e8b0);
+    bx(.72,.45,.6,  0,2.0,.05, 0x4caf50);
+    bx(.24,.24,.24,  .23,2.36,.12, 0xf5f5f0);
+    bx(.24,.24,.24, -.23,2.36,.12, 0xf5f5f0);
+    bx(.11,.11,.06,  .23,2.38,.26, 0x111111);
+    bx(.11,.11,.06, -.23,2.38,.26, 0x111111);
+    bx(.5,.06,.07,   0,1.92,.36, 0x2e6b30);
+    bx(.16,.42,.16,  .5,1.28,.2, 0x43a047);
+    bx(.16,.42,.16, -.5,1.28,.2, 0x43a047);
+    bx(.3,.16,.3,    .52,1.12,-.25, 0x43a047);
+    bx(.3,.16,.3,   -.52,1.12,-.25, 0x43a047);
+  } else {
+    bx(.9,.8,.7,   0,1.5,0, 0xe08a3c);
+    bx(.6,.55,.58, 0,2.25,.05, 0xe08a3c);
+    bx(.18,.24,.12, .2,2.62,.02, 0xe08a3c);
+    bx(.18,.24,.12,-.2,2.62,.02, 0xe08a3c);
+    bx(.1,.14,.06,  .2,2.6,.07, 0xd06080);
+    bx(.1,.14,.06, -.2,2.6,.07, 0xd06080);
+    bx(.3,.18,.16,  0,2.1,.38, 0xf0d8c0);
+    bx(.1,.08,.06,  0,2.2,.47, 0xd06080);
+    bx(.1,.09,.05,  .17,2.37,.35, 0x2fb344);
+    bx(.1,.09,.05, -.17,2.37,.35, 0x2fb344);
+    bx(.42,.03,.03, .42,2.12,.4, 0xf5f5f0);
+    bx(.42,.03,.03,-.42,2.12,.4, 0xf5f5f0);
+    bx(.12,.12,.7,  .3,1.5,-.55, 0xe08a3c);
+    bx(.92,.1,.14, 0,1.78,.1, 0xb96a25);
+    bx(.62,.08,.12, 0,2.5,.05, 0xb96a25);
+  }
+  d.position.set(0,0,-.5);
+  return d;
+}
+function makeKart(bodyColor, animal){
+  const g=new THREE.Group();
+  const bm=new THREE.MeshLambertMaterial({color:bodyColor});
+  const body=new THREE.Mesh(new THREE.BoxGeometry(2.2,.7,3.8),bm);
+  body.position.y=.75; body.castShadow=true; g.add(body);
+  const hood=new THREE.Mesh(new THREE.BoxGeometry(1.8,.45,1.2),bm);
+  hood.position.set(0,1.2,1.1); hood.castShadow=true; g.add(hood);
+  const spoiler=new THREE.Mesh(new THREE.BoxGeometry(2.4,.18,.6),new THREE.MeshLambertMaterial({color:0x222}));
+  spoiler.position.set(0,1.45,-1.8); g.add(spoiler);
+  for(const s of [-1,1]){
+    const post=new THREE.Mesh(new THREE.BoxGeometry(.15,.5,.15),bm);
+    post.position.set(s*.9,1.2,-1.8); g.add(post);
+  }
+  g.add(makeDriver(animal));
+  const wg=new THREE.CylinderGeometry(.55,.55,.5,12);
+  const wm=new THREE.MeshLambertMaterial({color:0x1c1c1c});
+  for(const [x,z] of [[-1.25,1.3],[1.25,1.3],[-1.25,-1.3],[1.25,-1.3]]){
+    const w=new THREE.Mesh(wg,wm);
+    w.rotation.z=Math.PI/2; w.position.set(x,.55,z); w.castShadow=true;
+    g.add(w);
+  }
+  return g;
+}
+const ANIMALS=[
+  {type:'chicken', color:0xe3342f},
+  {type:'dog',     color:0x2fb344},
+  {type:'sheep',   color:0x2f6fe3},
+  {type:'cat',     color:0xf2c200},
+  {type:'frog',    color:0x7b3fb5}
+];
+
+const renderer=new THREE.WebGLRenderer({canvas:document.getElementById('c'),antialias:true,preserveDrawingBuffer:true});
+renderer.setSize(W,H,false);
+renderer.setPixelRatio(1);
+renderer.shadowMap.enabled=true;
+const scene=new THREE.Scene();
+const camera=new THREE.PerspectiveCamera(42,W/H,.1,500);
+const sun=new THREE.DirectionalLight(0xfff0d0,1.15);
+sun.position.set(12,22,16); sun.castShadow=true;
+sun.shadow.mapSize.set(2048,2048);
+scene.add(sun);
+scene.add(new THREE.AmbientLight(0x8899bb,.5));
+scene.add(new THREE.HemisphereLight(0xaaccff,0x443322,.4));
+
+function addDesertBg(){
+  scene.background=new THREE.Color(0x1a1028);
+  const sky=new THREE.Mesh(
+    new THREE.PlaneGeometry(120,60),
+    new THREE.MeshBasicMaterial({color:0x3a2048})
+  );
+  sky.position.set(0,28,-55); scene.add(sky);
+  const sunDisc=new THREE.Mesh(
+    new THREE.CircleGeometry(8,24),
+    new THREE.MeshBasicMaterial({color:0xffa040})
+  );
+  sunDisc.position.set(28,32,-54); scene.add(sunDisc);
+  const sand=new THREE.Mesh(
+    new THREE.PlaneGeometry(120,40),
+    new THREE.MeshLambertMaterial({color:0xc8862a})
+  );
+  sand.rotation.x=-Math.PI/2; sand.position.y=0; sand.receiveShadow=true; scene.add(sand);
+  const track=new THREE.Mesh(
+    new THREE.PlaneGeometry(52,8),
+    new THREE.MeshLambertMaterial({color:0x555560})
+  );
+  track.rotation.x=-Math.PI/2; track.position.set(0,.02,2); track.receiveShadow=true; scene.add(track);
+  const curbMat=new THREE.MeshLambertMaterial({color:0xf5f5f0});
+  for(const s of [-1,1]){
+    const curb=new THREE.Mesh(new THREE.BoxGeometry(52,.12,.5),curbMat);
+    curb.position.set(0,.06,2+s*4.25); scene.add(curb);
+    const red=new THREE.Mesh(new THREE.BoxGeometry(52,.12,.12),new THREE.MeshLambertMaterial({color:0xe3342f}));
+    red.position.set(0,.06,2+s*4.5); scene.add(red);
+  }
+  const M=c=>new THREE.MeshLambertMaterial({color:c});
+  const pyramid=(x,z,sc)=>{
+    const g=new THREE.Group();
+    for(let i=0;i<5;i++){
+      const s=(5-i)*sc*.9;
+      const b=new THREE.Mesh(new THREE.BoxGeometry(s,s*.55,s),M(0xd4a84b));
+      b.position.set(0,i*s*.55*.5,0); b.castShadow=true; g.add(b);
+    }
+    g.position.set(x,0,z); scene.add(g);
+  };
+  pyramid(-32,-18,2.2); pyramid(34,-22,1.6); pyramid(-8,-28,1.1);
+  const palm=(x,z)=>{
+    const g=new THREE.Group();
+    const trunk=new THREE.Mesh(new THREE.BoxGeometry(.5,5,.5),M(0x6b4226));
+    trunk.position.y=2.5; g.add(trunk);
+    for(const [px,pz] of [[0,0],[1.2,.4],[-1,.6],[.5,-1.1]]){
+      const leaf=new THREE.Mesh(new THREE.BoxGeometry(2.2,.25,1),M(0x2d6b2d));
+      leaf.position.set(px,5.2,pz); leaf.rotation.y=Math.atan2(px,pz||.01); g.add(leaf);
+    }
+    g.position.set(x,0,z); scene.add(g);
+  };
+  palm(-38,8); palm(40,5);
+}
+
+function buildHero(){
+  addDesertBg();
+  const spacing=7;
+  ANIMALS.forEach((a,i)=>{
+    const kart=makeKart(a.color,a.type);
+    kart.position.set((i-2)*spacing,0,4);
+    kart.rotation.y=Math.PI*.1;
+    scene.add(kart);
+  });
+  camera.fov=48;
+  camera.updateProjectionMatrix();
+  camera.position.set(0,7,30);
+  camera.lookAt(0,1.8,2);
+}
+
+function portraitScene(a){
+  const s=new THREE.Scene();
+  s.background=new THREE.Color(0x15161c);
+  const lit=new THREE.DirectionalLight(0xfff0d0,1.15);
+  lit.position.set(8,14,10); s.add(lit);
+  s.add(new THREE.AmbientLight(0x8899bb,.5));
+  const panel=new THREE.Group();
+  const bg=new THREE.Mesh(
+    new THREE.BoxGeometry(4.8,4.8,.2),
+    new THREE.MeshLambertMaterial({color:a.color})
+  );
+  bg.position.z=-.2; panel.add(bg);
+  const inner=new THREE.Mesh(
+    new THREE.BoxGeometry(4.2,4.2,.1),
+    new THREE.MeshLambertMaterial({color:((a.color>>1)&0x7f7f7f)|0x202020})
+  );
+  inner.position.z=-.05; panel.add(inner);
+  const driver=makeDriver(a.type);
+  driver.position.set(0,-.35,-.3);
+  driver.rotation.y=Math.PI*.08;
+  panel.add(driver);
+  s.add(panel);
+  const cam=new THREE.PerspectiveCamera(42,1,.1,50);
+  cam.position.set(0,2.2,11);
+  cam.lookAt(0,2.2,0);
+  return {s,cam};
+}
+
+const ctx=document.createElement('canvas').getContext('2d');
+ctx.canvas.width=W; ctx.canvas.height=H;
+
+if(MODE==='portraits'){
+  const colW=Math.floor(W/5);
+  const tmp=new THREE.WebGLRenderer({antialias:true,preserveDrawingBuffer:true});
+  tmp.setPixelRatio(1);
+  for(let i=0;i<ANIMALS.length;i++){
+    const {s,cam}=portraitScene(ANIMALS[i]);
+    tmp.setSize(colW,H,false);
+    cam.aspect=colW/H;
+    cam.updateProjectionMatrix();
+    tmp.render(s,cam);
+    ctx.drawImage(tmp.domElement,i*colW,0,colW,H);
+  }
+  tmp.dispose();
+} else {
+  buildHero();
+  renderer.render(scene,camera);
+  ctx.drawImage(renderer.domElement,0,0);
+}
+
+if(MODE==='hero'){
+  const colors=['#e3342f','#f2a200','#f2c200','#2fb344','#2f6fe3','#7b3fb5','#e3342f','#f2c200','#2fb344'];
+  const letters='ANIRACERS';
+  const fs=108, y=118;
+  ctx.textBaseline='middle';
+  ctx.font='900 italic '+fs+'px Trebuchet MS,Verdana,sans-serif';
+  const widths=letters.split('').map(ch=>ctx.measureText(ch).width);
+  const gap=fs*.04;
+  const total=widths.reduce((a,b)=>a+b,0)+gap*(letters.length-1);
+  let x=(W-total)/2;
+  for(let i=0;i<letters.length;i++){
+    ctx.fillStyle='#000';
+    ctx.fillText(letters[i],x+4,y+4);
+    ctx.fillStyle=colors[i];
+    ctx.fillText(letters[i],x,y);
+    x+=widths[i]+gap;
+  }
+  const grad=ctx.createLinearGradient(0,H*.5,0,H);
+  grad.addColorStop(0,'rgba(13,10,6,0)');
+  grad.addColorStop(.35,'rgba(13,10,6,.55)');
+  grad.addColorStop(1,'rgba(13,10,6,.92)');
+  ctx.fillStyle=grad;
+  ctx.fillRect(0,0,W,H);
+
+  // lower UI panel (matches #heroStage hotspot layout in index.html)
+  const panelY=H*.52, panelH=H*.48;
+  ctx.fillStyle='rgba(42,30,18,.88)';
+  ctx.fillRect(0,panelY,W,panelH);
+  ctx.strokeStyle='rgba(212,160,23,.45)'; ctx.lineWidth=3;
+  ctx.strokeRect(24,panelY+18,W-48,panelH-36);
+
+  // power-up legend strip
+  const pwY=panelY+32;
+  ctx.fillStyle='rgba(0,0,0,.35)';
+  ctx.fillRect(60,pwY,W-120,118);
+  const pwColors=['#e3342f','#f2c200','#2f6fe3','#2fb344'];
+  const pwNames=['CANNON / HOOK / ZAP / ROCKETS','OIL / BARREL / MAGNET / MUMMY',
+    'SHIELDS','TURBO / FLY / WARP'];
+  ctx.font='700 11px Trebuchet MS,Verdana,sans-serif';
+  ctx.textAlign='left';
+  for(let i=0;i<4;i++){
+    const cx=90+i*360, cy=pwY+28;
+    ctx.fillStyle=pwColors[i];
+    ctx.fillRect(cx,cy-10,18,18);
+    ctx.fillStyle='#f5e6c8';
+    ctx.fillText(pwNames[i],cx+26,cy+4);
+  }
+
+  // world buttons
+  const worlds=[
+    {label:'CASTLE\nVALLEY',x:.128,w:.182,thumb:'#4a7a3a'},
+    {label:'SUNSET\nBEACH',x:.335,w:.182,thumb:'#ff8a5c'},
+    {label:'DESERT\nDRAGWAY',x:.54,w:.182,thumb:'#d4a84b',sel:true},
+    {label:'PLAY\nONLINE',x:.746,w:.182,thumb:'#3a8fd4'}
+  ];
+  const btnY=H*.755, btnH=H*.16;
+  ctx.textAlign='center'; ctx.textBaseline='middle';
+  for(const w of worlds){
+    const bx=w.x*W, bw=w.w*W;
+    ctx.fillStyle='rgba(0,0,0,.4)';
+    ctx.fillRect(bx,btnY,bw,btnH);
+    if(w.sel){
+      ctx.strokeStyle='#ffd23f'; ctx.lineWidth=4;
+      ctx.strokeRect(bx+2,btnY+2,bw-4,btnH-4);
+    } else {
+      ctx.strokeStyle='rgba(212,160,23,.5)'; ctx.lineWidth=2;
+      ctx.strokeRect(bx+2,btnY+2,bw-4,btnH-4);
+    }
+    ctx.fillStyle=w.thumb;
+    ctx.fillRect(bx+bw*.12,btnY+btnH*.12,bw*.76,btnH*.48);
+    ctx.fillStyle='#f5e6c8';
+    ctx.font='900 italic 15px Trebuchet MS,Verdana,sans-serif';
+    const lines=w.label.split('\n');
+    lines.forEach((ln,j)=>ctx.fillText(ln,bx+bw/2,btnY+btnH*.78+j*16-lines.length*8));
+  }
+
+  // obstacle course toggle
+  const tgX=W*.37, tgW=W*.26, tgY=H*.926, tgH=H*.062;
+  ctx.fillStyle='rgba(0,0,0,.45)';
+  ctx.fillRect(tgX,tgY,tgW,tgH);
+  ctx.strokeStyle='rgba(212,160,23,.45)'; ctx.lineWidth=2;
+  ctx.strokeRect(tgX,tgY,tgW,tgH);
+  ctx.fillStyle='#f5e6c8';
+  ctx.font='900 italic 13px Trebuchet MS,Verdana,sans-serif';
+  ctx.fillText('OBSTACLE COURSE',tgX+tgW*.32,tgY+tgH/2);
+  ctx.fillStyle='#555';
+  ctx.fillRect(tgX+tgW*.72,tgY+tgH*.22,tgW*.22,tgH*.56);
+  ctx.fillStyle='#ff6052';
+  ctx.font='900 12px Trebuchet MS,Verdana,sans-serif';
+  ctx.fillText('OFF',tgX+tgW*.83,tgY+tgH/2);
+}
+
+window.__RENDERED=true;
+window.__EXPORT_DATA=ctx.canvas.toDataURL('image/png');
+</script>
+</body>
+</html>

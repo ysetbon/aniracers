@@ -8,12 +8,21 @@ const { WebSocketServer } = require('ws');
 const PORT = process.env.PORT || 8080;
 
 const INDEX = path.join(__dirname, 'index.html');
+const MIME = {'.png':'image/png', '.svg':'image/svg+xml', '.jpg':'image/jpeg', '.webp':'image/webp'};
 const httpServer = http.createServer((req, res) => {
   const url = (req.url || '/').split('?')[0];
   if(url === '/' || url === '/index.html'){
     fs.readFile(INDEX, (err, data) => {
       if(err){ res.writeHead(500); return res.end('index.html not found'); }
       res.writeHead(200, {'Content-Type': 'text/html; charset=utf-8'});
+      res.end(data);
+    });
+  } else if(url.startsWith('/assets/')){
+    const file = path.join(__dirname, url.slice(1));
+    if(!file.startsWith(path.join(__dirname, 'assets'))){ res.writeHead(403); return res.end('Forbidden'); }
+    fs.readFile(file, (err, data) => {
+      if(err){ res.writeHead(404); return res.end('Not found'); }
+      res.writeHead(200, {'Content-Type': MIME[path.extname(file).toLowerCase()] || 'application/octet-stream'});
       res.end(data);
     });
   } else if(url === '/healthz'){
@@ -119,7 +128,8 @@ wss.on('connection', ws => {
         for(const a of ANIMALS)
           if(!taken.has(a)) players.push({id:'b'+(bi++), name:BOT_NAMES[a], animal:a, ready:true, bot:true});
       }
-      const msg = {t:'start', world: m.world === 'beach' ? 'beach' : 'castle', players};
+      const world = m.world === 'beach' ? 'beach' : m.world === 'desert' ? 'desert' : 'castle';
+      const msg = {t:'start', world, players};
       bc(myRoom, msg, myId);                        // everyone else
       ws.send(JSON.stringify(msg));                 // and the host
     }

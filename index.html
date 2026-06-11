@@ -29,23 +29,33 @@
   #msg span{font-size:min(20vw,130px);font-weight:900;color:#ffd33d;font-style:italic;
     text-shadow:0 6px 0 #b8860b,0 10px 24px rgba(0,0,0,.6);transform:scale(0);transition:transform .25s}
   #msg span.show{transform:scale(1)}
-  .overlay{position:fixed;inset:0;z-index:10;background:linear-gradient(180deg,#1b2a52 0%,#0d1430 100%);
+  .overlay{position:fixed;inset:0;z-index:10;padding:18px;
+    background:radial-gradient(125% 95% at 50% -5%, #4a3417 0%, #241a0d 52%, #0c0906 100%);
     display:flex;align-items:center;justify-content:center;color:#fff;text-align:center;overflow:auto}
-  .overlay .card{max-width:640px;padding:26px 24px;background:var(--panel);border-radius:18px;
-    border:2px solid rgba(255,255,255,.12);box-shadow:0 20px 60px rgba(0,0,0,.6);margin:12px}
+  .overlay .card{max-width:720px;width:min(720px,96vw);padding:0 0 22px;
+    background:linear-gradient(180deg,rgba(28,20,12,.92),rgba(18,14,10,.96));
+    border-radius:18px;border:2px solid rgba(212,160,23,.42);
+    box-shadow:0 20px 60px rgba(0,0,0,.65), inset 0 1px 0 rgba(255,220,140,.12);
+    margin:12px;margin-top:min(38vh,340px)}
+  .intro-banner{display:block;width:100%;height:auto;border-radius:16px 16px 0 0;
+    border-bottom:2px solid rgba(212,160,23,.35)}
+  .card-body{padding:16px 22px 0}
   .overlay h1{font-size:42px;font-weight:900;font-style:italic;letter-spacing:2px;
     background:linear-gradient(90deg,var(--red),var(--yellow),var(--green),var(--blue));
     -webkit-background-clip:text;background-clip:text;color:transparent;margin-bottom:6px}
-  .overlay p{opacity:.85;line-height:1.5;font-size:14px;margin:8px 0}
-  table.pw{width:100%;border-collapse:collapse;font-size:12px;margin:12px 0;text-align:left}
-  table.pw th,table.pw td{padding:5px 6px;border-bottom:1px solid rgba(255,255,255,.12)}
-  table.pw th{font-size:11px;opacity:.7;font-weight:700;letter-spacing:.5px}
+  .overlay p{opacity:.88;line-height:1.5;font-size:14px;margin:8px 0;color:#f5e6c8}
+  table.pw{width:100%;border-collapse:collapse;font-size:12px;margin:12px 0;text-align:left;
+    background:rgba(0,0,0,.22);border-radius:10px;overflow:hidden}
+  table.pw th,table.pw td{padding:5px 6px;border-bottom:1px solid rgba(212,160,23,.15);color:#f5e6c8}
+  table.pw th{font-size:11px;opacity:.75;font-weight:700;letter-spacing:.5px}
   .sq{display:inline-block;width:14px;height:14px;border-radius:3px;vertical-align:-2px;
     box-shadow:inset 0 -3px 0 rgba(0,0,0,.3);margin-right:4px}
   button.go{margin-top:12px;font-size:22px;font-weight:900;font-style:italic;letter-spacing:1px;
     padding:12px 38px;border:none;border-radius:12px;cursor:pointer;color:#1b1b1b;
     background:linear-gradient(180deg,#ffe14d,#f2b600);box-shadow:0 5px 0 #a87b00,0 10px 20px rgba(0,0,0,.5)}
   button.go:active{transform:translateY(3px);box-shadow:0 2px 0 #a87b00}
+  .world-btns{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-top:6px}
+  .world-btns .go{font-size:15px;padding:10px 16px;margin-top:0;min-width:148px}
   #touch{position:fixed;inset:auto 0 0 0;z-index:5;display:none;justify-content:space-between;
     padding:0 16px 18px;pointer-events:none}
   #touch .grp{display:flex;gap:12px;pointer-events:auto}
@@ -70,12 +80,18 @@
   .obCard .em{font-size:30px}
   .obCard b{display:block;font-size:13px;margin:4px 0 2px}
   .obCard span{font-size:10.5px;opacity:.8;line-height:1.3;display:block}
-  .animBtn{width:74px;padding:7px 4px;border-radius:11px;background:var(--panel);
-    border:2px solid rgba(255,255,255,.18);cursor:pointer;color:#fff;font:inherit;
+  .animBtn{width:74px;padding:7px 4px;border-radius:11px;background:rgba(0,0,0,.28);
+    border:2px solid rgba(212,160,23,.28);cursor:pointer;color:#f5e6c8;font:inherit;
     text-align:center;transition:transform .1s,border-color .1s,box-shadow .1s}
   .animBtn:hover{transform:translateY(-2px)}
   .animBtn.sel{border-color:#ffd33d;box-shadow:0 0 14px rgba(255,211,61,.5);background:rgba(255,211,61,.14)}
-  .animBtn .em{display:block;font-size:26px;line-height:1.1}
+  .animBtn .portrait{display:block;width:58px;height:58px;margin:0 auto 4px;border-radius:10px;
+    background:url('assets/aniracers-animal-portraits.png') 0 0/500% 100% no-repeat;
+    box-shadow:0 4px 10px rgba(0,0,0,.45)}
+  .animBtn[data-animal="dog"] .portrait{background-position:25% 0}
+  .animBtn[data-animal="sheep"] .portrait{background-position:50% 0}
+  .animBtn[data-animal="cat"] .portrait{background-position:75% 0}
+  .animBtn[data-animal="frog"] .portrait{background-position:100% 0}
   .animBtn b{display:block;font-size:11px;margin-top:2px;letter-spacing:.5px}
   /* small screens: shrink the cards and let the box scroll sideways */
   @media (max-width:640px), (max-height:480px){
@@ -88,6 +104,40 @@
     .obCard span{font-size:9px}
   }
   @media (pointer:coarse){ #touch{display:flex} }
+
+  /* ===================== INTERACTIVE HERO INTRO ===================== */
+  #startOverlay{flex-direction:column;gap:14px}
+  #heroStage{position:relative;width:min(94vw,940px);aspect-ratio:3/2;flex:0 0 auto;
+    border-radius:18px;overflow:hidden;
+    box-shadow:0 26px 80px rgba(0,0,0,.65), 0 0 0 2px rgba(212,160,23,.55), inset 0 0 60px rgba(0,0,0,.25)}
+  #heroImg{position:absolute;inset:0;width:100%;height:100%;display:block;object-fit:cover}
+  #heroStage .hot{position:absolute;-webkit-appearance:none;appearance:none;background:transparent;
+    border:none;padding:0;cursor:pointer;border-radius:12px;
+    transition:box-shadow .12s ease,transform .1s ease,background .12s ease}
+  #heroStage .hot:hover{background:rgba(255,236,150,.16);
+    box-shadow:inset 0 0 0 3px rgba(255,228,130,.95), 0 0 20px rgba(255,205,80,.55)}
+  #heroStage .hot:active{transform:scale(.97)}
+  #heroStage .animBtn{width:auto;border:none}                 /* neutralize old chip styling */
+  #heroStage .animBtn.sel{background:rgba(255,210,80,.20);
+    box-shadow:inset 0 0 0 3px #ffd23f, 0 0 24px rgba(255,205,70,.75)}
+  #obsState{position:absolute;left:58.5%;top:95.6%;transform:translate(-50%,-50%);pointer-events:none;
+    font-weight:900;font-style:italic;letter-spacing:1px;font-size:clamp(8px,1.5vw,15px);
+    color:#ff6052;text-shadow:0 1px 2px rgba(0,0,0,.7)}
+  #obsState.on{color:#39d65f}
+  /* detail panel */
+  #introExtra{width:min(94vw,660px);flex:0 0 auto}
+  details.howto{background:rgba(28,20,12,.92);border:2px solid rgba(212,160,23,.4);border-radius:14px;
+    text-align:left;overflow:hidden;box-shadow:0 12px 36px rgba(0,0,0,.5)}
+  details.howto>summary{cursor:pointer;list-style:none;padding:12px 18px;font-weight:900;font-style:italic;
+    letter-spacing:.5px;color:#ffd23f;background:rgba(212,160,23,.12);font-size:15px}
+  details.howto>summary::-webkit-details-marker{display:none}
+  details.howto>summary::after{content:'\25BC';float:right;font-size:11px;opacity:.7}
+  details.howto[open]>summary::after{content:'\25B2'}
+  details.howto .inner{padding:4px 18px 14px}
+  details.howto .inner p{margin:10px 0}
+  .introHint{font-size:12.5px;opacity:.8;color:#f0dcb4;margin:0}
+  /* debug helper (toggle by adding class "dbg" to #heroStage) */
+  #heroStage.dbg .hot{background:rgba(255,0,80,.28);box-shadow:inset 0 0 0 1px #0f0}
 </style>
 </head>
 <body>
@@ -124,45 +174,66 @@
 </div>
 
 <div class="overlay" id="startOverlay">
-  <div class="card">
-    <h1>ANIRACERS</h1>
-    <p>You race as the <b>CHICKEN</b> &#128020; &mdash; against <b>REX</b> the dog &#128021;, <b>WOOLY</b> the sheep &#128017;, <b>WHISKERS</b> the cat &#128008; and <b>HOPPER</b> the frog &#128056;.</p>
-    <p>Grab a colored cube for a power. Each <b>white cube</b> upgrades it (max 3). Using the power spends everything! Race through a <b>castle valley</b>, a <b>sunset beach promenade</b>, or the <b>Desert Adventure Dragway</b> with sphinx, tomb and oasis.</p>
-    <table class="pw">
-      <tr><th></th><th>Basic</th><th>+1 White</th><th>+2 Whites</th><th>+3 Whites</th></tr>
-      <tr><td><span class="sq" style="background:var(--red)"></span><b>Red</b></td>
-        <td>Cannonball</td><td>Grappling Hook</td><td>Lightning Wand</td><td>3 Guided Rockets</td></tr>
-      <tr><td><span class="sq" style="background:var(--yellow)"></span><b>Yellow</b></td>
-        <td>Oil Slick</td><td>Gunpowder Barrel</td><td>Magnetic Trap</td><td>Mummy's Curse</td></tr>
-      <tr><td><span class="sq" style="background:var(--blue)"></span><b>Blue</b></td>
-        <td>5s Shield</td><td>6s Green Shield</td><td>8s Yellow Shield&#42;</td><td>10s Red Shield&#42;</td></tr>
-      <tr><td><span class="sq" style="background:var(--green)"></span><b>Green</b></td>
-        <td>Turbo Boost</td><td>Double Turbo</td><td>Flying Turbo</td><td>Warp Turbo</td></tr>
-    </table>
-    <p style="font-size:12px;opacity:.7">&#42; Yellow/Red shields reflect cannonballs &amp; rockets and spin out anyone you touch. Yellow hazards drop <b>behind</b> your kart &mdash; the mummy chases down everyone ahead of you!</p>
-    <p><b>Drive:</b> W/&#9650; gas &mdash; release it and you slowly coast to a stop &middot; S/&#9660; brake &amp; reverse &middot; A/D steer &middot; <b>Z</b> look back &middot; <b>Use power:</b> Space &middot; 3 laps. Rivals shoot back.</p>
-    <p style="margin-top:10px"><label style="cursor:pointer">
-      <input type="checkbox" id="obsChk" style="transform:scale(1.3);margin-right:7px;vertical-align:middle">
-      &#129521; <b>OBSTACLE COURSE</b> &mdash; before every race (even the first!) you and your
-      rivals each place an obstacle on the road: walls, oil, an angry farmer or a champion kart!</label></p>
-    <p style="margin-top:10px"><b>Choose your racer</b> <span style="opacity:.7;font-size:12px">(offline &mdash; rivals take the rest)</span>:</p>
-    <div id="animalPick" style="display:flex;gap:8px;justify-content:center;flex-wrap:wrap">
-      <button class="animBtn sel" data-animal="chicken"><span class="em">&#128020;</span><b>CHICKEN</b></button>
-      <button class="animBtn" data-animal="dog"><span class="em">&#128021;</span><b>DOG</b></button>
-      <button class="animBtn" data-animal="sheep"><span class="em">&#128017;</span><b>SHEEP</b></button>
-      <button class="animBtn" data-animal="cat"><span class="em">&#128008;</span><b>CAT</b></button>
-      <button class="animBtn" data-animal="frog"><span class="em">&#128056;</span><b>FROG</b></button>
+  <div id="heroStage">
+    <img id="heroImg" src="assets/aniracers-intro-hero.png"
+      alt="AniRacers — pick a racer and a world">
+    <!-- racer pickers (one transparent hotspot over each kart) -->
+    <div id="animalPick">
+      <button class="hot animBtn sel" data-animal="chicken" title="Race as the CHICKEN"
+        style="left:26.8%;top:21%;width:13.5%;height:26%"></button>
+      <button class="hot animBtn" data-animal="dog" title="Race as REX the dog"
+        style="left:40.8%;top:22%;width:13.5%;height:26%"></button>
+      <button class="hot animBtn" data-animal="sheep" title="Race as WOOLY the sheep"
+        style="left:53%;top:19%;width:13.5%;height:26%"></button>
+      <button class="hot animBtn" data-animal="cat" title="Race as WHISKERS the cat"
+        style="left:63.3%;top:22%;width:13.5%;height:26%"></button>
+      <button class="hot animBtn" data-animal="frog" title="Race as HOPPER the frog"
+        style="left:74.3%;top:22%;width:13.5%;height:26%"></button>
     </div>
-    <p style="margin-top:10px"><b>Choose your world:</b></p>
-    <div style="display:flex;gap:10px;justify-content:center;flex-wrap:wrap">
-      <button class="go" id="startCastle" style="font-size:17px;padding:11px 18px;margin-top:6px">&#127984; CASTLE VALLEY</button>
-      <button class="go" id="startBeach" style="font-size:17px;padding:11px 18px;margin-top:6px;
-        background:linear-gradient(180deg,#ffb27d,#ff7e5f);box-shadow:0 5px 0 #b34d31,0 10px 20px rgba(0,0,0,.5)">&#127796; SUNSET BEACH</button>
-      <button class="go" id="startDesert" style="font-size:17px;padding:11px 18px;margin-top:6px;
-        background:linear-gradient(180deg,#f0c060,#c8862a);box-shadow:0 5px 0 #8b5a18,0 10px 20px rgba(0,0,0,.5)">&#127947;&#65039; DESERT DRAGWAY</button>
-      <button class="go" id="startOnline" style="font-size:17px;padding:11px 18px;margin-top:6px;
-        background:linear-gradient(180deg,#b388ff,#7c4dff);box-shadow:0 5px 0 #4527a0,0 10px 20px rgba(0,0,0,.5)">&#127760; PLAY ONLINE</button>
-    </div>
+    <!-- world selectors -->
+    <button class="hot" id="startCastle" title="Castle Valley"
+      style="left:12.8%;top:75.5%;width:18.2%;height:16%"></button>
+    <button class="hot" id="startBeach" title="Sunset Beach"
+      style="left:33.5%;top:75.5%;width:18.2%;height:16%"></button>
+    <button class="hot" id="startDesert" title="Desert Dragway"
+      style="left:54%;top:75.5%;width:18.2%;height:16%"></button>
+    <button class="hot" id="startOnline" title="Play Online"
+      style="left:74.6%;top:75.5%;width:18.2%;height:16%"></button>
+    <!-- obstacle-course toggle -->
+    <button class="hot" id="obsToggle" title="Toggle Obstacle Course"
+      style="left:37%;top:92.6%;width:26%;height:6.2%"></button>
+    <span id="obsState">OFF</span>
+    <input type="checkbox" id="obsChk" hidden>
+  </div>
+
+  <div id="introExtra">
+    <details class="howto">
+      <summary>&#127942; How to play &amp; power-ups</summary>
+      <div class="inner">
+        <p>You race as the <b>CHICKEN</b> &#128020; against <b>REX</b> &#128021;, <b>WOOLY</b> &#128017;,
+          <b>WHISKERS</b> &#128008; and <b>HOPPER</b> &#128056; over <b>3 laps</b>. Grab a colored cube for a
+          power; each <b>white cube</b> upgrades it (max&nbsp;3). Using a power spends everything!</p>
+        <table class="pw">
+          <tr><th></th><th>Basic</th><th>+1 White</th><th>+2 Whites</th><th>+3 Whites</th></tr>
+          <tr><td><span class="sq" style="background:var(--red)"></span><b>Red</b></td>
+            <td>Cannonball</td><td>Grappling Hook</td><td>Lightning Wand</td><td>3 Guided Rockets</td></tr>
+          <tr><td><span class="sq" style="background:var(--yellow)"></span><b>Yellow</b></td>
+            <td>Oil Slick</td><td>Gunpowder Barrel</td><td>Magnetic Trap</td><td>Mummy's Curse</td></tr>
+          <tr><td><span class="sq" style="background:var(--blue)"></span><b>Blue</b></td>
+            <td>5s Shield</td><td>6s Green Shield</td><td>8s Yellow Shield&#42;</td><td>10s Red Shield&#42;</td></tr>
+          <tr><td><span class="sq" style="background:var(--green)"></span><b>Green</b></td>
+            <td>Turbo Boost</td><td>Double Turbo</td><td>Flying Turbo</td><td>Warp Turbo</td></tr>
+        </table>
+        <p style="font-size:12px;opacity:.75">&#42; Yellow/Red shields reflect cannonballs &amp; rockets and spin out
+          anyone you touch. Yellow hazards drop <b>behind</b> your kart &mdash; the mummy chases down everyone ahead of you!</p>
+        <p><b>Drive:</b> W/&#9650; gas (release to coast to a stop) &middot; S/&#9660; brake &amp; reverse &middot;
+          A/D steer &middot; <b>Z</b> look back &middot; <b>Space</b> use power. Rivals shoot back!</p>
+        <p style="font-size:12px;opacity:.75"><b>&#129521; Obstacle Course</b> (toggle on the banner): before every race you
+          and your rivals each place an obstacle on the road &mdash; walls, oil, an angry farmer or a champion kart.</p>
+      </div>
+    </details>
+    <p class="introHint" style="text-align:center;margin-top:10px">Pick your racer, then tap a world to start &middot;
+      click the badge to toggle the Obstacle Course.</p>
   </div>
 </div>
 
@@ -245,8 +316,8 @@ scene.fog = new THREE.Fog(0x7ec8f7, 140, 420);
 
 const camera = new THREE.PerspectiveCamera(62, innerWidth/innerHeight, .1, 800);
 
-const hemi = new THREE.HemisphereLight(0xcfe8ff, 0x3a5a2a, .85); scene.add(hemi);
-const sun = new THREE.DirectionalLight(0xfff3d6, 1.15);
+const hemi = new THREE.HemisphereLight(0xdcefff, 0x4a7a3a, .95); scene.add(hemi);
+const sun = new THREE.DirectionalLight(0xfff1d0, 1.35);
 sun.position.set(80,120,40);
 sun.castShadow = true;
 sun.shadow.mapSize.set(2048,2048);
@@ -463,7 +534,7 @@ let roadMesh;
   g.setAttribute('position',new THREE.Float32BufferAttribute(pos,3));
   g.setAttribute('uv',new THREE.Float32BufferAttribute(uv,2));
   g.setIndex(idx); g.computeVertexNormals();
-  roadMesh=new THREE.Mesh(g,new THREE.MeshLambertMaterial({color:0x3c3f46,side:THREE.DoubleSide}));
+  roadMesh=new THREE.Mesh(g,new THREE.MeshLambertMaterial({color:0x5f636b,side:THREE.DoubleSide}));
   roadMesh.receiveShadow=true; scene.add(roadMesh);
 }
 function roadOverlay(i0,i1,color){
@@ -491,7 +562,7 @@ function roadOverlay(i0,i1,color){
     m.rotation.y=Math.atan2(tangents[i].x,tangents[i].z);
     scene.add(m);
   }
-  const edgeM=new THREE.MeshBasicMaterial({color:0xd8d8d8});
+  const edgeM=new THREE.MeshBasicMaterial({color:0xf4f4f4});
   const edgeG=new THREE.BoxGeometry(.45,.03,3.2);
   for(let i=0;i<N;i+=2){
     for(const s of [1,-1]){
@@ -526,6 +597,7 @@ let groundMesh;
 /* ============================ LANDMARKS ============================ */
 const animFlags=[];
 let windBlades=null;
+let cloudLayer=null, skyDome=null;
 
 const stoneM   = new THREE.MeshLambertMaterial({color:0x9b9ba4});
 const stoneDk  = new THREE.MeshLambertMaterial({color:0x7e7e88});
@@ -695,8 +767,12 @@ function buildCastleTrees(){
       const s=.8+Math.random()*1.2;
       const tr=new THREE.Mesh(new THREE.BoxGeometry(.9*s,2.4*s,.9*s),trunkM);
       tr.position.set(x,1.2*s,z); tr.castShadow=true; scene.add(tr);
-      const lf=new THREE.Mesh(new THREE.BoxGeometry(3.2*s,3*s,3.2*s),Math.random()<.5?leafM:leafM2);
-      lf.position.set(x,3.6*s,z); lf.castShadow=true; lf.rotation.y=Math.random(); scene.add(lf);
+      const cm=Math.random()<.5?leafM:leafM2;
+      // fluffy clustered canopy (rounded low-poly) instead of a single cube
+      for(const [ox,oy,oz,cs] of [[0,3.5*s,0,2.0*s],[.95*s,4.3*s,.4*s,1.4*s],[-.85*s,4.0*s,-.55*s,1.3*s],[.2*s,5.0*s,.1*s,1.15*s]]){
+        const lf=new THREE.Mesh(new THREE.IcosahedronGeometry(cs,0),cm);
+        lf.position.set(x+ox,oy,z+oz); lf.castShadow=true; lf.rotation.y=Math.random()*6; scene.add(lf);
+      }
     }else{
       const s=4+Math.random()*9;
       const h=new THREE.Mesh(new THREE.BoxGeometry(s,s*.5,s),hillM);
@@ -1131,11 +1207,162 @@ function buildDesertWorld(){
   }
 }
 
+/* ============================ SHARED VISUAL POLISH ============================ */
+/* Applied on top of every world (themed per world): a gradient sky dome with
+   drifting clouds, a lush flowery/grassy roadside, and wooden plank guard-rails —
+   the bright cartoon-racer look from the reference art. */
+const VTHEME={
+  castle:{ sky:[0x3f8fd4,0xc6e8ff], cloud:0xffffff,
+    flowers:[0xe6394a,0xffd23f,0xffffff,0xc46cf0,0xff7a3d,0x5b9bff],
+    blade:0x57a544, bush:0x2f8a3e, fillProb:.85, spread:5.5, sides:[1,-1], rails:true, rock:false },
+  beach:{ sky:[0xef9a5c,0xffe6cf], cloud:0xffe0c4,
+    flowers:[0xff7aa8,0xffffff,0xffd24a,0xff9ec2],
+    blade:0x6cae5f, bush:0x4f9e57, fillProb:.6, spread:9, sides:[1], rails:false, rock:false },
+  desert:{ sky:[0xe3aa50,0xf7e6b8], cloud:0xf3ddbb,
+    flowers:[0xff8a3d,0xffffff,0xe6c84a],
+    blade:0xb39a52, bush:0x4f8a3a, fillProb:.5, spread:7, sides:[1,-1], rails:false, rock:true },
+};
+function inSkip(i,skips){
+  for(const [c,r] of skips){ let d=Math.abs(i-c); d=Math.min(d,N-d); if(d<=r) return true; }
+  return false;
+}
+function skipFor(w){
+  const z=[[0,7],[Math.round(.985*N),7]];
+  if(w==='castle') z.push([Math.round(CASTLE_T*N),11],[Math.round(TUNNEL_T*N),13],[Math.round(.8*N),6]);
+  else if(w==='beach') z.push([146,18]);   // bridge inlet (BR0..BR1)
+  else if(w==='desert') z.push([Math.round(SPHINX_T*N),10],[Math.round(TOMB_T*N),13],[Math.round(OASIS_T*N),13]);
+  return z;
+}
+function makeSky(theme){
+  if(skyDome){ scene.remove(skyDome); skyDome.material.map.dispose(); skyDome.material.dispose(); skyDome.geometry.dispose(); }
+  const hex=v=>'#'+(v>>>0).toString(16).padStart(6,'0');
+  const cv=document.createElement('canvas'); cv.width=8; cv.height=256;
+  const cx=cv.getContext('2d');
+  const grd=cx.createLinearGradient(0,0,0,256);
+  grd.addColorStop(0,   hex(theme.sky[0]));
+  grd.addColorStop(.62, hex(theme.sky[1]));
+  grd.addColorStop(1,   hex(theme.sky[1]));
+  cx.fillStyle=grd; cx.fillRect(0,0,8,256);
+  const tex=new THREE.CanvasTexture(cv);
+  skyDome=new THREE.Mesh(new THREE.SphereGeometry(600,24,16),
+    new THREE.MeshBasicMaterial({map:tex,side:THREE.BackSide,fog:false,depthWrite:false}));
+  skyDome.renderOrder=-1; scene.add(skyDome);
+  scene.background.setHex(theme.sky[1]);
+}
+function makeClouds(col){
+  if(cloudLayer){ scene.remove(cloudLayer); }
+  cloudLayer=new THREE.Group(); scene.add(cloudLayer);
+  const m=new THREE.MeshBasicMaterial({color:col,fog:false,transparent:true,opacity:.96});
+  const geo=new THREE.SphereGeometry(1,8,6);
+  for(let c=0;c<16;c++){
+    const ang=Math.random()*Math.PI*2;
+    const rad=150+Math.random()*200;
+    const cy=72+Math.random()*78;
+    const cl=new THREE.Group();
+    cl.position.set(Math.cos(ang)*rad, cy, Math.sin(ang)*rad);
+    cl.rotation.y=Math.random()*6;
+    const puffs=3+(c%3);
+    for(let p=0;p<puffs;p++){
+      const s=9+Math.random()*13;
+      const puff=new THREE.Mesh(geo,m);
+      puff.scale.set(s, s*(.5+Math.random()*.18), s*.8);
+      puff.position.set((p-puffs/2)*s*.85, (Math.random()-.5)*s*.4, (Math.random()-.5)*s*.6);
+      cl.add(puff);
+    }
+    cloudLayer.add(cl);
+  }
+}
+function scatterVegetation(theme,skips){
+  const flowerMats=theme.flowers.map(c=>new THREE.MeshLambertMaterial({color:c}));
+  const stemMat=new THREE.MeshLambertMaterial({color:0x3f7a2e});
+  const bladeMat=new THREE.MeshLambertMaterial({color:theme.blade});
+  const bushMat=new THREE.MeshLambertMaterial({color:theme.bush});
+  const rockMat=new THREE.MeshLambertMaterial({color:0xa89880});
+  const stemGeo=new THREE.BoxGeometry(.07,.45,.07);
+  const petalGeo=new THREE.BoxGeometry(.36,.36,.12);
+  const bladeGeo=new THREE.BoxGeometry(.05,.75,.05);
+  const bushGeo=new THREE.IcosahedronGeometry(.6,0);
+  const rockGeo=new THREE.DodecahedronGeometry(.7,0);
+  for(let i=0;i<N;i+=3){
+    if(inSkip(i,skips)) continue;
+    const p=samples[i], n=normals[i], tan=tangents[i];
+    for(const s of theme.sides){
+      if(Math.random()>theme.fillProb) continue;
+      const off=HALF_W+2.2+Math.random()*theme.spread;
+      const along=(Math.random()-.5)*2.4;
+      const x=p.x+n.x*off*s+tan.x*along, z=p.z+n.z*off*s+tan.z*along;
+      const r=Math.random();
+      if(theme.rock && r<.18){
+        const rk=new THREE.Mesh(rockGeo,rockMat);
+        const sc=.6+Math.random()*1.1; rk.scale.set(sc,sc*.7,sc);
+        rk.position.set(x,sc*.3,z); rk.rotation.set(Math.random(),Math.random(),Math.random());
+        rk.castShadow=true; rk.receiveShadow=true; scene.add(rk);
+      } else if(r<.5){ // flower clump
+        const g=new THREE.Group(); g.position.set(x,0,z); scene.add(g);
+        const fc=flowerMats[(Math.random()*flowerMats.length)|0];
+        const blooms=1+(Math.random()<.6?1:0);
+        for(let b=0;b<blooms;b++){
+          const bx=(Math.random()-.5)*.5, bz=(Math.random()-.5)*.5;
+          const st=new THREE.Mesh(stemGeo,stemMat); st.position.set(bx,.22,bz); g.add(st);
+          const pt=new THREE.Mesh(petalGeo,fc); pt.position.set(bx,.5,bz); pt.rotation.y=Math.random()*3;
+          pt.castShadow=true; g.add(pt);
+          const pt2=new THREE.Mesh(petalGeo,fc); pt2.position.set(bx,.5,bz); pt2.rotation.y=pt.rotation.y+Math.PI/2; g.add(pt2);
+        }
+      } else if(r<.8){ // grass tuft
+        const g=new THREE.Group(); g.position.set(x,0,z); g.rotation.y=Math.random()*6; scene.add(g);
+        for(let b=0;b<3;b++){
+          const bl=new THREE.Mesh(bladeGeo,bladeMat);
+          bl.position.set((b-1)*.16,.36,0); bl.rotation.z=(b-1)*.28; g.add(bl);
+        }
+      } else { // little bush
+        const g=new THREE.Group(); g.position.set(x,0,z); scene.add(g);
+        const sc=.8+Math.random()*.8;
+        for(const [ox,oy,oz,cs] of [[0,.55*sc,0,1],[.5*sc,.7*sc,.2*sc,.7],[-.4*sc,.6*sc,-.3*sc,.65]]){
+          const lf=new THREE.Mesh(bushGeo,bushMat); lf.scale.setScalar(cs*sc);
+          lf.position.set(ox,oy,oz); lf.castShadow=true; g.add(lf);
+        }
+      }
+    }
+  }
+}
+function addPlankRails(skips){
+  const postM=new THREE.MeshLambertMaterial({color:0x7a5630});
+  const plankM=new THREE.MeshLambertMaterial({color:0xa06b38});
+  const off=HALF_W+1.4, postGeo=new THREE.BoxGeometry(.32,1.7,.32);
+  for(const s of [1,-1]){
+    for(let i=0;i<N;i+=5){
+      if(inSkip(i,skips)) continue;
+      const p=samples[i],n=normals[i];
+      const post=new THREE.Mesh(postGeo,postM);
+      post.position.set(p.x+n.x*off*s,.85,p.z+n.z*off*s);
+      post.castShadow=true; scene.add(post);
+      const i2=(i+5)%N;
+      if(inSkip(i2,skips)) continue;
+      const q=samples[i2],n2=normals[i2];
+      const ax=p.x+n.x*off*s, az=p.z+n.z*off*s;
+      const bx=q.x+n2.x*off*s, bz=q.z+n2.z*off*s;
+      const len=Math.hypot(bx-ax,bz-az)+.25, rot=Math.atan2(bx-ax,bz-az);
+      for(const hy of [.6,1.2]){
+        const pl=new THREE.Mesh(new THREE.BoxGeometry(.13,.34,len),plankM);
+        pl.position.set((ax+bx)/2,hy,(az+bz)/2); pl.rotation.y=rot; pl.castShadow=true; scene.add(pl);
+      }
+    }
+  }
+}
+function enhanceWorldVisuals(w){
+  const theme=VTHEME[w]||VTHEME.castle;
+  const skips=skipFor(w);
+  makeSky(theme);
+  makeClouds(theme.cloud);
+  scatterVegetation(theme,skips);
+  if(theme.rails) addPlankRails(skips);
+}
+
 function buildWorld(w){
   if(buildWorld._done) return; buildWorld._done=true;
-  if(w==='beach') buildBeachWorld();
-  else if(w==='desert') buildDesertWorld();
-  else { buildCastleWorld(); buildCastleTrees(); }
+  if(w==='beach'){ buildBeachWorld(); enhanceWorldVisuals('beach'); }
+  else if(w==='desert'){ buildDesertWorld(); enhanceWorldVisuals('desert'); }
+  else { buildCastleWorld(); buildCastleTrees(); enhanceWorldVisuals('castle'); }
 }
 
 /* ============================ WARP VORTEX (Warp Turbo) ============================ */
@@ -2142,6 +2369,13 @@ document.getElementById('startOnline').addEventListener('click',()=>{
   document.getElementById('startOverlay').style.display='none';
   document.getElementById('lobbyOverlay').style.display='flex';
 });
+// obstacle-course toggle on the intro banner (reflects into the hidden #obsChk)
+(function(){
+  const chk=document.getElementById('obsChk'), st=document.getElementById('obsState'),
+        btn=document.getElementById('obsToggle');
+  function refl(){ st.textContent=chk.checked?'ON':'OFF'; st.classList.toggle('on',chk.checked); }
+  if(btn){ btn.addEventListener('click',()=>{ chk.checked=!chk.checked; refl(); beep(chk.checked?660:440,.08); }); refl(); }
+})();
 document.getElementById('backOffline').addEventListener('click',e=>{
   e.preventDefault();
   document.getElementById('lobbyOverlay').style.display='none';
@@ -2886,6 +3120,7 @@ function loop(){
   const dt=simStep();
 
   if(windBlades) windBlades.rotation.z += dt*.9;
+  if(cloudLayer) cloudLayer.rotation.y += dt*.0035;
   for(const f of animFlags){
     f.m.rotation.y = Math.sin(perf*2+f.phase)*.28;
     f.m.position.y = f.baseY + Math.sin(perf*3+f.phase)*.05;

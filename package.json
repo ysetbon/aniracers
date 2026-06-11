@@ -2,6 +2,14 @@
   "name": "aniracers-server",
   "version": "1.0.0",
   "main": "server.js",
-  "scripts": { "start": "node server.js" },
-  "dependencies": { "ws": "^8.18.0" }
+  "scripts": {
+    "start": "node server.js",
+    "regen-assets": "node scripts/regen-intro-assets.js"
+  },
+  "dependencies": {
+    "ws": "^8.18.0"
+  },
+  "devDependencies": {
+    "puppeteer": "^25.1.0"
+  }
 }
