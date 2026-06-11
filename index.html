@@ -84,14 +84,6 @@
     border:2px solid rgba(212,160,23,.28);cursor:pointer;color:#f5e6c8;font:inherit;
     text-align:center;transition:transform .1s,border-color .1s,box-shadow .1s}
   .animBtn:hover{transform:translateY(-2px)}
-  .animBtn.sel{border-color:#ffd33d;box-shadow:0 0 14px rgba(255,211,61,.5);background:rgba(255,211,61,.14)}
-  .animBtn .portrait{display:block;width:58px;height:58px;margin:0 auto 4px;border-radius:10px;
-    background:url('assets/aniracers-animal-portraits.png') 0 0/500% 100% no-repeat;
-    box-shadow:0 4px 10px rgba(0,0,0,.45)}
-  .animBtn[data-animal="dog"] .portrait{background-position:25% 0}
-  .animBtn[data-animal="sheep"] .portrait{background-position:50% 0}
-  .animBtn[data-animal="cat"] .portrait{background-position:75% 0}
-  .animBtn[data-animal="frog"] .portrait{background-position:100% 0}
   .animBtn b{display:block;font-size:11px;margin-top:2px;letter-spacing:.5px}
   /* small screens: shrink the cards and let the box scroll sideways */
   @media (max-width:640px), (max-height:480px){
@@ -119,12 +111,42 @@
   .introSub{margin:4px 0 4px;font-size:13.5px;letter-spacing:1px;color:#f0dcb4;opacity:.9}
   .pickLabel{font-size:12px;font-weight:800;letter-spacing:2px;color:#ffd23f;opacity:.85;
     margin:18px 0 9px;text-transform:uppercase}
-  #animalPick{display:flex;gap:9px;justify-content:center;flex-wrap:wrap}
-  #animalPick .animBtn{width:92px;padding:9px 5px}
-  #animalPick .animBtn .face{font-size:38px;line-height:1.05;display:block;
-    filter:drop-shadow(0 3px 4px rgba(0,0,0,.5))}
-  #animalPick .animBtn b{font-size:11px;letter-spacing:.5px;margin-top:3px}
-  #animalPick .animBtn small{display:block;font-size:9.5px;opacity:.6;letter-spacing:.5px}
+  /* hero scene: the 5 racers standing together on the grass, looking at you */
+  #heroScene{position:relative;border-radius:16px;overflow:hidden;margin:6px 0 2px;padding:18px 6px 0;
+    background:linear-gradient(180deg,#7ec8ff 0%,#a8e0ff 40%,#c2ee84 49%,#7ec24a 70%,#5aa636 100%);
+    box-shadow:inset 0 0 0 2px rgba(255,255,255,.18), inset 0 -16px 28px rgba(0,0,0,.1),
+      0 10px 26px rgba(0,0,0,.35)}
+  #heroScene .sun{position:absolute;top:12px;right:24px;width:42px;height:42px;border-radius:50%;
+    background:radial-gradient(circle at 50% 50%,#fff7b0,#ffd23f 72%);
+    box-shadow:0 0 26px 10px rgba(255,213,90,.55)}
+  #heroScene .cloud{position:absolute;height:14px;width:46px;border-radius:10px;background:rgba(255,255,255,.9);
+    box-shadow:13px 4px 0 -2px rgba(255,255,255,.9), -13px 3px 0 -3px rgba(255,255,255,.9)}
+  #heroScene .cloud.c1{top:20px;left:40px} #heroScene .cloud.c2{top:36px;left:160px;transform:scale(.8)}
+  #animalPick{position:relative;z-index:1;display:flex;gap:3px;justify-content:center;align-items:flex-end}
+  #animalPick .animBtn{position:relative;width:19%;max-width:120px;padding:0 2px 8px;
+    background:transparent;border:none;border-radius:12px;cursor:pointer;color:#fff;transition:transform .12s ease}
+  #animalPick .animBtn .portrait{display:block;width:100%;height:104px;
+    background-image:url('assets/aniracers-animal-portraits.png');
+    background-repeat:no-repeat;background-size:500% auto;background-position:0% 58%;
+    filter:drop-shadow(0 5px 4px rgba(0,0,0,.35));transition:transform .12s ease}
+  #animalPick .animBtn[data-animal="dog"]   .portrait{background-position:25% 58%}
+  #animalPick .animBtn[data-animal="sheep"] .portrait{background-position:50% 58%}
+  #animalPick .animBtn[data-animal="cat"]   .portrait{background-position:75% 58%}
+  #animalPick .animBtn[data-animal="frog"]  .portrait{background-position:100% 58%}
+  #animalPick .animBtn::after{content:'';position:absolute;left:50%;bottom:30px;transform:translateX(-50%);
+    width:56%;height:9px;border-radius:50%;background:rgba(0,45,0,.3);filter:blur(3px);z-index:-1;
+    transition:width .12s,opacity .12s}
+  #animalPick .animBtn b{display:block;font-size:11px;font-weight:800;letter-spacing:.5px;
+    text-shadow:0 1px 2px rgba(0,0,0,.65)}
+  #animalPick .animBtn small{display:block;font-size:9px;opacity:.9;letter-spacing:.5px;
+    text-shadow:0 1px 2px rgba(0,0,0,.65)}
+  #animalPick .animBtn:hover .portrait{transform:translateY(-5px)}
+  #animalPick .animBtn.sel .portrait{transform:translateY(-9px) scale(1.08)}
+  #animalPick .animBtn.sel::after{width:64%;opacity:.55}
+  #animalPick .animBtn .tag{display:none}
+  #animalPick .animBtn.sel .tag{display:block;position:absolute;top:-3px;left:50%;transform:translateX(-50%);
+    background:#ffd23f;color:#2a1d05;font-size:8.5px;font-weight:900;letter-spacing:.5px;
+    padding:2px 7px;border-radius:999px;box-shadow:0 2px 5px rgba(0,0,0,.4);white-space:nowrap;z-index:2}
   .worldGrid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
   @media (max-width:560px){ .worldGrid{grid-template-columns:repeat(2,1fr)} }
   .worldBtn{border:none;cursor:pointer;border-radius:14px;padding:15px 8px 12px;color:#fff;font:inherit;
@@ -196,18 +218,21 @@
     <h1 class="introTitle">ANIRACERS</h1>
     <p class="introSub">Barnyard kart mayhem &middot; 3 laps &middot; wild power-ups</p>
 
-    <div class="pickLabel">1 &middot; Pick your racer</div>
-    <div id="animalPick">
-      <button class="animBtn sel" data-animal="chicken" title="Race as the CHICKEN">
-        <span class="face">&#128020;</span><b>CHICKEN</b><small>you</small></button>
-      <button class="animBtn" data-animal="dog" title="Race as REX">
-        <span class="face">&#128021;</span><b>REX</b><small>dog</small></button>
-      <button class="animBtn" data-animal="sheep" title="Race as WOOLY">
-        <span class="face">&#128017;</span><b>WOOLY</b><small>sheep</small></button>
-      <button class="animBtn" data-animal="cat" title="Race as WHISKERS">
-        <span class="face">&#128008;</span><b>WHISKERS</b><small>cat</small></button>
-      <button class="animBtn" data-animal="frog" title="Race as HOPPER">
-        <span class="face">&#128056;</span><b>HOPPER</b><small>frog</small></button>
+    <div class="pickLabel">1 &middot; Tap your racer</div>
+    <div id="heroScene">
+      <span class="sun"></span><span class="cloud c1"></span><span class="cloud c2"></span>
+      <div id="animalPick">
+        <button class="animBtn sel" data-animal="chicken" title="Race as the CHICKEN">
+          <span class="tag">YOUR RACER</span><span class="portrait"></span><b>CHICKEN</b><small>cluck!</small></button>
+        <button class="animBtn" data-animal="dog" title="Race as REX">
+          <span class="tag">YOUR RACER</span><span class="portrait"></span><b>REX</b><small>dog</small></button>
+        <button class="animBtn" data-animal="sheep" title="Race as WOOLY">
+          <span class="tag">YOUR RACER</span><span class="portrait"></span><b>WOOLY</b><small>sheep</small></button>
+        <button class="animBtn" data-animal="cat" title="Race as WHISKERS">
+          <span class="tag">YOUR RACER</span><span class="portrait"></span><b>WHISKERS</b><small>cat</small></button>
+        <button class="animBtn" data-animal="frog" title="Race as HOPPER">
+          <span class="tag">YOUR RACER</span><span class="portrait"></span><b>HOPPER</b><small>frog</small></button>
+      </div>
     </div>
 
     <div class="pickLabel">2 &middot; Choose a world</div>
@@ -2388,6 +2413,73 @@ document.querySelectorAll('#animalPick .animBtn').forEach(b=>{
     document.querySelectorAll('#animalPick .animBtn').forEach(x=>x.classList.toggle('sel',x===b));
   });
 });
+// Cut each racer out of the portrait sheet (chroma-key the solid cell backgrounds to
+// transparent) so the 5 animals appear to stand right on the grassy hero scene.
+(function(){
+  const order=['chicken','dog','sheep','cat','frog'];
+  const img=new Image();
+  img.onload=function(){
+    try{
+      const cw=Math.floor(img.width/5), ch=img.height;
+      for(let i=0;i<5;i++){
+        const cv=document.createElement('canvas'); cv.width=cw; cv.height=ch;
+        const g=cv.getContext('2d');
+        g.drawImage(img, i*cw, 0, cw, ch, 0, 0, cw, ch);
+        const idata=g.getImageData(0,0,cw,ch), d=idata.data;
+        const at=(x,y)=>{const o=(y*cw+x)*4;return [d[o],d[o+1],d[o+2]];};
+        // Three flat background layers, sampled at the edge columns the centred animal never
+        // reaches: dark sky (top) -> a bright horizon strip (~0.49h) -> the colour block it
+        // stands on (bottom). The nearest any animal pixel comes to these is ~46, so a tight
+        // tolerance wipes all three cleanly without biting into the animal.
+        const Y=f=>Math.floor(ch*f);
+        const bg=[ at(4,Y(0.42)), at(cw-5,Y(0.42)),
+                   at(4,Y(0.495)), at(cw-5,Y(0.495)),
+                   at(4,Y(0.85)), at(4,ch-5), at(cw-5,ch-5) ];
+        const dist2=(r,gg,b,c)=>{const dr=r-c[0],dg=gg-c[1],db=b-c[2];return dr*dr+dg*dg+db*db;};
+        const nearBg=(r,gg,b,t)=>{ for(const c of bg){ if(dist2(r,gg,b,c)<t) return true; } return false; };
+        // clear the dark sky band above the horizon outright (the animals start below 0.47h)
+        const skyCut=Y(0.42);
+        for(let o=0;o<skyCut*cw*4;o+=4) d[o+3]=0;
+        // pass 1: knock out the solid background colours
+        for(let y=skyCut;y<ch;y++)for(let x=0;x<cw;x++){
+          const o=(y*cw+x)*4;
+          if(d[o+3] && nearBg(d[o],d[o+1],d[o+2],44*44)) d[o+3]=0;
+        }
+        // pass 2: defringe — clear the anti-aliased halo (background-tinted edge pixels that
+        // touch a transparent pixel), so no thin colour rim is left around the animal
+        for(let iter=0;iter<2;iter++){
+          const clear=[];
+          for(let y=skyCut;y<ch;y++)for(let x=0;x<cw;x++){
+            const o=(y*cw+x)*4;
+            if(!d[o+3] || !nearBg(d[o],d[o+1],d[o+2],66*66)) continue;
+            if((x>0&&!d[o-4+3])||(x<cw-1&&!d[o+4+3])||(y>0&&!d[o-cw*4+3])||(y<ch-1&&!d[o+cw*4+3])) clear.push(o);
+          }
+          for(const o of clear) d[o+3]=0;
+        }
+        // measure the surviving animal
+        let minX=cw,minY=ch,maxX=0,maxY=0,found=false;
+        for(let y=skyCut;y<ch;y++)for(let x=0;x<cw;x++){
+          if(d[(y*cw+x)*4+3]){ found=true; if(x<minX)minX=x; if(x>maxX)maxX=x; if(y<minY)minY=y; if(y>maxY)maxY=y; }
+        }
+        if(!found) continue;
+        g.putImageData(idata,0,0);
+        const pad=6;
+        minX=Math.max(0,minX-pad); minY=Math.max(0,minY-pad);
+        maxX=Math.min(cw-1,maxX+pad); maxY=Math.min(ch-1,maxY+pad);
+        const ow=maxX-minX+1, oh=maxY-minY+1;
+        const oc=document.createElement('canvas'); oc.width=ow; oc.height=oh;
+        oc.getContext('2d').drawImage(cv, minX,minY,ow,oh, 0,0,ow,oh);
+        const url=oc.toDataURL('image/png');
+        document.querySelectorAll('#animalPick .animBtn[data-animal="'+order[i]+'"] .portrait').forEach(p=>{
+          p.style.backgroundImage='url('+url+')';
+          p.style.backgroundSize='contain';
+          p.style.backgroundPosition='center bottom';
+        });
+      }
+    }catch(e){ /* keep the CSS sprite fallback if the canvas is tainted */ }
+  };
+  img.src='assets/aniracers-animal-portraits.png';
+})();
 document.getElementById('startOnline').addEventListener('click',()=>{
   document.getElementById('startOverlay').style.display='none';
   document.getElementById('lobbyOverlay').style.display='flex';
