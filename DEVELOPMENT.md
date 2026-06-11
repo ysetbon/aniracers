@@ -92,13 +92,18 @@ bird's-eye view (fog lifted), every player picks ONE obstacle (`#placePanel` car
 clicks the road (raycast → `nearestIdx`; rejected off-road or within 12 idx of the start).
 Obstacles live in `placedObstacles[]` (server-relay order = identical on all clients;
 `oid` = index) and PERSIST across rounds; `resetObstacles()` restores them each round.
-Kinds: `wall` (8 lane columns × 3 bricks; each lane needs 1–2 hits to crack, then
-karts/projectiles pass through that slice; knock = 1 dmg/lane w/ 0.55s cooldown,
-projectile = 1 dmg/lane — damager broadcasts `wallhit`; NPCs reverse briefly if blocked;
-flying karts pass over) · `oil` (3 permanent slicks, re-arm 2.5s after triggering) ·
+Each obstacle stores its `owner`; **your own wall/farmer never affects you** (player-only
+immunity via `obstacleIsMine(owner)` — net id online, `'you'` offline). They still block
+everyone else. Kinds: `wall` (8 lane columns × 3 bricks; each lane cracks in 1 hit, then
+karts/projectiles pass through that slice; a PLAYER knock cracks the touched lane + its two
+neighbours so a kart-wide hole opens — you can't wedge inside; 0.55s knock cooldown,
+projectile = 1 dmg/lane — damager broadcasts `wallhit`; NPCs crack 1 lane and reverse
+briefly if blocked; flying karts pass over) · `oil` (3 black slicks; the first kart to touch
+one spins out and that slick `gone`s — hidden forever, not restored by `resetObstacles`) ·
 `farmer` (patrols ±13 idx around his spot weaving across the road, spin-out on touch) ·
 `kart` (champion NPC: host-simulated like bots, `netId='c<owner>_<oid>'`, `k.champion`
-= owner id — if it finishes 1st, `endRace` crowns its owner the winner).
+= owner id — if it finishes 1st, `endRace` crowns its owner the winner; YOUR own champion
+spawns gold + named "YOUR CHAMP" with a "joins the race" banner so you can spot it).
 `roundstart` → `startNextRound()`: `clearTransient()` + `resetObstacles()` +
 `resetKartForRound()` for every kart (leavers stay hidden/finished), then the normal
 preroll→wb→go handshake restarts the countdown. No page reload.

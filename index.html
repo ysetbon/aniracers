@@ -1286,7 +1286,7 @@ function makeWallAt(i){
   const brickCols=[0xb5651d,0x9a4f12];
   const cols=[], bw=ROAD_W/8;
   for(let c=0;c<8;c++){
-    const hp=1+(Math.random()<.5?1:0); // each lane: 1 or 2 hits to crack
+    const hp=1; // one solid hit cracks a lane (so the bricks you ram actually vanish)
     const bricks=[];
     for(let r=0;r<3;r++){
       const b=new THREE.Mesh(new THREE.BoxGeometry(bw*.94,1.05,.95),
@@ -1324,11 +1324,13 @@ function makeFarmer(){
 }
 const CHAMP_NAMES={chicken:'CLUCKY',dog:'BUDDY',sheep:'FLUFFY',cat:'MITTENS',frog:'JUMPY'};
 const CHAMP_COLORS=[0xff6f00,0x8d6e63,0x00897b,0xd81b60,0x5e35b1];
+// is this obstacle one I placed? (online: my net id · offline: the literal 'you')
+function obstacleIsMine(owner){ return net? owner===net.id : owner==='you'; }
 function spawnObstacle(ob){
   if(ob.kind==='wall'){
     const i=((ob.i%N)+N)%N;
     const {g, cols}=makeWallAt(i);
-    walls.push({oid:ob.oid, m:g, cols,
+    walls.push({oid:ob.oid, owner:ob.owner, m:g, cols,
       p:samples[i].clone(), tan:tangents[i].clone(), nor:normals[i].clone()});
   }
   else if(ob.kind==='oil'){
@@ -1337,7 +1339,7 @@ function spawnObstacle(ob){
       const m=makeOil();
       m.position.set(ob.x+tan.x*a+nor.x*l*.6, .13, ob.z+tan.z*a+nor.z*l*.6);
       scene.add(m);
-      permOils.push({m, cd:0});
+      permOils.push({m, owner:ob.owner, gone:false});
     }
   }
   else if(ob.kind==='farmer'){
@@ -1345,17 +1347,21 @@ function spawnObstacle(ob){
     const i=((ob.i%N)+N)%N;
     m.position.copy(samples[i]);
     scene.add(m);
-    farmers.push({m, i0:i, ph:0});
+    farmers.push({m, owner:ob.owner, i0:i, ph:0});
   }
   else if(ob.kind==='kart'){
     const gi=karts.length;
+    const mine=obstacleIsMine(ob.owner);
     const animal=ob.animal||'chicken';
-    const k=spawnKart(CHAMP_NAMES[animal]||'CHAMP', CHAMP_COLORS[gi%CHAMP_COLORS.length], animal, gi, false);
+    // YOUR champion stands out: gold body + a clear name so you can spot your racer
+    const k=spawnKart(mine?'YOUR CHAMP':(CHAMP_NAMES[animal]||'CHAMP'),
+      mine?0xffd11a:CHAMP_COLORS[gi%CHAMP_COLORS.length], animal, gi, false);
     k.netId='c'+ob.owner+'_'+ob.oid;
     k.bot=true;
     k.champion=ob.owner;            // if this kart wins, that player wins too
     k.remote = net? !net.host : false; // the host simulates champions like NPCs
     karts.push(k);
+    if(mine) showMsg('🏎️ YOUR CHAMPION JOINS THE RACE!',2200);
   }
 }
 function addPlacedObstacle(ownerId, ob){
@@ -1399,41 +1405,48 @@ function stepObstacles(dt){
     if(!w.m.visible) continue;
     for(const k of karts){
       if(k.remote||k.finished||k.alt>2.4||k.warping>0) continue; // fly (or warp) over it!
+      if(k.isPlayer && obstacleIsMine(w.owner)) continue;        // your own wall lets you through
       const dx=k.pos.x-w.p.x, dz=k.pos.z-w.p.z;
       const along=dx*w.tan.x+dz*w.tan.z, lat=dx*w.nor.x+dz*w.nor.z;
-      if(Math.abs(along)>=1.9) continue;
+      if(Math.abs(along)>=2.1) continue;
       const col=wallColFromLat(lat);
       if(w.cols[col].hp<=0) continue; // cracked lane — slip through
       if(Math.abs(lat)<HALF_W+.6){
+        // shove the kart fully back to the near face so it can never end up INSIDE the wall
         const s=along>=0?1:-1;
-        k.pos.x+=w.tan.x*(1.9-Math.abs(along))*s;
-        k.pos.z+=w.tan.z*(1.9-Math.abs(along))*s;
+        k.pos.x+=w.tan.x*(2.1-Math.abs(along))*s;
+        k.pos.z+=w.tan.z*(2.1-Math.abs(along))*s;
         const hitSpeed=Math.abs(k.speed);
         k.speed*=-.32; // bounce back
         if(k.wallCd<=0 && hitSpeed>6){
           k.wallCd=.55;
-          const cracked=damageWallCol(w, col, 1, false);
+          // a kart is wider than one lane — crack the touched lane AND its neighbours so
+          // a kart-wide hole opens (otherwise you wedge against the bricks beside the gap)
+          const span=k.isPlayer?1:0;
+          let cracked=false;
+          for(let dc=-span;dc<=span;dc++){
+            const cc=col+dc;
+            if(cc>=0&&cc<8&&w.cols[cc].hp>0 && damageWallCol(w, cc, 1, false)) cracked=true;
+          }
           explode(k.pos.clone().setY(1.2), 0xb5651d, 7);
           if(k.isPlayer){
             shake=Math.max(shake,.45);
-            const left=w.cols[col].hp;
-            showMsg(left<=0? 'LANE OPEN!' : 'KNOCK! '+left+' TO CRACK', 800);
+            showMsg(cracked? 'BARGED THROUGH!' : 'KNOCK!', 800);
           } else if(!cracked) k.wallBack=.45; // NPC: tiny reverse, then try again
           beep(180,.15,'square',.1);
         }
       }
     }
   }
-  // permanent oil patches: spin out, then re-arm after a moment
+  // oil slicks: the first kart that touches one spins out — then the slick is GONE for good
   for(const o of permOils){
-    if(o.cd>0){ o.cd-=dt; o.m.material.opacity=.35; continue; }
-    o.m.material.opacity=.9;
+    if(o.gone) continue;
     for(const k of karts){
       if(k.remote||k.finished||k.alt>1.5||k.spin>0) continue;
       const dx=k.pos.x-o.m.position.x, dz=k.pos.z-o.m.position.z;
       if(dx*dx+dz*dz<6.2){
         spinOut(k,true);
-        if(k.spin>0){ o.cd=2.5; if(k.isPlayer) showMsg('OIL!'); }
+        if(k.spin>0){ o.gone=true; o.m.visible=false; if(k.isPlayer) showMsg('OIL!'); }
         break;
       }
     }
@@ -1451,6 +1464,7 @@ function stepObstacles(dt){
     f.m.rotation.z=Math.sin(f.ph*9)*.06;
     for(const k of karts){
       if(k.remote||k.finished||k.alt>1.5||k.farmerCd>0) continue;
+      if(k.isPlayer && obstacleIsMine(f.owner)) continue; // your own farmer never tackles you
       const dx=k.pos.x-f.m.position.x, dz=k.pos.z-f.m.position.z;
       if(dx*dx+dz*dz<5.5){
         k.farmerCd=1.5;
@@ -1467,7 +1481,8 @@ function resetObstacles(){
     w.m.visible=true;
     w.cols.forEach(c=>{ c.hp=c.maxHp; c.bricks.forEach(b=>b.visible=true); });
   }
-  for(const o of permOils){ o.cd=0; o.m.material.opacity=.9; }
+  // oils that were already hit stay gone permanently — only untouched ones carry over
+  for(const o of permOils){ if(!o.gone){ o.m.visible=true; o.m.material.opacity=.9; } }
   for(const f of farmers){
     f.ph=0;
     f.m.position.copy(samples[f.i0]); f.m.position.y=0;
