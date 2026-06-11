@@ -2413,72 +2413,48 @@ document.querySelectorAll('#animalPick .animBtn').forEach(b=>{
     document.querySelectorAll('#animalPick .animBtn').forEach(x=>x.classList.toggle('sel',x===b));
   });
 });
-// Cut each racer out of the portrait sheet (chroma-key the solid cell backgrounds to
-// transparent) so the 5 animals appear to stand right on the grassy hero scene.
+// Render each racer's REAL in-game kart (the exact makeKart/makeDriver meshes you drive)
+// to a transparent PNG, so the intro line-up matches the karts in the race precisely.
 (function(){
-  const order=['chicken','dog','sheep','cat','frog'];
-  const img=new Image();
-  img.onload=function(){
-    try{
-      const cw=Math.floor(img.width/5), ch=img.height;
-      for(let i=0;i<5;i++){
-        const cv=document.createElement('canvas'); cv.width=cw; cv.height=ch;
-        const g=cv.getContext('2d');
-        g.drawImage(img, i*cw, 0, cw, ch, 0, 0, cw, ch);
-        const idata=g.getImageData(0,0,cw,ch), d=idata.data;
-        const at=(x,y)=>{const o=(y*cw+x)*4;return [d[o],d[o+1],d[o+2]];};
-        // Three flat background layers, sampled at the edge columns the centred animal never
-        // reaches: dark sky (top) -> a bright horizon strip (~0.49h) -> the colour block it
-        // stands on (bottom). The nearest any animal pixel comes to these is ~46, so a tight
-        // tolerance wipes all three cleanly without biting into the animal.
-        const Y=f=>Math.floor(ch*f);
-        const bg=[ at(4,Y(0.42)), at(cw-5,Y(0.42)),
-                   at(4,Y(0.495)), at(cw-5,Y(0.495)),
-                   at(4,Y(0.85)), at(4,ch-5), at(cw-5,ch-5) ];
-        const dist2=(r,gg,b,c)=>{const dr=r-c[0],dg=gg-c[1],db=b-c[2];return dr*dr+dg*dg+db*db;};
-        const nearBg=(r,gg,b,t)=>{ for(const c of bg){ if(dist2(r,gg,b,c)<t) return true; } return false; };
-        // clear the dark sky band above the horizon outright (the animals start below 0.47h)
-        const skyCut=Y(0.42);
-        for(let o=0;o<skyCut*cw*4;o+=4) d[o+3]=0;
-        // pass 1: knock out the solid background colours
-        for(let y=skyCut;y<ch;y++)for(let x=0;x<cw;x++){
-          const o=(y*cw+x)*4;
-          if(d[o+3] && nearBg(d[o],d[o+1],d[o+2],44*44)) d[o+3]=0;
-        }
-        // pass 2: defringe — clear the anti-aliased halo (background-tinted edge pixels that
-        // touch a transparent pixel), so no thin colour rim is left around the animal
-        for(let iter=0;iter<2;iter++){
-          const clear=[];
-          for(let y=skyCut;y<ch;y++)for(let x=0;x<cw;x++){
-            const o=(y*cw+x)*4;
-            if(!d[o+3] || !nearBg(d[o],d[o+1],d[o+2],66*66)) continue;
-            if((x>0&&!d[o-4+3])||(x<cw-1&&!d[o+4+3])||(y>0&&!d[o-cw*4+3])||(y<ch-1&&!d[o+cw*4+3])) clear.push(o);
-          }
-          for(const o of clear) d[o+3]=0;
-        }
-        // measure the surviving animal
-        let minX=cw,minY=ch,maxX=0,maxY=0,found=false;
-        for(let y=skyCut;y<ch;y++)for(let x=0;x<cw;x++){
-          if(d[(y*cw+x)*4+3]){ found=true; if(x<minX)minX=x; if(x>maxX)maxX=x; if(y<minY)minY=y; if(y>maxY)maxY=y; }
-        }
-        if(!found) continue;
-        g.putImageData(idata,0,0);
-        const pad=6;
-        minX=Math.max(0,minX-pad); minY=Math.max(0,minY-pad);
-        maxX=Math.min(cw-1,maxX+pad); maxY=Math.min(ch-1,maxY+pad);
-        const ow=maxX-minX+1, oh=maxY-minY+1;
+  try{
+    const order=['chicken','dog','sheep','cat','frog'];
+    const RS=420;
+    const rr=new THREE.WebGLRenderer({antialias:true, alpha:true, preserveDrawingBuffer:true});
+    rr.setPixelRatio(2); rr.setSize(RS,RS); rr.setClearColor(0x000000,0);
+    const sc=new THREE.Scene();
+    sc.add(new THREE.HemisphereLight(0xffffff,0x55603a,1.1));
+    const dl=new THREE.DirectionalLight(0xfff1d0,1.25); dl.position.set(5,9,7); sc.add(dl);
+    const cam=new THREE.PerspectiveCamera(30, 1, .1, 100);
+    cam.position.set(4.6,3.0,6.8); cam.lookAt(0,1.15,0);
+    for(const a of order){
+      const parts=makeKart(ANIMAL_COLORS[a], a);   // builds kart+driver, adds to the game scene
+      scene.remove(parts.g);                        // pull it straight back out (never shown in-game)
+      parts.g.position.set(0,0,0); parts.g.rotation.set(0,0,0);
+      sc.add(parts.g);
+      rr.render(sc, cam);
+      // crop to the kart's silhouette so its wheels sit right on the grass line
+      const W=rr.domElement.width, H=rr.domElement.height;
+      const cap=document.createElement('canvas'); cap.width=W; cap.height=H;
+      const cx=cap.getContext('2d'); cx.drawImage(rr.domElement,0,0);
+      const px=cx.getImageData(0,0,W,H).data;
+      let mnx=W,mny=H,mxx=0,mxy=0,f=false;
+      for(let y=0;y<H;y++)for(let x=0;x<W;x++){ if(px[(y*W+x)*4+3]>20){f=true; if(x<mnx)mnx=x; if(x>mxx)mxx=x; if(y<mny)mny=y; if(y>mxy)mxy=y;} }
+      let url=cap.toDataURL('image/png');
+      if(f){ const ow=mxx-mnx+1, oh=mxy-mny+1;
         const oc=document.createElement('canvas'); oc.width=ow; oc.height=oh;
-        oc.getContext('2d').drawImage(cv, minX,minY,ow,oh, 0,0,ow,oh);
-        const url=oc.toDataURL('image/png');
-        document.querySelectorAll('#animalPick .animBtn[data-animal="'+order[i]+'"] .portrait').forEach(p=>{
-          p.style.backgroundImage='url('+url+')';
-          p.style.backgroundSize='contain';
-          p.style.backgroundPosition='center bottom';
-        });
-      }
-    }catch(e){ /* keep the CSS sprite fallback if the canvas is tainted */ }
-  };
-  img.src='assets/aniracers-animal-portraits.png';
+        oc.getContext('2d').drawImage(cap, mnx,mny,ow,oh, 0,0,ow,oh);
+        url=oc.toDataURL('image/png'); }
+      document.querySelectorAll('#animalPick .animBtn[data-animal="'+a+'"] .portrait').forEach(p=>{
+        p.style.backgroundImage='url('+url+')';
+        p.style.backgroundSize='contain';
+        p.style.backgroundPosition='center bottom';
+      });
+      sc.remove(parts.g);
+      parts.g.traverse(o=>{ if(o.geometry) o.geometry.dispose();
+        if(o.material){ (Array.isArray(o.material)?o.material:[o.material]).forEach(m=>m.dispose()); } });
+    }
+    rr.dispose();
+  }catch(e){ /* CSS sprite-cell fallback stays in place */ }
 })();
 document.getElementById('startOnline').addEventListener('click',()=>{
   document.getElementById('startOverlay').style.display='none';
