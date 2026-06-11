@@ -257,6 +257,103 @@ function beep(f,d,type='square',g=.08){
   }catch(e){}
 }
 
+/* ---- animal voices: each animal has bump / weapon-hit / win-mid-lose calls,
+   all synthesised (oscillators + filtered noise), no sound files ---- */
+let _noiseBuf=null;
+function noiseBuf(){
+  if(_noiseBuf) return _noiseBuf;
+  const len=Math.floor(AC.sampleRate*.5), b=AC.createBuffer(1,len,AC.sampleRate), d=b.getChannelData(0);
+  for(let i=0;i<len;i++) d[i]=Math.random()*2-1;
+  return _noiseBuf=b;
+}
+// one voiced note: pitch glide f0->f1, gain envelope, optional vibrato [rateHz,depthHz]
+function tone(t0,type,f0,f1,dur,vol,vib){
+  if(!AC||vol<=.0008) return;
+  const o=AC.createOscillator(), g=AC.createGain();
+  o.type=type; o.frequency.setValueAtTime(Math.max(1,f0),t0);
+  if(f1) o.frequency.exponentialRampToValueAtTime(Math.max(1,f1),t0+dur);
+  if(vib){ const lf=AC.createOscillator(), lg=AC.createGain();
+    lf.type='sine'; lf.frequency.value=vib[0]; lg.gain.value=vib[1];
+    lf.connect(lg); lg.connect(o.frequency); lf.start(t0); lf.stop(t0+dur+.03); }
+  g.gain.setValueAtTime(.0001,t0);
+  g.gain.exponentialRampToValueAtTime(vol,t0+.012);
+  g.gain.exponentialRampToValueAtTime(.0001,t0+dur);
+  o.connect(g); g.connect(AC.destination); o.start(t0); o.stop(t0+dur+.04);
+}
+// filtered noise burst (hiss / breath / bark transient)
+function nburst(t0,dur,vol,f,q,type='bandpass'){
+  if(!AC||vol<=.0008) return;
+  const s=AC.createBufferSource(); s.buffer=noiseBuf();
+  const bp=AC.createBiquadFilter(); bp.type=type; bp.frequency.value=f; bp.Q.value=q||1;
+  const g=AC.createGain();
+  g.gain.setValueAtTime(.0001,t0);
+  g.gain.exponentialRampToValueAtTime(vol,t0+.008);
+  g.gain.exponentialRampToValueAtTime(.0001,t0+dur);
+  s.connect(bp); bp.connect(g); g.connect(AC.destination); s.start(t0); s.stop(t0+dur+.04);
+}
+// render an animal's call for a given kind, scaled by vol
+function animalVoice(animal,kind,vol){
+  if(!AC) return;
+  const t=AC.currentTime, V=v=>v*vol;
+  const cluck=(tt,f,v,du)=>{ du=du||.06; tone(tt,'square',f,f*.8,du,V(v*.5)); tone(tt,'triangle',f*1.5,f*1.2,du,V(v*.22)); };
+  switch(animal){
+    case 'dog':{
+      const woof=(tt,f,v)=>{ nburst(tt,.05,V(v*.5),900,.8,'lowpass'); tone(tt,'square',f*1.6,f,.09,V(v*.5)); tone(tt,'sawtooth',f,f*.7,.1,V(v*.4)); };
+      if(kind==='bump') woof(t,200,.6);
+      else if(kind==='hit'){ tone(t,'sawtooth',500,1000,.06,V(.5)); tone(t+.06,'sawtooth',1000,260,.2,V(.5),[20,60]); nburst(t,.05,V(.12),1500,1); }
+      else if(kind==='win'){ woof(t,240,.6); woof(t+.16,285,.6); woof(t+.31,330,.6); }
+      else if(kind==='mid'){ woof(t,210,.6); woof(t+.19,220,.6); }
+      else { tone(t,'sine',520,300,.55,V(.4),[7,40]); tone(t,'triangle',260,170,.55,V(.18)); } // whimper
+      break; }
+    case 'sheep':{
+      const baa=(tt,f,v,du)=>{ tone(tt,'sawtooth',f,f*.85,du,V(v*.42),[11,f*.04]); tone(tt,'square',f*2,f*1.7,du,V(v*.1)); nburst(tt,du,V(v*.05),f*3,.7); };
+      if(kind==='bump') baa(t,360,.6,.16);
+      else if(kind==='hit'){ baa(t,470,.7,.32); nburst(t,.06,V(.1),1800,1); }
+      else if(kind==='win'){ baa(t,360,.6,.18); baa(t+.22,430,.6,.4); }
+      else if(kind==='mid') baa(t,360,.6,.34);
+      else baa(t,330,.55,.6); // long droop
+      break; }
+    case 'cat':{
+      const meow=(tt,f,v,du,up)=>{ const m=f*(up?1.5:1.18); tone(tt,'sawtooth',f,m,du*.4,V(v*.4),[7,18]); tone(tt+du*.4,'sawtooth',m,f*(up?1:.8),du*.6,V(v*.4),[7,18]); tone(tt,'triangle',f*2,f*1.6,du,V(v*.1)); };
+      if(kind==='bump') meow(t,520,.55,.18,true);
+      else if(kind==='hit'){ nburst(t,.18,V(.18),3500,.6,'highpass'); tone(t+.03,'sawtooth',700,1600,.2,V(.45),[30,120]); } // hiss+screech
+      else if(kind==='win'){ meow(t,560,.5,.22,true); meow(t+.26,690,.5,.3,true); }
+      else if(kind==='mid') meow(t,520,.5,.34,false);
+      else meow(t,450,.5,.55,false); // low sad mrrow
+      break; }
+    case 'frog':{
+      const croak=(tt,f,v,du)=>{ tone(tt,'sawtooth',f,f*.9,du,V(v*.5),[34,f*.5]); tone(tt,'square',f*.5,f*.45,du,V(v*.3)); };
+      if(kind==='bump') croak(t,150,.6,.1);
+      else if(kind==='hit'){ tone(t,'sawtooth',900,400,.18,V(.5),[40,140]); nburst(t,.05,V(.1),1500,1); } // squeak
+      else if(kind==='win'){ croak(t,150,.6,.09); croak(t+.13,175,.6,.09); croak(t+.26,205,.6,.11); }
+      else if(kind==='mid'){ croak(t,150,.6,.1); croak(t+.15,165,.6,.12); }
+      else { croak(t,140,.55,.18); croak(t+.22,112,.55,.26); }
+      break; }
+    default:{ // chicken
+      if(kind==='bump') cluck(t,720,.5);
+      else if(kind==='hit'){ cluck(t,760,.5); cluck(t+.09,820,.5); tone(t+.18,'sawtooth',700,1500,.22,V(.5),[28,120]); nburst(t+.18,.18,V(.12),2200,1.2); } // bok-bok-BAWK
+      else if(kind==='win'){ for(let i=0;i<5;i++) cluck(t+i*.11,640+i*95,.5); }
+      else if(kind==='mid'){ cluck(t,700,.5); cluck(t+.12,725,.5); }
+      else { cluck(t,640,.5,.1); cluck(t+.16,560,.5,.12); tone(t+.34,'square',520,360,.3,V(.3)); }
+    }
+  }
+}
+// play an animal's reaction, attenuated by distance to the player + a small cooldown
+function playAnimalSound(k,kind){
+  try{
+    AC = AC || new (window.AudioContext||window.webkitAudioContext)();
+    if(!k) return;
+    let vol=1;
+    if(!k.isPlayer && player){
+      const d=Math.hypot(k.pos.x-player.pos.x,k.pos.z-player.pos.z);
+      vol=1-d/55; if(vol<=.06) return;
+    }
+    const cd = kind==='bump'?.22 : kind==='hit'?.3 : 0;
+    if(cd){ k._sfx=k._sfx||{}; if(perf-(k._sfx[kind]||-9)<cd) return; k._sfx[kind]=perf; }
+    animalVoice(k.animal||'chicken',kind,vol);
+  }catch(e){}
+}
+
 /* ============================ TRACK ============================ */
 const ROAD_W = 16, HALF_W = ROAD_W/2, N = 260;
 const ctrl = [
@@ -1236,7 +1333,7 @@ function stepHazards(dt){
       if(h.type==='barrel' && d2<4.6){
         explode(h.m.position, 0xff7043, 22);
         explode(h.m.position, 0xffd54f, 10);
-        spinOut(k);
+        spinOut(k,false,'weapon');
         if(k.pos.distanceTo(player.pos)<28) shake=Math.max(shake,.5);
         beep(150,.3,'sawtooth',.12);
         dead=true; h.consumed=true; break;
@@ -1244,13 +1341,14 @@ function stepHazards(dt){
       if(h.type==='magnet' && d2<5.5 && k.shieldT<=0 && k.held<=0 && k.warping<=0){
         k.held=1.7; k.speed=0;
         explode(h.m.position, 0xf2c200, 10);
+        playAnimalSound(k,'hit');
         if(k.isPlayer){ showMsg('TRAPPED!'); shake=Math.max(shake,.4); }
         beep(300,.3,'triangle',.1);
         dead=true; h.consumed=true; break;
       }
       if(h.type==='mummy' && d2<6 && k.mummyCd<=0){
         k.mummyCd=1.2;
-        spinOut(k);
+        spinOut(k,false,'weapon');
         if(k.isPlayer) showMsg('CURSED!');
         beep(180,.4,'sawtooth',.1);
         // mummy keeps walking — it can curse everyone ahead
@@ -1429,6 +1527,7 @@ function stepObstacles(dt){
             if(cc>=0&&cc<8&&w.cols[cc].hp>0 && damageWallCol(w, cc, 1, false)) cracked=true;
           }
           explode(k.pos.clone().setY(1.2), 0xb5651d, 7);
+          playAnimalSound(k,'bump'); // the animal grunts as it rams the bricks
           if(k.isPlayer){
             shake=Math.max(shake,.45);
             showMsg(cracked? 'BARGED THROUGH!' : 'KNOCK!', 800);
@@ -1468,7 +1567,7 @@ function stepObstacles(dt){
       const dx=k.pos.x-f.m.position.x, dz=k.pos.z-f.m.position.z;
       if(dx*dx+dz*dz<5.5){
         k.farmerCd=1.5;
-        spinOut(k);
+        spinOut(k,false,'bump');
         if(k.isPlayer) showMsg('THE FARMER GOT YOU!');
         beep(200,.3,'sawtooth',.1);
       }
@@ -1514,11 +1613,14 @@ function releaseGrapple(k){
   if(k.tether){ scene.remove(k.tether); k.tether.geometry.dispose(); k.tether=null; }
   k.grappleTarget=null; k.grapple=0;
 }
-function spinOut(k, soft){
+function spinOut(k, soft, cause){
   if(k.shieldT>0||k.ram>0||k.warping>0) { beep(220,.15,'sawtooth'); return; }
   releaseGrapple(k);
   k.spin=1.5; k.spinAng=0; k.speed*= .15; k.boost=0; k.boostMul=1; k.fly=0;
   if(!soft) explode(k.pos, 0xffb340, 16);
+  // the animal yells: weapon → hurt scream, a shove → startled bump
+  if(cause==='weapon') playAnimalSound(k,'hit');
+  else if(cause==='bump') playAnimalSound(k,'bump');
   if(k.isPlayer){ beep(110,.4,'sawtooth',.12); shake=Math.max(shake,soft?.4:.7); }
   else if(!soft && k.pos.distanceTo(player.pos)<25) shake=Math.max(shake,.3);
 }
@@ -1613,7 +1715,7 @@ function usePower(k){
       const zids=[];
       ts.forEach(t=>{
         zapVisual(k.pos,t.pos);
-        if(t.remote) zids.push(t.netId); else spinOut(t);
+        if(t.remote) zids.push(t.netId); else spinOut(t,false,'weapon');
       });
       if(zids.length) NEVk(k,{a:'zap',ids:zids});
       if(k.isPlayer){ shake=Math.max(shake,.5); if(ts.length) showMsg('ZAP!'); }
@@ -2029,6 +2131,8 @@ function kartCollisions(){
       const nx=dx/d, nz=dz/d;
       a.pos.x+=nx*push; a.pos.z+=nz*push;
       b.pos.x-=nx*push; b.pos.z-=nz*push;
+      // a real knock (not gentle drafting) makes both animals yelp
+      if(Math.abs(a.speed)+Math.abs(b.speed)>22){ playAnimalSound(a,'bump'); playAnimalSound(b,'bump'); }
       if(a.ram>0 && b.ram<=0 && b.spin<=0){ b.remote? NEV({a:'ram',target:b.netId}) : spinOut(b); }
       else if(b.ram>0 && a.ram<=0 && a.spin<=0){ a.remote? NEV({a:'ram',target:a.netId}) : spinOut(a); }
     }
@@ -2116,7 +2220,7 @@ function stepProjectiles(dt){
           beep(220,.12,'sawtooth',.05);
           dead=true;
         } else {
-          spinOut(k);
+          spinOut(k,false,'weapon');
           explode(pr.m.position, 0xff7043, 10);
           dead=true;
         }
@@ -2136,6 +2240,10 @@ function endRace(){
   state='done';
   const order=raceOrder();
   const place=order.indexOf(player)+1;
+  // your animal reacts to the result: 1st (or your champion winning) = elated,
+  // mid-pack = content, dead last = sad
+  const champMine = order[0]&&order[0].champion&&(net? order[0].champion===net.id : order[0].champion==='you');
+  playAnimalSound(player, (place===1||champMine)?'win' : (place>=karts.length?'lose':'mid'));
   endRace._t=setTimeout(()=>{
     if(state==='placing') return; // the next round already started its build phase
     const winner=order[0];
@@ -2297,8 +2405,8 @@ function netEvent(m){
     (m.ids||[]).forEach(tid=>{
       const tv=tid===net.id? player : kartById(tid);
       if(tv) zapVisual(rk.pos,tv.pos);
-      if(tid===net.id&&player) spinOut(player);
-      else if(tv&&isLocalBot(tv)) spinOut(tv);
+      if(tid===net.id&&player) spinOut(player,false,'weapon');
+      else if(tv&&isLocalBot(tv)) spinOut(tv,false,'weapon');
     });
   }
   else if(m.a==='haz'&&rk){ dropHazard(rk, m.h, {x:m.x,z:m.z,rot:m.rot||0,id:m.hid}); }
@@ -2313,7 +2421,7 @@ function netEvent(m){
   }
   else if(m.a==='ram'){
     const tv=m.target===net.id? player : kartById(m.target);
-    if(tv&&(tv===player||isLocalBot(tv))) spinOut(tv);
+    if(tv&&(tv===player||isLocalBot(tv))) spinOut(tv,false,'bump');
   }
   else if(m.a==='wallhit'){
     const w=wallByOid(m.wid);

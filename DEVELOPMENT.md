@@ -12,7 +12,14 @@ Everything below is what you need to modify it safely.
 
 ## index.html — section map (in order, search for the `====` banners)
 1. **SETUP** — renderer, scene, fog, camera, `sun` + `hemi` lights. `onResize`.
-2. **AUDIO** — `beep(freq,dur,type,gain)` WebAudio square-wave SFX.
+2. **AUDIO** — `beep(freq,dur,type,gain)` WebAudio square-wave SFX. Plus animal voices:
+   `tone()`/`nburst()` primitives → `animalVoice(animal,kind,vol)` synthesises each animal's
+   call (chicken cluck, dog woof, sheep baa, cat meow, frog croak). `playAnimalSound(k,kind)`
+   picks `k.animal`, attenuates by distance to the player + a per-kind cooldown. `kind`:
+   `bump` (kart/wall/farmer shove — passed as `cause` to `spinOut` or called inline in
+   `kartCollisions`/wall-knock), `hit` (weapon: cannon/rocket/zap/barrel/mummy/magnet —
+   `spinOut(k,soft,'weapon')`), and result moods `win|mid|lose` (played in `endRace` by the
+   player's finishing place: 1st/champion-win = win, dead last = lose, else mid).
 3. **TRACK** — `ctrl[]` control points → closed CatmullRom `curve` → `N=260` arrays:
    `samples[i]` (Vector3 centerline), `tangents[i]`, `normals[i]` (LEFT of travel; for the
    loop's winding, +normal points INTO the loop). Helpers: `nearestIdx(p)`, `distToCenter(p,i)`,
