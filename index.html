@@ -940,7 +940,7 @@ function spawnKart(name, bodyColor, animal, gridIdx, isPlayer){
   parts.g.position.copy(s.p);
   parts.g.rotation.y=s.rot;
   return {
-    name, isPlayer, parts, gridIdx,
+    name, isPlayer, animal, parts, gridIdx,
     remote:false, netId:null, hookedT:0,
     netPos:null, netRot:0, netAlt:0, netSpeed:0, netFx:null, netTotal:null, netFin:false,
     pos:s.p.clone(), rot:s.rot, speed:0,
@@ -2407,9 +2407,9 @@ document.querySelectorAll('.obCard').forEach(card=>{
     placeSel=card.dataset.ob;
     document.querySelectorAll('.obCard').forEach(c=>c.classList.toggle('sel',c===card));
     if(placeSel==='kart'){
-      // a champion doesn't need a road spot — it joins the starting grid
-      const animals=['chicken','dog','sheep','cat','frog'];
-      sendPlacement({kind:'kart', animal:animals[Math.random()*5|0]});
+      // a champion doesn't need a road spot — it joins the starting grid as
+      // YOUR animal (just a different-coloured kart) so it's clearly your racer
+      sendPlacement({kind:'kart', animal:(player&&player.animal)||'chicken'});
     } else {
       $g('placeHint').textContent='Now click a spot on the road!';
     }
