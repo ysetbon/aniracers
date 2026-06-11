@@ -105,24 +105,44 @@
   }
   @media (pointer:coarse){ #touch{display:flex} }
 
-  /* ===================== INTERACTIVE HERO INTRO ===================== */
+  /* ===================== INTRO ===================== */
   #startOverlay{flex-direction:column;gap:14px}
-  #heroStage{position:relative;width:min(94vw,940px);aspect-ratio:3/2;flex:0 0 auto;
-    border-radius:18px;overflow:hidden;
-    box-shadow:0 26px 80px rgba(0,0,0,.65), 0 0 0 2px rgba(212,160,23,.55), inset 0 0 60px rgba(0,0,0,.25)}
-  #heroImg{position:absolute;inset:0;width:100%;height:100%;display:block;object-fit:cover}
-  #heroStage .hot{position:absolute;-webkit-appearance:none;appearance:none;background:transparent;
-    border:none;padding:0;cursor:pointer;border-radius:12px;
-    transition:box-shadow .12s ease,transform .1s ease,background .12s ease}
-  #heroStage .hot:hover{background:rgba(255,236,150,.16);
-    box-shadow:inset 0 0 0 3px rgba(255,228,130,.95), 0 0 20px rgba(255,205,80,.55)}
-  #heroStage .hot:active{transform:scale(.97)}
-  #heroStage .animBtn{width:auto;border:none}                 /* neutralize old chip styling */
-  #heroStage .animBtn.sel{background:rgba(255,210,80,.20);
-    box-shadow:inset 0 0 0 3px #ffd23f, 0 0 24px rgba(255,205,70,.75)}
-  #obsState{position:absolute;left:58.5%;top:95.6%;transform:translate(-50%,-50%);pointer-events:none;
-    font-weight:900;font-style:italic;letter-spacing:1px;font-size:clamp(8px,1.5vw,15px);
-    color:#ff6052;text-shadow:0 1px 2px rgba(0,0,0,.7)}
+  .introCard{width:min(96vw,840px);flex:0 0 auto;padding:26px 24px 28px;
+    background:linear-gradient(180deg,#3a2860 0%,#241845 46%,#2a1d18 78%,#3d2a12 100%);
+    border-radius:22px;border:2px solid rgba(212,160,23,.5);
+    box-shadow:0 26px 80px rgba(0,0,0,.65), inset 0 1px 0 rgba(255,220,140,.14)}
+  .introTitle{font-size:clamp(40px,9vw,74px);font-weight:900;font-style:italic;letter-spacing:3px;
+    margin:0;line-height:1;
+    background:linear-gradient(90deg,var(--red),#ff8a00,var(--yellow),var(--green),var(--blue),#a25bff);
+    -webkit-background-clip:text;background-clip:text;color:transparent;
+    filter:drop-shadow(0 4px 0 rgba(0,0,0,.4))}
+  .introSub{margin:4px 0 4px;font-size:13.5px;letter-spacing:1px;color:#f0dcb4;opacity:.9}
+  .pickLabel{font-size:12px;font-weight:800;letter-spacing:2px;color:#ffd23f;opacity:.85;
+    margin:18px 0 9px;text-transform:uppercase}
+  #animalPick{display:flex;gap:9px;justify-content:center;flex-wrap:wrap}
+  #animalPick .animBtn{width:92px;padding:9px 5px}
+  #animalPick .animBtn .face{font-size:38px;line-height:1.05;display:block;
+    filter:drop-shadow(0 3px 4px rgba(0,0,0,.5))}
+  #animalPick .animBtn b{font-size:11px;letter-spacing:.5px;margin-top:3px}
+  #animalPick .animBtn small{display:block;font-size:9.5px;opacity:.6;letter-spacing:.5px}
+  .worldGrid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
+  @media (max-width:560px){ .worldGrid{grid-template-columns:repeat(2,1fr)} }
+  .worldBtn{border:none;cursor:pointer;border-radius:14px;padding:15px 8px 12px;color:#fff;font:inherit;
+    font-weight:900;font-style:italic;letter-spacing:.5px;font-size:13px;text-shadow:0 2px 4px rgba(0,0,0,.55);
+    transition:transform .1s ease,box-shadow .1s ease;box-shadow:0 6px 0 rgba(0,0,0,.32),0 10px 22px rgba(0,0,0,.45)}
+  .worldBtn:hover{transform:translateY(-2px)}
+  .worldBtn:active{transform:translateY(4px);box-shadow:0 2px 0 rgba(0,0,0,.32)}
+  .worldBtn .em{font-size:30px;display:block;margin-bottom:6px;line-height:1}
+  .worldBtn.castle{background:linear-gradient(180deg,#46a85a,#2f7a3e)}
+  .worldBtn.beach{background:linear-gradient(180deg,#ff9d5c,#f2683a)}
+  .worldBtn.desert{background:linear-gradient(180deg,#e6b43c,#cf8f1e)}
+  .worldBtn.online{background:linear-gradient(180deg,#4aa3ff,#2f6fd6)}
+  .obsBar{display:flex;align-items:center;justify-content:center;gap:10px;margin-top:20px}
+  #obsToggle{appearance:none;-webkit-appearance:none;cursor:pointer;border:2px solid rgba(212,160,23,.5);
+    background:rgba(0,0,0,.3);color:#f0dcb4;font:inherit;font-weight:800;letter-spacing:1px;font-size:12px;
+    padding:8px 16px;border-radius:999px;transition:border-color .12s,background .12s}
+  #obsToggle:hover{border-color:#ffd23f;background:rgba(0,0,0,.45)}
+  #obsState{font-weight:900;font-style:italic;letter-spacing:1px;color:#ff6052}
   #obsState.on{color:#39d65f}
   /* detail panel */
   #introExtra{width:min(94vw,660px);flex:0 0 auto}
@@ -136,8 +156,6 @@
   details.howto .inner{padding:4px 18px 14px}
   details.howto .inner p{margin:10px 0}
   .introHint{font-size:12.5px;opacity:.8;color:#f0dcb4;margin:0}
-  /* debug helper (toggle by adding class "dbg" to #heroStage) */
-  #heroStage.dbg .hot{background:rgba(255,0,80,.28);box-shadow:inset 0 0 0 1px #0f0}
 </style>
 </head>
 <body>
@@ -174,36 +192,41 @@
 </div>
 
 <div class="overlay" id="startOverlay">
-  <div id="heroStage">
-    <img id="heroImg" src="assets/aniracers-intro-hero.png"
-      alt="AniRacers — pick a racer and a world">
-    <!-- racer pickers (one transparent hotspot over each kart) -->
+  <div class="introCard">
+    <h1 class="introTitle">ANIRACERS</h1>
+    <p class="introSub">Barnyard kart mayhem &middot; 3 laps &middot; wild power-ups</p>
+
+    <div class="pickLabel">1 &middot; Pick your racer</div>
     <div id="animalPick">
-      <button class="hot animBtn sel" data-animal="chicken" title="Race as the CHICKEN"
-        style="left:26.8%;top:21%;width:13.5%;height:26%"></button>
-      <button class="hot animBtn" data-animal="dog" title="Race as REX the dog"
-        style="left:40.8%;top:22%;width:13.5%;height:26%"></button>
-      <button class="hot animBtn" data-animal="sheep" title="Race as WOOLY the sheep"
-        style="left:53%;top:19%;width:13.5%;height:26%"></button>
-      <button class="hot animBtn" data-animal="cat" title="Race as WHISKERS the cat"
-        style="left:63.3%;top:22%;width:13.5%;height:26%"></button>
-      <button class="hot animBtn" data-animal="frog" title="Race as HOPPER the frog"
-        style="left:74.3%;top:22%;width:13.5%;height:26%"></button>
+      <button class="animBtn sel" data-animal="chicken" title="Race as the CHICKEN">
+        <span class="face">&#128020;</span><b>CHICKEN</b><small>you</small></button>
+      <button class="animBtn" data-animal="dog" title="Race as REX">
+        <span class="face">&#128021;</span><b>REX</b><small>dog</small></button>
+      <button class="animBtn" data-animal="sheep" title="Race as WOOLY">
+        <span class="face">&#128017;</span><b>WOOLY</b><small>sheep</small></button>
+      <button class="animBtn" data-animal="cat" title="Race as WHISKERS">
+        <span class="face">&#128008;</span><b>WHISKERS</b><small>cat</small></button>
+      <button class="animBtn" data-animal="frog" title="Race as HOPPER">
+        <span class="face">&#128056;</span><b>HOPPER</b><small>frog</small></button>
     </div>
-    <!-- world selectors -->
-    <button class="hot" id="startCastle" title="Castle Valley"
-      style="left:12.8%;top:75.5%;width:18.2%;height:16%"></button>
-    <button class="hot" id="startBeach" title="Sunset Beach"
-      style="left:33.5%;top:75.5%;width:18.2%;height:16%"></button>
-    <button class="hot" id="startDesert" title="Desert Dragway"
-      style="left:54%;top:75.5%;width:18.2%;height:16%"></button>
-    <button class="hot" id="startOnline" title="Play Online"
-      style="left:74.6%;top:75.5%;width:18.2%;height:16%"></button>
-    <!-- obstacle-course toggle -->
-    <button class="hot" id="obsToggle" title="Toggle Obstacle Course"
-      style="left:37%;top:92.6%;width:26%;height:6.2%"></button>
-    <span id="obsState">OFF</span>
-    <input type="checkbox" id="obsChk" hidden>
+
+    <div class="pickLabel">2 &middot; Choose a world</div>
+    <div class="worldGrid">
+      <button class="worldBtn castle" id="startCastle" title="Castle Valley">
+        <span class="em">&#127984;</span>CASTLE VALLEY</button>
+      <button class="worldBtn beach" id="startBeach" title="Sunset Beach">
+        <span class="em">&#127958;&#65039;</span>SUNSET BEACH</button>
+      <button class="worldBtn desert" id="startDesert" title="Desert Dragway">
+        <span class="em">&#127964;&#65039;</span>DESERT DRAGWAY</button>
+      <button class="worldBtn online" id="startOnline" title="Play Online">
+        <span class="em">&#127760;</span>PLAY ONLINE</button>
+    </div>
+
+    <div class="obsBar">
+      <button id="obsToggle" title="Toggle Obstacle Course">&#129521; OBSTACLE COURSE</button>
+      <span id="obsState">OFF</span>
+      <input type="checkbox" id="obsChk" hidden>
+    </div>
   </div>
 
   <div id="introExtra">
@@ -2661,8 +2684,6 @@ function kartCollisions(){
       const nx=dx/d, nz=dz/d;
       a.pos.x+=nx*push; a.pos.z+=nz*push;
       b.pos.x-=nx*push; b.pos.z-=nz*push;
-      // a real knock (not gentle drafting) makes both animals yelp
-      if(Math.abs(a.speed)+Math.abs(b.speed)>22){ playAnimalSound(a,'bump'); playAnimalSound(b,'bump'); }
       if(a.ram>0 && b.ram<=0 && b.spin<=0){ b.remote? NEV({a:'ram',target:b.netId}) : spinOut(b); }
       else if(b.ram>0 && a.ram<=0 && a.spin<=0){ a.remote? NEV({a:'ram',target:a.netId}) : spinOut(a); }
     }
