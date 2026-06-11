@@ -70,6 +70,13 @@
   .obCard .em{font-size:30px}
   .obCard b{display:block;font-size:13px;margin:4px 0 2px}
   .obCard span{font-size:10.5px;opacity:.8;line-height:1.3;display:block}
+  .animBtn{width:74px;padding:7px 4px;border-radius:11px;background:var(--panel);
+    border:2px solid rgba(255,255,255,.18);cursor:pointer;color:#fff;font:inherit;
+    text-align:center;transition:transform .1s,border-color .1s,box-shadow .1s}
+  .animBtn:hover{transform:translateY(-2px)}
+  .animBtn.sel{border-color:#ffd33d;box-shadow:0 0 14px rgba(255,211,61,.5);background:rgba(255,211,61,.14)}
+  .animBtn .em{display:block;font-size:26px;line-height:1.1}
+  .animBtn b{display:block;font-size:11px;margin-top:2px;letter-spacing:.5px}
   /* small screens: shrink the cards and let the box scroll sideways */
   @media (max-width:640px), (max-height:480px){
     #placeTitle{font-size:18px}
@@ -120,7 +127,7 @@
   <div class="card">
     <h1>ANIRACERS</h1>
     <p>You race as the <b>CHICKEN</b> &#128020; &mdash; against <b>REX</b> the dog &#128021;, <b>WOOLY</b> the sheep &#128017;, <b>WHISKERS</b> the cat &#128008; and <b>HOPPER</b> the frog &#128056;.</p>
-    <p>Grab a colored cube for a power. Each <b>white cube</b> upgrades it (max 3). Using the power spends everything! Race through a <b>castle valley</b> &mdash; or along a <b>sunset beach promenade</b> with palms, cliffs and the sea.</p>
+    <p>Grab a colored cube for a power. Each <b>white cube</b> upgrades it (max 3). Using the power spends everything! Race through a <b>castle valley</b>, a <b>sunset beach promenade</b>, or the <b>Desert Adventure Dragway</b> with sphinx, tomb and oasis.</p>
     <table class="pw">
       <tr><th></th><th>Basic</th><th>+1 White</th><th>+2 Whites</th><th>+3 Whites</th></tr>
       <tr><td><span class="sq" style="background:var(--red)"></span><b>Red</b></td>
@@ -138,11 +145,21 @@
       <input type="checkbox" id="obsChk" style="transform:scale(1.3);margin-right:7px;vertical-align:middle">
       &#129521; <b>OBSTACLE COURSE</b> &mdash; before every race (even the first!) you and your
       rivals each place an obstacle on the road: walls, oil, an angry farmer or a champion kart!</label></p>
+    <p style="margin-top:10px"><b>Choose your racer</b> <span style="opacity:.7;font-size:12px">(offline &mdash; rivals take the rest)</span>:</p>
+    <div id="animalPick" style="display:flex;gap:8px;justify-content:center;flex-wrap:wrap">
+      <button class="animBtn sel" data-animal="chicken"><span class="em">&#128020;</span><b>CHICKEN</b></button>
+      <button class="animBtn" data-animal="dog"><span class="em">&#128021;</span><b>DOG</b></button>
+      <button class="animBtn" data-animal="sheep"><span class="em">&#128017;</span><b>SHEEP</b></button>
+      <button class="animBtn" data-animal="cat"><span class="em">&#128008;</span><b>CAT</b></button>
+      <button class="animBtn" data-animal="frog"><span class="em">&#128056;</span><b>FROG</b></button>
+    </div>
     <p style="margin-top:10px"><b>Choose your world:</b></p>
     <div style="display:flex;gap:10px;justify-content:center;flex-wrap:wrap">
       <button class="go" id="startCastle" style="font-size:17px;padding:11px 18px;margin-top:6px">&#127984; CASTLE VALLEY</button>
       <button class="go" id="startBeach" style="font-size:17px;padding:11px 18px;margin-top:6px;
         background:linear-gradient(180deg,#ffb27d,#ff7e5f);box-shadow:0 5px 0 #b34d31,0 10px 20px rgba(0,0,0,.5)">&#127796; SUNSET BEACH</button>
+      <button class="go" id="startDesert" style="font-size:17px;padding:11px 18px;margin-top:6px;
+        background:linear-gradient(180deg,#f0c060,#c8862a);box-shadow:0 5px 0 #8b5a18,0 10px 20px rgba(0,0,0,.5)">&#127947;&#65039; DESERT DRAGWAY</button>
       <button class="go" id="startOnline" style="font-size:17px;padding:11px 18px;margin-top:6px;
         background:linear-gradient(180deg,#b388ff,#7c4dff);box-shadow:0 5px 0 #4527a0,0 10px 20px rgba(0,0,0,.5)">&#127760; PLAY ONLINE</button>
     </div>
@@ -192,6 +209,8 @@
         <button class="go" id="netCastle" style="font-size:15px;padding:9px 14px">&#127984; START: CASTLE</button>
         <button class="go" id="netBeach" style="font-size:15px;padding:9px 14px;
           background:linear-gradient(180deg,#ffb27d,#ff7e5f);box-shadow:0 5px 0 #b34d31">&#127796; START: BEACH</button>
+        <button class="go" id="netDesert" style="font-size:15px;padding:9px 14px;
+          background:linear-gradient(180deg,#f0c060,#c8862a);box-shadow:0 5px 0 #8b5a18">&#127947;&#65039; START: DESERT</button>
       </div>
       <p id="waitMsg" style="opacity:.8">Waiting for the host to start the race...</p>
     </div>
@@ -257,84 +276,124 @@ function beep(f,d,type='square',g=.08){
   }catch(e){}
 }
 
-/* ---- animal voices: each animal has bump / weapon-hit / win-mid-lose calls,
-   all synthesised (oscillators + filtered noise), no sound files ---- */
+/* ---- animal voices: formant-synth calls (no sound files). A glottal source
+   (saw/triangle) is shaped by vowel formant band-passes + a lowpass, with an
+   amp envelope and optional bleat/buzz tremolo — far warmer than raw oscillators.
+   Each animal has bump (startled), hit (hurt scream) and win/mid/lose calls. ---- */
 let _noiseBuf=null;
 function noiseBuf(){
   if(_noiseBuf) return _noiseBuf;
-  const len=Math.floor(AC.sampleRate*.5), b=AC.createBuffer(1,len,AC.sampleRate), d=b.getChannelData(0);
+  const len=Math.floor(AC.sampleRate*.6), b=AC.createBuffer(1,len,AC.sampleRate), d=b.getChannelData(0);
   for(let i=0;i<len;i++) d[i]=Math.random()*2-1;
   return _noiseBuf=b;
 }
-// one voiced note: pitch glide f0->f1, gain envelope, optional vibrato [rateHz,depthHz]
-function tone(t0,type,f0,f1,dur,vol,vib){
-  if(!AC||vol<=.0008) return;
-  const o=AC.createOscillator(), g=AC.createGain();
-  o.type=type; o.frequency.setValueAtTime(Math.max(1,f0),t0);
-  if(f1) o.frequency.exponentialRampToValueAtTime(Math.max(1,f1),t0+dur);
-  if(vib){ const lf=AC.createOscillator(), lg=AC.createGain();
-    lf.type='sine'; lf.frequency.value=vib[0]; lg.gain.value=vib[1];
-    lf.connect(lg); lg.connect(o.frequency); lf.start(t0); lf.stop(t0+dur+.03); }
-  g.gain.setValueAtTime(.0001,t0);
-  g.gain.exponentialRampToValueAtTime(vol,t0+.012);
-  g.gain.exponentialRampToValueAtTime(.0001,t0+dur);
-  o.connect(g); g.connect(AC.destination); o.start(t0); o.stop(t0+dur+.04);
+// a voiced call. p={f0,f1,dur,vol, type, forms:[[freq,Q,gain,(freqEnd)]...],
+//   lp, trem:[rateHz,depth], vib:[rateHz,depthHz], dry, atk, rel}
+function voice(t0,p){
+  if(!AC||p.vol<=.0006) return;
+  const dur=p.dur, end=t0+dur;
+  const src=AC.createOscillator(); src.type=p.type||'sawtooth';
+  src.frequency.setValueAtTime(Math.max(20,p.f0),t0);
+  if(p.f1) src.frequency.linearRampToValueAtTime(Math.max(20,p.f1),end);
+  if(p.vib){ const lf=AC.createOscillator(), lg=AC.createGain();
+    lf.frequency.value=p.vib[0]; lg.gain.value=p.vib[1];
+    lf.connect(lg); lg.connect(src.frequency); lf.start(t0); lf.stop(end+.03); }
+  const fsum=AC.createGain(); fsum.gain.value=1;
+  for(const f of (p.forms||[[700,6,1]])){
+    const bp=AC.createBiquadFilter(); bp.type='bandpass';
+    bp.frequency.setValueAtTime(f[0],t0);
+    if(f[3]) bp.frequency.linearRampToValueAtTime(f[3],end); // gliding formant (meow diphthong)
+    bp.Q.value=f[1];
+    const fg=AC.createGain(); fg.gain.value=f[2];
+    src.connect(bp); bp.connect(fg); fg.connect(fsum);
+  }
+  const dry=AC.createGain(); dry.gain.value=p.dry==null?.2:p.dry; src.connect(dry); dry.connect(fsum);
+  const lp=AC.createBiquadFilter(); lp.type='lowpass'; lp.frequency.value=p.lp||3200; lp.Q.value=.6;
+  fsum.connect(lp);
+  const amp=AC.createGain();
+  const atk=p.atk||.015, rel=Math.min(p.rel||dur*.45,dur*.85);
+  amp.gain.setValueAtTime(.0001,t0);
+  amp.gain.linearRampToValueAtTime(p.vol,t0+atk);
+  amp.gain.setValueAtTime(p.vol,Math.max(t0+atk,end-rel));
+  amp.gain.exponentialRampToValueAtTime(.0001,end);
+  if(p.trem){ const lf=AC.createOscillator(), lg=AC.createGain();
+    lf.frequency.value=p.trem[0]; lg.gain.value=p.vol*p.trem[1]*.5;
+    lf.connect(lg); lg.connect(amp.gain); lf.start(t0); lf.stop(end+.03); }
+  lp.connect(amp); amp.connect(AC.destination);
+  src.start(t0); src.stop(end+.05);
 }
-// filtered noise burst (hiss / breath / bark transient)
+// filtered noise burst (bark transient, hiss, squawk breath)
 function nburst(t0,dur,vol,f,q,type='bandpass'){
-  if(!AC||vol<=.0008) return;
+  if(!AC||vol<=.0006) return;
   const s=AC.createBufferSource(); s.buffer=noiseBuf();
   const bp=AC.createBiquadFilter(); bp.type=type; bp.frequency.value=f; bp.Q.value=q||1;
   const g=AC.createGain();
   g.gain.setValueAtTime(.0001,t0);
-  g.gain.exponentialRampToValueAtTime(vol,t0+.008);
+  g.gain.exponentialRampToValueAtTime(vol,t0+.006);
   g.gain.exponentialRampToValueAtTime(.0001,t0+dur);
   s.connect(bp); bp.connect(g); g.connect(AC.destination); s.start(t0); s.stop(t0+dur+.04);
 }
-// render an animal's call for a given kind, scaled by vol
 function animalVoice(animal,kind,vol){
   if(!AC) return;
-  const t=AC.currentTime, V=v=>v*vol;
-  const cluck=(tt,f,v,du)=>{ du=du||.06; tone(tt,'square',f,f*.8,du,V(v*.5)); tone(tt,'triangle',f*1.5,f*1.2,du,V(v*.22)); };
+  const t=AC.currentTime, V=x=>vol*x;
   switch(animal){
     case 'dog':{
-      const woof=(tt,f,v)=>{ nburst(tt,.05,V(v*.5),900,.8,'lowpass'); tone(tt,'square',f*1.6,f,.09,V(v*.5)); tone(tt,'sawtooth',f,f*.7,.1,V(v*.4)); };
-      if(kind==='bump') woof(t,200,.6);
-      else if(kind==='hit'){ tone(t,'sawtooth',500,1000,.06,V(.5)); tone(t+.06,'sawtooth',1000,260,.2,V(.5),[20,60]); nburst(t,.05,V(.12),1500,1); }
-      else if(kind==='win'){ woof(t,240,.6); woof(t+.16,285,.6); woof(t+.31,330,.6); }
-      else if(kind==='mid'){ woof(t,210,.6); woof(t+.19,220,.6); }
-      else { tone(t,'sine',520,300,.55,V(.4),[7,40]); tone(t,'triangle',260,170,.55,V(.18)); } // whimper
+      // "woof": short 'o' vowel + a noise transient on the bark onset
+      const woof=(tt,f0,v)=>{ nburst(tt,.045,V(v*.45),1300,.9,'lowpass');
+        voice(tt,{f0:f0*1.35,f1:f0*.82,dur:.17,vol:V(v),forms:[[500,6,1],[1000,7,.5]],lp:1900,atk:.004,rel:.11,dry:.35}); };
+      if(kind==='bump') woof(t,235,.5);
+      else if(kind==='hit'){ // yelp: quick up then a long falling cry
+        voice(t,{f0:460,f1:1150,dur:.07,vol:V(.5),forms:[[900,6,1],[1900,8,.4]],lp:3000,atk:.003});
+        voice(t+.07,{f0:1150,f1:300,dur:.24,vol:V(.5),forms:[[850,6,1]],lp:2600,vib:[18,40]});
+        nburst(t,.04,V(.18),1700,1); }
+      else if(kind==='win'){ woof(t,250,.5); woof(t+.16,295,.5); woof(t+.32,340,.5); }
+      else if(kind==='mid'){ woof(t,230,.5); woof(t+.2,240,.5); }
+      else voice(t,{f0:540,f1:300,dur:.55,vol:V(.42),type:'triangle',forms:[[700,5,1]],lp:2200,vib:[7,28]}); // whimper
       break; }
     case 'sheep':{
-      const baa=(tt,f,v,du)=>{ tone(tt,'sawtooth',f,f*.85,du,V(v*.42),[11,f*.04]); tone(tt,'square',f*2,f*1.7,du,V(v*.1)); nburst(tt,du,V(v*.05),f*3,.7); };
-      if(kind==='bump') baa(t,360,.6,.16);
-      else if(kind==='hit'){ baa(t,470,.7,.32); nburst(t,.06,V(.1),1800,1); }
-      else if(kind==='win'){ baa(t,360,.6,.18); baa(t+.22,430,.6,.4); }
-      else if(kind==='mid') baa(t,360,.6,.34);
-      else baa(t,330,.55,.6); // long droop
+      // "baaa": open 'a' vowel with a fast bleat tremolo
+      const F=[[820,7,1],[1150,9,.55],[2600,10,.14]];
+      const baa=(tt,f0,f1,v,du,tr)=>voice(tt,{f0,f1,dur:du,vol:V(v),forms:F,lp:3000,trem:[tr||18,.6],atk:.02,dry:.15});
+      if(kind==='bump') baa(t,345,330,.5,.18,20);
+      else if(kind==='hit'){ baa(t,500,440,.6,.4,24); nburst(t,.05,V(.08),2000,1); } // startled BAA
+      else if(kind==='win'){ baa(t,345,385,.5,.2,16); baa(t+.24,410,450,.5,.42,15); }
+      else if(kind==='mid') baa(t,335,305,.5,.5,18);
+      else baa(t,330,235,.46,.72,13); // long sad droop
       break; }
     case 'cat':{
-      const meow=(tt,f,v,du,up)=>{ const m=f*(up?1.5:1.18); tone(tt,'sawtooth',f,m,du*.4,V(v*.4),[7,18]); tone(tt+du*.4,'sawtooth',m,f*(up?1:.8),du*.6,V(v*.4),[7,18]); tone(tt,'triangle',f*2,f*1.6,du,V(v*.1)); };
-      if(kind==='bump') meow(t,520,.55,.18,true);
-      else if(kind==='hit'){ nburst(t,.18,V(.18),3500,.6,'highpass'); tone(t+.03,'sawtooth',700,1600,.2,V(.45),[30,120]); } // hiss+screech
-      else if(kind==='win'){ meow(t,560,.5,.22,true); meow(t+.26,690,.5,.3,true); }
-      else if(kind==='mid') meow(t,520,.5,.34,false);
-      else meow(t,450,.5,.55,false); // low sad mrrow
+      // "meow": pitch rises then falls; F2 glides down (ee->ow diphthong)
+      const meow=(tt,base,v,du,up)=>{
+        const a=du*.38, hi=base*(up?1.28:1.16);
+        voice(tt,{f0:base,f1:hi,dur:a,vol:V(v),forms:[[700,5,1,640],[2050,7,.5,1500]],lp:3200,atk:.012,rel:a*.4,dry:.18});
+        voice(tt+a,{f0:hi,f1:base*(up?1.02:.82),dur:du-a,vol:V(v),forms:[[640,5,1,600],[1500,7,.5,950]],lp:3000,vib:[6,10],dry:.18}); };
+      if(kind==='bump') meow(t,560,.5,.22,true);
+      else if(kind==='hit'){ // hiss + screech
+        nburst(t,.17,V(.22),3200,.5,'highpass');
+        voice(t+.02,{f0:720,f1:1500,dur:.24,vol:V(.5),forms:[[1100,5,1],[2700,7,.5]],lp:4200,vib:[30,70]}); }
+      else if(kind==='win'){ meow(t,600,.46,.24,true); meow(t+.28,720,.46,.32,true); }
+      else if(kind==='mid') meow(t,560,.46,.4,false);
+      else meow(t,460,.46,.6,false); // low sad mrrow
       break; }
     case 'frog':{
-      const croak=(tt,f,v,du)=>{ tone(tt,'sawtooth',f,f*.9,du,V(v*.5),[34,f*.5]); tone(tt,'square',f*.5,f*.45,du,V(v*.3)); };
-      if(kind==='bump') croak(t,150,.6,.1);
-      else if(kind==='hit'){ tone(t,'sawtooth',900,400,.18,V(.5),[40,140]); nburst(t,.05,V(.1),1500,1); } // squeak
-      else if(kind==='win'){ croak(t,150,.6,.09); croak(t+.13,175,.6,.09); croak(t+.26,205,.6,.11); }
-      else if(kind==='mid'){ croak(t,150,.6,.1); croak(t+.15,165,.6,.12); }
-      else { croak(t,140,.55,.18); croak(t+.22,112,.55,.26); }
+      // "croak": low buzzy pulse — heavy fast tremolo makes the rrrribbit rasp
+      const croak=(tt,f0,v,du)=>voice(tt,{f0,f1:f0*.92,dur:du,vol:V(v),forms:[[480,4,1],[920,5,.4]],lp:1400,trem:[34,.9],dry:.45,atk:.006});
+      if(kind==='bump') croak(t,155,.55,.12);
+      else if(kind==='hit'){ // distressed squeak
+        voice(t,{f0:880,f1:360,dur:.2,vol:V(.5),forms:[[1100,6,1],[2200,8,.3]],lp:3200,vib:[35,90]});
+        nburst(t,.04,V(.12),1600,1); }
+      else if(kind==='win'){ croak(t,150,.55,.1); croak(t+.13,180,.55,.1); croak(t+.27,215,.55,.13); }
+      else if(kind==='mid'){ croak(t,152,.55,.12); croak(t+.16,172,.55,.13); }
+      else { croak(t,142,.5,.2); croak(t+.24,110,.5,.3); }
       break; }
-    default:{ // chicken
-      if(kind==='bump') cluck(t,720,.5);
-      else if(kind==='hit'){ cluck(t,760,.5); cluck(t+.09,820,.5); tone(t+.18,'sawtooth',700,1500,.22,V(.5),[28,120]); nburst(t+.18,.18,V(.12),2200,1.2); } // bok-bok-BAWK
-      else if(kind==='win'){ for(let i=0;i<5;i++) cluck(t+i*.11,640+i*95,.5); }
-      else if(kind==='mid'){ cluck(t,700,.5); cluck(t+.12,725,.5); }
-      else { cluck(t,640,.5,.1); cluck(t+.16,560,.5,.12); tone(t+.34,'square',520,360,.3,V(.3)); }
+    default:{ // chicken — percussive clucks + a bright "BAWK" squawk
+      const cluck=(tt,f0,v)=>{ voice(tt,{f0,f1:f0*.62,dur:.09,vol:V(v),forms:[[1100,7,1],[2300,9,.3]],lp:3600,atk:.004,rel:.07,dry:.3}); nburst(tt,.018,V(v*.18),2600,1); };
+      if(kind==='bump') cluck(t,840,.55);
+      else if(kind==='hit'){ cluck(t,780,.55); cluck(t+.1,860,.55);
+        voice(t+.2,{f0:650,f1:1500,dur:.26,vol:V(.55),forms:[[1450,6,1],[2900,8,.4]],lp:4400,vib:[26,110]});
+        nburst(t+.2,.17,V(.2),2700,1.1); } // bok-bok-BAWK
+      else if(kind==='win'){ for(let i=0;i<5;i++) cluck(t+i*.1,640+i*72,.55); }
+      else if(kind==='mid'){ cluck(t,720,.55); cluck(t+.12,745,.55); }
+      else { cluck(t,650,.5); cluck(t+.16,560,.5); voice(t+.34,{f0:520,f1:340,dur:.32,vol:V(.34),forms:[[950,6,1]],lp:2600}); }
     }
   }
 }
@@ -346,9 +405,11 @@ function playAnimalSound(k,kind){
     let vol=1;
     if(!k.isPlayer && player){
       const d=Math.hypot(k.pos.x-player.pos.x,k.pos.z-player.pos.z);
-      vol=1-d/55; if(vol<=.06) return;
+      // hits & results carry farther so you clearly hear who you just clobbered
+      const far = kind==='bump'? 60 : 105;
+      vol=1-d/far; if(vol<=.06) return;
     }
-    const cd = kind==='bump'?.22 : kind==='hit'?.3 : 0;
+    const cd = kind==='bump'?.22 : kind==='hit'?.28 : 0;
     if(cd){ k._sfx=k._sfx||{}; if(perf-(k._sfx[kind]||-9)<cd) return; k._sfx[kind]=perf; }
     animalVoice(k.animal||'chicken',kind,vol);
   }catch(e){}
@@ -357,8 +418,8 @@ function playAnimalSound(k,kind){
 /* ============================ TRACK ============================ */
 const ROAD_W = 16, HALF_W = ROAD_W/2, N = 260;
 const ctrl = [
-  [0,-78],[55,-80],[98,-50],[105,0],[80,42],[95,85],[60,112],[5,100],
-  [-40,115],[-90,88],[-105,38],[-78,5],[-100,-35],[-72,-72],[-30,-60]
+  [0,-88],[50,-90],[100,-72],[108,-28],[88,18],[52,58],[0,72],
+  [-52,58],[-95,22],[-108,-28],[-88,-68],[-42,-86]
 ].map(p=>new THREE.Vector3(p[0],0,p[1]));
 const curve = new THREE.CatmullRomCurve3(ctrl, true, 'catmullrom', .5);
 
@@ -484,7 +545,8 @@ function addFlag(parent,x,y,z,color){
   animFlags.push({m:f,phase:Math.random()*6,baseY:f.position.y});
 }
 
-const CASTLE_T=.52, TUNNEL_T=.18;
+const CASTLE_T=.72, TUNNEL_T=.12;
+const SPHINX_T=.22, TOMB_T=.28, OASIS_T=.48;
 function buildCastleWorld(){
 /* ---- CASTLE GATE: the road runs straight through it ---- */
 {
@@ -603,7 +665,8 @@ function buildCastleWorld(){
   const flagCols=[0xe3342f,0x2fb344,0x2f6fe3,0xf2c200];
   for(let i=13;i<N;i+=26){
     const tHere=i/N;
-    if(Math.abs(tHere-CASTLE_T)<.05||Math.abs(tHere-TUNNEL_T)<.07) continue;
+    if(Math.abs(tHere-CASTLE_T)<.05||Math.abs(tHere-TUNNEL_T)<.07
+      ||Math.abs(tHere-SPHINX_T)<.05||Math.abs(tHere-TOMB_T)<.05||Math.abs(tHere-OASIS_T)<.05) continue;
     const s=(i%52<26)?1:-1;
     const grp=new THREE.Group();
     grp.position.copy(samples[i]);
@@ -661,7 +724,7 @@ function buildBeachWorld(){
   scene.remove(groundMesh);
 
   // bridge zone: a lagoon inlet cuts under the promenade here
-  const BR0=144, BR1=156;
+  const BR0=140, BR1=152;
 
   // strip following the track between two lateral offsets/heights.
   // normals point INTO the loop: positive offsets = park side, negative = sea side.
@@ -859,9 +922,219 @@ function buildBeachWorld(){
   }
 }
 
+/* ============================ DESERT ADVENTURE DRAGWAY ============================ */
+// Inspired by LEGO Racers (1999) — sphinx shortcut, pharaoh tomb tunnel, oasis curve.
+function buildDesertWorld(){
+  FOG0.color=0xf2c878; FOG0.near=130; FOG0.far=440;
+  scene.background.setHex(FOG0.color);
+  scene.fog.color.setHex(FOG0.color); scene.fog.near=FOG0.near; scene.fog.far=FOG0.far;
+  sun.position.set(120,62,-40);
+  sun.color.setHex(0xffe0a8); sun.intensity=1.15;
+  hemi.color.setHex(0xf8dca0); hemi.groundColor.setHex(0xc49a4a);
+
+  roadMesh.material.color.setHex(0x9a8870);
+  groundMesh.material.color.setHex(0xd4a855);
+
+  const sandM=new THREE.MeshLambertMaterial({color:0xd4a855});
+  const sandDk=new THREE.MeshLambertMaterial({color:0xc99845});
+  const stoneSand=new THREE.MeshLambertMaterial({color:0xc4a574});
+  const stoneDkSand=new THREE.MeshLambertMaterial({color:0x9a8460});
+  const hieroM=new THREE.MeshBasicMaterial({color:0x3d2914});
+  const goldM=new THREE.MeshLambertMaterial({color:0xd4a017});
+  const waterM=new THREE.MeshLambertMaterial({color:0x4a9ec8,transparent:true,opacity:.82});
+
+  function ringStrip(off1,y1,off2,y2,color,opacity,i0,i1){
+    if(i0===undefined){i0=0;i1=N;}
+    const pos=[],idx=[],count=i1-i0;
+    for(let k=0;k<=count;k++){
+      const j=((i0+k)%N+N)%N,p=samples[j],n=normals[j];
+      pos.push(p.x+n.x*off1,y1,p.z+n.z*off1, p.x+n.x*off2,y2,p.z+n.z*off2);
+    }
+    for(let k=0;k<count;k++){
+      const a=k*2; idx.push(a,a+1,a+2, a+1,a+3,a+2);
+    }
+    const g=new THREE.BufferGeometry();
+    g.setAttribute('position',new THREE.Float32BufferAttribute(pos,3));
+    g.setIndex(idx); g.computeVertexNormals();
+    const mat=new THREE.MeshLambertMaterial({color,side:THREE.DoubleSide});
+    if(opacity!==undefined&&opacity!==null){mat.transparent=true;mat.opacity=opacity;}
+    const m=new THREE.Mesh(g,mat); m.receiveShadow=true; scene.add(m);
+  }
+  function insideTrack(p){
+    let c=false;
+    for(let i=0,j=N-1;i<N;j=i++){
+      const a=samples[i],b=samples[j];
+      if((a.z>p.z)!==(b.z>p.z) && p.x < (b.x-a.x)*(p.z-a.z)/(b.z-a.z)+a.x) c=!c;
+    }
+    return c;
+  }
+  function palm(x,z,s){
+    const g=new THREE.Group(); g.position.set(x,0,z);
+    g.rotation.y=Math.random()*6; scene.add(g);
+    const trunkM=new THREE.MeshLambertMaterial({color:0x9a7244});
+    let ty=0;
+    for(let seg=0;seg<3;seg++){
+      const t=new THREE.Mesh(new THREE.BoxGeometry(.55*s,2.1*s,.55*s),trunkM);
+      t.position.set(seg*.22*s, ty+1.05*s, 0); t.castShadow=true; g.add(t);
+      ty+=2.0*s;
+    }
+    const leafM=new THREE.MeshLambertMaterial({color:0x3a8a3a});
+    for(let l=0;l<6;l++){
+      const leaf=new THREE.Mesh(new THREE.BoxGeometry(3.1*s,.1,.65*s),leafM);
+      const a=l/6*Math.PI*2;
+      leaf.position.set(.55*s+Math.cos(a)*1.2*s, ty+.2, Math.sin(a)*1.2*s);
+      leaf.rotation.y=-a; leaf.rotation.z=-.38; leaf.castShadow=true; g.add(leaf);
+    }
+  }
+  function obelisk(parent,x,y,z,h){
+    B(parent,1.4,h,1.4,x,y+h/2,z,stoneSand);
+    const tip=new THREE.Mesh(new THREE.ConeGeometry(.9,2.2,4),goldM);
+    tip.position.set(x,y+h+1.1,z); tip.rotation.y=Math.PI/4; tip.castShadow=true; parent.add(tip);
+  }
+
+  ringStrip(-6,.02, -28,.025, 0xc99845);
+  ringStrip(6,.02, 24,.025, 0xd4a855);
+
+  // scattered dunes outside the loop
+  let placed=0,tries=0;
+  while(placed<24&&tries<500){
+    tries++;
+    const x=(Math.random()-.5)*420, z=(Math.random()-.5)*340;
+    const p=new THREE.Vector3(x,0,z);
+    if(distToCenter(p,nearestIdx(p))<HALF_W+12) continue;
+    placed++;
+    const s=5+Math.random()*12;
+    const d=new THREE.Mesh(new THREE.BoxGeometry(s,s*.35,s*1.2),sandDk);
+    d.position.set(x,s*.12,z); d.rotation.y=Math.random(); d.castShadow=true; scene.add(d);
+  }
+
+  /* ---- SPHINX SHORTCUT ---- */
+  {
+    const f=trackFrame(SPHINX_T);
+    const g=new THREE.Group();
+    g.position.copy(f.p); g.rotation.y=f.rotY; scene.add(g);
+    const side=f.nor.clone().multiplyScalar(22);
+    const sg=new THREE.Group();
+    sg.position.copy(side); sg.rotation.y=f.rotY; scene.add(sg);
+    // sphinx body (blocky LEGO style)
+    B(sg,14,5,22, 0,2.5,0, stoneSand);
+    B(sg,10,4,8, 0,7,8, stoneSand);
+    B(sg,6,3,4, 0,9.5,11, stoneSand);
+    // headdress
+    B(sg,12,2.5,6, 0,10.5,6, goldM);
+    // paws
+    B(sg,3,2,8, -5,1,10, stoneDkSand);
+    B(sg,3,2,8, 5,1,10, stoneDkSand);
+    // secret wall hint (breakable shortcut in original game)
+    B(sg,.8,6,8, 0,3,-14, stoneDkSand);
+    B(sg,5,.4,5, 0,6.2,-14, new THREE.MeshBasicMaterial({color:0xe3342f}));
+    addFlag(sg, -8, 12, -10, 0xe3342f);
+    addFlag(sg, 8, 12, -10, 0x2f6fe3);
+    for(const ox of [-6,6]) obelisk(sg, ox, 0, -8, 8);
+    roadOverlay(f.i-4, f.i+4, 0xa89870);
+  }
+
+  /* ---- PHARAOH TOMB TUNNEL ---- */
+  {
+    const f0=trackFrame(TOMB_T);
+    const len=16;
+    for(let k=0;k<=len;k+=2){
+      const j=(f0.i+k)%N;
+      const grp=new THREE.Group();
+      grp.position.copy(samples[j]);
+      grp.rotation.y=Math.atan2(tangents[j].x,tangents[j].z);
+      scene.add(grp);
+      B(grp,2.2,8,2.2,  HALF_W+1.8,4,0, stoneDkSand);
+      B(grp,2.2,8,2.2, -(HALF_W+1.8),4,0, stoneDkSand);
+      B(grp,ROAD_W+6,1.8,2.4, 0,8.8,0, stoneSand);
+      for(let h=0;h<4;h++){
+        B(grp,.35,.35,.35, -HALF_W+1+h*3.5, 5.5, HALF_W+1.2, hieroM);
+        B(grp,.35,.35,.35,  HALF_W-1-h*3.5, 5.5, HALF_W+1.2, hieroM);
+      }
+    }
+    const fe=trackFrame(TOMB_T - 2/N);
+    const ge=new THREE.Group(); ge.position.copy(fe.p); ge.rotation.y=fe.rotY; scene.add(ge);
+    B(ge,ROAD_W+10,9,2, 0,4.5,-(HALF_W+6), stoneSand);
+    B(ge,3,6,3, -(HALF_W+5),3,-(HALF_W+5), stoneDkSand);
+    B(ge,3,6,3,  (HALF_W+5),3,-(HALF_W+5), stoneDkSand);
+    const tombLight=new THREE.PointLight(0xffc46b,.75,28);
+    tombLight.position.copy(trackFrame(TOMB_T + 4/N).p);
+    tombLight.position.y=5; scene.add(tombLight);
+    roadOverlay(f0.i-1, f0.i+len+1, 0x6b5a48);
+  }
+
+  /* ---- OASIS CURVE ---- */
+  {
+    const f=trackFrame(OASIS_T);
+    const g=new THREE.Group();
+    g.position.copy(f.p); g.rotation.y=f.rotY; scene.add(g);
+    // sandy banks + cobblestone feel on the curve
+    roadOverlay(f.i-12, f.i+12, 0xa09078);
+    // oasis pool inside the loop
+    const pool=new THREE.Mesh(new THREE.CircleGeometry(16,24),
+      waterM);
+    pool.rotation.x=-Math.PI/2;
+    const cen=new THREE.Vector3();
+    samples.forEach(s=>cen.add(s)); cen.multiplyScalar(1/N);
+    pool.position.set(cen.x,.04,cen.z); scene.add(pool);
+    // palms lining the oasis curve
+    for(let i=f.i-10;i<=f.i+10;i+=3){
+      const j=((i%N)+N)%N;
+      for(const s of [1,-1]){
+        const p=samples[j].clone().add(normals[j].clone().multiplyScalar(s*14));
+        palm(p.x,p.z,.75+Math.random()*.35);
+      }
+    }
+    // brick pickup row visual (colored blocks on cobblestone)
+    for(const [lat,col] of [[-4,0xe3342f],[0,0x2fb344],[4,0x2f6fe3]]){
+      const p=samples[f.i].clone().add(normals[f.i].clone().multiplyScalar(lat));
+      const b=new THREE.Mesh(new THREE.BoxGeometry(1.2,1.2,1.2),
+        new THREE.MeshLambertMaterial({color:col,emissive:col,emissiveIntensity:.2}));
+      b.position.set(p.x,1.2,p.z); b.castShadow=true; scene.add(b);
+    }
+    addFlag(g, HALF_W+3, 4, 0, 0xf2c200);
+    addFlag(g,-(HALF_W+3), 4, 0, 0x2fb344);
+  }
+
+  /* ---- PYRAMIDS & RUINS ---- */
+  function pyramid(x,z,s){
+    const g=new THREE.Group(); g.position.set(x,0,z); scene.add(g);
+    const pyr=new THREE.Mesh(new THREE.ConeGeometry(s,s*1.1,4),sandM);
+    pyr.position.y=s*.55; pyr.rotation.y=Math.PI/4; pyr.castShadow=true; g.add(pyr);
+    const cap=new THREE.Mesh(new THREE.BoxGeometry(s*.35,1.2,s*.35),goldM);
+    cap.position.y=s*1.1; cap.castShadow=true; g.add(cap);
+  }
+  placed=0;tries=0;
+  while(placed<5&&tries<300){
+    tries++;
+    const x=(Math.random()-.5)*380, z=(Math.random()-.5)*300;
+    const p=new THREE.Vector3(x,0,z);
+    if(distToCenter(p,nearestIdx(p))<HALF_W+20) continue;
+    pyramid(x,z,10+Math.random()*14); placed++;
+  }
+  for(const t of [.08,.65,.82]){
+    const fp=trackFrame(t).p.clone().add(trackFrame(t).nor.clone().multiplyScalar(-32));
+    if(distToCenter(fp,nearestIdx(fp))>HALF_W+16) obelisk(scene, fp.x, 0, fp.z, 10+Math.random()*4);
+  }
+
+  // blocky desert scrub inside the loop
+  placed=0;tries=0;
+  while(placed<18&&tries<400){
+    tries++;
+    const i=(Math.random()*N)|0, off=20+Math.random()*38;
+    const p=samples[i].clone().add(normals[i].clone().multiplyScalar(off));
+    if(!insideTrack(p)||distToCenter(p,nearestIdx(p))<HALF_W+10) continue;
+    const c=new THREE.Mesh(new THREE.BoxGeometry(1.2,2.4,1.2),
+      new THREE.MeshLambertMaterial({color:0x6a8a3a}));
+    c.position.set(p.x,1.2,p.z); c.castShadow=true; scene.add(c);
+    placed++;
+  }
+}
+
 function buildWorld(w){
   if(buildWorld._done) return; buildWorld._done=true;
   if(w==='beach') buildBeachWorld();
+  else if(w==='desert') buildDesertWorld();
   else { buildCastleWorld(); buildCastleTrees(); }
 }
 
@@ -1076,6 +1349,15 @@ function resetKartForRound(k){
 let player=null;
 const karts=[];
 const ANIMAL_COLORS={chicken:0xe3342f,dog:0x2fb344,sheep:0x2f6fe3,cat:0xf2c200,frog:0x7b3fb5};
+// offline roster: you pick one, the other four become your rivals
+const OFFLINE_ANIMALS={
+  chicken:{name:'CLUCK',    color:0xe3342f, em:'🐔'},
+  dog:    {name:'REX',      color:0x2fb344, em:'🐕'},
+  sheep:  {name:'WOOLY',    color:0x2f6fe3, em:'🐑'},
+  cat:    {name:'WHISKERS', color:0xf2c200, em:'🐈'},
+  frog:   {name:'HOPPER',   color:0x7b3fb5, em:'🐸'}
+};
+let offlineAnimal='chicken';
 function initPlayerLayers(){
   // during the warp, only layer 1 is rendered: just the player's kart inside the vortex
   player.parts.g.traverse(o=>o.layers.enable(1));
@@ -1083,13 +1365,16 @@ function initPlayerLayers(){
   sun.layers.enable(1); hemi.layers.enable(1);
 }
 function setupOffline(){
-  player=spawnKart('YOU',0xe3342f,'chicken',0,true);
   karts.length=0;
-  karts.push(player,
-    spawnKart('REX',0x2fb344,'dog',1,false),
-    spawnKart('WOOLY',0x2f6fe3,'sheep',2,false),
-    spawnKart('WHISKERS',0xf2c200,'cat',3,false),
-    spawnKart('HOPPER',0x7b3fb5,'frog',4,false));
+  const me=OFFLINE_ANIMALS[offlineAnimal]||OFFLINE_ANIMALS.chicken;
+  player=spawnKart('YOU', me.color, offlineAnimal, 0, true);
+  karts.push(player);
+  let gi=1;
+  for(const a of ['chicken','dog','sheep','cat','frog']){
+    if(a===offlineAnimal) continue;            // you race as your pick; rivals take the rest
+    const d=OFFLINE_ANIMALS[a];
+    karts.push(spawnKart(d.name, d.color, a, gi++, false));
+  }
   initPlayerLayers();
 }
 function setupOnline(roster,myId){
@@ -1845,6 +2130,14 @@ function startRace(world){
 }
 document.getElementById('startCastle').addEventListener('click',()=>startRace('castle'));
 document.getElementById('startBeach').addEventListener('click',()=>startRace('beach'));
+document.getElementById('startDesert').addEventListener('click',()=>startRace('desert'));
+// offline racer picker: choose which animal YOU race as (rivals take the rest)
+document.querySelectorAll('#animalPick .animBtn').forEach(b=>{
+  b.addEventListener('click',()=>{
+    offlineAnimal=b.dataset.animal;
+    document.querySelectorAll('#animalPick .animBtn').forEach(x=>x.classList.toggle('sel',x===b));
+  });
+});
 document.getElementById('startOnline').addEventListener('click',()=>{
   document.getElementById('startOverlay').style.display='none';
   document.getElementById('lobbyOverlay').style.display='flex';
@@ -1861,6 +2154,9 @@ document.getElementById('netCastle').addEventListener('click',()=>{
 });
 document.getElementById('netBeach').addEventListener('click',()=>{
   if(net&&net.ws.readyState===1) net.ws.send(JSON.stringify({t:'start',world:'beach',bots:$g('botsChk').checked}));
+});
+document.getElementById('netDesert').addEventListener('click',()=>{
+  if(net&&net.ws.readyState===1) net.ws.send(JSON.stringify({t:'start',world:'desert',bots:$g('botsChk').checked}));
 });
 document.getElementById('btnReady').addEventListener('click',()=>{
   if(!net||net.ws.readyState!==1) return;
