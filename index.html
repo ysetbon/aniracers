@@ -2426,18 +2426,28 @@ const tstate={steerX:0,brake:false};
   joy.addEventListener('pointerup',end);
   joy.addEventListener('pointercancel',end);
 })();
-// Mobile: hide the browser's address bar by entering real fullscreen on a user tap
-// (browsers only allow fullscreen from a gesture). Re-enters if the user leaves it.
-// Touch-only — desktop never goes fullscreen. iOS Safari ignores this; on iOS use
-// the browser's "Add to Home Screen" (the manifest/meta tags make that chrome-less).
+// Mobile: hide the browser's address bar by entering real fullscreen, and lock the
+// screen to landscape so a vertically-held phone flips to horizontal automatically.
+// Browsers only allow this from a user gesture, so we fire it on the FIRST tap on
+// every page (intro, race, "race again", etc.) and re-enter if the user leaves it.
+// Touch-only — desktop never goes fullscreen. iOS Safari ignores the fullscreen API;
+// there the manifest + "Add to Home Screen" gives the chrome-less, locked experience,
+// and the CSS rotation above is the fallback that keeps play horizontal regardless.
 if(TOUCH){
+  function lockLandscape(){
+    try{ if(screen.orientation&&screen.orientation.lock) screen.orientation.lock('landscape').catch(()=>{}); }catch(e){}
+  }
   function goFullscreen(){
-    if(document.fullscreenElement||document.webkitFullscreenElement) return;
+    if(document.fullscreenElement||document.webkitFullscreenElement){ lockLandscape(); return; }
     const el=document.documentElement;
     const req=el.requestFullscreen||el.webkitRequestFullscreen||el.mozRequestFullScreen;
-    if(req){ try{ const p=req.call(el); if(p&&p.catch) p.catch(()=>{}); }catch(e){} }
+    if(!req){ lockLandscape(); return; }
+    try{
+      const p=req.call(el);
+      if(p&&p.then) p.then(lockLandscape).catch(()=>{}); else lockLandscape();
+    }catch(e){}
   }
-  addEventListener('pointerdown', goFullscreen);
+  ['pointerdown','touchstart','click','keydown'].forEach(ev=>addEventListener(ev, goFullscreen, {passive:true}));
 }
 document.getElementById('fireBtn').addEventListener('pointerdown',e=>{
   e.preventDefault(); if(state==='race') usePower(player);
