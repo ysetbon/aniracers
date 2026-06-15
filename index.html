@@ -57,13 +57,22 @@
   .world-btns{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-top:6px}
   .world-btns .go{font-size:15px;padding:10px 16px;margin-top:0;min-width:148px}
   #touch{position:fixed;inset:auto 0 0 0;z-index:5;display:none;justify-content:space-between;
-    padding:0 16px 18px;pointer-events:none}
+    align-items:flex-end;padding:0 22px 22px;pointer-events:none}
   #touch .grp{display:flex;gap:12px;pointer-events:auto}
   .tbtn{width:64px;height:64px;border-radius:50%;border:2px solid rgba(255,255,255,.6);
     background:rgba(20,22,30,.55);color:#fff;font-size:26px;font-weight:900;
     display:flex;align-items:center;justify-content:center;touch-action:none}
   .tbtn:active{background:rgba(255,255,255,.25)}
-  #fireBtn{background:rgba(227,52,47,.55)}
+  #fireBtn{background:rgba(227,52,47,.55);width:74px;height:74px;font-size:30px}
+  /* virtual joystick (mobile) — replaces the old up/left/right buttons */
+  #joy{position:relative;width:138px;height:138px;border-radius:50%;pointer-events:auto;
+    touch-action:none;border:2px solid rgba(255,255,255,.4);
+    background:radial-gradient(circle at 50% 50%,rgba(40,44,58,.5),rgba(16,18,26,.55));
+    box-shadow:inset 0 0 18px rgba(0,0,0,.5)}
+  #joyKnob{position:absolute;left:50%;top:50%;width:62px;height:62px;margin:-31px 0 0 -31px;
+    border-radius:50%;pointer-events:none;border:2px solid rgba(255,255,255,.7);
+    background:radial-gradient(circle at 38% 34%,#ffffff,#c9ccd6);
+    box-shadow:0 3px 8px rgba(0,0,0,.5);transition:transform .04s linear}
   /* obstacle placement phase (between online rounds) */
   #placePanel{position:fixed;top:0;left:0;right:0;z-index:8;display:none;
     flex-direction:column;align-items:center;gap:8px;padding:10px;pointer-events:none;
@@ -96,6 +105,15 @@
     .obCard span{font-size:9px}
   }
   @media (pointer:coarse){ #touch{display:flex} }
+  /* MOBILE PORTRAIT ONLY: rotate the whole game 90° so a landscape race fills a
+     vertically-held phone. Desktop and mobile-landscape are untouched. The transform
+     on #rotor makes its position:fixed children lay out inside the rotated landscape
+     box automatically. */
+  #rotor{position:fixed;inset:0}
+  @media (pointer:coarse) and (orientation:portrait){
+    #rotor{inset:auto;top:0;left:0;width:100vh;height:100vw;
+      transform-origin:0 0;transform:translateX(100vw) rotate(90deg)}
+  }
 
   /* ===================== INTRO ===================== */
   #startOverlay{flex-direction:column;gap:14px}
@@ -181,6 +199,7 @@
 </style>
 </head>
 <body>
+<div id="rotor">
 <canvas id="c"></canvas>
 
 <div id="pos" class="hud">1<small>st</small></div>
@@ -209,8 +228,8 @@
 </div>
 
 <div id="touch">
-  <div class="grp"><div class="tbtn" id="leftBtn">&#9664;</div><div class="tbtn" id="rightBtn">&#9654;</div></div>
-  <div class="grp"><div class="tbtn" id="fireBtn">&#9889;</div><div class="tbtn" id="gasBtn">&#9650;</div></div>
+  <div id="joy"><div id="joyKnob"></div></div>
+  <div class="grp"><div class="tbtn" id="fireBtn">&#9889;</div></div>
 </div>
 
 <div class="overlay" id="startOverlay">
@@ -346,6 +365,7 @@
     <p id="endWait" style="display:none;opacity:.8">Waiting for the host to start the next round&hellip;</p>
   </div>
 </div>
+</div><!-- /#rotor -->
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 <script>
@@ -374,12 +394,23 @@ sun.shadow.camera.top=160; sun.shadow.camera.bottom=-160;
 sun.shadow.camera.far=400;
 scene.add(sun);
 
+// on a vertically-held phone the game is rotated 90° (see #rotor CSS), so the
+// drawing surface is landscape-shaped: swap width/height to match the rotated box.
+const rotateMQ = matchMedia('(pointer:coarse) and (orientation:portrait)');
+function gameRotated(){ return rotateMQ.matches; }
 function onResize(){
-  camera.aspect = innerWidth/innerHeight;
+  const w = gameRotated() ? innerHeight : innerWidth;
+  const h = gameRotated() ? innerWidth  : innerHeight;
+  camera.aspect = w/h;
   camera.updateProjectionMatrix();
-  renderer.setSize(innerWidth, innerHeight);
+  // updateStyle=false: keep the canvas's CSS size (100% of #rotor) and only size the
+  // drawing buffer, so it always fills the rotated box with no gaps.
+  renderer.setSize(w, h, false);
 }
-addEventListener('resize', onResize); onResize();
+addEventListener('resize', onResize);
+addEventListener('orientationchange', onResize);
+rotateMQ.addEventListener?.('change', onResize);
+onResize();
 
 /* ============================ AUDIO ============================ */
 let AC=null;
@@ -2341,17 +2372,42 @@ addEventListener('keydown',e=>{
     player.total=N*TOTAL_LAPS;
 });
 addEventListener('keyup',e=>keys[e.code]=false);
-const tstate={left:false,right:false,gas:false};
-function bindHold(id,prop){
-  const el=document.getElementById(id);
-  const on=e=>{e.preventDefault();tstate[prop]=true;};
-  const off=e=>{e.preventDefault();tstate[prop]=false;};
-  el.addEventListener('pointerdown',on);
-  el.addEventListener('pointerup',off);
-  el.addEventListener('pointerleave',off);
-  el.addEventListener('pointercancel',off);
-}
-bindHold('leftBtn','left'); bindHold('rightBtn','right'); bindHold('gasBtn','gas');
+const tstate={left:false,right:false,gas:false,brake:false};
+// Virtual joystick: push up = gas, down = brake, left/right = steer. Replaces the
+// old up/left/right buttons on touch devices. Coordinates use offsetX/offsetY which
+// are in the joystick's own (un-rotated) local space, so steering stays correct even
+// when the whole game is rotated 90° on a portrait phone.
+(function initJoystick(){
+  const joy=document.getElementById('joy'), knob=document.getElementById('joyKnob');
+  if(!joy||!knob) return;
+  let pid=null;
+  function reset(){
+    tstate.left=tstate.right=tstate.gas=tstate.brake=false;
+    knob.style.transform='translate(0,0)';
+  }
+  function apply(e){
+    const R=joy.clientWidth/2;
+    let dx=e.offsetX-R, dy=e.offsetY-R;
+    const len=Math.hypot(dx,dy)||1;
+    // clamp the visible knob to the rim
+    const kx=dx*Math.min(1,R/len), ky=dy*Math.min(1,R/len);
+    knob.style.transform=`translate(${kx}px,${ky}px)`;
+    const nx=dx/R, ny=dy/R;            // -1..1, up is negative
+    tstate.right = nx >  0.35;
+    tstate.left  = nx < -0.35;
+    tstate.gas   = ny < -0.30;
+    tstate.brake = ny >  0.45;
+  }
+  joy.addEventListener('pointerdown',e=>{
+    pid=e.pointerId; joy.setPointerCapture(pid); apply(e); e.preventDefault();
+  });
+  joy.addEventListener('pointermove',e=>{
+    if(e.pointerId===pid){ apply(e); e.preventDefault(); }
+  });
+  const end=e=>{ if(e.pointerId===pid){ pid=null; reset(); } };
+  joy.addEventListener('pointerup',end);
+  joy.addEventListener('pointercancel',end);
+})();
 document.getElementById('fireBtn').addEventListener('pointerdown',e=>{
   e.preventDefault(); if(state==='race') usePower(player);
 });
@@ -2657,7 +2713,7 @@ function stepKart(k, dt){
       k.speed=Math.min(k.speed+70*dt,50);
     } else if(k.isPlayer && state==='race'){
       const gas = keys.ArrowUp||keys.KeyW||tstate.gas;
-      const brake = keys.ArrowDown||keys.KeyS;
+      const brake = keys.ArrowDown||keys.KeyS||tstate.brake;
       const left = keys.ArrowLeft||keys.KeyA||tstate.left;
       const right = keys.ArrowRight||keys.KeyD||tstate.right;
       if(gas||k.grapple>0||k.fly>0) k.speed+=34*dt;        // accelerate
@@ -3147,7 +3203,10 @@ const placeRay=new THREE.Raycaster(),
       placePt=new THREE.Vector3();
 canvas.addEventListener('pointerdown',e=>{
   if(state!=='placing'||placedThisRound||!placeSel||placeSel==='kart') return;
-  placeRay.setFromCamera(new THREE.Vector2(e.clientX/innerWidth*2-1, -(e.clientY/innerHeight)*2+1), camera);
+  // offsetX/offsetY are in the canvas's own local space, so this stays correct even
+  // when the canvas is rotated 90° on a portrait phone.
+  placeRay.setFromCamera(new THREE.Vector2(
+    e.offsetX/canvas.clientWidth*2-1, -(e.offsetY/canvas.clientHeight)*2+1), camera);
   if(!placeRay.ray.intersectPlane(placePlane, placePt)) return;
   const i=nearestIdx(placePt);
   const d=distToCenter(placePt,i);
