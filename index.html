@@ -64,15 +64,22 @@
     display:flex;align-items:center;justify-content:center;touch-action:none}
   .tbtn:active{background:rgba(255,255,255,.25)}
   #fireBtn{background:rgba(227,52,47,.55);width:74px;height:74px;font-size:30px}
-  /* virtual joystick (mobile) — replaces the old up/left/right buttons */
-  #joy{position:relative;width:138px;height:138px;border-radius:50%;pointer-events:auto;
+  /* steering joystick (mobile): slide L/R to steer, pull DOWN to brake/reverse.
+     The kart auto-accelerates, so there's no gas button. */
+  #joy{position:relative;width:150px;height:150px;border-radius:50%;pointer-events:auto;
     touch-action:none;border:2px solid rgba(255,255,255,.4);
     background:radial-gradient(circle at 50% 50%,rgba(40,44,58,.5),rgba(16,18,26,.55));
     box-shadow:inset 0 0 18px rgba(0,0,0,.5)}
-  #joyKnob{position:absolute;left:50%;top:50%;width:62px;height:62px;margin:-31px 0 0 -31px;
+  /* hint glyphs: ◀ ▶ steer, ▼ brake/reverse */
+  #joy::before{content:"\25C0   \25B6";position:absolute;left:0;right:0;top:50%;
+    transform:translateY(-50%);text-align:center;letter-spacing:46px;text-indent:46px;
+    color:rgba(255,255,255,.45);font-size:15px;pointer-events:none}
+  #joy::after{content:"\25BC";position:absolute;left:0;right:0;bottom:12px;text-align:center;
+    color:rgba(255,255,255,.4);font-size:13px;pointer-events:none}
+  #joyKnob{position:absolute;left:50%;top:50%;width:66px;height:66px;margin:-33px 0 0 -33px;
     border-radius:50%;pointer-events:none;border:2px solid rgba(255,255,255,.7);
     background:radial-gradient(circle at 38% 34%,#ffffff,#c9ccd6);
-    box-shadow:0 3px 8px rgba(0,0,0,.5);transition:transform .04s linear}
+    box-shadow:0 3px 8px rgba(0,0,0,.5);transition:transform .04s linear;z-index:1}
   /* obstacle placement phase (between online rounds) */
   #placePanel{position:fixed;top:0;left:0;right:0;z-index:8;display:none;
     flex-direction:column;align-items:center;gap:8px;padding:10px;pointer-events:none;
@@ -2372,31 +2379,35 @@ addEventListener('keydown',e=>{
     player.total=N*TOTAL_LAPS;
 });
 addEventListener('keyup',e=>keys[e.code]=false);
-const tstate={left:false,right:false,gas:false,brake:false};
-// Virtual joystick: push up = gas, down = brake, left/right = steer. Replaces the
-// old up/left/right buttons on touch devices. Coordinates use offsetX/offsetY which
-// are in the joystick's own (un-rotated) local space, so steering stays correct even
-// when the whole game is rotated 90° on a portrait phone.
+// Touch driving model (mobile): the kart AUTO-ACCELERATES forward, so the player
+// never has to hold a gas button. The joystick is steering-first:
+//   slide left/right = steer (analog), pull DOWN = brake then reverse.
+// steerX is -1..1 (positive = steer left, matching the keyboard left key); brake is
+// a flag. On desktop these stay 0/false and the keyboard path below is unchanged.
+const TOUCH = matchMedia('(pointer:coarse)').matches;
+const tstate={steerX:0,brake:false};
 (function initJoystick(){
   const joy=document.getElementById('joy'), knob=document.getElementById('joyKnob');
   if(!joy||!knob) return;
   let pid=null;
+  const clamp=(v,lo,hi)=>v<lo?lo:v>hi?hi:v;
   function reset(){
-    tstate.left=tstate.right=tstate.gas=tstate.brake=false;
+    tstate.steerX=0; tstate.brake=false;
     knob.style.transform='translate(0,0)';
   }
   function apply(e){
     const R=joy.clientWidth/2;
     let dx=e.offsetX-R, dy=e.offsetY-R;
-    const len=Math.hypot(dx,dy)||1;
     // clamp the visible knob to the rim
-    const kx=dx*Math.min(1,R/len), ky=dy*Math.min(1,R/len);
-    knob.style.transform=`translate(${kx}px,${ky}px)`;
-    const nx=dx/R, ny=dy/R;            // -1..1, up is negative
-    tstate.right = nx >  0.35;
-    tstate.left  = nx < -0.35;
-    tstate.gas   = ny < -0.30;
-    tstate.brake = ny >  0.45;
+    const len=Math.hypot(dx,dy)||1, c=Math.min(1,R/len);
+    knob.style.transform=`translate(${dx*c}px,${dy*c}px)`;
+    const nx=clamp(dx/R,-1,1), ny=clamp(dy/R,-1,1);   // -1..1, up is negative
+    // horizontal → analog steering past a small dead-zone (kills jitter near centre)
+    const DZ=0.18;
+    let mag = Math.abs(nx)<DZ ? 0 : (Math.abs(nx)-DZ)/(1-DZ);
+    tstate.steerX = -Math.sign(nx)*mag;   // finger right (nx>0) → steer right (negative)
+    // pull down → brake; keep pulling and the kart reverses (physics handles it)
+    tstate.brake = ny > 0.45;
   }
   joy.addEventListener('pointerdown',e=>{
     pid=e.pointerId; joy.setPointerCapture(pid); apply(e); e.preventDefault();
@@ -2712,10 +2723,9 @@ function stepKart(k, dt){
       k.rot+=THREE.MathUtils.clamp(diff,-3.5*dt,3.5*dt);
       k.speed=Math.min(k.speed+70*dt,50);
     } else if(k.isPlayer && state==='race'){
-      const gas = keys.ArrowUp||keys.KeyW||tstate.gas;
       const brake = keys.ArrowDown||keys.KeyS||tstate.brake;
-      const left = keys.ArrowLeft||keys.KeyA||tstate.left;
-      const right = keys.ArrowRight||keys.KeyD||tstate.right;
+      // mobile auto-drive: kart accelerates on its own (unless braking / finished)
+      const gas = keys.ArrowUp||keys.KeyW||(TOUCH && !brake && !k.finished);
       if(gas||k.grapple>0||k.fly>0) k.speed+=34*dt;        // accelerate
       else if(brake) k.speed-=60*dt;                        // brake, then reverse
       else {
@@ -2723,9 +2733,11 @@ function stepKart(k, dt){
         if(k.speed>0)      k.speed=Math.max(0,k.speed-11*dt);
         else if(k.speed<0) k.speed=Math.min(0,k.speed+14*dt);
       }
+      // steering: keyboard is full-tilt; touch joystick is analog (-1..1, +left)
+      let steer = (keys.ArrowLeft||keys.KeyA?1:0) - (keys.ArrowRight||keys.KeyD?1:0) + tstate.steerX;
+      steer = THREE.MathUtils.clamp(steer, -1, 1);
       const steerPow = 2.3 * Math.min(1, Math.abs(k.speed)/14) * (k.speed<0?-1:1);
-      if(left)  k.rot+=steerPow*dt;
-      if(right) k.rot-=steerPow*dt;
+      k.rot += steerPow*dt*steer;
       k.speed=THREE.MathUtils.clamp(k.speed,-16,maxSp);
     } else if(!k.isPlayer && (state==='race'||state==='done')){
       const look=(idx+(k.wallBack>0?6:9))%N;
