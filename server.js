@@ -25,6 +25,16 @@ const httpServer = http.createServer((req, res) => {
       res.writeHead(200, {'Content-Type': MIME[path.extname(file).toLowerCase()] || 'application/octet-stream'});
       res.end(data);
     });
+  } else if(url === '/manifest.webmanifest'){
+    // PWA manifest: when added to the home screen the game launches without browser
+    // chrome (true fullscreen), which is what hides the address bar on iOS especially.
+    res.writeHead(200, {'Content-Type': 'application/manifest+json'});
+    res.end(JSON.stringify({
+      name: 'AniRacers', short_name: 'AniRacers',
+      display: 'fullscreen', orientation: 'any',
+      background_color: '#000000', theme_color: '#0c0906', start_url: '/',
+      icons: [{ src: '/assets/aniracers-animal-portraits.png', sizes: '512x512', type: 'image/png', purpose: 'any' }]
+    }));
   } else if(url === '/healthz'){
     res.writeHead(200, {'Content-Type': 'text/plain'}); res.end('ok');
   } else if(url.startsWith('/room/')){
