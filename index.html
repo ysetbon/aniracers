@@ -2,8 +2,15 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, viewport-fit=cover">
 <title>ANIRACERS</title>
+<!-- mobile: launch chrome-less when added to home screen; pairs with the in-page
+     fullscreen request that hides the browser address bar. No effect on desktop. -->
+<meta name="theme-color" content="#0c0906">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<link rel="manifest" href="/manifest.webmanifest">
 <style>
   :root{
     --red:#e3342f; --green:#2fb344; --blue:#2f6fe3; --yellow:#f2c200; --white:#f5f5f0;
@@ -2419,6 +2426,19 @@ const tstate={steerX:0,brake:false};
   joy.addEventListener('pointerup',end);
   joy.addEventListener('pointercancel',end);
 })();
+// Mobile: hide the browser's address bar by entering real fullscreen on a user tap
+// (browsers only allow fullscreen from a gesture). Re-enters if the user leaves it.
+// Touch-only — desktop never goes fullscreen. iOS Safari ignores this; on iOS use
+// the browser's "Add to Home Screen" (the manifest/meta tags make that chrome-less).
+if(TOUCH){
+  function goFullscreen(){
+    if(document.fullscreenElement||document.webkitFullscreenElement) return;
+    const el=document.documentElement;
+    const req=el.requestFullscreen||el.webkitRequestFullscreen||el.mozRequestFullScreen;
+    if(req){ try{ const p=req.call(el); if(p&&p.catch) p.catch(()=>{}); }catch(e){} }
+  }
+  addEventListener('pointerdown', goFullscreen);
+}
 document.getElementById('fireBtn').addEventListener('pointerdown',e=>{
   e.preventDefault(); if(state==='race') usePower(player);
 });
