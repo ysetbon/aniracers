@@ -1,0 +1,10 @@
+[out:json][timeout:60];
+(
+  way["highway"](around:300,48.978797,2.374265);
+  way["building"](around:300,48.978797,2.374265);
+  way["leisure"="playground"](around:300,48.978797,2.374265);
+  way["leisure"="park"](around:300,48.978797,2.374265);
+  way["leisure"="pitch"](around:300,48.978797,2.374265);
+  node["leisure"="playground"](around:300,48.978797,2.374265);
+);
+out body geom;

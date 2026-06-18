@@ -1,2 +1,21 @@
 node_modules/
 *.log
+
+# Secrets — never commit
+.env
+.env.*
+!.env.example
+
+# Fetched Google imagery (regenerable from scripts + key; keep out of git)
+assets/refs/aerial/*.png
+assets/refs/streetview/tiles/
+assets/refs/streetview/_test.jpg
+
+# Local scratch / geo-reference + game check renders
+maps/**/_*.png
+
+# Vendored OSM2World upstream clone (its own .git + Maven build, ~340 MB) — rebuild locally
+OSM2World/
+
+# Harvested Google Street View photos (regenerable from scripts + GMAPS_KEY; keep out of git)
+maps/**/streetview/
