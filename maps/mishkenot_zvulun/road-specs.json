@@ -1,0 +1,1125 @@
+{
+ "count": 140,
+ "specs": {
+  "24672373": {
+   "type": "avenue",
+   "surface": "asphalt",
+   "mark": "none",
+   "lanes": 2,
+   "sidewalk": true,
+   "conf": "high"
+  },
+  "24672374": {
+   "type": "street",
+   "surface": "asphalt",
+   "mark": "none",
+   "lanes": 2,
+   "sidewalk": true,
+   "conf": "high"
+  },
+  "24672375": {
+   "type": "street",
+   "surface": "asphalt",
+   "mark": "none",
+   "lanes": 2,
+   "sidewalk": true,
+   "conf": "high"
+  },
+  "24672376": {
+   "type": "avenue",
+   "surface": "asphalt",
+   "mark": "none",
+   "lanes": 2,
+   "sidewalk": true,
+   "conf": "high"
+  },
+  "24672377": {
+   "type": "path",
+   "surface": "paving_stones",
+   "mark": "none",
+   "lanes": 1,
+   "sidewalk": false,
+   "conf": "high"
+  },
+  "24672379": {
+   "type": "avenue",
+   "surface": "asphalt",
+   "mark": "centre",
+   "lanes": 2,
+   "sidewalk": true,
+   "conf": "high"
+  },
+  "24672380": {
+   "type": "avenue",
+   "surface": "asphalt",
+   "mark": "centre",
+   "lanes": 2,
+   "sidewalk": true,
+   "conf": "high"
+  },
+  "24672385": {
+   "type": "street",
+   "surface": "asphalt",
+   "mark": "none",
+   "lanes": 1,
+   "sidewalk": true,
+   "conf": "high"
+  },
+  "24672386": {
+   "type": "street",
+   "surface": "asphalt",
+   "mark": "none",
+   "lanes": 1,
+   "sidewalk": true,
+   "conf": "high"
+  },
+  "24672388": {
+   "type": "street",
+   "surface": "paving_stones",
+   "mark": "none",
+   "lanes": 1,
+   "sidewalk": true,
+   "conf": "med"
+  },
+  "24672389": {
+   "type": "service",
+   "surface": "paving_stones",
+   "mark": "none",
+   "lanes": 1,
+   "sidewalk": false,
+   "conf": "high"
+  },
+  "24672409": {
+   "type": "street",
+   "surface": "asphalt",
+   "mark": "centre",
+   "lanes": 2,
+   "sidewalk": true,
+   "conf": "high"
+  },
+  "24672450": {
+   "type": "avenue",
+   "surface": "asphalt",
+   "mark": "none",
+   "lanes": 2,
+   "sidewalk": true,
+   "conf": "high"
+  },
+  "24672452": {
+   "type": "avenue",
+   "surface": "asphalt",
+   "mark": "lane",
+   "lanes": 2,
+   "sidewalk": true,
+   "conf": "high"
+  },
+  "24672453": {
+   "type": "avenue",
+   "surface": "asphalt",
+   "mark": "centre",
+   "lanes": 2,
+   "sidewalk": true,
+   "conf": "high"
+  },
+  "24701955": {
+   "type": "avenue",
+   "surface": "asphalt",
+   "mark": "centre",
+   "lanes": 2,
+   "sidewalk": true,
+   "conf": "high"
+  },
+  "24703220": {
+   "type": "avenue",
+   "surface": "asphalt",
+   "mark": "none",
+   "lanes": 2,
+   "sidewalk": true,
+   "conf": "high"
+  },
+  "24703221": {
+   "type": "avenue",
+   "surface": "asphalt",
+   "mark": "centre",
+   "lanes": 2,
+   "sidewalk": true,
+   "conf": "high"
+  },
+  "24956295": {
+   "type": "avenue",
+   "surface": "asphalt",
+   "mark": "centre",
+   "lanes": 2,
+   "sidewalk": true,
+   "conf": "high"
+  },
+  "25938008": {
+   "type": "street",
+   "surface": "paving_stones",
+   "mark": "none",
+   "lanes": 1,
+   "sidewalk": true,
+   "conf": "high"
+  },
+  "26121575": {
+   "type": "avenue",
+   "surface": "asphalt",
+   "mark": "lane",
+   "lanes": 2,
+   "sidewalk": true,
+   "conf": "high"
+  },
+  "26145091": {
+   "type": "street",
+   "surface": "asphalt",
+   "mark": "centre",
+   "lanes": 2,
+   "sidewalk": true,
+   "conf": "high"
+  },
+  "26145092": {
+   "type": "avenue",
+   "surface": "asphalt",
+   "mark": "centre",
+   "lanes": 2,
+   "sidewalk": true,
+   "conf": "high"
+  },
+  "26145093": {
+   "type": "avenue",
+   "surface": "asphalt",
+   "mark": "centre",
+   "lanes": 2,
+   "sidewalk": true,
+   "conf": "high"
+  },
+  "26145095": {
+   "type": "avenue",
+   "surface": "asphalt",
+   "mark": "none",
+   "lanes": 2,
+   "sidewalk": true,
+   "conf": "high"
+  },
+  "26145096": {
+   "type": "avenue",
+   "surface": "asphalt",
+   "mark": "none",
+   "lanes": 2,
+   "sidewalk": true,
+   "conf": "high"
+  },
+  "26145097": {
+   "type": "avenue",
+   "surface": "asphalt",
+   "mark": "lane",
+   "lanes": 2,
+   "sidewalk": true,
+   "conf": "high"
+  },
+  "26145098": {
+   "type": "avenue",
+   "surface": "asphalt",
+   "mark": "centre",
+   "lanes": 2,
+   "sidewalk": true,
+   "conf": "high"
+  },
+  "26145099": {
+   "type": "avenue",
+   "surface": "asphalt",
+   "mark": "centre",
+   "lanes": 2,
+   "sidewalk": true,
+   "conf": "high"
+  },
+  "26145100": {
+   "type": "avenue",
+   "surface": "asphalt",
+   "mark": "lane",
+   "lanes": 2,
+   "sidewalk": true,
+   "conf": "high"
+  },
+  "26629415": {
+   "type": "avenue",
+   "surface": "asphalt",
+   "mark": "centre",
+   "lanes": 2,
+   "sidewalk": true,
+   "conf": "high"
+  },
+  "26652371": {
+   "type": "service",
+   "surface": "asphalt",
+   "mark": "none",
+   "lanes": 1,
+   "sidewalk": false,
+   "conf": "high"
+  },
+  "26652379": {
+   "type": "street",
+   "surface": "asphalt",
+   "mark": "centre",
+   "lanes": 1,
+   "sidewalk": true,
+   "conf": "high"
+  },
+  "27001761": {
+   "type": "service",
+   "surface": "asphalt",
+   "mark": "none",
+   "lanes": 1,
+   "sidewalk": false,
+   "conf": "med"
+  },
+  "27026301": {
+   "type": "street",
+   "surface": "asphalt",
+   "mark": "none",
+   "lanes": 2,
+   "sidewalk": true,
+   "conf": "high"
+  },
+  "27130389": {
+   "type": "street",
+   "surface": "paving_stones",
+   "mark": "none",
+   "lanes": 1,
+   "sidewalk": false,
+   "conf": "med"
+  },
+  "27130390": {
+   "type": "plaza",
+   "surface": "paving_stones",
+   "mark": "none",
+   "lanes": 1,
+   "sidewalk": false,
+   "conf": "high"
+  },
+  "27147186": {
+   "type": "street",
+   "surface": "asphalt",
+   "mark": "none",
+   "lanes": 2,
+   "sidewalk": true,
+   "conf": "high"
+  },
+  "27147187": {
+   "type": "street",
+   "surface": "paving_stones",
+   "mark": "none",
+   "lanes": 1,
+   "sidewalk": false,
+   "conf": "high"
+  },
+  "27147188": {
+   "type": "street",
+   "surface": "paving_stones",
+   "mark": "none",
+   "lanes": 1,
+   "sidewalk": false,
+   "conf": "high"
+  },
+  "27147189": {
+   "type": "street",
+   "surface": "paving_stones",
+   "mark": "none",
+   "lanes": 1,
+   "sidewalk": false,
+   "conf": "high"
+  },
+  "27147190": {
+   "type": "street",
+   "surface": "asphalt",
+   "mark": "none",
+   "lanes": 2,
+   "sidewalk": true,
+   "conf": "high"
+  },
+  "27147191": {
+   "type": "street",
+   "surface": "asphalt",
+   "mark": "none",
+   "lanes": 2,
+   "sidewalk": true,
+   "conf": "high"
+  },
+  "27147192": {
+   "type": "street",
+   "surface": "asphalt",
+   "mark": "none",
+   "lanes": 2,
+   "sidewalk": true,
+   "conf": "high"
+  },
+  "27147193": {
+   "type": "street",
+   "surface": "asphalt",
+   "mark": "none",
+   "lanes": 2,
+   "sidewalk": true,
+   "conf": "high"
+  },
+  "27147194": {
+   "type": "street",
+   "surface": "asphalt",
+   "mark": "none",
+   "lanes": 2,
+   "sidewalk": true,
+   "conf": "high"
+  },
+  "27204869": {
+   "type": "street",
+   "surface": "asphalt",
+   "mark": "none",
+   "lanes": 2,
+   "sidewalk": true,
+   "conf": "low"
+  },
+  "27204871": {
+   "type": "street",
+   "surface": "asphalt",
+   "mark": "none",
+   "lanes": 2,
+   "sidewalk": true,
+   "conf": "high"
+  },
+  "27204874": {
+   "type": "street",
+   "surface": "paving_stones",
+   "mark": "none",
+   "lanes": 1,
+   "sidewalk": true,
+   "conf": "high"
+  },
+  "27204876": {
+   "type": "street",
+   "surface": "paving_stones",
+   "mark": "none",
+   "lanes": 1,
+   "sidewalk": true,
+   "conf": "high"
+  },
+  "27204878": {
+   "type": "street",
+   "surface": "paving_stones",
+   "mark": "none",
+   "lanes": 1,
+   "sidewalk": true,
+   "conf": "high"
+  },
+  "27204881": {
+   "type": "street",
+   "surface": "paving_stones",
+   "mark": "none",
+   "lanes": 1,
+   "sidewalk": true,
+   "conf": "high"
+  },
+  "27204883": {
+   "type": "street",
+   "surface": "paving_stones",
+   "mark": "none",
+   "lanes": 1,
+   "sidewalk": true,
+   "conf": "high"
+  },
+  "27204885": {
+   "type": "street",
+   "surface": "paving_stones",
+   "mark": "none",
+   "lanes": 1,
+   "sidewalk": true,
+   "conf": "med"
+  },
+  "27204887": {
+   "type": "street",
+   "surface": "asphalt",
+   "mark": "none",
+   "lanes": 1,
+   "sidewalk": true,
+   "conf": "high"
+  },
+  "27204889": {
+   "type": "street",
+   "surface": "paving_stones",
+   "mark": "none",
+   "lanes": 1,
+   "sidewalk": true,
+   "conf": "high"
+  },
+  "27204892": {
+   "type": "street",
+   "surface": "paving_stones",
+   "mark": "none",
+   "lanes": 1,
+   "sidewalk": true,
+   "conf": "high"
+  },
+  "27204893": {
+   "type": "service",
+   "surface": "paving_stones",
+   "mark": "none",
+   "lanes": 1,
+   "sidewalk": false,
+   "conf": "high"
+  },
+  "27204895": {
+   "type": "street",
+   "surface": "paving_stones",
+   "mark": "none",
+   "lanes": 1,
+   "sidewalk": true,
+   "conf": "high"
+  },
+  "27204896": {
+   "type": "street",
+   "surface": "paving_stones",
+   "mark": "none",
+   "lanes": 1,
+   "sidewalk": true,
+   "conf": "high"
+  },
+  "27204897": {
+   "type": "street",
+   "surface": "paving_stones",
+   "mark": "none",
+   "lanes": 1,
+   "sidewalk": true,
+   "conf": "high"
+  },
+  "27204898": {
+   "type": "street",
+   "surface": "paving_stones",
+   "mark": "none",
+   "lanes": 1,
+   "sidewalk": true,
+   "conf": "high"
+  },
+  "27204909": {
+   "type": "service",
+   "surface": "paving_stones",
+   "mark": "none",
+   "lanes": 1,
+   "sidewalk": false,
+   "conf": "high"
+  },
+  "27273198": {
+   "type": "service",
+   "surface": "asphalt",
+   "mark": "none",
+   "lanes": 1,
+   "sidewalk": false,
+   "conf": "high"
+  },
+  "27274072": {
+   "type": "service",
+   "surface": "asphalt",
+   "mark": "none",
+   "lanes": 1,
+   "sidewalk": false,
+   "conf": "high"
+  },
+  "27274073": {
+   "type": "service",
+   "surface": "asphalt",
+   "mark": "none",
+   "lanes": 2,
+   "sidewalk": false,
+   "conf": "high"
+  },
+  "27339999": {
+   "type": "plaza",
+   "surface": "paving_stones",
+   "mark": "none",
+   "lanes": 1,
+   "sidewalk": false,
+   "conf": "high"
+  },
+  "27820054": {
+   "type": "avenue",
+   "surface": "asphalt",
+   "mark": "lane",
+   "lanes": 2,
+   "sidewalk": true,
+   "conf": "high"
+  },
+  "27820055": {
+   "type": "path",
+   "surface": "paving_stones",
+   "mark": "none",
+   "lanes": 1,
+   "sidewalk": false,
+   "conf": "med"
+  },
+  "30837964": {
+   "type": "avenue",
+   "surface": "asphalt",
+   "mark": "centre",
+   "lanes": 2,
+   "sidewalk": true,
+   "conf": "high"
+  },
+  "65418438": {
+   "type": "avenue",
+   "surface": "asphalt",
+   "mark": "centre",
+   "lanes": 2,
+   "sidewalk": true,
+   "conf": "med"
+  },
+  "65418441": {
+   "type": "path",
+   "surface": "compacted",
+   "mark": "none",
+   "lanes": 1,
+   "sidewalk": false,
+   "conf": "high"
+  },
+  "65418442": {
+   "type": "path",
+   "surface": "asphalt",
+   "mark": "none",
+   "lanes": 1,
+   "sidewalk": false,
+   "conf": "low"
+  },
+  "98986135": {
+   "type": "plaza",
+   "surface": "paving_stones",
+   "mark": "none",
+   "lanes": 1,
+   "sidewalk": false,
+   "conf": "high"
+  },
+  "152968550": {
+   "type": "street",
+   "surface": "asphalt",
+   "mark": "none",
+   "lanes": 1,
+   "sidewalk": false,
+   "conf": "high"
+  },
+  "152968613": {
+   "type": "street",
+   "surface": "asphalt",
+   "mark": "none",
+   "lanes": 2,
+   "sidewalk": true,
+   "conf": "high"
+  },
+  "152968648": {
+   "type": "street",
+   "surface": "asphalt",
+   "mark": "none",
+   "lanes": 1,
+   "sidewalk": false,
+   "conf": "high"
+  },
+  "181443330": {
+   "type": "service",
+   "surface": "asphalt",
+   "mark": "centre",
+   "lanes": 1,
+   "sidewalk": true,
+   "conf": "low"
+  },
+  "181443361": {
+   "type": "path",
+   "surface": "paving_stones",
+   "mark": "none",
+   "lanes": 1,
+   "sidewalk": false,
+   "conf": "high"
+  },
+  "181444785": {
+   "type": "avenue",
+   "surface": "asphalt",
+   "mark": "centre",
+   "lanes": 2,
+   "sidewalk": true,
+   "conf": "high"
+  },
+  "264961842": {
+   "type": "street",
+   "surface": "asphalt",
+   "mark": "none",
+   "lanes": 2,
+   "sidewalk": true,
+   "conf": "high"
+  },
+  "264961844": {
+   "type": "avenue",
+   "surface": "asphalt",
+   "mark": "centre",
+   "lanes": 2,
+   "sidewalk": true,
+   "conf": "high"
+  },
+  "264961848": {
+   "type": "avenue",
+   "surface": "asphalt",
+   "mark": "centre",
+   "lanes": 2,
+   "sidewalk": true,
+   "conf": "high"
+  },
+  "264961850": {
+   "type": "avenue",
+   "surface": "asphalt",
+   "mark": "lane",
+   "lanes": 2,
+   "sidewalk": true,
+   "conf": "high"
+  },
+  "309204110": {
+   "type": "path",
+   "surface": "asphalt",
+   "mark": "none",
+   "lanes": 1,
+   "sidewalk": false,
+   "conf": "low"
+  },
+  "309204117": {
+   "type": "street",
+   "surface": "paving_stones",
+   "mark": "none",
+   "lanes": 1,
+   "sidewalk": true,
+   "conf": "high"
+  },
+  "341607414": {
+   "type": "avenue",
+   "surface": "asphalt",
+   "mark": "centre",
+   "lanes": 2,
+   "sidewalk": true,
+   "conf": "high"
+  },
+  "341607415": {
+   "type": "avenue",
+   "surface": "asphalt",
+   "mark": "lane",
+   "lanes": 2,
+   "sidewalk": true,
+   "conf": "high"
+  },
+  "383407951": {
+   "type": "service",
+   "surface": "paving_stones",
+   "mark": "none",
+   "lanes": 1,
+   "sidewalk": true,
+   "conf": "high"
+  },
+  "383407964": {
+   "type": "service",
+   "surface": "asphalt",
+   "mark": "centre",
+   "lanes": 2,
+   "sidewalk": true,
+   "conf": "high"
+  },
+  "383410001": {
+   "type": "service",
+   "surface": "asphalt",
+   "mark": "none",
+   "lanes": 1,
+   "sidewalk": true,
+   "conf": "med"
+  },
+  "383410005": {
+   "type": "service",
+   "surface": "paving_stones",
+   "mark": "none",
+   "lanes": 1,
+   "sidewalk": false,
+   "conf": "low"
+  },
+  "383410017": {
+   "type": "service",
+   "surface": "paving_stones",
+   "mark": "none",
+   "lanes": 1,
+   "sidewalk": true,
+   "conf": "med"
+  },
+  "383410021": {
+   "type": "service",
+   "surface": "asphalt",
+   "mark": "none",
+   "lanes": 1,
+   "sidewalk": true,
+   "conf": "high"
+  },
+  "406278525": {
+   "type": "path",
+   "surface": "asphalt",
+   "mark": "none",
+   "lanes": 1,
+   "sidewalk": false,
+   "conf": "low"
+  },
+  "407985868": {
+   "type": "path",
+   "surface": "paving_stones",
+   "mark": "none",
+   "lanes": 1,
+   "sidewalk": false,
+   "conf": "high"
+  },
+  "407985869": {
+   "type": "plaza",
+   "surface": "paving_stones",
+   "mark": "none",
+   "lanes": 1,
+   "sidewalk": false,
+   "conf": "med"
+  },
+  "407985870": {
+   "type": "path",
+   "surface": "paving_stones",
+   "mark": "none",
+   "lanes": 1,
+   "sidewalk": false,
+   "conf": "high"
+  },
+  "407985871": {
+   "type": "street",
+   "surface": "paving_stones",
+   "mark": "none",
+   "lanes": 1,
+   "sidewalk": false,
+   "conf": "med"
+  },
+  "407985872": {
+   "type": "street",
+   "surface": "paving_stones",
+   "mark": "none",
+   "lanes": 1,
+   "sidewalk": false,
+   "conf": "high"
+  },
+  "407985873": {
+   "type": "street",
+   "surface": "paving_stones",
+   "mark": "none",
+   "lanes": 1,
+   "sidewalk": true,
+   "conf": "low"
+  },
+  "407985874": {
+   "type": "street",
+   "surface": "paving_stones",
+   "mark": "none",
+   "lanes": 1,
+   "sidewalk": false,
+   "conf": "high"
+  },
+  "407985875": {
+   "type": "street",
+   "surface": "paving_stones",
+   "mark": "none",
+   "lanes": 1,
+   "sidewalk": true,
+   "conf": "low"
+  },
+  "407985876": {
+   "type": "street",
+   "surface": "asphalt",
+   "mark": "none",
+   "lanes": 2,
+   "sidewalk": true,
+   "conf": "med"
+  },
+  "407985878": {
+   "type": "path",
+   "surface": "paving_stones",
+   "mark": "none",
+   "lanes": 1,
+   "sidewalk": false,
+   "conf": "high"
+  },
+  "546326304": {
+   "type": "path",
+   "surface": "paving_stones",
+   "mark": "none",
+   "lanes": 1,
+   "sidewalk": false,
+   "conf": "low"
+  },
+  "546326305": {
+   "type": "street",
+   "surface": "paving_stones",
+   "mark": "none",
+   "lanes": 1,
+   "sidewalk": false,
+   "conf": "low"
+  },
+  "556598050": {
+   "type": "street",
+   "surface": "asphalt",
+   "mark": "none",
+   "lanes": 1,
+   "sidewalk": false,
+   "conf": "med"
+  },
+  "699330771": {
+   "type": "street",
+   "surface": "paving_stones",
+   "mark": "none",
+   "lanes": 1,
+   "sidewalk": false,
+   "conf": "high"
+  },
+  "1060857695": {
+   "type": "street",
+   "surface": "asphalt",
+   "mark": "centre",
+   "lanes": 2,
+   "sidewalk": true,
+   "conf": "high"
+  },
+  "1060857696": {
+   "type": "avenue",
+   "surface": "asphalt",
+   "mark": "lane",
+   "lanes": 2,
+   "sidewalk": true,
+   "conf": "high"
+  },
+  "1060857697": {
+   "type": "avenue",
+   "surface": "asphalt",
+   "mark": "lane",
+   "lanes": 2,
+   "sidewalk": true,
+   "conf": "high"
+  },
+  "1060857698": {
+   "type": "avenue",
+   "surface": "asphalt",
+   "mark": "lane",
+   "lanes": 2,
+   "sidewalk": true,
+   "conf": "high"
+  },
+  "1060857699": {
+   "type": "street",
+   "surface": "asphalt",
+   "mark": "none",
+   "lanes": 2,
+   "sidewalk": true,
+   "conf": "high"
+  },
+  "1060857700": {
+   "type": "street",
+   "surface": "asphalt",
+   "mark": "none",
+   "lanes": 2,
+   "sidewalk": true,
+   "conf": "high"
+  },
+  "1060857701": {
+   "type": "street",
+   "surface": "asphalt",
+   "mark": "none",
+   "lanes": 2,
+   "sidewalk": true,
+   "conf": "high"
+  },
+  "1060857735": {
+   "type": "street",
+   "surface": "asphalt",
+   "mark": "none",
+   "lanes": 2,
+   "sidewalk": true,
+   "conf": "high"
+  },
+  "1060857736": {
+   "type": "street",
+   "surface": "paving_stones",
+   "mark": "none",
+   "lanes": 1,
+   "sidewalk": true,
+   "conf": "med"
+  },
+  "1060857737": {
+   "type": "avenue",
+   "surface": "asphalt",
+   "mark": "lane",
+   "lanes": 2,
+   "sidewalk": true,
+   "conf": "high"
+  },
+  "1060857738": {
+   "type": "avenue",
+   "surface": "asphalt",
+   "mark": "centre",
+   "lanes": 2,
+   "sidewalk": true,
+   "conf": "high"
+  },
+  "1060857739": {
+   "type": "avenue",
+   "surface": "asphalt",
+   "mark": "none",
+   "lanes": 2,
+   "sidewalk": true,
+   "conf": "high"
+  },
+  "1060857740": {
+   "type": "avenue",
+   "surface": "asphalt",
+   "mark": "none",
+   "lanes": 2,
+   "sidewalk": true,
+   "conf": "high"
+  },
+  "1069899868": {
+   "type": "street",
+   "surface": "asphalt",
+   "mark": "none",
+   "lanes": 2,
+   "sidewalk": true,
+   "conf": "high"
+  },
+  "1069899869": {
+   "type": "street",
+   "surface": "asphalt",
+   "mark": "centre",
+   "lanes": 2,
+   "sidewalk": true,
+   "conf": "high"
+  },
+  "1069899870": {
+   "type": "street",
+   "surface": "asphalt",
+   "mark": "none",
+   "lanes": 2,
+   "sidewalk": true,
+   "conf": "high"
+  },
+  "1069899871": {
+   "type": "street",
+   "surface": "asphalt",
+   "mark": "none",
+   "lanes": 2,
+   "sidewalk": true,
+   "conf": "high"
+  },
+  "1112310553": {
+   "type": "path",
+   "surface": "asphalt",
+   "mark": "none",
+   "lanes": 1,
+   "sidewalk": false,
+   "conf": "med"
+  },
+  "1164573296": {
+   "type": "street",
+   "surface": "asphalt",
+   "mark": "none",
+   "lanes": 1,
+   "sidewalk": false,
+   "conf": "high"
+  },
+  "1312293682": {
+   "type": "path",
+   "surface": "compacted",
+   "mark": "none",
+   "lanes": 1,
+   "sidewalk": false,
+   "conf": "high"
+  },
+  "1312293683": {
+   "type": "path",
+   "surface": "compacted",
+   "mark": "none",
+   "lanes": 1,
+   "sidewalk": false,
+   "conf": "low"
+  },
+  "1361765407": {
+   "type": "path",
+   "surface": "compacted",
+   "mark": "none",
+   "lanes": 1,
+   "sidewalk": false,
+   "conf": "high"
+  },
+  "1361767333": {
+   "type": "path",
+   "surface": "paving_stones",
+   "mark": "none",
+   "lanes": 1,
+   "sidewalk": false,
+   "conf": "high"
+  },
+  "1361767335": {
+   "type": "street",
+   "surface": "asphalt",
+   "mark": "none",
+   "lanes": 1,
+   "sidewalk": false,
+   "conf": "low"
+  },
+  "1361767336": {
+   "type": "path",
+   "surface": "paving_stones",
+   "mark": "none",
+   "lanes": 1,
+   "sidewalk": false,
+   "conf": "med"
+  },
+  "1448376571": {
+   "type": "service",
+   "surface": "asphalt",
+   "mark": "none",
+   "lanes": 1,
+   "sidewalk": false,
+   "conf": "med"
+  },
+  "1448376572": {
+   "type": "path",
+   "surface": "paved",
+   "mark": "none",
+   "lanes": 1,
+   "sidewalk": false,
+   "conf": "high"
+  },
+  "1501821710": {
+   "type": "street",
+   "surface": "asphalt",
+   "mark": "none",
+   "lanes": 2,
+   "sidewalk": false,
+   "conf": "high"
+  },
+  "1521446908": {
+   "type": "path",
+   "surface": "asphalt",
+   "mark": "none",
+   "lanes": 1,
+   "sidewalk": true,
+   "conf": "high"
+  },
+  "1521623483": {
+   "type": "path",
+   "surface": "paved",
+   "mark": "none",
+   "lanes": 1,
+   "sidewalk": false,
+   "conf": "high"
+  },
+  "1521623484": {
+   "type": "service",
+   "surface": "compacted",
+   "mark": "none",
+   "lanes": 1,
+   "sidewalk": false,
+   "conf": "high"
+  }
+ }
+}

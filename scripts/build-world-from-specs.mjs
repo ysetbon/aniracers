@@ -42,14 +42,28 @@ const BUILDINGS = BLD.buildings.filter(b=>b.foot&&b.foot.length>=3).map(b=>({id:
 const srcCount = BUILDINGS.reduce((m,b)=>{m[b.spec.src]=(m[b.spec.src]||0)+1;return m;},{});
 console.log('placing '+BUILDINGS.length+' buildings  sources='+JSON.stringify(srcCount));
 
+// Roads: the OSM road/path network, styled by road-factory. Optional per-road overrides
+// (type/surface/markings) come from building... road-specs.json (vision step).
+const ROADJ = rd(path.join(W.paths.dir,'roads.json'));
+const RSPECJ = rd(path.join(W.paths.dir,'road-specs.json'));
+const RSPECS = RSPECJ ? (RSPECJ.specs||RSPECJ) : {};
+const ROADS = ROADJ ? ROADJ.roads.filter(r=>r.pts&&r.pts.length>=2).map(r=>{
+  const s = RSPECS[r.id]||{};
+  return { pts:r.pts, spec:{ type:s.type||r.type, surface:s.surface||r.surface||null,
+    mark:s.mark||null, w:s.w||null, color:s.color||null } };
+}) : [];
+const rtCount = ROADS.reduce((m,r)=>{m[r.spec.type]=(m[r.spec.type]||0)+1;return m;},{});
+console.log('paving '+ROADS.length+' roads  types='+JSON.stringify(rtCount));
+
 const PAGE = String.raw`<!doctype html><html><head><meta charset=utf8></head><body>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 <script src="https://unpkg.com/three@0.128.0/examples/js/loaders/GLTFLoader.js"></script>
 <script src="https://unpkg.com/three@0.128.0/examples/js/exporters/GLTFExporter.js"></script>
 <script src="/house-factory.js"></script>
+<script src="/road-factory.js"></script>
 <script>
 window.RESULT=null;window.ERR=null;
-var POLY=`+JSON.stringify(POLY)+`, PCX=`+PCX+`, PCZ=`+PCZ+`, BUILD=`+JSON.stringify(BUILDINGS)+`;
+var POLY=`+JSON.stringify(POLY)+`, PCX=`+PCX+`, PCZ=`+PCZ+`, BUILD=`+JSON.stringify(BUILDINGS)+`, ROADS=`+JSON.stringify(ROADS)+`;
 // FLOOR_H, makeBuilding(p) and obb(foot) come from /house-factory.js (shared with the gallery)
 function pctile(arr,p){var a=Float64Array.from(arr).sort();return a[Math.max(0,Math.min(a.length-1,Math.floor(a.length*p)))];}
 function inPoly(x,z){var c=false;for(var i=0,j=POLY.length-1;i<POLY.length;j=i++){var xi=POLY[i][0],zi=POLY[i][1],xj=POLY[j][0],zj=POLY[j][1];if(((zi>z)!=(zj>z))&&(x<(xj-xi)*(z-zi)/(zj-zi)+xi))c=!c;}return c;}
@@ -74,6 +88,22 @@ async function main(){
     if(cy<BOT||cy>TOP||!inPoly(cx,cz))continue;
     for(var k=0;k<9;k++){KP.push((k%3===0)?BP[t+k]-PCX:(k%3===1)?BP[t+k]-gy:BP[t+k]-PCZ);KN.push(BN[t+k]);KC.push(BC[t+k]);}}
   var baseTris=KP.length/9;
+  // pave the roads first (flat, just above ground) so building plinths sit on top of them.
+  // road pts are RECENTRED; inPoly() expects raw coords, so offset by PCX/PCZ. Densify each
+  // polyline and keep only the runs inside the picked polygon (clips roads at the border).
+  function clipRoad(pts){var out=[],cur=[];
+    for(var i=0;i<pts.length-1;i++){var a=pts[i],b=pts[i+1],dx=b[0]-a[0],dz=b[1]-a[1],L=Math.hypot(dx,dz);
+      var steps=Math.max(1,Math.ceil(L/3));
+      for(var s=(i>0?1:0);s<=steps;s++){var t=s/steps,x=a[0]+dx*t,z=a[1]+dz*t;
+        if(inPoly(x+PCX,z+PCZ)) cur.push([x,z]); else { if(cur.length>=2)out.push(cur); cur=[]; }}}
+    if(cur.length>=2)out.push(cur); return out;}
+  var paved=0;
+  for(var ri=0;ri<ROADS.length;ri++){ var rd2=ROADS[ri]; if(!rd2.pts||rd2.pts.length<2) continue;
+    var pieces=clipRoad(rd2.pts);
+    for(var pj=0;pj<pieces.length;pj++){ var rg=buildRoad(pieces[pj], rd2.spec); rg.updateMatrixWorld(true);
+      rg.traverse(function(m){if(m.isMesh)collect(m,0,0,0);}); }
+    if(pieces.length)paved++; }
+  var roadTris=KP.length/9-baseTris;
   var placed=0,extruded=0;
   for(var bi=0;bi<BUILD.length;bi++){var b=BUILD[bi];if(!b.foot||b.foot.length<3)continue;
     var o=obb(b.foot);var W=Math.max(6,Math.min(130,o.W)),D=Math.max(6,Math.min(100,o.D));
@@ -97,7 +127,7 @@ async function main(){
   var bb=new THREE.Box3().setFromObject(mesh),sz=bb.getSize(new THREE.Vector3());
   var glb=await new Promise((res,rej)=>new THREE.GLTFExporter().parse(mesh,res,{binary:true},rej));
   var bytes=new Uint8Array(glb),bin='';for(var i=0;i<bytes.length;i++)bin+=String.fromCharCode(bytes[i]);
-  window.RESULT={b64:btoa(bin),tris:KP.length/9,baseTris:baseTris,placed:placed,size:[+sz.x.toFixed(1),+sz.y.toFixed(1),+sz.z.toFixed(1)]};
+  window.RESULT={b64:btoa(bin),tris:KP.length/9,baseTris:baseTris,roadTris:roadTris,paved:paved,placed:placed,size:[+sz.x.toFixed(1),+sz.y.toFixed(1),+sz.z.toFixed(1)]};
 }
 main().catch(function(e){window.ERR=String(e&&e.stack||e);});
 </script></body></html>`;
@@ -105,6 +135,7 @@ main().catch(function(e){window.ERR=String(e&&e.stack||e);});
 const server=http.createServer((req,res)=>{
   if(req.url==='/'){res.writeHead(200,{'Content-Type':'text/html'});return res.end(PAGE);}
   if(req.url==='/house-factory.js'){res.writeHead(200,{'Content-Type':'text/javascript'});return res.end(fs.readFileSync(path.join(ROOT,'scripts/house-factory.js')));}
+  if(req.url==='/road-factory.js'){res.writeHead(200,{'Content-Type':'text/javascript'});return res.end(fs.readFileSync(path.join(ROOT,'scripts/road-factory.js')));}
   if(req.url==='/base.glb'){res.writeHead(200,{'Content-Type':'model/gltf-binary'});return res.end(fs.readFileSync(W.paths.baseGlb));}
   res.writeHead(404);res.end();
 });

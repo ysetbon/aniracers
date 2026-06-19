@@ -610,13 +610,9 @@ const SARCELLES_CTRL = [
 // Mishkenot Zvulun (Netanya) — kart circuit traced on the real streets in the
 // in-browser track editor (scripts/track-editor.mjs -> maps/mishkenot_zvulun/track.json).
 // ~1825 m loop; coords are world metres (matches the OSM2World mesh).
-const MISHKENOT_CTRL = [
-  [122,-332],[55,-354],[-2,-375],[-70,-398],[-128,-421],[-138,-409],[-141,-364],
-  [-148,-309],[-154,-260],[-159,-189],[-161,-87],[-170,-51],[-200,-44],[-289,-46],
-  [-302,-46],[-302,-33],[-174,-33],[-159,-33],[-156,-12],[-179,19],[-193,24],
-  [-203,58],[-41,58],[10,81],[44,56],[70,8],[92,4],[112,-17],[110,-33],[115,-49],
-  [131,-57],[149,-215],[169,-307],[173,-316],[159,-321]
-];
+// Auto-built by scripts/build-road-loop.mjs: the outer-boundary lap of the real road
+// network (2-core, right-hand wall-follow). Karts race the GLB's own styled roads.
+const MISHKENOT_CTRL = [[-283,-525],[-321,-457],[-381,-339],[-391,-345],[-417,-344],[-440,-350],[-414,-331],[-413,-320],[-404,-310],[-428,-167],[-438,-50],[-436,-37],[-443,-26],[-456,-21],[-474,32],[-519,319],[-515,344],[-505,351],[-503,360],[-505,370],[-488,367],[-442,370],[-367,383],[-360,392],[-360,413],[-354,394],[-344,388],[-322,392],[-197,423],[-79,441],[73,475],[82,481],[91,477],[102,480],[135,477],[105,469],[93,464],[89,450],[97,404],[105,329],[115,326],[139,323],[168,325],[184,429],[203,445],[240,455],[280,457],[296,448],[311,420],[319,393],[310,373],[256,296],[286,265],[308,197],[319,127],[324,86],[336,2],[346,-1],[353,-9],[354,-20],[349,-30],[352,-45],[359,-55],[385,-76],[445,-112],[454,-100],[463,-91],[478,-88],[504,-98],[518,-108],[524,-123],[524,-135],[516,-148],[478,-128],[467,-156],[434,-234],[411,-284],[402,-295],[390,-301],[347,-319],[305,-325],[289,-323],[276,-317],[244,-290],[228,-258],[219,-214],[207,-131],[210,-122],[216,-115],[224,-110],[240,-106],[325,-99],[338,-92],[367,-63],[359,-55],[344,-33],[332,-34],[321,-26],[156,-42],[146,-55],[130,-58],[115,-49],[-170,-47],[-164,-95],[-160,-187],[-154,-260],[-75,-253],[-21,-247],[98,-234],[110,-241],[120,-331],[54,-354],[-26,-383],[-71,-400],[-137,-425],[-277,-478],[-283,-486],[-286,-507]];
 // Paris (Eiffel Tower / Champ de Mars) — PROVISIONAL oval looping AROUND the tower
 // (tower sits at ~(-45,-82) in the world; play area is +/-340 m). Refine onto the
 // real avenues later; for now it circles the esplanade on the open greens.
@@ -691,7 +687,8 @@ function roadOverlay(i0,i1,color){
 function buildTrackMeshes(opts){
   opts=opts||{};
   clearTrackMeshes();
-  // road surface
+  // road surface + lane paint — skipped for worlds whose own roads are baked into the GLB
+  if(!opts.noRoad){
   {
     const pos=[],idx=[],uv=[];
     for(let i=0;i<=N;i++){
@@ -728,6 +725,7 @@ function buildTrackMeshes(opts){
       }
     }
   }
+  } // end !opts.noRoad
   // start/finish checkered strip
   {
     const g=new THREE.PlaneGeometry(ROAD_W,3,8,2);
@@ -1780,8 +1778,8 @@ function buildWorld(w){
     setPickupsEnabled(false);
   }
   else if(w==='mishkenot'){
-    setTrackData(MISHKENOT_CTRL);
-    buildTrackMeshes({road:0x4a4d54, ground:0x6f9e4e});  // visible race ribbon over the neighbourhood
+    setTrackData(MISHKENOT_CTRL);                        // race loop auto-built on the real roads
+    buildTrackMeshes({noRoad:true});                     // no ribbon — karts drive the GLB's own styled roads
     buildMishkenotWorld();
     enhanceWorldVisuals('mishkenot');
     setPickupsEnabled(false);
