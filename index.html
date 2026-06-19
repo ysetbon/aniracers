@@ -190,6 +190,8 @@
   .worldBtn.castle{background:linear-gradient(180deg,#46a85a,#2f7a3e)}
   .worldBtn.beach{background:linear-gradient(180deg,#ff9d5c,#f2683a)}
   .worldBtn.desert{background:linear-gradient(180deg,#e6b43c,#cf8f1e)}
+  .worldBtn.sarcelles{background:linear-gradient(180deg,#7d8aa0,#4c566b)}
+  .worldBtn.paris{background:linear-gradient(180deg,#6b8cc4,#3a5a92)}
   .worldBtn.online{background:linear-gradient(180deg,#4aa3ff,#2f6fd6)}
   .obsBar{display:flex;align-items:center;justify-content:center;gap:10px;margin-top:20px}
   #obsToggle{appearance:none;-webkit-appearance:none;cursor:pointer;border:2px solid rgba(212,160,23,.5);
@@ -277,6 +279,12 @@
         <span class="em">&#127958;&#65039;</span>SUNSET BEACH</button>
       <button class="worldBtn desert" id="startDesert" title="Desert Dragway">
         <span class="em">&#127964;&#65039;</span>DESERT DRAGWAY</button>
+      <button class="worldBtn sarcelles" id="startSarcelles" title="Sarcelles - Rue Louis Lebrun (real neighbourhood)">
+        <span class="em">&#127961;&#65039;</span>SARCELLES GP</button>
+      <button class="worldBtn mishkenot" id="startMishkenot" title="Mishkenot Zvulun, Netanya (real neighbourhood)">
+        <span class="em">&#127960;&#65039;</span>NETANYA GP</button>
+      <button class="worldBtn paris" id="startParis" title="Paris - Eiffel Tower / Champ de Mars (OpenStreetMap via OSM2World)">
+        <span class="em">&#128508;</span>PARIS GP</button>
       <button class="worldBtn online" id="startOnline" title="Play Online">
         <span class="em">&#127760;</span>PLAY ONLINE</button>
     </div>
@@ -364,6 +372,8 @@
           background:linear-gradient(180deg,#ffb27d,#ff7e5f);box-shadow:0 5px 0 #b34d31">&#127796; START: BEACH</button>
         <button class="go" id="netDesert" style="font-size:15px;padding:9px 14px;
           background:linear-gradient(180deg,#f0c060,#c8862a);box-shadow:0 5px 0 #8b5a18">&#127947;&#65039; START: DESERT</button>
+        <button class="go" id="netSarcelles" style="font-size:15px;padding:9px 14px;
+          background:linear-gradient(180deg,#7d8aa0,#4c566b);box-shadow:0 5px 0 #333a48">&#127961;&#65039; START: SARCELLES</button>
       </div>
       <p id="waitMsg" style="opacity:.8">Waiting for the host to start the race...</p>
     </div>
@@ -382,6 +392,7 @@
 </div>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script src="https://unpkg.com/three@0.128.0/examples/js/loaders/GLTFLoader.js"></script>
 <script>
 (() => {
 "use strict";
@@ -581,20 +592,61 @@ function playAnimalSound(k,kind){
 
 /* ============================ TRACK ============================ */
 const ROAD_W = 16, HALF_W = ROAD_W/2, N = 260;
-const ctrl = [
+// The track shape is per-world.  Castle/Beach/Desert share the classic loop;
+// the Sarcelles world swaps in a circuit traced from the REAL avenues of the
+// Sarcelles-Lochères neighbourhood (Av. Paul Herbé / Rue Robert Desnos /
+// Av. Paul Valéry / Bd Albert Camus) — generated from OpenStreetMap geometry.
+const CASTLE_CTRL = [
   [0,-88],[50,-90],[100,-72],[108,-28],[88,18],[52,58],[0,72],
   [-52,58],[-95,22],[-108,-28],[-88,-68],[-42,-86]
-].map(p=>new THREE.Vector3(p[0],0,p[1]));
-const curve = new THREE.CatmullRomCurve3(ctrl, true, 'catmullrom', .5);
-
+];
+const SARCELLES_CTRL = [
+  [34.5,27.7],
+  [62.3,-55.7],
+  [-45.9,-78.8],
+  [-77.1,42.9],
+  [26.3,63.9]
+];
+// Mishkenot Zvulun (Netanya) — kart circuit traced on the real streets in the
+// in-browser track editor (scripts/track-editor.mjs -> maps/mishkenot_zvulun/track.json).
+// ~1825 m loop; coords are world metres (matches the OSM2World mesh).
+const MISHKENOT_CTRL = [
+  [122,-332],[55,-354],[-2,-375],[-70,-398],[-128,-421],[-138,-409],[-141,-364],
+  [-148,-309],[-154,-260],[-159,-189],[-161,-87],[-170,-51],[-200,-44],[-289,-46],
+  [-302,-46],[-302,-33],[-174,-33],[-159,-33],[-156,-12],[-179,19],[-193,24],
+  [-203,58],[-41,58],[10,81],[44,56],[70,8],[92,4],[112,-17],[110,-33],[115,-49],
+  [131,-57],[149,-215],[169,-307],[173,-316],[159,-321]
+];
+// Paris (Eiffel Tower / Champ de Mars) — PROVISIONAL oval looping AROUND the tower
+// (tower sits at ~(-45,-82) in the world; play area is +/-340 m). Refine onto the
+// real avenues later; for now it circles the esplanade on the open greens.
+const PARIS_CTRL = [
+  [150,-50],[116,38],[29,93],[-82,93],[-167,38],[-200,-50],[-167,-138],[-82,-193],[29,-193],[116,-138]
+];
+let ctrl, curve;
 const samples=[], tangents=[], normals=[];
-for(let i=0;i<N;i++){
-  const t=i/N;
-  samples.push(curve.getPointAt(t));
-  const tan=curve.getTangentAt(t).normalize();
-  tangents.push(tan);
-  normals.push(new THREE.Vector3(-tan.z,0,tan.x));
+const trackCenter=new THREE.Vector3();
+// dev-only debug handle for headless screenshots (opt-in via ?dbg in the URL)
+if(typeof location!=='undefined' && location.search.includes('dbg')) window.__dbg={scene,camera,renderer,trackCenter};
+// (Re)build the sampled centreline for a given set of control points. The
+// samples/tangents/normals arrays keep their identity so every closure that
+// captured them stays valid across a track swap.
+function setTrackData(ctrlPts){
+  ctrl = ctrlPts.map(p=>new THREE.Vector3(p[0],0,p[1]));
+  curve = new THREE.CatmullRomCurve3(ctrl, true, 'catmullrom', .5);
+  samples.length=0; tangents.length=0; normals.length=0;
+  for(let i=0;i<N;i++){
+    const t=i/N;
+    samples.push(curve.getPointAt(t));
+    const tan=curve.getTangentAt(t).normalize();
+    tangents.push(tan);
+    normals.push(new THREE.Vector3(-tan.z,0,tan.x));
+  }
+  trackCenter.set(0,0,0);
+  samples.forEach(s=>trackCenter.add(s));
+  trackCenter.multiplyScalar(1/N);
 }
+setTrackData(CASTLE_CTRL);
 function nearestIdx(p){
   let best=0,bd=Infinity;
   for(let i=0;i<N;i++){
@@ -613,22 +665,13 @@ function trackFrame(t){
           rotY:Math.atan2(tangents[i].x,tangents[i].z)};
 }
 
-// road mesh
-let roadMesh;
-{
-  const pos=[],idx=[],uv=[];
-  for(let i=0;i<=N;i++){
-    const j=i%N, c=samples[j], n=normals[j];
-    pos.push(c.x+n.x*HALF_W,.06,c.z+n.z*HALF_W, c.x-n.x*HALF_W,.06,c.z-n.z*HALF_W);
-    uv.push(0,i*.3, 1,i*.3);
-  }
-  for(let i=0;i<N;i++){const a=i*2;idx.push(a,a+1,a+2, a+1,a+3,a+2);}
-  const g=new THREE.BufferGeometry();
-  g.setAttribute('position',new THREE.Float32BufferAttribute(pos,3));
-  g.setAttribute('uv',new THREE.Float32BufferAttribute(uv,2));
-  g.setIndex(idx); g.computeVertexNormals();
-  roadMesh=new THREE.Mesh(g,new THREE.MeshLambertMaterial({color:0x5f636b,side:THREE.DoubleSide}));
-  roadMesh.receiveShadow=true; scene.add(roadMesh);
+// Track meshes are rebuilt whenever the track shape changes (see setTrackData).
+// Everything created here is tracked so a swap can dispose the previous loop.
+let roadMesh, groundMesh;
+const trackMeshes=[];
+function clearTrackMeshes(){
+  for(const m of trackMeshes){ scene.remove(m); if(m.geometry) m.geometry.dispose(); }
+  trackMeshes.length=0;
 }
 function roadOverlay(i0,i1,color){
   const pos=[],idx=[];
@@ -643,49 +686,68 @@ function roadOverlay(i0,i1,color){
   g.setAttribute('position',new THREE.Float32BufferAttribute(pos,3));
   g.setIndex(idx); g.computeVertexNormals();
   const m=new THREE.Mesh(g,new THREE.MeshLambertMaterial({color,side:THREE.DoubleSide}));
-  m.receiveShadow=true; scene.add(m);
+  m.receiveShadow=true; scene.add(m); trackMeshes.push(m);
 }
-// center dashes + edge lines
-{
-  const dashG=new THREE.BoxGeometry(.5,.03,2.6);
-  const dashM=new THREE.MeshBasicMaterial({color:0xffffff});
-  for(let i=0;i<N;i+=6){
-    const m=new THREE.Mesh(dashG,dashM);
-    m.position.copy(samples[i]); m.position.y=.1;
-    m.rotation.y=Math.atan2(tangents[i].x,tangents[i].z);
-    scene.add(m);
+function buildTrackMeshes(opts){
+  opts=opts||{};
+  clearTrackMeshes();
+  // road surface
+  {
+    const pos=[],idx=[],uv=[];
+    for(let i=0;i<=N;i++){
+      const j=i%N, c=samples[j], n=normals[j];
+      pos.push(c.x+n.x*HALF_W,.06,c.z+n.z*HALF_W, c.x-n.x*HALF_W,.06,c.z-n.z*HALF_W);
+      uv.push(0,i*.3, 1,i*.3);
+    }
+    for(let i=0;i<N;i++){const a=i*2;idx.push(a,a+1,a+2, a+1,a+3,a+2);}
+    const g=new THREE.BufferGeometry();
+    g.setAttribute('position',new THREE.Float32BufferAttribute(pos,3));
+    g.setAttribute('uv',new THREE.Float32BufferAttribute(uv,2));
+    g.setIndex(idx); g.computeVertexNormals();
+    roadMesh=new THREE.Mesh(g,new THREE.MeshLambertMaterial({color:opts.road||0x5f636b,side:THREE.DoubleSide}));
+    roadMesh.receiveShadow=true; scene.add(roadMesh); trackMeshes.push(roadMesh);
   }
-  const edgeM=new THREE.MeshBasicMaterial({color:0xf4f4f4});
-  const edgeG=new THREE.BoxGeometry(.45,.03,3.2);
-  for(let i=0;i<N;i+=2){
-    for(const s of [1,-1]){
-      const m=new THREE.Mesh(edgeG,edgeM);
-      m.position.set(samples[i].x+normals[i].x*HALF_W*s*.97,.1,samples[i].z+normals[i].z*HALF_W*s*.97);
+  // center dashes + edge lines
+  {
+    const dashG=new THREE.BoxGeometry(.5,.03,2.6);
+    const dashM=new THREE.MeshBasicMaterial({color:0xffffff});
+    for(let i=0;i<N;i+=6){
+      const m=new THREE.Mesh(dashG,dashM);
+      m.position.copy(samples[i]); m.position.y=.1;
       m.rotation.y=Math.atan2(tangents[i].x,tangents[i].z);
-      scene.add(m);
+      scene.add(m); trackMeshes.push(m);
+    }
+    const edgeM=new THREE.MeshBasicMaterial({color:0xf4f4f4});
+    const edgeG=new THREE.BoxGeometry(.45,.03,3.2);
+    for(let i=0;i<N;i+=2){
+      for(const s of [1,-1]){
+        const m=new THREE.Mesh(edgeG,edgeM);
+        m.position.set(samples[i].x+normals[i].x*HALF_W*s*.97,.1,samples[i].z+normals[i].z*HALF_W*s*.97);
+        m.rotation.y=Math.atan2(tangents[i].x,tangents[i].z);
+        scene.add(m); trackMeshes.push(m);
+      }
     }
   }
-}
-// start/finish checkered strip
-{
-  const g=new THREE.PlaneGeometry(ROAD_W,3,8,2);
-  const cvs=document.createElement('canvas');cvs.width=64;cvs.height=16;
-  const cx=cvs.getContext('2d');
-  for(let x=0;x<8;x++)for(let y=0;y<2;y++){cx.fillStyle=(x+y)%2?'#111':'#eee';cx.fillRect(x*8,y*8,8,8);}
-  const tex=new THREE.CanvasTexture(cvs);
-  const m=new THREE.Mesh(g,new THREE.MeshBasicMaterial({map:tex}));
-  m.rotation.x=-Math.PI/2;
-  m.position.copy(samples[0]);m.position.y=.12;
-  m.rotation.z=-Math.atan2(tangents[0].x,tangents[0].z);
-  scene.add(m);
-}
-// ground (castle default; the beach world swaps it for park/sand/sea)
-let groundMesh;
-{
+  // start/finish checkered strip
+  {
+    const g=new THREE.PlaneGeometry(ROAD_W,3,8,2);
+    const cvs=document.createElement('canvas');cvs.width=64;cvs.height=16;
+    const cx=cvs.getContext('2d');
+    for(let x=0;x<8;x++)for(let y=0;y<2;y++){cx.fillStyle=(x+y)%2?'#111':'#eee';cx.fillRect(x*8,y*8,8,8);}
+    const tex=new THREE.CanvasTexture(cvs);
+    const m=new THREE.Mesh(g,new THREE.MeshBasicMaterial({map:tex}));
+    m.rotation.x=-Math.PI/2;
+    m.position.copy(samples[0]);m.position.y=.12;
+    m.rotation.z=-Math.atan2(tangents[0].x,tangents[0].z);
+    scene.add(m); trackMeshes.push(m);
+  }
+  // ground (castle default; beach swaps for park/sand/sea, sarcelles for pavement)
   groundMesh=new THREE.Mesh(new THREE.PlaneGeometry(900,900),
-    new THREE.MeshLambertMaterial({color:0x4f9e3e}));
-  groundMesh.rotation.x=-Math.PI/2; groundMesh.receiveShadow=true; scene.add(groundMesh);
+    new THREE.MeshLambertMaterial({color:opts.ground||0x4f9e3e}));
+  groundMesh.rotation.x=-Math.PI/2; groundMesh.receiveShadow=true;
+  scene.add(groundMesh); trackMeshes.push(groundMesh);
 }
+buildTrackMeshes();
 
 /* ============================ LANDMARKS ============================ */
 const animFlags=[];
@@ -1300,6 +1362,197 @@ function buildDesertWorld(){
   }
 }
 
+/* ============================ SARCELLES (REAL NEIGHBOURHOOD) ============================ */
+/* A faithful circuit through the Sarcelles-Lochères "grand ensemble": the lap
+   follows the real avenues (Paul Herbé / Robert Desnos / Paul Valéry / Albert
+   Camus) and the scenery — the long concrete "barres", the schools, the
+   synagogue, the parks and the Aire de jeux — is placed from real OpenStreetMap
+   footprints (projected to metres, scaled 0.55x).  Start/finish sits on the
+   south straight (Av. Paul Herbé) beside the Aire de jeux pour enfants. */
+const SAR_BUILDINGS=[
+ {k:'tower',x:-96.1,z:-17.3,w:64.7,d:45.7,r:-1.81,h:45,s:1},
+ {k:'barre',x:10,z:-54.5,w:90,d:26,r:2.926,h:21,s:3},
+ {k:'barre',x:2.1,z:-0.6,w:63,d:34.4,r:1.346,h:21,s:1},
+ {k:'res',x:74.2,z:20.9,w:54.4,d:37.4,r:-0.241,h:18,s:1,n:'Sarcelles VIII'},
+ {k:'barre',x:-54.5,z:18.1,w:54.5,d:25.2,r:1.344,h:21,s:0},
+ {k:'tower',x:-74.9,z:-74.3,w:42.3,d:28.7,r:1.33,h:45,s:1},
+ {k:'barre',x:1.1,z:-105.7,w:54,d:20,r:-0.234,h:21,s:2},
+ {k:'barre',x:-129.6,z:109.2,w:48.1,d:17.2,r:-0.237,h:26,s:0},
+ {k:'school',x:-67.4,z:-104.4,w:31.6,d:19.5,r:2.912,h:14,s:2,n:'École Maternelle Jean Macé'},
+ {k:'barre',x:47.7,z:101.2,w:37.9,d:15,r:-0.235,h:26,s:1},
+ {k:'school',x:-95.3,z:-79.7,w:34.5,d:14.4,r:-1.804,h:14,s:1,n:'École élémentaire Jean Macé'},
+ {k:'tower',x:66,z:-97.5,w:21.3,d:19.4,r:1.764,h:45,s:0},
+ {k:'barre',x:98.9,z:70,w:53.4,d:7.5,r:1.337,h:26,s:2},
+ {k:'barre',x:-91.8,z:106.1,w:32.1,d:11.8,r:2.899,h:40.3,s:1},
+ {k:'barre',x:98.4,z:89.3,w:31.5,d:12,r:1.341,h:26,s:1},
+ {k:'barre',x:82.2,z:-40.7,w:37.7,d:8.6,r:-0.229,h:26,s:3},
+ {k:'block',x:10.2,z:97,w:27.1,d:10.5,r:2.912,h:15.1,s:0},
+ {k:'barre',x:-46.6,z:116.6,w:28.5,d:9.8,r:-0.232,h:26,s:0},
+ {k:'block',x:-63.9,z:79.8,w:27.3,d:10.1,r:2.915,h:14.9,s:1},
+ {k:'block',x:-29.8,z:88,w:27,d:10.2,r:2.911,h:14.8,s:1},
+ {k:'block',x:-112.1,z:67.3,w:27.1,d:10,r:2.898,h:14.8,s:2},
+ {k:'barre',x:-44.5,z:-47.5,w:37.1,d:6.8,r:-1.802,h:21,s:0},
+ {k:'barre',x:-30.3,z:-25.5,w:37.4,d:6.2,r:-0.229,h:27.9,s:2},
+ {k:'tower',x:48.4,z:-80.7,w:17.8,d:12.7,r:-1.804,h:45,s:3},
+ {k:'barre',x:51.1,z:45.6,w:28.2,d:7.9,r:-0.23,h:26,s:3},
+ {k:'synagogue',x:56.3,z:-74.2,w:17.8,d:12.2,r:2.917,h:3.1,s:1,n:'Synagogue'},
+ {k:'barre',x:-36.7,z:-109.5,w:33.3,d:6.1,r:2.905,h:31,s:0},
+ {k:'block',x:113,z:28.7,w:26.7,d:7,r:-1.806,h:13.1,s:3},
+ {k:'block',x:51.5,z:84.5,w:21.9,d:8.5,r:-0.238,h:13.1,s:2},
+ {k:'block',x:-128.9,z:6.3,w:27,d:6.6,r:2.912,h:12.5,s:0},
+ {k:'block',x:-114,z:26,w:21.6,d:7.4,r:-0.234,h:12.5,s:2},
+ {k:'block',x:-96.1,z:66,w:18.5,d:7.6,r:1.339,h:11.5,s:0},
+ {k:'block',x:111.8,z:43.3,w:21.5,d:5.9,r:1.343,h:10.7,s:2},
+ {k:'tower',x:101.6,z:-64.9,w:11.4,d:10.8,r:-0.22,h:46.5,s:1},
+ {k:'block',x:74.4,z:63.4,w:9.9,d:9.8,r:-1.785,h:11.1,s:1},
+ {k:'tower',x:-28,z:9.9,w:10,d:9.7,r:-0.223,h:46.5,s:3},
+ {k:'block',x:72.4,z:89.3,w:11.4,d:8.2,r:-0.239,h:11.1,s:2},
+ {k:'block',x:83.2,z:51.3,w:12.3,d:6.8,r:2.916,h:10.8,s:0},
+ {k:'block',x:-91.4,z:49.9,w:10.9,d:5.9,r:1.336,h:10.3,s:3},
+ {k:'block',x:-85.1,z:-86.2,w:10.5,d:4.9,r:1.344,h:10.1,s:1},
+ {k:'block',x:-128.4,z:42.5,w:7.3,d:6.4,r:4.48,h:9.9,s:1},
+ {k:'block',x:-8.3,z:88.7,w:6.2,d:3.7,r:-1.772,h:9.5,s:0},
+ {k:'block',x:-45.5,z:80.4,w:6.1,d:3.6,r:-1.789,h:9.5,s:1}
+];
+const SAR_PARKS=[
+ [[85.4,-71.3],[93.8,-69.4],[96,-78.8],[113.7,-74.8],[113.1,-72],[116,-71.4],[111.6,-49.6],[124.1,-47.2],[136.4,-96],[94,-105.8],[85.4,-71.3]],
+ [[71.1,-36.7],[107.6,-28],[100.6,1.1],[64.2,-7.6],[71.1,-36.7]],
+ [[-41,-31.9],[-44.2,-31.1],[-36.4,-62.9],[-22,-59.8],[27,-45.6],[29.2,-49.4],[36.4,-47.4],[33.4,-34.2],[31.9,-28.7],[31.5,-26.5],[29.5,-26.8],[28.6,-23],[44,-19.2],[38.3,5.9],[29.7,4.5],[29,4.9],[24.8,17.6],[34.4,21],[24.6,62.3],[-40.5,47.4],[-38,38],[-58.2,32.9],[-50.1,-0.7],[-35.2,2.6],[-40.3,22.7],[-1,31.7],[0,28.4],[6.3,29.6],[10.9,9.6],[11.5,1.3],[14.9,-12.5],[17.6,-26.5],[8,-31.8],[-7.6,-35.5],[-8.7,-31],[-12.7,-23.6],[-41,-31.9]],
+ [[-132.2,-60],[-116.5,-50.5],[-117.1,-45.9],[-116.3,-42.3],[-113.6,-39.5],[-109.6,-38],[-116.7,-3],[-113.6,-2.1],[-114,-0.6],[-115.2,0.1],[-117.2,0.2],[-129.9,-2.7],[-131.3,-4],[-131.4,-6],[-129.1,-15.1],[-129.9,-17.3],[-133.2,-19.1],[-138.8,-21.5],[-134.9,-30.6],[-146.4,-38.1],[-132.2,-60]]
+];
+const SAR_PLAY=[34.5,27.7]; // Aire de jeux (start/finish)
+
+function buildSarcellesWorld(){
+  // pale grey-white concrete palette, calibrated from the Street View panoramas
+  const SCHEMES=[
+    {body:0xdedfd9,accent:0x8a7a66,win:0x232730}, // pale concrete + brown balconies
+    {body:0xcfd2cc,accent:0x5d6b78,win:0x232730}, // light grey + grey-blue
+    {body:0xe3ded3,accent:0x9a8b73,win:0x252a31}, // warm pale + sand
+    {body:0xd3cdc3,accent:0x6b6f74,win:0x1e222a}, // grey-beige + grey
+  ];
+  const schoolM=new THREE.MeshLambertMaterial({color:0xf5e6d3});
+  const schoolAcc=new THREE.MeshLambertMaterial({color:0xe6a157});
+  const synM=new THREE.MeshLambertMaterial({color:0xf8f5f0});
+  const roofM=new THREE.MeshLambertMaterial({color:0x4a4a4a});
+  const pilotisM=new THREE.MeshLambertMaterial({color:0x5c5c5c});
+  const sandM=new THREE.MeshLambertMaterial({color:0xd9c27a});
+  const groundM=new THREE.MeshLambertMaterial({color:0x3a3e45}); // dark glazed / pilotis ground floor
+  function polyMesh(pts,color,y){
+    const shape=new THREE.Shape();
+    shape.moveTo(pts[0][0],pts[0][1]);
+    for(let i=1;i<pts.length;i++) shape.lineTo(pts[i][0],pts[i][1]);
+    shape.closePath();
+    const g=new THREE.ShapeGeometry(shape);
+    const m=new THREE.Mesh(g,new THREE.MeshLambertMaterial({color,side:THREE.DoubleSide}));
+    m.rotation.x=Math.PI/2;
+    m.position.y=y||0.03; m.receiveShadow=true; scene.add(m); return m;
+  }
+  for(const p of SAR_PARKS) polyMesh(p,0x6b8e4e,0.03);
+
+  for(const b of SAR_BUILDINGS){
+    const g=new THREE.Group(); g.position.set(b.x,0,b.z); g.rotation.y=b.r; scene.add(g);
+    const sch=SCHEMES[(b.s||0)%SCHEMES.length];
+    const isB=b.k==='barre', isT=b.k==='tower';
+    const bodyMat=b.k==='school'?schoolM : b.k==='synagogue'?synM : new THREE.MeshLambertMaterial({color:sch.body});
+    const accMat=b.k==='school'?schoolAcc : new THREE.MeshLambertMaterial({color:sch.accent});
+    const winM=new THREE.MeshLambertMaterial({color:sch.win});
+    const gf=Math.min(4,Math.max(2.6,b.h*0.12));
+    // dark glazed / pilotis ground floor on barres & towers; solid body otherwise
+    if((isB||isT)&&b.h>14){
+      B(g,b.w+0.3,gf,b.d+0.3,0,gf/2,0,groundM);
+      B(g,b.w,b.h-gf,b.d,0,gf+(b.h-gf)/2,0,bodyMat);
+    } else {
+      B(g,b.w,b.h,b.d,0,b.h/2,0,bodyMat);
+    }
+    // flat roof with low parapet
+    B(g,b.w+0.4,0.6,b.d+0.4,0,b.h+0.3,0,roofM);
+    if(b.k==='synagogue'){
+      const dome=new THREE.Mesh(new THREE.SphereGeometry(b.w*0.32,12,8,0,Math.PI*2,0,Math.PI/2),
+        new THREE.MeshLambertMaterial({color:0x9aa6c4}));
+      dome.position.y=b.h+0.4; g.add(dome);
+    } else {
+      const floors=Math.max(2,Math.round((b.h-gf)/3.0));
+      const fh=(b.h-gf)/(floors+0.3);
+      for(let f=0;f<floors;f++){
+        const wy=gf+(f+0.62)*fh;
+        // window strips on the long (±z) faces
+        for(const s of [1,-1]){
+          const win=new THREE.Mesh(new THREE.BoxGeometry(b.w*0.9,fh*0.5,0.16),winM);
+          win.position.set(0,wy,s*(b.d/2+0.05)); g.add(win);
+        }
+        // towers: windows on the short (±x) faces too
+        if(isT) for(const s of [1,-1]){
+          const win=new THREE.Mesh(new THREE.BoxGeometry(0.16,fh*0.5,b.d*0.82),winM);
+          win.position.set(s*(b.w/2+0.05),wy,0); g.add(win);
+        }
+        // continuous projecting balcony band every floor on barres (the slab rhythm)
+        if(isB) for(const s of [1,-1]){
+          const bal=new THREE.Mesh(new THREE.BoxGeometry(b.w*0.97,0.5,0.85),accMat);
+          bal.position.set(0,wy-fh*0.30,s*(b.d/2+0.42)); g.add(bal);
+        }
+        else if(b.k==='block'&&f%2===1) B(g,b.w*0.9,0.3,b.d+0.1,0,wy-fh*0.3,0,accMat);
+      }
+    }
+    if(b.n) addLabel(g,b.n,0,b.h+3,0);
+  }
+
+  // plane trees lining the boulevards (a defining feature of the estate)
+  const trunkM=new THREE.MeshLambertMaterial({color:0x6e5536});
+  const leafM=[0x4f7a3a,0x5d8a45,0x6f9a50].map(c=>new THREE.MeshLambertMaterial({color:c}));
+  const bpos=SAR_BUILDINGS.map(b=>[b.x,b.z]);
+  const nearBldg=(x,z)=>bpos.some(p=>Math.hypot(x-p[0],z-p[1])<7);
+  function plantTree(x,z,sc){
+    const tg=new THREE.Group(); tg.position.set(x,0,z);
+    const tr=new THREE.Mesh(new THREE.CylinderGeometry(0.22*sc,0.32*sc,2.8*sc,6),trunkM);
+    tr.position.y=1.4*sc; tg.add(tr);
+    const cr=new THREE.Mesh(new THREE.IcosahedronGeometry(1.7*sc,0),leafM[Math.abs(Math.round(x*0.7+z))%3]);
+    cr.position.y=3.5*sc; cr.scale.set(1,0.82,1); tg.add(cr);
+    scene.add(tg);
+  }
+  for(let i=0;i<samples.length;i+=4){
+    const p=samples[i], n=normals[i];
+    for(const side of [1,-1]){
+      if((i+(side>0?0:2))%2) continue;       // stagger the two sides
+      const off=HALF_W+3.4, x=p.x+n.x*off*side, z=p.z+n.z*off*side;
+      if(nearBldg(x,z)) continue;
+      plantTree(x,z,0.85+((i*5)%4)*0.07);
+    }
+  }
+
+  // the Aire de jeux pour enfants at the start: rubber pad + colourful play kit
+  {
+    const g=new THREE.Group(); g.position.set(SAR_PLAY[0],0,SAR_PLAY[1]); scene.add(g);
+    const pad=new THREE.Mesh(new THREE.CircleGeometry(11,24),
+      new THREE.MeshLambertMaterial({color:0xc9543b}));
+    pad.rotation.x=-Math.PI/2; pad.position.y=0.05; pad.receiveShadow=true; g.add(pad);
+    // slide
+    B(g,1.2,3.2,1.2,-3,1.6,-2,new THREE.MeshLambertMaterial({color:0x2f8a3e}));
+    const slide=new THREE.Mesh(new THREE.BoxGeometry(1.1,0.2,4.2),
+      new THREE.MeshLambertMaterial({color:0xffd23f}));
+    slide.position.set(-3,1.4,0.2); slide.rotation.x=0.5; g.add(slide);
+    // swing frame
+    for(const sx of [2,5]) B(g,0.25,2.6,0.25,sx,1.3,3,new THREE.MeshLambertMaterial({color:0x2f6fe3}));
+    B(g,3.4,0.25,0.25,3.5,2.5,3,new THREE.MeshLambertMaterial({color:0x2f6fe3}));
+    for(const sx of [2.8,4.2]){
+      B(g,0.6,0.18,0.6,sx,0.9,3,new THREE.MeshLambertMaterial({color:0xe3342f}));
+    }
+    // springy + sandbox accents
+    B(g,2.4,0.5,2.4,4,0.3,-3,sandM);
+    addLabel(g,'Aire de jeux pour enfants',0,4.5,0);
+  }
+}
+// tiny billboard text label (canvas sprite) for named landmarks
+function addLabel(parent,text,x,y,z){
+  const cv=document.createElement('canvas'); cv.width=512; cv.height=64;
+  const cx=cv.getContext('2d');
+  cx.fillStyle='rgba(20,22,30,0.78)'; cx.fillRect(0,0,512,64);
+  cx.fillStyle='#fff'; cx.font='bold 30px sans-serif'; cx.textAlign='center'; cx.textBaseline='middle';
+  cx.fillText(text,256,34);
+  const tex=new THREE.CanvasTexture(cv);
+  const sp=new THREE.Sprite(new THREE.SpriteMaterial({map:tex,depthTest:false,transparent:true}));
+  sp.position.set(x,y,z); sp.scale.set(16,2,1); parent.add(sp);
+}
+
 /* ============================ SHARED VISUAL POLISH ============================ */
 /* Applied on top of every world (themed per world): a gradient sky dome with
    drifting clouds, a lush flowery/grassy roadside, and wooden plank guard-rails —
@@ -1314,6 +1567,18 @@ const VTHEME={
   desert:{ sky:[0xe3aa50,0xf7e6b8], cloud:0xf3ddbb,
     flowers:[0xff8a3d,0xffffff,0xe6c84a],
     blade:0xb39a52, bush:0x4f8a3a, fillProb:.5, spread:7, sides:[1,-1], rails:false, rock:true },
+  // city boulevard: grassy verges + street trees, light hazy Paris sky
+  sarcelles:{ sky:[0x8fb6dd,0xd7e6f2], cloud:0xffffff,
+    flowers:[0xffd23f,0xffffff,0xe6394a],
+    blade:0x6f9e4e, bush:0x3f7e3a, fillProb:.5, spread:6, sides:[1,-1], rails:false, rock:false },
+  // real Netanya neighbourhood: the mesh carries its own greenery, so scatter nothing
+  mishkenot:{ sky:[0x4f97d8,0xbfe0f5], cloud:0xffffff,
+    flowers:[0xffd23f,0xffffff,0xe6394a],
+    blade:0x6f9e4e, bush:0x3f7e3a, fillProb:0, spread:6, sides:[], rails:false, rock:false },
+  // real Paris: the OSM2World mesh carries its own buildings/greens, so scatter nothing
+  paris:{ sky:[0x8fb6dd,0xe6eef7], cloud:0xffffff,
+    flowers:[0xffd23f,0xffffff,0xe6394a],
+    blade:0x6f9e4e, bush:0x3f7e3a, fillProb:0, spread:6, sides:[], rails:false, rock:false },
 };
 function inSkip(i,skips){
   for(const [c,r] of skips){ let d=Math.abs(i-c); d=Math.min(d,N-d); if(d<=r) return true; }
@@ -1451,11 +1716,86 @@ function enhanceWorldVisuals(w){
   if(theme.rails) addPlankRails(skips);
 }
 
+// ===== Mishkenot Zvulun: real Netanya neighbourhood from OpenStreetMap data =====
+// assets/mishkenot/world.glb is generated by OSM2World and clipped to the EXACT
+// polygon picked on the map (scripts/build-mishkenot-world.mjs): real metres, Y-up,
+// already centred on origin with the ground at y=0. 1 game unit = 1 metre.
+let mishGroup = null;
+async function buildMishkenotWorld(){
+  if(groundMesh) groundMesh.visible=false;     // the GLB carries its own ground/roads/greens
+  hemi.intensity=0.82; sun.intensity=1.05;
+  // wide base plane below the neighbourhood to hide any clip-edge gaps at the border
+  const base=new THREE.Mesh(new THREE.PlaneGeometry(2600,2600),
+    new THREE.MeshLambertMaterial({color:0x8aa86a}));
+  base.rotation.x=-Math.PI/2; base.position.y=-0.6; base.receiveShadow=true; scene.add(base);
+  try{
+    const gltf=await new Promise((res,rej)=>new THREE.GLTFLoader().load('/assets/mishkenot/world.glb',res,undefined,rej));
+    const root=gltf.scene;
+    root.traverse(o=>{ if(o.isMesh){
+      o.material=new THREE.MeshLambertMaterial({vertexColors:true, side:THREE.DoubleSide});
+      o.castShadow=true; o.receiveShadow=true;
+    } else if(o.isLine||o.isLineSegments){ o.visible=false; } });
+    scene.add(root); mishGroup=root;
+    if(window.__dbg) window.__dbg.mishGroup=root;
+    const bb=new THREE.Box3().setFromObject(root), sz=bb.getSize(new THREE.Vector3());
+    console.log('[mishkenot] OSM2World world.glb loaded; footprint',
+      Math.round(sz.x)+'x'+Math.round(sz.z)+'m, tallest', Math.round(sz.y)+'m');
+  }catch(e){ console.error('[mishkenot] load failed:', e); }
+}
+
+// ===== Paris: Eiffel Tower / Champ de Mars from real OpenStreetMap data =====
+// assets/paris/world.glb is generated by OSM2World (scripts/build-paris-world.mjs):
+// real metres, Y-up, already centred on origin with the ground at y=0 and the
+// Eiffel Tower ~330 m tall. 1 game unit = 1 metre, so the ~3.8 m kart is dwarfed.
+let parisGroup = null;
+async function buildParisWorld(){
+  if(groundMesh) groundMesh.visible=false;     // the GLB carries its own ground/roads/greens
+  hemi.intensity=0.78; sun.intensity=1.05;
+  // wide base plane below the city to hide any clip-edge gaps at the play-area border
+  const base=new THREE.Mesh(new THREE.PlaneGeometry(1800,1800),
+    new THREE.MeshLambertMaterial({color:0x7d9b63}));
+  base.rotation.x=-Math.PI/2; base.position.y=-0.6; base.receiveShadow=true; scene.add(base);
+  try{
+    const gltf=await new Promise((res,rej)=>new THREE.GLTFLoader().load('/assets/paris/world.glb',res,undefined,rej));
+    const root=gltf.scene;
+    root.traverse(o=>{ if(o.isMesh){
+      // keep the baked per-vertex colours, but use the game's Lambert lighting model
+      o.material=new THREE.MeshLambertMaterial({vertexColors:true, side:THREE.DoubleSide});
+      o.castShadow=true; o.receiveShadow=true;
+    } else if(o.isLine||o.isLineSegments){ o.visible=false; } });
+    scene.add(root); parisGroup=root;
+    if(window.__dbg) window.__dbg.parisGroup=root;
+    const bb=new THREE.Box3().setFromObject(root), sz=bb.getSize(new THREE.Vector3());
+    console.log('[paris] OSM2World world.glb loaded; footprint',
+      Math.round(sz.x)+'x'+Math.round(sz.z)+'m, tallest', Math.round(sz.y)+'m');
+  }catch(e){ console.error('[paris] load failed:', e); }
+}
+
 function buildWorld(w){
   if(buildWorld._done) return; buildWorld._done=true;
-  if(w==='beach'){ buildBeachWorld(); enhanceWorldVisuals('beach'); }
-  else if(w==='desert'){ buildDesertWorld(); enhanceWorldVisuals('desert'); }
-  else { buildCastleWorld(); buildCastleTrees(); enhanceWorldVisuals('castle'); }
+  if(w==='sarcelles'){
+    setTrackData(SARCELLES_CTRL);
+    buildTrackMeshes({road:0x4a4d54, ground:0x8f9483});
+    buildSarcellesWorld(); enhanceWorldVisuals('sarcelles');
+    setPickupsEnabled(false);
+  }
+  else if(w==='mishkenot'){
+    setTrackData(MISHKENOT_CTRL);
+    buildTrackMeshes({road:0x4a4d54, ground:0x6f9e4e});  // visible race ribbon over the neighbourhood
+    buildMishkenotWorld();
+    enhanceWorldVisuals('mishkenot');
+    setPickupsEnabled(false);
+  }
+  else if(w==='paris'){
+    setTrackData(PARIS_CTRL);
+    buildTrackMeshes({road:0x4a4d54, ground:0x6f9e4e});  // visible race ribbon over the city
+    buildParisWorld();
+    enhanceWorldVisuals('paris');
+    setPickupsEnabled(false);
+  }
+  else if(w==='beach'){ setPickupsEnabled(true); buildBeachWorld(); enhanceWorldVisuals('beach'); }
+  else if(w==='desert'){ setPickupsEnabled(true); buildDesertWorld(); enhanceWorldVisuals('desert'); }
+  else { setPickupsEnabled(true); buildCastleWorld(); buildCastleTrees(); enhanceWorldVisuals('castle'); }
 }
 
 /* ============================ WARP VORTEX (Warp Turbo) ============================ */
@@ -1714,7 +2054,12 @@ function setupOnline(roster,myId){
 }
 
 /* ============================ PICKUPS ============================ */
+let pickupsEnabled=true;
 const pickups=[];
+function setPickupsEnabled(on){
+  pickupsEnabled=!!on;
+  for(const p of pickups) p.m.visible=on&&p.active;
+}
 const pickGeo=new THREE.BoxGeometry(1.5,1.5,1.5);
 function addPickup(t, lateral, color){
   const mat=new THREE.MeshLambertMaterial({color:COLORS[color],emissive:COLORS[color],emissiveIntensity:.25});
@@ -1978,8 +2323,7 @@ const farmers=[];         // {m, i0, ph}
 function wallColFromLat(lat){
   return Math.min(7, Math.max(0, Math.floor((lat+HALF_W)/(ROAD_W/8))));
 }
-const trackCenter=new THREE.Vector3();
-samples.forEach(s=>trackCenter.add(s)); trackCenter.multiplyScalar(1/N);
+// trackCenter is maintained by setTrackData() in the TRACK section above.
 
 function makeWallAt(i){
   const g=new THREE.Group();
@@ -2492,8 +2836,8 @@ function beginCountdown(){
 
 let offlineObstacleMode=false;
 function startRace(world){
+  buildWorld(world);                 // build/swap the track FIRST so karts spawn on it
   if(karts.length===0) setupOffline();
-  buildWorld(world);
   document.getElementById('startOverlay').style.display='none';
   offlineObstacleMode=document.getElementById('obsChk').checked;
   // obstacle course: the building starts BEFORE the first race, round 1
@@ -2503,6 +2847,12 @@ function startRace(world){
 document.getElementById('startCastle').addEventListener('click',()=>startRace('castle'));
 document.getElementById('startBeach').addEventListener('click',()=>startRace('beach'));
 document.getElementById('startDesert').addEventListener('click',()=>startRace('desert'));
+document.getElementById('startSarcelles').addEventListener('click',()=>startRace('sarcelles'));
+document.getElementById('startMishkenot').addEventListener('click',()=>startRace('mishkenot'));
+document.getElementById('startParis').addEventListener('click',()=>startRace('paris'));
+// deep-link / headless: ?world=<name> jumps straight into that world
+{ const wq=new URLSearchParams(location.search).get('world');
+  if(wq && ['castle','beach','desert','sarcelles','mishkenot','paris'].includes(wq)) startRace(wq); }
 // offline racer picker: choose which animal YOU race as (rivals take the rest)
 document.querySelectorAll('#animalPick .animBtn').forEach(b=>{
   b.addEventListener('click',()=>{
@@ -2579,6 +2929,9 @@ document.getElementById('netBeach').addEventListener('click',()=>{
 });
 document.getElementById('netDesert').addEventListener('click',()=>{
   if(net&&net.ws.readyState===1) net.ws.send(JSON.stringify({t:'start',world:'desert',bots:$g('botsChk').checked}));
+});
+document.getElementById('netSarcelles').addEventListener('click',()=>{
+  if(net&&net.ws.readyState===1) net.ws.send(JSON.stringify({t:'start',world:'sarcelles',bots:$g('botsChk').checked}));
 });
 document.getElementById('btnReady').addEventListener('click',()=>{
   if(!net||net.ws.readyState!==1) return;
@@ -2857,6 +3210,7 @@ function kartCollisions(){
 }
 
 function stepPickups(dt){
+  if(!pickupsEnabled) return;
   for(const p of pickups){
     if(!p.active){
       p.respawn-=dt;
@@ -3078,8 +3432,8 @@ function netMsg(m){
 function netStartRace(world,roster){
   $g('lobbyOverlay').style.display='none';
   $g('startOverlay').style.display='none';
+  buildWorld(world);                 // build/swap the track FIRST so karts spawn on it
   setupOnline(roster,net.id);
-  buildWorld(world);
   // synced start: wait on the grid until EVERY client has built + rendered the
   // world, then the server's 'go' starts the same countdown everywhere
   state='preroll'; pendingWb=true;

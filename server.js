@@ -8,7 +8,10 @@ const { WebSocketServer } = require('ws');
 const PORT = process.env.PORT || 8080;
 
 const INDEX = path.join(__dirname, 'index.html');
-const MIME = {'.png':'image/png', '.svg':'image/svg+xml', '.jpg':'image/jpeg', '.webp':'image/webp'};
+const MIME = {'.png':'image/png', '.svg':'image/svg+xml', '.jpg':'image/jpeg', '.webp':'image/webp', '.json':'application/json'};
+// generated world files served from the repo root (kept in sync by scripts/)
+const ROOT_FILES = new Set(['/sarcelles_world.json', '/sarcelles_preview.svg', '/sarcelles_preview.png']);
+const ALLOW_REF_SAVE = process.env.ALLOW_REF_SAVE === '1'; // dev-only Street View reference capture
 const httpServer = http.createServer((req, res) => {
   const url = (req.url || '/').split('?')[0];
   if(url === '/' || url === '/index.html'){
@@ -17,13 +20,39 @@ const httpServer = http.createServer((req, res) => {
       res.writeHead(200, {'Content-Type': 'text/html; charset=utf-8'});
       res.end(data);
     });
-  } else if(url.startsWith('/assets/')){
+  } else if(url.startsWith('/assets/') || ROOT_FILES.has(url)){
+    // assets/* (path-traversal-guarded) plus a small whitelist of generated world files
     const file = path.join(__dirname, url.slice(1));
-    if(!file.startsWith(path.join(__dirname, 'assets'))){ res.writeHead(403); return res.end('Forbidden'); }
+    const okAsset = url.startsWith('/assets/') && file.startsWith(path.join(__dirname, 'assets'));
+    if(!okAsset && !ROOT_FILES.has(url)){ res.writeHead(403); return res.end('Forbidden'); }
     fs.readFile(file, (err, data) => {
       if(err){ res.writeHead(404); return res.end('Not found'); }
       res.writeHead(200, {'Content-Type': MIME[path.extname(file).toLowerCase()] || 'application/octet-stream'});
       res.end(data);
+    });
+  } else if(ALLOW_REF_SAVE && req.method === 'OPTIONS' && url === '/save-ref'){
+    // CORS + Private-Network-Access preflight so the Google Maps tab may POST reference shots
+    res.writeHead(204, {
+      'Access-Control-Allow-Origin': '*',
+      'Access-Control-Allow-Methods': 'POST, OPTIONS',
+      'Access-Control-Allow-Headers': '*',
+      'Access-Control-Allow-Private-Network': 'true',
+    });
+    res.end();
+  } else if(ALLOW_REF_SAVE && req.method === 'POST' && url === '/save-ref'){
+    // DEV-ONLY (enabled by ALLOW_REF_SAVE=1): save a Street View reference composite
+    // into assets/refs/streetview/. Names are sanitized; only that folder is writable.
+    const name = String(new URL(req.url, 'http://x').searchParams.get('name') || '').replace(/[^a-z0-9_-]/gi, '').slice(0, 60);
+    const chunks = [];
+    req.on('data', c => chunks.push(c));
+    req.on('end', () => {
+      if(!name){ res.writeHead(400, {'Access-Control-Allow-Origin':'*'}); return res.end('bad name'); }
+      const dir = path.join(__dirname, 'assets', 'refs', 'streetview');
+      fs.mkdirSync(dir, {recursive: true});
+      fs.writeFile(path.join(dir, name + '.jpg'), Buffer.concat(chunks), err => {
+        res.writeHead(err ? 500 : 200, {'Access-Control-Allow-Origin':'*'});
+        res.end(err ? 'err' : 'ok ' + Buffer.concat(chunks).length);
+      });
     });
   } else if(url === '/manifest.webmanifest'){
     // PWA manifest: when added to the home screen the game launches without browser
@@ -138,7 +167,7 @@ wss.on('connection', ws => {
         for(const a of ANIMALS)
           if(!taken.has(a)) players.push({id:'b'+(bi++), name:BOT_NAMES[a], animal:a, ready:true, bot:true});
       }
-      const world = m.world === 'beach' ? 'beach' : m.world === 'desert' ? 'desert' : 'castle';
+      const world = ['beach','desert','sarcelles'].includes(m.world) ? m.world : 'castle';
       const msg = {t:'start', world, players};
       bc(myRoom, msg, myId);                        // everyone else
       ws.send(JSON.stringify(msg));                 // and the host
