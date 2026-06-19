@@ -1,0 +1,202 @@
+[
+  {
+    "id": "1060857739",
+    "img": "C:\\Users\\YonatanSetbon\\projects\\aniracers\\maps\\mishkenot_zvulun\\roads-sv\\road_1060857739.jpg",
+    "hw": "tertiary",
+    "baseType": "avenue",
+    "surface": "asphalt",
+    "lanes": null,
+    "lengthM": 17,
+    "conf": "high"
+  },
+  {
+    "id": "1060857740",
+    "img": "C:\\Users\\YonatanSetbon\\projects\\aniracers\\maps\\mishkenot_zvulun\\roads-sv\\road_1060857740.jpg",
+    "hw": "tertiary",
+    "baseType": "avenue",
+    "surface": "asphalt",
+    "lanes": null,
+    "lengthM": 16,
+    "conf": "high"
+  },
+  {
+    "id": "1069899868",
+    "img": "C:\\Users\\YonatanSetbon\\projects\\aniracers\\maps\\mishkenot_zvulun\\roads-sv\\road_1069899868.jpg",
+    "hw": "residential",
+    "baseType": "street",
+    "surface": "asphalt",
+    "lanes": null,
+    "lengthM": 33,
+    "conf": "high"
+  },
+  {
+    "id": "1069899869",
+    "img": "C:\\Users\\YonatanSetbon\\projects\\aniracers\\maps\\mishkenot_zvulun\\roads-sv\\road_1069899869.jpg",
+    "hw": "residential",
+    "baseType": "street",
+    "surface": "asphalt",
+    "lanes": null,
+    "lengthM": 35,
+    "conf": "high"
+  },
+  {
+    "id": "1069899870",
+    "img": "C:\\Users\\YonatanSetbon\\projects\\aniracers\\maps\\mishkenot_zvulun\\roads-sv\\road_1069899870.jpg",
+    "hw": "residential",
+    "baseType": "street",
+    "surface": "asphalt",
+    "lanes": null,
+    "lengthM": 28,
+    "conf": "high"
+  },
+  {
+    "id": "1069899871",
+    "img": "C:\\Users\\YonatanSetbon\\projects\\aniracers\\maps\\mishkenot_zvulun\\roads-sv\\road_1069899871.jpg",
+    "hw": "residential",
+    "baseType": "street",
+    "surface": "asphalt",
+    "lanes": null,
+    "lengthM": 29,
+    "conf": "high"
+  },
+  {
+    "id": "1112310553",
+    "img": "C:\\Users\\YonatanSetbon\\projects\\aniracers\\maps\\mishkenot_zvulun\\roads-sv\\road_1112310553.jpg",
+    "hw": "path",
+    "baseType": "path",
+    "surface": null,
+    "lanes": null,
+    "lengthM": 361,
+    "conf": "med"
+  },
+  {
+    "id": "1164573296",
+    "img": "C:\\Users\\YonatanSetbon\\projects\\aniracers\\maps\\mishkenot_zvulun\\roads-sv\\road_1164573296.jpg",
+    "hw": "residential",
+    "baseType": "street",
+    "surface": null,
+    "lanes": null,
+    "lengthM": 224,
+    "conf": "high"
+  },
+  {
+    "id": "1312293682",
+    "img": "C:\\Users\\YonatanSetbon\\projects\\aniracers\\maps\\mishkenot_zvulun\\roads-sv\\road_1312293682.jpg",
+    "hw": "footway",
+    "baseType": "path",
+    "surface": null,
+    "lanes": null,
+    "lengthM": 190,
+    "conf": "high"
+  },
+  {
+    "id": "1312293683",
+    "img": "C:\\Users\\YonatanSetbon\\projects\\aniracers\\maps\\mishkenot_zvulun\\roads-sv\\road_1312293683.jpg",
+    "hw": "footway",
+    "baseType": "path",
+    "surface": null,
+    "lanes": null,
+    "lengthM": 11,
+    "conf": "high"
+  },
+  {
+    "id": "1361765407",
+    "img": "C:\\Users\\YonatanSetbon\\projects\\aniracers\\maps\\mishkenot_zvulun\\roads-sv\\road_1361765407.jpg",
+    "hw": "path",
+    "baseType": "path",
+    "surface": null,
+    "lanes": null,
+    "lengthM": 49,
+    "conf": "high"
+  },
+  {
+    "id": "1361767333",
+    "img": "C:\\Users\\YonatanSetbon\\projects\\aniracers\\maps\\mishkenot_zvulun\\roads-sv\\road_1361767333.jpg",
+    "hw": "path",
+    "baseType": "path",
+    "surface": null,
+    "lanes": null,
+    "lengthM": 75,
+    "conf": "high"
+  },
+  {
+    "id": "1361767335",
+    "img": "C:\\Users\\YonatanSetbon\\projects\\aniracers\\maps\\mishkenot_zvulun\\roads-sv\\road_1361767335.jpg",
+    "hw": "path",
+    "baseType": "path",
+    "surface": null,
+    "lanes": null,
+    "lengthM": 34,
+    "conf": "low"
+  },
+  {
+    "id": "1361767336",
+    "img": "C:\\Users\\YonatanSetbon\\projects\\aniracers\\maps\\mishkenot_zvulun\\roads-sv\\road_1361767336.jpg",
+    "hw": "path",
+    "baseType": "path",
+    "surface": null,
+    "lanes": null,
+    "lengthM": 33,
+    "conf": "med"
+  },
+  {
+    "id": "1448376571",
+    "img": "C:\\Users\\YonatanSetbon\\projects\\aniracers\\maps\\mishkenot_zvulun\\roads-sv\\road_1448376571.jpg",
+    "hw": "path",
+    "baseType": "path",
+    "surface": null,
+    "lanes": null,
+    "lengthM": 132,
+    "conf": "med"
+  },
+  {
+    "id": "1448376572",
+    "img": "C:\\Users\\YonatanSetbon\\projects\\aniracers\\maps\\mishkenot_zvulun\\roads-sv\\road_1448376572.jpg",
+    "hw": "path",
+    "baseType": "path",
+    "surface": null,
+    "lanes": null,
+    "lengthM": 496,
+    "conf": "high"
+  },
+  {
+    "id": "1501821710",
+    "img": "C:\\Users\\YonatanSetbon\\projects\\aniracers\\maps\\mishkenot_zvulun\\roads-sv\\road_1501821710.jpg",
+    "hw": "residential",
+    "baseType": "street",
+    "surface": null,
+    "lanes": null,
+    "lengthM": 220,
+    "conf": "high"
+  },
+  {
+    "id": "1521446908",
+    "img": "C:\\Users\\YonatanSetbon\\projects\\aniracers\\maps\\mishkenot_zvulun\\roads-sv\\road_1521446908.jpg",
+    "hw": "cycleway",
+    "baseType": "path",
+    "surface": null,
+    "lanes": null,
+    "lengthM": 288,
+    "conf": "high"
+  },
+  {
+    "id": "1521623483",
+    "img": "C:\\Users\\YonatanSetbon\\projects\\aniracers\\maps\\mishkenot_zvulun\\roads-sv\\road_1521623483.jpg",
+    "hw": "cycleway",
+    "baseType": "path",
+    "surface": "paved",
+    "lanes": null,
+    "lengthM": 133,
+    "conf": "high"
+  },
+  {
+    "id": "1521623484",
+    "img": "C:\\Users\\YonatanSetbon\\projects\\aniracers\\maps\\mishkenot_zvulun\\roads-sv\\road_1521623484.jpg",
+    "hw": "cycleway",
+    "baseType": "path",
+    "surface": "asphalt",
+    "lanes": null,
+    "lengthM": 210,
+    "conf": "high"
+  }
+]

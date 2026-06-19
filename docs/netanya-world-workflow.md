@@ -40,8 +40,8 @@ node scripts/area-picker.mjs --world=<name> --center=<lat>,<lon>      # -> maps/
 # 2. Download the OSM data for that polygon (+ inject <bounds> for a deterministic origin).
 node scripts/fetch-osm.mjs --world=<name>                            # -> <name>.osm
 
-# 3. Strip building tags, then render the BASE (streets/parks/trees, no buildings) with OSM2World.
-node scripts/strip-buildings-osm.mjs --world=<name>                  # -> <name>_base.osm
+# 3. Strip building + ROAD tags, then render the BASE (terrain only: parks/forest/water) with OSM2World.
+node scripts/strip-buildings-osm.mjs --world=<name>                  # -> <name>_base.osm (no buildings, no roads)
 node scripts/osm2world.mjs --world=<name>                            # -> <name>_base.glb
 
 # 4. Extract building footprints (inside the polygon), in world XZ coords.
@@ -58,11 +58,23 @@ node scripts/make-spec-chunks.mjs --world=<name> --place="<place description>"
 #    spec-work/INSTRUCTIONS.md and writes spec-work/specs_<k>.json. Then merge:
 node scripts/merge-specs.mjs --world=<name>                          # -> maps/<name>/building-specs.json
 
-# 8. Bake: instance a unique model per building onto the base -> the playable world.glb.
+# --- ROADS (a parallel workflow to buildings; the OSM "black lines" become game roads) ---
+# 7a. Extract the road/path network (incl. footpaths/forest trails) in world XZ.
+node scripts/extract-roads.mjs --world=<name>                        # -> maps/<name>/roads.json
+# 7b. Harvest one Street View shot per road (camera looking ALONG the road).
+node --env-file=.env scripts/harvest-roads.mjs --world=<name>        # -> roads-sv/ + roads-sv.json
+# 7c. Chunk + VISION classify each road into a type (avenue/street/service/plaza/path) + surface/markings.
+node scripts/make-road-chunks.mjs --world=<name>                     # -> road-work/chunk_*.json + INSTRUCTIONS.md
+#    (Claude runs one agent per chunk -> road-work/specs_<k>.json), then merge:
+node scripts/merge-road-specs.mjs --world=<name>                     # -> maps/<name>/road-specs.json
+
+# 8. Bake: terrain base + styled roads (road-factory) + a unique model per building -> world.glb.
 node scripts/build-world-from-specs.mjs --world=<name>              # -> assets/<name>/world.glb
 
-# 9. Trace the race line on the baked world (your browser): click waypoints, close, Save.
-node scripts/track-editor.mjs --world=<name>                         # -> maps/<name>/track.json
+# 9. Race line: either AUTO-build a lap on the real roads, or trace one by hand.
+node scripts/build-road-loop.mjs --world=<name>                      # -> track.json (outer-boundary lap)
+#    (or) node scripts/track-editor.mjs --world=<name>               # trace it yourself in the browser
+#    Then paste the printed <KEY>_CTRL array into index.html (step 11).
 
 # 10. Verify.
 node scripts/verify-placement.mjs --world=<name>     # footprints overlaid on the world (top-down)
@@ -80,6 +92,14 @@ building gets: `floors, wall, roof(flat|gabled|hipped), roofColor, cols, balconi
 shutters, stoneBase, solar, style, conf`. Rule: **prefer OSM `levels` for floor count**; use the
 photo for colour / roof / balconies / window density / style. `merge-specs` validates + clamps
 all chunks into `building-specs.json`.
+
+### How the roads are built (`scripts/road-factory.js`)
+Shared browser factory (like house-factory). `buildRoad(pts, spec)` builds a flat mitred ribbon
+in the game's style per type — **avenue** (wide, dashed centre + lane lines, kerb), **street**
+(residential, centre dashes, kerb), **service** (narrow, plain), **plaza** (wide paved, no
+markings), **path** (compacted/dirt forest trail). The vision step's per-road `surface` overrides
+the colour (asphalt/paving-stones/cobble/dirt). `build-world-from-specs` clips each road polyline
+to the polygon and bakes it just above the ground, under the buildings.
 
 ### How the models are built (`scripts/house-factory.js`)
 Shared browser factory used by **both** the bake and the gallery, so what you inspect is what
@@ -107,10 +127,12 @@ The build produces `assets/<name>/world.glb`; these edits make it playable. For 
    ```js
    if(window.__dbg){ window.__dbg.<key>Group=root; window.__dbg.worldGroup=root; }
    ```
-4. **Dispatch** — add a branch in `buildWorld(w)` (~line 1774):
+4. **Dispatch** — add a branch in `buildWorld(w)` (~line 1774). Use `buildTrackMeshes({noRoad:true})`
+   so the game does NOT draw its own race ribbon — the karts drive the GLB's own styled roads;
+   only the start/finish strip is kept:
    ```js
    else if(w==='<key>'){ setTrackData(<KEY>_CTRL);
-     buildTrackMeshes({road:0x4a4d54, ground:0x6f9e4e}); build<Key>World();
+     buildTrackMeshes({noRoad:true}); build<Key>World();
      enhanceWorldVisuals('<key>'); setPickupsEnabled(false); }
    ```
 5. **Menu button** — add a `<button id="start<Key>">…</button>` (~line 284) and, near the other
