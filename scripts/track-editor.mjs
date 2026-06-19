@@ -1,16 +1,16 @@
-// Track editor: trace the kart racing line on the Mishkenot Zvulun world from above.
-// Renders assets/mishkenot/world.glb top-down (three.js ortho). Click to drop track
-// waypoints on the ground; DRAG to pan, WHEEL to zoom, RIGHT-CLICK to undo, click the
-// first point (or "Close loop") to close. Shows a live Catmull racing line at the real
-// road width. "Save track" writes maps/mishkenot_zvulun/track.json for Claude to apply.
-// Run:  node scripts/track-editor.mjs   then open  http://localhost:8766/
+// Track editor: trace the kart racing line on a world from above.
+// Renders the world.glb top-down (three.js ortho). Click to drop track waypoints on the
+// ground; DRAG to pan, WHEEL to zoom, RIGHT-CLICK to undo, click the first point (or
+// "Close loop") to close. Shows a live Catmull racing line at the real road width.
+// "Save track" writes maps/<name>/track.json for Claude to apply.
+// Run:  node scripts/track-editor.mjs --world=<name>   then open  http://localhost:8766/
 import http from 'http';
 import fs from 'fs';
 import path from 'path';
-import { fileURLToPath } from 'url';
+import { resolveWorld, ROOT } from './world-config.mjs';
 
-const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
-const OUT = path.join(ROOT, 'maps', 'mishkenot_zvulun', 'track.json');
+const W = resolveWorld(process.argv.slice(2));
+const OUT = W.paths.track;
 fs.mkdirSync(path.dirname(OUT), { recursive: true });
 const PORT = Number(process.env.EDITOR_PORT || 8766);
 const MIME = { '.html':'text/html', '.glb':'model/gltf-binary', '.json':'application/json',
@@ -172,7 +172,7 @@ document.getElementById('reset').onclick=()=>{ pts=[]; closed=false; afterChange
 function banner(msg,err){ const b=document.getElementById('banner'); b.textContent=msg; b.style.background=err?'#b03a3a':'#1e7e34'; b.style.display='block'; }
 document.getElementById('save').onclick=async()=>{
   if(!(closed&&pts.length>=3)) return;
-  const body={ world:'mishkenot', closed:true, ctrl:pts.map(p=>[Math.round(p.x),Math.round(p.z)]),
+  const body={ world:'${W.gameKey}', closed:true, ctrl:pts.map(p=>[Math.round(p.x),Math.round(p.z)]),
     lengthM:Math.round(trackLength()) };
   try{ const r=await fetch('/save-track',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(body)});
     banner(r.ok?'✅ Saved! Switch to Claude and say "done".':'Save failed '+r.status, !r.ok);
@@ -181,7 +181,7 @@ document.getElementById('save').onclick=async()=>{
 
 window.addEventListener('resize',resize);
 // load the world
-new THREE.GLTFLoader().load('/assets/mishkenot/world.glb',gltf=>{
+new THREE.GLTFLoader().load('/world.glb',gltf=>{
   gltf.scene.traverse(o=>{ if(o.isMesh){ o.material=new THREE.MeshLambertMaterial({vertexColors:true,side:THREE.DoubleSide}); }
     else if(o.isLine||o.isLineSegments){ o.visible=false; } });
   scene.add(gltf.scene);
@@ -196,12 +196,13 @@ const server = http.createServer((req,res)=>{
     let d=''; req.on('data',c=>d+=c);
     req.on('end',()=>{ try{ const o=JSON.parse(d); o.savedAt=new Date().toISOString().replace(/\.\d+Z$/,'Z');
       fs.writeFileSync(OUT, JSON.stringify(o,null,2));
-      console.log('\\n[track-editor] SAVED '+o.ctrl.length+' control points (~'+o.lengthM+' m) -> maps/mishkenot_zvulun/track.json');
+      console.log('\\n[track-editor] SAVED '+o.ctrl.length+' control points (~'+o.lengthM+' m) -> '+path.relative(ROOT,OUT));
       res.writeHead(200); res.end('{"ok":true}');
     }catch(e){ res.writeHead(400); res.end(String(e)); } });
     return;
   }
   if(req.url==='/' || req.url===''){ res.writeHead(200,{'Content-Type':'text/html; charset=utf-8'}); return res.end(HTML); }
+  if(req.url==='/world.glb'){ res.writeHead(200,{'Content-Type':'model/gltf-binary'}); return res.end(fs.readFileSync(W.paths.assetGlb)); }
   const u=decodeURIComponent(req.url.split('?')[0]);
   const f=path.join(ROOT,u);
   if(!f.startsWith(ROOT)||!fs.existsSync(f)||fs.statSync(f).isDirectory()){ res.writeHead(404); return res.end('nf'); }
@@ -209,6 +210,6 @@ const server = http.createServer((req,res)=>{
   fs.createReadStream(f).pipe(res);
 });
 server.listen(PORT,()=>{
-  console.log('Track editor running:  http://localhost:'+PORT+'/');
+  console.log('Track editor ['+W.name+']:  http://localhost:'+PORT+'/');
   console.log('Trace the kart loop on the neighbourhood, press "Save track".');
 });

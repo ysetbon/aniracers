@@ -1,14 +1,14 @@
-// Building GALLERY: renders EVERY Mishkenot building's 3D model (the exact same models
-// baked into the game, via the shared house-factory.js) laid out in sorted rows, each
-// model standing next to its real Street View photo for side-by-side comparison.
-// Click a building to see its full spec + big photo and (optionally) tweak it.
-// Run: node scripts/building-gallery.mjs   then open http://localhost:8769/
-import http from 'http'; import fs from 'fs'; import path from 'path'; import { fileURLToPath } from 'url';
-const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
+// Building GALLERY: renders EVERY building's 3D model (the exact same models baked into the
+// game, via the shared house-factory.js) laid out in sorted rows, each model standing next
+// to its real Street View photo for side-by-side comparison. Click for spec + big photo.
+// Run: node scripts/building-gallery.mjs --world=<name>   then open http://localhost:8769/
+import http from 'http'; import fs from 'fs'; import path from 'path';
+import { resolveWorld, ROOT } from './world-config.mjs';
+const W = resolveWorld(process.argv.slice(2));
 const PORT = Number(process.env.GALLERY_PORT || 8769);
-const SVDIR = path.join(ROOT,'maps/mishkenot_zvulun/streetview');
-const BLD = JSON.parse(fs.readFileSync(path.join(ROOT,'maps/mishkenot_zvulun/buildings.json'),'utf8')).buildings;
-const SPECJ = (()=>{ try{return JSON.parse(fs.readFileSync(path.join(ROOT,'maps/mishkenot_zvulun/building-specs.json'),'utf8'));}catch(e){return {specs:{}};} })();
+const SVDIR = W.paths.streetview;
+const BLD = JSON.parse(fs.readFileSync(W.paths.buildings,'utf8')).buildings;
+const SPECJ = (()=>{ try{return JSON.parse(fs.readFileSync(W.paths.specs,'utf8'));}catch(e){return {specs:{}};} })();
 const SPECS = SPECJ.specs||{};
 const BYID = new Map(BLD.map(b=>[b.id,b]));
 

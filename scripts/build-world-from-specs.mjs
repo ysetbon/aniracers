@@ -1,28 +1,24 @@
-// Build the Mishkenot world by instancing a UNIQUE 3D model for EACH building, driven
-// by a per-building spec derived from its real Street View photo (building-specs.json).
-// Falls back to the A/B/C presets (building-overrides.json) for any building without a spec.
-// Bakes streets/parks/trees (OSM2World base) + every house into ONE vertex-coloured mesh
-// -> assets/mishkenot/world.glb.
-// Prereq: mishkenot_base.glb, buildings.json. Optional: building-specs.json, building-overrides.json.
-// Run: node scripts/build-mishkenot-from-specs.mjs
-import http from 'http'; import fs from 'fs'; import path from 'path'; import { fileURLToPath } from 'url';
+// Build a world by instancing a UNIQUE 3D model for EACH building, driven by a per-building
+// spec derived from its real Street View photo (building-specs.json). Falls back to the A/B/C
+// presets (building-overrides.json) for any building without a spec. Bakes streets/parks/trees
+// (OSM2World base) + every house into ONE vertex-coloured mesh -> assets/<name>/world.glb.
+// Prereq: <stem>_base.glb, buildings.json. Optional: building-specs.json, building-overrides.json.
+// Run: node scripts/build-world-from-specs.mjs --world=<name>
+import http from 'http'; import fs from 'fs'; import path from 'path';
 import puppeteer from 'puppeteer';
-const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
-const BASE_REL = 'OSM2World/_aniracers_test/mishkenot_base.glb';
-const AREA = JSON.parse(fs.readFileSync(path.join(ROOT,'maps/mishkenot_zvulun/area.json'),'utf8'));
-const BLD = JSON.parse(fs.readFileSync(path.join(ROOT,'maps/mishkenot_zvulun/buildings.json'),'utf8'));
-const rd = p => { try { return JSON.parse(fs.readFileSync(path.join(ROOT,p),'utf8')); } catch(e){ return null; } };
-const OVRJ = rd('maps/mishkenot_zvulun/building-overrides.json');
+import { resolveWorld, readArea, projection, ROOT } from './world-config.mjs';
+const W = resolveWorld(process.argv.slice(2));
+if(!fs.existsSync(W.paths.baseGlb)){ console.error('missing '+path.relative(ROOT,W.paths.baseGlb)+' — run strip-buildings-osm + osm2world for --world='+W.name); process.exit(1); }
+const AREA = readArea(W);
+const BLD = JSON.parse(fs.readFileSync(W.paths.buildings,'utf8'));
+const rd = p => { try { return JSON.parse(fs.readFileSync(p,'utf8')); } catch(e){ return null; } };
+const OVRJ = rd(W.paths.overrides);
 const OVR = OVRJ ? OVRJ.overrides : {};
-const SPECJ = rd('maps/mishkenot_zvulun/building-specs.json');
+const SPECJ = rd(W.paths.specs);
 const SPECS = SPECJ ? SPECJ.specs : {};
-const OUT_DIR = path.join(ROOT,'assets','mishkenot'); fs.mkdirSync(OUT_DIR,{recursive:true});
+const OUT_DIR = path.dirname(W.paths.assetGlb); fs.mkdirSync(OUT_DIR,{recursive:true});
 
-const originLat=(AREA.bbox.minlat+AREA.bbox.maxlat)/2, originLon=(AREA.bbox.minlon+AREA.bbox.maxlon)/2;
-const scale=40075016.686*Math.cos(originLat*Math.PI/180);
-const latToY=d=>{const s=Math.sin(d*Math.PI/180);return Math.log((1+s)/(1-s))/(4*Math.PI)+0.5;};
-const yO=latToY(originLat);
-const toXZ=(lat,lon)=>[ (lon-originLon)/360*scale, -(latToY(lat)-yO)*scale ];
+const { toXZ } = projection(AREA);
 const POLY=AREA.polygon.map(([la,lo])=>toXZ(la,lo));
 const pxs=POLY.map(p=>p[0]),pzs=POLY.map(p=>p[1]);
 const PCX=(Math.min(...pxs)+Math.max(...pxs))/2, PCZ=(Math.min(...pzs)+Math.max(...pzs))/2;
@@ -109,7 +105,7 @@ main().catch(function(e){window.ERR=String(e&&e.stack||e);});
 const server=http.createServer((req,res)=>{
   if(req.url==='/'){res.writeHead(200,{'Content-Type':'text/html'});return res.end(PAGE);}
   if(req.url==='/house-factory.js'){res.writeHead(200,{'Content-Type':'text/javascript'});return res.end(fs.readFileSync(path.join(ROOT,'scripts/house-factory.js')));}
-  if(req.url==='/base.glb'){res.writeHead(200,{'Content-Type':'model/gltf-binary'});return res.end(fs.readFileSync(path.join(ROOT,BASE_REL)));}
+  if(req.url==='/base.glb'){res.writeHead(200,{'Content-Type':'model/gltf-binary'});return res.end(fs.readFileSync(W.paths.baseGlb));}
   res.writeHead(404);res.end();
 });
 await new Promise(r=>server.listen(0,r));const port=server.address().port;
@@ -120,8 +116,8 @@ await page.waitForFunction('window.RESULT||window.ERR',{timeout:180000});
 const err=await page.evaluate('window.ERR');
 if(err){console.error('ERROR:\n'+err);await browser.close();server.close();process.exit(1);}
 const R=await page.evaluate('window.RESULT');const b64=R.b64;delete R.b64;
-fs.writeFileSync(path.join(OUT_DIR,'world.glb'),Buffer.from(b64,'base64'));
-console.log('\n=== Mishkenot world (per-building photo-matched models) ===');
+fs.writeFileSync(W.paths.assetGlb,Buffer.from(b64,'base64'));
+console.log('\n=== '+W.name+' world (per-building photo-matched models) ===');
 console.log(JSON.stringify(R,null,2));
-console.log('wrote assets/mishkenot/world.glb ('+(fs.statSync(path.join(OUT_DIR,'world.glb')).size/1048576).toFixed(2)+' MB)');
+console.log('wrote '+path.relative(ROOT,W.paths.assetGlb)+' ('+(fs.statSync(W.paths.assetGlb).size/1048576).toFixed(2)+' MB)');
 await browser.close();server.close();

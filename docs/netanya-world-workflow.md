@@ -1,132 +1,145 @@
-# Netanya GP (Mishkenot Zvulun) — world build workflow
+# Building a new AniRacers world (real place → drivable track)
 
-How the **Netanya GP** world is built: a real Netanya neighbourhood (Mishkenot Zvulun /
-Nof HaTalmim) turned into a drivable AniRacers track, with **a unique 3D building model for
-every house, matched to its real Google Street View photo** and placed on its true map footprint.
+This is the **repeatable recipe** for turning any real neighbourhood into an AniRacers world:
+a drivable track on real streets, with **a unique 3D building model per house**, each derived
+from its real Google Street View photo and placed on its true map footprint.
 
-The game loads `assets/mishkenot/world.glb` for the `mishkenot` world (the **NETANYA GP**
-button, or `?world=mishkenot`).
+The whole pipeline is **parameterized by `--world=<name>`** (see `scripts/world-config.mjs`).
+Netanya is the worked example below (`--world=netanya`). To make a *new* world, pick a name and
+run the same commands with `--world=<yourname>`.
+
+> Naming convention for a new world `<name>`: data in `maps/<name>/`, output GLB at
+> `assets/<name>/world.glb`, intermediate OSM at `OSM2World/_aniracers_test/<name>.osm`.
+> If you want different folders or a different in-game `gameKey`, add an entry to `WORLDS`
+> in `scripts/world-config.mjs` (Netanya does this: dir `maps/mishkenot_zvulun`, gameKey
+> `mishkenot`).
 
 ---
 
-## TL;DR — regenerate the world
+## Prerequisites (one-time)
+
+1. **`.env`** with `GMAPS_KEY=<your Google Maps key>` (Street View Static + metadata enabled).
+2. **OSM2World built** (vendored at `OSM2World/`, git-ignored). JDK 17 + Maven 3.9:
+   ```
+   mvn -f OSM2World/pom.xml -pl desktop -am -DskipTests -Dmaven.javadoc.skip=true package
+   ```
+   (PowerShell: put `--%` before the `-D…` args so they aren't mangled.) Produces
+   `OSM2World/desktop/target/osm2world-desktop-0.5.0-SNAPSHOT.jar`.
+3. `npm install` (puppeteer is used by the bake/verify steps).
+
+---
+
+## The recipe
+
+Replace `<name>` with your world's name throughout.
 
 ```bash
-# 0. one-time: vendored OSM2World built (see "OSM2World" below), .env has GMAPS_KEY
-# 1. base geometry (streets/parks/trees, NO buildings) from OSM2World:
-node scripts/strip-buildings-osm.mjs          # -> mishkenot_base.osm
-#    then OSM2World convert mishkenot_base.osm -> OSM2World/_aniracers_test/mishkenot_base.glb (LOD2)
-# 2. harvest one Street View photo per building (needs GMAPS_KEY):
-node --env-file=.env scripts/harvest-mishkenot-buildings.mjs
-# 3. analyse photos -> per-building specs (vision; see "Vision step"):
-node scripts/make-spec-chunks.mjs 20          # -> spec-work/chunk_*.json
-#    (run the 15 vision agents, each writes spec-work/specs_<k>.json)
-node scripts/merge-specs.mjs                  # -> building-specs.json
-# 4. bake the world (instances a model per building on the base):
-node scripts/build-mishkenot-from-specs.mjs   # -> assets/mishkenot/world.glb
-# 5. verify:
-node scripts/verify-mishkenot.mjs             # in-game screenshots
-node scripts/verify-placement.mjs             # footprints overlaid on the world (top-down)
+# 1. Draw the exact area polygon (your browser): click points, click the first to close, Save.
+node scripts/area-picker.mjs --world=<name> --center=<lat>,<lon>      # -> maps/<name>/area.json
+
+# 2. Download the OSM data for that polygon (+ inject <bounds> for a deterministic origin).
+node scripts/fetch-osm.mjs --world=<name>                            # -> <name>.osm
+
+# 3. Strip building tags, then render the BASE (streets/parks/trees, no buildings) with OSM2World.
+node scripts/strip-buildings-osm.mjs --world=<name>                  # -> <name>_base.osm
+node scripts/osm2world.mjs --world=<name>                            # -> <name>_base.glb
+
+# 4. Extract building footprints (inside the polygon), in world XZ coords.
+node scripts/extract-buildings.mjs --world=<name>                    # -> maps/<name>/buildings.json
+
+# 5. Harvest one Street View photo per building.
+node --env-file=.env scripts/harvest-buildings.mjs --world=<name>    # -> streetview/ + building-sv.json
+
+# 6. Chunk the photos for vision analysis (also writes the analysis INSTRUCTIONS.md).
+node scripts/make-spec-chunks.mjs --world=<name> --place="<place description>"
+#    -> maps/<name>/spec-work/chunk_*.json + INSTRUCTIONS.md
+
+# 7. VISION STEP (run by Claude): launch one agent per chunk; each reads its photos +
+#    spec-work/INSTRUCTIONS.md and writes spec-work/specs_<k>.json. Then merge:
+node scripts/merge-specs.mjs --world=<name>                          # -> maps/<name>/building-specs.json
+
+# 8. Bake: instance a unique model per building onto the base -> the playable world.glb.
+node scripts/build-world-from-specs.mjs --world=<name>              # -> assets/<name>/world.glb
+
+# 9. Trace the race line on the baked world (your browser): click waypoints, close, Save.
+node scripts/track-editor.mjs --world=<name>                         # -> maps/<name>/track.json
+
+# 10. Verify.
+node scripts/verify-placement.mjs --world=<name>     # footprints overlaid on the world (top-down)
+node scripts/verify-ingame.mjs --world=<name>        # loads it inside the game, screenshots
+
+# Inspect every model next to its real photo:
+node scripts/building-gallery.mjs --world=<name>     # http://localhost:8769/
 ```
 
-Inspect every building vs its photo: `node scripts/building-gallery.mjs` → http://localhost:8769/
+### Step 7 in detail — the vision fan-out
+`make-spec-chunks` splits the photos into `chunk_<k>.json` and writes `spec-work/INSTRUCTIONS.md`
+(the spec schema + rules). Claude launches **one subagent per chunk** (~20 photos each); each
+reads its chunk's images and `INSTRUCTIONS.md`, then writes `spec-work/specs_<k>.json`. Each
+building gets: `floors, wall, roof(flat|gabled|hipped), roofColor, cols, balconies, doors,
+shutters, stoneBase, solar, style, conf`. Rule: **prefer OSM `levels` for floor count**; use the
+photo for colour / roof / balconies / window density / style. `merge-specs` validates + clamps
+all chunks into `building-specs.json`.
+
+### How the models are built (`scripts/house-factory.js`)
+Shared browser factory used by **both** the bake and the gallery, so what you inspect is what
+you drive. `makeBuilding(p)` = box mass + stone plinth, 4-facade window grid (+shutters),
+per-door canopies, balconies, rooftop solar, and flat/gabled/hipped roofs. Complex / L-shaped
+footprints (OBB fill-ratio < 0.88) instead use `makeFootprintBuilding(foot,p)` which **extrudes
+the real polygon** so walls follow the true footprint.
 
 ---
 
-## Pipeline in detail
+## Step 11 — wire the world into the game (`index.html`)
 
-### 1. Area + track (user-drawn)
-- `scripts/area-picker.mjs` (:8765) — Leaflet map; user click-draws the exact neighbourhood
-  polygon → `maps/mishkenot_zvulun/area.json` (`polygon`, `bbox`, `center`).
-- `scripts/track-editor.mjs` (:8766) — top-down view of `world.glb`; user clicks waypoints to
-  trace the race line → `maps/mishkenot_zvulun/track.json`. Baked into `MISHKENOT_CTRL` in
-  `index.html` (a ~1.8 km real street loop, 35 control points → closed Catmull-Rom).
+The build produces `assets/<name>/world.glb`; these edits make it playable. For a world with
+`gameKey = <key>` (defaults to `<name>`; Netanya's is `mishkenot`):
 
-### 2. Base geometry from OSM2World
-OSM2World renders the OSM data to GLB (Y-up, real metres). We strip building tags first so it
-only emits **streets, parks, trees, ground** — we add our own buildings on top.
-- `scripts/strip-buildings-osm.mjs` → `mishkenot_base.osm` (keeps the injected `<bounds>` so the
-  map projection origin is deterministic = bbox centre).
-- OSM2World `convert --lod 2` → `OSM2World/_aniracers_test/mishkenot_base.glb` (~11.8 MB).
-
-### 3. One Street View photo per building
-- `scripts/harvest-mishkenot-buildings.mjs` (`node --env-file=.env`) — for each of the 301
-  buildings inside the polygon (`maps/mishkenot_zvulun/buildings.json`, from
-  `scripts/extract-buildings.mjs`), finds the **nearest real pano** to the footprint centroid,
-  aims the heading at the centroid, and auto-zooms the FOV by distance.
-  → `maps/mishkenot_zvulun/streetview/bld_<id>.jpg` (git-ignored: fetched Google imagery)
-  → `maps/mishkenot_zvulun/building-sv.json` (manifest: pano distance + confidence).
-  Result: 300/301 buildings got a real photo (~25–40 m away).
-
-### 4. Vision step — photo → per-building spec
-- `scripts/make-spec-chunks.mjs [size]` → splits the photo list into
-  `maps/mishkenot_zvulun/spec-work/chunk_<k>.json`, and writes `spec-work/INSTRUCTIONS.md`
-  (the spec schema + classification rules).
-- **15 parallel vision agents** (one per chunk, ~20 photos each) read their photos + the
-  instructions and each write `spec-work/specs_<k>.json`. Each building gets:
-  `floors, wall(hex), roof(flat|gabled|hipped), roofColor, cols(windows/floor), balconies,
-  doors(1|2), shutters, stoneBase, solar, style(tower|apartment|villa|house), conf`.
-  Rule of thumb: **prefer OSM `levels` for floor count** (authoritative); use the photo for
-  colour / roof / balconies / window density / style.
-- `scripts/merge-specs.mjs` → validates + clamps → `maps/mishkenot_zvulun/building-specs.json`.
-  Distribution: **21 towers / 85 apartments / 88 villas / 106 houses**; 190 flat / 41 gabled /
-  69 hipped roofs; 90 with balconies, 29 with rooftop solar.
-
-> Reality check: this area is **Netanya apartment towers** (up to 17 floors, stone/white,
-> balconies) + 1–2 storey flat-roof houses (rooftop solar tanks) + red-tile villas — *not*
-> cottages. The photo-driven specs capture that mix.
-
-### 5. Bake — a unique model per building
-- `scripts/house-factory.js` — **shared** browser-side factory (`makeBuilding`, `obb`,
-  `makeFootprintBuilding`, `polyArea`). Loaded via `<script src>` by **both** the world-builder
-  and the gallery so the inspected models are identical to the in-game ones.
-  - `makeBuilding(p)` — box mass + stone plinth, 4-facade window grid (with shutters), per-door
-    canopies (1 or 2 doors), apartment balconies, rooftop solar/water-tank, and
-    flat (parapet) / gabled (prism) / hipped (4-sided cone) roofs.
-  - `makeFootprintBuilding(foot,p)` — for **complex / L-shaped footprints**: extrudes the REAL
-    polygon (walls follow the true footprint, windows placed along the real edges, flat roof).
-- `scripts/build-mishkenot-from-specs.mjs` — loads the base GLB, clips it to the polygon and
-  recentres it, then for each building:
-  - rectangular footprint (fill ratio ≥ 0.88, ~261 buildings) → `makeBuilding`, fitted by the
-    footprint's oriented bounding box (size + orientation).
-  - complex footprint (~40 buildings) → `makeFootprintBuilding` (exact polygon).
-  Bakes everything into ONE vertex-coloured mesh → `assets/mishkenot/world.glb`
-  (~495 k tris, ~51 MB, 301 buildings placed).
-
-### 6. Verify
-- `scripts/verify-mishkenot.mjs` — deep-links the game to `?world=mishkenot&dbg`, writes
-  overview / top / live screenshots (git-ignored `maps/mishkenot_zvulun/_ingame_*.png`).
-- `scripts/verify-placement.mjs` — renders the world top-down and overlays every real footprint
-  in red (full + densest-cluster zoom) → confirms each building sits on its map footprint.
-
-### Inspect — the building gallery
-- `scripts/building-gallery.mjs` (:8769) — every building's exact in-game model in sorted rows
-  (towers → apartments → villas → houses), each standing **next to its real Street View photo**,
-  with a `#idx · floors · style` label. Click → spec panel + big photo; search jumps to an id/`#n`.
-- `scripts/building-types-viewer.mjs` (:8768) — the original 3-type (A/B/C) designer.
-- `scripts/building-editor.mjs` (:8767) — click a footprint, see its photo, set type/storeys →
-  `building-overrides.json` (used as the A/B/C fallback when a building has no photo-spec).
+1. **Track control points** — paste `maps/<name>/track.json`'s `ctrl` array as a constant near
+   `MISHKENOT_CTRL` (~line 613):
+   ```js
+   const <KEY>_CTRL = [ [x,z], [x,z], ... ];   // from maps/<name>/track.json
+   ```
+2. **Theme** — add a `VTHEME.<key>` entry (sky/fog/light), copying `VTHEME.mishkenot` (~line 1560).
+3. **Loader** — copy `buildMishkenotWorld()` (~line 1724) to `build<Key>World()`, changing the
+   GLB path to `/assets/<name>/world.glb`. Keep the line that sets the debug handle so
+   `verify-ingame` works:
+   ```js
+   if(window.__dbg){ window.__dbg.<key>Group=root; window.__dbg.worldGroup=root; }
+   ```
+4. **Dispatch** — add a branch in `buildWorld(w)` (~line 1774):
+   ```js
+   else if(w==='<key>'){ setTrackData(<KEY>_CTRL);
+     buildTrackMeshes({road:0x4a4d54, ground:0x6f9e4e}); build<Key>World();
+     enhanceWorldVisuals('<key>'); setPickupsEnabled(false); }
+   ```
+5. **Menu button** — add a `<button id="start<Key>">…</button>` (~line 284) and, near the other
+   listeners (~line 2851):
+   ```js
+   document.getElementById('start<Key>').addEventListener('click',()=>startRace('<key>'));
+   ```
+   The `?world=<key>` deep-link then works automatically.
 
 ---
 
-## Tweaking
-
-- **Change one building** (height, colour, roof, …): edit its entry in
-  `maps/mishkenot_zvulun/building-specs.json`, then `node scripts/build-mishkenot-from-specs.mjs`.
-- **Change how a whole style looks**: edit `scripts/house-factory.js` (affects the gallery and
-  the game together), then re-bake.
+## Tweaking an existing world
+- **One building**: edit its entry in `maps/<name>/building-specs.json`, then re-run step 8.
+- **A whole style**: edit `scripts/house-factory.js` (gallery + game update together), re-run step 8.
 
 ## Data / weight
+`assets/<name>/world.glb` is a single vertex-coloured mesh (Netanya ≈ 495k tris, ~51 MB on
+disk but ~3 MB gzipped, 1 draw call — light to render). Local `server.js` serves it
+uncompressed; any real host gzips it. If a world's GLB grows unwieldy: re-index + uint8 vertex
+colours (→ ~⅓ size, ~½ RAM) or Git LFS for the binary.
 
-- `assets/mishkenot/world.glb` ≈ **51 MB on disk**, but **~3 MB gzipped** (highly repetitive
-  geometry) and a single 495 k-tri draw call — light to render. Local `server.js` serves it
-  uncompressed; any real host (or gzip middleware) ships ~3 MB. Future option if needed:
-  re-index + uint8 vertex colours (→ ~12–15 MB on disk, ~half the RAM) or Git LFS for the binary.
-
-## OSM2World (build dependency, NOT committed)
-
-`OSM2World/` is a vendored upstream clone (its own `.git`, Maven build, 121 jars + `target/`) —
-git-ignored. Build once with JDK 17 + Maven 3.9:
-`mvn -f OSM2World/pom.xml -pl desktop -am -DskipTests -Dmaven.javadoc.skip=true package`
-(PowerShell needs the `--%` stop-parsing token before the `-D` args). See the project memory
-`osm2world-world-pipeline.md` for the full build recipe and gotchas.
+## Notes / gotchas
+- **Projection origin** is the polygon-bbox centre. `fetch-osm` injects a `<bounds>` with a
+  *symmetric* margin so its centre matches what `extract-buildings` / `build-world-from-specs`
+  use — keep that invariant if you change the margin.
+- **Overpass**: the query pulls only `way[...]` features (+ tree nodes) and recurses to nodes,
+  avoiding the city-wide relation "comet tails". Sends a User-Agent + Accept header (else 406).
+- **Street View coverage** varies; `building-sv.json` records each photo's pano distance +
+  `conf` (high/med/low) so the vision step can down-weight unclear shots.
+- Legacy/superseded scripts kept for history: `build-mishkenot-world.mjs`,
+  `build-mishkenot-instanced.mjs`, `apply-building-overrides.mjs`, `building-editor.mjs`,
+  `mishkenot-streetview.mjs`. The active path is the one above.

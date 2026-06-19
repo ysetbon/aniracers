@@ -1,15 +1,15 @@
-// Verify every building is placed on its REAL map footprint. Renders assets/mishkenot/
-// world.glb top-down (north-up, orthographic) and overlays each building's true footprint
-// outline (from buildings.json, same coordinate frame) in red. If the red outlines sit on
-// the building roofs, placement is correct. Also flags footprints that are far from any
-// placed mass. Writes maps/mishkenot_zvulun/_placement_check.png (+ a zoom crop).
-// Run: node scripts/verify-placement.mjs
-import http from 'http'; import fs from 'fs'; import path from 'path'; import { fileURLToPath } from 'url';
+// Verify every building is placed on its REAL map footprint. Renders the world.glb
+// top-down (north-up, orthographic) and overlays each building's true footprint outline
+// (from buildings.json, same coordinate frame) in red. If the red outlines sit on the
+// building roofs, placement is correct. Writes maps/<name>/_placement_check.png (+ zoom).
+// Run: node scripts/verify-placement.mjs --world=<name>
+import http from 'http'; import fs from 'fs'; import path from 'path';
 import puppeteer from 'puppeteer';
-const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
-const BLD = JSON.parse(fs.readFileSync(path.join(ROOT,'maps/mishkenot_zvulun/buildings.json'),'utf8')).buildings;
+import { resolveWorld, ROOT } from './world-config.mjs';
+const W = resolveWorld(process.argv.slice(2));
+const BLD = JSON.parse(fs.readFileSync(W.paths.buildings,'utf8')).buildings;
 const FOOTS = BLD.filter(b=>b.foot&&b.foot.length>=3).map(b=>b.foot);
-const OUT = path.join(ROOT,'maps/mishkenot_zvulun');
+const OUT = W.paths.dir;
 // pick the densest ~220m window as a zoom target
 const CENTS = FOOTS.map(f=>{let x=0,z=0;f.forEach(p=>{x+=p[0];z+=p[1];});return [x/f.length,z/f.length];});
 let ZC=[0,0],bestN=-1;
@@ -56,7 +56,7 @@ main().catch(function(e){window.ERR=String(e&&e.stack||e);});
 
 const server=http.createServer((req,res)=>{
   if(req.url==='/'){res.writeHead(200,{'Content-Type':'text/html'});return res.end(PAGE);}
-  if(req.url==='/world.glb'){res.writeHead(200,{'Content-Type':'model/gltf-binary'});return res.end(fs.readFileSync(path.join(ROOT,'assets/mishkenot/world.glb')));}
+  if(req.url==='/world.glb'){res.writeHead(200,{'Content-Type':'model/gltf-binary'});return res.end(fs.readFileSync(W.paths.assetGlb));}
   res.writeHead(404);res.end();
 });
 await new Promise(r=>server.listen(0,r));const port=server.address().port;

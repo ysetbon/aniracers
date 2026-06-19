@@ -1736,7 +1736,7 @@ async function buildMishkenotWorld(){
       o.castShadow=true; o.receiveShadow=true;
     } else if(o.isLine||o.isLineSegments){ o.visible=false; } });
     scene.add(root); mishGroup=root;
-    if(window.__dbg) window.__dbg.mishGroup=root;
+    if(window.__dbg){ window.__dbg.mishGroup=root; window.__dbg.worldGroup=root; }
     const bb=new THREE.Box3().setFromObject(root), sz=bb.getSize(new THREE.Vector3());
     console.log('[mishkenot] OSM2World world.glb loaded; footprint',
       Math.round(sz.x)+'x'+Math.round(sz.z)+'m, tallest', Math.round(sz.y)+'m');
@@ -1764,7 +1764,7 @@ async function buildParisWorld(){
       o.castShadow=true; o.receiveShadow=true;
     } else if(o.isLine||o.isLineSegments){ o.visible=false; } });
     scene.add(root); parisGroup=root;
-    if(window.__dbg) window.__dbg.parisGroup=root;
+    if(window.__dbg){ window.__dbg.parisGroup=root; window.__dbg.worldGroup=root; }
     const bb=new THREE.Box3().setFromObject(root), sz=bb.getSize(new THREE.Vector3());
     console.log('[paris] OSM2World world.glb loaded; footprint',
       Math.round(sz.x)+'x'+Math.round(sz.z)+'m, tallest', Math.round(sz.y)+'m');

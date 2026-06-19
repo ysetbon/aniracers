@@ -1,25 +1,22 @@
-// Harvest ONE good Street View photo per Mishkenot building (all 301), so we can
-// look at each house and build a model that matches it. Reuses the building-editor
-// logic: nearest real pano to the centroid, heading aimed at the centroid.
+// Harvest ONE good Street View photo per building (nearest pano to the footprint centroid,
+// heading aimed at the centroid, FOV auto-zoomed by distance) so we can model each house.
 //
-// Run:  node --env-file=.env scripts/harvest-mishkenot-buildings.mjs
+// Run:  node --env-file=.env scripts/harvest-buildings.mjs --world=<name>
 // Idempotent/resumable: existing non-empty jpgs are skipped. Writes a manifest
-// (maps/mishkenot_zvulun/building-sv.json) with pano distance + confidence so the
-// analysis step knows which photos actually show the building.
-import fs from 'fs'; import path from 'path'; import { fileURLToPath } from 'url';
+// (maps/<name>/building-sv.json) with pano distance + confidence.
+import fs from 'fs'; import path from 'path';
+import { resolveWorld, ROOT } from './world-config.mjs';
 
 const KEY = process.env.GMAPS_KEY;
-if (!KEY) { console.error('Missing GMAPS_KEY — run with: node --env-file=.env scripts/harvest-mishkenot-buildings.mjs'); process.exit(1); }
-
-const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
-const SVDIR = path.join(ROOT, 'maps/mishkenot_zvulun/streetview'); fs.mkdirSync(SVDIR, { recursive: true });
-const BJSON = JSON.parse(fs.readFileSync(path.join(ROOT, 'maps/mishkenot_zvulun/buildings.json'), 'utf8'));
-const blds = BJSON.buildings;
+if (!KEY) { console.error('Missing GMAPS_KEY — run with: node --env-file=.env scripts/harvest-buildings.mjs --world=<name>'); process.exit(1); }
+const W = resolveWorld(process.argv.slice(2));
+if(!fs.existsSync(W.paths.buildings)){ console.error('missing '+path.relative(ROOT,W.paths.buildings)+' — run: node scripts/extract-buildings.mjs --world='+W.name); process.exit(1); }
+const SVDIR = W.paths.streetview; fs.mkdirSync(SVDIR, { recursive: true });
+const blds = JSON.parse(fs.readFileSync(W.paths.buildings, 'utf8')).buildings;
 
 const META = 'https://maps.googleapis.com/maps/api/streetview/metadata';
 const IMG = 'https://maps.googleapis.com/maps/api/streetview';
 const sleep = ms => new Promise(r => setTimeout(r, ms));
-
 function bearing(la1, lo1, la2, lo2) { const r = Math.PI / 180;
   const y = Math.sin((lo2 - lo1) * r) * Math.cos(la2 * r);
   const x = Math.cos(la1 * r) * Math.sin(la2 * r) - Math.sin(la1 * r) * Math.cos(la2 * r) * Math.cos((lo2 - lo1) * r);
@@ -31,22 +28,17 @@ function haversine(la1, lo1, la2, lo2) { const r = Math.PI / 180, R = 6371000;
 
 const manifest = [];
 let got = 0, skipped = 0, nopano = 0;
-console.log(`${blds.length} buildings; harvesting nearest-pano Street View per centroid...`);
-
+console.log(`[${W.name}] ${blds.length} buildings; harvesting nearest-pano Street View per centroid...`);
 for (let i = 0; i < blds.length; i++) {
   const b = blds[i];
-  const file = `bld_${b.id}.jpg`;
-  const abs = path.join(SVDIR, file);
-  if (fs.existsSync(abs) && fs.statSync(abs).size > 2000) {
-    skipped++; manifest.push({ id: b.id, file, cached: true }); continue;
-  }
+  const file = `bld_${b.id}.jpg`, abs = path.join(SVDIR, file);
+  if (fs.existsSync(abs) && fs.statSync(abs).size > 2000) { skipped++; manifest.push({ id: b.id, file, cached: true }); continue; }
   let m;
   try { m = await (await fetch(`${META}?location=${b.clat},${b.clon}&radius=90&source=outdoor&key=${KEY}`)).json(); }
   catch (e) { console.log(`  meta err ${b.id}:`, e.message); manifest.push({ id: b.id, status: 'meta_error' }); continue; }
   if (m.status !== 'OK') { nopano++; manifest.push({ id: b.id, status: m.status }); continue; }
   const dist = haversine(m.location.lat, m.location.lng, b.clat, b.clon);
   const head = bearing(m.location.lat, m.location.lng, b.clat, b.clon);
-  // FOV scales with distance: close pano → wide (90), far → zoom in (55) so the building fills the frame.
   const fov = Math.max(45, Math.min(90, 30 + dist * 0.7));
   try {
     const r = await fetch(`${IMG}?size=640x400&pano=${m.pano_id}&heading=${head.toFixed(1)}&fov=${fov.toFixed(0)}&pitch=10&key=${KEY}`);
@@ -61,8 +53,6 @@ for (let i = 0; i < blds.length; i++) {
   } catch (e) { console.log(`  img err ${b.id}:`, e.message); manifest.push({ id: b.id, status: 'img_error' }); }
   await sleep(35);
 }
-
-fs.writeFileSync(path.join(ROOT, 'maps/mishkenot_zvulun/building-sv.json'),
-  JSON.stringify({ generatedAt: '', count: manifest.length, fetched: got, skipped, nopano, photos: manifest }, null, 2));
-console.log(`\nDONE: ${got} new, ${skipped} cached, ${nopano} no-pano  ->  ${path.relative(ROOT, SVDIR)}/`);
-console.log('manifest -> maps/mishkenot_zvulun/building-sv.json');
+fs.writeFileSync(W.paths.sv, JSON.stringify({ generatedAt: '', count: manifest.length, fetched: got, skipped, nopano, photos: manifest }, null, 2));
+console.log(`\n[${W.name}] DONE: ${got} new, ${skipped} cached, ${nopano} no-pano  ->  ${path.relative(ROOT, SVDIR)}/`);
+console.log('manifest -> '+path.relative(ROOT, W.paths.sv));
