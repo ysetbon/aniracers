@@ -1,11 +1,12 @@
 // Merge the per-chunk vision outputs (spec-work/specs_*.json) into one
-// maps/mishkenot_zvulun/building-specs.json that build-mishkenot-from-specs.mjs reads.
+// maps/<name>/building-specs.json that build-world-from-specs.mjs reads.
 // Validates/clamps fields and prints a distribution summary.
-// Run: node scripts/merge-specs.mjs
-import fs from 'fs'; import path from 'path'; import { fileURLToPath } from 'url';
-const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
-const WORK = path.join(ROOT,'maps/mishkenot_zvulun/spec-work');
-const OUT = path.join(ROOT,'maps/mishkenot_zvulun/building-specs.json');
+// Run: node scripts/merge-specs.mjs --world=<name>
+import fs from 'fs'; import path from 'path';
+import { resolveWorld, ROOT } from './world-config.mjs';
+const W = resolveWorld(process.argv.slice(2));
+const WORK = W.paths.specWork, OUT = W.paths.specs;
+if(!fs.existsSync(WORK)){ console.error('no spec-work dir for '+W.name+' — run make-spec-chunks + the vision agents first'); process.exit(1); }
 
 const ROOFS = new Set(['flat','gabled','hipped']);
 const hex = (c,def)=>{ if(typeof c!=='string')return def; const m=c.trim().match(/^#?([0-9a-fA-F]{6})$/); return m?'#'+m[1].toLowerCase():def; };
@@ -36,12 +37,12 @@ for(const f of fs.readdirSync(WORK)){
   }
 }
 const ids=Object.keys(specs);
+if(!ids.length){ console.error('no specs_*.json found in '+path.relative(ROOT,WORK)+' — run the vision agents first'); process.exit(1); }
 fs.writeFileSync(OUT, JSON.stringify({ generatedAt:'', count:ids.length, specs }, null, 1));
 
-// summary
 const dist=(key)=>ids.reduce((m,id)=>{const k=specs[id][key];m[k]=(m[k]||0)+1;return m;},{});
 const floorsHist=ids.reduce((m,id)=>{const f=specs[id].floors;const b=f>=8?'8+':f>=4?'4-7':String(f);m[b]=(m[b]||0)+1;return m;},{});
-console.log('merged '+files+' files'+(bad?(' ('+bad+' unreadable)'):'')+' -> '+ids.length+' specs');
+console.log('['+W.name+'] merged '+files+' files'+(bad?(' ('+bad+' unreadable)'):'')+' -> '+ids.length+' specs');
 console.log('style :', JSON.stringify(dist('style')));
 console.log('roof  :', JSON.stringify(dist('roof')));
 console.log('conf  :', JSON.stringify(dist('conf')));

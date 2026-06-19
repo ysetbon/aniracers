@@ -1,19 +1,22 @@
 // Interactive area picker: open in YOUR browser, click polygon points on the map
 // (click the first point again to close the loop), then "Save area". It writes the
-// exact polygon to maps/mishkenot_zvulun/area.json for Claude to read.
-// Run:  node scripts/area-picker.mjs   then open  http://localhost:8765/
+// exact polygon to maps/<name>/area.json for Claude to read.
+// Run:  node scripts/area-picker.mjs --world=<name> [--center=lat,lon]   then open http://localhost:8765/
 import http from 'http';
 import fs from 'fs';
 import path from 'path';
-import { fileURLToPath } from 'url';
+import { resolveWorld, ROOT } from './world-config.mjs';
 
-const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
-const OUT = path.join(ROOT, 'maps', 'mishkenot_zvulun', 'area.json');
+const W = resolveWorld(process.argv.slice(2));
+const OUT = W.paths.area;
 fs.mkdirSync(path.dirname(OUT), { recursive: true });
 const PORT = Number(process.env.PICKER_PORT || 8765);
 
-// default view: Mishkenot Zvulun, Netanya (HaRav Toledano)
-const CENTER = [32.309930, 34.880891];
+// default view: the world's existing area centre if any, else Mishkenot Zvulun, Netanya
+const centerArg = process.argv.find(s=>s.startsWith('--center='));
+let CENTER = [32.309930, 34.880891];
+if(centerArg){ const [a,b]=centerArg.split('=')[1].split(',').map(Number); if(isFinite(a)&&isFinite(b)) CENTER=[a,b]; }
+else if(fs.existsSync(OUT)){ try{ const a=JSON.parse(fs.readFileSync(OUT,'utf8')); if(a.center) CENTER=a.center; }catch(e){} }
 
 const HTML = `<!doctype html><html><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
@@ -148,7 +151,7 @@ const server = http.createServer((req, res) => {
         obj.savedAt = new Date().toISOString().replace(/\.\d+Z$/, 'Z');
         fs.writeFileSync(OUT, JSON.stringify(obj, null, 2));
         console.log('\n[area-picker] SAVED polygon (' + obj.polygon.length + ' pts, ~' +
-          (obj.areaM2/1e6).toFixed(3) + ' km²) -> maps/mishkenot_zvulun/area.json');
+          (obj.areaM2/1e6).toFixed(3) + ' km²) -> ' + path.relative(ROOT, OUT));
         res.writeHead(200, { 'Content-Type': 'application/json' });
         res.end('{"ok":true}');
       } catch (e) { res.writeHead(400); res.end(String(e)); }
@@ -159,6 +162,6 @@ const server = http.createServer((req, res) => {
   res.end(HTML);
 });
 server.listen(PORT, () => {
-  console.log('Area picker running:  http://localhost:' + PORT + '/');
-  console.log('Draw your polygon, press "Save area", it writes maps/mishkenot_zvulun/area.json');
+  console.log('Area picker ['+W.name+']:  http://localhost:' + PORT + '/');
+  console.log('Draw your polygon, press "Save area", it writes ' + path.relative(ROOT, OUT));
 });
