@@ -145,10 +145,12 @@ page.on('console', m => console.log('  [page]', m.text()));
 await page.goto('http://localhost:' + port + '/', { waitUntil: 'load' });
 await page.waitForFunction('window.RESULT||window.ERR', { timeout: 300000 });
 const err = await page.evaluate('window.ERR');
-if (err) { console.error('ERROR:\n' + err); await browser.close(); server.close(); process.exit(1); }
+if (err) { console.error('ERROR:\n' + err); try { await browser.close(); } catch {} server.close(); process.exit(1); }
 const R = await page.evaluate('window.RESULT'); const b64 = R.b64; delete R.b64;
 fs.mkdirSync(path.dirname(OUT), { recursive: true });
 fs.writeFileSync(OUT, Buffer.from(b64, 'base64'));
 console.log(JSON.stringify(R));
 console.log('wrote ' + path.relative(ROOT, OUT) + ' (' + (fs.statSync(OUT).size / 1048576).toFixed(2) + ' MB)');
-await browser.close(); server.close();
+// puppeteer's temp-profile cleanup can throw EPERM on Windows after the GLB is written
+try { await browser.close(); } catch {} server.close();
+process.exit(0);

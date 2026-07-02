@@ -1,0 +1,378 @@
+{
+  "181443351": {
+    "floors": 2,
+    "wall": "#e0d8c8",
+    "accent": null,
+    "roof": "flat",
+    "roofColor": "#c8c0b0",
+    "cols": 2,
+    "windowStyle": "framed",
+    "shutters": false,
+    "balconies": false,
+    "doors": 2,
+    "solar": false,
+    "stoneBase": false,
+    "fence": {
+      "type": "stone",
+      "color": "#d0c8b8",
+      "height": 1.8
+    },
+    "gate": {
+      "color": "#c0b8a8"
+    },
+    "style": "duplex",
+    "conf": "med",
+    "notes": "white columns, modern commercial conversion"
+  },
+  "181443386": {
+    "floors": 2,
+    "wall": "#d8c880",
+    "accent": "#8b7355",
+    "roof": "flat",
+    "roofColor": "#a0a0a0",
+    "cols": 2,
+    "windowStyle": "plain",
+    "shutters": false,
+    "balconies": false,
+    "doors": 1,
+    "solar": false,
+    "stoneBase": false,
+    "fence": {
+      "type": "slat",
+      "color": "#b0a8a0",
+      "height": 1.6
+    },
+    "gate": {
+      "color": "#808080"
+    },
+    "style": "villa",
+    "conf": "med",
+    "notes": "brown planter boxes, metal gate"
+  },
+  "181443445": {
+    "floors": 2,
+    "wall": "#d0c8b8",
+    "accent": "#f0ebe5",
+    "roof": "flat",
+    "roofColor": "#c0b8a8",
+    "cols": 2,
+    "windowStyle": "framed",
+    "shutters": false,
+    "balconies": false,
+    "doors": 1,
+    "solar": false,
+    "stoneBase": true,
+    "fence": {
+      "type": "none",
+      "color": null,
+      "height": null
+    },
+    "gate": null,
+    "style": "villa",
+    "conf": "high",
+    "notes": "modern minimalist, white column framing"
+  },
+  "383407933": {
+    "floors": 3,
+    "wall": "#f5e8d0",
+    "accent": "#8b7355",
+    "roof": "flat",
+    "roofColor": "#9a9a9a",
+    "cols": 3,
+    "windowStyle": "plain",
+    "shutters": false,
+    "balconies": true,
+    "doors": 2,
+    "solar": false,
+    "stoneBase": true,
+    "fence": {
+      "type": "stone",
+      "color": "#c9865c",
+      "height": 2.0
+    },
+    "gate": null,
+    "style": "duplex",
+    "conf": "med",
+    "notes": "3-storey with metal X-railings on balconies"
+  },
+  "383407937": {
+    "floors": 3,
+    "wall": "#d8d0c0",
+    "accent": "#c0b8a8",
+    "roof": "flat",
+    "roofColor": "#a8a8a8",
+    "cols": 2,
+    "windowStyle": "plain",
+    "shutters": false,
+    "balconies": true,
+    "doors": 2,
+    "solar": false,
+    "stoneBase": true,
+    "fence": {
+      "type": "hedge",
+      "color": "#5c8c3a",
+      "height": 1.8
+    },
+    "gate": null,
+    "style": "duplex",
+    "conf": "med",
+    "notes": "hedge fence, multiple balconies"
+  },
+  "383407972": {
+    "floors": 4,
+    "wall": "#e0d8c8",
+    "accent": "#7fa070",
+    "roof": "flat",
+    "roofColor": "#a8a8a8",
+    "cols": 2,
+    "windowStyle": "framed",
+    "shutters": false,
+    "balconies": true,
+    "doors": 2,
+    "solar": false,
+    "stoneBase": false,
+    "fence": {
+      "type": "hedge",
+      "color": "#6da052",
+      "height": 1.8
+    },
+    "gate": null,
+    "style": "duplex",
+    "conf": "med",
+    "notes": "4-storey modern with green-striped accent bands"
+  },
+  "383409983": {
+    "floors": 2,
+    "wall": "#f0e8d8",
+    "accent": "#2b5b8f",
+    "roof": "flat",
+    "roofColor": "#a0a0a0",
+    "cols": 4,
+    "windowStyle": "horizontal",
+    "shutters": false,
+    "balconies": false,
+    "doors": 2,
+    "solar": false,
+    "stoneBase": true,
+    "fence": {
+      "type": "metal",
+      "color": "#c0c0c0",
+      "height": 1.6
+    },
+    "gate": {
+      "color": "#b8b8b8"
+    },
+    "style": "villa",
+    "conf": "low",
+    "notes": "commercial storefront Meirum supermarket"
+  },
+  "383409987": {
+    "floors": 3,
+    "wall": "#e8e0d0",
+    "accent": "#7fa070",
+    "roof": "flat",
+    "roofColor": "#a8a8a8",
+    "cols": 3,
+    "windowStyle": "plain",
+    "shutters": false,
+    "balconies": true,
+    "doors": 1,
+    "solar": true,
+    "stoneBase": false,
+    "fence": {
+      "type": "hedge",
+      "color": "#6da052",
+      "height": 1.8
+    },
+    "gate": null,
+    "style": "villa",
+    "conf": "med",
+    "notes": "AC units visible, modern apartment block"
+  },
+  "383409989": {
+    "floors": 3,
+    "wall": "#e8e0d0",
+    "accent": "#7fa070",
+    "roof": "flat",
+    "roofColor": "#a8a8a8",
+    "cols": 3,
+    "windowStyle": "plain",
+    "shutters": false,
+    "balconies": true,
+    "doors": 2,
+    "solar": false,
+    "stoneBase": false,
+    "fence": {
+      "type": "hedge",
+      "color": "#5c8c3a",
+      "height": 1.8
+    },
+    "gate": null,
+    "style": "duplex",
+    "conf": "high",
+    "notes": "green balcony sections, hedge fence"
+  },
+  "383409992": {
+    "floors": 2,
+    "wall": "#d8d0c0",
+    "accent": "#2b5b8f",
+    "roof": "flat",
+    "roofColor": "#9a9a9a",
+    "cols": 3,
+    "windowStyle": "horizontal",
+    "shutters": false,
+    "balconies": false,
+    "doors": 1,
+    "solar": false,
+    "stoneBase": true,
+    "fence": {
+      "type": "none",
+      "color": null,
+      "height": null
+    },
+    "gate": null,
+    "style": "villa",
+    "conf": "low",
+    "notes": "commercial mixed-use storefront"
+  },
+  "383409999": {
+    "floors": 2,
+    "wall": "#d8d0c0",
+    "accent": "#d8a058",
+    "roof": "flat",
+    "roofColor": "#a8a8a8",
+    "cols": 3,
+    "windowStyle": "horizontal",
+    "shutters": false,
+    "balconies": false,
+    "doors": 1,
+    "solar": false,
+    "stoneBase": true,
+    "fence": {
+      "type": "metal",
+      "color": "#c0c0c0",
+      "height": 1.6
+    },
+    "gate": null,
+    "style": "villa",
+    "conf": "low",
+    "notes": "commercial building, mixed storefront"
+  },
+  "383410002": {
+    "floors": 1,
+    "wall": "#f0e8d8",
+    "accent": "#d8a058",
+    "roof": "flat",
+    "roofColor": "#a8a8a8",
+    "cols": 3,
+    "windowStyle": "horizontal",
+    "shutters": false,
+    "balconies": false,
+    "doors": 2,
+    "solar": false,
+    "stoneBase": true,
+    "fence": {
+      "type": "metal",
+      "color": "#c0c0c0",
+      "height": 1.6
+    },
+    "gate": null,
+    "style": "villa",
+    "conf": "low",
+    "notes": "commercial storefront only"
+  },
+  "383410014": {
+    "floors": 2,
+    "wall": "#d8d0c0",
+    "accent": "#d8a058",
+    "roof": "flat",
+    "roofColor": "#a8a8a8",
+    "cols": 3,
+    "windowStyle": "horizontal",
+    "shutters": false,
+    "balconies": false,
+    "doors": 2,
+    "solar": false,
+    "stoneBase": true,
+    "fence": {
+      "type": "metal",
+      "color": "#c0c0c0",
+      "height": 1.6
+    },
+    "gate": null,
+    "style": "villa",
+    "conf": "low",
+    "notes": "commercial mixed-use storefront"
+  },
+  "383410024": {
+    "floors": 4,
+    "wall": "#d4b895",
+    "accent": "#c8b088",
+    "roof": "gabled",
+    "roofColor": "#c75c35",
+    "cols": 4,
+    "windowStyle": "framed",
+    "shutters": false,
+    "balconies": true,
+    "doors": 1,
+    "solar": false,
+    "stoneBase": true,
+    "fence": {
+      "type": "slat",
+      "color": "#b8a878",
+      "height": 1.8
+    },
+    "gate": {
+      "color": "#a89868"
+    },
+    "style": "villa",
+    "conf": "high",
+    "notes": "classical 4-storey villa, terracotta gabled roof"
+  },
+  "383410026": {
+    "floors": 3,
+    "wall": "#e0d8c8",
+    "accent": "#7fa070",
+    "roof": "flat",
+    "roofColor": "#a8a8a8",
+    "cols": 2,
+    "windowStyle": "plain",
+    "shutters": false,
+    "balconies": true,
+    "doors": 1,
+    "solar": false,
+    "stoneBase": false,
+    "fence": {
+      "type": "metal",
+      "color": "#7fa070",
+      "height": 1.8
+    },
+    "gate": null,
+    "style": "villa",
+    "conf": "med",
+    "notes": "green metal fence, 3 storeys"
+  },
+  "383410029": {
+    "floors": 3,
+    "wall": "#d4c8b8",
+    "accent": "#7fa070",
+    "roof": "flat",
+    "roofColor": "#a8a8a8",
+    "cols": 2,
+    "windowStyle": "plain",
+    "shutters": false,
+    "balconies": true,
+    "doors": 1,
+    "solar": false,
+    "stoneBase": false,
+    "fence": {
+      "type": "metal",
+      "color": "#7fa070",
+      "height": 1.8
+    },
+    "gate": null,
+    "style": "villa",
+    "conf": "low",
+    "notes": "heavily tree-obscured, green balconies"
+  }
+}

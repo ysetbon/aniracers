@@ -1,0 +1,1186 @@
+{
+  "items": {
+    "bld_181443351": {
+      "hash": "ba3ba5f40c712a49",
+      "model": "gemini-3.1-flash-image",
+      "src": "maps\\mishkenot_zvulun\\views\\keyless\\bld_181443351_pr1p9ti.jpg",
+      "out": "bld_181443351.png"
+    },
+    "bld_181443386": {
+      "hash": "91e0d4dcf17847da",
+      "model": "gemini-3.1-flash-image",
+      "src": "maps\\mishkenot_zvulun\\views\\keyless\\bld_181443386_p1zEN08.jpg",
+      "out": "bld_181443386.png"
+    },
+    "bld_181443445": {
+      "hash": "c5933fcb6faf4430",
+      "model": "gemini-3.1-flash-image",
+      "src": "maps\\mishkenot_zvulun\\views\\keyless\\bld_181443445_pM1uQIG.jpg",
+      "out": "bld_181443445.png"
+    },
+    "bld_383407933": {
+      "hash": "24839df76241bee3",
+      "model": "gemini-3.1-flash-image",
+      "src": "maps\\mishkenot_zvulun\\views\\keyless\\bld_383407933_pqqwSCu.jpg",
+      "out": "bld_383407933.png"
+    },
+    "bld_383407937": {
+      "hash": "4a5e251b4baca1a2",
+      "model": "gemini-3.1-flash-image",
+      "src": "maps\\mishkenot_zvulun\\views\\keyless\\bld_383407937_pbCvxDm.jpg",
+      "out": "bld_383407937.png"
+    },
+    "bld_383407972": {
+      "hash": "fae1cc31328f0758",
+      "model": "gemini-3.1-flash-image",
+      "src": "maps\\mishkenot_zvulun\\views\\keyless\\bld_383407972_paZxKPK.jpg",
+      "out": "bld_383407972.png"
+    },
+    "bld_383409983": {
+      "hash": "86d8dee24b407802",
+      "model": "gemini-3.1-flash-image",
+      "src": "maps\\mishkenot_zvulun\\views\\keyless\\bld_383409983_pOVmLun.jpg",
+      "out": "bld_383409983.png"
+    },
+    "bld_383409987": {
+      "hash": "b6b39194e780c87b",
+      "model": "gemini-3.1-flash-image",
+      "src": "maps\\mishkenot_zvulun\\views\\keyless\\bld_383409987_pa_MU7a.jpg",
+      "out": "bld_383409987.png"
+    },
+    "bld_383409989": {
+      "hash": "8606c930ca903780",
+      "model": "gemini-3.1-flash-image",
+      "src": "maps\\mishkenot_zvulun\\views\\keyless\\bld_383409989_pTMldB0.jpg",
+      "out": "bld_383409989.png"
+    },
+    "bld_383409992": {
+      "hash": "080ca3c24598dfaa",
+      "model": "gemini-3.1-flash-image",
+      "src": "maps\\mishkenot_zvulun\\views\\keyless\\bld_383409992_piDbZbs.jpg",
+      "out": "bld_383409992.png"
+    },
+    "bld_383409999": {
+      "hash": "820313da74d190ae",
+      "model": "gemini-3.1-flash-image",
+      "src": "maps\\mishkenot_zvulun\\views\\keyless\\bld_383409999_prg0N9F.jpg",
+      "out": "bld_383409999.png"
+    },
+    "bld_383410002": {
+      "hash": "056f016b47419220",
+      "model": "gemini-3.1-flash-image",
+      "src": "maps\\mishkenot_zvulun\\views\\keyless\\bld_383410002_piPfRnw.jpg",
+      "out": "bld_383410002.png"
+    },
+    "bld_383410014": {
+      "hash": "d26263bb65bcbf0d",
+      "model": "gemini-3.1-flash-image",
+      "src": "maps\\mishkenot_zvulun\\views\\keyless\\bld_383410014_prg0N9F.jpg",
+      "out": "bld_383410014.png"
+    },
+    "bld_383410024": {
+      "hash": "87cf6de12dc69c94",
+      "model": "gemini-3.1-flash-image",
+      "src": "maps\\mishkenot_zvulun\\views\\keyless\\bld_383410024_pEahSOi.jpg",
+      "out": "bld_383410024.png"
+    },
+    "bld_383410026": {
+      "hash": "ffa55d01dc6848aa",
+      "model": "gemini-3.1-flash-image",
+      "src": "maps\\mishkenot_zvulun\\views\\keyless\\bld_383410026_pngVw55.jpg",
+      "out": "bld_383410026.png"
+    },
+    "bld_383410029": {
+      "hash": "7f7b4f42a9a57ec2",
+      "model": "gemini-3.1-flash-image",
+      "src": "maps\\mishkenot_zvulun\\views\\keyless\\bld_383410029_pjl7Wia.jpg",
+      "out": "bld_383410029.png"
+    },
+    "bld_406278366": {
+      "hash": "ae3e47093487b043",
+      "model": "gemini-3.1-flash-image",
+      "src": "maps\\mishkenot_zvulun\\views\\keyless\\bld_406278366_piOD4dc.jpg",
+      "out": "bld_406278366.png"
+    },
+    "bld_406278367": {
+      "hash": "e2459000c096f8f8",
+      "model": "gemini-3.1-flash-image",
+      "src": "maps\\mishkenot_zvulun\\views\\keyless\\bld_406278367_pC9uD0F.jpg",
+      "out": "bld_406278367.png"
+    },
+    "bld_406278371": {
+      "hash": "5497ea6567b49b62",
+      "model": "gemini-3.1-flash-image",
+      "src": "maps\\mishkenot_zvulun\\views\\keyless\\bld_406278371_pjji2Nh.jpg",
+      "out": "bld_406278371.png"
+    },
+    "bld_406278373": {
+      "hash": "f90b6077cad4bd65",
+      "model": "gemini-3.1-flash-image",
+      "src": "maps\\mishkenot_zvulun\\views\\keyless\\bld_406278373_pp6T08w.jpg",
+      "out": "bld_406278373.png"
+    },
+    "bld_406278381": {
+      "hash": "741675ffecb83404",
+      "model": "gemini-3.1-flash-image",
+      "src": "maps\\mishkenot_zvulun\\views\\keyless\\bld_406278381_pXoJylK.jpg",
+      "out": "bld_406278381.png"
+    },
+    "bld_406278383": {
+      "hash": "42f9f4d73dbcc3f9",
+      "model": "gemini-3.1-flash-image",
+      "src": "maps\\mishkenot_zvulun\\views\\keyless\\bld_406278383_pDGQIGr.jpg",
+      "out": "bld_406278383.png"
+    },
+    "bld_406278384": {
+      "hash": "fe0153c9990e9e83",
+      "model": "gemini-3.1-flash-image",
+      "src": "maps\\mishkenot_zvulun\\views\\keyless\\bld_406278384_ptkElgg.jpg",
+      "out": "bld_406278384.png"
+    },
+    "bld_406278389": {
+      "hash": "0be7ebe3f26f491e",
+      "model": "gemini-3.1-flash-image",
+      "src": "maps\\mishkenot_zvulun\\views\\keyless\\bld_406278389_p2v5O1O.jpg",
+      "out": "bld_406278389.png"
+    },
+    "bld_406278390": {
+      "hash": "d348870ffe0834ca",
+      "model": "gemini-3.1-flash-image",
+      "src": "maps\\mishkenot_zvulun\\views\\keyless\\bld_406278390_pB4fCG5.jpg",
+      "out": "bld_406278390.png"
+    },
+    "bld_406278393": {
+      "hash": "a8c567bed63fb5fd",
+      "model": "gemini-3.1-flash-image",
+      "src": "maps\\mishkenot_zvulun\\views\\keyless\\bld_406278393_p7ASfc5.jpg",
+      "out": "bld_406278393.png"
+    },
+    "bld_406278394": {
+      "hash": "d2e9e17667ee24c0",
+      "model": "gemini-3.1-flash-image",
+      "src": "maps\\mishkenot_zvulun\\views\\keyless\\bld_406278394_pYlbDif.jpg",
+      "out": "bld_406278394.png"
+    },
+    "bld_406278402": {
+      "hash": "36de15fbd8866146",
+      "model": "gemini-3.1-flash-image",
+      "src": "maps\\mishkenot_zvulun\\views\\keyless\\bld_406278402_pxm8XFy.jpg",
+      "out": "bld_406278402.png"
+    },
+    "bld_406278405": {
+      "hash": "13945b75fb731bc3",
+      "model": "gemini-3.1-flash-image",
+      "src": "maps\\mishkenot_zvulun\\views\\keyless\\bld_406278405_pdgzVYy.jpg",
+      "out": "bld_406278405.png"
+    },
+    "bld_406278417": {
+      "hash": "deea21aa0ed271ca",
+      "model": "gemini-3.1-flash-image",
+      "src": "maps\\mishkenot_zvulun\\views\\keyless\\bld_406278417_pApNP08.jpg",
+      "out": "bld_406278417.png"
+    },
+    "bld_406278420": {
+      "hash": "0d2e6600c16e360e",
+      "model": "gemini-3.1-flash-image",
+      "src": "maps\\mishkenot_zvulun\\views\\keyless\\bld_406278420_pp6T08w.jpg",
+      "out": "bld_406278420.png"
+    },
+    "bld_406278424": {
+      "hash": "b309fb159f957837",
+      "model": "gemini-3.1-flash-image",
+      "src": "maps\\mishkenot_zvulun\\views\\keyless\\bld_406278424_piOD4dc.jpg",
+      "out": "bld_406278424.png"
+    },
+    "bld_406278425": {
+      "hash": "fe10cc59c5ee0ce4",
+      "model": "gemini-3.1-flash-image",
+      "src": "maps\\mishkenot_zvulun\\views\\keyless\\bld_406278425_pi8f16a.jpg",
+      "out": "bld_406278425.png"
+    },
+    "bld_406278428": {
+      "hash": "1d0db04fe30ab661",
+      "model": "gemini-3.1-flash-image",
+      "src": "maps\\mishkenot_zvulun\\views\\keyless\\bld_406278428_pkMlgZm.jpg",
+      "out": "bld_406278428.png"
+    },
+    "bld_406278429": {
+      "hash": "3b55d3d44433a259",
+      "model": "gemini-3.1-flash-image",
+      "src": "maps\\mishkenot_zvulun\\views\\keyless\\bld_406278429_poZkaB8.jpg",
+      "out": "bld_406278429.png"
+    },
+    "bld_406278431": {
+      "hash": "3ce04cc3a95044a7",
+      "model": "gemini-3.1-flash-image",
+      "src": "maps\\mishkenot_zvulun\\views\\keyless\\bld_406278431_pub2Yu6.jpg",
+      "out": "bld_406278431.png"
+    },
+    "bld_406278436": {
+      "hash": "3c5dc838c6816cc4",
+      "model": "gemini-3.1-flash-image",
+      "src": "maps\\mishkenot_zvulun\\views\\keyless\\bld_406278436_pU8nZBD.jpg",
+      "out": "bld_406278436.png"
+    },
+    "bld_406278438": {
+      "hash": "e4304774b38798b9",
+      "model": "gemini-3.1-flash-image",
+      "src": "maps\\mishkenot_zvulun\\views\\keyless\\bld_406278438_pbD7riG.jpg",
+      "out": "bld_406278438.png"
+    },
+    "bld_406278439": {
+      "hash": "1a4ebdb2c879d63f",
+      "model": "gemini-3.1-flash-image",
+      "src": "maps\\mishkenot_zvulun\\views\\keyless\\bld_406278439_pxm8XFy.jpg",
+      "out": "bld_406278439.png"
+    },
+    "bld_406278442": {
+      "hash": "e8b813653f8c6785",
+      "model": "gemini-3.1-flash-image",
+      "src": "maps\\mishkenot_zvulun\\views\\keyless\\bld_406278442_pq3LfRm.jpg",
+      "out": "bld_406278442.png"
+    },
+    "bld_406278443": {
+      "hash": "ae287a8b8f8fe1e1",
+      "model": "gemini-3.1-flash-image",
+      "src": "maps\\mishkenot_zvulun\\views\\keyless\\bld_406278443_pYlbDif.jpg",
+      "out": "bld_406278443.png"
+    },
+    "bld_406278445": {
+      "hash": "ad2b0bf595347dfd",
+      "model": "gemini-3.1-flash-image",
+      "src": "maps\\mishkenot_zvulun\\views\\keyless\\bld_406278445_pUTEtUR.jpg",
+      "out": "bld_406278445.png"
+    },
+    "bld_406278446": {
+      "hash": "6093b42cd1f71ae0",
+      "model": "gemini-3.1-flash-image",
+      "src": "maps\\mishkenot_zvulun\\views\\keyless\\bld_406278446_p53BRnP.jpg",
+      "out": "bld_406278446.png"
+    },
+    "bld_406278447": {
+      "hash": "bfb802e1a8033020",
+      "model": "gemini-3.1-flash-image",
+      "src": "maps\\mishkenot_zvulun\\views\\keyless\\bld_406278447_pC9uD0F.jpg",
+      "out": "bld_406278447.png"
+    },
+    "bld_406278449": {
+      "hash": "0cb02aa066292890",
+      "model": "gemini-3.1-flash-image",
+      "src": "maps\\mishkenot_zvulun\\views\\keyless\\bld_406278449_pkIHkXr.jpg",
+      "out": "bld_406278449.png"
+    },
+    "bld_406278450": {
+      "hash": "984d9ef72333b4ca",
+      "model": "gemini-3.1-flash-image",
+      "src": "maps\\mishkenot_zvulun\\views\\keyless\\bld_406278450_pApNP08.jpg",
+      "out": "bld_406278450.png"
+    },
+    "bld_406278456": {
+      "hash": "31d7fe10027f61c8",
+      "model": "gemini-3.1-flash-image",
+      "src": "maps\\mishkenot_zvulun\\views\\keyless\\bld_406278456_pqnfWVA.jpg",
+      "out": "bld_406278456.png"
+    },
+    "bld_406278457": {
+      "hash": "7213225a742106aa",
+      "model": "gemini-3.1-flash-image",
+      "src": "maps\\mishkenot_zvulun\\views\\keyless\\bld_406278457_ps6Krw3.jpg",
+      "out": "bld_406278457.png"
+    },
+    "bld_406278459": {
+      "hash": "bfe01862b23916e4",
+      "model": "gemini-3.1-flash-image",
+      "src": "maps\\mishkenot_zvulun\\views\\keyless\\bld_406278459_pZ3Zrxs.jpg",
+      "out": "bld_406278459.png"
+    },
+    "bld_406278460": {
+      "hash": "9492bcf97a31ef97",
+      "model": "gemini-3.1-flash-image",
+      "src": "maps\\mishkenot_zvulun\\views\\keyless\\bld_406278460_p8gWA4j.jpg",
+      "out": "bld_406278460.png"
+    },
+    "bld_406278467": {
+      "hash": "13b2ef9671d39968",
+      "model": "gemini-3.1-flash-image",
+      "src": "maps\\mishkenot_zvulun\\views\\keyless\\bld_406278467_pfKxTV-.jpg",
+      "out": "bld_406278467.png"
+    },
+    "bld_406278468": {
+      "hash": "a68a4167247356a9",
+      "model": "gemini-3.1-flash-image",
+      "src": "maps\\mishkenot_zvulun\\views\\keyless\\bld_406278468_pSrwTiQ.jpg",
+      "out": "bld_406278468.png"
+    },
+    "bld_406278469": {
+      "hash": "9faaaa5cfd688e49",
+      "model": "gemini-3.1-flash-image",
+      "src": "maps\\mishkenot_zvulun\\views\\keyless\\bld_406278469_pMuCKtS.jpg",
+      "out": "bld_406278469.png"
+    },
+    "bld_406278471": {
+      "hash": "10df58b962462552",
+      "model": "gemini-3.1-flash-image",
+      "src": "maps\\mishkenot_zvulun\\views\\keyless\\bld_406278471_pa1gfjB.jpg",
+      "out": "bld_406278471.png"
+    },
+    "bld_406278472": {
+      "hash": "02cef17e431fc6d1",
+      "model": "gemini-3.1-flash-image",
+      "src": "maps\\mishkenot_zvulun\\views\\keyless\\bld_406278472_prH6S5L.jpg",
+      "out": "bld_406278472.png"
+    },
+    "bld_406278474": {
+      "hash": "443cb1bf91581f4c",
+      "model": "gemini-3.1-flash-image",
+      "src": "maps\\mishkenot_zvulun\\views\\keyless\\bld_406278474_p7ASfc5.jpg",
+      "out": "bld_406278474.png"
+    },
+    "bld_406278475": {
+      "hash": "bd9f0c43cae80256",
+      "model": "gemini-3.1-flash-image",
+      "src": "maps\\mishkenot_zvulun\\views\\keyless\\bld_406278475_pRyRrU3.jpg",
+      "out": "bld_406278475.png"
+    },
+    "bld_406278478": {
+      "hash": "476fec9c0678f5a1",
+      "model": "gemini-3.1-flash-image",
+      "src": "maps\\mishkenot_zvulun\\views\\keyless\\bld_406278478_pNhcbaY.jpg",
+      "out": "bld_406278478.png"
+    },
+    "bld_406278481": {
+      "hash": "e20e5d8330c59513",
+      "model": "gemini-3.1-flash-image",
+      "src": "maps\\mishkenot_zvulun\\views\\keyless\\bld_406278481_p2B8cUm.jpg",
+      "out": "bld_406278481.png"
+    },
+    "bld_406278482": {
+      "hash": "f4226a7152da94e6",
+      "model": "gemini-3.1-flash-image",
+      "src": "maps\\mishkenot_zvulun\\views\\keyless\\bld_406278482_pq3LfRm.jpg",
+      "out": "bld_406278482.png"
+    },
+    "bld_406278484": {
+      "hash": "82869bfed10792d4",
+      "model": "gemini-3.1-flash-image",
+      "src": "maps\\mishkenot_zvulun\\views\\keyless\\bld_406278484_pmHnm_o.jpg",
+      "out": "bld_406278484.png"
+    },
+    "bld_406278485": {
+      "hash": "83ae6937d7abd3e2",
+      "model": "gemini-3.1-flash-image",
+      "src": "maps\\mishkenot_zvulun\\views\\keyless\\bld_406278485_pkPqbL_.jpg",
+      "out": "bld_406278485.png"
+    },
+    "bld_406278488": {
+      "hash": "ae607e016765068b",
+      "model": "gemini-3.1-flash-image",
+      "src": "maps\\mishkenot_zvulun\\views\\keyless\\bld_406278488_p3MWBT-.jpg",
+      "out": "bld_406278488.png"
+    },
+    "bld_406278489": {
+      "hash": "74b8884814cae61e",
+      "model": "gemini-3.1-flash-image",
+      "src": "maps\\mishkenot_zvulun\\views\\keyless\\bld_406278489_pU8nZBD.jpg",
+      "out": "bld_406278489.png"
+    },
+    "bld_406278490": {
+      "hash": "52536fe48b484e07",
+      "model": "gemini-3.1-flash-image",
+      "src": "maps\\mishkenot_zvulun\\views\\keyless\\bld_406278490_pCyVJA-.jpg",
+      "out": "bld_406278490.png"
+    },
+    "bld_406278494": {
+      "hash": "2fc5b19b50c767bc",
+      "model": "gemini-3.1-flash-image",
+      "src": "maps\\mishkenot_zvulun\\views\\keyless\\bld_406278494_pxm8XFy.jpg",
+      "out": "bld_406278494.png"
+    },
+    "bld_406278496": {
+      "hash": "fb2a41b973c0408e",
+      "model": "gemini-3.1-flash-image",
+      "src": "maps\\mishkenot_zvulun\\views\\keyless\\bld_406278496_pHL50aL.jpg",
+      "out": "bld_406278496.png"
+    },
+    "bld_406278498": {
+      "hash": "f4fcded5648e3808",
+      "model": "gemini-3.1-flash-image",
+      "src": "maps\\mishkenot_zvulun\\views\\keyless\\bld_406278498_pRPRofW.jpg",
+      "out": "bld_406278498.png"
+    },
+    "bld_406278503": {
+      "hash": "a022f8564db88923",
+      "model": "gemini-3.1-flash-image",
+      "src": "maps\\mishkenot_zvulun\\views\\keyless\\bld_406278503_pgZCdI4.jpg",
+      "out": "bld_406278503.png"
+    },
+    "bld_406278507": {
+      "hash": "ba6d054a00abb4b2",
+      "model": "gemini-3.1-flash-image",
+      "src": "maps\\mishkenot_zvulun\\views\\keyless\\bld_406278507_pub2Yu6.jpg",
+      "out": "bld_406278507.png"
+    },
+    "bld_406278509": {
+      "hash": "f5256ec0008b95af",
+      "model": "gemini-3.1-flash-image",
+      "src": "maps\\mishkenot_zvulun\\views\\keyless\\bld_406278509_p8TFEUk.jpg",
+      "out": "bld_406278509.png"
+    },
+    "bld_406278512": {
+      "hash": "05b967199579ce6b",
+      "model": "gemini-3.1-flash-image",
+      "src": "maps\\mishkenot_zvulun\\views\\keyless\\bld_406278512_pbD7riG.jpg",
+      "out": "bld_406278512.png"
+    },
+    "bld_406278513": {
+      "hash": "c7b7224fcc8d9976",
+      "model": "gemini-3.1-flash-image",
+      "src": "maps\\mishkenot_zvulun\\views\\keyless\\bld_406278513_pfKxTV-.jpg",
+      "out": "bld_406278513.png"
+    },
+    "bld_406278514": {
+      "hash": "8031c13543cc0575",
+      "model": "gemini-3.1-flash-image",
+      "src": "maps\\mishkenot_zvulun\\views\\keyless\\bld_406278514_p1KWEyX.jpg",
+      "out": "bld_406278514.png"
+    },
+    "bld_406278516": {
+      "hash": "153b298fa2fbbcd0",
+      "model": "gemini-3.1-flash-image",
+      "src": "maps\\mishkenot_zvulun\\views\\keyless\\bld_406278516_pjji2Nh.jpg",
+      "out": "bld_406278516.png"
+    },
+    "bld_406278517": {
+      "hash": "bf134d88e0d2277b",
+      "model": "gemini-3.1-flash-image",
+      "src": "maps\\mishkenot_zvulun\\views\\keyless\\bld_406278517_pqnfWVA.jpg",
+      "out": "bld_406278517.png"
+    },
+    "bld_406278521": {
+      "hash": "ec0e2d4abd37cbf0",
+      "model": "gemini-3.1-flash-image",
+      "src": "maps\\mishkenot_zvulun\\views\\keyless\\bld_406278521_pAOUM3r.jpg",
+      "out": "bld_406278521.png"
+    },
+    "bld_406278528": {
+      "hash": "89c2a272b3688de7",
+      "model": "gemini-3.1-flash-image",
+      "src": "maps\\mishkenot_zvulun\\views\\keyless\\bld_406278528_pfbHshD.jpg",
+      "out": "bld_406278528.png"
+    },
+    "bld_406279073": {
+      "hash": "3636053c6b851fa2",
+      "model": "gemini-3.1-flash-image",
+      "src": "maps\\mishkenot_zvulun\\views\\keyless\\bld_406279073_p3fTJiA.jpg",
+      "out": "bld_406279073.png"
+    },
+    "bld_406279074": {
+      "hash": "1f909d3300d1e206",
+      "model": "gemini-3.1-flash-image",
+      "src": "maps\\mishkenot_zvulun\\views\\keyless\\bld_406279074_p0842KD.jpg",
+      "out": "bld_406279074.png"
+    },
+    "bld_406279075": {
+      "hash": "2649a521924bde2f",
+      "model": "gemini-3.1-flash-image",
+      "src": "maps\\mishkenot_zvulun\\views\\keyless\\bld_406279075_pyKR3ht.jpg",
+      "out": "bld_406279075.png"
+    },
+    "bld_556597973": {
+      "hash": "dfc4b34f08bc4c24",
+      "model": "gemini-3.1-flash-image",
+      "src": "maps\\mishkenot_zvulun\\views\\keyless\\bld_556597973_p8ex5ms.jpg",
+      "out": "bld_556597973.png"
+    },
+    "bld_556597974": {
+      "hash": "1515690cef699128",
+      "model": "gemini-3.1-flash-image",
+      "src": "maps\\mishkenot_zvulun\\views\\keyless\\bld_556597974_pMfycy_.jpg",
+      "out": "bld_556597974.png"
+    },
+    "bld_556597975": {
+      "hash": "e07d0aa97434d2ab",
+      "model": "gemini-3.1-flash-image",
+      "src": "maps\\mishkenot_zvulun\\views\\keyless\\bld_556597975_pgYrrOG.jpg",
+      "out": "bld_556597975.png"
+    },
+    "bld_556597976": {
+      "hash": "662cdc0084d5225d",
+      "model": "gemini-3.1-flash-image",
+      "src": "maps\\mishkenot_zvulun\\views\\keyless\\bld_556597976_pgYrrOG.jpg",
+      "out": "bld_556597976.png"
+    },
+    "bld_556597977": {
+      "hash": "8d3a828e6ae0e44b",
+      "model": "gemini-3.1-flash-image",
+      "src": "maps\\mishkenot_zvulun\\views\\keyless\\bld_556597977_pMfycy_.jpg",
+      "out": "bld_556597977.png"
+    },
+    "bld_556597978": {
+      "hash": "6f25abca2cf9c3d3",
+      "model": "gemini-3.1-flash-image",
+      "src": "maps\\mishkenot_zvulun\\views\\keyless\\bld_556597978_pITdLyc.jpg",
+      "out": "bld_556597978.png"
+    },
+    "bld_556597979": {
+      "hash": "4a1b3eeb16394cac",
+      "model": "gemini-3.1-flash-image",
+      "src": "maps\\mishkenot_zvulun\\views\\keyless\\bld_556597979_p8ex5ms.jpg",
+      "out": "bld_556597979.png"
+    },
+    "bld_556597980": {
+      "hash": "72c17228e4abc131",
+      "model": "gemini-3.1-flash-image",
+      "src": "maps\\mishkenot_zvulun\\views\\keyless\\bld_556597980_pIDN8lc.jpg",
+      "out": "bld_556597980.png"
+    },
+    "bld_556597981": {
+      "hash": "3683096d835d8adc",
+      "model": "gemini-3.1-flash-image",
+      "src": "maps\\mishkenot_zvulun\\views\\keyless\\bld_556597981_pkd9UHf.jpg",
+      "out": "bld_556597981.png"
+    },
+    "bld_556597982": {
+      "hash": "42d54abe2c4d6310",
+      "model": "gemini-3.1-flash-image",
+      "src": "maps\\mishkenot_zvulun\\views\\keyless\\bld_556597982_p_o_DEl.jpg",
+      "out": "bld_556597982.png"
+    },
+    "bld_556597983": {
+      "hash": "ff200639d7ba8ed1",
+      "model": "gemini-3.1-flash-image",
+      "src": "maps\\mishkenot_zvulun\\views\\keyless\\bld_556597983_pfNQJnc.jpg",
+      "out": "bld_556597983.png"
+    },
+    "bld_556597984": {
+      "hash": "a2f45febda306515",
+      "model": "gemini-3.1-flash-image",
+      "src": "maps\\mishkenot_zvulun\\views\\keyless\\bld_556597984_pfNQJnc.jpg",
+      "out": "bld_556597984.png"
+    },
+    "bld_556597985": {
+      "hash": "1e1dd4b67c9276ed",
+      "model": "gemini-3.1-flash-image",
+      "src": "maps\\mishkenot_zvulun\\views\\keyless\\bld_556597985_p_o_DEl.jpg",
+      "out": "bld_556597985.png"
+    },
+    "bld_556597986": {
+      "hash": "f179672426851096",
+      "model": "gemini-3.1-flash-image",
+      "src": "maps\\mishkenot_zvulun\\views\\keyless\\bld_556597986_pkd9UHf.jpg",
+      "out": "bld_556597986.png"
+    },
+    "bld_556597987": {
+      "hash": "3a143efb5badff70",
+      "model": "gemini-3.1-flash-image",
+      "src": "maps\\mishkenot_zvulun\\views\\keyless\\bld_556597987_pIDN8lc.jpg",
+      "out": "bld_556597987.png"
+    },
+    "bld_556597988": {
+      "hash": "d55afc897af4084e",
+      "model": "gemini-3.1-flash-image",
+      "src": "maps\\mishkenot_zvulun\\views\\keyless\\bld_556597988_peFnmMm.jpg",
+      "out": "bld_556597988.png"
+    },
+    "bld_556597989": {
+      "hash": "2ded3eb6ae7796fe",
+      "model": "gemini-3.1-flash-image",
+      "src": "maps\\mishkenot_zvulun\\views\\keyless\\bld_556597989_pW0dRSF.jpg",
+      "out": "bld_556597989.png"
+    },
+    "bld_556597990": {
+      "hash": "a8e0eadb45cac3f0",
+      "model": "gemini-3.1-flash-image",
+      "src": "maps\\mishkenot_zvulun\\views\\keyless\\bld_556597990_pbjCj6z.jpg",
+      "out": "bld_556597990.png"
+    },
+    "bld_556597991": {
+      "hash": "4c0a2318213dae82",
+      "model": "gemini-3.1-flash-image",
+      "src": "maps\\mishkenot_zvulun\\views\\keyless\\bld_556597991_p8otX69.jpg",
+      "out": "bld_556597991.png"
+    },
+    "bld_556597992": {
+      "hash": "5fdd80c7b6c535c9",
+      "model": "gemini-3.1-flash-image",
+      "src": "maps\\mishkenot_zvulun\\views\\keyless\\bld_556597992_pEgoZt4.jpg",
+      "out": "bld_556597992.png"
+    },
+    "bld_556597993": {
+      "hash": "73fd06263bc25923",
+      "model": "gemini-3.1-flash-image",
+      "src": "maps\\mishkenot_zvulun\\views\\keyless\\bld_556597993_pEgoZt4.jpg",
+      "out": "bld_556597993.png"
+    },
+    "bld_556597994": {
+      "hash": "b3a22d744fa5014b",
+      "model": "gemini-3.1-flash-image",
+      "src": "maps\\mishkenot_zvulun\\views\\keyless\\bld_556597994_p8otX69.jpg",
+      "out": "bld_556597994.png"
+    },
+    "bld_556597996": {
+      "hash": "08d259e47271d8a8",
+      "model": "gemini-3.1-flash-image",
+      "src": "maps\\mishkenot_zvulun\\views\\keyless\\bld_556597996_pW0dRSF.jpg",
+      "out": "bld_556597996.png"
+    },
+    "bld_556597997": {
+      "hash": "6ee96eea5fea907f",
+      "model": "gemini-3.1-flash-image",
+      "src": "maps\\mishkenot_zvulun\\views\\keyless\\bld_556597997_peFnmMm.jpg",
+      "out": "bld_556597997.png"
+    },
+    "bld_556597998": {
+      "hash": "b12a5b56be04250d",
+      "model": "gemini-3.1-flash-image",
+      "src": "maps\\mishkenot_zvulun\\views\\keyless\\bld_556597998_p0t23dF.jpg",
+      "out": "bld_556597998.png"
+    },
+    "bld_556597999": {
+      "hash": "b0a0cb3de2d9e46f",
+      "model": "gemini-3.1-flash-image",
+      "src": "maps\\mishkenot_zvulun\\views\\keyless\\bld_556597999_pXBsF4b.jpg",
+      "out": "bld_556597999.png"
+    },
+    "bld_556598001": {
+      "hash": "2093fd591b645d36",
+      "model": "gemini-3.1-flash-image",
+      "src": "maps\\mishkenot_zvulun\\views\\keyless\\bld_556598001_p9mwHjr.jpg",
+      "out": "bld_556598001.png"
+    },
+    "bld_556598002": {
+      "hash": "57218087eed7350a",
+      "model": "gemini-3.1-flash-image",
+      "src": "maps\\mishkenot_zvulun\\views\\keyless\\bld_556598002_pyDk9fy.jpg",
+      "out": "bld_556598002.png"
+    },
+    "bld_556598003": {
+      "hash": "619bd8a05ef10867",
+      "model": "gemini-3.1-flash-image",
+      "src": "maps\\mishkenot_zvulun\\views\\keyless\\bld_556598003_pwzDe8C.jpg",
+      "out": "bld_556598003.png"
+    },
+    "bld_556598004": {
+      "hash": "797647c6bb7cf098",
+      "model": "gemini-3.1-flash-image",
+      "src": "maps\\mishkenot_zvulun\\views\\keyless\\bld_556598004_piBXQmr.jpg",
+      "out": "bld_556598004.png"
+    },
+    "bld_556598005": {
+      "hash": "7f6a462afb75fa50",
+      "model": "gemini-3.1-flash-image",
+      "src": "maps\\mishkenot_zvulun\\views\\keyless\\bld_556598005_pZq-Sja.jpg",
+      "out": "bld_556598005.png"
+    },
+    "bld_556598006": {
+      "hash": "88f96fb63f2734b7",
+      "model": "gemini-3.1-flash-image",
+      "src": "maps\\mishkenot_zvulun\\views\\keyless\\bld_556598006_pyDk9fy.jpg",
+      "out": "bld_556598006.png"
+    },
+    "bld_556598007": {
+      "hash": "54ff96079d001ab9",
+      "model": "gemini-3.1-flash-image",
+      "src": "maps\\mishkenot_zvulun\\views\\keyless\\bld_556598007_pyDk9fy.jpg",
+      "out": "bld_556598007.png"
+    },
+    "bld_556598011": {
+      "hash": "ea093219e990ae37",
+      "model": "gemini-3.1-flash-image",
+      "src": "maps\\mishkenot_zvulun\\views\\keyless\\bld_556598011_pXBsF4b.jpg",
+      "out": "bld_556598011.png"
+    },
+    "bld_556598012": {
+      "hash": "b00c96d24e0e4826",
+      "model": "gemini-3.1-flash-image",
+      "src": "maps\\mishkenot_zvulun\\views\\keyless\\bld_556598012_px-MolO.jpg",
+      "out": "bld_556598012.png"
+    },
+    "bld_556598014": {
+      "hash": "37ca510f176b6aee",
+      "model": "gemini-3.1-flash-image",
+      "src": "maps\\mishkenot_zvulun\\views\\keyless\\bld_556598014_p0TYes1.jpg",
+      "out": "bld_556598014.png"
+    },
+    "bld_556598015": {
+      "hash": "53320ad11122f51b",
+      "model": "gemini-3.1-flash-image",
+      "src": "maps\\mishkenot_zvulun\\views\\keyless\\bld_556598015_p7rMIwC.jpg",
+      "out": "bld_556598015.png"
+    },
+    "bld_556598021": {
+      "hash": "845dac9596fe26b6",
+      "model": "gemini-3.1-flash-image",
+      "src": "maps\\mishkenot_zvulun\\views\\keyless\\bld_556598021_p9gP0Br.jpg",
+      "out": "bld_556598021.png"
+    },
+    "bld_556598022": {
+      "hash": "e01df3876285a9af",
+      "model": "gemini-3.1-flash-image",
+      "src": "maps\\mishkenot_zvulun\\views\\keyless\\bld_556598022_pGxbjIQ.jpg",
+      "out": "bld_556598022.png"
+    },
+    "bld_556598027": {
+      "hash": "1b4500c9c5dd18de",
+      "model": "gemini-3.1-flash-image",
+      "src": "maps\\mishkenot_zvulun\\views\\keyless\\bld_556598027_pJWFgPX.jpg",
+      "out": "bld_556598027.png"
+    },
+    "bld_556598032": {
+      "hash": "70f176e27a7e24ed",
+      "model": "gemini-3.1-flash-image",
+      "src": "maps\\mishkenot_zvulun\\views\\keyless\\bld_556598032_pMM-9tH.jpg",
+      "out": "bld_556598032.png"
+    },
+    "bld_556598033": {
+      "hash": "5f8b9ec92084b4ad",
+      "model": "gemini-3.1-flash-image",
+      "src": "maps\\mishkenot_zvulun\\views\\keyless\\bld_556598033_pblOdJJ.jpg",
+      "out": "bld_556598033.png"
+    },
+    "bld_556598034": {
+      "hash": "f1a07821fe0eb0be",
+      "model": "gemini-3.1-flash-image",
+      "src": "maps\\mishkenot_zvulun\\views\\keyless\\bld_556598034_pEDAk14.jpg",
+      "out": "bld_556598034.png"
+    },
+    "bld_556598035": {
+      "hash": "80fef8fc1bb60a13",
+      "model": "gemini-3.1-flash-image",
+      "src": "maps\\mishkenot_zvulun\\views\\keyless\\bld_556598035_pnsprCh.jpg",
+      "out": "bld_556598035.png"
+    },
+    "bld_556598037": {
+      "hash": "63a815c9c5af66b8",
+      "model": "gemini-3.1-flash-image",
+      "src": "maps\\mishkenot_zvulun\\views\\keyless\\bld_556598037_pLGwPlF.jpg",
+      "out": "bld_556598037.png"
+    },
+    "bld_556598048": {
+      "hash": "f5cfab3882e0dc7e",
+      "model": "gemini-3.1-flash-image",
+      "src": "maps\\mishkenot_zvulun\\views\\keyless\\bld_556598048_pjcgRss.jpg",
+      "out": "bld_556598048.png"
+    },
+    "bld_556855838": {
+      "hash": "8251a81117440937",
+      "model": "gemini-3.1-flash-image",
+      "src": "maps\\mishkenot_zvulun\\views\\keyless\\bld_556855838_pRldrhX.jpg",
+      "out": "bld_556855838.png"
+    },
+    "bld_556855839": {
+      "hash": "9ec22a178e2b60c2",
+      "model": "gemini-3.1-flash-image",
+      "src": "maps\\mishkenot_zvulun\\views\\keyless\\bld_556855839_pRldrhX.jpg",
+      "out": "bld_556855839.png"
+    },
+    "bld_556855840": {
+      "hash": "845dcde87603147b",
+      "model": "gemini-3.1-flash-image",
+      "src": "maps\\mishkenot_zvulun\\views\\keyless\\bld_556855840_p5RMKZ6.jpg",
+      "out": "bld_556855840.png"
+    },
+    "bld_556855842": {
+      "hash": "9bdbd2203604cb3a",
+      "model": "gemini-3.1-flash-image",
+      "src": "maps\\mishkenot_zvulun\\views\\keyless\\bld_556855842_p5RMKZ6.jpg",
+      "out": "bld_556855842.png"
+    },
+    "bld_556855843": {
+      "hash": "bce7fc88d05a75a2",
+      "model": "gemini-3.1-flash-image",
+      "src": "maps\\mishkenot_zvulun\\views\\keyless\\bld_556855843_pmxyiwF.jpg",
+      "out": "bld_556855843.png"
+    },
+    "bld_556855845": {
+      "hash": "97f37a418f45f834",
+      "model": "gemini-3.1-flash-image",
+      "src": "maps\\mishkenot_zvulun\\views\\keyless\\bld_556855845_p0wOrZe.jpg",
+      "out": "bld_556855845.png"
+    },
+    "bld_556855851": {
+      "hash": "eeef43e3c14fc8e1",
+      "model": "gemini-3.1-flash-image",
+      "src": "maps\\mishkenot_zvulun\\views\\keyless\\bld_556855851_p8AcyXn.jpg",
+      "out": "bld_556855851.png"
+    },
+    "bld_556855853": {
+      "hash": "93b2d969d78ffb91",
+      "model": "gemini-3.1-flash-image",
+      "src": "maps\\mishkenot_zvulun\\views\\keyless\\bld_556855853_pf8OpA5.jpg",
+      "out": "bld_556855853.png"
+    },
+    "bld_556855932": {
+      "hash": "c5dbdac58d3e8cb0",
+      "model": "gemini-3.1-flash-image",
+      "src": "maps\\mishkenot_zvulun\\views\\keyless\\bld_556855932_pghxSQP.jpg",
+      "out": "bld_556855932.png"
+    },
+    "bld_556855933": {
+      "hash": "f1cf039eb9743687",
+      "model": "gemini-3.1-flash-image",
+      "src": "maps\\mishkenot_zvulun\\views\\keyless\\bld_556855933_pj5IuMm.jpg",
+      "out": "bld_556855933.png"
+    },
+    "bld_556855934": {
+      "hash": "043bd96cc743373b",
+      "model": "gemini-3.1-flash-image",
+      "src": "maps\\mishkenot_zvulun\\views\\keyless\\bld_556855934_pj5IuMm.jpg",
+      "out": "bld_556855934.png"
+    },
+    "bld_556855935": {
+      "hash": "ccecc412cd71a7d7",
+      "model": "gemini-3.1-flash-image",
+      "src": "maps\\mishkenot_zvulun\\views\\keyless\\bld_556855935_p9YX8kJ.jpg",
+      "out": "bld_556855935.png"
+    },
+    "bld_556855936": {
+      "hash": "e038cd4f8e58a4ba",
+      "model": "gemini-3.1-flash-image",
+      "src": "maps\\mishkenot_zvulun\\views\\keyless\\bld_556855936_pPUFGsX.jpg",
+      "out": "bld_556855936.png"
+    },
+    "bld_556855937": {
+      "hash": "7a9990b9e9a25a7c",
+      "model": "gemini-3.1-flash-image",
+      "src": "maps\\mishkenot_zvulun\\views\\keyless\\bld_556855937_pVi9dkN.jpg",
+      "out": "bld_556855937.png"
+    },
+    "bld_556855947": {
+      "hash": "991acf06b463a77c",
+      "model": "gemini-3.1-flash-image",
+      "src": "maps\\mishkenot_zvulun\\views\\keyless\\bld_556855947_p8AcyXn.jpg",
+      "out": "bld_556855947.png"
+    },
+    "bld_556855948": {
+      "hash": "a2df24087c08549f",
+      "model": "gemini-3.1-flash-image",
+      "src": "maps\\mishkenot_zvulun\\views\\keyless\\bld_556855948_pfh0goQ.jpg",
+      "out": "bld_556855948.png"
+    },
+    "bld_556855949": {
+      "hash": "d4bf8da470c1b771",
+      "model": "gemini-3.1-flash-image",
+      "src": "maps\\mishkenot_zvulun\\views\\keyless\\bld_556855949_pk2GE4o.jpg",
+      "out": "bld_556855949.png"
+    },
+    "bld_556855950": {
+      "hash": "5284c80d805b6303",
+      "model": "gemini-3.1-flash-image",
+      "src": "maps\\mishkenot_zvulun\\views\\keyless\\bld_556855950_pTAEELN.jpg",
+      "out": "bld_556855950.png"
+    },
+    "bld_556855951": {
+      "hash": "6d4b5e4ab096b3eb",
+      "model": "gemini-3.1-flash-image",
+      "src": "maps\\mishkenot_zvulun\\views\\keyless\\bld_556855951_pcCH4Gz.jpg",
+      "out": "bld_556855951.png"
+    },
+    "bld_556855952": {
+      "hash": "f41b707e99dab934",
+      "model": "gemini-3.1-flash-image",
+      "src": "maps\\mishkenot_zvulun\\views\\keyless\\bld_556855952_p70aiJr.jpg",
+      "out": "bld_556855952.png"
+    },
+    "bld_556855955": {
+      "hash": "d1afe8812d62ab98",
+      "model": "gemini-3.1-flash-image",
+      "src": "maps\\mishkenot_zvulun\\views\\keyless\\bld_556855955_p9lcCVr.jpg",
+      "out": "bld_556855955.png"
+    },
+    "bld_556855956": {
+      "hash": "d0320c69f79817ac",
+      "model": "gemini-3.1-flash-image",
+      "src": "maps\\mishkenot_zvulun\\views\\keyless\\bld_556855956_pkxF5zn.jpg",
+      "out": "bld_556855956.png"
+    },
+    "bld_556855957": {
+      "hash": "2485a9b4be40a093",
+      "model": "gemini-3.1-flash-image",
+      "src": "maps\\mishkenot_zvulun\\views\\keyless\\bld_556855957_p92n2Ai.jpg",
+      "out": "bld_556855957.png"
+    },
+    "bld_556855958": {
+      "hash": "66f15c433ef4aa5f",
+      "model": "gemini-3.1-flash-image",
+      "src": "maps\\mishkenot_zvulun\\views\\keyless\\bld_556855958_pXa9QJV.jpg",
+      "out": "bld_556855958.png"
+    },
+    "bld_556855959": {
+      "hash": "3513b7c793692181",
+      "model": "gemini-3.1-flash-image",
+      "src": "maps\\mishkenot_zvulun\\views\\keyless\\bld_556855959_psuiUbL.jpg",
+      "out": "bld_556855959.png"
+    },
+    "bld_556855960": {
+      "hash": "38d78b367a3fba8f",
+      "model": "gemini-3.1-flash-image",
+      "src": "maps\\mishkenot_zvulun\\views\\keyless\\bld_556855960_peOkd5m.jpg",
+      "out": "bld_556855960.png"
+    },
+    "bld_556855961": {
+      "hash": "ea78b2d2ebb2d84b",
+      "model": "gemini-3.1-flash-image",
+      "src": "maps\\mishkenot_zvulun\\views\\keyless\\bld_556855961_pVi9dkN.jpg",
+      "out": "bld_556855961.png"
+    },
+    "bld_556855962": {
+      "hash": "c777e0804f610b12",
+      "model": "gemini-3.1-flash-image",
+      "src": "maps\\mishkenot_zvulun\\views\\keyless\\bld_556855962_pPUFGsX.jpg",
+      "out": "bld_556855962.png"
+    },
+    "bld_556855963": {
+      "hash": "85d5115434c51cc3",
+      "model": "gemini-3.1-flash-image",
+      "src": "maps\\mishkenot_zvulun\\views\\keyless\\bld_556855963_pVx-OK5.jpg",
+      "out": "bld_556855963.png"
+    },
+    "bld_556855964": {
+      "hash": "b26752dfc532f821",
+      "model": "gemini-3.1-flash-image",
+      "src": "maps\\mishkenot_zvulun\\views\\keyless\\bld_556855964_pj5IuMm.jpg",
+      "out": "bld_556855964.png"
+    },
+    "bld_556855965": {
+      "hash": "78aab7193aa7d698",
+      "model": "gemini-3.1-flash-image",
+      "src": "maps\\mishkenot_zvulun\\views\\keyless\\bld_556855965_plR1RhR.jpg",
+      "out": "bld_556855965.png"
+    },
+    "bld_556855966": {
+      "hash": "6a3cf7836ab522c6",
+      "model": "gemini-3.1-flash-image",
+      "src": "maps\\mishkenot_zvulun\\views\\keyless\\bld_556855966_pa6PsAn.jpg",
+      "out": "bld_556855966.png"
+    },
+    "bld_556855967": {
+      "hash": "3cab104010b891de",
+      "model": "gemini-3.1-flash-image",
+      "src": "maps\\mishkenot_zvulun\\views\\keyless\\bld_556855967_pPj-9d4.jpg",
+      "out": "bld_556855967.png"
+    },
+    "bld_556855968": {
+      "hash": "b88f65d91132f83e",
+      "model": "gemini-3.1-flash-image",
+      "src": "maps\\mishkenot_zvulun\\views\\keyless\\bld_556855968_pRdG2Cv.jpg",
+      "out": "bld_556855968.png"
+    },
+    "bld_556855969": {
+      "hash": "0db7ceae2f947701",
+      "model": "gemini-3.1-flash-image",
+      "src": "maps\\mishkenot_zvulun\\views\\keyless\\bld_556855969_phu16E3.jpg",
+      "out": "bld_556855969.png"
+    },
+    "bld_556855974": {
+      "hash": "bb8a7cc104861c82",
+      "model": "gemini-3.1-flash-image",
+      "src": "maps\\mishkenot_zvulun\\views\\keyless\\bld_556855974_p2Kz5Zx.jpg",
+      "out": "bld_556855974.png"
+    },
+    "bld_556855975": {
+      "hash": "a658aa2ebcd6c168",
+      "model": "gemini-3.1-flash-image",
+      "src": "maps\\mishkenot_zvulun\\views\\keyless\\bld_556855975_pXl4ZAj.jpg",
+      "out": "bld_556855975.png"
+    },
+    "bld_556855976": {
+      "hash": "0f3b5e23090eaccf",
+      "model": "gemini-3.1-flash-image",
+      "src": "maps\\mishkenot_zvulun\\views\\keyless\\bld_556855976_p1gXcRP.jpg",
+      "out": "bld_556855976.png"
+    },
+    "bld_556855977": {
+      "hash": "85a2d351fc6f143b",
+      "model": "gemini-3.1-flash-image",
+      "src": "maps\\mishkenot_zvulun\\views\\keyless\\bld_556855977_pPj-9d4.jpg",
+      "out": "bld_556855977.png"
+    },
+    "bld_556855978": {
+      "hash": "d0dad7d2aae45a45",
+      "model": "gemini-3.1-flash-image",
+      "src": "maps\\mishkenot_zvulun\\views\\keyless\\bld_556855978_pf387lK.jpg",
+      "out": "bld_556855978.png"
+    },
+    "bld_556855979": {
+      "hash": "333c46252aa4e615",
+      "model": "gemini-3.1-flash-image",
+      "src": "maps\\mishkenot_zvulun\\views\\keyless\\bld_556855979_pmuC-gA.jpg",
+      "out": "bld_556855979.png"
+    },
+    "bld_556855980": {
+      "hash": "fea9941d10eb1f3f",
+      "model": "gemini-3.1-flash-image",
+      "src": "maps\\mishkenot_zvulun\\views\\keyless\\bld_556855980_pdUdyQA.jpg",
+      "out": "bld_556855980.png"
+    },
+    "bld_556855981": {
+      "hash": "ee00bbebaa3e3ad2",
+      "model": "gemini-3.1-flash-image",
+      "src": "maps\\mishkenot_zvulun\\views\\keyless\\bld_556855981_pt2GZXZ.jpg",
+      "out": "bld_556855981.png"
+    },
+    "bld_556855982": {
+      "hash": "2013d1b2bbe5f07a",
+      "model": "gemini-3.1-flash-image",
+      "src": "maps\\mishkenot_zvulun\\views\\keyless\\bld_556855982_pmwGtps.jpg",
+      "out": "bld_556855982.png"
+    },
+    "bld_556855983": {
+      "hash": "8fc565d5b5eb9102",
+      "model": "gemini-3.1-flash-image",
+      "src": "maps\\mishkenot_zvulun\\views\\keyless\\bld_556855983_pHHanla.jpg",
+      "out": "bld_556855983.png"
+    },
+    "bld_556855984": {
+      "hash": "5875ca337ce93043",
+      "model": "gemini-3.1-flash-image",
+      "src": "maps\\mishkenot_zvulun\\views\\keyless\\bld_556855984_p3Wc8cU.jpg",
+      "out": "bld_556855984.png"
+    },
+    "bld_556855985": {
+      "hash": "ec3c1c0db0326ddc",
+      "model": "gemini-3.1-flash-image",
+      "src": "maps\\mishkenot_zvulun\\views\\keyless\\bld_556855985_pOxzUH7.jpg",
+      "out": "bld_556855985.png"
+    },
+    "bld_556855986": {
+      "hash": "f4384d7498691508",
+      "model": "gemini-3.1-flash-image",
+      "src": "maps\\mishkenot_zvulun\\views\\keyless\\bld_556855986_pXl4ZAj.jpg",
+      "out": "bld_556855986.png"
+    },
+    "bld_556855987": {
+      "hash": "9207cea9ae45a798",
+      "model": "gemini-3.1-flash-image",
+      "src": "maps\\mishkenot_zvulun\\views\\keyless\\bld_556855987_pJqBh0H.jpg",
+      "out": "bld_556855987.png"
+    },
+    "bld_556855988": {
+      "hash": "9418456bfde10cc9",
+      "model": "gemini-3.1-flash-image",
+      "src": "maps\\mishkenot_zvulun\\views\\keyless\\bld_556855988_pAIzcL9.jpg",
+      "out": "bld_556855988.png"
+    },
+    "bld_556855989": {
+      "hash": "f6a48d17dcf7b965",
+      "model": "gemini-3.1-flash-image",
+      "src": "maps\\mishkenot_zvulun\\views\\keyless\\bld_556855989_pTZFJce.jpg",
+      "out": "bld_556855989.png"
+    },
+    "bld_556855990": {
+      "hash": "021117c498ec6577",
+      "model": "gemini-3.1-flash-image",
+      "src": "maps\\mishkenot_zvulun\\views\\keyless\\bld_556855990_pzepZaT.jpg",
+      "out": "bld_556855990.png"
+    },
+    "bld_556855991": {
+      "hash": "6fce96ace921a37c",
+      "model": "gemini-3.1-flash-image",
+      "src": "maps\\mishkenot_zvulun\\views\\keyless\\bld_556855991_pmwGtps.jpg",
+      "out": "bld_556855991.png"
+    },
+    "bld_556855992": {
+      "hash": "4cf75b4d74a0ec37",
+      "model": "gemini-3.1-flash-image",
+      "src": "maps\\mishkenot_zvulun\\views\\keyless\\bld_556855992_pHHanla.jpg",
+      "out": "bld_556855992.png"
+    },
+    "bld_556855993": {
+      "hash": "b9d7971e3f0cf003",
+      "model": "gemini-3.1-flash-image",
+      "src": "maps\\mishkenot_zvulun\\views\\keyless\\bld_556855993_pN8xZ__.jpg",
+      "out": "bld_556855993.png"
+    },
+    "bld_556855994": {
+      "hash": "1e6d7ab90105e309",
+      "model": "gemini-3.1-flash-image",
+      "src": "maps\\mishkenot_zvulun\\views\\keyless\\bld_556855994_pm3j_nP.jpg",
+      "out": "bld_556855994.png"
+    },
+    "bld_556855995": {
+      "hash": "d909f21e0ce3a3a3",
+      "model": "gemini-3.1-flash-image",
+      "src": "maps\\mishkenot_zvulun\\views\\keyless\\bld_556855995_pm3j_nP.jpg",
+      "out": "bld_556855995.png"
+    },
+    "bld_557132859": {
+      "hash": "0997b006733522dc",
+      "model": "gemini-3.1-flash-image",
+      "src": "maps\\mishkenot_zvulun\\views\\keyless\\bld_557132859_pg3qrDx.jpg",
+      "out": "bld_557132859.png"
+    },
+    "bld_557132861": {
+      "hash": "64c6c01fbe4f1b8d",
+      "model": "gemini-3.1-flash-image",
+      "src": "maps\\mishkenot_zvulun\\views\\keyless\\bld_557132861_pMKZ_bS.jpg",
+      "out": "bld_557132861.png"
+    },
+    "bld_557132862": {
+      "hash": "570bafabdd9df0f5",
+      "model": "gemini-3.1-flash-image",
+      "src": "maps\\mishkenot_zvulun\\views\\keyless\\bld_557132862_pPVQOJ_.jpg",
+      "out": "bld_557132862.png"
+    },
+    "bld_557132863": {
+      "hash": "31c6d406be434265",
+      "model": "gemini-3.1-flash-image",
+      "src": "maps\\mishkenot_zvulun\\views\\keyless\\bld_557132863_pFSMovS.jpg",
+      "out": "bld_557132863.png"
+    },
+    "bld_557798973": {
+      "hash": "0d71693525147753",
+      "model": "gemini-3.1-flash-image",
+      "src": "maps\\mishkenot_zvulun\\views\\keyless\\bld_557798973_pxH7bI6.jpg",
+      "out": "bld_557798973.png"
+    },
+    "bld_557798974": {
+      "hash": "c4817b4904052cb0",
+      "model": "gemini-3.1-flash-image",
+      "src": "maps\\mishkenot_zvulun\\views\\keyless\\bld_557798974_pxH7bI6.jpg",
+      "out": "bld_557798974.png"
+    },
+    "bld_557798990": {
+      "hash": "53772402b8a1ff78",
+      "model": "gemini-3.1-flash-image",
+      "src": "maps\\mishkenot_zvulun\\views\\keyless\\bld_557798990_pZq-Sja.jpg",
+      "out": "bld_557798990.png"
+    },
+    "bld_557798991": {
+      "hash": "bff09d9b8a79197c",
+      "model": "gemini-3.1-flash-image",
+      "src": "maps\\mishkenot_zvulun\\views\\keyless\\bld_557798991_pxC-VID.jpg",
+      "out": "bld_557798991.png"
+    },
+    "bld_557798992": {
+      "hash": "c9196a8e5f04bc27",
+      "model": "gemini-3.1-flash-image",
+      "src": "maps\\mishkenot_zvulun\\views\\keyless\\bld_557798992_pVSOO8P.jpg",
+      "out": "bld_557798992.png"
+    },
+    "bld_664774880": {
+      "hash": "734c40f1b5939549",
+      "model": "gemini-3.1-flash-image",
+      "src": "maps\\mishkenot_zvulun\\views\\keyless\\bld_664774880_ppknCyA.jpg",
+      "out": "bld_664774880.png"
+    },
+    "bld_664774881": {
+      "hash": "088cab85eeb8f6af",
+      "model": "gemini-3.1-flash-image",
+      "src": "maps\\mishkenot_zvulun\\views\\keyless\\bld_664774881_paIRtEM.jpg",
+      "out": "bld_664774881.png"
+    },
+    "bld_665026263": {
+      "hash": "c2b507343bb4e839",
+      "model": "gemini-3.1-flash-image",
+      "src": "maps\\mishkenot_zvulun\\views\\keyless\\bld_665026263_pEqebhf.jpg",
+      "out": "bld_665026263.png"
+    },
+    "bld_665026264": {
+      "hash": "38fb1764102e2f8b",
+      "model": "gemini-3.1-flash-image",
+      "src": "maps\\mishkenot_zvulun\\views\\keyless\\bld_665026264_pIG_9bC.jpg",
+      "out": "bld_665026264.png"
+    }
+  }
+}

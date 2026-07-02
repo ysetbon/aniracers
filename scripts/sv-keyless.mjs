@@ -116,17 +116,27 @@ export async function svView(equirectBuf, panoYaw, headingDeg, { fov = 72, width
 
 // ---------------- CLI ----------------
 const manifest = fs.existsSync(MANIFEST) ? JSON.parse(fs.readFileSync(MANIFEST, 'utf8')) : { shots: [] };
+const flushManifest = () => fs.writeFileSync(MANIFEST, JSON.stringify(manifest, null, 2));
 const equiCache = new Map();
 async function equirectCached(panoId) {
-  if (!equiCache.has(panoId)) equiCache.set(panoId, await svEquirect(panoId, 3));
+  if (!equiCache.has(panoId)) {
+    equiCache.set(panoId, await svEquirect(panoId, 3));
+    // cap memory on long multi-road runs
+    if (equiCache.size > 40) equiCache.delete(equiCache.keys().next().value);
+  }
   return equiCache.get(panoId);
 }
 async function shoot(pano, headingDeg, file, opts = {}) {
   const abs = path.join(OUT, file);
-  if (fs.existsSync(abs) && fs.statSync(abs).size > 2000) return false;
+  const rec = { file, pano_id: pano.panoId, lat: pano.lat, lon: pano.lon, heading: +headingDeg.toFixed(1), ...opts };
+  if (fs.existsSync(abs) && fs.statSync(abs).size > 2000) {
+    // file survived an earlier (possibly crashed) run — make sure the manifest knows it
+    if (!manifest.shots.some(s => s.file === file)) manifest.shots.push(rec);
+    return false;
+  }
   fs.writeFileSync(abs, await svView(await equirectCached(pano.panoId), pano.yaw, headingDeg, opts));
   manifest.shots = manifest.shots.filter(s => s.file !== file);
-  manifest.shots.push({ file, pano_id: pano.panoId, lat: pano.lat, lon: pano.lon, heading: +headingDeg.toFixed(1), ...opts });
+  manifest.shots.push(rec);
   return true;
 }
 
@@ -164,21 +174,27 @@ if (arg('at')) {
       const pano = await svFind(lat, lon, 30).catch(() => null);
       if (!pano || seen.has(pano.panoId)) continue;
       seen.add(pano.panoId);
-      const [x2, z2] = [pts[i + 1][0], pts[i + 1][1]];
-      const [lat2, lon2] = proj.fromXZ(x2, z2);
-      const along = bearing(pano.lat, pano.lon, lat2, lon2);
-      console.log(`road ${rd.id} k${k}: pano ${pano.panoId} (yaw ${pano.yaw.toFixed(0)})`);
-      for (const [tag, hd, fov] of [['a', along, 80], ['l', (along + 270) % 360, 72], ['r', (along + 90) % 360, 72]])
-        await shoot(pano, hd, `road_${rd.id}_${k}_${tag}.jpg`, { fov }) && n++;
-      // aim a dedicated shot at each nearby building
-      for (const b of blds) {
-        const d = haversine(pano.lat, pano.lon, b.clat, b.clon);
-        if (d > 45) continue;
-        const hd = bearing(pano.lat, pano.lon, b.clat, b.clon);
-        const fov = Math.max(50, Math.min(85, 30 + d * 0.9));
-        await shoot(pano, hd, `bld_${b.id}_p${pano.panoId.slice(0, 6)}.jpg`, { fov, bld: b.id, dist: +d.toFixed(1) }) && n++;
+      try {
+        const [x2, z2] = [pts[i + 1][0], pts[i + 1][1]];
+        const [lat2, lon2] = proj.fromXZ(x2, z2);
+        const along = bearing(pano.lat, pano.lon, lat2, lon2);
+        console.log(`road ${rd.id} k${k}: pano ${pano.panoId} (yaw ${pano.yaw.toFixed(0)})`);
+        for (const [tag, hd, fov] of [['a', along, 80], ['l', (along + 270) % 360, 72], ['r', (along + 90) % 360, 72]])
+          await shoot(pano, hd, `road_${rd.id}_${k}_${tag}.jpg`, { fov }) && n++;
+        // aim a dedicated shot at each nearby building
+        for (const b of blds) {
+          const d = haversine(pano.lat, pano.lon, b.clat, b.clon);
+          if (d > 45) continue;
+          const hd = bearing(pano.lat, pano.lon, b.clat, b.clon);
+          const fov = Math.max(50, Math.min(85, 30 + d * 0.9));
+          await shoot(pano, hd, `bld_${b.id}_p${pano.panoId.slice(0, 6)}.jpg`, { fov, bld: b.id, dist: +d.toFixed(1) }) && n++;
+        }
+      } catch (e) {
+        // one bad pano (missing tiles, transient network) must not kill a 55-road run
+        console.log(`  skip pano ${pano.panoId}: ${e.message}`);
       }
     }
+    flushManifest();
   }
   console.log(`wrote ${n} shots -> ${path.relative(ROOT, OUT)}/`);
 } else {
