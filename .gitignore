@@ -20,3 +20,13 @@ OSM2World/
 # Harvested Google Street View photos (regenerable from scripts + GMAPS_KEY; keep out of git)
 maps/**/streetview/
 maps/**/roads-sv/
+maps/**/views/
+
+# Gemini restyled references (regenerable from scripts + GEMINI_KEY) — keep the manifest
+maps/**/restyled/*.png
+
+# Critic-loop game screenshots (regenerable via shoot-street.mjs)
+maps/**/critic-work/
+
+# Gemini facade elevations (regenerable via gemini-facade.mjs) — keep the manifest
+maps/**/facades/*.png

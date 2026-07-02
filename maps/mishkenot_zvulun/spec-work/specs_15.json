@@ -1,0 +1,26 @@
+{
+  "chunk": 15,
+  "specs": {
+    "665026264": {
+      "floors": 19,
+      "wall": "#d4c9a8",
+      "accent": "#8aaecc",
+      "roof": "flat",
+      "roofColor": "#c9cdd2",
+      "cols": 4,
+      "winShape": "rect",
+      "style": "tower",
+      "balconyType": "open",
+      "doors": 1,
+      "shutters": false,
+      "stoneBase": true,
+      "ground": "res",
+      "bands": true,
+      "parapet": "plain",
+      "roofGear": [],
+      "setback": false,
+      "conf": "med",
+      "notes": "Stone-clad tower, curved glass-railed balconies, horizontal banding"
+    }
+  }
+}
