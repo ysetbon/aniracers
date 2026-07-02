@@ -6,15 +6,19 @@ var FLOOR_H = 3.0;
 function hx(c){return (typeof c==='number')?c:new THREE.Color(c).getHex();}
 function box(w,h,d,color,x,y,z){var m=new THREE.Mesh(new THREE.BoxGeometry(Math.max(0.02,w),Math.max(0.02,h),Math.max(0.02,d)),new THREE.MeshLambertMaterial({color:hx(color)}));m.position.set(x,y,z);return m;}
 
-function addWindows(g,W,H,D,floors,glass,cols,shutters,doors){
+function addWindows(g,W,H,D,floors,glass,cols,shutters,doors,style,frameCol){
   cols=Math.max(1,cols||Math.max(2,Math.round(W/3.4)));
+  var winW=Math.min(1.4,(W/cols)*0.55),winH=1.45;
+  if(style==='horizontal'){cols=Math.max(1,Math.round(cols*0.6));winW=Math.min(2.8,(W/cols)*0.8);winH=1.15;}
   var colD=Math.max(1,Math.round(D/3.6));
-  var winW=Math.min(1.4,(W/cols)*0.55),winH=1.45,winD=Math.min(1.4,(D/colD)*0.55);
+  var winD=Math.min(1.4,(D/colD)*0.55);
   var doorXs=doors>=2?[-W/4,W/4]:[0];
+  var framed=style==='framed',fc=frameCol||0xf4f1e8;
   for(var f=0;f<floors;f++){var y=f*FLOOR_H+FLOOR_H*0.55;
     for(var c=0;c<cols;c++){var x=-W/2+(c+0.5)*(W/cols);
       var nearDoor=false;for(var di=0;di<doorXs.length;di++)if(Math.abs(x-doorXs[di])<1.2)nearDoor=true;
       if(f===0&&nearDoor)continue;
+      if(framed){g.add(box(winW+0.3,winH+0.28,0.08,fc,x,y,D/2+0.01));g.add(box(winW+0.3,winH+0.28,0.08,fc,x,y,-D/2-0.01));}
       g.add(box(winW,winH,0.14,glass,x,y,D/2+0.02));g.add(box(winW,winH,0.14,glass,x,y,-D/2-0.02));
       if(shutters){g.add(box(winW+0.22,winH+0.1,0.06,0xb7ad97,x,y,D/2+0.05));}}
     for(var k=0;k<colD;k++){var z=-D/2+(k+0.5)*(D/colD);
@@ -51,8 +55,9 @@ function makeBuilding(p){
   // base / plinth
   if(p.stoneBase)g.add(box(W+0.4,1.2,D+0.4,0xc8bda6,0,0.6,0));
   else g.add(box(W+0.3,0.4,D+0.3,0xcfc7b5,0,0.2,0));
-  addWindows(g,W,H,D,floors,glass,p.cols,p.shutters,p.doors||1);
+  addWindows(g,W,H,D,floors,glass,p.cols,p.shutters,p.doors||1,p.windowStyle,p.accent);
   addDoors(g,W,D,p.doors||1);
+  if(p.accent){g.add(box(W+0.06,0.5,D+0.06,p.accent,0,H-0.25,0));}   // accent band under the roofline
   if(p.balconies)addBalconies(g,W,H,D,floors);
   var roof=new THREE.Color(p.roofColor||0xcfcfcf);
   if(p.roof==='gabled')addGableRoof(g,W,H,D,roof);
@@ -102,4 +107,37 @@ function makeFootprintBuilding(foot,p){
     for(var di=0;di<xs.length;di++){var t2=xs[di],px2=longest.a[0]+longest.dx*t2+longest.nx*0.07,pz2=longest.a[1]+longest.dz*t2+longest.nz*0.07;
       g.add(winBox(1.2,2.2,0.16,0x5a4636,px2,1.1,pz2,longest.phi));}}
   if(p.solar){var tk=new THREE.Mesh(new THREE.CylinderGeometry(0.5,0.5,2.0,12),new THREE.MeshLambertMaterial({color:0xf2f2f2}));tk.position.set(cen[0],H+1.2,cen[1]);g.add(tk);}
+  return g;}
+
+// ---- fences (spec v2): built along a WORLD-coord polyline, module by module.
+// spec = {type:'slat'|'stone'|'hedge'|'metal', color, height, gateT (0..1|null), gateColor}
+function fenceModule(g,type,color,h,cx,cz,ux,uz,len,phi){
+  var wallC=hx(color||0xd8d2c0);
+  if(type==='stone'){g.add(winBox(len,h,0.28,wallC,cx,h/2,cz,phi));g.add(winBox(len+0.08,0.14,0.36,0xe7e2d4,cx,h+0.07,cz,phi));return;}
+  if(type==='hedge'){g.add(winBox(len,h,0.55,0x5f8f4a,cx,h/2+0.05,cz,phi));return;}
+  // slat/metal share a low base wall + posts; slat adds horizontal boards, metal thin rails
+  g.add(winBox(len,0.3,0.24,0xcfc7b5,cx,0.15,cz,phi));
+  g.add(winBox(0.1,h,0.12,wallC,cx-ux*len/2,h/2,cz-uz*len/2,phi));
+  if(type==='metal'){for(var r=0;r<2;r++)g.add(winBox(len,0.06,0.05,wallC,cx,0.75+r*(h-0.9),cz,phi));}
+  else{var nb=Math.max(4,Math.round((h-0.5)/0.22)),bh=0.15;for(var b2=0;b2<nb;b2++){var y=0.5+b2*((h-0.6)/(nb-1));g.add(winBox(len,bh,0.07,wallC,cx,y,cz,phi));}}
+}
+function makeFence(pts,spec){
+  var g=new THREE.Group(),type=spec.type||'slat',h=Math.max(0.8,Math.min(2.2,spec.height||1.5));
+  if(type==='none')return g;
+  var segs=[],total=0;
+  for(var i=0;i<pts.length-1;i++){var L=Math.hypot(pts[i+1][0]-pts[i][0],pts[i+1][1]-pts[i][1]);segs.push(L);total+=L;}
+  var gateS=(spec.gateT!=null)?spec.gateT*total:null,GATE_W=2.6;
+  var MOD=2.4,s=0;
+  for(var i2=0;i2<segs.length;i2++){var a=pts[i2],b=pts[i2+1],L2=segs[i2];
+    var ux=(b[0]-a[0])/L2,uz=(b[1]-a[1])/L2,phi=Math.atan2(-uz,ux);
+    var n=Math.max(1,Math.round(L2/MOD)),ml=L2/n;
+    for(var m=0;m<n;m++){var s0=s+m*ml,mid=s0+ml/2;
+      var cx=a[0]+ux*(m+0.5)*ml,cz=a[1]+uz*(m+0.5)*ml;
+      if(gateS!=null&&Math.abs(mid-gateS)<GATE_W/2){ // gate: full-height sliding panel, slightly offset
+        var gc=hx(spec.gateColor||spec.color||0xd8d2c0);
+        g.add(winBox(ml*0.94,0.25,0.2,0xcfc7b5,cx,0.12,cz,phi));
+        for(var gb=0;gb<4;gb++)g.add(winBox(ml*0.9,0.14,0.06,gc,cx,0.45+gb*((h+0.15-0.5)/3),cz,phi));
+        continue;}
+      fenceModule(g,type,spec.color,h,cx,cz,ux,uz,ml*0.98,phi);}
+    s+=L2;}
   return g;}

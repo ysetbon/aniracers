@@ -1865,102 +1865,179 @@
    "conf": "low"
   },
   "556597973": {
-   "floors": 4,
-   "wall": "#ece3d0",
-   "roof": "flat",
-   "roofColor": "#c9cdd2",
-   "cols": 3,
-   "balconies": false,
-   "doors": 1,
-   "shutters": false,
-   "stoneBase": false,
-   "solar": false,
-   "style": "apartment",
-   "conf": "low"
-  },
-  "556597974": {
-   "floors": 4,
-   "wall": "#f2f0ea",
-   "roof": "flat",
-   "roofColor": "#c9cdd2",
-   "cols": 3,
-   "balconies": false,
-   "doors": 1,
-   "shutters": false,
-   "stoneBase": false,
-   "solar": false,
-   "style": "apartment",
-   "conf": "low"
-  },
-  "556597975": {
    "floors": 2,
-   "wall": "#d8cdb5",
+   "wall": "#e6dcc3",
    "roof": "flat",
-   "roofColor": "#c9cdd2",
-   "cols": 4,
+   "roofColor": "#d6cdb8",
+   "cols": 2,
    "balconies": false,
    "doors": 1,
    "shutters": false,
    "stoneBase": true,
    "solar": false,
-   "style": "house",
-   "conf": "high"
+   "style": "villa",
+   "conf": "med",
+   "accent": "#ffffff",
+   "windowStyle": "framed",
+   "fence": {
+    "type": "slat",
+    "color": "#f2f0ea",
+    "height": 1.7
+   },
+   "gate": {
+    "color": "#f2f0ea"
+   },
+   "notes": "mostly hidden by trees, restyle is close crop"
   },
-  "556597976": {
+  "556597974": {
    "floors": 2,
-   "wall": "#f2f0ea",
-   "roof": "flat",
-   "roofColor": "#c9cdd2",
-   "cols": 2,
-   "balconies": false,
-   "doors": 1,
-   "shutters": true,
-   "stoneBase": false,
-   "solar": false,
-   "style": "house",
-   "conf": "low"
-  },
-  "556597977": {
-   "floors": 2,
-   "wall": "#f2f0ea",
-   "roof": "gabled",
-   "roofColor": "#b25a3c",
+   "wall": "#e8ddc4",
+   "roof": "hipped",
+   "roofColor": "#c8c4ba",
    "cols": 2,
    "balconies": false,
    "doors": 1,
    "shutters": false,
-   "stoneBase": false,
+   "stoneBase": true,
    "solar": false,
    "style": "villa",
-   "conf": "low"
+   "conf": "high",
+   "accent": "#9a9691",
+   "windowStyle": "framed",
+   "fence": {
+    "type": "metal",
+    "color": "#6b6b6b",
+    "height": 1.8
+   },
+   "gate": {
+    "color": "#6b6b6b"
+   },
+   "notes": "ornate gray metal gate on brick pillars"
+  },
+  "556597975": {
+   "floors": 3,
+   "wall": "#d9c9a8",
+   "roof": "flat",
+   "roofColor": "#c9b98d",
+   "cols": 3,
+   "balconies": true,
+   "doors": 1,
+   "shutters": false,
+   "stoneBase": true,
+   "solar": false,
+   "style": "villa",
+   "conf": "low",
+   "accent": "#c9b98d",
+   "windowStyle": "framed",
+   "fence": {
+    "type": "metal",
+    "color": "#4a4a4a",
+    "height": 1.5
+   },
+   "gate": {
+    "color": "#4a4a4a"
+   },
+   "notes": "actually a synagogue building, poor fit for villa schema"
+  },
+  "556597976": {
+   "floors": 2,
+   "wall": "#f0f0ee",
+   "roof": "gabled",
+   "roofColor": "#c1512f",
+   "cols": 3,
+   "balconies": false,
+   "doors": 1,
+   "shutters": true,
+   "stoneBase": true,
+   "solar": false,
+   "style": "villa",
+   "conf": "high",
+   "accent": "#c9c9d2",
+   "windowStyle": "framed",
+   "fence": {
+    "type": "slat",
+    "color": "#f5f5f0",
+    "height": 1.6
+   },
+   "gate": {
+    "color": "#8a8a8a"
+   },
+   "notes": "orange tile gabled roof, stone-base white fence"
+  },
+  "556597977": {
+   "floors": 2,
+   "wall": "#f5f4ef",
+   "roof": "gabled",
+   "roofColor": "#c0432a",
+   "cols": 3,
+   "balconies": false,
+   "doors": 1,
+   "shutters": false,
+   "stoneBase": true,
+   "solar": true,
+   "style": "villa",
+   "conf": "high",
+   "accent": null,
+   "windowStyle": "framed",
+   "fence": {
+    "type": "slat",
+    "color": "#f0f0ea",
+    "height": 1.6
+   },
+   "gate": {
+    "color": "#f0f0ea"
+   },
+   "notes": "solar water heater and PV panels on roof"
   },
   "556597978": {
    "floors": 2,
    "wall": "#f2f0ea",
    "roof": "flat",
-   "roofColor": "#c9cdd2",
-   "cols": 2,
-   "balconies": false,
-   "doors": 1,
-   "shutters": true,
-   "stoneBase": false,
-   "solar": false,
-   "style": "house",
-   "conf": "low"
-  },
-  "556597979": {
-   "floors": 2,
-   "wall": "#f2f0ea",
-   "roof": "gabled",
-   "roofColor": "#b25a3c",
-   "cols": 2,
+   "roofColor": "#e8e4d8",
+   "cols": 3,
    "balconies": false,
    "doors": 1,
    "shutters": false,
-   "stoneBase": false,
+   "stoneBase": true,
    "solar": false,
    "style": "villa",
-   "conf": "low"
+   "conf": "med",
+   "accent": "#e8e4d8",
+   "windowStyle": "framed",
+   "fence": {
+    "type": "slat",
+    "color": "#7a5230",
+    "height": 1.4
+   },
+   "gate": {
+    "color": "#6b4423"
+   },
+   "notes": "wood-look horizontal slat fence, white stone-base wall"
+  },
+  "556597979": {
+   "floors": 2,
+   "wall": "#e2ddd0",
+   "roof": "flat",
+   "roofColor": "#d8d2c0",
+   "cols": 3,
+   "balconies": false,
+   "doors": 1,
+   "shutters": false,
+   "stoneBase": true,
+   "solar": false,
+   "style": "villa",
+   "conf": "high",
+   "accent": null,
+   "windowStyle": "framed",
+   "fence": {
+    "type": "slat",
+    "color": "#9aa0a0",
+    "height": 1.6
+   },
+   "gate": {
+    "color": "#e8e6dc"
+   },
+   "notes": "red-tile porch canopy at entrance, gray slat + wood fence"
   },
   "556597980": {
    "floors": 2,
@@ -2804,17 +2881,28 @@
   },
   "556855829": {
    "floors": 2,
-   "wall": "#f2f0ea",
+   "wall": "#eeece6",
    "roof": "flat",
-   "roofColor": "#c9cdd2",
-   "cols": 2,
-   "balconies": false,
-   "doors": 1,
+   "roofColor": "#e0ddd4",
+   "cols": 4,
+   "balconies": true,
+   "doors": 2,
    "shutters": false,
    "stoneBase": true,
    "solar": false,
-   "style": "house",
-   "conf": "high"
+   "style": "duplex",
+   "conf": "high",
+   "accent": "#d3c2a0",
+   "windowStyle": "framed",
+   "fence": {
+    "type": "stone",
+    "color": "#d8c9a8",
+    "height": 1
+   },
+   "gate": {
+    "color": "#e8e6de"
+   },
+   "notes": "duplex, balcony on left unit, stone-clad pillars"
   },
   "556855830": {
    "floors": 1,
@@ -2874,115 +2962,197 @@
   },
   "556855836": {
    "floors": 1,
-   "wall": "#f2f0ea",
-   "roof": "gabled",
-   "roofColor": "#c9cdd2",
+   "wall": "#d9cdb0",
+   "roof": "hipped",
+   "roofColor": "#c96a45",
    "cols": 2,
    "balconies": false,
    "doors": 1,
    "shutters": false,
    "stoneBase": true,
    "solar": true,
-   "style": "house",
-   "conf": "high"
+   "style": "villa",
+   "conf": "med",
+   "accent": "#c9c2af",
+   "windowStyle": "framed",
+   "fence": {
+    "type": "hedge",
+    "color": "#4f7942",
+    "height": 1
+   },
+   "gate": null,
+   "notes": "orange tile roof, hedge row, satellite dish"
   },
   "556855837": {
    "floors": 2,
-   "wall": "#f2f0ea",
+   "wall": "#f2efe6",
    "roof": "flat",
-   "roofColor": "#c9cdd2",
-   "cols": 2,
+   "roofColor": "#d9d5c8",
+   "cols": 4,
    "balconies": false,
    "doors": 1,
    "shutters": false,
-   "stoneBase": false,
+   "stoneBase": true,
    "solar": true,
-   "style": "house",
-   "conf": "med"
+   "style": "villa",
+   "conf": "high",
+   "accent": "#c9c5ba",
+   "windowStyle": "framed",
+   "fence": {
+    "type": "stone",
+    "color": "#d9d5c8",
+    "height": 1.8
+   },
+   "gate": null,
+   "notes": "iron window bars, roof tanks and antenna"
   },
   "556855838": {
    "floors": 2,
-   "wall": "#f2f0ea",
-   "roof": "flat",
-   "roofColor": "#c9cdd2",
+   "wall": "#ece6d6",
+   "roof": "hipped",
+   "roofColor": "#c15a3c",
    "cols": 3,
    "balconies": false,
    "doors": 1,
    "shutters": false,
    "stoneBase": true,
    "solar": false,
-   "style": "house",
-   "conf": "high"
+   "style": "villa",
+   "conf": "high",
+   "accent": "#cfc9b8",
+   "windowStyle": "framed",
+   "fence": {
+    "type": "stone",
+    "color": "#d9d2c0",
+    "height": 1.8
+   },
+   "gate": {
+    "color": "#e8e4da"
+   },
+   "notes": "wooden slat gate, satellite dishes on roof"
   },
   "556855839": {
-   "floors": 2,
-   "wall": "#f2f0ea",
+   "floors": 3,
+   "wall": "#eee7d6",
    "roof": "flat",
-   "roofColor": "#c9cdd2",
-   "cols": 3,
-   "balconies": false,
+   "roofColor": "#d8d2c0",
+   "cols": 2,
+   "balconies": true,
    "doors": 1,
    "shutters": false,
    "stoneBase": true,
    "solar": false,
-   "style": "house",
-   "conf": "high"
+   "style": "villa",
+   "conf": "low",
+   "accent": "#cfc3a0",
+   "windowStyle": "framed",
+   "fence": {
+    "type": "hedge",
+    "color": "#4f7942",
+    "height": 1.4
+   },
+   "gate": null,
+   "notes": "dense garden occludes facade, palm trees"
   },
   "556855840": {
    "floors": 2,
-   "wall": "#f2f0ea",
+   "wall": "#efe7d0",
    "roof": "flat",
-   "roofColor": "#c9cdd2",
+   "roofColor": "#efe7d0",
    "cols": 3,
-   "balconies": false,
+   "balconies": true,
    "doors": 1,
-   "shutters": true,
+   "shutters": false,
    "stoneBase": true,
-   "solar": true,
-   "style": "house",
-   "conf": "high"
+   "solar": false,
+   "style": "villa",
+   "conf": "high",
+   "accent": "#d9cda0",
+   "windowStyle": "framed",
+   "fence": {
+    "type": "stone",
+    "color": "#d9cda0",
+    "height": 1.6
+   },
+   "gate": {
+    "color": "#b9b09c"
+   },
+   "notes": "corner stone quoins, wrought-iron gate"
   },
   "556855841": {
    "floors": 2,
-   "wall": "#f2f0ea",
+   "wall": "#f0ead9",
    "roof": "flat",
-   "roofColor": "#c9cdd2",
-   "cols": 2,
-   "balconies": false,
+   "roofColor": "#f0ead9",
+   "cols": 4,
+   "balconies": true,
    "doors": 1,
    "shutters": false,
-   "stoneBase": false,
+   "stoneBase": true,
    "solar": false,
-   "style": "house",
-   "conf": "med"
+   "style": "duplex",
+   "conf": "med",
+   "accent": "#b98a52",
+   "windowStyle": "framed",
+   "fence": {
+    "type": "slat",
+    "color": "#f0ead9",
+    "height": 1.4
+   },
+   "gate": {
+    "color": "#f0ead9"
+   },
+   "notes": "twin gates, wood-clad siding accent"
   },
   "556855842": {
    "floors": 2,
-   "wall": "#e6d8bd",
-   "roof": "flat",
-   "roofColor": "#c9cdd2",
-   "cols": 3,
-   "balconies": false,
+   "wall": "#e8dcc0",
+   "roof": "hipped",
+   "roofColor": "#c96a45",
+   "cols": 2,
+   "balconies": true,
    "doors": 1,
    "shutters": true,
    "stoneBase": false,
    "solar": false,
-   "style": "house",
-   "conf": "high"
+   "style": "villa",
+   "conf": "med",
+   "accent": "#cbb98f",
+   "windowStyle": "framed",
+   "fence": {
+    "type": "slat",
+    "color": "#e0d6ba",
+    "height": 1.6
+   },
+   "gate": {
+    "color": "#e0d6ba"
+   },
+   "notes": "orange tree in yard, roller shutter window"
   },
   "556855843": {
    "floors": 2,
-   "wall": "#f2f0ea",
+   "wall": "#f5f3ec",
    "roof": "flat",
-   "roofColor": "#c9cdd2",
-   "cols": 2,
+   "roofColor": "#e2ddd0",
+   "cols": 4,
    "balconies": false,
    "doors": 1,
    "shutters": false,
-   "stoneBase": false,
+   "stoneBase": true,
    "solar": false,
-   "style": "house",
-   "conf": "low"
+   "style": "villa",
+   "conf": "high",
+   "accent": "#e2ddd0",
+   "windowStyle": "framed",
+   "fence": {
+    "type": "stone",
+    "color": "#cbb98a",
+    "height": 1.4
+   },
+   "gate": {
+    "color": "#e8e4da"
+   },
+   "notes": "elegant entry portico, symmetric window grid"
   },
   "556855845": {
    "floors": 2,
