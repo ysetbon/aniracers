@@ -20,3 +20,7 @@ OSM2World/
 # Harvested Google Street View photos (regenerable from scripts + GMAPS_KEY; keep out of git)
 maps/**/streetview/
 maps/**/roads-sv/
+maps/**/views/
+
+# Gemini restyled references (regenerable from scripts + GEMINI_KEY) — keep the manifest
+maps/**/restyled/*.png

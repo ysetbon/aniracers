@@ -44,6 +44,10 @@ export function resolveWorld(argv){
     overrides:  abs(`${cfg.dir}/building-overrides.json`),
     streetview: abs(`${cfg.dir}/streetview`),
     specWork:   abs(`${cfg.dir}/spec-work`),
+    views:      abs(`${cfg.dir}/views`),
+    viewsJson:  abs(`${cfg.dir}/building-views.json`),
+    restyled:   abs(`${cfg.dir}/restyled`),
+    styleRef:   abs(`${cfg.dir}/style-ref.png`),
     osm:        abs(`${OSM_DIR}/${cfg.osmStem}.osm`),
     osmBase:    abs(`${OSM_DIR}/${cfg.osmStem}_base.osm`),
     baseGlb:    abs(`${OSM_DIR}/${cfg.osmStem}_base.glb`),
@@ -68,5 +72,8 @@ export function projection(area){
   const latToY=d=>{const s=Math.sin(d*Math.PI/180);return Math.log((1+s)/(1-s))/(4*Math.PI)+0.5;};
   const yO=latToY(originLat);
   const toXZ=(lat,lon)=>[ (lon-originLon)/360*scale, -(latToY(lat)-yO)*scale ];
-  return { originLat, originLon, scale, toXZ };
+  const fromXZ=(x,z)=>{ const lon=originLon+x/scale*360;
+    const t=Math.exp(4*Math.PI*((yO-z/scale)-0.5));
+    const lat=Math.asin((t-1)/(t+1))*180/Math.PI; return [lat,lon]; };
+  return { originLat, originLon, scale, toXZ, fromXZ };
 }

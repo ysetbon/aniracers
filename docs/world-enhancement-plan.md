@@ -193,6 +193,22 @@ v2 fields and the "restyle for geometry, raw for colour" rule.
 
 ## F. Rollout
 
+> **Status:** `harvest-views.mjs` and `gemini-restyle.mjs` are implemented (plus
+> `projection().fromXZ` and the new paths in `world-config.mjs`). Dry-run numbers for Netanya:
+> the auto race loop rings the whole neighbourhood, so **210/301 buildings are tier A**
+> (90 B, 1 C) — ~811 building shots; strips cover 138/178 road segments at ~2 766 shots
+> (trim with `--corridor`/`--limit`, or raise the 30 m sample spacing). Needs `GMAPS_KEY` +
+> `GEMINI_KEY` in `.env`. First runs, small on purpose:
+> ```bash
+> node scripts/harvest-views.mjs --world=netanya --dry            # plan only, no key
+> node --env-file=.env scripts/harvest-views.mjs --world=netanya --tier=A --limit=20
+> node --env-file=.env scripts/gemini-restyle.mjs --world=netanya --limit=10
+> node --env-file=.env scripts/harvest-views.mjs --world=netanya --strips --corridor=40
+> node --env-file=.env scripts/gemini-restyle.mjs --world=netanya --strips --limit=10
+> ```
+> Then eyeball `maps/mishkenot_zvulun/restyled/` against the raw shots in `views/` before
+> spending the full budget.
+
 1. **Phase 1 — see it work end-to-end on one street.** Pick the start/finish straight of the
    Netanya track. `harvest-views` + `gemini-restyle` + hand-run one Haiku chunk with v2
    instructions + minimal factory v2 (facades, fences, garage). Success = a side-by-side of
