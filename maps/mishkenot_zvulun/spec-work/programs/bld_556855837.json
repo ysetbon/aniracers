@@ -54,6 +54,112 @@
     "sidewalk": { "material": "paving-brick", "color": "#e49980", "joint": "#c39f90", "w": 3.0 },
     "road": { "surface": "paving-brick", "color": "#999186" }
   },
+  "environment": {
+    "props": [
+      {
+        "hedge": true,
+        "h": 1.0,
+        "t0": 0.34,
+        "t1": 0.62,
+        "step": 1.1,
+        "inset": 1.2,
+        "d": 1.1,
+        "colors": [
+          "#697d3e",
+          "#5a6a63",
+          "#63753c"
+        ]
+      },
+      {
+        "model": "plant_bushDetailed",
+        "h": 1.2,
+        "t": 0.7,
+        "inset": 1.0,
+        "tint": {
+          "leafs": "#697d3e",
+          "*": "#5a6a63"
+        }
+      },
+      {
+        "model": "plant_bush",
+        "h": 1.0,
+        "t": 0.26,
+        "inset": 0.9,
+        "tint": {
+          "leafs": "#5a6a63",
+          "*": "#5a6a63"
+        }
+      },
+      {
+        "model": "plant_bushLarge",
+        "h": 2.4,
+        "t": 0.52,
+        "inset": 1.6,
+        "rxz": 1.2,
+        "tint": {
+          "leafs": "#57a03a",
+          "*": "#4c8a34"
+        }
+      },
+      {
+        "model": "tree_oak",
+        "h": 4.0,
+        "t": 0.82,
+        "inset": 2.4,
+        "rxz": 1.2,
+        "tint": {
+          "leafs": "#4c7d33",
+          "wood": "#6e5138",
+          "*": "#6e5138"
+        }
+      },
+      {
+        "model": "grass_leafsLarge",
+        "h": 0.7,
+        "t": 0.44,
+        "inset": 0.7,
+        "tint": {
+          "grass": "#7ba04a",
+          "*": "#7ba04a"
+        }
+      },
+      {
+        "model": "pot_large",
+        "h": 1.0,
+        "t": 0.06,
+        "inset": -0.5,
+        "tint": {
+          "wood": "#cbb9a2",
+          "*": "#b9a68c"
+        }
+      },
+      {
+        "model": "rock_smallA",
+        "h": 0.35,
+        "t": 0.64,
+        "inset": 0.6,
+        "tint": {
+          "stone": "#cfc6b2",
+          "*": "#cfc6b2"
+        }
+      },
+      {
+        "car": true,
+        "t": 0.25,
+        "inset": -5.1,
+        "rot": "along",
+        "color": "#eceae4"
+      },
+      {
+        "car": true,
+        "t": 0.58,
+        "inset": -5.1,
+        "rot": "along",
+        "flip": true,
+        "color": "#b9bcc0"
+      }
+    ]
+  },
   "sky": { "top": "#5ea2db", "horizon": "#9fcfe4", "cloud": "#f4f6f6" },
   "notes": "Symmetric white two-family villa on a paved courtyard corner: two 2-storey blocks with terracotta tiled roofs (left one reads as a shed sloping left, right one a full hip - both encoded as hip) joined by a flat-roofed centre link with a full-height stair/chimney tower rising one level above the roofline. Both entries are deep recessed porches with round globe sconces; every window carries grey iron security bars (schema gap: no bars field - factory should add bar grilles). Roof clutter in the ref: solar water tanks, satellite dishes and a TV antenna (schema gap, prop factory pending). Frontage is NOT a street: an inner plaza of terracotta brick paving with large grey-paver herringbone panels framed by terracotta borders (schema gap: two-tone paving pattern), low sandstone-block garden walls (#dbc7b4) and taller wall runs with a decorative open stone gateway (no gate leaf - gates[] left empty), planting beds with hedge blobs (#697d3e, dark #5a6a63) and tropical/banana plants, a stone amphora urn and a white drinking fountain (prop factory pending). No grass verge or asphalt road in frame, so verge is omitted and road is the grey paver plaza. Sampled colours from 12x9 + 24x18 grids 2026-07-03."
 }
