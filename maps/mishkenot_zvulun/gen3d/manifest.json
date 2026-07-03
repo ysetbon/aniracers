@@ -1,0 +1,172 @@
+{
+  "items": {
+    "383410002": {
+      "hash": "74e57eb822f58961",
+      "task": "019f244f-d1a6-721c-a6ce-ea0280fe7d11",
+      "params": "latest/lowpoly/6000/raw/iso",
+      "credits": 30,
+      "out": "bld_383410002.glb",
+      "kb": 3239
+    },
+    "406278384": {
+      "hash": "aa1f9c593876e574",
+      "task": "019f244f-ded8-7af7-ab34-75526304f195",
+      "params": "latest/lowpoly/6000/raw/iso",
+      "credits": 30,
+      "out": "bld_406278384.glb",
+      "kb": 2833
+    },
+    "406278405": {
+      "hash": "dc3e832e374d4fb7",
+      "task": "019f244f-fcc6-70b9-bfc6-650b8df2a248",
+      "params": "latest/lowpoly/6000/raw/iso",
+      "credits": 30,
+      "out": "bld_406278405.glb",
+      "kb": 2887
+    },
+    "406278425": {
+      "hash": "4b571c44bd7c9d82",
+      "task": "019f2450-0a72-7afe-9d2b-187120ec1bc6",
+      "params": "latest/lowpoly/6000/raw/iso",
+      "credits": 30,
+      "out": "bld_406278425.glb",
+      "kb": 2870
+    },
+    "556597973": {
+      "hash": "6c3c7fb6efcc4029",
+      "task": "019f2495-626a-7199-8dd2-df66df1c511c",
+      "params": "latest/lowpoly/6000/raw/iso",
+      "credits": 30,
+      "out": "bld_556597973.glb",
+      "kb": 3013
+    },
+    "556597974": {
+      "hash": "c278f3c48c277080",
+      "task": "019f2495-7200-7fb5-b383-bd0899212bac",
+      "params": "latest/lowpoly/6000/raw/iso",
+      "credits": 30,
+      "out": "bld_556597974.glb",
+      "kb": 2520
+    },
+    "556597975": {
+      "hash": "a001ef2f7cd49b02",
+      "task": "019f2495-814e-72a7-8a84-129707a5d53d",
+      "params": "latest/lowpoly/6000/raw/iso",
+      "credits": 30,
+      "out": "bld_556597975.glb",
+      "kb": 3686
+    },
+    "556597976": {
+      "hash": "ce4f265ace7cee2d",
+      "task": "019f2495-8f07-72a7-bc8b-0e615f5b91a2",
+      "params": "latest/lowpoly/6000/raw/iso",
+      "credits": 30,
+      "out": "bld_556597976.glb",
+      "kb": 2505
+    },
+    "556597977": {
+      "hash": "92c8b20bb051e2d2",
+      "task": "019f2495-9d80-71e0-8f88-93cbd94c67b2",
+      "params": "latest/lowpoly/6000/raw/iso",
+      "credits": 30,
+      "out": "bld_556597977.glb",
+      "kb": 3008
+    },
+    "556597978": {
+      "hash": "5e703dd672c90e80",
+      "task": "019f2495-ae48-7952-8064-9236ffc44a39",
+      "params": "latest/lowpoly/6000/raw/iso",
+      "credits": 30,
+      "out": "bld_556597978.glb",
+      "kb": 3112
+    },
+    "556597979": {
+      "hash": "bfdbd9eea0900661",
+      "task": "019f2495-be5f-7fe1-b4b7-035b55a242d1",
+      "params": "latest/lowpoly/6000/raw/iso",
+      "credits": 30,
+      "out": "bld_556597979.glb",
+      "kb": 2416
+    },
+    "556855829": {
+      "hash": "6bbe282344838f44",
+      "task": "019f2495-cd3b-7fe5-b73f-bb38bfdf41ec",
+      "params": "latest/lowpoly/6000/raw/iso",
+      "credits": 30,
+      "out": "bld_556855829.glb",
+      "kb": 3366
+    },
+    "556855836": {
+      "hash": "1175c1d9eadd58fd",
+      "task": "019f2495-da45-7955-b723-6bfb2e405f46",
+      "params": "latest/lowpoly/6000/raw/iso",
+      "credits": 30,
+      "out": "bld_556855836.glb",
+      "kb": 2872
+    },
+    "556855837": {
+      "hash": "0cd6b8ab0769715a",
+      "task": "019f2495-e79b-71e4-a400-326f19704c38",
+      "params": "latest/lowpoly/6000/raw/iso",
+      "credits": 30,
+      "out": "bld_556855837.glb",
+      "kb": 3194
+    },
+    "556855838": {
+      "hash": "9d7241e09b676a29",
+      "task": "019f249d-fcc5-7de2-b939-a8d9b967c01e",
+      "params": "latest/lowpoly/6000/raw/iso",
+      "credits": 30,
+      "out": "bld_556855838.glb",
+      "kb": 2831
+    },
+    "556855839": {
+      "hash": "20f9ad6ef37ba00e",
+      "task": "019f249e-0b32-7de3-af3d-57fa5b46f1fe",
+      "params": "latest/lowpoly/6000/raw/iso",
+      "credits": 30,
+      "out": "bld_556855839.glb",
+      "kb": 3705
+    },
+    "556855840": {
+      "hash": "61c8194fd0120add",
+      "task": "019f249e-4327-730c-9307-64d570e0f588",
+      "params": "latest/lowpoly/6000/raw/iso",
+      "credits": 30,
+      "out": "bld_556855840.glb",
+      "kb": 3326
+    },
+    "556855841": {
+      "hash": "e2521d26702d7469",
+      "task": "019f249e-51b4-7760-ac7b-fd861cf84c34",
+      "params": "latest/lowpoly/6000/raw/iso",
+      "credits": 30,
+      "out": "bld_556855841.glb",
+      "kb": 2791
+    },
+    "556855842": {
+      "hash": "55f986de5ce3c14d",
+      "task": "019f249e-5ea9-7e07-b854-e641575b00e9",
+      "params": "latest/lowpoly/6000/raw/iso",
+      "credits": 30,
+      "out": "bld_556855842.glb",
+      "kb": 2554
+    },
+    "556855843": {
+      "hash": "41b77970166ae283",
+      "task": "019f24a3-c71f-7ef4-b436-664a4a7507c6",
+      "params": "latest/lowpoly/6000/raw/iso",
+      "credits": 30,
+      "out": "bld_556855843.glb",
+      "kb": 2848
+    },
+    "557132861": {
+      "hash": "d499ddb5935977a8",
+      "task": "019f2450-1866-7223-9b67-f5e115889d8d",
+      "params": "latest/lowpoly/6000/raw/iso",
+      "credits": 30,
+      "out": "bld_557132861.glb",
+      "kb": 4601
+    }
+  }
+}

@@ -7,6 +7,7 @@
     "regen-assets": "node scripts/regen-intro-assets.js"
   },
   "dependencies": {
+    "sharp": "^0.35.3",
     "ws": "^8.18.0"
   },
   "devDependencies": {

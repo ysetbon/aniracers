@@ -1,0 +1,25 @@
+{
+  "id": "556855836",
+  "refs": { "scene": "restyled/bld_556855836.png", "iso": "restyled/iso/bld_556855836.png" },
+  "footprint": "obb",
+  "floorH": 3.0,
+  "volumes": [
+    { "name": "main", "x0": 0.0, "x1": 1.0, "z0": 0.0, "z1": 1.0, "floors": 1,
+      "wall": "#d0c5a9",
+      "roof": { "form": "gable", "color": "#b8594f",
+                "fascia": { "h": 0.3, "color": "#ab9578", "overhang": 0.4 },
+                "props": ["solar"] } }
+  ],
+  "openings": [
+    { "volume": "main", "facade": "front", "type": "window", "floor": 0,
+      "at": [0.32, 0.62], "w": 1.4, "h": 1.2, "glass": "#556482", "frame": "#84909f" }
+  ],
+  "terraces": [],
+  "props": [],
+  "frontage": {
+    "sidewalk": { "material": "paving-stones", "color": "#bcac99", "joint": "#ad937b", "w": 4.0 },
+    "road": { "surface": "paving-stones", "color": "#baa996" }
+  },
+  "sky": { "top": "#5ea2db", "horizon": "#9fcfe4", "cloud": "#f4f6f6" },
+  "notes": "Modest single-storey cottage: warm cream stucco (#d0c5a9) under a red clay-tile GABLE roof (#b8594f) with a brown timber eave/fascia board (#ab9578) and generous overhang; ridge runs parallel to the street, gable ends left/right. Spec v2 said 'hipped' but the iso clearly shows a gable - kept gable. Two blue-framed windows on the street facade (slate-blue glass #556482, blue-grey frames #84909f), otherwise blank walls; the right gable-end wall is slightly greyer (#999586) with VERTICAL panel joints (band schema has no vertical style or facade key - noted). Twin solar collectors (#5a5d77 panels, #7a7c88 frames) on the front roof slope near the ridge - expressed via roof.props per the plan doc. Spec mentions a satellite dish but none is on this building in the refs (dishes sit on neighbours). FRONTAGE: no wall or gate - a knee-to-waist-high run of boxy low-poly HEDGES (#828d44 lit / #7f893e shade) lines the corner frontage, so wall is omitted (hedge factory pending); behind the hedge at the right edge a short blue picket fence with a YELLOW mailbox on it, and a timber power pole with sagging wires crosses the frame (props pending). The street here is a plaza-like PAVING-STONE surface (grey-tan pavers #bcac99 with tan accent bands #b19881 and darker joints #ad937b) that continues as the road band (#baa996) - no asphalt, no kerb-separated verge. Tall palm at frame left, round trees and cypresses on the skyline belong to neighbours. Sampled from 12x9 scene grid + 24x18 iso grid 2026-07-03."
+}

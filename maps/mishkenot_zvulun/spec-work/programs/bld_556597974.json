@@ -1,0 +1,64 @@
+{
+  "id": "556597974",
+  "refs": { "scene": "restyled/bld_556597974.png", "iso": "restyled/iso/bld_556597974.png" },
+  "footprint": "obb",
+  "floorH": 3.0,
+  "volumes": [
+    { "name": "main", "x0": 0.0, "x1": 0.55, "z0": 0.0, "z1": 1.0, "floors": 2,
+      "wall": "#fbf6d9",
+      "bands": [
+        { "floor": 1, "y0": 0.10, "y1": 0.92, "x0": 0.0, "x1": 1.0, "color": "#c2b294", "style": "slats" },
+        { "floor": 0, "y0": 0.05, "y1": 0.55, "x0": 0.0, "x1": 0.45, "color": "#c2b294", "style": "slats" }
+      ],
+      "roof": { "form": "flat", "fascia": { "h": 0.55, "color": "#f4ecd2", "overhang": 0.35 } } },
+    { "name": "rearright", "x0": 0.55, "x1": 1.0, "z0": 0.35, "z1": 1.0, "floors": 2,
+      "wall": "#fbf6d9",
+      "bands": [ { "floor": 1, "y0": 0.10, "y1": 0.92, "x0": 0.3, "x1": 1.0, "color": "#c2b294", "style": "slats" } ],
+      "roof": { "form": "flat", "fascia": { "h": 0.55, "color": "#f4ecd2", "overhang": 0.35 } } },
+    { "name": "wing", "x0": 0.55, "x1": 1.0, "z0": 0.0, "z1": 0.35, "floors": 1,
+      "wall": "#fbf6d9",
+      "roof": { "form": "flat", "fascia": { "h": 0.45, "color": "#f4ecd2", "overhang": 0.2 } } }
+  ],
+  "openings": [
+    { "volume": "main", "facade": "front", "type": "window", "floor": 1,
+      "at": [0.28, 0.62], "w": 1.3, "h": 1.2, "glass": "#4b5058", "frame": "#f4f1e8", "recessed": true },
+    { "volume": "main", "facade": "front", "type": "window", "floor": 0,
+      "at": [0.3], "w": 1.6, "h": 1.5, "glass": "#4b5058", "frame": "#f4f1e8", "recessed": true },
+    { "volume": "main", "facade": "front", "type": "door", "floor": 0,
+      "at": [0.8], "w": 1.15, "h": 2.2, "glass": "#3f3c34", "recessed": true },
+    { "volume": "main", "facade": "left", "type": "window", "floor": 1,
+      "at": [0.2, 0.5, 0.8], "w": 1.0, "h": 1.1, "glass": "#4b5058", "frame": "#f4f1e8" },
+    { "volume": "main", "facade": "left", "type": "window", "floor": 0,
+      "at": [0.35, 0.7], "w": 1.0, "h": 1.1, "glass": "#4b5058", "frame": "#f4f1e8" },
+    { "volume": "wing", "facade": "front", "type": "window", "floor": 0,
+      "at": [0.5], "w": 2.4, "h": 1.6, "glass": "#4b5058", "frame": "#f4f1e8", "recessed": true },
+    { "volume": "rearright", "facade": "front", "type": "opening", "floor": 1,
+      "at": [0.4], "w": 2.6, "h": 2.2, "glass": "#3f3c34" },
+    { "volume": "main", "facade": "back", "type": "window", "floor": 0,
+      "at": [0.3, 0.7], "w": 1.3, "h": 1.3, "glass": "#4b5058", "frame": "#f4f1e8" },
+    { "volume": "main", "facade": "back", "type": "window", "floor": 1,
+      "at": [0.3, 0.7], "w": 1.3, "h": 1.3, "glass": "#4b5058", "frame": "#f4f1e8" }
+  ],
+  "terraces": [
+    { "onVolume": "wing", "side": "top",
+      "parapet": { "h": 0.9, "color": "#fbf6d9" },
+      "rail": { "type": "bars", "h": 0.35, "color": "#3f3c34" } }
+  ],
+  "props": [
+    { "type": "ac", "volume": "main", "facade": "left", "floor": 1, "at": 0.35 },
+    { "type": "lamp-globe", "volume": "main", "facade": "front", "at": 0.68 }
+  ],
+  "frontage": {
+    "wall": { "type": "brick", "color": "#8f9484", "mortar": "#adb0a2", "h": 1.9 },
+    "gates": [
+      { "kind": "vehicle", "w": 5.5, "at": 0.85, "style": "ornate-arch", "color": "#5a564b" },
+      { "kind": "pedestrian", "w": 1.2, "at": 0.67, "style": "ornate-arch", "color": "#5a564b" }
+    ],
+    "sidewalk": { "material": "stone-slabs", "color": "#a89d8b", "joint": "#8d8474", "w": 3.0 },
+    "verge": { "grass": "#a0b663", "grassDark": "#6c7c57",
+               "flowers": { "palette": ["#e04438", "#f2d24b", "#f6f3ea"], "perM2": 0.15 } },
+    "road": { "surface": "asphalt", "color": "#8f9296" }
+  },
+  "sky": { "top": "#5ea2db", "horizon": "#9fcfe4", "cloud": "#f4f6f6" },
+  "notes": "Modern two-tone villa: cream stucco + tan horizontal-slat bands. Left 2-storey box (main), right-rear 2-storey, right-front 1-storey wing with roof terrace (cream parapet + thin dark rail). Recessed dark entrance with globe lamp. Frontage: grey-brick wall, ornate dark metal gates (wide arch vehicle + pedestrian), stone-slab sidewalk to the kerb, flower meadow visible at both sides. Sampled colours from 12x9 grid 2026-07-03."
+}

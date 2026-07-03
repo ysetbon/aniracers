@@ -628,6 +628,7 @@ if(typeof location!=='undefined' && location.search.includes('dbg')) window.__db
 // samples/tangents/normals arrays keep their identity so every closure that
 // captured them stays valid across a track swap.
 function setTrackData(ctrlPts){
+  SPAWN_I0=null;   // ?spawnat resolves against the new track's samples
   ctrl = ctrlPts.map(p=>new THREE.Vector3(p[0],0,p[1]));
   curve = new THREE.CatmullRomCurve3(ctrl, true, 'catmullrom', .5);
   samples.length=0; tangents.length=0; normals.length=0;
@@ -1721,16 +1722,31 @@ function enhanceWorldVisuals(w){
 let mishGroup = null;
 async function buildMishkenotWorld(){
   if(groundMesh) groundMesh.visible=false;     // the GLB carries its own ground/roads/greens
-  hemi.intensity=0.82; sun.intensity=1.05;
+  // nano-banana neutral noon (exact-geometry-program-plan): the restyled refs have no
+  // green ground bounce and only a soft warm sun — the default rig turned cream walls sage
+  hemi.color.setHex(0xffffff); hemi.groundColor.setHex(0xcfccc0); hemi.intensity=1.08;
+  sun.color.setHex(0xfff3d9); sun.intensity=0.35;
   // wide base plane below the neighbourhood to hide any clip-edge gaps at the border
   const base=new THREE.Mesh(new THREE.PlaneGeometry(2600,2600),
     new THREE.MeshLambertMaterial({color:0x8aa86a}));
   base.rotation.x=-Math.PI/2; base.position.y=-0.6; base.receiveShadow=true; scene.add(base);
   try{
-    const gltf=await new Promise((res,rej)=>new THREE.GLTFLoader().load('/assets/mishkenot/world.glb',res,undefined,rej));
+    // ?gen3d = Meshy test bake (integrate-gen3d.mjs); ?v3 = scene-program bake (rebake-programs.mjs)
+    const mishGlb=location.search.includes('v3')?'/assets/mishkenot/world_v3.glb'
+                 :location.search.includes('gen3d')?'/assets/mishkenot/world_gen3d.glb':'/assets/mishkenot/world.glb';
+    const gltf=await new Promise((res,rej)=>new THREE.GLTFLoader().load(mishGlb,res,undefined,rej));
     const root=gltf.scene;
     root.traverse(o=>{ if(o.isMesh){
-      o.material=new THREE.MeshLambertMaterial({vertexColors:true, side:THREE.DoubleSide});
+      // gen3d buildings (integrate-gen3d.mjs) carry a texture map instead of vertex
+      // colours — keep the map but swap to the game's flat Lambert lighting.
+      // The renderer runs linear output (no outputEncoding), so undo GLTFLoader's
+      // sRGB tag or the texture renders oversaturated next to the vertex colours.
+      const map=o.material&&o.material.map;
+      if(map) map.encoding=THREE.LinearEncoding;
+      o.material=map ? new THREE.MeshLambertMaterial({map, side:THREE.DoubleSide})
+                     : new THREE.MeshLambertMaterial({vertexColors:true, side:THREE.DoubleSide});
+      // Meshy albedo is high-key; damp it so hemi+sun don't blow it out vs the pastels
+      if(map) o.material.color.setScalar(0.78);
       o.castShadow=true; o.receiveShadow=true;
     } else if(o.isLine||o.isLineSegments){ o.visible=false; } });
     scene.add(root); mishGroup=root;
@@ -1954,10 +1970,23 @@ function makeKart(bodyColor, animal){
   return {g,wheels,flame,jets,shield};
 }
 
+// dev: ?spawnat=x,z starts the grid at the track point nearest that world XZ
+// (e.g. ?spawnat=126,-367 = the HaRav Toledano / Unterman T-junction) — saves
+// driving the whole lap to inspect a rebaked corner.
+var SPAWN_I0=null;
+function spawnBaseIdx(){
+  if(SPAWN_I0!==null) return SPAWN_I0;
+  SPAWN_I0=0;
+  const m=location.search.match(/[?&]spawnat=(-?[\d.]+),(-?[\d.]+)/);
+  if(m){let bd=1e9;const x=+m[1],z=+m[2];
+    for(let i=0;i<samples.length;i++){const d=(samples[i].x-x)**2+(samples[i].z-z)**2;
+      if(d<bd){bd=d;SPAWN_I0=i;}}}
+  return SPAWN_I0;
+}
 function gridSpawn(gridIdx){
   const back = (Math.floor(gridIdx/2)+1)*5;
   const side = (gridIdx%2? 1:-1)*3.2;
-  const i0=(N - Math.round(back/ (curve.getLength()/N))) % N;
+  const i0=(spawnBaseIdx() + N - Math.round(back/ (curve.getLength()/N))) % N;
   const p=samples[i0].clone().add(normals[i0].clone().multiplyScalar(side));
   return {p, rot:Math.atan2(tangents[i0].x,tangents[i0].z),
           i0, total0:-Math.round(back/(curve.getLength()/N))};

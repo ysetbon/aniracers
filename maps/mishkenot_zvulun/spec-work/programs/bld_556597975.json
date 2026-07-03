@@ -1,0 +1,46 @@
+{
+  "id": "556597975",
+  "refs": { "scene": "restyled/bld_556597975.png", "iso": "restyled/iso/bld_556597975.png" },
+  "footprint": "obb",
+  "floorH": 3.0,
+  "volumes": [
+    { "name": "main", "x0": 0.0, "x1": 0.66, "z0": 0.0, "z1": 1.0, "floors": 3,
+      "wall": "#cea778",
+      "roof": { "form": "flat", "fascia": { "h": 0.8, "color": "#d8b48a", "overhang": 0.3 } } },
+    { "name": "tower", "x0": 0.66, "x1": 1.0, "z0": 0.0, "z1": 1.0, "floors": 3,
+      "wall": "#d0ac7e",
+      "bands": [
+        { "floor": 0, "y0": 0.0, "y1": 1.0, "x0": 0.0, "x1": 0.07, "color": "#8a8c79", "style": "glassblock" },
+        { "floor": 1, "y0": 0.0, "y1": 1.0, "x0": 0.0, "x1": 0.07, "color": "#8a8c79", "style": "glassblock" },
+        { "floor": 2, "y0": 0.0, "y1": 1.0, "x0": 0.0, "x1": 0.07, "color": "#8a8c79", "style": "glassblock" }
+      ],
+      "roof": { "form": "flat", "fascia": { "h": 1.0, "color": "#d8b48a", "overhang": 0.25 } } }
+  ],
+  "openings": [
+    { "volume": "main", "facade": "front", "type": "window", "floor": 2,
+      "at": [0.28, 0.63], "w": 1.3, "h": 1.3, "glass": "#5f5751", "frame": "#d7b183", "recessed": true },
+    { "volume": "main", "facade": "front", "type": "door", "floor": 1,
+      "at": [0.28], "w": 1.4, "h": 2.2, "glass": "#5f5751", "frame": "#be7d49", "recessed": true },
+    { "volume": "main", "facade": "front", "type": "window", "floor": 1,
+      "at": [0.63], "w": 1.3, "h": 1.3, "glass": "#5f5751", "frame": "#d7b183", "recessed": true },
+    { "volume": "main", "facade": "front", "type": "door", "floor": 0,
+      "at": [0.28], "w": 1.6, "h": 2.4, "glass": "#5f5751", "frame": "#be7d49", "recessed": true },
+    { "volume": "tower", "facade": "front", "type": "window", "floor": 2,
+      "at": [0.5], "w": 1.4, "h": 1.4, "glass": "#5f5751", "frame": "#d7b183", "recessed": true },
+    { "volume": "tower", "facade": "front", "type": "window", "floor": 1,
+      "at": [0.5], "w": 1.4, "h": 1.4, "glass": "#5f5751", "frame": "#d7b183", "recessed": true },
+    { "volume": "tower", "facade": "front", "type": "window", "floor": 0,
+      "at": [0.5], "w": 1.4, "h": 1.4, "glass": "#5f5751", "frame": "#d7b183", "recessed": true }
+  ],
+  "terraces": [
+    { "onVolume": "main", "side": "front",
+      "rail": { "type": "bars", "h": 1.0, "color": "#d9c0a9" } }
+  ],
+  "props": [],
+  "frontage": {
+    "sidewalk": { "material": "stone-slabs", "color": "#d7bca6", "joint": "#d1b6a1", "w": 5.0 },
+    "verge": { "grass": "#84bf4a", "grassDark": "#616d4d" }
+  },
+  "sky": { "top": "#5ea2db", "horizon": "#9fcfe4", "cloud": "#f4f6f6" },
+  "notes": "Synagogue / public building, all warm sandstone ashlar (block coursing not expressible). Two flat-roofed blocks: wider left block (3 floors, stepped sand-coloured cornice) and a right stair tower whose parapet steps HIGHER than the main block (schema has no per-volume extra parapet height -- expressed via taller fascia). A full-height vertical GLASS-BLOCK strip (#8a8c79) joins the two blocks, modelled here as per-floor narrow bands with style 'glassblock' (factory extension needed; bands are horizontal by design). ALL windows have grey security bars/grilles -- no bars field in openings, factory extension needed. Floor 1 of the main block has a curved balcony at x~0.28 with cream metal railing and a chunky wood-trimmed (#be7d49) door surround; the terraces entry cannot encode floor/position/curvature. Ground floor: raised entry porch/terrace with cream bar railings, a straight stair flight (right) and a long accessibility RAMP with handrails (left) -- none expressible, factory needs porch/stair/ramp prims. Below plaza level the tower has two semi-basement garage doors (split-level not expressible). Colourful recycling bins (magenta/yellow/cyan/orange panels) stand at the tower base -- prop factory pending. Frontage is an OPEN pinkish stone-slab plaza straight to the street (no fence despite spec's metal fence -- the restyle shows none), lawn and low-poly trees visible at the left horizon, no road in frame (road block omitted). Sampled colours from 12x9 grids 2026-07-03."
+}
