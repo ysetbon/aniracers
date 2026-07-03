@@ -58,6 +58,22 @@
     "verge": { "grass": "#678b5b", "grassDark": "#484f2b",
                "flowers": { "palette": ["#935b8c", "#b383a5", "#e4d9d2"], "perM2": 0.4 } }
   },
+  "environment": {
+    "props": [
+      {"model": "tree_oak", "h": 7.5, "t": 0.45, "inset": -1.5, "rxz": 1.4, "tint": {"leafs": "#3c7a33", "wood": "#6e5138", "*": "#6e5138"}},
+      {"model": "tree_pineTallB", "h": 8.5, "t": 0.3, "inset": 1.6, "rxz": 0.85, "tint": {"leafs": "#2f5d2a", "wood": "#6e5138", "*": "#6e5138"}},
+      {"model": "tree_palmTall", "h": 8.5, "t": 0.18, "inset": 4.5, "tint": {"leafs": "#3f9b42", "wood": "#a08a67", "*": "#a08a67"}},
+      {"model": "tree_palmDetailedTall", "h": 9.5, "t": 0.62, "inset": 5.5, "tint": {"leafs": "#3f9b42", "wood": "#a08a67", "*": "#a08a67"}},
+      {"model": "plant_bushLarge", "h": 3.0, "t": 0.86, "inset": 1.2, "rxz": 1.2, "tint": {"leafs": "#4e8a28", "*": "#3c7031"}},
+      {"model": "plant_bushLarge", "h": 2.6, "t": 0.97, "inset": 0.9, "rxz": 1.1, "tint": {"leafs": "#57952c", "*": "#3c7031"}},
+      {"model": "tree_oak", "h": 6.0, "t": 1.08, "inset": 1.5, "rxz": 1.3, "tint": {"leafs": "#3c7a33", "wood": "#6e5138", "*": "#6e5138"}},
+      {"model": "plant_bushDetailed", "h": 2.4, "t": 1.16, "inset": 0.8, "tint": {"leafs": "#4e8a28", "*": "#3c7031"}},
+      {"model": "pot_large", "h": 0.7, "t": 0.68, "inset": 0.5, "tint": {"wood": "#b8683f", "*": "#a05a36"}},
+      {"car": true, "t": 0.12, "inset": -4.9, "rot": "along", "color": "#eceae4"},
+      {"car": true, "t": 0.5, "inset": -4.9, "rot": "along", "color": "#b9bcc0"},
+      {"car": true, "t": 0.88, "inset": -4.9, "rot": "along", "flip": true, "color": "#3d5a82"}
+    ]
+  },
   "sky": { "top": "#5ea2db", "horizon": "#9fcfe4", "cloud": "#f4f6f6" },
   "notes": "Symmetric modern duplex: white stucco centre block slightly set back between two tan (#d5b180) forward towers, all flat-roofed with white fascias and white parapet boxes on the roof (roof terraces on both towers; a further parapet runs along the centre-back roof, not encoded). Each tower: dark near-black recessed entry door at ground, and at floor 1 a big white angled balcony box (encoded as side:'front' terraces -- schema cannot say they sit at floor 1) with a white-louvred SHUTTER window behind (no shutters field; the tower and centre-right windows all wear white slat shutters #cdcac3). Centre facade: plain window + shuttered window on floor 1, window + full-height louvred shutter DOOR on floor 0 (encoded as a door with shutter-coloured glass). Round white wall discs on both tower fronts encoded as lamp-globe. SPEC MISMATCH: building-specs says gabled orange roof; the restyled ref clearly shows flat white roofs -- the ref was followed. FRONTAGE: white PICKET fence on a low rendered base wall (wall omitted -- factory needs picket type), white square gate pillars, a brown horizontal-slat pedestrian gate (~0.75 along frontage) and two grey utility cabinets beside it. Tan stone-slab sidewalk with a low raised FLOWERBED planter (purple/mauve/white flowers, dark soil) at the kerb line and a low-poly tree in a square planter -- planter/tree prop factory pending. No road visible in frame (road block omitted). Sampled colours from 12x9 + 24x18 grids 2026-07-03."
 }
