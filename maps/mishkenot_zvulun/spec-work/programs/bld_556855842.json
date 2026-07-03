@@ -5,13 +5,13 @@
     "iso": "restyled/iso/bld_556855842.png"
   },
   "footprint": "obb",
-  "floorH": 3.0,
+  "floorH": 3,
   "volumes": [
     {
       "name": "main",
-      "x0": 0.0,
-      "x1": 1.0,
-      "z0": 0.0,
+      "x0": 0,
+      "x1": 1,
+      "z0": 0,
       "z1": 0.62,
       "floors": 2,
       "wall": "#d7b590",
@@ -23,10 +23,10 @@
     },
     {
       "name": "rear",
-      "x0": 0.0,
+      "x0": 0,
       "x1": 0.68,
       "z0": 0.62,
-      "z1": 1.0,
+      "z1": 1,
       "floors": 2,
       "wall": "#d7b590",
       "roof": {
@@ -38,9 +38,9 @@
     {
       "name": "rearwing",
       "x0": 0.68,
-      "x1": 1.0,
+      "x1": 1,
       "z0": 0.62,
-      "z1": 1.0,
+      "z1": 1,
       "floors": 1,
       "wall": "#d7b590",
       "roof": {
@@ -295,7 +295,8 @@
           "leafs": "#3f9b42",
           "wood": "#a08a67",
           "*": "#a08a67"
-        }
+        },
+        "rxz": 0.85
       },
       {
         "model": "tree_palmTall",
@@ -317,7 +318,8 @@
           "leafs": "#3f9b42",
           "wood": "#a08a67",
           "*": "#a08a67"
-        }
+        },
+        "rxz": 0.85
       },
       {
         "model": "plant_bushDetailed",
@@ -343,7 +345,7 @@
       },
       {
         "model": "tree_pineTallA",
-        "h": 7.0,
+        "h": 7,
         "t": 0.96,
         "inset": 2.4,
         "rxz": 0.55,
@@ -362,7 +364,8 @@
           "leafs": "#3f9b42",
           "wood": "#a08a67",
           "*": "#a08a67"
-        }
+        },
+        "rxz": 0.85
       },
       {
         "model": "pot_large",
@@ -387,14 +390,14 @@
       {
         "car": true,
         "t": 0.87,
-        "inset": -5.1,
+        "inset": -4.7,
         "rot": "along",
         "color": "#b9bcc0"
       },
       {
         "car": true,
         "t": 1.04,
-        "inset": -5.1,
+        "inset": -4.7,
         "rot": "along",
         "flip": true,
         "color": "#9aa0a6"

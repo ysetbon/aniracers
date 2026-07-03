@@ -45,7 +45,9 @@
         { "model": "rock_smallA", "h": 0.5, "dx": -0.7, "dz": 2.0, "tint": { "*": "#b9b4a8" } },
         { "model": "rock_smallB", "h": 0.4, "dx": 0.7, "dz": -1.9, "tint": { "*": "#c4bfb2" } },
         { "model": "plant_bushSmall", "h": 0.85, "dx": 0.1, "dz": 0.2, "tint": { "leafs": "#3c7031", "*": "#3c7031" } },
+        { "model": "plant_bushSmall", "h": 0.7, "dx": -0.6, "dz": 1.2, "tint": { "leafs": "#4e8a28", "*": "#4e8a28" } },
         { "model": "grass_leafsLarge", "h": 1.0, "dx": -0.5, "dz": -1.0, "tint": { "*": "#5c9440" } },
+        { "model": "grass_leafsLarge", "h": 0.9, "dx": 0.6, "dz": -0.9, "tint": { "*": "#6aa84f" } },
         { "model": "grass_leafs", "h": 0.7, "dx": 0.5, "dz": 1.1, "tint": { "*": "#4c8a3c" } }
       ]
     },
@@ -65,7 +67,7 @@
     { "type": "tsign", "x": 127.4, "z": -337.4, "rotDeg": 186 }
   ],
   "lamps": [
-    { "style": "curved", "x": 125.2, "z": -343.6, "rotDeg": 276 },
+    { "style": "curved", "x": 125.2, "z": -343.6, "rotDeg": 180 },
     { "style": "globe", "x": 126.4, "z": -358.6 },
     { "style": "globe", "x": 117.6, "z": -352.6 },
     { "style": "globe", "x": 130.4, "z": -382.3 },

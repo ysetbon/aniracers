@@ -1,79 +1,412 @@
 {
   "id": "556597976",
-  "refs": { "scene": "restyled/bld_556597976.png", "iso": "restyled/iso/bld_556597976.png" },
+  "refs": {
+    "scene": "restyled/bld_556597976.png",
+    "iso": "restyled/iso/bld_556597976.png"
+  },
   "footprint": "obb",
-  "floorH": 3.0,
+  "floorH": 3,
   "volumes": [
-    { "name": "tower-left", "x0": 0.0, "x1": 0.26, "z0": 0.0, "z1": 1.0, "floors": 2,
+    {
+      "name": "tower-left",
+      "x0": 0,
+      "x1": 0.26,
+      "z0": 0,
+      "z1": 1,
+      "floors": 2,
       "wall": "#d5b180",
-      "roof": { "form": "flat", "fascia": { "h": 0.6, "color": "#fbfbf1", "overhang": 0.35 } } },
-    { "name": "center", "x0": 0.26, "x1": 0.74, "z0": 0.08, "z1": 1.0, "floors": 2,
+      "roof": {
+        "form": "flat",
+        "fascia": {
+          "h": 0.6,
+          "color": "#fbfbf1",
+          "overhang": 0.35
+        }
+      }
+    },
+    {
+      "name": "center",
+      "x0": 0.26,
+      "x1": 0.74,
+      "z0": 0.08,
+      "z1": 1,
+      "floors": 2,
       "wall": "#fbfbf1",
-      "roof": { "form": "flat", "fascia": { "h": 0.6, "color": "#fbfbf1", "overhang": 0.2 } } },
-    { "name": "tower-right", "x0": 0.74, "x1": 1.0, "z0": 0.0, "z1": 1.0, "floors": 2,
+      "roof": {
+        "form": "flat",
+        "fascia": {
+          "h": 0.6,
+          "color": "#fbfbf1",
+          "overhang": 0.2
+        }
+      }
+    },
+    {
+      "name": "tower-right",
+      "x0": 0.74,
+      "x1": 1,
+      "z0": 0,
+      "z1": 1,
+      "floors": 2,
       "wall": "#d5b180",
-      "roof": { "form": "flat", "fascia": { "h": 0.6, "color": "#fbfbf1", "overhang": 0.35 } } }
+      "roof": {
+        "form": "flat",
+        "fascia": {
+          "h": 0.6,
+          "color": "#fbfbf1",
+          "overhang": 0.35
+        }
+      }
+    }
   ],
   "openings": [
-    { "volume": "tower-left", "facade": "front", "type": "door", "floor": 0,
-      "at": [0.5], "w": 1.1, "h": 2.2, "glass": "#141419", "recessed": true },
-    { "volume": "tower-left", "facade": "front", "type": "window", "floor": 1,
-      "at": [0.5], "w": 1.4, "h": 1.3, "glass": "#525d6f", "frame": "#cdcac3", "recessed": true },
-    { "volume": "tower-right", "facade": "front", "type": "door", "floor": 0,
-      "at": [0.5], "w": 1.1, "h": 2.2, "glass": "#141419", "recessed": true },
-    { "volume": "tower-right", "facade": "front", "type": "window", "floor": 1,
-      "at": [0.5], "w": 1.4, "h": 1.3, "glass": "#525d6f", "frame": "#cdcac3", "recessed": true },
-    { "volume": "center", "facade": "front", "type": "window", "floor": 1,
-      "at": [0.3], "w": 1.4, "h": 1.3, "glass": "#525d6f", "frame": "#fbfbf1", "recessed": true },
-    { "volume": "center", "facade": "front", "type": "window", "floor": 1,
-      "at": [0.62], "w": 1.2, "h": 1.3, "glass": "#cdcac3", "frame": "#fbfbf1", "recessed": true },
-    { "volume": "center", "facade": "front", "type": "window", "floor": 0,
-      "at": [0.3], "w": 1.4, "h": 1.3, "glass": "#525d6f", "frame": "#fbfbf1", "recessed": true },
-    { "volume": "center", "facade": "front", "type": "door", "floor": 0,
-      "at": [0.62], "w": 1.4, "h": 2.2, "glass": "#cdcac3", "frame": "#fbfbf1", "recessed": true },
-    { "volume": "tower-right", "facade": "right", "type": "window", "floor": 1,
-      "at": [0.3, 0.75], "w": 1.2, "h": 1.3, "glass": "#525d6f", "frame": "#fbfbf1" },
-    { "volume": "tower-right", "facade": "right", "type": "window", "floor": 0,
-      "at": [0.6], "w": 1.2, "h": 1.3, "glass": "#525d6f", "frame": "#fbfbf1" }
+    {
+      "volume": "tower-left",
+      "facade": "front",
+      "type": "door",
+      "floor": 0,
+      "at": [
+        0.5
+      ],
+      "w": 1.1,
+      "h": 2.2,
+      "glass": "#141419",
+      "recessed": true
+    },
+    {
+      "volume": "tower-left",
+      "facade": "front",
+      "type": "window",
+      "floor": 1,
+      "at": [
+        0.5
+      ],
+      "w": 1.4,
+      "h": 1.3,
+      "glass": "#525d6f",
+      "frame": "#cdcac3",
+      "recessed": true
+    },
+    {
+      "volume": "tower-right",
+      "facade": "front",
+      "type": "door",
+      "floor": 0,
+      "at": [
+        0.5
+      ],
+      "w": 1.1,
+      "h": 2.2,
+      "glass": "#141419",
+      "recessed": true
+    },
+    {
+      "volume": "tower-right",
+      "facade": "front",
+      "type": "window",
+      "floor": 1,
+      "at": [
+        0.5
+      ],
+      "w": 1.4,
+      "h": 1.3,
+      "glass": "#525d6f",
+      "frame": "#cdcac3",
+      "recessed": true
+    },
+    {
+      "volume": "center",
+      "facade": "front",
+      "type": "window",
+      "floor": 1,
+      "at": [
+        0.3
+      ],
+      "w": 1.4,
+      "h": 1.3,
+      "glass": "#525d6f",
+      "frame": "#fbfbf1",
+      "recessed": true
+    },
+    {
+      "volume": "center",
+      "facade": "front",
+      "type": "window",
+      "floor": 1,
+      "at": [
+        0.62
+      ],
+      "w": 1.2,
+      "h": 1.3,
+      "glass": "#cdcac3",
+      "frame": "#fbfbf1",
+      "recessed": true
+    },
+    {
+      "volume": "center",
+      "facade": "front",
+      "type": "window",
+      "floor": 0,
+      "at": [
+        0.3
+      ],
+      "w": 1.4,
+      "h": 1.3,
+      "glass": "#525d6f",
+      "frame": "#fbfbf1",
+      "recessed": true
+    },
+    {
+      "volume": "center",
+      "facade": "front",
+      "type": "door",
+      "floor": 0,
+      "at": [
+        0.62
+      ],
+      "w": 1.4,
+      "h": 2.2,
+      "glass": "#cdcac3",
+      "frame": "#fbfbf1",
+      "recessed": true
+    },
+    {
+      "volume": "tower-right",
+      "facade": "right",
+      "type": "window",
+      "floor": 1,
+      "at": [
+        0.3,
+        0.75
+      ],
+      "w": 1.2,
+      "h": 1.3,
+      "glass": "#525d6f",
+      "frame": "#fbfbf1"
+    },
+    {
+      "volume": "tower-right",
+      "facade": "right",
+      "type": "window",
+      "floor": 0,
+      "at": [
+        0.6
+      ],
+      "w": 1.2,
+      "h": 1.3,
+      "glass": "#525d6f",
+      "frame": "#fbfbf1"
+    }
   ],
   "terraces": [
-    { "onVolume": "tower-left", "side": "front",
-      "parapet": { "h": 1.2, "color": "#fbfbf1" } },
-    { "onVolume": "tower-right", "side": "front",
-      "parapet": { "h": 1.2, "color": "#fbfbf1" } },
-    { "onVolume": "tower-left", "side": "top",
-      "parapet": { "h": 1.0, "color": "#fbfbf1" } },
-    { "onVolume": "tower-right", "side": "top",
-      "parapet": { "h": 1.0, "color": "#fbfbf1" } }
+    {
+      "onVolume": "tower-left",
+      "side": "front",
+      "parapet": {
+        "h": 1.2,
+        "color": "#fbfbf1"
+      }
+    },
+    {
+      "onVolume": "tower-right",
+      "side": "front",
+      "parapet": {
+        "h": 1.2,
+        "color": "#fbfbf1"
+      }
+    },
+    {
+      "onVolume": "tower-left",
+      "side": "top",
+      "parapet": {
+        "h": 1,
+        "color": "#fbfbf1"
+      }
+    },
+    {
+      "onVolume": "tower-right",
+      "side": "top",
+      "parapet": {
+        "h": 1,
+        "color": "#fbfbf1"
+      }
+    }
   ],
   "props": [
-    { "type": "lamp-globe", "volume": "tower-left", "facade": "front", "at": 0.5 },
-    { "type": "lamp-globe", "volume": "tower-right", "facade": "front", "at": 0.5 }
+    {
+      "type": "lamp-globe",
+      "volume": "tower-left",
+      "facade": "front",
+      "at": 0.5
+    },
+    {
+      "type": "lamp-globe",
+      "volume": "tower-right",
+      "facade": "front",
+      "at": 0.5
+    }
   ],
   "frontage": {
     "gates": [
-      { "kind": "pedestrian", "w": 1.2, "at": 0.75, "style": "slats", "color": "#ba8f7d" }
+      {
+        "kind": "pedestrian",
+        "w": 1.2,
+        "at": 0.75,
+        "style": "slats",
+        "color": "#ba8f7d"
+      }
     ],
-    "sidewalk": { "material": "stone-slabs", "color": "#b9ab9a", "joint": "#b3a491", "w": 3.5 },
-    "verge": { "grass": "#678b5b", "grassDark": "#484f2b",
-               "flowers": { "palette": ["#935b8c", "#b383a5", "#e4d9d2"], "perM2": 0.4 } }
+    "sidewalk": {
+      "material": "stone-slabs",
+      "color": "#b9ab9a",
+      "joint": "#b3a491",
+      "w": 3.5
+    },
+    "verge": {
+      "grass": "#678b5b",
+      "grassDark": "#484f2b",
+      "flowers": {
+        "palette": [
+          "#935b8c",
+          "#b383a5",
+          "#e4d9d2"
+        ],
+        "perM2": 0.4
+      }
+    }
   },
   "environment": {
     "props": [
-      {"model": "tree_oak", "h": 7.5, "t": 0.45, "inset": -1.5, "rxz": 1.4, "tint": {"leafs": "#3c7a33", "wood": "#6e5138", "*": "#6e5138"}},
-      {"model": "tree_pineTallB", "h": 8.5, "t": 0.3, "inset": 1.6, "rxz": 0.85, "tint": {"leafs": "#2f5d2a", "wood": "#6e5138", "*": "#6e5138"}},
-      {"model": "tree_palmTall", "h": 8.5, "t": 0.18, "inset": 4.5, "tint": {"leafs": "#3f9b42", "wood": "#a08a67", "*": "#a08a67"}},
-      {"model": "tree_palmDetailedTall", "h": 9.5, "t": 0.62, "inset": 5.5, "tint": {"leafs": "#3f9b42", "wood": "#a08a67", "*": "#a08a67"}},
-      {"model": "plant_bushLarge", "h": 3.0, "t": 0.86, "inset": 1.2, "rxz": 1.2, "tint": {"leafs": "#4e8a28", "*": "#3c7031"}},
-      {"model": "plant_bushLarge", "h": 2.6, "t": 0.97, "inset": 0.9, "rxz": 1.1, "tint": {"leafs": "#57952c", "*": "#3c7031"}},
-      {"model": "tree_oak", "h": 6.0, "t": 1.08, "inset": 1.5, "rxz": 1.3, "tint": {"leafs": "#3c7a33", "wood": "#6e5138", "*": "#6e5138"}},
-      {"model": "plant_bushDetailed", "h": 2.4, "t": 1.16, "inset": 0.8, "tint": {"leafs": "#4e8a28", "*": "#3c7031"}},
-      {"model": "pot_large", "h": 0.7, "t": 0.68, "inset": 0.5, "tint": {"wood": "#b8683f", "*": "#a05a36"}},
-      {"car": true, "t": 0.12, "inset": -4.9, "rot": "along", "color": "#eceae4"},
-      {"car": true, "t": 0.5, "inset": -4.9, "rot": "along", "color": "#b9bcc0"},
-      {"car": true, "t": 0.88, "inset": -4.9, "rot": "along", "flip": true, "color": "#3d5a82"}
+      {
+        "model": "tree_oak",
+        "h": 7.5,
+        "t": 0.45,
+        "inset": -1.5,
+        "rxz": 1.4,
+        "tint": {
+          "leafs": "#3c7a33",
+          "wood": "#6e5138",
+          "*": "#6e5138"
+        }
+      },
+      {
+        "model": "tree_pineTallB",
+        "h": 8.5,
+        "t": 0.3,
+        "inset": 1.6,
+        "rxz": 0.85,
+        "tint": {
+          "leafs": "#2f5d2a",
+          "wood": "#6e5138",
+          "*": "#6e5138"
+        }
+      },
+      {
+        "model": "tree_palmTall",
+        "h": 8.5,
+        "t": 0.18,
+        "inset": 4.5,
+        "tint": {
+          "leafs": "#3f9b42",
+          "wood": "#a08a67",
+          "*": "#a08a67"
+        },
+        "rxz": 0.75
+      },
+      {
+        "model": "tree_palmDetailedTall",
+        "h": 9.5,
+        "t": 0.62,
+        "inset": 5.5,
+        "tint": {
+          "leafs": "#3f9b42",
+          "wood": "#a08a67",
+          "*": "#a08a67"
+        },
+        "rxz": 0.85
+      },
+      {
+        "model": "plant_bushLarge",
+        "h": 3,
+        "t": 0.86,
+        "inset": 1.2,
+        "rxz": 1.2,
+        "tint": {
+          "leafs": "#4e8a28",
+          "*": "#3c7031"
+        }
+      },
+      {
+        "model": "plant_bushLarge",
+        "h": 2.6,
+        "t": 0.97,
+        "inset": 0.9,
+        "rxz": 1.1,
+        "tint": {
+          "leafs": "#57952c",
+          "*": "#3c7031"
+        }
+      },
+      {
+        "model": "tree_oak",
+        "h": 6,
+        "t": 1.08,
+        "inset": 1.5,
+        "rxz": 1.3,
+        "tint": {
+          "leafs": "#3c7a33",
+          "wood": "#6e5138",
+          "*": "#6e5138"
+        }
+      },
+      {
+        "model": "plant_bushDetailed",
+        "h": 2.4,
+        "t": 1.16,
+        "inset": 0.8,
+        "tint": {
+          "leafs": "#4e8a28",
+          "*": "#3c7031"
+        }
+      },
+      {
+        "model": "pot_large",
+        "h": 0.7,
+        "t": 0.68,
+        "inset": 0.5,
+        "tint": {
+          "wood": "#b8683f",
+          "*": "#a05a36"
+        }
+      },
+      {
+        "car": true,
+        "t": 0.12,
+        "inset": -4.9,
+        "rot": "along",
+        "color": "#eceae4"
+      },
+      {
+        "car": true,
+        "t": 0.5,
+        "inset": -4.9,
+        "rot": "along",
+        "color": "#b9bcc0"
+      },
+      {
+        "car": true,
+        "t": 0.88,
+        "inset": -4.9,
+        "rot": "along",
+        "flip": true,
+        "color": "#3d5a82"
+      }
     ]
   },
-  "sky": { "top": "#5ea2db", "horizon": "#9fcfe4", "cloud": "#f4f6f6" },
+  "sky": {
+    "top": "#5ea2db",
+    "horizon": "#9fcfe4",
+    "cloud": "#f4f6f6"
+  },
   "notes": "Symmetric modern duplex: white stucco centre block slightly set back between two tan (#d5b180) forward towers, all flat-roofed with white fascias and white parapet boxes on the roof (roof terraces on both towers; a further parapet runs along the centre-back roof, not encoded). Each tower: dark near-black recessed entry door at ground, and at floor 1 a big white angled balcony box (encoded as side:'front' terraces -- schema cannot say they sit at floor 1) with a white-louvred SHUTTER window behind (no shutters field; the tower and centre-right windows all wear white slat shutters #cdcac3). Centre facade: plain window + shuttered window on floor 1, window + full-height louvred shutter DOOR on floor 0 (encoded as a door with shutter-coloured glass). Round white wall discs on both tower fronts encoded as lamp-globe. SPEC MISMATCH: building-specs says gabled orange roof; the restyled ref clearly shows flat white roofs -- the ref was followed. FRONTAGE: white PICKET fence on a low rendered base wall (wall omitted -- factory needs picket type), white square gate pillars, a brown horizontal-slat pedestrian gate (~0.75 along frontage) and two grey utility cabinets beside it. Tan stone-slab sidewalk with a low raised FLOWERBED planter (purple/mauve/white flowers, dark soil) at the kerb line and a low-poly tree in a square planter -- planter/tree prop factory pending. No road visible in frame (road block omitted). Sampled colours from 12x9 + 24x18 grids 2026-07-03."
 }

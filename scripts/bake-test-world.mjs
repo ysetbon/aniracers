@@ -228,7 +228,8 @@ async function main(){
   for(var i2=0;i2<specs.length;i2++){var sp=specs[i2];
     if(sp.car||sp.lamp||sp.bin||sp.planter){
       var pk=F(sp.t,sp.inset!=null?sp.inset:1);
-      var rotk=(sp.rot==='along')?Math.atan2(rf.ux,rf.uz)+(sp.flip?Math.PI:0):(sp.rot||0)*Math.PI/180;
+      // rotation.y=θ maps local (1,0,0) to (cosθ,0,-sinθ) → θ=atan2(-uz,ux) for 'along'
+      var rotk=(sp.rot==='along')?Math.atan2(-rf.uz,rf.ux)+(sp.flip?Math.PI:0):(sp.rot||0)*Math.PI/180;
       var made=sp.car?mkCar(sp,pk[0],pk[1],rotk):sp.lamp?mkLamp(pk[0],pk[1],rotk)
               :sp.bin?mkDumpster(pk[0],pk[1],rotk):mkPlanter(sp,pk[0],pk[1],rotk);
       collectAll(made);placed++;continue;}

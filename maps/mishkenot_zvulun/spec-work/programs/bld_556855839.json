@@ -1,66 +1,338 @@
 {
   "id": "556855839",
-  "refs": { "scene": "restyled/bld_556855839.png", "iso": "restyled/iso/bld_556855839.png" },
+  "refs": {
+    "scene": "restyled/bld_556855839.png",
+    "iso": "restyled/iso/bld_556855839.png"
+  },
   "footprint": "obb",
-  "floorH": 3.0,
+  "floorH": 3,
   "volumes": [
-    { "name": "main", "x0": 0.0, "x1": 0.72, "z0": 0.0, "z1": 1.0, "floors": 3,
+    {
+      "name": "main",
+      "x0": 0,
+      "x1": 0.72,
+      "z0": 0,
+      "z1": 1,
+      "floors": 3,
       "wall": "#f8f1de",
-      "roof": { "form": "flat", "fascia": { "h": 0.7, "color": "#ede6d3", "overhang": 0.35 } } },
-    { "name": "corner", "x0": 0.72, "x1": 1.0, "z0": 0.0, "z1": 1.0, "floors": 3,
+      "roof": {
+        "form": "flat",
+        "fascia": {
+          "h": 0.7,
+          "color": "#ede6d3",
+          "overhang": 0.35
+        }
+      }
+    },
+    {
+      "name": "corner",
+      "x0": 0.72,
+      "x1": 1,
+      "z0": 0,
+      "z1": 1,
+      "floors": 3,
       "wall": "#f8f1de",
       "bands": [
-        { "floor": 0, "y0": 0.0, "y1": 1.0, "color": "#c2b397", "style": "blocks" },
-        { "floor": 2, "y0": 0.0, "y1": 1.0, "color": "#c2b397", "style": "blocks" }
+        {
+          "floor": 0,
+          "y0": 0,
+          "y1": 1,
+          "color": "#c2b397",
+          "style": "blocks"
+        },
+        {
+          "floor": 2,
+          "y0": 0,
+          "y1": 1,
+          "color": "#c2b397",
+          "style": "blocks"
+        }
       ],
-      "roof": { "form": "flat", "fascia": { "h": 0.7, "color": "#ede6d3", "overhang": 0.35 } } }
+      "roof": {
+        "form": "flat",
+        "fascia": {
+          "h": 0.7,
+          "color": "#ede6d3",
+          "overhang": 0.35
+        }
+      }
+    }
   ],
   "openings": [
-    { "volume": "main", "facade": "front", "type": "window", "floor": 0,
-      "at": [0.08], "w": 1.2, "h": 1.4, "glass": "#8aa0ab", "frame": "#f8f1de", "recessed": true },
-    { "volume": "main", "facade": "front", "type": "window", "floor": 1,
-      "at": [0.08], "w": 1.2, "h": 1.4, "glass": "#8aa0ab", "frame": "#f8f1de", "recessed": true },
-    { "volume": "main", "facade": "front", "type": "window", "floor": 2,
-      "at": [0.08], "w": 1.2, "h": 1.4, "glass": "#8aa0ab", "frame": "#f8f1de", "recessed": true },
-    { "volume": "main", "facade": "front", "type": "window", "floor": 1,
-      "at": [0.45, 0.75], "w": 1.5, "h": 1.4, "glass": "#8aa0ab", "frame": "#f8f1de", "recessed": true },
-    { "volume": "main", "facade": "front", "type": "window", "floor": 2,
-      "at": [0.45, 0.75], "w": 1.5, "h": 1.4, "glass": "#8aa0ab", "frame": "#f8f1de", "recessed": true },
-    { "volume": "main", "facade": "front", "type": "window", "floor": 0,
-      "at": [0.45, 0.75], "w": 1.5, "h": 1.4, "glass": "#8aa0ab", "frame": "#f8f1de", "recessed": true },
-    { "volume": "main", "facade": "front", "type": "door", "floor": 0,
-      "at": [0.9], "w": 1.3, "h": 2.4, "glass": "#1b161d", "frame": "#f8f1de", "recessed": true },
-    { "volume": "corner", "facade": "right", "type": "window", "floor": 0,
-      "at": [0.3, 0.7], "w": 1.2, "h": 1.2, "glass": "#8aa0ab", "frame": "#f8f1de" },
-    { "volume": "corner", "facade": "right", "type": "window", "floor": 1,
-      "at": [0.3, 0.7], "w": 1.2, "h": 1.2, "glass": "#8aa0ab", "frame": "#f8f1de" },
-    { "volume": "corner", "facade": "right", "type": "window", "floor": 2,
-      "at": [0.3, 0.7], "w": 1.2, "h": 1.2, "glass": "#8aa0ab", "frame": "#f8f1de" },
-    { "volume": "main", "facade": "left", "type": "window", "floor": 0,
-      "at": [0.3, 0.7], "w": 1.2, "h": 1.3, "glass": "#8aa0ab", "frame": "#f8f1de" },
-    { "volume": "main", "facade": "left", "type": "window", "floor": 1,
-      "at": [0.3, 0.7], "w": 1.2, "h": 1.3, "glass": "#8aa0ab", "frame": "#f8f1de" },
-    { "volume": "main", "facade": "left", "type": "window", "floor": 2,
-      "at": [0.3, 0.7], "w": 1.2, "h": 1.3, "glass": "#8aa0ab", "frame": "#f8f1de" },
-    { "volume": "main", "facade": "back", "type": "window", "floor": 0,
-      "at": [0.3, 0.7], "w": 1.3, "h": 1.3, "glass": "#8aa0ab", "frame": "#f8f1de" },
-    { "volume": "main", "facade": "back", "type": "window", "floor": 1,
-      "at": [0.3, 0.7], "w": 1.3, "h": 1.3, "glass": "#8aa0ab", "frame": "#f8f1de" },
-    { "volume": "main", "facade": "back", "type": "window", "floor": 2,
-      "at": [0.3, 0.7], "w": 1.3, "h": 1.3, "glass": "#8aa0ab", "frame": "#f8f1de" }
+    {
+      "volume": "main",
+      "facade": "front",
+      "type": "window",
+      "floor": 0,
+      "at": [
+        0.08
+      ],
+      "w": 1.2,
+      "h": 1.4,
+      "glass": "#8aa0ab",
+      "frame": "#f8f1de",
+      "recessed": true
+    },
+    {
+      "volume": "main",
+      "facade": "front",
+      "type": "window",
+      "floor": 1,
+      "at": [
+        0.08
+      ],
+      "w": 1.2,
+      "h": 1.4,
+      "glass": "#8aa0ab",
+      "frame": "#f8f1de",
+      "recessed": true
+    },
+    {
+      "volume": "main",
+      "facade": "front",
+      "type": "window",
+      "floor": 2,
+      "at": [
+        0.08
+      ],
+      "w": 1.2,
+      "h": 1.4,
+      "glass": "#8aa0ab",
+      "frame": "#f8f1de",
+      "recessed": true
+    },
+    {
+      "volume": "main",
+      "facade": "front",
+      "type": "window",
+      "floor": 1,
+      "at": [
+        0.45,
+        0.75
+      ],
+      "w": 1.5,
+      "h": 1.4,
+      "glass": "#8aa0ab",
+      "frame": "#f8f1de",
+      "recessed": true
+    },
+    {
+      "volume": "main",
+      "facade": "front",
+      "type": "window",
+      "floor": 2,
+      "at": [
+        0.45,
+        0.75
+      ],
+      "w": 1.5,
+      "h": 1.4,
+      "glass": "#8aa0ab",
+      "frame": "#f8f1de",
+      "recessed": true
+    },
+    {
+      "volume": "main",
+      "facade": "front",
+      "type": "window",
+      "floor": 0,
+      "at": [
+        0.45,
+        0.75
+      ],
+      "w": 1.5,
+      "h": 1.4,
+      "glass": "#8aa0ab",
+      "frame": "#f8f1de",
+      "recessed": true
+    },
+    {
+      "volume": "main",
+      "facade": "front",
+      "type": "door",
+      "floor": 0,
+      "at": [
+        0.9
+      ],
+      "w": 1.3,
+      "h": 2.4,
+      "glass": "#1b161d",
+      "frame": "#f8f1de",
+      "recessed": true
+    },
+    {
+      "volume": "corner",
+      "facade": "right",
+      "type": "window",
+      "floor": 0,
+      "at": [
+        0.3,
+        0.7
+      ],
+      "w": 1.2,
+      "h": 1.2,
+      "glass": "#8aa0ab",
+      "frame": "#f8f1de"
+    },
+    {
+      "volume": "corner",
+      "facade": "right",
+      "type": "window",
+      "floor": 1,
+      "at": [
+        0.3,
+        0.7
+      ],
+      "w": 1.2,
+      "h": 1.2,
+      "glass": "#8aa0ab",
+      "frame": "#f8f1de"
+    },
+    {
+      "volume": "corner",
+      "facade": "right",
+      "type": "window",
+      "floor": 2,
+      "at": [
+        0.3,
+        0.7
+      ],
+      "w": 1.2,
+      "h": 1.2,
+      "glass": "#8aa0ab",
+      "frame": "#f8f1de"
+    },
+    {
+      "volume": "main",
+      "facade": "left",
+      "type": "window",
+      "floor": 0,
+      "at": [
+        0.3,
+        0.7
+      ],
+      "w": 1.2,
+      "h": 1.3,
+      "glass": "#8aa0ab",
+      "frame": "#f8f1de"
+    },
+    {
+      "volume": "main",
+      "facade": "left",
+      "type": "window",
+      "floor": 1,
+      "at": [
+        0.3,
+        0.7
+      ],
+      "w": 1.2,
+      "h": 1.3,
+      "glass": "#8aa0ab",
+      "frame": "#f8f1de"
+    },
+    {
+      "volume": "main",
+      "facade": "left",
+      "type": "window",
+      "floor": 2,
+      "at": [
+        0.3,
+        0.7
+      ],
+      "w": 1.2,
+      "h": 1.3,
+      "glass": "#8aa0ab",
+      "frame": "#f8f1de"
+    },
+    {
+      "volume": "main",
+      "facade": "back",
+      "type": "window",
+      "floor": 0,
+      "at": [
+        0.3,
+        0.7
+      ],
+      "w": 1.3,
+      "h": 1.3,
+      "glass": "#8aa0ab",
+      "frame": "#f8f1de"
+    },
+    {
+      "volume": "main",
+      "facade": "back",
+      "type": "window",
+      "floor": 1,
+      "at": [
+        0.3,
+        0.7
+      ],
+      "w": 1.3,
+      "h": 1.3,
+      "glass": "#8aa0ab",
+      "frame": "#f8f1de"
+    },
+    {
+      "volume": "main",
+      "facade": "back",
+      "type": "window",
+      "floor": 2,
+      "at": [
+        0.3,
+        0.7
+      ],
+      "w": 1.3,
+      "h": 1.3,
+      "glass": "#8aa0ab",
+      "frame": "#f8f1de"
+    }
   ],
   "terraces": [
-    { "onVolume": "main", "side": "front", "floors": [1, 2], "at": [0.45, 0.75], "depth": 0.35,
-      "rail": { "type": "bars", "h": 1.0, "color": "#1b161d" } }
+    {
+      "onVolume": "main",
+      "side": "front",
+      "floors": [
+        1,
+        2
+      ],
+      "at": [
+        0.45,
+        0.75
+      ],
+      "depth": 0.35,
+      "rail": {
+        "type": "bars",
+        "h": 1,
+        "color": "#1b161d"
+      }
+    }
   ],
   "props": [
-    { "type": "lamp-globe", "volume": "main", "facade": "front", "at": 0.8 }
+    {
+      "type": "lamp-globe",
+      "volume": "main",
+      "facade": "front",
+      "at": 0.8
+    }
   ],
   "frontage": {
-    "wall": { "type": "brick", "color": "#c2b397", "mortar": "#dfd4b8", "h": 1.5 },
+    "wall": {
+      "type": "brick",
+      "color": "#c2b397",
+      "mortar": "#dfd4b8",
+      "h": 1.5
+    },
     "gates": [],
-    "sidewalk": { "material": "stone-slabs", "color": "#dfd4b8", "joint": "#b5a58b", "w": 2.5 },
-    "road": { "surface": "concrete", "color": "#968f7f" }
+    "sidewalk": {
+      "material": "stone-slabs",
+      "color": "#dfd4b8",
+      "joint": "#b5a58b",
+      "w": 2.5
+    },
+    "road": {
+      "surface": "concrete",
+      "color": "#968f7f"
+    }
   },
   "environment": {
     "props": [
@@ -73,7 +345,8 @@
           "leafs": "#3f9b42",
           "wood": "#a08a67",
           "*": "#a08a67"
-        }
+        },
+        "rxz": 0.85
       },
       {
         "model": "tree_palmTall",
@@ -84,7 +357,8 @@
           "leafs": "#46a648",
           "wood": "#a08a67",
           "*": "#a08a67"
-        }
+        },
+        "rxz": 0.85
       },
       {
         "model": "plant_bushLarge",
@@ -99,9 +373,9 @@
       },
       {
         "model": "tree_oak",
-        "h": 5.0,
+        "h": 5,
         "t": 0.82,
-        "inset": 2.0,
+        "inset": 2,
         "rxz": 1.3,
         "tint": {
           "leafs": "#6b7f4e",
@@ -163,7 +437,7 @@
       },
       {
         "model": "plant_bushDetailed",
-        "h": 1.0,
+        "h": 1,
         "t": 0.12,
         "inset": -1.6,
         "tint": {
@@ -184,20 +458,24 @@
       {
         "car": true,
         "t": 0.5,
-        "inset": -5.1,
+        "inset": -4.7,
         "rot": "along",
         "color": "#a5342c"
       },
       {
         "car": true,
         "t": 0.14,
-        "inset": -5.1,
+        "inset": -4.7,
         "rot": "along",
         "flip": true,
         "color": "#eceae4"
       }
     ]
   },
-  "sky": { "top": "#5ea2db", "horizon": "#9fcfe4", "cloud": "#f4f6f6" },
+  "sky": {
+    "top": "#5ea2db",
+    "horizon": "#9fcfe4",
+    "cloud": "#f4f6f6"
+  },
   "notes": "Cream mid-rise apartment block (spec says 3 floors and is trusted here, but the iso clearly reads as FOUR storeys of balcony bays - flag for the critic loop). Left edge is a stairwell column with one window per floor; the centre facade has two bays per floor of tall windows fronted by shallow Juliet balconies with curved black bombe wrought-iron rails (terraces entry uses non-schema floors/at/depth fields - schema gap: terraces have no position/repeat control, and the curved rail profile is not expressible). The right corner section alternates beige stone-block cladding bands with cream stucco per floor and wraps onto the right facade. Recessed near-black entrance door with house number 2225, a copper mailbox and a round white globe sconce high on the wall (number plaque + mailbox are schema gaps). Roof: flat with deep cream cornice/fascia, small stair-bulkhead box and an AC unit on top (schema ac prop is facade-mounted only - roof AC noted here). Frontage: beige stone-block garden wall with light joints and an OPEN entry walkway (no gate leaf), big cream slab path, and instead of a grass verge a dark-brown mulch garden bed (#5c3b32) edged with white rocks (#dbd0b5), terracotta pots with succulents and small planters; palm trees overhang and cast large frond shadows on the facade (prop factory pending). Beyond the wall the ground is plain warm-grey concrete (#968f7f). Sampled colours from 12x9 grids 2026-07-03."
 }

@@ -86,7 +86,8 @@ page.on('request', rq => {
   rq.continue();
 });
 
-await page.goto(`http://localhost:${port}/?world=${W.gameKey}&dbg`, { waitUntil: 'domcontentloaded', timeout: 45000 });
+const extraQ = arg('q', '') ? '&' + arg('q') : '';   // e.g. --q=test3 to exercise the real URL routing
+await page.goto(`http://localhost:${port}/?world=${W.gameKey}${extraQ}&dbg`, { waitUntil: 'domcontentloaded', timeout: 45000 });
 await page.waitForFunction('window.__dbg && (window.__dbg.worldGroup || window.__dbg.mishGroup)', { timeout: 90000 })
   .catch(() => { console.error('timed out waiting for worldGroup — world did not load'); process.exit(1); });
 await new Promise(r => setTimeout(r, 1500));
