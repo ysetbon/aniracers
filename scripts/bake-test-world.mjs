@@ -147,7 +147,7 @@ function instProp(src,spec,px,pz,rot){
   obj.scale.set(sxz,sy,sxz);obj.updateMatrixWorld(true);
   var bb2=new THREE.Box3().setFromObject(obj);
   obj.position.y-=bb2.min.y;
-  wrap.position.set(px,0,pz);wrap.rotation.y=rot||0;
+  wrap.position.set(px,spec.y||0,pz);wrap.rotation.y=rot||0;
   return wrap;}
 async function main(){
   var env=JOB.program.environment||{};
@@ -169,6 +169,16 @@ async function main(){
   for(var s=-1;s<=1;s+=2){
     collectAll(rbox(rlen,0.16,0.35,rd.kerb||'#b9bdc2',rf.qx-rf.nx*s*(hw+0.17),rf.qz-rf.nz*s*(hw+0.17),0.05));}
   // NOTE: rf.n points toward the house; kerbs sit at both asphalt edges.
+  // --- red/white painted kerb segments (Israeli no-parking) on the house side,
+  // along the frontage span: alternating 1m modules proud of the grey kerb band
+  if(rd.paintKerb!==false){
+    var kx=rf.qx+rf.nx*(hw+0.17),kz=rf.qz+rf.nz*(hw+0.17);
+    // project frontage ends onto the road axis to know the painted span
+    var e0=((ax-rf.qx)*rf.ux+(az-rf.qz)*rf.uz)-2,e1=((bx-rf.qx)*rf.ux+(bz-rf.qz)*rf.uz)+6;
+    if(e1<e0){var tmp=e0;e0=e1;e1=tmp;}
+    for(var ks=e0,ki=0;ks<e1;ks+=1.0,ki++){
+      var kcx=kx+rf.ux*(ks+0.5),kcz=kz+rf.uz*(ks+0.5);
+      collectAll(rbox(0.98,0.18,0.37,(ki%2?'#e8e6e0':'#c94434'),kcx,kcz,0.06));}}
   // --- driveway apron from road edge to the vehicle gate
   if(env.driveway){var dv=env.driveway;var dP=F(dv.at,0);
     var dLen=Math.max(1,JOB.off-hw+0.3);
@@ -183,8 +193,45 @@ async function main(){
   collectAll(fro);
   // --- environment props (CC0 pack GLBs, retinted, bbox-normalised)
   var placed=0;var rnd=(function(seed){var s2=seed>>>0||1;return function(){s2=(s2*1664525+1013904223)>>>0;return s2/4294967296;};})(JOB.seed);
+  function mkBox(w,h,d,color,px,py,pz,rot){var m=new THREE.Mesh(new THREE.BoxGeometry(w,h,d),new THREE.MeshLambertMaterial({color:new THREE.Color(color)}));
+    m.position.set(px,py,pz);m.rotation.y=rot||0;return m;}
+  function mkCar(sp,px,pz,rot){ // simple low-poly car: body + cabin + windows + wheels
+    var g2=new THREE.Group(),c=sp.color||'#d8d8d8',dkr=new THREE.Color(c).multiplyScalar(0.85).getStyle();
+    g2.add(mkBox(4.2,0.68,1.78,c,0,0.62,0));                          // body
+    g2.add(mkBox(2.3,0.52,1.62,c,-0.15,1.18,0));                      // cabin
+    g2.add(mkBox(2.31,0.34,1.5,'#3a4750',-0.15,1.16,0));              // window band
+    g2.add(mkBox(0.5,0.2,1.5,dkr,1.95,0.5,0));                        // front bumper
+    g2.add(mkBox(0.5,0.2,1.5,dkr,-1.95,0.5,0));                       // rear bumper
+    for(var wx=-1;wx<=1;wx+=2)for(var wz=-1;wz<=1;wz+=2){
+      var wh2=new THREE.Mesh(new THREE.CylinderGeometry(0.34,0.34,0.24,10),new THREE.MeshLambertMaterial({color:0x24262a}));
+      wh2.rotation.x=Math.PI/2;wh2.position.set(wx*1.35,0.34,wz*0.82);g2.add(wh2);}
+    g2.position.set(px,0,pz);g2.rotation.y=rot;return g2;}
+  function mkLamp(px,pz,rot){ // curved-head street lamp
+    var g3=new THREE.Group(),grey='#8d9296';
+    var pole=new THREE.Mesh(new THREE.CylinderGeometry(0.09,0.12,5.4,8),new THREE.MeshLambertMaterial({color:new THREE.Color(grey)}));
+    pole.position.y=2.7;g3.add(pole);
+    g3.add(mkBox(1.3,0.14,0.14,grey,0.6,5.5,0));                      // arm out
+    g3.add(mkBox(0.55,0.22,0.3,'#e8e4d2',1.25,5.42,0));               // head
+    g3.position.set(px,0,pz);g3.rotation.y=rot;return g3;}
+  function mkDumpster(px,pz,rot){
+    var g4=new THREE.Group(),grn='#3f7d3a';
+    g4.add(mkBox(1.45,1.0,1.05,grn,0,0.62,0));
+    g4.add(mkBox(1.5,0.12,1.1,'#356a31',0,1.18,0));
+    for(var dw=-1;dw<=1;dw+=2)g4.add(mkBox(0.16,0.24,0.16,'#222',dw*0.55,0.12,0.3));
+    g4.position.set(px,0,pz);g4.rotation.y=rot;return g4;}
+  function mkPlanter(sp,px,pz,rot){
+    var g5=new THREE.Group(),bc=sp.color||'#c8a97e';
+    g5.add(mkBox(sp.w||2.2,0.55,sp.d||1.2,bc,0,0.28,0));
+    g5.add(mkBox((sp.w||2.2)+0.1,0.1,(sp.d||1.2)+0.1,'#b39468',0,0.58,0));
+    g5.position.set(px,0,pz);g5.rotation.y=rot;return g5;}
   var specs=env.props||[];
   for(var i2=0;i2<specs.length;i2++){var sp=specs[i2];
+    if(sp.car||sp.lamp||sp.bin||sp.planter){
+      var pk=F(sp.t,sp.inset!=null?sp.inset:1);
+      var rotk=(sp.rot==='along')?Math.atan2(rf.ux,rf.uz)+(sp.flip?Math.PI:0):(sp.rot||0)*Math.PI/180;
+      var made=sp.car?mkCar(sp,pk[0],pk[1],rotk):sp.lamp?mkLamp(pk[0],pk[1],rotk)
+              :sp.bin?mkDumpster(pk[0],pk[1],rotk):mkPlanter(sp,pk[0],pk[1],rotk);
+      collectAll(made);placed++;continue;}
     if(sp.hedge){ // trimmed hedge mass: jittered two-tone boxes along the frame
       var cols=sp.colors||['#3c7031','#2f5d2a'];
       for(var th=sp.t0;th<=sp.t1+1e-6;th+=(sp.step||1.4)/L){
