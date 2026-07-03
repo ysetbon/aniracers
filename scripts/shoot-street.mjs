@@ -32,7 +32,8 @@ const PCX = BJ.PCX || 0, PCZ = BJ.PCZ || 0;
 const shots = [];
 if (arg('at')) {
   const [lat, lon] = arg('at').split(',').map(Number);
-  shots.push({ name: 'at', lat, lon, heading: +arg('heading', 0), fov: +arg('fov', 72) });
+  shots.push({ name: 'at', lat, lon, heading: +arg('heading', 0), fov: +arg('fov', 72),
+    eye: arg('eye', null) != null ? +arg('eye') : null, pitch: arg('pitch', null) != null ? +arg('pitch') : null });
 } else {
   const MANIFEST = path.join(W.paths.views, 'keyless', 'keyless.json');
   if (!fs.existsSync(MANIFEST)) { console.error('missing keyless.json — run sv-keyless.mjs first'); process.exit(1); }
@@ -97,7 +98,7 @@ for (const s of shots) {
     // sv fov is horizontal; three takes vertical: vFov = 2 atan(tan(hFov/2) * h/w)
     const vfov = 2 * Math.atan(Math.tan(s.fov * Math.PI / 360) * 768 / 1024) * 180 / Math.PI;
     const cam = new THREE.PerspectiveCamera(vfov, 1024 / 768, 0.1, 4000);
-    const EYE = 2.5, PITCH = 4 * Math.PI / 180;
+    const EYE = s.eye != null ? s.eye : 2.5, PITCH = (s.pitch != null ? s.pitch : 4) * Math.PI / 180;
     const hd = s.heading * Math.PI / 180;                    // deg from north, clockwise; north = -Z
     cam.position.set(s.x, EYE, s.z);
     cam.lookAt(s.x + Math.sin(hd), EYE + Math.tan(PITCH), s.z - Math.cos(hd));

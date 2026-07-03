@@ -44,8 +44,11 @@ function gablePrism(W,D,rh,color){ // ridge along the LONGER horizontal axis
 function addGableRoof(g,W,H,D,roof){var rh=Math.max(1.8,Math.min(W,D)*0.42);
   g.add(box(W+0.6,0.2,D+0.6,0x8a7e6a,0,H+0.1,0));var m=gablePrism(W+0.6,D+0.6,rh,roof);m.position.y=H+0.18;g.add(m);}
 function addHipRoof(g,W,H,D,roof){var rh=Math.max(2.0,Math.min(W,D)*0.36);
-  var c=new THREE.Mesh(new THREE.ConeGeometry(Math.SQRT2/2,1,4),new THREE.MeshLambertMaterial({color:hx(roof)}));
-  c.scale.set(W+1.0,rh,D+1.0);c.rotation.y=Math.PI/4;c.position.y=H+rh/2+0.1;g.add(c);g.add(box(W+1.0,0.22,D+1.0,0x8a7e6a,0,H+0.1,0));}
+  // pre-rotate the 4-gon cone in GEOMETRY space: object scale is applied before rotation,
+  // so scale-then-rotate on a non-square plan shears the pyramid into a giant diamond
+  var cg=new THREE.ConeGeometry(Math.SQRT2/2,1,4);cg.rotateY(Math.PI/4);
+  var c=new THREE.Mesh(cg,new THREE.MeshLambertMaterial({color:hx(roof)}));
+  c.scale.set(W+1.0,rh,D+1.0);c.position.y=H+rh/2+0.1;g.add(c);g.add(box(W+1.0,0.22,D+1.0,0x8a7e6a,0,H+0.1,0));}
 
 function makeBuilding(p){
   var g=new THREE.Group();var floors=Math.max(1,p.floors||2),H=floors*FLOOR_H,W=p.W,D=p.D;
@@ -139,8 +142,9 @@ function v3Volume(g,vol,W,D,floorH){
     g.add(box(w+ov*2,fh,d+ov*2,fas&&fas.color||'#f0ead6',cx,h+fh/2,cz));
     if(roof.parapet)g.add(box(w+0.15,roof.parapet.h||0.6,d+0.15,roof.parapet.color||vol.wall,cx,h+fh+(roof.parapet.h||0.6)/2,cz));
   }else if(roof.form==='gable'){var m=gablePrism(w+0.5,d+0.5,Math.max(1.6,Math.min(w,d)*0.4),roof.color||'#b0543c');m.position.set(cx,h+0.1,cz);g.add(m);}
-  else if(roof.form==='hip'){var c2=new THREE.Mesh(new THREE.ConeGeometry(Math.SQRT2/2,1,4),new THREE.MeshLambertMaterial({color:hx(roof.color||'#b0543c')}));
-    c2.scale.set(w+0.8,Math.max(1.6,Math.min(w,d)*0.34),d+0.8);c2.rotation.y=Math.PI/4;c2.position.set(cx,h+Math.max(1.6,Math.min(w,d)*0.34)/2+0.08,cz);g.add(c2);}
+  else if(roof.form==='hip'){var cg2=new THREE.ConeGeometry(Math.SQRT2/2,1,4);cg2.rotateY(Math.PI/4); // pre-rotate: see addHipRoof
+    var c2=new THREE.Mesh(cg2,new THREE.MeshLambertMaterial({color:hx(roof.color||'#b0543c')}));
+    c2.scale.set(w+0.8,Math.max(1.6,Math.min(w,d)*0.34),d+0.8);c2.position.set(cx,h+Math.max(1.6,Math.min(w,d)*0.34)/2+0.08,cz);g.add(c2);}
   return {w:w,d:d,h:h,cx:cx,cz:cz};
 }
 // facade helper: returns {ox,oz,ux,uz,nx,nz,len} — origin at facade left end, u along it,
