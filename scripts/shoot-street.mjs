@@ -71,6 +71,19 @@ const browser = await puppeteer.launch({ args: ['--no-sandbox', '--use-gl=swifts
 const page = await browser.newPage();
 await page.setViewport({ width: 1024, height: 768 });
 page.on('pageerror', e => console.log('  [pageerror]', String(e)));
+// offline containers: serve the CDN three.js/GLTFLoader from the local vendor copies
+await page.setRequestInterception(true);
+const VENDOR = { 'three.min.js': 'three.min.js', 'GLTFLoader.js': 'GLTFLoader.js' };
+page.on('request', rq => {
+  const u = rq.url();
+  if (/^https?:\/\/(cdnjs|unpkg)/.test(u)) {
+    const base = Object.keys(VENDOR).find(k => u.endsWith(k));
+    if (base) return rq.respond({ status: 200, contentType: 'text/javascript',
+      body: fs.readFileSync(path.join(ROOT, 'scripts/vendor', VENDOR[base])) });
+    return rq.abort();
+  }
+  rq.continue();
+});
 
 await page.goto(`http://localhost:${port}/?world=${W.gameKey}&dbg`, { waitUntil: 'domcontentloaded', timeout: 45000 });
 await page.waitForFunction('window.__dbg && (window.__dbg.worldGroup || window.__dbg.mishGroup)', { timeout: 90000 })

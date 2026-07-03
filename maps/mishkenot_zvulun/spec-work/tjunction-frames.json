@@ -1,0 +1,402 @@
+[
+ {
+  "id": "556597973",
+  "cx": 129.8,
+  "cz": -245.2,
+  "roadId": "27204871",
+  "roadType": "street",
+  "roadDist": 18.9,
+  "halfW": 3.4,
+  "surface": "asphalt",
+  "off": 7.4,
+  "L": 20.2,
+  "frontA": [
+   117.4,
+   -236.4
+  ],
+  "frontB": [
+   119.6,
+   -256.5
+  ],
+  "inward": [
+   0.994,
+   0.109
+  ],
+  "hasEnv": false
+ },
+ {
+  "id": "556597974",
+  "cx": 132.7,
+  "cz": -274.2,
+  "roadId": "27204871",
+  "roadType": "street",
+  "roadDist": 18.6,
+  "halfW": 3.4,
+  "surface": "asphalt",
+  "off": 7.4,
+  "L": 21.8,
+  "frontA": [
+   120.4,
+   -264.6
+  ],
+  "frontB": [
+   122.8,
+   -286.2
+  ],
+  "inward": [
+   0.994,
+   0.109
+  ],
+  "hasEnv": true
+ },
+ {
+  "id": "556597975",
+  "cx": 139.3,
+  "cz": -301.6,
+  "roadId": "27204871",
+  "roadType": "street",
+  "roadDist": 22.1,
+  "halfW": 3.4,
+  "surface": "asphalt",
+  "off": 7.4,
+  "L": 25.9,
+  "frontA": [
+   123.3,
+   -290.3
+  ],
+  "frontB": [
+   126.1,
+   -316.1
+  ],
+  "inward": [
+   0.994,
+   0.109
+  ],
+  "hasEnv": false
+ },
+ {
+  "id": "556597976",
+  "cx": 100.8,
+  "cz": -314.1,
+  "roadId": "27204871",
+  "roadType": "street",
+  "roadDist": 17.5,
+  "halfW": 3.4,
+  "surface": "asphalt",
+  "off": 7.4,
+  "L": 17.9,
+  "frontA": [
+   109.9,
+   -304.1
+  ],
+  "frontB": [
+   111.8,
+   -321.8
+  ],
+  "inward": [
+   -0.994,
+   -0.109
+  ],
+  "hasEnv": false
+ },
+ {
+  "id": "556597977",
+  "cx": 97.8,
+  "cz": -296.8,
+  "roadId": "27204871",
+  "roadType": "street",
+  "roadDist": 18.6,
+  "halfW": 3.4,
+  "surface": "asphalt",
+  "off": 7.4,
+  "L": 12.4,
+  "frontA": [
+   108.3,
+   -289.4
+  ],
+  "frontB": [
+   109.6,
+   -301.7
+  ],
+  "inward": [
+   -0.994,
+   -0.109
+  ],
+  "hasEnv": false
+ },
+ {
+  "id": "556597978",
+  "cx": 96.8,
+  "cz": -276.6,
+  "roadId": "27204871",
+  "roadType": "street",
+  "roadDist": 17.4,
+  "halfW": 3.4,
+  "surface": "asphalt",
+  "off": 7.4,
+  "L": 17.6,
+  "frontA": [
+   105.8,
+   -266.7
+  ],
+  "frontB": [
+   107.7,
+   -284.2
+  ],
+  "inward": [
+   -0.994,
+   -0.109
+  ],
+  "hasEnv": false
+ },
+ {
+  "id": "556597979",
+  "cx": 96,
+  "cz": -255.4,
+  "roadId": "27204871",
+  "roadType": "street",
+  "roadDist": 15.9,
+  "halfW": 3.4,
+  "surface": "asphalt",
+  "off": 7.4,
+  "L": 18.8,
+  "frontA": [
+   103.4,
+   -245.1
+  ],
+  "frontB": [
+   105.5,
+   -263.8
+  ],
+  "inward": [
+   -0.994,
+   -0.109
+  ],
+  "hasEnv": false
+ },
+ {
+  "id": "556855829",
+  "cx": 158.9,
+  "cz": -406,
+  "roadId": "699330771",
+  "roadType": "street",
+  "roadDist": 33.2,
+  "halfW": 3.4,
+  "surface": "asphalt",
+  "off": 7.4,
+  "L": 11.2,
+  "frontA": [
+   135.3,
+   -406
+  ],
+  "frontB": [
+   136.5,
+   -417.2
+  ],
+  "inward": [
+   0.949,
+   -0.315
+  ],
+  "hasEnv": false
+ },
+ {
+  "id": "556855836",
+  "cx": 125.4,
+  "cz": -411.9,
+  "roadId": "699330771",
+  "roadType": "street",
+  "roadDist": 16.5,
+  "halfW": 3.4,
+  "surface": "asphalt",
+  "off": 7.4,
+  "L": 12.7,
+  "frontA": [
+   127.6,
+   -412.5
+  ],
+  "frontB": [
+   128.9,
+   -425.2
+  ],
+  "inward": [
+   -0.117,
+   -0.993
+  ],
+  "hasEnv": false
+ },
+ {
+  "id": "556855837",
+  "cx": 111.2,
+  "cz": -414.6,
+  "roadId": "699330771",
+  "roadType": "street",
+  "roadDist": 25,
+  "halfW": 3.4,
+  "surface": "asphalt",
+  "off": 7.4,
+  "L": 13.5,
+  "frontA": [
+   123.7,
+   -411.5
+  ],
+  "frontB": [
+   125.2,
+   -424.9
+  ],
+  "inward": [
+   -0.647,
+   -0.762
+  ],
+  "hasEnv": false
+ },
+ {
+  "id": "556855838",
+  "cx": 104.7,
+  "cz": -397.6,
+  "roadId": "699330771",
+  "roadType": "street",
+  "roadDist": 22.7,
+  "halfW": 3.4,
+  "surface": "asphalt",
+  "off": 7.4,
+  "L": 18.2,
+  "frontA": [
+   119,
+   -386.9
+  ],
+  "frontB": [
+   121,
+   -405
+  ],
+  "inward": [
+   -0.994,
+   -0.109
+  ],
+  "hasEnv": false
+ },
+ {
+  "id": "556855839",
+  "cx": 108.9,
+  "cz": -376.2,
+  "roadId": "699330771",
+  "roadType": "street",
+  "roadDist": 16.2,
+  "halfW": 3.4,
+  "surface": "asphalt",
+  "off": 7.4,
+  "L": 17.9,
+  "frontA": [
+   116.7,
+   -366.3
+  ],
+  "frontB": [
+   118.7,
+   -384.1
+  ],
+  "inward": [
+   -0.994,
+   -0.109
+  ],
+  "hasEnv": false
+ },
+ {
+  "id": "556855840",
+  "cx": 108.3,
+  "cz": -354.6,
+  "roadId": "699330771",
+  "roadType": "street",
+  "roadDist": 14.5,
+  "halfW": 3.4,
+  "surface": "asphalt",
+  "off": 7.4,
+  "L": 17.9,
+  "frontA": [
+   114.4,
+   -344.9
+  ],
+  "frontB": [
+   116.3,
+   -362.7
+  ],
+  "inward": [
+   -0.994,
+   -0.109
+  ],
+  "hasEnv": false
+ },
+ {
+  "id": "556855841",
+  "cx": 143.7,
+  "cz": -388.1,
+  "roadId": "699330771",
+  "roadType": "street",
+  "roadDist": 17.1,
+  "halfW": 3.4,
+  "surface": "asphalt",
+  "off": 7.4,
+  "L": 17.6,
+  "frontA": [
+   133.1,
+   -380.4
+  ],
+  "frontB": [
+   135.1,
+   -397.9
+  ],
+  "inward": [
+   0.994,
+   0.109
+  ],
+  "hasEnv": false
+ },
+ {
+  "id": "556855842",
+  "cx": 143.9,
+  "cz": -364.8,
+  "roadId": "699330771",
+  "roadType": "street",
+  "roadDist": 19.7,
+  "halfW": 3.4,
+  "surface": "asphalt",
+  "off": 7.4,
+  "L": 20.4,
+  "frontA": [
+   130.5,
+   -356
+  ],
+  "frontB": [
+   132.7,
+   -376.3
+  ],
+  "inward": [
+   0.994,
+   0.109
+  ],
+  "hasEnv": false
+ },
+ {
+  "id": "556855843",
+  "cx": 144.1,
+  "cz": -339.1,
+  "roadId": "27820055",
+  "roadType": "plaza",
+  "roadDist": 13.7,
+  "halfW": 3.4,
+  "surface": "asphalt",
+  "off": 5.5,
+  "L": 18.1,
+  "frontA": [
+   133.3,
+   -333.5
+  ],
+  "frontB": [
+   150.8,
+   -328.9
+  ],
+  "inward": [
+   0.252,
+   -0.968
+  ],
+  "hasEnv": false
+ }
+]

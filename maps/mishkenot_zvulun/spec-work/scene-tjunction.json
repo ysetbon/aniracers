@@ -1,0 +1,78 @@
+{
+  "note": "Scene-level config for the test3 T-junction bake (bake-tjunction.mjs). Geometry read from raw Street View study set in restyled/scene-tjunction/. Junction node at (120.3,-331.16): Toledano south (asphalt) meets the raised terracotta paver street (Toledano north, 699330771), the narrow paver alley east (27820055) and Unterman west (264961842).",
+  "ids": [
+    "556597973", "556597974", "556597975", "556597976", "556597977",
+    "556597978", "556597979", "556855829", "556855836", "556855837",
+    "556855838", "556855839", "556855840", "556855841", "556855842", "556855843"
+  ],
+  "ground": { "lawn": "#7ec850", "x0": 20, "x1": 230, "z0": -445, "z1": -215 },
+  "roads": [
+    {
+      "id": 27204871, "surface": "asphalt", "color": "#8f9296", "halfW": 3.4,
+      "kerb": "#b9bdc2", "extendEnd": 7.5,
+      "paint": [
+        { "from": 28, "to": 90, "side": 1 },
+        { "from": 46, "to": 90, "side": -1 }
+      ]
+    },
+    {
+      "id": 699330771, "surface": "pavers", "color": "#ad6b4c", "band": "#74787c",
+      "bandW": 2.4, "halfW": 3.6, "raise": 0.09, "kerb": "#c4bfb4",
+      "threshold": { "at": 1.6, "w": 1.0 },
+      "paint": []
+    },
+    {
+      "id": 264961842, "surface": "asphalt", "color": "#8f9296", "halfW": 3.3,
+      "kerb": "#b9bdc2", "clipLen": 56, "extendStart": 4.5,
+      "paint": [
+        { "from": 4, "to": 20, "side": 1 },
+        { "from": 4, "to": 16, "side": -1 }
+      ]
+    },
+    {
+      "id": 27820055, "surface": "pavers", "color": "#ad6b4c", "halfW": 2.1,
+      "raise": 0.07, "kerb": "#c4bfb4", "clipLen": 44, "startAt": 3.0,
+      "paint": [
+        { "from": 3, "to": 10, "side": 1 }
+      ]
+    }
+  ],
+  "islands": [
+    {
+      "name": "fork-bed", "cx": 126.5, "cz": -340.5, "a": 3.4, "b": 1.9,
+      "rotDeg": 6.3, "kerb": "#c4bfb4", "grass": "#6fae46",
+      "fill": [
+        { "model": "rock_smallA", "h": 0.5, "dx": -0.7, "dz": 2.0, "tint": { "*": "#b9b4a8" } },
+        { "model": "rock_smallB", "h": 0.4, "dx": 0.7, "dz": -1.9, "tint": { "*": "#c4bfb2" } },
+        { "model": "plant_bushSmall", "h": 0.85, "dx": 0.1, "dz": 0.2, "tint": { "leafs": "#3c7031", "*": "#3c7031" } },
+        { "model": "grass_leafsLarge", "h": 1.0, "dx": -0.5, "dz": -1.0, "tint": { "*": "#5c9440" } },
+        { "model": "grass_leafs", "h": 0.7, "dx": 0.5, "dz": 1.1, "tint": { "*": "#4c8a3c" } }
+      ]
+    },
+    {
+      "name": "midstreet-bed", "cx": 126.4, "cz": -358.6, "a": 4.5, "b": 1.4,
+      "rotDeg": 6.3, "kerb": "#c4bfb4", "grass": "#6fae46",
+      "fill": [
+        { "model": "plant_bushSmall", "h": 0.8, "dx": 0.2, "dz": -2.6, "tint": { "leafs": "#46743a", "*": "#46743a" } },
+        { "model": "plant_bush", "h": 0.9, "dx": 0.0, "dz": -0.3, "tint": { "leafs": "#7a68a8", "*": "#7a68a8" } },
+        { "model": "plant_bushSmall", "h": 0.7, "dx": -0.2, "dz": 2.4, "tint": { "leafs": "#557f42", "*": "#557f42" } },
+        { "model": "flower_yellowA", "h": 0.5, "dx": 0.4, "dz": 1.2, "tint": null },
+        { "model": "grass_leafs", "h": 0.7, "dx": -0.4, "dz": -1.4, "tint": { "*": "#5c9440" } }
+      ]
+    }
+  ],
+  "signs": [
+    { "type": "tsign", "x": 127.4, "z": -337.4, "rotDeg": 186 }
+  ],
+  "lamps": [
+    { "style": "curved", "x": 125.2, "z": -343.6, "rotDeg": 276 },
+    { "style": "globe", "x": 126.4, "z": -358.6 },
+    { "style": "globe", "x": 117.6, "z": -352.6 },
+    { "style": "globe", "x": 130.4, "z": -382.3 },
+    { "style": "double", "x": 111.8, "z": -327.5, "rotDeg": 96 }
+  ],
+  "bollards": [
+    { "x": 128.6, "z": -333.4 },
+    { "x": 131.5, "z": -332.6 }
+  ]
+}
