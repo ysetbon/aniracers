@@ -368,11 +368,27 @@ function bakeRoadPrepped(rd,segs){
     var mid=(a0+a1)/2, len=a1-a0;
     var cx=g.ax+g.ux*(mid-g.s0),cz=g.az+g.uz*(mid-g.s0);
     var rot=Math.atan2(g.ux,g.uz);
-    collectAll(mkBox(rd.halfW*2,topH,len,rd.color,cx,y,cz,rot));
-    if(rd.surface==='pavers'&&rd.band)
-      collectAll(mkBox(rd.bandW||2.2,topH+0.006,len,rd.band,cx,y+0.004,cz,rot));
-    for(var sd=-1;sd<=1;sd+=2)
-      collectAll(mkBox(0.32,0.16,len,rd.kerb||'#b9bdc2',cx+g.nxn(sd),y+0.05,cz+g.nzn(sd),rot));}
+    if(rd.surface==='pavers'){
+      // designed ground: dark grout base, then a ~1m tile grid (0.94m tiles → 0.06m seams)
+      // with per-tile lightness jitter; grey centre-band tiles vs terracotta field tiles.
+      collectAll(mkBox(rd.halfW*2,topH,len,rd.grout||'#7a4a34',cx,y-0.004,cz,rot));
+      var band=(rd.band?(rd.bandW||2.2):0)/2, step=1.0, tw=0.94, half=rd.halfW;
+      for(var u=-len/2+step/2;u<len/2-1e-3;u+=step){
+        for(var a=-half+step/2;a<half-1e-3;a+=step){
+          var isBand=band>0&&Math.abs(a)<band+0.01;
+          var h1=Math.sin((u*12.9898+a*78.233))*43758.5453; var jit=h1-Math.floor(h1); // det 0..1
+          var col=new THREE.Color(isBand?rd.band:rd.color).offsetHSL(0,(jit-0.5)*0.02,(jit-0.5)*0.08);
+          var tx=cx+g.ux*u-g.uz*a, tz=cz+g.uz*u+g.ux*a;
+          collectAll(mkBox(tw,topH+0.006,tw,col,tx,y+0.004,tz,rot));}}
+    } else {
+      collectAll(mkBox(rd.halfW*2,topH,len,rd.color,cx,y,cz,rot));
+      // subtle asphalt lane seam down the centre
+      collectAll(mkBox(0.12,topH+0.004,len,new THREE.Color(rd.color).offsetHSL(0,0,-0.06),cx,y+0.004,cz,rot));
+    }
+    for(var sd=-1;sd<=1;sd+=2){
+      var kcol=rd.kerb||'#b9bdc2';
+      collectAll(mkBox(0.34,0.18,len,new THREE.Color(kcol).offsetHSL(0,0,-0.05),cx+g.nxn(sd),y+0.06,cz+g.nzn(sd),rot)); // kerb body (shaded face)
+      collectAll(mkBox(0.24,0.05,len,new THREE.Color(kcol).offsetHSL(0,0,0.08),cx+g.nxn(sd),y+0.155,cz+g.nzn(sd),rot));}} // bevel cap highlight
   var paints=rd.paint||[];
   for(var pi=0;pi<paints.length;pi++){var sp=paints[pi];
     for(var s=sp.from,ki=0;s<Math.min(sp.to,segs.total);s+=1.0,ki++){
