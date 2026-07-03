@@ -1,0 +1,43 @@
+{
+  "id": "556597977",
+  "refs": { "scene": "restyled/bld_556597977.png", "iso": "restyled/iso/bld_556597977.png" },
+  "footprint": "obb",
+  "floorH": 3.0,
+  "volumes": [
+    { "name": "main", "x0": 0.0, "x1": 0.58, "z0": 0.0, "z1": 1.0, "floors": 1,
+      "wall": "#f4e8d7",
+      "bands": [
+        { "floor": 0, "y0": 0.0, "y1": 0.18, "x0": 0.0, "x1": 1.0, "color": "#e7cea9", "style": "solid" }
+      ],
+      "roof": { "form": "gable", "color": "#cc4a3c", "overhang": 0.6,
+                "fascia": { "h": 0.3, "color": "#b18869" }, "props": ["solar"] } },
+    { "name": "wing", "x0": 0.58, "x1": 1.0, "z0": 0.1, "z1": 1.0, "floors": 1,
+      "wall": "#f4e8d7",
+      "bands": [
+        { "floor": 0, "y0": 0.0, "y1": 0.18, "x0": 0.0, "x1": 1.0, "color": "#e7cea9", "style": "solid" }
+      ],
+      "roof": { "form": "hip", "color": "#cc4a3c", "overhang": 0.5,
+                "fascia": { "h": 0.3, "color": "#b18869" } } }
+  ],
+  "openings": [
+    { "volume": "main", "facade": "front", "type": "window", "floor": 0,
+      "at": [0.07, 0.13, 0.19], "w": 1.0, "h": 1.4, "glass": "#8f96ab", "frame": "#d1c9c1" },
+    { "volume": "main", "facade": "front", "type": "window", "floor": 0,
+      "at": [0.62], "w": 1.6, "h": 1.4, "glass": "#78787a", "frame": "#d1c9c1", "recessed": true },
+    { "volume": "wing", "facade": "front", "type": "window", "floor": 0,
+      "at": [0.15, 0.35], "w": 1.1, "h": 1.3, "glass": "#78787a", "frame": "#d1c9c1" },
+    { "volume": "wing", "facade": "front", "type": "window", "floor": 0,
+      "at": [0.75], "w": 1.5, "h": 1.3, "glass": "#78787a", "frame": "#d1c9c1" },
+    { "volume": "main", "facade": "left", "type": "door", "floor": 0,
+      "at": [0.6], "w": 1.1, "h": 2.1, "glass": "#3c3d41", "recessed": true }
+  ],
+  "terraces": [],
+  "props": [],
+  "frontage": {
+    "sidewalk": { "material": "stone-slabs", "color": "#cebead", "joint": "#bead9b", "w": 3.0 },
+    "verge": { "grass": "#7cad46", "grassDark": "#416a25",
+               "flowers": { "palette": ["#d38376", "#f1ead8", "#b6bb69"], "perM2": 0.25 } }
+  },
+  "sky": { "top": "#5ea2db", "horizon": "#9fcfe4", "cloud": "#f4f6f6" },
+  "notes": "Single-storey cream bungalow under a big red-orange tiled roof with chunky wood (#b18869) fascia/gable trim -- tile coursing not expressible, flat-colour gable/hip forms used. FLOORS CONFLICT: building-specs says floors:2 but both iso and scene unambiguously show one-storey walls under the tall roof; the ref was followed (floors:1) -- flag for the critic. Tan plinth band around the whole base. Main volume front: a large window with grey SECURITY BARS at ~0.62 (no bars field, factory extension needed) and a cluster of three slim blue-grey windows at the far left; lower right wing with two narrow windows and one wider framed window. 2x2 dark-blue SOLAR PV panels sit on the right slope of the main roof (encoded as roof props:['solar']; exact placement right-of-ridge not expressible). No door visible in either ref (spec says 1 door); an assumed side door was placed on the left facade where the ref's garden path leads. FRONTAGE HAS NO BRICK WALL: continuous white PICKET fence (#efe8d5, ~1.6 m) across the whole frontage, no gate visible in frame (gates omitted); at the far right the picket meets a solid stucco pillar/wall segment with a cap. Street side: light stone-slab sidewalk split by a GRASS VERGE strip dense with pink/white/yellow flowers (flower hexes are nearest grid medians; tiny blooms defeat the sampler), a second flower-and-grass strip in the foreground, low-poly cube-canopy trees on the back lawn, grey paving garden path along the house's left side, rocks on the back lawn. No road surface visible (road block omitted). Sampled colours from 12x9 + 24x18 grids 2026-07-03."
+}

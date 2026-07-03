@@ -1181,6 +1181,30 @@
       "model": "gemini-3.1-flash-image",
       "src": "maps\\mishkenot_zvulun\\views\\keyless\\bld_665026264_pIG_9bC.jpg",
       "out": "bld_665026264.png"
+    },
+    "bld_556855829": {
+      "hash": "a25fcbacf254b042",
+      "model": "gemini-3.1-flash-image",
+      "src": "maps\\mishkenot_zvulun\\views\\keyless\\bld_556855829_phwzlw2.jpg",
+      "out": "bld_556855829.png"
+    },
+    "bld_556855836": {
+      "hash": "25c03aede3b753a9",
+      "model": "gemini-3.1-flash-image",
+      "src": "maps\\mishkenot_zvulun\\views\\keyless\\bld_556855836_pRldrhX.jpg",
+      "out": "bld_556855836.png"
+    },
+    "bld_556855837": {
+      "hash": "a5767c34a3ad9dd2",
+      "model": "gemini-3.1-flash-image",
+      "src": "maps\\mishkenot_zvulun\\views\\keyless\\bld_556855837_pRldrhX.jpg",
+      "out": "bld_556855837.png"
+    },
+    "bld_556855841": {
+      "hash": "b7987a3063802c5a",
+      "model": "gemini-3.1-flash-image",
+      "src": "maps\\mishkenot_zvulun\\views\\keyless\\bld_556855841_pRldrhX.jpg",
+      "out": "bld_556855841.png"
     }
   }
 }

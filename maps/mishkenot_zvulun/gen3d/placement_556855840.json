@@ -1,0 +1,19 @@
+{
+  "targetTris": 6000,
+  "out": "C:\\Users\\YonatanSetbon\\projects\\aniracers\\maps\\mishkenot_zvulun\\gen3d\\placed_bld_556855840.glb",
+  "buildings": [
+    {
+      "id": "556855840",
+      "glb": "C:\\Users\\YonatanSetbon\\projects\\aniracers\\maps\\mishkenot_zvulun\\gen3d\\bld_556855840.glb",
+      "cx": 108.26499999999999,
+      "cz": -354.62,
+      "rotY": 1.461634085642019,
+      "rotYAlt": 3.0324304124369155,
+      "width": 15.516046976845075,
+      "depth": 11.347950749467344,
+      "height": 6.8,
+      "floors": 2,
+      "panoDist": 16
+    }
+  ]
+}

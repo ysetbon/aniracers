@@ -1,0 +1,38 @@
+{
+  "id": "556597973",
+  "refs": { "scene": "restyled/bld_556597973.png", "iso": "restyled/iso/bld_556597973.png" },
+  "footprint": "obb",
+  "floorH": 3.0,
+  "volumes": [
+    { "name": "main", "x0": 0.0, "x1": 1.0, "z0": 0.0, "z1": 1.0, "floors": 2,
+      "wall": "#d5c2a7",
+      "bands": [
+        { "floor": 1, "y0": 0.0, "y1": 0.08, "x0": 0.0, "x1": 1.0, "color": "#dad3cb", "style": "solid" },
+        { "floor": 1, "y0": 0.86, "y1": 1.0, "x0": 0.0, "x1": 1.0, "color": "#8f8a80", "style": "solid" }
+      ],
+      "roof": { "form": "flat", "fascia": { "h": 0.5, "color": "#dad3cb", "overhang": 0.35 } } }
+  ],
+  "openings": [
+    { "volume": "main", "facade": "front", "type": "window", "floor": 1,
+      "at": [0.28, 0.55], "w": 1.5, "h": 1.3, "glass": "#5b6c7e", "frame": "#dad3cb", "recessed": true },
+    { "volume": "main", "facade": "front", "type": "window", "floor": 0,
+      "at": [0.28, 0.55], "w": 1.5, "h": 1.3, "glass": "#5b6c7e", "frame": "#dad3cb", "recessed": true },
+    { "volume": "main", "facade": "right", "type": "window", "floor": 1,
+      "at": [0.35, 0.8], "w": 1.2, "h": 1.3, "glass": "#5b6c7e", "frame": "#dad3cb" },
+    { "volume": "main", "facade": "right", "type": "window", "floor": 0,
+      "at": [0.4, 0.8], "w": 1.2, "h": 1.3, "glass": "#5b6c7e", "frame": "#dad3cb" },
+    { "volume": "main", "facade": "back", "type": "door", "floor": 0,
+      "at": [0.5], "w": 1.15, "h": 2.2, "glass": "#5c6975", "recessed": true }
+  ],
+  "terraces": [],
+  "props": [],
+  "frontage": {
+    "gates": [
+      { "kind": "pedestrian", "w": 1.2, "at": 0.4, "style": "picket", "color": "#b9b9b5" }
+    ],
+    "sidewalk": { "material": "paving-brick", "color": "#838d94", "joint": "#5c6975", "w": 3.0 },
+    "verge": { "grass": "#708f45", "grassDark": "#3b5e29" }
+  },
+  "sky": { "top": "#5ea2db", "horizon": "#9fcfe4", "cloud": "#f4f6f6" },
+  "notes": "Plain two-storey sandstone-block cube: cream-tan ashlar walls (block coursing pattern not expressible in schema), light grey plaster band at the floor line, a grey-tinted block course directly under the flat roof slab, and a light grey fascia slab with generous overhang. Two framed blue-grey windows per floor on the street facade, two slimmer ones per floor on the right side; no door visible in either ref (spec says 1 door) so an assumed rear door was placed on the back facade. FRONTAGE HAS NO BRICK WALL: a white PICKET fence (~1.7 m, spec fence color #f2f0ea; sampled in shade #b9b9b5) runs the whole frontage with a picket gate ~0.4 along it -- wall omitted, factory needs a picket fence type. Grey paving-brick sidewalk fills the frame to the bottom edge (no road visible, road block omitted). A large low-poly street tree stands in the sidewalk in front of the fence; behind the fence: lawn, banana plants and two olive-like shrubs. At the right edge a tan brick garden wall (#c9a87e) returns along the neighbouring lot. Sampled colours from 12x9 grids 2026-07-03."
+}

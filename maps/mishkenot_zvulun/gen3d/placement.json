@@ -1,0 +1,66 @@
+{
+  "targetTris": 3000,
+  "out": "C:\\Users\\YonatanSetbon\\projects\\aniracers\\maps\\mishkenot_zvulun\\gen3d\\placed.glb",
+  "buildings": [
+    {
+      "id": "383410002",
+      "glb": "C:\\Users\\YonatanSetbon\\projects\\aniracers\\maps\\mishkenot_zvulun\\gen3d\\bld_383410002.glb",
+      "cx": -58.3583489286253,
+      "cz": -207.09430014662084,
+      "rotY": 3.0367542884096568,
+      "width": 27.139006982570308,
+      "depth": 21.08717906913631,
+      "height": 21,
+      "floors": 7,
+      "panoDist": 38
+    },
+    {
+      "id": "406278384",
+      "glb": "C:\\Users\\YonatanSetbon\\projects\\aniracers\\maps\\mishkenot_zvulun\\gen3d\\bld_406278384.glb",
+      "cx": 292.565,
+      "cz": 423,
+      "rotY": 1.1423024255643104,
+      "width": 14.633752105450128,
+      "depth": 9.312239221381219,
+      "height": 6,
+      "floors": 2,
+      "panoDist": 16
+    },
+    {
+      "id": "406278425",
+      "glb": "C:\\Users\\YonatanSetbon\\projects\\aniracers\\maps\\mishkenot_zvulun\\gen3d\\bld_406278425.glb",
+      "cx": 305.56,
+      "cz": 24.239999999999995,
+      "rotY": 1.5185760276039901,
+      "width": 23.186802864236927,
+      "depth": 17.533629770672576,
+      "height": 9,
+      "floors": 3,
+      "panoDist": 19
+    },
+    {
+      "id": "557132861",
+      "glb": "C:\\Users\\YonatanSetbon\\projects\\aniracers\\maps\\mishkenot_zvulun\\gen3d\\bld_557132861.glb",
+      "cx": 71.09516783337844,
+      "cz": -374.7599692288133,
+      "rotY": -0.03376169854256144,
+      "width": 12.736922749015491,
+      "depth": 21.92249301516597,
+      "height": 3,
+      "floors": 1,
+      "panoDist": 31
+    },
+    {
+      "id": "406278405",
+      "glb": "C:\\Users\\YonatanSetbon\\projects\\aniracers\\maps\\mishkenot_zvulun\\gen3d\\bld_406278405.glb",
+      "cx": 224.42,
+      "cz": 286.41499999999996,
+      "rotY": -2.505918799988495,
+      "width": 20.959991746686256,
+      "depth": 10.048365338643237,
+      "height": 9,
+      "floors": 3,
+      "panoDist": 20
+    }
+  ]
+}
