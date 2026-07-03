@@ -42,6 +42,116 @@
     "sidewalk": { "material": "paving-bricks", "color": "#b89685", "joint": "#a18a7e", "w": 3.0 },
     "road": { "surface": "asphalt", "color": "#8f9296" }
   },
+  "environment": {
+    "driveway": {
+      "at": 0.1,
+      "w": 4.0,
+      "color": "#c97b57"
+    },
+    "props": [
+      {
+        "model": "tree_default",
+        "h": 6.5,
+        "t": 0.15,
+        "inset": -1.6,
+        "rxz": 1.2,
+        "tint": {
+          "leafs": "#6fa832",
+          "wood": "#6e5138",
+          "*": "#6e5138"
+        }
+      },
+      {
+        "model": "tree_oak",
+        "h": 7,
+        "t": 1.02,
+        "inset": -1.6,
+        "rxz": 1.4,
+        "tint": {
+          "leafs": "#4e8a28",
+          "wood": "#6e5138",
+          "*": "#6e5138"
+        }
+      },
+      {
+        "model": "tree_palmTall",
+        "h": 9,
+        "t": 0.3,
+        "inset": 5,
+        "tint": {
+          "leafs": "#3f9b42",
+          "wood": "#a08a67",
+          "*": "#a08a67"
+        }
+      },
+      {
+        "model": "tree_palmDetailedTall",
+        "h": 8,
+        "t": 0.85,
+        "inset": 1.4,
+        "tint": {
+          "leafs": "#3f9b42",
+          "wood": "#a08a67",
+          "*": "#a08a67"
+        }
+      },
+      {
+        "model": "plant_bushLarge",
+        "h": 2.4,
+        "t": 0.7,
+        "inset": 1.3,
+        "tint": {
+          "leafs": "#4c9a3e",
+          "*": "#4c9a3e"
+        }
+      },
+      {
+        "model": "plant_bush",
+        "h": 1.3,
+        "t": 0.5,
+        "inset": 2.6,
+        "tint": {
+          "leafs": "#57952c",
+          "*": "#57952c"
+        }
+      },
+      {
+        "planter": true,
+        "t": 1.02,
+        "inset": -0.6,
+        "w": 1.8,
+        "d": 1.1,
+        "color": "#cbb489",
+        "rot": "along"
+      },
+      {
+        "model": "grass_leafs",
+        "h": 0.6,
+        "t": 1.02,
+        "inset": -0.6,
+        "y": 0.5,
+        "tint": {
+          "grass": "#5c9440",
+          "*": "#5c9440"
+        }
+      },
+      {
+        "car": true,
+        "t": 0.1,
+        "inset": -0.9,
+        "rot": "along",
+        "color": "#b9bcc0"
+      },
+      {
+        "car": true,
+        "t": 0.42,
+        "inset": -4.9,
+        "rot": "along",
+        "flip": true,
+        "color": "#9aa0a6"
+      }
+    ]
+  },
   "sky": { "top": "#5ea2db", "horizon": "#9fcfe4", "cloud": "#f4f6f6" },
   "notes": "Compact 2-storey corner villa in two tones: protruding cream entry block (#ebe3ce) with a horizontal-slat siding strip along its top (#e5dbbf), a stone-brick accent patch at its lower-left (#d9cfb4) and a light stone-block base course (#cbc3ad); recessed wooden entrance door (#a46e45) at the inside corner; beige main block (#cbba9c) carrying the barred window stack. Red clay-tile GABLE roof #c76d5b (ridge runs across the plan; gable end over the right wall, which is clad in lighter horizontal siding #f1e6c9 - band schema has no facade key so noted here). All windows have grey security-bar grilles #a0a09a in front of the glass (no bars field yet). There is an extra mid-level stairwell window between floors on the front at x~0.45 (schema is per-floor, noted for factory). FRONTAGE: NO brick wall - a wood horizontal-slat fence (#b07246 slats, grey steel posts #5e5c68, h~1.4 per spec) with a steel-framed slat pedestrian gate; right of the gate the fence sits on a white stone-block wall base (#d0bca5) - slat fence type pending in factory. Inside the fence an orange brick-paved forecourt (#dc8c68). Tall beige-brick neighbour compound wall (#d8c4a7) closes the left edge of the frame. Sidewalk is tan paving brick to the kerb, no grass verge; road not visible in ref (asphalt hex copied from style anchor). Vegetation for prop factory: two round low-poly trees right (#80b03c canopy, dark #30592a), a palm-like shrub behind the fence, a small globe tree at the entrance; grass field horizon #7eac42. White gutter + downpipe on the entry block. Sampled from 12x9 scene grid + 24x18 iso grid 2026-07-03."
 }
