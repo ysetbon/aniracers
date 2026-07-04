@@ -405,6 +405,36 @@ async function bakeAerialTrees(){
     collectAll(instProp(src,{h:h,tint:tint,rxz:kind.rxz},t.x,t.z,(i*2.399)%(Math.PI*2)));n++;}
   return n;}
 
+// ---- procedural street furniture over the WHOLE hood: globe lamps along every road,
+// parked cars against the kerbs, T-signs at dead-ends. Reuses the T-junction factory so the
+// whole world reads as rich as the junction. Real building/tree positions come from SV/aerial;
+// this furniture is rule-placed (deterministic hash, no Math.random). ----
+var CARCOLORS=['#eceae4','#3d5a82','#a5342c','#d8d8d8','#454649','#6b7f6b','#c9b08a','#8a2f2a','#b8b4ac'];
+function hsh(n){n=(n*2654435761)>>>0;return n/4294967296;}
+function bakeStreetFurniture(){
+  // dead-end endpoints = used by exactly one road
+  var ep={};
+  for(var i=0;i<SCENE.roads.length;i++){var p=SCENE.roads[i].pts;
+    [p[0],p[p.length-1]].forEach(function(q){var k=Math.round(q[0])+'_'+Math.round(q[1]);ep[k]=(ep[k]||0)+1;});}
+  var n=0;
+  for(var r=0;r<SCENE.roads.length;r++){var rd=SCENE.roads[r];if(rd.pts.length<2)continue;
+    var segs=roadWalk(rd.pts),hw=rd.halfW||3.2;if(segs.total<10)continue;
+    // globe lamps ~38m apart, alternating side, on the verge just past the kerb
+    for(var s=16,li=0;s<segs.total-5;s+=38,li++){var f=atArc(segs,s),sd=(li%2)?1:-1;
+      collectAll(mkGlobeLamp(f.x+f.nx*(hw+0.7)*sd,f.z+f.nz*(hw+0.7)*sd));n++;}
+    // parked cars ~15m apart, alternating side, ~55% density, hugging the kerb
+    for(var s2=9,ci=0;s2<segs.total-5;s2+=15,ci++){if(hsh(r*131+ci*7)>0.55)continue;
+      var f2=atArc(segs,s2),sd2=(ci%2)?1:-1;
+      var cx=f2.x+f2.nx*(hw+1.25)*sd2,cz=f2.z+f2.nz*(hw+1.25)*sd2;
+      var rot=Math.atan2(-f2.uz,f2.ux)+(sd2<0?Math.PI:0);
+      collectAll(mkCar({color:CARCOLORS[Math.floor(hsh(r*977+ci*13)*CARCOLORS.length)]},cx,cz,rot));n++;}
+    // T-sign at each dead-end endpoint, facing back down the road
+    var ends=[[rd.pts[0],rd.pts[1]],[rd.pts[rd.pts.length-1],rd.pts[rd.pts.length-2]]];
+    for(var e=0;e<2;e++){var a=ends[e][0],b=ends[e][1],k=Math.round(a[0])+'_'+Math.round(a[1]);
+      if(ep[k]===1){var dx=a[0]-b[0],dz=a[1]-b[1],L=Math.hypot(dx,dz)||1;
+        collectAll(mkTSign(a[0]-dx/L*2.5+(-dz/L)*(hw+0.6),a[1]-dz/L*2.5+(dx/L)*(hw+0.6),Math.atan2(-dx,-dz)));n++;}}}
+  return n;}
+
 async function main(){
   bakeGround();
   for(var r=0;r<SCENE.roads.length;r++){
@@ -413,6 +443,8 @@ async function main(){
   }
   await bakeIslands();
   bakeFurniture();
+  var furn=bakeStreetFurniture();
+  console.log('  street furniture placed: '+furn+' (lamps/cars/signs hood-wide)');
   var placed=0;
   for(var bi=0;bi<JOBS.length;bi++)placed+=await bakeBuilding(JOBS[bi]);
   var aerialTrees=await bakeAerialTrees();
