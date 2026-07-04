@@ -21,6 +21,18 @@
     "sidewalk": { "material": "brick-pavers", "color": "#b25f3c", "joint": "#9a5236", "w": 3.0 },
     "road": { "surface": "asphalt", "color": "#7f8286" }
   },
+  "environment": {
+    "props": [
+      { "model": "tree_oak", "h": 8.5, "t": 0.14, "inset": 2.6, "rxz": 0.6, "tint": { "leafs": "#274d24", "wood": "#6e5138", "*": "#6e5138" } },
+      { "model": "tree_palmDetailedTall", "h": 8.0, "t": 0.24, "inset": 2.2, "rxz": 0.85, "tint": { "leafs": "#6e8a6a", "wood": "#a08a67", "*": "#a08a67" } },
+      { "model": "plant_bushLarge", "h": 3.0, "t": 0.42, "inset": 1.4, "rxz": 1.3, "tint": { "leafs": "#4c8a34", "*": "#3c7031" } },
+      { "model": "plant_bushLarge", "h": 2.8, "t": 0.52, "inset": 1.4, "rxz": 1.3, "tint": { "leafs": "#57952c", "*": "#44603a" } },
+      { "model": "plant_bushLarge", "h": 2.9, "t": 0.62, "inset": 1.4, "rxz": 1.3, "tint": { "leafs": "#4c8a34", "*": "#3c7031" } },
+      { "model": "plant_bushDetailed", "h": 1.2, "t": 0.3, "inset": 1.0, "rxz": 1.1, "tint": { "leafs": "#6e8a5e", "*": "#607a4e" } },
+      { "car": true, "t": 0.1, "inset": -4.7, "rot": "along", "color": "#8a4a32" },
+      { "car": true, "t": 0.5, "inset": -6.6, "rot": "along", "flip": true, "color": "#2e4a34" }
+    ]
+  },
   "sky": { "top": "#5ea2db", "horizon": "#9fcfe4", "cloud": "#f4f6f6" },
   "notes": "Row of white cubic modernist flat-roofed houses. Small square windows deeply recessed with brown wood frames; brown entry doors. White brick / block compound wall with an ornate black iron pedestrian gate. Palms, cypress, agave and large round hedges in the yard; red brick-paver path. Colours sampled from ref 2026-07-04."
 }

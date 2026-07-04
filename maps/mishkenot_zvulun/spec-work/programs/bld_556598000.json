@@ -21,6 +21,17 @@
     "sidewalk": { "material": "stone-slabs", "color": "#b8b9b6", "joint": "#a2a39f", "w": 3.5 },
     "road": { "surface": "asphalt", "color": "#808387" }
   },
+  "environment": {
+    "props": [
+      { "model": "tree_palmDetailedTall", "h": 9.5, "t": 0.75, "inset": 2.2, "rxz": 0.85, "tint": { "leafs": "#3f9b42", "wood": "#a08a67", "*": "#a08a67" } },
+      { "model": "tree_oak", "h": 7.0, "t": 0.2, "inset": 1.6, "rxz": 0.6, "tint": { "leafs": "#2f5d2a", "wood": "#6e5138", "*": "#6e5138" } },
+      { "model": "plant_bushLarge", "h": 3.0, "t": 0.12, "inset": 1.0, "rxz": 1.4, "tint": { "leafs": "#4c8a34", "*": "#44603a" } },
+      { "model": "plant_bushLarge", "h": 2.5, "t": 0.28, "inset": 1.0, "rxz": 1.2, "tint": { "leafs": "#3f9b42", "*": "#44603a" } },
+      { "hedge": true, "t0": 0.45, "t1": 0.68, "step": 1.2, "inset": 1.3, "h": 2, "d": 1.4, "colors": ["#57952c", "#4e8a28", "#3c7031"] },
+      { "bin": true, "t": 0.9, "inset": -0.9, "rot": "along" },
+      { "car": true, "t": 0.55, "inset": -4.7, "rot": "along", "color": "#eceae4" }
+    ]
+  },
   "sky": { "top": "#5ea2db", "horizon": "#9fcfe4", "cloud": "#f4f6f6" },
   "notes": "Pale-yellow two-storey terraced house (right foreground of a row), flat roof. Front windows have grey louvered shutters in white frames. Frontage is a low cream-block base wall topped by a tall dark metal fence with white ornate scroll panels and matching gates. Cypress, palms and a banana plant in the yard; grey stone-slab pavement, in-game 'LAP 1/3' marker in scene. Colours sampled from ref 2026-07-04."
 }
