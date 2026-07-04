@@ -1,0 +1,948 @@
+{
+ "world": {
+  "xWest": 60,
+  "xEast": 200,
+  "zNorth": -435,
+  "zSouth": -230
+ },
+ "mpp": 0.5,
+ "count": 93,
+ "params": {
+  "EXG": 28,
+  "GMAX": 195,
+  "MINA": 10,
+  "MAXA": 1400
+ },
+ "trees": [
+  {
+   "x": 88.7,
+   "z": -376.6,
+   "r": 6,
+   "area": 2087,
+   "clipped": true,
+   "cx": 56.8,
+   "cy": 116.4,
+   "species": "canopy-large"
+  },
+  {
+   "x": 79.2,
+   "z": -274.1,
+   "r": 6,
+   "area": 1867,
+   "clipped": true,
+   "cx": 37.8,
+   "cy": 321.4,
+   "species": "canopy-large"
+  },
+  {
+   "x": 161.9,
+   "z": -254.6,
+   "r": 6,
+   "area": 1679,
+   "clipped": true,
+   "cx": 203.4,
+   "cy": 360.3,
+   "species": "canopy-large"
+  },
+  {
+   "x": 82.6,
+   "z": -316.5,
+   "r": 6,
+   "area": 1392,
+   "clipped": false,
+   "cx": 44.8,
+   "cy": 236.5,
+   "species": "canopy-large"
+  },
+  {
+   "x": 183.7,
+   "z": -325.3,
+   "r": 6,
+   "area": 1203,
+   "clipped": false,
+   "cx": 247,
+   "cy": 218.9,
+   "species": "canopy-large"
+  },
+  {
+   "x": 172,
+   "z": -376.7,
+   "r": 6,
+   "area": 1156,
+   "clipped": false,
+   "cx": 223.6,
+   "cy": 116.2,
+   "species": "canopy-large"
+  },
+  {
+   "x": 110.1,
+   "z": -277.3,
+   "r": 6,
+   "area": 1126,
+   "clipped": false,
+   "cx": 99.6,
+   "cy": 314.9,
+   "species": "canopy-large"
+  },
+  {
+   "x": 114.4,
+   "z": -300.5,
+   "r": 6,
+   "area": 770,
+   "clipped": false,
+   "cx": 108.3,
+   "cy": 268.4,
+   "species": "canopy-large"
+  },
+  {
+   "x": 97.4,
+   "z": -340.1,
+   "r": 6,
+   "area": 697,
+   "clipped": false,
+   "cx": 74.2,
+   "cy": 189.3,
+   "species": "canopy-large"
+  },
+  {
+   "x": 143.5,
+   "z": -401.1,
+   "r": 6,
+   "area": 677,
+   "clipped": false,
+   "cx": 166.6,
+   "cy": 67.2,
+   "species": "canopy-large"
+  },
+  {
+   "x": 156,
+   "z": -343.6,
+   "r": 6,
+   "area": 621,
+   "clipped": false,
+   "cx": 191.6,
+   "cy": 182.4,
+   "species": "canopy-large"
+  },
+  {
+   "x": 192.1,
+   "z": -424.8,
+   "r": 6,
+   "area": 613,
+   "clipped": false,
+   "cx": 263.8,
+   "cy": 19.9,
+   "species": "canopy-large"
+  },
+  {
+   "x": 131.2,
+   "z": -338.3,
+   "r": 6,
+   "area": 507,
+   "clipped": false,
+   "cx": 142,
+   "cy": 192.8,
+   "species": "canopy-large"
+  },
+  {
+   "x": 143,
+   "z": -263.3,
+   "r": 5.9,
+   "area": 444,
+   "clipped": false,
+   "cx": 165.6,
+   "cy": 343,
+   "species": "canopy-large"
+  },
+  {
+   "x": 197.3,
+   "z": -402.5,
+   "r": 5.5,
+   "area": 376,
+   "clipped": false,
+   "cx": 274,
+   "cy": 64.4,
+   "species": "canopy-large"
+  },
+  {
+   "x": 101.4,
+   "z": -235.6,
+   "r": 5.4,
+   "area": 368,
+   "clipped": false,
+   "cx": 82.2,
+   "cy": 398.4,
+   "species": "canopy-large"
+  },
+  {
+   "x": 109.8,
+   "z": -316.9,
+   "r": 5.3,
+   "area": 348,
+   "clipped": false,
+   "cx": 99,
+   "cy": 235.6,
+   "species": "canopy-large"
+  },
+  {
+   "x": 189.3,
+   "z": -354,
+   "r": 5.2,
+   "area": 346,
+   "clipped": false,
+   "cx": 258.1,
+   "cy": 161.5,
+   "species": "canopy-large"
+  },
+  {
+   "x": 130,
+   "z": -383,
+   "r": 4.9,
+   "area": 304,
+   "clipped": false,
+   "cx": 139.6,
+   "cy": 103.5,
+   "species": "canopy-large"
+  },
+  {
+   "x": 127.9,
+   "z": -236.4,
+   "r": 4.8,
+   "area": 292,
+   "clipped": false,
+   "cx": 135.4,
+   "cy": 396.8,
+   "species": "canopy-large"
+  },
+  {
+   "x": 81.7,
+   "z": -417,
+   "r": 4.7,
+   "area": 276,
+   "clipped": false,
+   "cx": 43,
+   "cy": 35.4,
+   "species": "canopy-large"
+  },
+  {
+   "x": 82.1,
+   "z": -240,
+   "r": 4.6,
+   "area": 266,
+   "clipped": false,
+   "cx": 43.6,
+   "cy": 389.6,
+   "species": "canopy-large"
+  },
+  {
+   "x": 158.4,
+   "z": -359.5,
+   "r": 4.6,
+   "area": 262,
+   "clipped": false,
+   "cx": 196.3,
+   "cy": 150.4,
+   "species": "canopy-large"
+  },
+  {
+   "x": 68.8,
+   "z": -352.2,
+   "r": 4.5,
+   "area": 255,
+   "clipped": false,
+   "cx": 17,
+   "cy": 165.2,
+   "species": "canopy-large"
+  },
+  {
+   "x": 163,
+   "z": -318.5,
+   "r": 4.5,
+   "area": 251,
+   "clipped": false,
+   "cx": 205.6,
+   "cy": 232.5,
+   "species": "canopy-large"
+  },
+  {
+   "x": 185.3,
+   "z": -239.1,
+   "r": 4,
+   "area": 206,
+   "clipped": false,
+   "cx": 250.1,
+   "cy": 391.4,
+   "species": "canopy-large"
+  },
+  {
+   "x": 157,
+   "z": -328.8,
+   "r": 3.9,
+   "area": 195,
+   "clipped": false,
+   "cx": 193.4,
+   "cy": 211.9,
+   "species": "canopy-large"
+  },
+  {
+   "x": 196.2,
+   "z": -386.4,
+   "r": 3.8,
+   "area": 186,
+   "clipped": false,
+   "cx": 271.9,
+   "cy": 96.6,
+   "species": "canopy-large"
+  },
+  {
+   "x": 181.9,
+   "z": -304,
+   "r": 3.6,
+   "area": 163,
+   "clipped": false,
+   "cx": 243.2,
+   "cy": 261.4,
+   "species": "canopy-large"
+  },
+  {
+   "x": 117,
+   "z": -367.5,
+   "r": 3.6,
+   "area": 162,
+   "clipped": false,
+   "cx": 113.6,
+   "cy": 134.4,
+   "species": "canopy-large"
+  },
+  {
+   "x": 61.6,
+   "z": -238.7,
+   "r": 3.5,
+   "area": 157,
+   "clipped": false,
+   "cx": 2.7,
+   "cy": 392.1,
+   "species": "canopy-large"
+  },
+  {
+   "x": 75.2,
+   "z": -407.7,
+   "r": 3.5,
+   "area": 154,
+   "clipped": false,
+   "cx": 29.9,
+   "cy": 54.1,
+   "species": "canopy-large"
+  },
+  {
+   "x": 155.1,
+   "z": -378.8,
+   "r": 3.5,
+   "area": 153,
+   "clipped": false,
+   "cx": 189.8,
+   "cy": 111.8,
+   "species": "canopy-large"
+  },
+  {
+   "x": 115.4,
+   "z": -349.2,
+   "r": 3.5,
+   "area": 150,
+   "clipped": false,
+   "cx": 110.3,
+   "cy": 171.1,
+   "species": "canopy-large"
+  },
+  {
+   "x": 107.4,
+   "z": -254.2,
+   "r": 3.5,
+   "area": 150,
+   "clipped": false,
+   "cx": 94.3,
+   "cy": 361.2,
+   "species": "canopy-large"
+  },
+  {
+   "x": 140.1,
+   "z": -237.9,
+   "r": 3.3,
+   "area": 139,
+   "clipped": false,
+   "cx": 159.7,
+   "cy": 393.7,
+   "species": "canopy-large"
+  },
+  {
+   "x": 130.4,
+   "z": -359.1,
+   "r": 3.2,
+   "area": 130,
+   "clipped": false,
+   "cx": 140.3,
+   "cy": 151.3,
+   "species": "canopy-large"
+  },
+  {
+   "x": 174.8,
+   "z": -247.5,
+   "r": 3.1,
+   "area": 121,
+   "clipped": false,
+   "cx": 229.1,
+   "cy": 374.6,
+   "species": "canopy-med"
+  },
+  {
+   "x": 168.3,
+   "z": -407.4,
+   "r": 3.1,
+   "area": 118,
+   "clipped": false,
+   "cx": 216,
+   "cy": 54.8,
+   "species": "canopy-med"
+  },
+  {
+   "x": 150,
+   "z": -279.7,
+   "r": 3,
+   "area": 112,
+   "clipped": false,
+   "cx": 179.5,
+   "cy": 310.1,
+   "species": "canopy-med"
+  },
+  {
+   "x": 161.9,
+   "z": -428.1,
+   "r": 3,
+   "area": 111,
+   "clipped": false,
+   "cx": 203.3,
+   "cy": 13.3,
+   "species": "canopy-med"
+  },
+  {
+   "x": 143.5,
+   "z": -247.2,
+   "r": 2.9,
+   "area": 108,
+   "clipped": false,
+   "cx": 166.6,
+   "cy": 375.1,
+   "species": "canopy-med"
+  },
+  {
+   "x": 115.2,
+   "z": -410.8,
+   "r": 2.9,
+   "area": 106,
+   "clipped": false,
+   "cx": 110,
+   "cy": 47.9,
+   "species": "canopy-med"
+  },
+  {
+   "x": 122.9,
+   "z": -310.9,
+   "r": 2.8,
+   "area": 101,
+   "clipped": false,
+   "cx": 125.3,
+   "cy": 247.8,
+   "species": "canopy-med"
+  },
+  {
+   "x": 65.7,
+   "z": -335.8,
+   "r": 2.6,
+   "area": 83,
+   "clipped": false,
+   "cx": 11,
+   "cy": 197.9,
+   "species": "canopy-med"
+  },
+  {
+   "x": 198.2,
+   "z": -236.2,
+   "r": 2.5,
+   "area": 78,
+   "clipped": false,
+   "cx": 275.8,
+   "cy": 397.1,
+   "species": "canopy-med"
+  },
+  {
+   "x": 197.2,
+   "z": -366.9,
+   "r": 2.5,
+   "area": 77,
+   "clipped": false,
+   "cx": 273.9,
+   "cy": 135.7,
+   "species": "canopy-med"
+  },
+  {
+   "x": 161.5,
+   "z": -374.3,
+   "r": 2.5,
+   "area": 76,
+   "clipped": false,
+   "cx": 202.6,
+   "cy": 121,
+   "species": "canopy-med"
+  },
+  {
+   "x": 160.3,
+   "z": -412.5,
+   "r": 2.4,
+   "area": 72,
+   "clipped": false,
+   "cx": 200.1,
+   "cy": 44.5,
+   "species": "canopy-med"
+  },
+  {
+   "x": 152.5,
+   "z": -294.9,
+   "r": 2.4,
+   "area": 71,
+   "clipped": false,
+   "cx": 184.5,
+   "cy": 279.7,
+   "species": "canopy-med"
+  },
+  {
+   "x": 181.8,
+   "z": -244.3,
+   "r": 2.4,
+   "area": 71,
+   "clipped": false,
+   "cx": 243.2,
+   "cy": 380.9,
+   "species": "canopy-med"
+  },
+  {
+   "x": 81.4,
+   "z": -349.5,
+   "r": 2.3,
+   "area": 65,
+   "clipped": false,
+   "cx": 42.2,
+   "cy": 170.6,
+   "species": "canopy-med"
+  },
+  {
+   "x": 157.3,
+   "z": -398.5,
+   "r": 2.2,
+   "area": 62,
+   "clipped": false,
+   "cx": 194.1,
+   "cy": 72.4,
+   "species": "canopy-med"
+  },
+  {
+   "x": 145.9,
+   "z": -272.8,
+   "r": 2.2,
+   "area": 62,
+   "clipped": false,
+   "cx": 171.3,
+   "cy": 323.9,
+   "species": "canopy-med"
+  },
+  {
+   "x": 61.4,
+   "z": -324.4,
+   "r": 2.2,
+   "area": 59,
+   "clipped": false,
+   "cx": 2.3,
+   "cy": 220.7,
+   "species": "canopy-med"
+  },
+  {
+   "x": 122.2,
+   "z": -434.1,
+   "r": 2,
+   "area": 50,
+   "clipped": false,
+   "cx": 123.8,
+   "cy": 1.3,
+   "species": "canopy-med"
+  },
+  {
+   "x": 192.8,
+   "z": -360.6,
+   "r": 2,
+   "area": 50,
+   "clipped": false,
+   "cx": 265.1,
+   "cy": 148.3,
+   "species": "canopy-med"
+  },
+  {
+   "x": 112.4,
+   "z": -386.6,
+   "r": 1.9,
+   "area": 46,
+   "clipped": false,
+   "cx": 104.3,
+   "cy": 96.3,
+   "species": "canopy-med"
+  },
+  {
+   "x": 192.4,
+   "z": -236.5,
+   "r": 1.8,
+   "area": 39,
+   "clipped": false,
+   "cx": 264.4,
+   "cy": 396.4,
+   "species": "canopy-med"
+  },
+  {
+   "x": 153.4,
+   "z": -356.6,
+   "r": 1.7,
+   "area": 37,
+   "clipped": false,
+   "cx": 186.3,
+   "cy": 156.3,
+   "species": "shrub"
+  },
+  {
+   "x": 111.2,
+   "z": -433.8,
+   "r": 1.7,
+   "area": 36,
+   "clipped": false,
+   "cx": 101.9,
+   "cy": 1.9,
+   "species": "shrub"
+  },
+  {
+   "x": 171.3,
+   "z": -427.5,
+   "r": 1.7,
+   "area": 35,
+   "clipped": false,
+   "cx": 222.1,
+   "cy": 14.4,
+   "species": "shrub"
+  },
+  {
+   "x": 190.4,
+   "z": -340.3,
+   "r": 1.7,
+   "area": 35,
+   "clipped": false,
+   "cx": 260.4,
+   "cy": 188.9,
+   "species": "shrub"
+  },
+  {
+   "x": 143.6,
+   "z": -432.8,
+   "r": 1.6,
+   "area": 33,
+   "clipped": false,
+   "cx": 166.6,
+   "cy": 3.9,
+   "species": "shrub"
+  },
+  {
+   "x": 154.4,
+   "z": -434.4,
+   "r": 1.6,
+   "area": 32,
+   "clipped": false,
+   "cx": 188.2,
+   "cy": 0.7,
+   "species": "shrub"
+  },
+  {
+   "x": 102,
+   "z": -421,
+   "r": 1.5,
+   "area": 28,
+   "clipped": false,
+   "cx": 83.5,
+   "cy": 27.4,
+   "species": "shrub"
+  },
+  {
+   "x": 142.8,
+   "z": -321.8,
+   "r": 1.5,
+   "area": 28,
+   "clipped": false,
+   "cx": 165.1,
+   "cy": 225.9,
+   "species": "shrub"
+  },
+  {
+   "x": 128.7,
+   "z": -421.4,
+   "r": 1.5,
+   "area": 27,
+   "clipped": false,
+   "cx": 136.8,
+   "cy": 26.7,
+   "species": "shrub"
+  },
+  {
+   "x": 166.9,
+   "z": -230.8,
+   "r": 1.5,
+   "area": 27,
+   "clipped": false,
+   "cx": 213.4,
+   "cy": 408,
+   "species": "shrub"
+  },
+  {
+   "x": 198.5,
+   "z": -351.8,
+   "r": 1.4,
+   "area": 26,
+   "clipped": false,
+   "cx": 276.5,
+   "cy": 165.9,
+   "species": "shrub"
+  },
+  {
+   "x": 147.4,
+   "z": -288.9,
+   "r": 1.4,
+   "area": 23,
+   "clipped": false,
+   "cx": 174.3,
+   "cy": 291.8,
+   "species": "shrub"
+  },
+  {
+   "x": 118.8,
+   "z": -381,
+   "r": 1.3,
+   "area": 21,
+   "clipped": false,
+   "cx": 117.1,
+   "cy": 107.4,
+   "species": "shrub"
+  },
+  {
+   "x": 131.4,
+   "z": -351.3,
+   "r": 1.3,
+   "area": 21,
+   "clipped": false,
+   "cx": 142.4,
+   "cy": 166.8,
+   "species": "shrub"
+  },
+  {
+   "x": 152.3,
+   "z": -288.3,
+   "r": 1.3,
+   "area": 20,
+   "clipped": false,
+   "cx": 184.1,
+   "cy": 292.9,
+   "species": "shrub"
+  },
+  {
+   "x": 155.8,
+   "z": -392.7,
+   "r": 1.2,
+   "area": 19,
+   "clipped": false,
+   "cx": 191.2,
+   "cy": 84.1,
+   "species": "shrub"
+  },
+  {
+   "x": 69.4,
+   "z": -386.3,
+   "r": 1.2,
+   "area": 19,
+   "clipped": false,
+   "cx": 18.3,
+   "cy": 96.9,
+   "species": "shrub"
+  },
+  {
+   "x": 125.5,
+   "z": -356.3,
+   "r": 1.2,
+   "area": 19,
+   "clipped": false,
+   "cx": 130.5,
+   "cy": 156.8,
+   "species": "shrub"
+  },
+  {
+   "x": 144,
+   "z": -283.1,
+   "r": 1.2,
+   "area": 19,
+   "clipped": false,
+   "cx": 167.6,
+   "cy": 303.3,
+   "species": "shrub"
+  },
+  {
+   "x": 99.2,
+   "z": -245,
+   "r": 1.2,
+   "area": 19,
+   "clipped": false,
+   "cx": 77.9,
+   "cy": 379.5,
+   "species": "shrub"
+  },
+  {
+   "x": 191.3,
+   "z": -380.6,
+   "r": 1.2,
+   "area": 18,
+   "clipped": false,
+   "cx": 262.2,
+   "cy": 108.3,
+   "species": "shrub"
+  },
+  {
+   "x": 145.1,
+   "z": -320.3,
+   "r": 1.2,
+   "area": 18,
+   "clipped": false,
+   "cx": 169.7,
+   "cy": 229,
+   "species": "shrub"
+  },
+  {
+   "x": 184.8,
+   "z": -314.6,
+   "r": 1.2,
+   "area": 18,
+   "clipped": false,
+   "cx": 249.1,
+   "cy": 240.3,
+   "species": "shrub"
+  },
+  {
+   "x": 177,
+   "z": -385.9,
+   "r": 1.1,
+   "area": 16,
+   "clipped": false,
+   "cx": 233.4,
+   "cy": 97.7,
+   "species": "shrub"
+  },
+  {
+   "x": 190.8,
+   "z": -333.8,
+   "r": 1.1,
+   "area": 16,
+   "clipped": false,
+   "cx": 261.2,
+   "cy": 201.8,
+   "species": "shrub"
+  },
+  {
+   "x": 78,
+   "z": -428.8,
+   "r": 1.1,
+   "area": 14,
+   "clipped": false,
+   "cx": 35.5,
+   "cy": 12,
+   "species": "shrub"
+  },
+  {
+   "x": 61.7,
+   "z": -386.3,
+   "r": 1.1,
+   "area": 14,
+   "clipped": false,
+   "cx": 2.9,
+   "cy": 96.9,
+   "species": "shrub"
+  },
+  {
+   "x": 151.7,
+   "z": -302.1,
+   "r": 1.1,
+   "area": 14,
+   "clipped": false,
+   "cx": 182.9,
+   "cy": 265.3,
+   "species": "shrub"
+  },
+  {
+   "x": 93.9,
+   "z": -240.3,
+   "r": 1.1,
+   "area": 14,
+   "clipped": false,
+   "cx": 67.2,
+   "cy": 389,
+   "species": "shrub"
+  },
+  {
+   "x": 115.3,
+   "z": -405.5,
+   "r": 1,
+   "area": 12,
+   "clipped": false,
+   "cx": 110,
+   "cy": 58.6,
+   "species": "shrub"
+  },
+  {
+   "x": 178,
+   "z": -237.9,
+   "r": 1,
+   "area": 12,
+   "clipped": false,
+   "cx": 235.6,
+   "cy": 393.7,
+   "species": "shrub"
+  },
+  {
+   "x": 94.6,
+   "z": -234.6,
+   "r": 0.9,
+   "area": 11,
+   "clipped": false,
+   "cx": 68.7,
+   "cy": 400.4,
+   "species": "shrub"
+  },
+  {
+   "x": 120.6,
+   "z": -372.9,
+   "r": 0.9,
+   "area": 10,
+   "clipped": false,
+   "cx": 120.7,
+   "cy": 123.7,
+   "species": "shrub"
+  },
+  {
+   "x": 114.3,
+   "z": -328.9,
+   "r": 0.9,
+   "area": 10,
+   "clipped": false,
+   "cx": 108.1,
+   "cy": 211.8,
+   "species": "shrub"
+  }
+ ]
+}
