@@ -19,6 +19,22 @@
     "sidewalk": { "material": "brick", "color": "#b26a44", "joint": "#8f4f30", "w": 3.5 },
     "verge": { "grass": "#7ba33f", "grassDark": "#586f3d" }
   },
+  "environment": {
+    "props": [
+      { "model": "tree_palmDetailedTall", "h": 6, "t": 0.32, "inset": 1.8, "rxz": 0.85, "tint": { "leafs": "#3f9b42", "wood": "#a08a67", "*": "#a08a67" } },
+      { "model": "plant_bushLarge", "h": 1.6, "t": 0.55, "inset": 0.9, "rxz": 1.2, "tint": { "leafs": "#4c8a34", "*": "#44603a" } },
+      { "model": "plant_bushLarge", "h": 1.4, "t": 0.63, "inset": 0.7, "rxz": 1.1, "tint": { "leafs": "#57952c", "*": "#44603a" } },
+      { "model": "grass_leafs", "h": 0.5, "t": 0.7, "inset": 0.5, "tint": { "grass": "#5c9440", "*": "#5c9440" } },
+      { "model": "grass_leafs", "h": 0.45, "t": 0.82, "inset": 0.5, "tint": { "grass": "#4c8a3c", "*": "#4c8a3c" } },
+      { "model": "rock_smallA", "h": 0.4, "t": 0.72, "inset": 0.45 },
+      { "model": "rock_smallB", "h": 0.35, "t": 0.86, "inset": 0.45 },
+      { "model": "pot_large", "h": 0.75, "t": 0.4, "inset": 0.7, "tint": { "wood": "#b8683f", "woodBarkDark": "#a05a36" } },
+      { "lamp": true, "t": 0.72, "inset": -1, "rot": 90 },
+      { "bin": true, "t": 0.78, "inset": -1, "rot": "along" },
+      { "car": true, "t": 0.5, "inset": -4.7, "rot": "along", "color": "#eceae4" },
+      { "car": true, "t": 0.88, "inset": -4.7, "rot": "along", "flip": true, "color": "#33405a" }
+    ]
+  },
   "sky": { "top": "#5ea2db", "horizon": "#9fcfe4", "cloud": "#f4f6f6" },
-  "notes": "Two-storey cream terraced house in a row (brick-paver internal street). Facade features cream stucco with red-brick perforated (breeze-block) lattice panels on the ground floor, windows with grey security bars, wall-mounted AC units, and an entrance with a short flight of steps -- bars/breeze-blocks/steps not expressible, approximated as recessed windows + door. Red terracotta-tile hipped roof. No compound wall; the building fronts directly onto the brick-paver lane. Colours estimated from ref."
+  "notes": "Two-storey cream terraced house in a row (brick-paver internal street). Facade features cream stucco with red-brick perforated (breeze-block) lattice panels on the ground floor, windows with grey security bars, wall-mounted AC units, and an entrance with a short flight of steps -- bars/breeze-blocks/steps not expressible, approximated as recessed windows + door. Red terracotta-tile hipped roof. No compound wall; the building fronts directly onto the brick-paver lane. Colours estimated from ref. Environment (2026-07-05): front palm, base rock-garden strip with round bushes + grass tufts + rocks, terracotta pot by the door, kerb lamp + recycling bin, and two parked cars on the lane (white + navy)."
 }

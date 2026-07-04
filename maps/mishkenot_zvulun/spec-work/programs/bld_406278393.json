@@ -30,6 +30,22 @@
     "sidewalk": { "material": "brick", "color": "#b5623f", "joint": "#96502f", "w": 3.5 },
     "verge": { "grass": "#84bf4a", "grassDark": "#5c6a49" }
   },
+  "environment": {
+    "props": [
+      { "model": "pot_large", "h": 0.75, "t": 0.3, "inset": 0.7, "tint": { "wood": "#b8683f", "woodBarkDark": "#a05a36" } },
+      { "model": "pot_small", "h": 0.5, "t": 0.38, "inset": 0.6, "tint": { "wood": "#b8683f", "woodBarkDark": "#a05a36" } },
+      { "model": "pot_small", "h": 0.45, "t": 0.24, "inset": 0.55, "tint": { "wood": "#c07a4a", "woodBarkDark": "#a05a36" } },
+      { "model": "grass_leafsLarge", "h": 0.9, "t": 0.35, "inset": 0.6, "tint": { "grass": "#6f9a4a", "*": "#6f9a4a" } },
+      { "model": "plant_bushDetailed", "h": 2, "t": 0.48, "inset": 0.9, "rxz": 1, "tint": { "leafs": "#6a9e3a", "*": "#44603a" } },
+      { "model": "rock_smallA", "h": 0.35, "t": 0.4, "inset": 0.4 },
+      { "model": "rock_smallB", "h": 0.3, "t": 0.52, "inset": 0.4 },
+      { "model": "rock_smallA", "h": 0.3, "t": 0.18, "inset": 0.45 },
+      { "model": "plant_bushLarge", "h": 1.8, "t": 0.82, "inset": 1, "rxz": 1.2, "tint": { "leafs": "#4c8a34", "*": "#44603a" } },
+      { "model": "plant_bushLarge", "h": 1.5, "t": 0.9, "inset": 1, "rxz": 1.1, "tint": { "leafs": "#57952c", "*": "#44603a" } },
+      { "lamp": true, "t": 0.92, "inset": -1, "rot": 90 },
+      { "car": true, "t": 0.9, "inset": -4.7, "rot": "along", "flip": true, "color": "#33405a" }
+    ]
+  },
   "sky": { "top": "#5ea2db", "horizon": "#9fcfe4", "cloud": "#f4f6f6" },
-  "notes": "Cream-plaster two-storey block with the characteristic Mishkenot red perforated breeze-block screen panels (terracotta) over the ground and first-floor windows, plus vertical-bar security grilles and vent louvers. Ground-floor split AC condensers. A rear/right wing shows a red-clay hip roof; the front block is flat-roofed. Brick sidewalk. Colours estimated 2026-07-04."
+  "notes": "Cream-plaster two-storey block with the characteristic Mishkenot red perforated breeze-block screen panels (terracotta) over the ground and first-floor windows, plus vertical-bar security grilles and vent louvers. Ground-floor split AC condensers. A rear/right wing shows a red-clay hip roof; the front block is flat-roofed. Brick sidewalk. Colours estimated 2026-07-04. Environment (2026-07-05): narrow planted garden strip along the base -- terracotta pots (large + two small), an agave clump, a leafy sapling bush, scattered white rocks; round bushes to the right, a globe lamp and one parked dark car on the lane."
 }

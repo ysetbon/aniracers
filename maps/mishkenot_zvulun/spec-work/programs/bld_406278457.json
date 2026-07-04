@@ -26,6 +26,18 @@
     "verge": { "grass": "#7fa04f", "grassDark": "#5d7640", "flowers": { "palette": ["#e0c8d6", "#f4f1e8"], "perM2": 0.1 } },
     "road": { "surface": "asphalt", "color": "#8f9296" }
   },
+  "environment": {
+    "props": [
+      { "car": true, "t": 0.5, "inset": -4.7, "rot": "along", "color": "#2f6fd0" },
+      { "car": true, "t": 0.72, "inset": 1.8, "rot": "along", "flip": true, "color": "#363b44" },
+      { "model": "tree_oak", "h": 6, "t": 0.12, "inset": 1.4, "rxz": 1.1, "tint": { "leafs": "#4c8a34", "wood": "#6e5138", "*": "#6e5138" } },
+      { "model": "tree_oak", "h": 7.5, "t": 0.92, "inset": 1.2, "rxz": 1.2, "tint": { "leafs": "#3c7031", "wood": "#6e5138", "*": "#6e5138" } },
+      { "model": "pot_large", "h": 0.6, "t": 0.28, "inset": -0.5, "tint": { "wood": "#b8683f", "woodBarkDark": "#a05a36" } },
+      { "model": "flower_yellowA", "h": 0.4, "t": 0.14, "inset": 1, "tint": { "*": "#e0c8d6" } },
+      { "model": "flower_yellowA", "h": 0.4, "t": 0.28, "inset": -0.45, "tint": { "*": "#f4f1e8" } },
+      { "model": "plant_bushSmall", "h": 0.6, "t": 0.2, "inset": 1, "tint": { "leafs": "#4c8a34", "*": "#44603a" } }
+    ]
+  },
   "sky": { "top": "#5ea2db", "horizon": "#9fcfe4", "cloud": "#f4f6f6" },
-  "notes": "Grey-beige residential apartment; only the upper storeys are in frame (lower part behind fence/awning), modelled as ~4 storeys. A projecting balcony with a glass-and-metal balustrade on floor 2 flies an Israeli flag. Wall AC unit above. A grey striped fabric awning shades the ground-floor terrace (canopy not encodable). Frontage: light metal picket fence on a brown stone-rubble base wall, flower planter, surfing-poster board (env). Colours sampled from ref 2026-07-04."
+  "notes": "Grey-beige residential apartment; only the upper storeys are in frame (lower part behind fence/awning), modelled as ~4 storeys. A projecting balcony with a glass-and-metal balustrade on floor 2 flies an Israeli flag. Wall AC unit above. A grey striped fabric awning shades the ground-floor terrace (canopy not encodable). Frontage: light metal picket fence on a brown stone-rubble base wall, flower planter, surfing-poster board (env). Colours sampled from ref 2026-07-04. Environment (2026-07-05): a bright blue sedan parked at the kerb and a dark SUV in the carport behind the fence; a round oak by the gate and a taller oak at the far end; a terracotta flower planter and pink/white flowers at the kerb, a small bush on the verge."
 }

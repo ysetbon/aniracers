@@ -26,6 +26,24 @@
     "verge": { "grass": "#6fa53c", "grassDark": "#4f6b3c" },
     "road": { "surface": "asphalt", "color": "#8f9296" }
   },
+  "environment": {
+    "ground": { "lawn": "#6fa53c", "size": [220, 180] },
+    "road": { "surface": "#8f9296", "kerb": "#c9c6bd", "halfW": 3.4, "len": 160 },
+    "props": [
+      { "model": "tree_oak", "h": 5.0, "t": 0.06, "inset": 2.3, "rxz": 1.1, "tint": { "leafs": "#4a9e3f", "wood": "#6e5138", "*": "#6e5138" } },
+      { "model": "tree_oak", "h": 7.0, "t": 0.2, "inset": 2.6, "rxz": 0.6, "tint": { "leafs": "#2f5d2a", "wood": "#5c4630", "*": "#5c4630" } },
+      { "model": "tree_oak", "h": 5.5, "t": 0.32, "inset": 2.2, "rxz": 1.15, "tint": { "leafs": "#4a9e3f", "wood": "#6e5138", "*": "#6e5138" } },
+      { "model": "tree_oak", "h": 7.5, "t": 0.47, "inset": 1.7, "rxz": 1.35, "tint": { "leafs": "#3f8f37", "wood": "#6e5138", "*": "#6e5138" } },
+      { "model": "tree_palmDetailedTall", "h": 9.0, "t": 0.9, "inset": 2.0, "rxz": 0.85, "tint": { "leafs": "#3f9b42", "wood": "#a08a67", "*": "#a08a67" } },
+      { "model": "tree_oak", "h": 6.5, "t": 1.03, "inset": 2.2, "rxz": 0.6, "tint": { "leafs": "#2f5d2a", "wood": "#5c4630", "*": "#5c4630" } },
+      { "hedge": true, "h": 1.5, "t0": 0.52, "t1": 0.86, "step": 1.2, "inset": 1.3, "d": 1.4, "colors": ["#6fa832", "#57952c", "#4e8a28"] },
+      { "model": "grass_leafs", "h": 0.7, "t": 0.36, "inset": -0.5, "y": 0.5, "tint": { "grass": "#5c9440", "*": "#5c9440" } },
+      { "model": "pot_large", "h": 0.75, "t": 0.44, "inset": 0.8, "tint": { "wood": "#b8683f", "woodBarkDark": "#a05a36" } },
+      { "car": true, "t": 0.14, "inset": -4.7, "rot": "along", "color": "#24272c" },
+      { "bin": true, "t": 0.58, "inset": -0.6, "rot": "along" },
+      { "bin": true, "t": 0.01, "inset": -0.6, "rot": "along" }
+    ]
+  },
   "sky": { "top": "#5ea2db", "horizon": "#9fcfe4", "cloud": "#f4f6f6" },
   "notes": "Modern white 3-storey townhouse; large windows with white frames, front glass-rail balconies, and a rooftop timber PERGOLA over a roof terrace (pergola modelled as roof-terrace rail; wood beams not expressible). Israeli flag on facade (no prop type). Ground floor recessed. Frontage: rubble-stone low garden walls with a decorative greek-key metal gate; hedges, palm & cypress trees. Colours sampled 2026-07-04."
 }

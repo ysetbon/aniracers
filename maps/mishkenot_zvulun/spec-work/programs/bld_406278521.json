@@ -31,6 +31,29 @@
     "verge": { "grass": "#6ba83f", "grassDark": "#4e7d2e" },
     "road": { "surface": "asphalt", "color": "#4c5054" }
   },
+  "environment": {
+    "ground": { "lawn": "#6ba83f", "size": [220, 180] },
+    "road": { "surface": "#4c5054", "kerb": "#c9c0ad", "halfW": 3.4, "len": 160 },
+    "props": [
+      { "model": "tree_oak", "h": 8.5, "t": 0.0, "inset": 2.6, "rxz": 0.6, "tint": { "leafs": "#2f5d2a", "wood": "#5c4630", "*": "#5c4630" } },
+      { "model": "tree_oak", "h": 6.5, "t": 0.1, "inset": 2.2, "rxz": 1.2, "tint": { "leafs": "#3f8f37", "wood": "#6e5138", "*": "#6e5138" } },
+      { "model": "tree_palmDetailedTall", "h": 11.0, "t": 0.5, "inset": 3.0, "rxz": 0.9, "tint": { "leafs": "#46a648", "wood": "#8a6f4a", "*": "#8a6f4a" } },
+      { "model": "tree_oak", "h": 8.0, "t": 0.6, "inset": 2.8, "rxz": 0.6, "tint": { "leafs": "#2f5d2a", "wood": "#5c4630", "*": "#5c4630" } },
+      { "model": "tree_oak", "h": 6.5, "t": 0.82, "inset": 2.6, "rxz": 1.25, "tint": { "leafs": "#3f8f37", "wood": "#6e5138", "*": "#6e5138" } },
+      { "model": "tree_oak", "h": 6.0, "t": 1.05, "inset": 2.6, "rxz": 1.2, "tint": { "leafs": "#4a9e3f", "wood": "#6e5138", "*": "#6e5138" } },
+      { "model": "plant_bushLarge", "h": 2.2, "t": 0.42, "inset": 1.4, "rxz": 1.3, "tint": { "leafs": "#4fa03a", "*": "#44603a" } },
+      { "hedge": true, "h": 1.5, "t0": 0.7, "t1": 1.12, "step": 1.2, "inset": 1.3, "d": 1.4, "colors": ["#57952c", "#4e8a28", "#3c7031"] },
+      { "model": "plant_bushLarge", "h": 1.0, "t": 0.02, "inset": 0.4, "rxz": 1.1, "tint": { "leafs": "#c0327a", "*": "#3c6b34" } },
+      { "model": "pot_large", "h": 0.7, "t": 0.33, "inset": 0.8, "tint": { "wood": "#b8683f", "woodBarkDark": "#a05a36" } },
+      { "model": "pot_large", "h": 0.6, "t": 0.37, "inset": 0.8, "tint": { "wood": "#b8683f", "woodBarkDark": "#a05a36" } },
+      { "bin": true, "t": 0.28, "inset": -0.5, "rot": "along" },
+      { "lamp": true, "t": 0.72, "inset": -2.0, "rot": 90 },
+      { "car": true, "t": 0.45, "inset": -4.7, "rot": "along", "color": "#cc3327" },
+      { "car": true, "t": 0.62, "inset": -4.7, "rot": "along", "flip": true, "color": "#2f5aa8" },
+      { "car": true, "t": 0.82, "inset": -4.7, "rot": "along", "flip": true, "color": "#b6bac0" },
+      { "car": true, "t": 0.98, "inset": -4.7, "rot": "along", "flip": true, "color": "#767b82" }
+    ]
+  },
   "sky": { "top": "#5ea2db", "horizon": "#9fcfe4", "cloud": "#f4f6f6" },
   "notes": "Two-storey house, off-white render (#eef0ef) with a pale-yellow set-back attic block (#e8dfb0) carrying three small square windows, all under a brown clay gabled roof (#6e3b28). First floor has a continuous band of dark ribbon windows (#3f4650); ground floor has an entry door with a wall lamp and a taller window. A lower white wing with a terracotta hipped roof (#b5623c) steps back on the right. Frontage: tan ashlar block wall (#c9bd9d) topped by a diamond breeze-block lattice, ornate pedestrian gate, stone-slab sidewalk. Colours pixel-sampled from the ref."
 }
