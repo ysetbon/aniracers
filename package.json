@@ -11,6 +11,7 @@
     "ws": "^8.18.0"
   },
   "devDependencies": {
+    "gltf-pipeline": "^4.3.1",
     "puppeteer": "^25.1.0"
   }
 }

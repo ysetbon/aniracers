@@ -544,6 +544,16 @@ const R = await page.evaluate('window.RESULT'); const b64 = R.b64; delete R.b64;
 fs.mkdirSync(path.dirname(OUT), { recursive: true });
 fs.writeFileSync(OUT, Buffer.from(b64, 'base64'));
 console.log(JSON.stringify(R));
-console.log('wrote ' + path.relative(ROOT, OUT) + ' (' + (fs.statSync(OUT).size / 1048576).toFixed(2) + ' MB)');
+const rawMB = (fs.statSync(OUT).size / 1048576).toFixed(1);
 try { await browser.close(); } catch {} server.close();
+// Draco-compress in place (~25x for this box-heavy world). Game decodes via DRACOLoader.
+// Skip with --nodraco. Needs gltf-pipeline (npm i gltf-pipeline).
+if (!argv.includes('--nodraco')) {
+  try {
+    const { processGlb } = await import('gltf-pipeline');
+    const out = await processGlb(fs.readFileSync(OUT), { dracoOptions: { compressionLevel: 7 } });
+    fs.writeFileSync(OUT, out.glb);
+    console.log(`wrote ${path.relative(ROOT, OUT)} (${rawMB}MB raw -> ${(out.glb.length / 1048576).toFixed(1)}MB draco)`);
+  } catch (e) { console.warn('draco skipped (gltf-pipeline missing?): ' + e.message + '\n  raw GLB kept at ' + rawMB + 'MB'); }
+} else console.log('wrote ' + path.relative(ROOT, OUT) + ' (' + rawMB + 'MB, --nodraco)');
 process.exit(0);

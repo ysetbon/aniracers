@@ -393,6 +393,7 @@
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 <script src="https://unpkg.com/three@0.128.0/examples/js/loaders/GLTFLoader.js"></script>
+<script src="https://unpkg.com/three@0.128.0/examples/js/loaders/DRACOLoader.js"></script>
 <script>
 (() => {
 "use strict";
@@ -1751,7 +1752,11 @@ async function buildMishkenotWorld(){
                  :location.search.includes('test1')?'/assets/mishkenot/world_test.glb'
                  :location.search.includes('v3')?'/assets/mishkenot/world_v3.glb'
                  :location.search.includes('gen3d')?'/assets/mishkenot/world_gen3d.glb':'/assets/mishkenot/world.glb';
-    const gltf=await new Promise((res,rej)=>new THREE.GLTFLoader().load(mishGlb,res,undefined,rej));
+    // v4 full-hood world is Draco-compressed (~25x smaller) — attach a DRACOLoader. It's a
+    // no-op for the older non-Draco GLBs, so it's safe to use for every mishkenot variant.
+    const _ldr=new THREE.GLTFLoader();
+    const _draco=new THREE.DRACOLoader(); _draco.setDecoderPath('https://unpkg.com/three@0.128.0/examples/js/libs/draco/'); _ldr.setDRACOLoader(_draco);
+    const gltf=await new Promise((res,rej)=>_ldr.load(mishGlb,res,undefined,rej));
     const root=gltf.scene;
     root.traverse(o=>{ if(o.isMesh){
       // gen3d buildings (integrate-gen3d.mjs) carry a texture map instead of vertex
