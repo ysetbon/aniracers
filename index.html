@@ -1722,10 +1722,20 @@ function enhanceWorldVisuals(w){
 let mishGroup = null;
 async function buildMishkenotWorld(){
   if(groundMesh) groundMesh.visible=false;     // the GLB carries its own ground/roads/greens
-  // nano-banana neutral noon (exact-geometry-program-plan): the restyled refs have no
-  // green ground bounce and only a soft warm sun — the default rig turned cream walls sage
-  hemi.color.setHex(0xffffff); hemi.groundColor.setHex(0xcfccc0); hemi.intensity=1.08;
-  sun.color.setHex(0xfff3d9); sun.intensity=0.35;
+  // Art-match lighting (Pass 4): bring the --hero render's look into the LIVE game so the
+  // neighbourhood reads like docs/target-street-image.png — warm daylight, muted (not neon)
+  // grass, soft directional shadows — instead of the old flat neutral-noon rig. The three
+  // levers: ACES tone-map (rolls off the neon), a strong WARM hemisphere fill (keeps shaded
+  // cream facades bright, not grey), and a strong sun whose shadow frustum is AIMED at the
+  // neighbourhood (~(130,-350)) — the default ±160 box centred on origin dropped no shadows.
+  renderer.toneMapping = THREE.ACESFilmicToneMapping; renderer.toneMappingExposure = 1.06;
+  hemi.color.setHex(0xfff3de); hemi.groundColor.setHex(0xcdb89a); hemi.intensity=0.95;
+  sun.color.setHex(0xfff0d2); sun.intensity=1.55;
+  sun.position.set(55,115,-300);                       // low warm sun raking from the west
+  sun.target.position.set(130,0,-350); scene.add(sun.target); sun.target.updateMatrixWorld();
+  const SR=230; sun.shadow.camera.left=-SR; sun.shadow.camera.right=SR;
+  sun.shadow.camera.top=SR; sun.shadow.camera.bottom=-SR; sun.shadow.camera.far=720;
+  sun.shadow.bias=-0.0006; sun.shadow.camera.updateProjectionMatrix();
   // wide base plane below the neighbourhood to hide any clip-edge gaps at the border
   const base=new THREE.Mesh(new THREE.PlaneGeometry(2600,2600),
     new THREE.MeshLambertMaterial({color:0x8aa86a}));
