@@ -1,0 +1,30 @@
+{
+  "id": "556855830",
+  "refs": { "scene": "restyled/scene-fullworld/bld_556855830_ptSoOk1.png", "iso": "restyled/iso/bld_556855830.png" },
+  "footprint": "obb",
+  "floorH": 3.0,
+  "volumes": [
+    { "name": "main", "x0": 0.0, "x1": 0.62, "z0": 0.22, "z1": 1.0, "floors": 2,
+      "wall": "#e7e9e5",
+      "roof": { "form": "hipped", "color": "#c85f31", "fascia": { "h": 0.3, "color": "#e4e0d6", "overhang": 0.35 } } },
+    { "name": "wing", "x0": 0.5, "x1": 1.0, "z0": 0.0, "z1": 0.62, "floors": 1,
+      "wall": "#eef0ec",
+      "roof": { "form": "hipped", "color": "#cc6234", "fascia": { "h": 0.28, "color": "#e4e0d6", "overhang": 0.35 } } }
+  ],
+  "openings": [
+    { "volume": "wing", "facade": "front", "type": "window", "floor": 0,
+      "at": [0.62], "w": 1.5, "h": 1.2, "glass": "#607f95", "frame": "#dedcd3", "recessed": true },
+    { "volume": "main", "facade": "front", "type": "window", "floor": 1,
+      "at": [0.35], "w": 1.2, "h": 1.2, "glass": "#607f95", "frame": "#dedcd3", "recessed": true }
+  ],
+  "terraces": [],
+  "props": [],
+  "frontage": {
+    "wall": { "type": "wood", "color": "#a3a8a4", "mortar": "#8b9089", "h": 1.9 },
+    "gates": [{ "kind": "pedestrian", "w": 1.0, "style": "plank", "color": "#9c7550" }],
+    "sidewalk": { "material": "brick", "color": "#c07a5c", "joint": "#a9694e", "w": 3.0 },
+    "verge": { "grass": "#7bbd54", "grassDark": "#5c7d43" }
+  },
+  "sky": { "top": "#5ea2db", "horizon": "#9fcfe4", "cloud": "#f4f6f6" },
+  "notes": "Small white house seen from the rear/backyard behind a weathered grey wood fence. Two hipped orange terracotta tile roofs: a taller 2-storey block (left, pyramidal hip) and a lower single-storey wing (right/front, hip) with a blue-glazed window. White stucco walls. Solar water heaters (white tanks + dark panels) sit on both roofs -- no solar/tank prop type in schema, omitted. Foreground: grey plank fence with a brown pedestrian gate on the right, green lawn verge, and reddish brick paving read as the sidewalk band. Palm and low-poly trees in frame are environment, omitted per rules. Colours pixel-sampled from ref 2026-07-04."
+}

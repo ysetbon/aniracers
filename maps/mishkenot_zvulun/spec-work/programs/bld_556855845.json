@@ -1,0 +1,27 @@
+{
+  "id": "556855845",
+  "refs": { "scene": "restyled/scene-fullworld/bld_556855845_p0wOrZe.png", "iso": "restyled/iso/bld_556855845.png" },
+  "footprint": "obb",
+  "floorH": 3.0,
+  "volumes": [
+    { "name": "frame", "x0": 0.0, "x1": 1.0, "z0": 0.12, "z1": 1.0, "floors": 1,
+      "wall": "#7d7152",
+      "bands": [
+        { "floor": 0, "y0": 0.0, "y1": 0.45, "color": "#99958d", "style": "slats" }
+      ],
+      "roof": { "form": "flat", "fascia": { "h": 0.4, "color": "#6a6259", "overhang": 0.15 } } }
+  ],
+  "openings": [
+    { "volume": "frame", "facade": "front", "type": "opening", "floor": 0,
+      "at": [0.18, 0.4, 0.62, 0.84], "w": 1.6, "h": 1.9, "glass": "#4d4b4f", "frame": "#7d7152", "recessed": false }
+  ],
+  "terraces": [],
+  "props": [],
+  "frontage": {
+    "wall": { "type": "panel", "color": "#dcdada", "mortar": "#bfbfc2", "h": 2.2 },
+    "sidewalk": { "material": "pavers", "color": "#6c615b", "joint": "#4f4f55", "w": 3.0 },
+    "road": { "surface": "asphalt", "color": "#4e4e56" }
+  },
+  "sky": { "top": "#57a9f5", "horizon": "#82bcd8", "cloud": "#d6f3fa" },
+  "notes": "Building UNDER CONSTRUCTION in the restyle. Front is fully closed by a tall white corrugated site HOARDING (frontage.wall, panel, #dcdada with subtle ridge lines #bfbfc2, h~2.2, no gate) bearing a dark 'Perfexia' sign and a small muted-red poster (#ac7e7b, not modelled). Behind it a single-storey skeletal FRAME sits set back (z0 0.12): warm wood studs/posts (#7d7152) on a grey concrete-panel base (band #99958d, lower ~45%), open see-through gaps modelled as 'opening' type across the front (dark interior #4d4b4f). Top is an OPEN flat deck (low dark fascia #6a6259) with vertical posts/rebar rising for the next floor and workers standing on it -- not expressible. Palm tree and green foliage stand behind the frame (env props omitted per spec). Brown brick-paver sidewalk (#6c615b, joints #4f4f55) with grey curb, asphalt road (#4e4e56). Colours pixel-sampled from a 12x9 grid 2026-07-04."
+}

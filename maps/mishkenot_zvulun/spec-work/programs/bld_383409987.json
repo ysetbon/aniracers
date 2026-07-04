@@ -1,0 +1,63 @@
+{
+  "id": "383409987",
+  "refs": { "scene": "restyled/scene-fullworld/bld_383409987_p7Y_hJr.png", "iso": "restyled/iso/bld_383409987.png" },
+  "footprint": "obb",
+  "floorH": 3.0,
+  "volumes": [
+    { "name": "main", "x0": 0.0, "x1": 0.62, "z0": 0.0, "z1": 1.0, "floors": 8,
+      "wall": "#95a49a",
+      "roof": { "form": "flat", "fascia": { "h": 0.6, "color": "#aab4aa", "overhang": 0.3 } } },
+    { "name": "east", "x0": 0.62, "x1": 1.0, "z0": 0.0, "z1": 1.0, "floors": 8,
+      "wall": "#6f7d80",
+      "roof": { "form": "flat", "fascia": { "h": 0.6, "color": "#7d888a", "overhang": 0.3 } } }
+  ],
+  "openings": [
+    { "volume": "main", "facade": "front", "type": "window", "floor": 7,
+      "at": [0.18, 0.44, 0.72], "w": 1.4, "h": 1.4, "glass": "#3f474a", "frame": "#d6dbd6", "recessed": true },
+    { "volume": "main", "facade": "front", "type": "window", "floor": 6,
+      "at": [0.18, 0.44, 0.72], "w": 1.4, "h": 1.4, "glass": "#3f474a", "frame": "#d6dbd6", "recessed": true },
+    { "volume": "main", "facade": "front", "type": "window", "floor": 5,
+      "at": [0.18, 0.44, 0.72], "w": 1.4, "h": 1.4, "glass": "#3f474a", "frame": "#d6dbd6", "recessed": true },
+    { "volume": "main", "facade": "front", "type": "window", "floor": 4,
+      "at": [0.18, 0.44, 0.72], "w": 1.4, "h": 1.4, "glass": "#3f474a", "frame": "#d6dbd6", "recessed": true },
+    { "volume": "main", "facade": "front", "type": "window", "floor": 3,
+      "at": [0.18, 0.44, 0.72], "w": 1.4, "h": 1.4, "glass": "#3f474a", "frame": "#d6dbd6", "recessed": true },
+    { "volume": "main", "facade": "front", "type": "window", "floor": 2,
+      "at": [0.18, 0.44, 0.72], "w": 1.4, "h": 1.4, "glass": "#3f474a", "frame": "#d6dbd6", "recessed": true },
+    { "volume": "main", "facade": "front", "type": "window", "floor": 1,
+      "at": [0.44, 0.72], "w": 1.4, "h": 1.4, "glass": "#3f474a", "frame": "#d6dbd6", "recessed": true },
+    { "volume": "main", "facade": "front", "type": "door", "floor": 0,
+      "at": [0.18], "w": 1.6, "h": 2.4, "glass": "#3f474a", "frame": "#c6cbc6", "recessed": true },
+    { "volume": "main", "facade": "front", "type": "window", "floor": 0,
+      "at": [0.44, 0.72], "w": 1.4, "h": 1.4, "glass": "#3f474a", "frame": "#d6dbd6", "recessed": true },
+    { "volume": "east", "facade": "front", "type": "window", "floor": 7,
+      "at": [0.35, 0.72], "w": 1.4, "h": 1.4, "glass": "#7f8f92", "frame": "#cfd6d2", "recessed": true },
+    { "volume": "east", "facade": "front", "type": "window", "floor": 6,
+      "at": [0.35, 0.72], "w": 1.4, "h": 1.4, "glass": "#7f8f92", "frame": "#cfd6d2", "recessed": true },
+    { "volume": "east", "facade": "front", "type": "window", "floor": 5,
+      "at": [0.35, 0.72], "w": 1.4, "h": 1.4, "glass": "#7f8f92", "frame": "#cfd6d2", "recessed": true },
+    { "volume": "east", "facade": "front", "type": "window", "floor": 4,
+      "at": [0.35, 0.72], "w": 1.4, "h": 1.4, "glass": "#7f8f92", "frame": "#cfd6d2", "recessed": true },
+    { "volume": "east", "facade": "front", "type": "window", "floor": 3,
+      "at": [0.35, 0.72], "w": 1.4, "h": 1.4, "glass": "#7f8f92", "frame": "#cfd6d2", "recessed": true },
+    { "volume": "east", "facade": "front", "type": "window", "floor": 2,
+      "at": [0.35, 0.72], "w": 1.4, "h": 1.4, "glass": "#7f8f92", "frame": "#cfd6d2", "recessed": true },
+    { "volume": "east", "facade": "front", "type": "window", "floor": 1,
+      "at": [0.35, 0.72], "w": 1.4, "h": 1.4, "glass": "#7f8f92", "frame": "#cfd6d2", "recessed": true },
+    { "volume": "east", "facade": "front", "type": "window", "floor": 0,
+      "at": [0.35, 0.72], "w": 1.4, "h": 1.4, "glass": "#7f8f92", "frame": "#cfd6d2", "recessed": true }
+  ],
+  "terraces": [
+    { "onVolume": "main", "side": "front",
+      "rail": { "type": "bars", "h": 1.0, "color": "#3f4744" } }
+  ],
+  "props": [],
+  "frontage": {
+    "wall": { "type": "brick", "color": "#8c8f88", "mortar": "#a6a99f", "h": 1.5 },
+    "sidewalk": { "material": "stone-slabs", "color": "#9b9b98", "joint": "#8c8c89", "w": 3.0 },
+    "verge": { "grass": "#5c8a3a", "grassDark": "#47702f" },
+    "road": { "surface": "asphalt", "color": "#8d9094" }
+  },
+  "sky": { "top": "#6ea8d8", "horizon": "#a7cfe6", "cloud": "#eef4f5" },
+  "notes": "Tall sage-grey residential apartment tower. Two flat-roofed vertical masses over the OBB: a wider lighter sage block (#95a49a, left/main, ~62% width) with recessed balconies and dark windows, and a narrower cooler blue-grey block (#6f7d80, east/right) with lighter grey-blue window strips. Camera is a low street-level angle so the top is cut off -- 8 floors modelled as a faithful tall residential block. Front facade shows a regular window grid with white/light frames; main block has recessed balconies (terraces entry, dark metal bar rail #3f4744) and a ground-floor entrance. Frontage: grey masonry retaining wall (#8c8f88) topped by a clipped green hedge (verge grass #5c8a3a) with a metal railing behind (not separately expressible), grey stone-slab sidewalk, asphalt road with parked cars and palms/trees (props omitted per no-environment rule). Colours pixel-sampled by eye from the scene-fullworld ref 2026-07-04."
+}

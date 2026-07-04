@@ -1,0 +1,38 @@
+{
+  "id": "556597981",
+  "refs": { "scene": "restyled/scene-fullworld/bld_556597981_pjsnYAA.png", "iso": "restyled/iso/bld_556597981.png" },
+  "footprint": "obb",
+  "floorH": 3.0,
+  "volumes": [
+    { "name": "main", "x0": 0.0, "x1": 1.0, "z0": 0.0, "z1": 1.0, "floors": 2,
+      "wall": "#f2f1ec",
+      "bands": [
+        { "floor": 0, "y0": 0.0, "y1": 0.42, "x0": 0.0, "x1": 0.86, "color": "#c6c5bf", "style": "plain" },
+        { "floor": 1, "y0": 0.0, "y1": 1.0, "x0": 0.35, "x1": 1.0, "color": "#d8c085", "style": "bricks" },
+        { "floor": 0, "y0": 0.0, "y1": 1.0, "x0": 0.86, "x1": 1.0, "color": "#d6bd80", "style": "bricks" }
+      ],
+      "roof": { "form": "flat", "fascia": { "h": 0.55, "color": "#e8dcae", "overhang": 0.25 } } }
+  ],
+  "openings": [
+    { "volume": "main", "facade": "front", "type": "window", "floor": 1,
+      "at": [0.5, 0.68], "w": 1.2, "h": 1.3, "glass": "#565b5e", "frame": "#ebe9e3", "recessed": true },
+    { "volume": "main", "facade": "front", "type": "window", "floor": 0,
+      "at": [0.66], "w": 1.1, "h": 1.2, "glass": "#565b5e", "frame": "#ebe9e3", "recessed": true },
+    { "volume": "main", "facade": "left", "type": "window", "floor": 1,
+      "at": [0.24, 0.43, 0.62, 0.8], "w": 0.7, "h": 0.75, "glass": "#565b5e", "frame": "#ebe9e3", "recessed": true },
+    { "volume": "main", "facade": "left", "type": "window", "floor": 0,
+      "at": [0.3, 0.55], "w": 0.7, "h": 0.75, "glass": "#565b5e", "frame": "#ebe9e3", "recessed": true }
+  ],
+  "terraces": [],
+  "props": [],
+  "frontage": {
+    "wall": { "type": "brick", "color": "#b7b9b1", "mortar": "#cdcec6", "h": 1.9 },
+    "gates": [
+      { "kind": "pedestrian", "w": 1.0, "style": "slats", "color": "#e8e8e5" }
+    ],
+    "sidewalk": { "material": "brick-pavers", "color": "#b3653f", "joint": "#98542f", "w": 3.0 },
+    "verge": { "grass": "#4f7a33", "grassDark": "#33531e" }
+  },
+  "sky": { "top": "#5ea2db", "horizon": "#9fcfe4", "cloud": "#f4f6f6" },
+  "notes": "Small 2-storey villa (13.3 x 11.8 m OBB). Front/street facade: beige brick-block upper storey (#d8c085) over a white (#f2f1ec) lower storey with a grey wainscot base band (#c6c5bf); a full-height beige corner pilaster (#d6bd80) marks the right edge -- modelled via x-limited bands so the LEFT facade stays all white. Left facade carries two rows of small tilted awning-shutter windows (grey slats) -- encoded as small square windows; the tilt/slat louvre and the grey security BARS on every window are not expressible in the schema (factory extension needed). Flat roof with a cream coping fascia (#e8dcae) and a white cylindrical solar water-heater boiler on the roof (no prop type for it -- omitted). A vertical Israeli flag on a wall-mounted pole and a wall floodlight sit on the front frontage wall -- no prop types, omitted. Frontage is a grey cinderblock compound wall (#b7b9b1 / mortar #cdcec6) with a white slatted pedestrian gate at the left; driveway/sidewalk is red-brick pavers (#b3653f, joint #98542f); dense green planting fills the front garden (verge grass #4f7a33). No asphalt road visible in frame -- road band omitted. Colours pixel-read from the scene ref 2026-07-04."
+}

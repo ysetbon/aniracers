@@ -1,0 +1,42 @@
+{
+  "id": "383409983",
+  "refs": { "scene": "restyled/scene-fullworld/bld_383409983_pIy23Le.png", "iso": "restyled/iso/bld_383409983.png" },
+  "footprint": "obb",
+  "floorH": 3.0,
+  "volumes": [
+    { "name": "main", "x0": 0.0, "x1": 0.7, "z0": 0.0, "z1": 1.0, "floors": 4,
+      "wall": "#d2c69c",
+      "bands": [
+        { "floor": 3, "y0": 0.0, "y1": 1.0, "x0": 0.28, "x1": 0.62, "color": "#84b96f", "style": "flat" }
+      ],
+      "roof": { "form": "flat", "fascia": { "h": 0.7, "color": "#cabf95", "overhang": 0.3 } } },
+    { "name": "wing", "x0": 0.7, "x1": 1.0, "z0": 0.0, "z1": 0.9, "floors": 4,
+      "wall": "#84b96f",
+      "roof": { "form": "flat", "fascia": { "h": 0.7, "color": "#77aa63", "overhang": 0.3 } } }
+  ],
+  "openings": [
+    { "volume": "main", "facade": "front", "type": "opening", "floor": 3,
+      "at": [0.44], "w": 3.2, "h": 2.1, "glass": "#7bab68", "frame": "#d2c69c", "recessed": true },
+    { "volume": "main", "facade": "front", "type": "window", "floor": 2,
+      "at": [0.55], "w": 1.5, "h": 1.4, "glass": "#5f6a63", "frame": "#e6e3d6", "recessed": true },
+    { "volume": "wing", "facade": "front", "type": "window", "floor": 3,
+      "at": [0.4], "w": 1.2, "h": 1.3, "glass": "#5f6a63", "frame": "#e6e3d6", "recessed": true },
+    { "volume": "wing", "facade": "front", "type": "window", "floor": 2,
+      "at": [0.4], "w": 1.2, "h": 1.3, "glass": "#5f6a63", "frame": "#e6e3d6", "recessed": true }
+  ],
+  "terraces": [
+    { "onVolume": "main", "side": "front",
+      "parapet": { "h": 0.95, "color": "#84b96f" },
+      "rail": { "type": "bars", "h": 0.35, "color": "#7bab68" } }
+  ],
+  "props": [
+    { "type": "ac", "volume": "main", "facade": "front", "floor": 2, "at": 0.7 }
+  ],
+  "frontage": {
+    "sidewalk": { "material": "brick-pavers", "color": "#d3a184", "joint": "#c08d70", "w": 4.0 },
+    "verge": { "grass": "#77c043", "grassDark": "#5c9a3c",
+               "flowers": { "palette": ["#e46aa0", "#5b9fe0", "#f4f6f0"], "perM2": 0.12 } }
+  },
+  "sky": { "top": "#5ea2db", "horizon": "#9fcfe4", "cloud": "#f4f6f6" },
+  "notes": "Netanya residential block, ~27.4x18.2m, flat roof. Camera looks up from a park; only the top ~2 floors clear a tall low-poly hedge, so lower floors are inferred (4 storeys typical for this footprint) but no openings placed where the ref shows none. Warm beige main wall (#d2c69c). A green-painted (#84b96f) block on the right (wing, slightly shallower/protruding) and a green recessed balcony back-wall on the main volume top floor (encoded as a band). Top floor front: recessed balcony with green parapet and a brown WOOD PERGOLA over it holding potted plants and a laundry line (pergola/plants/laundry not expressible in schema -- factory extension needed; encoded only as the wide 'opening' + terrace). Floor below: single recessed grey-framed window (#e6e3d6 frame, #5f6a63 glass) with a wall-mounted AC unit to its right (prop 'ac'). Open frontage -- pink brick-paver sidewalk and bright grass verge with pink/blue/white flowers; NO compound wall or gate (a clipped hedge stands in front instead, treated as vegetation). Colours pixel-read from the ref 2026-07-04."
+}

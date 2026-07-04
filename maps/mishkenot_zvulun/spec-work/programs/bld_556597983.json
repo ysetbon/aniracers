@@ -1,0 +1,38 @@
+{
+  "id": "556597983",
+  "refs": { "scene": "restyled/scene-fullworld/bld_556597983_pdRungN.png" },
+  "footprint": "obb",
+  "floorH": 3.0,
+  "volumes": [
+    { "name": "main", "x0": 0.0, "x1": 1.0, "z0": 0.0, "z1": 1.0, "floors": 2,
+      "wall": "#d0bd9c",
+      "bands": [
+        { "floor": 1, "x0": 0.0, "x1": 0.42, "y0": 0.1, "y1": 0.85, "color": "#c8af83", "style": "slats" }
+      ],
+      "roof": { "form": "flat", "fascia": { "h": 0.6, "color": "#d3c4b1", "overhang": 0.3 } } },
+    { "name": "front", "x0": 0.18, "x1": 0.78, "z0": 0.0, "z1": 0.24, "floors": 2,
+      "wall": "#7e7d85",
+      "roof": { "form": "flat", "fascia": { "h": 0.55, "color": "#8a8890", "overhang": 0.25 } } }
+  ],
+  "openings": [
+    { "volume": "main", "facade": "front", "type": "window", "floor": 1,
+      "at": [0.12, 0.3], "w": 1.6, "h": 0.9, "glass": "#7b7a81", "frame": "#d0bd9c", "recessed": true },
+    { "volume": "main", "facade": "front", "type": "door", "floor": 0,
+      "at": [0.88], "w": 1.1, "h": 2.3, "glass": "#585853", "frame": "#c8b28d", "recessed": true },
+    { "volume": "main", "facade": "front", "type": "window", "floor": 0,
+      "at": [0.79], "w": 1.0, "h": 1.0, "glass": "#7b7a81", "frame": "#d0bd9c", "recessed": true }
+  ],
+  "terraces": [],
+  "props": [
+    { "type": "ac", "volume": "front", "facade": "front", "floor": 1, "at": 0.6 },
+    { "type": "ac", "volume": "front", "facade": "front", "floor": 1, "at": 0.74 }
+  ],
+  "frontage": {
+    "wall": { "type": "stone", "color": "#dcc19b", "mortar": "#cbb896", "h": 0.6 },
+    "gates": [{ "kind": "pedestrian", "w": 1.6, "style": "slats", "color": "#8e939a" }],
+    "sidewalk": { "material": "brick-pavers", "color": "#cc8c81", "joint": "#a89b91", "w": 4.0 },
+    "verge": { "grass": "#8a9c50", "grassDark": "#40542a" }
+  },
+  "sky": { "top": "#a9d4e8", "horizon": "#c3e1ec", "cloud": "#f2f5f6" },
+  "notes": "Modern 2-storey villa. Sand-tan main mass (#d0bd9c) with a large muted grey stucco front plane (#7e7d85, modelled as a shallow proud front volume). Upper-left has a projecting horizontal wood-slat band (#c8af83) shading a strip window. Two grey louvre AC vents (#8a8890) on the upper front (props type 'ac'; tilt/louvre not expressible). Ground-floor right: a narrow dark recessed door (#585853) and a small grey window. Flat roofs, sand fascia. Frontage: pinkish brick-paver driveway (#cc8c81, grey joint bands #a89b91), low sand stone-slab planter walls (#dcc19b) with green bushes, and a grey vertical-slat pedestrian gate (#8e939a) at left. No road band in frame (driveway fills foreground). Colours pixel-sampled from a 16x12 grid 2026-07-04."
+}
