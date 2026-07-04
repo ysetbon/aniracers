@@ -29,6 +29,18 @@
     "verge": { "grass": "#4f8a2f", "grassDark": "#3c6a24" },
     "road": { "surface": "brick-pavers", "color": "#9a6a52" }
   },
+  "environment": {
+    "props": [
+      { "car": true, "t": 0.2, "inset": -4.7, "rot": "along", "color": "#bf3327" },
+      { "car": true, "t": 0.55, "inset": -4.7, "rot": "along", "flip": true, "color": "#3a4a6c" },
+      { "car": true, "t": 0.9, "inset": -4.7, "rot": "along", "flip": true, "color": "#e8e6df" },
+      { "model": "tree_oak", "h": 8, "t": 0.25, "inset": 2, "rxz": 0.6, "tint": { "leafs": "#2f5d2a", "wood": "#6e5138", "*": "#6e5138" } },
+      { "model": "tree_palmDetailedTall", "h": 9.5, "t": 0.45, "inset": 3.5, "rxz": 0.85, "tint": { "leafs": "#3f9b42", "wood": "#a08a67", "*": "#a08a67" } },
+      { "model": "tree_oak", "h": 7, "t": 0.75, "inset": 2.6, "rxz": 1.4, "tint": { "leafs": "#3c7031", "wood": "#6e5138", "*": "#6e5138" } },
+      { "model": "plant_bushLarge", "h": 2.5, "t": 0.62, "inset": 0.9, "rxz": 1.2, "tint": { "leafs": "#b23a75", "*": "#8f2f5e" } },
+      { "hedge": true, "t0": 0.15, "t1": 0.55, "step": 1.2, "inset": 1.3, "h": 2, "d": 1.4, "colors": ["#57952c", "#4e8a28", "#3c7031"] }
+    ]
+  },
   "sky": { "top": "#4a9fe0", "horizon": "#a9d4ea", "cloud": "#f4f6f6" },
   "notes": "Real 2-storey beige residential block, corner view. Warm beige render (#cabf9f) with sandstone ashlar block coursing on the upper floor. Windows fitted with grey security grilles (#6a6f6f) in pale reveals. Wall-mounted AC units, TV antennas on the flat roof, small parapet. Frontage: multi-tone sandstone-block boundary wall, white picket sub-fence, red flowering shrub, palms; a shared 'residential zone' sign on the street. Colours sampled from ref 2026-07-04."
 }

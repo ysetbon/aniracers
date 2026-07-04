@@ -33,6 +33,39 @@
     "sidewalk": { "material": "brick-pavers", "color": "#cc8c81", "joint": "#a89b91", "w": 4.0 },
     "verge": { "grass": "#8a9c50", "grassDark": "#40542a" }
   },
+  "environment": {
+    "props": [
+      { "model": "tree_oak", "h": 9.5, "t": 0.38, "inset": 2.4, "rxz": 0.55,
+        "tint": { "leafs": "#244a20", "wood": "#6e5138", "*": "#6e5138" } },
+      { "model": "tree_oak", "h": 8.5, "t": 0.44, "inset": 2.8, "rxz": 0.55,
+        "tint": { "leafs": "#2b5325", "wood": "#6e5138", "*": "#6e5138" } },
+      { "model": "tree_palmDetailedTall", "h": 8.5, "t": 0.12, "inset": 3.2, "rxz": 0.85,
+        "tint": { "leafs": "#3f9b42", "wood": "#a08a67", "*": "#a08a67" } },
+      { "model": "tree_oak", "h": 5.0, "t": 0.22, "inset": 2.2, "rxz": 1.3,
+        "tint": { "leafs": "#2f6b2b", "wood": "#6e5138", "*": "#6e5138" } },
+      { "model": "tree_oak", "h": 4.0, "t": 0.28, "inset": 1.6, "rxz": 1.1,
+        "tint": { "leafs": "#6fbf3a", "wood": "#6e5138", "*": "#6e5138" } },
+      { "model": "tree_oak", "h": 3.6, "t": 0.55, "inset": -1.2, "rxz": 1.1,
+        "tint": { "leafs": "#5aa32e", "wood": "#7a5a3c", "*": "#7a5a3c" } },
+      { "model": "flower_yellowA", "h": 0.4, "t": 0.55, "inset": -1.2, "y": 2.2,
+        "tint": { "*": "#f2c21e" } },
+      { "model": "plant_bushLarge", "h": 1.4, "t": 0.08, "inset": 1.5, "rxz": 1.1,
+        "tint": { "leafs": "#4c8a34", "*": "#44603a" } },
+      { "model": "plant_bush", "h": 1.0, "t": 0.14, "inset": 1.3, "rxz": 1.0,
+        "tint": { "leafs": "#57952c", "*": "#4e8a28" } },
+      { "model": "plant_bushLarge", "h": 1.6, "t": 0.51, "inset": -1.4, "rxz": 1.6,
+        "tint": { "leafs": "#2f4a2a", "*": "#25381f" } },
+      { "model": "plant_bushLarge", "h": 1.5, "t": 0.61, "inset": -1.4, "rxz": 1.6,
+        "tint": { "leafs": "#33532b", "*": "#25381f" } },
+      { "model": "rock_smallA", "h": 0.8, "t": 0.49, "inset": -1.9, "rxz": 1.3,
+        "tint": { "*": "#3a3242" } },
+      { "model": "rock_smallB", "h": 0.7, "t": 0.59, "inset": -0.9, "rxz": 1.2,
+        "tint": { "*": "#463a4e" } },
+      { "car": true, "t": 0.5, "inset": -3.2, "rot": "along", "color": "#3d5a82" },
+      { "car": true, "t": 0.85, "inset": -4.7, "rot": "along", "flip": true, "color": "#c2c5c9" },
+      { "bin": true, "t": 0.94, "inset": -0.7, "rot": "along" }
+    ]
+  },
   "sky": { "top": "#a9d4e8", "horizon": "#c3e1ec", "cloud": "#f2f5f6" },
-  "notes": "Modern 2-storey villa. Sand-tan main mass (#d0bd9c) with a large muted grey stucco front plane (#7e7d85, modelled as a shallow proud front volume). Upper-left has a projecting horizontal wood-slat band (#c8af83) shading a strip window. Two grey louvre AC vents (#8a8890) on the upper front (props type 'ac'; tilt/louvre not expressible). Ground-floor right: a narrow dark recessed door (#585853) and a small grey window. Flat roofs, sand fascia. Frontage: pinkish brick-paver driveway (#cc8c81, grey joint bands #a89b91), low sand stone-slab planter walls (#dcc19b) with green bushes, and a grey vertical-slat pedestrian gate (#8e939a) at left. No road band in frame (driveway fills foreground). Colours pixel-sampled from a 16x12 grid 2026-07-04."
+  "notes": "Modern 2-storey villa. Sand-tan main mass (#d0bd9c) with a large muted grey stucco front plane (#7e7d85, modelled as a shallow proud front volume). Upper-left has a projecting horizontal wood-slat band (#c8af83) shading a strip window. Two grey louvre AC vents (#8a8890) on the upper front (props type 'ac'; tilt/louvre not expressible). Ground-floor right: a narrow dark recessed door (#585853) and a small grey window. Flat roofs, sand fascia. Frontage: pinkish brick-paver driveway (#cc8c81, grey joint bands #a89b91), low sand stone-slab planter walls (#dcc19b) with green bushes, and a grey vertical-slat pedestrian gate (#8e939a) at left. No road band in frame (driveway fills foreground). Environment added 2026-07-05 from the shared scene ref (pdRungN, same street view as bld_556597982): two very tall slim dark cypresses, a date palm and round green/lime oaks with base bushes at the left verge; a kerbed foreground planter island with dark purple rocks, dark clipped bushes and a small yellow-fruited citrus tree; a blue sedan (#3d5a82) parked mid-scene and a silver SUV (#c2c5c9) at the right kerb with a brown wheelie bin. Colours pixel-sampled from the ref."
 }

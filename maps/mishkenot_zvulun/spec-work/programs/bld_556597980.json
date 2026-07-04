@@ -22,6 +22,30 @@
     "sidewalk": { "material": "brick-pavers", "color": "#c37c54", "joint": "#a5623f", "w": 4.0 },
     "road": { "surface": "asphalt", "color": "#6d6e75" }
   },
+  "environment": {
+    "props": [
+      { "model": "tree_oak", "h": 7.5, "t": 0.02, "inset": 2.6, "rxz": 0.6,
+        "tint": { "leafs": "#2c5626", "wood": "#6e5138", "*": "#6e5138" } },
+      { "model": "tree_oak", "h": 6.5, "t": 0.06, "inset": 2.9, "rxz": 0.6,
+        "tint": { "leafs": "#33642c", "wood": "#6e5138", "*": "#6e5138" } },
+      { "model": "tree_palmDetailedTall", "h": 7.5, "t": 0.16, "inset": 3.0, "rxz": 0.85,
+        "tint": { "leafs": "#3f9b42", "wood": "#a08a67", "*": "#a08a67" } },
+      { "model": "tree_palmDetailedTall", "h": 7.0, "t": 0.21, "inset": 3.4, "rxz": 0.85,
+        "tint": { "leafs": "#46a648", "wood": "#a08a67", "*": "#a08a67" } },
+      { "model": "tree_palmTall", "h": 5.5, "t": 0.19, "inset": 4.4, "rxz": 0.8,
+        "tint": { "leafs": "#3f9b42", "wood": "#a08a67", "*": "#a08a67" } },
+      { "model": "plant_bushLarge", "h": 2.2, "t": 0.11, "inset": 1.5, "rxz": 1.2,
+        "tint": { "leafs": "#4c8a34", "*": "#44603a" } },
+      { "model": "plant_bushLarge", "h": 4.6, "t": 0.9, "inset": 1.8, "rxz": 2.3,
+        "tint": { "leafs": "#57952c", "*": "#4e8a28" } },
+      { "model": "plant_bushLarge", "h": 4.2, "t": 0.99, "inset": 1.8, "rxz": 2.0,
+        "tint": { "leafs": "#4e8a28", "*": "#3c7031" } },
+      { "model": "pot_large", "h": 0.7, "t": 0.13, "inset": 0.6,
+        "tint": { "wood": "#b8683f", "*": "#a05a36" } },
+      { "bin": true, "t": 0.27, "inset": -0.5, "rot": "along" },
+      { "car": true, "t": 0.55, "inset": -4.7, "rot": "along", "color": "#c9ccce" }
+    ]
+  },
   "sky": { "top": "#3aa0e6", "horizon": "#8ccef0", "cloud": "#f4f6f6" },
-  "notes": "Two-storey residential villa over the full OBB. Pale cream stucco walls (#e7e1d2) under a terracotta HIPPED tile roof (#b7946b) with a white fascia/cornice band (#f2eee2). Only the upper storey is visible above the compound wall: a row of four windows with dark glass (#565b61) and grey security grilles (no bars field in schema -- factory extension needed). Ground-floor openings are hidden behind the front wall so none are modelled (not invented). Frontage: a compound wall with a cream concrete-block masonry base (#d6cdb6 / mortar #c3b9a0) capped by a horizontal wood-slat panel (#b08f5e wood cap not separately expressible -- folded into wall height h=2.4); a grey metal barred pedestrian gate at far left (#939aa1). Paving is reddish herringbone brick pavers (#c37c54, joints #a5623f); dark asphalt road band (#6d6e75). Left/back-of-wall greenery (tall cypresses, fan/date palms, potted plants) and a large clipped hedge at right are landscape, not building geometry, so omitted. Red-white kerb, wheelie bin and mailbox present in ref but not expressible. Colours pixel-estimated from the ref 2026-07-04."
+  "notes": "Two-storey residential villa over the full OBB. Pale cream stucco walls (#e7e1d2) under a terracotta HIPPED tile roof (#b7946b) with a white fascia/cornice band (#f2eee2). Only the upper storey is visible above the compound wall: a row of four windows with dark glass (#565b61) and grey security grilles (no bars field in schema -- factory extension needed). Ground-floor openings are hidden behind the front wall so none are modelled (not invented). Frontage: a compound wall with a cream concrete-block masonry base (#d6cdb6 / mortar #c3b9a0) capped by a horizontal wood-slat panel (#b08f5e wood cap not separately expressible -- folded into wall height h=2.4); a grey metal barred pedestrian gate at far left (#939aa1). Paving is reddish herringbone brick pavers (#c37c54, joints #a5623f); dark asphalt road band (#6d6e75). Environment added 2026-07-05 from the scene ref: at left, two tall slim dark cypress-form trees (tree_oak tinted dark, thin rxz) behind the wall, a cluster of fan/date palms and a green bush clump at their base; a large clipped bright-green hedge block fills the right of the front yard (two big plant_bushLarge blobs); a terracotta pot by the gate; a green wheelie bin against the wall; and a silver hatchback (#c9ccce) parked at the kerb in the foreground. Colours pixel-estimated from the ref."
 }

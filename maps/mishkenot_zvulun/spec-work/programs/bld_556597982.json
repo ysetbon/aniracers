@@ -23,6 +23,39 @@
     "verge": { "grass": "#4e6749", "grassDark": "#2f5320" },
     "road": { "surface": "asphalt", "color": "#666874" }
   },
+  "environment": {
+    "props": [
+      { "model": "tree_oak", "h": 9.5, "t": 0.4, "inset": 2.4, "rxz": 0.55,
+        "tint": { "leafs": "#244a20", "wood": "#6e5138", "*": "#6e5138" } },
+      { "model": "tree_oak", "h": 8.5, "t": 0.45, "inset": 2.8, "rxz": 0.55,
+        "tint": { "leafs": "#2b5325", "wood": "#6e5138", "*": "#6e5138" } },
+      { "model": "tree_palmDetailedTall", "h": 8.5, "t": 0.14, "inset": 3.2, "rxz": 0.85,
+        "tint": { "leafs": "#3f9b42", "wood": "#a08a67", "*": "#a08a67" } },
+      { "model": "tree_oak", "h": 5.0, "t": 0.24, "inset": 2.2, "rxz": 1.3,
+        "tint": { "leafs": "#2f6b2b", "wood": "#6e5138", "*": "#6e5138" } },
+      { "model": "tree_oak", "h": 4.0, "t": 0.3, "inset": 1.6, "rxz": 1.1,
+        "tint": { "leafs": "#6fbf3a", "wood": "#6e5138", "*": "#6e5138" } },
+      { "model": "tree_oak", "h": 3.6, "t": 0.56, "inset": -1.2, "rxz": 1.1,
+        "tint": { "leafs": "#5aa32e", "wood": "#7a5a3c", "*": "#7a5a3c" } },
+      { "model": "flower_yellowA", "h": 0.4, "t": 0.56, "inset": -1.2, "y": 2.2,
+        "tint": { "*": "#f2c21e" } },
+      { "model": "plant_bushLarge", "h": 1.4, "t": 0.09, "inset": 1.5, "rxz": 1.1,
+        "tint": { "leafs": "#4c8a34", "*": "#44603a" } },
+      { "model": "plant_bush", "h": 1.0, "t": 0.15, "inset": 1.3, "rxz": 1.0,
+        "tint": { "leafs": "#57952c", "*": "#4e8a28" } },
+      { "model": "plant_bushLarge", "h": 1.6, "t": 0.52, "inset": -1.4, "rxz": 1.6,
+        "tint": { "leafs": "#2f4a2a", "*": "#25381f" } },
+      { "model": "plant_bushLarge", "h": 1.5, "t": 0.62, "inset": -1.4, "rxz": 1.6,
+        "tint": { "leafs": "#33532b", "*": "#25381f" } },
+      { "model": "rock_smallA", "h": 0.8, "t": 0.5, "inset": -1.9, "rxz": 1.3,
+        "tint": { "*": "#3a3242" } },
+      { "model": "rock_smallB", "h": 0.7, "t": 0.6, "inset": -0.9, "rxz": 1.2,
+        "tint": { "*": "#463a4e" } },
+      { "car": true, "t": 0.5, "inset": -3.2, "rot": "along", "color": "#3d5a82" },
+      { "car": true, "t": 0.86, "inset": -4.7, "rot": "along", "flip": true, "color": "#c2c5c9" },
+      { "bin": true, "t": 0.95, "inset": -0.7, "rot": "along" }
+    ]
+  },
   "sky": { "top": "#5ea2db", "horizon": "#9fcfe4", "cloud": "#f4f6f6" },
-  "notes": "Single-storey tan villa (~15x13 m) with a low HIPPED roof, center-right of frame, heavily occluded by a low-poly citrus tree and two cypress trees. Warm tan ashlar walls (#a8846a sunlit, shaded ~#845f4c); hipped roof surface a muted warm brown-tan (#8f6d5c) with a cream eave/fascia (#c9b79a). Front (street) facade openings are largely hidden behind the citrus tree, so a modest door + two windows are placed at plausible positions (glass/frame tones borrowed from the neighbouring white block's clearly-visible windows -- #45505f glass, #ece9e0 white frames). Frontage: low sandstone-block compound wall (#c0aa85 blocks, lighter mortar) fronting a terracotta brick-paved plaza/sidewalk (#a86a5a, dark joints), red-and-white kerb (not encodable) and grey asphalt road (#666874) to the right; scattered tree/planter greenery gives the verge greens. No gates clearly visible so none encoded. Colours pixel-sampled from the ref 2026-07-04."
+  "notes": "Single-storey tan villa (~15x13 m) with a low HIPPED roof, center-right of frame, heavily occluded by a low-poly citrus tree and two cypress trees. Warm tan ashlar walls (#a8846a sunlit, shaded ~#845f4c); hipped roof surface a muted warm brown-tan (#8f6d5c) with a cream eave/fascia (#c9b79a). Front (street) facade openings are largely hidden behind the citrus tree, so a modest door + two windows are placed at plausible positions (glass/frame tones borrowed from the neighbouring white block's clearly-visible windows -- #45505f glass, #ece9e0 white frames). Frontage: low sandstone-block compound wall (#c0aa85 blocks, lighter mortar) fronting a terracotta brick-paved plaza/sidewalk (#a86a5a, dark joints), red-and-white kerb (not encodable) and grey asphalt road (#666874) to the right. Environment added 2026-07-05 from the scene ref: two very tall slim dark cypresses (tree_oak, thin dark), a date palm and round green/lime oak trees at the left verge with small base bushes; a raised kerbed planter island in the foreground holds dark purple-toned rocks, dark clipped bushes and a small citrus tree bearing yellow fruit (flower_yellowA marker); a blue sedan (#3d5a82) parked mid-scene and a silver SUV (#c2c5c9) at the right kerb, with a brown wheelie bin beside it. Colours pixel-sampled from the ref."
 }

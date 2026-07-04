@@ -29,8 +29,15 @@ const inRegion = (x, z) => x >= REGION[0] && x <= REGION[1] && z >= REGION[2] &&
 // passes must NOT override: keep their hand-authored env (exact trees/cars/hedges) + scene
 // furniture, and SUPPRESS procedural furniture + aerial trees inside them. Add zones here as
 // more areas get the exact treatment.
-const CURATED = [[85, 175, -450, -235]];   // T-junction (HaRav Toledano x Unterman) — sized to cover the full junction the hero cameras see, so no generic content bleeds into view
-const inCurated = (x, z) => CURATED.some(c => x >= c[0] && x <= c[1] && z >= c[2] && z <= c[3]);
+// PARTS: non-overlapping hand-tuned areas. Each keeps its buildings' hand env (cars/hedges/
+// trees) + scene furniture, and suppresses the generic aerial-trees + procedural furniture
+// inside it. `roads:true` = the part owns its roads (a scene config) so generic roads are
+// suppressed inside it; `roads:false` = the part rides on the generic road network (keep them).
+const CURATED = [
+  { b: [85, 175, -450, -235], roads: true },    // Part 1: T-junction (HaRav Toledano x Unterman)
+  { b: [20, 85, -450, -235], roads: false },    // Part 2: West cluster (rides the generic roads)
+];
+const inCurated = (x, z) => CURATED.some(p => x >= p.b[0] && x <= p.b[1] && z >= p.b[2] && z <= p.b[3]);
 
 const BLD = JSON.parse(fs.readFileSync(W.paths.buildings, 'utf8')).buildings;
 const ROADS = JSON.parse(fs.readFileSync(path.join(W.paths.dir, 'roads.json'), 'utf8')).roads;
@@ -200,8 +207,8 @@ var SCENE=` + JSON.stringify({ ...SCENE, roads: sceneRoads,
   ground: { lawn: SCENE.ground.lawn, x0: REGION[0] - 20, x1: REGION[1] + 20, z0: REGION[2] - 20, z1: REGION[3] + 20 } }) + `;
 var TREES=` + JSON.stringify(AERIAL_TREES) + `;
 var CURATED=` + JSON.stringify(CURATED) + `;
-function inCur(x,z){for(var i=0;i<CURATED.length;i++){var c=CURATED[i];if(x>=c[0]&&x<=c[1]&&z>=c[2]&&z<=c[3])return true;}return false;}
-function inCurM(x,z,m){for(var i=0;i<CURATED.length;i++){var c=CURATED[i];if(x>=c[0]-m&&x<=c[1]+m&&z>=c[2]-m&&z<=c[3]+m)return true;}return false;}
+function inCur(x,z){for(var i=0;i<CURATED.length;i++){var c=CURATED[i].b;if(x>=c[0]&&x<=c[1]&&z>=c[2]&&z<=c[3])return true;}return false;}
+function inCurRoad(x,z,m){for(var i=0;i<CURATED.length;i++){if(!CURATED[i].roads)continue;var c=CURATED[i].b;if(x>=c[0]-m&&x<=c[1]+m&&z>=c[2]-m&&z<=c[3]+m)return true;}return false;}
 var KP=[],KN=[],KC=[];
 function collect(mesh){var g=mesh.geometry;g=g.index?g.toNonIndexed():g.clone();g.applyMatrix4(mesh.matrixWorld);
   if(!g.attributes.normal)g.computeVertexNormals();
@@ -492,7 +499,7 @@ function bakeRoadPrepped(rd,segs){
     var a0=Math.max(g.s0,startAt)-ext0, a1=s1+ext1;
     var mid=(a0+a1)/2, len=a1-a0;
     var cx=g.ax+g.ux*(mid-g.s0),cz=g.az+g.uz*(mid-g.s0);
-    if(rd.generic&&inCurM(cx,cz,7))continue;   // generic roads don't render inside a curated part (+margin so boundary-crossing segments don't bleed in)
+    if(rd.generic&&inCurRoad(cx,cz,7))continue;   // generic roads suppressed only inside parts that own their roads (+margin)
     var rot=Math.atan2(g.ux,g.uz);
     if(rd.surface==='pavers'){
       // designed ground: dark grout base, then a ~1m tile grid (0.94m tiles → 0.06m seams)

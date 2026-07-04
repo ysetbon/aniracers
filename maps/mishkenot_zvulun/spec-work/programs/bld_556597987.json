@@ -26,6 +26,19 @@
     "verge": { "grass": "#4f8a2f", "grassDark": "#3c6a24" },
     "road": { "surface": "asphalt", "color": "#6f7276" }
   },
+  "environment": {
+    "props": [
+      { "car": true, "t": 0.15, "inset": -4.7, "rot": "along", "color": "#aeb2b6" },
+      { "car": true, "t": 0.5, "inset": -4.7, "rot": "along", "flip": true, "color": "#9aa0a4" },
+      { "car": true, "t": 0.85, "inset": -4.7, "rot": "along", "flip": true, "color": "#b8bcc0" },
+      { "model": "tree_oak", "h": 7.5, "t": 0.2, "inset": 2.4, "rxz": 1.4, "tint": { "leafs": "#4f8a2f", "wood": "#6e5138", "*": "#6e5138" } },
+      { "model": "tree_palmDetailedTall", "h": 10.5, "t": 0.5, "inset": 3, "rxz": 0.85, "tint": { "leafs": "#3f9b42", "wood": "#a08a67", "*": "#a08a67" } },
+      { "model": "tree_palmTall", "h": 9.5, "t": 0.68, "inset": 4, "rxz": 0.85, "tint": { "leafs": "#46a648", "wood": "#a08a67", "*": "#a08a67" } },
+      { "model": "rock_smallA", "h": 2.5, "t": 0.35, "inset": 2, "rxz": 1.5, "tint": { "*": "#8a6f52" } },
+      { "model": "plant_bushDetailed", "h": 1.2, "t": 0.4, "inset": 1.2, "rxz": 1.2, "tint": { "leafs": "#2b3a2a", "*": "#24331f" } },
+      { "model": "plant_bushDetailed", "h": 1.2, "t": 0.55, "inset": 1.2, "rxz": 1.2, "tint": { "leafs": "#2b3a2a", "*": "#24331f" } }
+    ]
+  },
   "sky": { "top": "#4a9fe0", "horizon": "#a9d4ea", "cloud": "#f4f6f6" },
   "notes": "Real low white houses along a shared street. White render (#eef0ec); the near block has a low roof carrying solar water-heater PANELS and wall louvre vents, the adjacent house has a clear ORANGE terracotta HIP tile roof (#c05f34) with a flat carport canopy. Modelled as a white 2-storey with orange hip roof + roof solar prop. Frontage: light sandstone-block boundary wall, metal gate, red kerb, palms and shade trees, blue direction signs. Colours sampled from ref 2026-07-04."
 }
