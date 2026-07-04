@@ -33,6 +33,117 @@
     "sidewalk": { "material": "paving-brick", "color": "#838d94", "joint": "#5c6975", "w": 3.0 },
     "verge": { "grass": "#708f45", "grassDark": "#3b5e29" }
   },
+  "environment": {
+    "driveway": {
+      "at": 0.93,
+      "w": 3.2,
+      "color": "#8a8f94"
+    },
+    "props": [
+      {
+        "model": "tree_oak",
+        "h": 7,
+        "t": 0.63,
+        "inset": -1.6,
+        "rxz": 1.45,
+        "tint": {
+          "leafs": "#2f5d2a",
+          "wood": "#6e5138",
+          "*": "#6e5138"
+        }
+      },
+      {
+        "model": "tree_oak",
+        "h": 4.5,
+        "t": 0.75,
+        "inset": 2.4,
+        "rxz": 1.15,
+        "tint": {
+          "leafs": "#6b7d4f",
+          "wood": "#7a6a4f",
+          "*": "#7a6a4f"
+        }
+      },
+      {
+        "model": "tree_oak",
+        "h": 4.2,
+        "t": 0.2,
+        "inset": 2.2,
+        "rxz": 1.1,
+        "tint": {
+          "leafs": "#75855a",
+          "wood": "#7a6a4f",
+          "*": "#7a6a4f"
+        }
+      },
+      {
+        "model": "tree_palmTall",
+        "h": 5,
+        "t": 0.85,
+        "inset": 1.6,
+        "rxz": 0.9,
+        "tint": {
+          "leafs": "#4c9a3e",
+          "wood": "#8a7a5a",
+          "*": "#8a7a5a"
+        }
+      },
+      {
+        "model": "plant_bushLarge",
+        "h": 2,
+        "t": 0.8,
+        "inset": 1.2,
+        "tint": {
+          "leafs": "#4c8a35",
+          "*": "#4c8a35"
+        }
+      },
+      {
+        "model": "plant_bushDetailed",
+        "h": 1.6,
+        "t": 0.52,
+        "inset": 1.4,
+        "tint": {
+          "leafs": "#33632c",
+          "*": "#33632c"
+        }
+      },
+      {
+        "row": "plant_bushSmall",
+        "t0": 0.05,
+        "t1": 0.32,
+        "step": 1.8,
+        "inset": 1.2,
+        "h": 0.9,
+        "tint": {
+          "leafs": "#57952c",
+          "*": "#57952c"
+        }
+      },
+      {
+        "car": true,
+        "t": 0.94,
+        "inset": -0.8,
+        "rot": "along",
+        "color": "#eceae4"
+      },
+      {
+        "car": true,
+        "t": 1.12,
+        "inset": -4.9,
+        "rot": "along",
+        "color": "#3d5a82"
+      },
+      {
+        "car": true,
+        "t": 1.35,
+        "inset": -4.9,
+        "rot": "along",
+        "flip": true,
+        "color": "#b9bcc0"
+      }
+    ]
+  },
   "sky": { "top": "#5ea2db", "horizon": "#9fcfe4", "cloud": "#f4f6f6" },
   "notes": "Plain two-storey sandstone-block cube: cream-tan ashlar walls (block coursing pattern not expressible in schema), light grey plaster band at the floor line, a grey-tinted block course directly under the flat roof slab, and a light grey fascia slab with generous overhang. Two framed blue-grey windows per floor on the street facade, two slimmer ones per floor on the right side; no door visible in either ref (spec says 1 door) so an assumed rear door was placed on the back facade. FRONTAGE HAS NO BRICK WALL: a white PICKET fence (~1.7 m, spec fence color #f2f0ea; sampled in shade #b9b9b5) runs the whole frontage with a picket gate ~0.4 along it -- wall omitted, factory needs a picket fence type. Grey paving-brick sidewalk fills the frame to the bottom edge (no road visible, road block omitted). A large low-poly street tree stands in the sidewalk in front of the fence; behind the fence: lawn, banana plants and two olive-like shrubs. At the right edge a tan brick garden wall (#c9a87e) returns along the neighbouring lot. Sampled colours from 12x9 grids 2026-07-03."
 }

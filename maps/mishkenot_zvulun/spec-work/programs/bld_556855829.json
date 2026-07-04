@@ -1,46 +1,311 @@
 {
   "id": "556855829",
-  "refs": { "scene": "restyled/bld_556855829.png", "iso": "restyled/iso/bld_556855829.png" },
+  "refs": {
+    "scene": "restyled/bld_556855829.png",
+    "iso": "restyled/iso/bld_556855829.png"
+  },
   "footprint": "obb",
-  "floorH": 3.0,
+  "floorH": 3,
   "volumes": [
-    { "name": "main", "x0": 0.0, "x1": 1.0, "z0": 0.0, "z1": 1.0, "floors": 2,
+    {
+      "name": "main",
+      "x0": 0,
+      "x1": 1,
+      "z0": 0,
+      "z1": 1,
+      "floors": 2,
       "wall": "#ece7db",
       "bands": [
-        { "floor": 1, "y0": 0.0, "y1": 0.08, "x0": 0.0, "x1": 1.0, "color": "#ece8dc", "style": "cornice" },
-        { "floor": 0, "y0": 0.0, "y1": 0.06, "x0": 0.0, "x1": 1.0, "color": "#e0d9c5", "style": "cornice" }
+        {
+          "floor": 1,
+          "y0": 0,
+          "y1": 0.08,
+          "x0": 0,
+          "x1": 1,
+          "color": "#ece8dc",
+          "style": "cornice"
+        },
+        {
+          "floor": 0,
+          "y0": 0,
+          "y1": 0.06,
+          "x0": 0,
+          "x1": 1,
+          "color": "#e0d9c5",
+          "style": "cornice"
+        }
       ],
-      "roof": { "form": "hip", "color": "#e7e1d5" } }
+      "roof": {
+        "form": "hip",
+        "color": "#e7e1d5"
+      }
+    }
   ],
   "openings": [
-    { "volume": "main", "facade": "front", "type": "window", "floor": 1,
-      "at": [0.07, 0.23, 0.4, 0.57, 0.74, 0.9], "w": 1.3, "h": 1.3, "glass": "#6e6d67", "frame": "#e3dac7" },
-    { "volume": "main", "facade": "front", "type": "window", "floor": 0,
-      "at": [0.07, 0.23, 0.4, 0.57, 0.74, 0.9], "w": 1.3, "h": 1.4, "glass": "#6e6d67", "frame": "#e3dac7" },
-    { "volume": "main", "facade": "right", "type": "window", "floor": 1,
-      "at": [0.1, 0.3, 0.7, 0.9], "w": 1.2, "h": 1.3, "glass": "#6e6d67", "frame": "#e3dac7" },
-    { "volume": "main", "facade": "right", "type": "door", "floor": 1,
-      "at": [0.5], "w": 1.1, "h": 2.1, "glass": "#6e6d67", "frame": "#e3dac7" },
-    { "volume": "main", "facade": "right", "type": "window", "floor": 0,
-      "at": [0.1, 0.3, 0.5, 0.7, 0.9], "w": 1.2, "h": 1.4, "glass": "#6e6d67", "frame": "#e3dac7" },
-    { "volume": "main", "facade": "back", "type": "window", "floor": 1,
-      "at": [0.15, 0.4, 0.6, 0.85], "w": 1.3, "h": 1.3, "glass": "#6e6d67", "frame": "#e3dac7" },
-    { "volume": "main", "facade": "back", "type": "window", "floor": 0,
-      "at": [0.15, 0.4, 0.6, 0.85], "w": 1.3, "h": 1.4, "glass": "#6e6d67", "frame": "#e3dac7" }
+    {
+      "volume": "main",
+      "facade": "front",
+      "type": "window",
+      "floor": 1,
+      "at": [
+        0.07,
+        0.23,
+        0.4,
+        0.57,
+        0.74,
+        0.9
+      ],
+      "w": 1.3,
+      "h": 1.3,
+      "glass": "#6e6d67",
+      "frame": "#e3dac7"
+    },
+    {
+      "volume": "main",
+      "facade": "front",
+      "type": "window",
+      "floor": 0,
+      "at": [
+        0.07,
+        0.23,
+        0.4,
+        0.57,
+        0.74,
+        0.9
+      ],
+      "w": 1.3,
+      "h": 1.4,
+      "glass": "#6e6d67",
+      "frame": "#e3dac7"
+    },
+    {
+      "volume": "main",
+      "facade": "right",
+      "type": "window",
+      "floor": 1,
+      "at": [
+        0.1,
+        0.3,
+        0.7,
+        0.9
+      ],
+      "w": 1.2,
+      "h": 1.3,
+      "glass": "#6e6d67",
+      "frame": "#e3dac7"
+    },
+    {
+      "volume": "main",
+      "facade": "right",
+      "type": "door",
+      "floor": 1,
+      "at": [
+        0.5
+      ],
+      "w": 1.1,
+      "h": 2.1,
+      "glass": "#6e6d67",
+      "frame": "#e3dac7"
+    },
+    {
+      "volume": "main",
+      "facade": "right",
+      "type": "window",
+      "floor": 0,
+      "at": [
+        0.1,
+        0.3,
+        0.5,
+        0.7,
+        0.9
+      ],
+      "w": 1.2,
+      "h": 1.4,
+      "glass": "#6e6d67",
+      "frame": "#e3dac7"
+    },
+    {
+      "volume": "main",
+      "facade": "back",
+      "type": "window",
+      "floor": 1,
+      "at": [
+        0.15,
+        0.4,
+        0.6,
+        0.85
+      ],
+      "w": 1.3,
+      "h": 1.3,
+      "glass": "#6e6d67",
+      "frame": "#e3dac7"
+    },
+    {
+      "volume": "main",
+      "facade": "back",
+      "type": "window",
+      "floor": 0,
+      "at": [
+        0.15,
+        0.4,
+        0.6,
+        0.85
+      ],
+      "w": 1.3,
+      "h": 1.4,
+      "glass": "#6e6d67",
+      "frame": "#e3dac7"
+    }
   ],
   "terraces": [
-    { "onVolume": "main", "side": "front", "floor": 1,
-      "rail": { "type": "balusters", "h": 0.95, "color": "#d8d2c0" } },
-    { "onVolume": "main", "side": "right", "floor": 1,
-      "rail": { "type": "balusters", "h": 0.95, "color": "#d8d2c0" } },
-    { "onVolume": "main", "side": "right", "floor": 1,
-      "rail": { "type": "balusters", "h": 0.95, "color": "#d8d2c0" } }
+    {
+      "onVolume": "main",
+      "side": "front",
+      "floor": 1,
+      "rail": {
+        "type": "balusters",
+        "h": 0.95,
+        "color": "#d8d2c0"
+      }
+    },
+    {
+      "onVolume": "main",
+      "side": "right",
+      "floor": 1,
+      "rail": {
+        "type": "balusters",
+        "h": 0.95,
+        "color": "#d8d2c0"
+      }
+    },
+    {
+      "onVolume": "main",
+      "side": "right",
+      "floor": 1,
+      "rail": {
+        "type": "balusters",
+        "h": 0.95,
+        "color": "#d8d2c0"
+      }
+    }
   ],
   "props": [],
   "frontage": {
-    "sidewalk": { "material": "brick-herringbone", "color": "#da966d", "joint": "#b8895d", "w": 3.5 },
-    "road": { "surface": "asphalt", "color": "#8f9296" }
+    "sidewalk": {
+      "material": "brick-herringbone",
+      "color": "#da966d",
+      "joint": "#b8895d",
+      "w": 3.5
+    },
+    "road": {
+      "surface": "asphalt",
+      "color": "#8f9296"
+    }
   },
-  "sky": { "top": "#5ea2db", "horizon": "#9fcfe4", "cloud": "#f4f6f6" },
+  "environment": {
+    "props": [
+      {
+        "model": "plant_bushLarge",
+        "h": 3.2,
+        "t": 0.22,
+        "inset": 0.9,
+        "rxz": 1.25,
+        "tint": {
+          "leafs": "#b23a75",
+          "*": "#8f2f5e"
+        }
+      },
+      {
+        "model": "tree_oak",
+        "h": 3.8,
+        "t": 0.5,
+        "inset": 1.1,
+        "rxz": 1.2,
+        "tint": {
+          "leafs": "#a83368",
+          "wood": "#7a5a43",
+          "*": "#8f2f5e"
+        }
+      },
+      {
+        "model": "plant_bushLarge",
+        "h": 2.8,
+        "t": 0.78,
+        "inset": 0.9,
+        "rxz": 1.2,
+        "tint": {
+          "leafs": "#b23a75",
+          "*": "#8f2f5e"
+        }
+      },
+      {
+        "row": "grass_leafs",
+        "t0": 0.08,
+        "t1": 0.92,
+        "step": 1.8,
+        "inset": -1.2,
+        "h": 0.5,
+        "tint": {
+          "grass": "#8aa27a",
+          "*": "#8aa27a"
+        }
+      },
+      {
+        "model": "tree_palmDetailedTall",
+        "h": 10,
+        "t": 0.55,
+        "inset": 4.5,
+        "tint": {
+          "leafs": "#3f9b42",
+          "wood": "#a08a67",
+          "*": "#a08a67"
+        },
+        "rxz": 0.85
+      },
+      {
+        "model": "tree_default",
+        "h": 5.5,
+        "t": 0.4,
+        "inset": 3,
+        "rxz": 1.2,
+        "tint": {
+          "leafs": "#2f6b2b",
+          "wood": "#6e5138",
+          "*": "#6e5138"
+        }
+      },
+      {
+        "model": "tree_palmTall",
+        "h": 3.5,
+        "t": 0.9,
+        "inset": 1.5,
+        "tint": {
+          "leafs": "#58a04a",
+          "wood": "#a08a67",
+          "*": "#a08a67"
+        }
+      },
+      {
+        "car": true,
+        "t": 0.12,
+        "inset": -2.8,
+        "rot": "along",
+        "color": "#3d5a82"
+      },
+      {
+        "car": true,
+        "t": 0.6,
+        "inset": -3.2,
+        "rot": "along",
+        "flip": true,
+        "color": "#b9bcc0"
+      }
+    ]
+  },
+  "sky": {
+    "top": "#5ea2db",
+    "horizon": "#9fcfe4",
+    "cloud": "#f4f6f6"
+  },
   "notes": "Stately square 2-storey ivory duplex mansion (#ece7db) under a pale-cream low HIP roof (#e7e1d5 lit / #d4ccc2 shaded faces) with deep boxed eaves, moulded cornice at the floor line and at the plinth (band style 'cornice' is an extension - they protrude in the ref), gutters and corner downpipes. Facades are dense, regular rows of tall multi-pane sash windows (dark #6e6d67 glass, cream #e3dac7 frames with muntin grids - no muntin field, noted). Three small timber-balustrade balconies (#d8d2c0) at floor 1: one wrapping the front-left corner, one centred on the right facade in front of a glass door, one at the right-front corner - terrace entries lack floor/at positioning so a floor field was added (extension) and placements are recorded here. Spec v2 says doors:2 (duplex) but no ground-floor door is visible in the iso and the street view is fully blocked, so none were placed - critic to resolve. FRONTAGE: the entire street frame is a giant BOUGAINVILLEA (leaves #577a31 lit / #4f622a shade, magenta flowers #8a314a) spilling over a grey CHAIN-LINK fence with steel posts (#868c8e) - no brick wall or gate exists, so wall/gates are omitted; factory needs chain-link fence + climbing-bougainvillea hedge props. Orange herringbone-brick sidewalk (#da966d, joints #b8895d) with leaf litter. Road and building are not visible in the scene ref at all (road hex copied from style anchor); building data comes entirely from the iso. Sampled from 12x9+36x24 scene grids and 24x18 iso grid 2026-07-03."
 }

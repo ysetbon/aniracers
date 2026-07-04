@@ -38,6 +38,21 @@
     "verge": { "grass": "#7cad46", "grassDark": "#416a25",
                "flowers": { "palette": ["#d38376", "#f1ead8", "#b6bb69"], "perM2": 0.25 } }
   },
+  "environment": {
+    "props": [
+      {"hedge": true, "h": 2.1, "t0": 0.12, "t1": 0.72, "step": 1.2, "inset": 1.1, "d": 1.2, "colors": ["#6fa832", "#57952c", "#4e8a28"]},
+      {"model": "plant_bush", "h": 2.3, "t": 0.3, "inset": 1.0, "tint": {"leafs": "#b23a75", "*": "#8f2f5e"}},
+      {"model": "plant_bushSmall", "h": 1.8, "t": 0.62, "inset": 1.0, "tint": {"leafs": "#b23a75", "*": "#8f2f5e"}},
+      {"model": "tree_oak", "h": 7.0, "t": 0.55, "inset": -1.3, "rxz": 1.5, "tint": {"leafs": "#3c7a33", "wood": "#6e5138", "*": "#6e5138"}},
+      {"row": "flower_redA", "t0": 0.05, "t1": 0.4, "step": 1.4, "inset": -1.0, "h": 0.35},
+      {"row": "flower_yellowA", "t0": 0.62, "t1": 0.95, "step": 1.4, "inset": -1.0, "h": 0.35},
+      {"model": "tree_default", "h": 5.5, "t": 0.25, "inset": 6.5, "rxz": 1.2, "tint": {"leafs": "#57952c", "wood": "#6e5138", "*": "#6e5138"}},
+      {"model": "tree_default", "h": 5.0, "t": 0.75, "inset": 8.0, "rxz": 1.1, "tint": {"leafs": "#3c7031", "wood": "#6e5138", "*": "#6e5138"}},
+      {"model": "rock_largeA", "h": 0.8, "t": 0.1, "inset": 6.0, "tint": {"stone": "#b9b4a6", "*": "#b9b4a6"}},
+      {"car": true, "t": 0.48, "inset": -4.9, "rot": "along", "color": "#eceae4"},
+      {"car": true, "t": 0.9, "inset": -4.9, "rot": "along", "flip": true, "color": "#9aa0a6"}
+    ]
+  },
   "sky": { "top": "#5ea2db", "horizon": "#9fcfe4", "cloud": "#f4f6f6" },
   "notes": "Single-storey cream bungalow under a big red-orange tiled roof with chunky wood (#b18869) fascia/gable trim -- tile coursing not expressible, flat-colour gable/hip forms used. FLOORS CONFLICT: building-specs says floors:2 but both iso and scene unambiguously show one-storey walls under the tall roof; the ref was followed (floors:1) -- flag for the critic. Tan plinth band around the whole base. Main volume front: a large window with grey SECURITY BARS at ~0.62 (no bars field, factory extension needed) and a cluster of three slim blue-grey windows at the far left; lower right wing with two narrow windows and one wider framed window. 2x2 dark-blue SOLAR PV panels sit on the right slope of the main roof (encoded as roof props:['solar']; exact placement right-of-ridge not expressible). No door visible in either ref (spec says 1 door); an assumed side door was placed on the left facade where the ref's garden path leads. FRONTAGE HAS NO BRICK WALL: continuous white PICKET fence (#efe8d5, ~1.6 m) across the whole frontage, no gate visible in frame (gates omitted); at the far right the picket meets a solid stucco pillar/wall segment with a cap. Street side: light stone-slab sidewalk split by a GRASS VERGE strip dense with pink/white/yellow flowers (flower hexes are nearest grid medians; tiny blooms defeat the sampler), a second flower-and-grass strip in the foreground, low-poly cube-canopy trees on the back lawn, grey paving garden path along the house's left side, rocks on the back lawn. No road surface visible (road block omitted). Sampled colours from 12x9 + 24x18 grids 2026-07-03."
 }

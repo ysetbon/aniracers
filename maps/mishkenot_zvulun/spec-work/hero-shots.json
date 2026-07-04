@@ -1,0 +1,75 @@
+{
+  "note": "Locked canonical camera frames for the Art Match QA ratchet (Stage 5.5). Every bake is judged from THESE cameras only — never random gameplay angles. Rendered clean (no HUD/kart) and art-lit (aimed sun+shadows, tone mapping) by shoot-street.mjs --hero. Coords are game world XZ (metres); heading = degrees from north (−Z) clockwise; eye = camera height; pitch = up-tilt degrees. Scorecard = the visible requirements each frame must satisfy to read as its target; tick them by eye against target + render.",
+  "shots": [
+    {
+      "id": "junction-north",
+      "desc": "THE target frame: standing just south of the T-node looking north up the terracotta paver street, island + blue T-sign on the right.",
+      "x": 119.1, "z": -326.8, "heading": 6, "fov": 72, "eye": 2.5, "pitch": 4,
+      "target": "docs/target-street-image.png",
+      "scorecard": {
+        "ground": [
+          "terracotta paver street visible (not flat asphalt)",
+          "grey center-band pavers readable",
+          "paver tile seams / grid visible",
+          "red-white kerb spans aligned to the kerb line",
+          "bevelled kerbs, not flat slabs",
+          "road width visually matches reference"
+        ],
+        "architecture": [
+          "left stone wall + hedge mass present",
+          "right wall/gate/trees present",
+          "red roof rhythm closing the street in the background",
+          "facade windows/frames visible (not blank megafacade)"
+        ],
+        "vegetation": [
+          "large left tree/palm canopy in foreground",
+          "right foreground canopy (bougainvillea at the fork corner)",
+          "palm clusters receding down the street",
+          "low planted island bushes in the fork"
+        ],
+        "rendering": [
+          "soft shadows visible on ground",
+          "no neon grass (muted olive/warm green)",
+          "no blank pure-white megafacades",
+          "no floating props",
+          "warm sun / cool shadow color balance"
+        ]
+      }
+    },
+    {
+      "id": "paver-street-north",
+      "desc": "Mid paver street looking north to the red-roofed backdrop house; parked cars on the paver edges, cypress+palms flanking.",
+      "x": 122.4, "z": -346.5, "heading": 6, "fov": 72, "eye": 2.5, "pitch": 3,
+      "target": "maps/mishkenot_zvulun/restyled/scene-tjunction/raw_road_699330771_2_a.jpg",
+      "scorecard": {
+        "ground": [
+          "raised terracotta pavers with grey center band",
+          "tile seams readable",
+          "kerbs bevelled + red-white spans near the junction"
+        ],
+        "architecture": [
+          "white/cream villa walls both sides with windows",
+          "red gable roof closing the vista"
+        ],
+        "vegetation": [
+          "cypress columns + tall palms flanking",
+          "hedges/bushes over the compound walls",
+          "cars parked flush to the kerb, parallel"
+        ],
+        "rendering": ["shadows", "no neon grass", "no floating props"]
+      }
+    },
+    {
+      "id": "fork-from-north",
+      "desc": "Looking back south down the paver street at the planted island, blue T-sign and the junction fork.",
+      "x": 124.5, "z": -370.2, "heading": 186, "fov": 74, "eye": 2.5, "pitch": 3,
+      "target": "maps/mishkenot_zvulun/restyled/scene-tjunction/raw_jC_2.jpg",
+      "scorecard": {
+        "ground": ["paver street + grey band", "island kerb ring reads as a rounded bed"],
+        "architecture": ["stone junction-corner building present"],
+        "vegetation": ["island: layered bushes + rocks + grasses, not sparse", "bougainvillea mass at the fork corner"],
+        "rendering": ["shadows", "T-sign legible", "no neon grass"]
+      }
+    }
+  ]
+}

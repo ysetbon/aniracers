@@ -1,78 +1,521 @@
 {
   "id": "556855838",
-  "refs": { "scene": "restyled/bld_556855838.png", "iso": "restyled/iso/bld_556855838.png" },
+  "refs": {
+    "scene": "restyled/bld_556855838.png",
+    "iso": "restyled/iso/bld_556855838.png"
+  },
   "footprint": "obb",
-  "floorH": 3.0,
+  "floorH": 3,
   "volumes": [
-    { "name": "left", "x0": 0.0, "x1": 0.42, "z0": 0.0, "z1": 1.0, "floors": 2,
+    {
+      "name": "left",
+      "x0": 0,
+      "x1": 0.42,
+      "z0": 0,
+      "z1": 1,
+      "floors": 2,
       "wall": "#f4f4f1",
       "bands": [
-        { "floor": 1, "y0": 0.0, "y1": 1.0, "x0": 0.0, "x1": 0.5, "color": "#e4e3de", "style": "slats" },
-        { "floor": 0, "y0": 0.0, "y1": 1.0, "x0": 0.0, "x1": 0.5, "color": "#b1b1b3", "style": "slats" }
+        {
+          "floor": 1,
+          "y0": 0,
+          "y1": 1,
+          "x0": 0,
+          "x1": 0.5,
+          "color": "#e4e3de",
+          "style": "slats"
+        },
+        {
+          "floor": 0,
+          "y0": 0,
+          "y1": 1,
+          "x0": 0,
+          "x1": 0.5,
+          "color": "#b1b1b3",
+          "style": "slats"
+        }
       ],
-      "roof": { "form": "flat", "fascia": { "h": 0.5, "color": "#f4f4f1", "overhang": 0.4 } } },
-    { "name": "link", "x0": 0.42, "x1": 0.60, "z0": 0.12, "z1": 1.0, "floors": 2,
+      "roof": {
+        "form": "flat",
+        "fascia": {
+          "h": 0.5,
+          "color": "#f4f4f1",
+          "overhang": 0.4
+        }
+      }
+    },
+    {
+      "name": "link",
+      "x0": 0.42,
+      "x1": 0.6,
+      "z0": 0.12,
+      "z1": 1,
+      "floors": 2,
       "wall": "#f4f4f1",
-      "roof": { "form": "flat", "fascia": { "h": 0.4, "color": "#f4f4f1", "overhang": 0.2 } } },
-    { "name": "tower", "x0": 0.47, "x1": 0.56, "z0": 0.0, "z1": 0.3, "floors": 3,
+      "roof": {
+        "form": "flat",
+        "fascia": {
+          "h": 0.4,
+          "color": "#f4f4f1",
+          "overhang": 0.2
+        }
+      }
+    },
+    {
+      "name": "tower",
+      "x0": 0.47,
+      "x1": 0.56,
+      "z0": 0,
+      "z1": 0.3,
+      "floors": 3,
       "wall": "#b1b1b3",
       "bands": [
-        { "floor": 0, "y0": 0.0, "y1": 1.0, "color": "#b1b1b3", "style": "slats" },
-        { "floor": 1, "y0": 0.0, "y1": 1.0, "color": "#b1b1b3", "style": "slats" },
-        { "floor": 2, "y0": 0.0, "y1": 1.0, "color": "#b1b1b3", "style": "slats" }
+        {
+          "floor": 0,
+          "y0": 0,
+          "y1": 1,
+          "color": "#b1b1b3",
+          "style": "slats"
+        },
+        {
+          "floor": 1,
+          "y0": 0,
+          "y1": 1,
+          "color": "#b1b1b3",
+          "style": "slats"
+        },
+        {
+          "floor": 2,
+          "y0": 0,
+          "y1": 1,
+          "color": "#b1b1b3",
+          "style": "slats"
+        }
       ],
-      "roof": { "form": "flat", "fascia": { "h": 0.3, "color": "#c8c5c1", "overhang": 0.1 } } },
-    { "name": "right", "x0": 0.60, "x1": 1.0, "z0": 0.0, "z1": 1.0, "floors": 2,
+      "roof": {
+        "form": "flat",
+        "fascia": {
+          "h": 0.3,
+          "color": "#c8c5c1",
+          "overhang": 0.1
+        }
+      }
+    },
+    {
+      "name": "right",
+      "x0": 0.6,
+      "x1": 1,
+      "z0": 0,
+      "z1": 1,
+      "floors": 2,
       "wall": "#f4f4f1",
       "bands": [
-        { "floor": 1, "y0": 0.5, "y1": 1.0, "x0": 0.12, "x1": 0.45, "color": "#dedcd5", "style": "slats" }
+        {
+          "floor": 1,
+          "y0": 0.5,
+          "y1": 1,
+          "x0": 0.12,
+          "x1": 0.45,
+          "color": "#dedcd5",
+          "style": "slats"
+        }
       ],
-      "roof": { "form": "flat", "fascia": { "h": 0.5, "color": "#f4f4f1", "overhang": 0.4 } } }
+      "roof": {
+        "form": "flat",
+        "fascia": {
+          "h": 0.5,
+          "color": "#f4f4f1",
+          "overhang": 0.4
+        }
+      }
+    }
   ],
   "openings": [
-    { "volume": "left", "facade": "front", "type": "opening", "floor": 0,
-      "at": [0.65], "w": 2.0, "h": 2.5, "glass": "#585a60", "recessed": true },
-    { "volume": "left", "facade": "front", "type": "window", "floor": 0,
-      "at": [0.88], "w": 1.2, "h": 1.3, "glass": "#83848b", "frame": "#e4e3de", "recessed": true },
-    { "volume": "left", "facade": "front", "type": "window", "floor": 1,
-      "at": [0.6, 0.85], "w": 1.4, "h": 1.3, "glass": "#83848b", "frame": "#e4e3de", "recessed": true },
-    { "volume": "left", "facade": "left", "type": "window", "floor": 1,
-      "at": [0.18], "w": 1.3, "h": 1.3, "glass": "#83848b", "frame": "#e4e3de" },
-    { "volume": "left", "facade": "left", "type": "window", "floor": 1,
-      "at": [0.55, 0.7, 0.85], "w": 0.8, "h": 0.8, "glass": "#83848b", "frame": "#e4e3de" },
-    { "volume": "link", "facade": "front", "type": "window", "floor": 1,
-      "at": [0.3], "w": 1.2, "h": 1.4, "glass": "#83848b", "frame": "#e4e3de", "recessed": true },
-    { "volume": "link", "facade": "front", "type": "window", "floor": 0,
-      "at": [0.3], "w": 1.2, "h": 1.4, "glass": "#83848b", "frame": "#e4e3de", "recessed": true },
-    { "volume": "right", "facade": "front", "type": "opening", "floor": 0,
-      "at": [0.3], "w": 2.0, "h": 2.5, "glass": "#585a60", "recessed": true },
-    { "volume": "right", "facade": "front", "type": "window", "floor": 1,
-      "at": [0.06], "w": 1.1, "h": 1.3, "glass": "#83848b", "frame": "#e4e3de", "recessed": true },
-    { "volume": "right", "facade": "back", "type": "window", "floor": 0,
-      "at": [0.3, 0.7], "w": 1.3, "h": 1.3, "glass": "#83848b", "frame": "#e4e3de" },
-    { "volume": "right", "facade": "back", "type": "window", "floor": 1,
-      "at": [0.3, 0.7], "w": 1.3, "h": 1.3, "glass": "#83848b", "frame": "#e4e3de" },
-    { "volume": "left", "facade": "back", "type": "window", "floor": 0,
-      "at": [0.3, 0.7], "w": 1.3, "h": 1.3, "glass": "#83848b", "frame": "#e4e3de" },
-    { "volume": "left", "facade": "back", "type": "window", "floor": 1,
-      "at": [0.3, 0.7], "w": 1.3, "h": 1.3, "glass": "#83848b", "frame": "#e4e3de" }
+    {
+      "volume": "left",
+      "facade": "front",
+      "type": "opening",
+      "floor": 0,
+      "at": [
+        0.65
+      ],
+      "w": 2,
+      "h": 2.5,
+      "glass": "#585a60",
+      "recessed": true
+    },
+    {
+      "volume": "left",
+      "facade": "front",
+      "type": "window",
+      "floor": 0,
+      "at": [
+        0.88
+      ],
+      "w": 1.2,
+      "h": 1.3,
+      "glass": "#83848b",
+      "frame": "#e4e3de",
+      "recessed": true
+    },
+    {
+      "volume": "left",
+      "facade": "front",
+      "type": "window",
+      "floor": 1,
+      "at": [
+        0.6,
+        0.85
+      ],
+      "w": 1.4,
+      "h": 1.3,
+      "glass": "#83848b",
+      "frame": "#e4e3de",
+      "recessed": true
+    },
+    {
+      "volume": "left",
+      "facade": "left",
+      "type": "window",
+      "floor": 1,
+      "at": [
+        0.18
+      ],
+      "w": 1.3,
+      "h": 1.3,
+      "glass": "#83848b",
+      "frame": "#e4e3de"
+    },
+    {
+      "volume": "left",
+      "facade": "left",
+      "type": "window",
+      "floor": 1,
+      "at": [
+        0.55,
+        0.7,
+        0.85
+      ],
+      "w": 0.8,
+      "h": 0.8,
+      "glass": "#83848b",
+      "frame": "#e4e3de"
+    },
+    {
+      "volume": "link",
+      "facade": "front",
+      "type": "window",
+      "floor": 1,
+      "at": [
+        0.3
+      ],
+      "w": 1.2,
+      "h": 1.4,
+      "glass": "#83848b",
+      "frame": "#e4e3de",
+      "recessed": true
+    },
+    {
+      "volume": "link",
+      "facade": "front",
+      "type": "window",
+      "floor": 0,
+      "at": [
+        0.3
+      ],
+      "w": 1.2,
+      "h": 1.4,
+      "glass": "#83848b",
+      "frame": "#e4e3de",
+      "recessed": true
+    },
+    {
+      "volume": "right",
+      "facade": "front",
+      "type": "opening",
+      "floor": 0,
+      "at": [
+        0.3
+      ],
+      "w": 2,
+      "h": 2.5,
+      "glass": "#585a60",
+      "recessed": true
+    },
+    {
+      "volume": "right",
+      "facade": "front",
+      "type": "window",
+      "floor": 1,
+      "at": [
+        0.06
+      ],
+      "w": 1.1,
+      "h": 1.3,
+      "glass": "#83848b",
+      "frame": "#e4e3de",
+      "recessed": true
+    },
+    {
+      "volume": "right",
+      "facade": "back",
+      "type": "window",
+      "floor": 0,
+      "at": [
+        0.3,
+        0.7
+      ],
+      "w": 1.3,
+      "h": 1.3,
+      "glass": "#83848b",
+      "frame": "#e4e3de"
+    },
+    {
+      "volume": "right",
+      "facade": "back",
+      "type": "window",
+      "floor": 1,
+      "at": [
+        0.3,
+        0.7
+      ],
+      "w": 1.3,
+      "h": 1.3,
+      "glass": "#83848b",
+      "frame": "#e4e3de"
+    },
+    {
+      "volume": "left",
+      "facade": "back",
+      "type": "window",
+      "floor": 0,
+      "at": [
+        0.3,
+        0.7
+      ],
+      "w": 1.3,
+      "h": 1.3,
+      "glass": "#83848b",
+      "frame": "#e4e3de"
+    },
+    {
+      "volume": "left",
+      "facade": "back",
+      "type": "window",
+      "floor": 1,
+      "at": [
+        0.3,
+        0.7
+      ],
+      "w": 1.3,
+      "h": 1.3,
+      "glass": "#83848b",
+      "frame": "#e4e3de"
+    }
   ],
   "terraces": [],
   "props": [
-    { "type": "lamp-globe", "volume": "left", "facade": "front", "at": 0.45 },
-    { "type": "lamp-globe", "volume": "right", "facade": "front", "at": 0.12 }
+    {
+      "type": "lamp-globe",
+      "volume": "left",
+      "facade": "front",
+      "at": 0.45
+    },
+    {
+      "type": "lamp-globe",
+      "volume": "right",
+      "facade": "front",
+      "at": 0.12
+    }
   ],
   "frontage": {
-    "wall": { "type": "brick", "color": "#eee9e5", "mortar": "#dedcd5", "h": 2.2 },
+    "wall": {
+      "type": "brick",
+      "color": "#eee9e5",
+      "mortar": "#dedcd5",
+      "h": 2.2
+    },
     "gates": [
-      { "kind": "vehicle", "w": 3.2, "at": 0.18, "style": "corrugated", "color": "#b3b2b3" },
-      { "kind": "pedestrian", "w": 1.1, "at": 0.78, "style": "panel", "color": "#98999b" }
+      {
+        "kind": "vehicle",
+        "w": 3.2,
+        "at": 0.18,
+        "style": "corrugated",
+        "color": "#b3b2b3"
+      },
+      {
+        "kind": "pedestrian",
+        "w": 1.1,
+        "at": 0.78,
+        "style": "panel",
+        "color": "#98999b"
+      }
     ],
-    "sidewalk": { "material": "paving-brick", "color": "#bcaea3", "joint": "#a5a09d", "w": 2.5 },
-    "verge": { "grass": "#aab46f", "grassDark": "#9da084",
-               "flowers": { "palette": ["#dcac9f", "#dcc280", "#f4f4f1"], "perM2": 0.1 } },
-    "road": { "surface": "asphalt", "color": "#6b6971" }
+    "sidewalk": {
+      "material": "paving-brick",
+      "color": "#bcaea3",
+      "joint": "#a5a09d",
+      "w": 2.5
+    },
+    "verge": {
+      "grass": "#aab46f",
+      "grassDark": "#9da084",
+      "flowers": {
+        "palette": [
+          "#dcac9f",
+          "#dcc280",
+          "#f4f4f1"
+        ],
+        "perM2": 0.1
+      }
+    },
+    "road": {
+      "surface": "asphalt",
+      "color": "#6b6971"
+    }
   },
-  "sky": { "top": "#5ea2db", "horizon": "#9fcfe4", "cloud": "#f4f6f6" },
+  "environment": {
+    "driveway": {
+      "at": 0.18,
+      "w": 3.2,
+      "color": "#cf9a70"
+    },
+    "props": [
+      {
+        "model": "tree_palmTall",
+        "h": 9,
+        "t": 0.96,
+        "inset": 1.3,
+        "tint": {
+          "leafs": "#3f9b42",
+          "wood": "#a08a67",
+          "*": "#a08a67"
+        },
+        "rxz": 0.85
+      },
+      {
+        "model": "plant_bushLarge",
+        "h": 2.6,
+        "t": 0.9,
+        "inset": 0.9,
+        "rxz": 1.2,
+        "tint": {
+          "leafs": "#57a03a",
+          "*": "#4c8a34"
+        }
+      },
+      {
+        "model": "plant_bushDetailed",
+        "h": 1.6,
+        "t": 0.84,
+        "inset": 0.6,
+        "tint": {
+          "leafs": "#3a5f33",
+          "*": "#3a5f33"
+        }
+      },
+      {
+        "model": "tree_oak",
+        "h": 4.5,
+        "t": 0.4,
+        "inset": 2.6,
+        "rxz": 1.2,
+        "tint": {
+          "leafs": "#6b7f4e",
+          "wood": "#6e5138",
+          "*": "#6e5138"
+        }
+      },
+      {
+        "row": "tree_default",
+        "t0": 0.5,
+        "t1": 0.68,
+        "step": 1.6,
+        "inset": 0.6,
+        "h": 2.6,
+        "tint": {
+          "leafs": "#4c7d33",
+          "wood": "#6e5138",
+          "*": "#6e5138"
+        }
+      },
+      {
+        "planter": true,
+        "t": 0.33,
+        "inset": -0.5,
+        "w": 2.2,
+        "d": 1,
+        "color": "#b9b3ab",
+        "rot": "along"
+      },
+      {
+        "model": "grass_leafs",
+        "h": 0.6,
+        "t": 0.33,
+        "inset": -0.5,
+        "y": 0.5,
+        "tint": {
+          "grass": "#4c8a3c",
+          "*": "#4c8a3c"
+        }
+      },
+      {
+        "model": "plant_bush",
+        "h": 1.2,
+        "t": 1.04,
+        "inset": -1.4,
+        "tint": {
+          "leafs": "#44603a",
+          "*": "#44603a"
+        }
+      },
+      {
+        "model": "rock_smallB",
+        "h": 0.5,
+        "t": 1.08,
+        "inset": -1.1,
+        "tint": {
+          "stone": "#cfc6b2",
+          "*": "#cfc6b2"
+        }
+      },
+      {
+        "model": "plant_bushSmall",
+        "h": 0.7,
+        "t": 0.04,
+        "inset": -1.5,
+        "tint": {
+          "leafs": "#375730",
+          "*": "#375730"
+        }
+      },
+      {
+        "bin": true,
+        "t": 0.7,
+        "inset": -0.9,
+        "rot": "along"
+      },
+      {
+        "car": true,
+        "t": 0.32,
+        "inset": -4.7,
+        "rot": "along",
+        "color": "#eceae4"
+      },
+      {
+        "car": true,
+        "t": 0.55,
+        "inset": -4.7,
+        "rot": "along",
+        "flip": true,
+        "color": "#b9bcc0"
+      }
+    ]
+  },
+  "sky": {
+    "top": "#5ea2db",
+    "horizon": "#9fcfe4",
+    "cloud": "#f4f6f6"
+  },
   "notes": "Modern white duplex: two flat-roofed 2-storey blocks with wide white fascia slabs edged by a thin orange clay-tile coping strip (schema gap: fascia has one colour - tile coping noted here, nearest sampled orange #e0a680), joined by a recessed link and a tall grey horizontal-slat chimney/stair tower that rises above the roofline. Ground floor of the left block is wrapped in grey horizontal slats left of a deep dark entry porch (white front door inside); upper-left facade has white horizontal siding; the right block carries a grey louvre panel over its porch. All small windows have grey awning-style iron bar grilles (schema gap: no bars field). Roof carries solar panels (dark #4d5969), solar tank and satellite dishes (prop factory pending). Frontage: tall white-brick compound wall with a full-height corrugated grey metal vehicle gate at left, orange-brick pillar accents (#c79e79) and a loose orange brick pile by the wall corner, grey block low walls and a raised concrete planter trough, grey paver sidewalk with a terracotta brick driveway apron (#e2a67c joint #b69c7d - schema gap: two paving materials per frontage), small lawn strips and flower clumps, grey utility/meter cabinets by the right pedestrian gate (prop factory pending). Road itself not visible in the ref (asphalt hex from shaded corner). Low hills with lollipop trees in the background. Sampled colours from 12x9 + 24x18 grids 2026-07-03."
 }

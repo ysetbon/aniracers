@@ -1,55 +1,385 @@
 {
   "id": "556855840",
-  "refs": { "scene": "restyled/bld_556855840.png", "iso": "restyled/iso/bld_556855840.png" },
+  "refs": {
+    "scene": "restyled/bld_556855840.png",
+    "iso": "restyled/iso/bld_556855840.png"
+  },
   "footprint": "obb",
-  "floorH": 3.0,
+  "floorH": 3,
   "volumes": [
-    { "name": "main", "x0": 0.0, "x1": 1.0, "z0": 0.0, "z1": 1.0, "floors": 2,
+    {
+      "name": "main",
+      "x0": 0,
+      "x1": 1,
+      "z0": 0,
+      "z1": 1,
+      "floors": 2,
       "wall": "#f6f1f7",
       "bands": [
-        { "floor": 0, "y0": 0.0, "y1": 1.0, "color": "#c9bdb3", "style": "blocks" },
-        { "floor": 1, "y0": 0.0, "y1": 1.0, "x0": 0.0, "x1": 0.14, "color": "#c9bdb3", "style": "blocks" },
-        { "floor": 1, "y0": 0.0, "y1": 1.0, "x0": 0.36, "x1": 0.52, "color": "#c9bdb3", "style": "blocks" },
-        { "floor": 1, "y0": 0.0, "y1": 1.0, "x0": 0.8, "x1": 1.0, "color": "#c9bdb3", "style": "blocks" }
+        {
+          "floor": 0,
+          "y0": 0,
+          "y1": 1,
+          "color": "#c9bdb3",
+          "style": "blocks"
+        },
+        {
+          "floor": 1,
+          "y0": 0,
+          "y1": 1,
+          "x0": 0,
+          "x1": 0.14,
+          "color": "#c9bdb3",
+          "style": "blocks"
+        },
+        {
+          "floor": 1,
+          "y0": 0,
+          "y1": 1,
+          "x0": 0.36,
+          "x1": 0.52,
+          "color": "#c9bdb3",
+          "style": "blocks"
+        },
+        {
+          "floor": 1,
+          "y0": 0,
+          "y1": 1,
+          "x0": 0.8,
+          "x1": 1,
+          "color": "#c9bdb3",
+          "style": "blocks"
+        }
       ],
-      "roof": { "form": "flat", "fascia": { "h": 0.5, "color": "#f6f1f7", "overhang": 0.5 } } }
+      "roof": {
+        "form": "flat",
+        "fascia": {
+          "h": 0.5,
+          "color": "#f6f1f7",
+          "overhang": 0.5
+        }
+      }
+    }
   ],
   "openings": [
-    { "volume": "main", "facade": "front", "type": "door", "floor": 0,
-      "at": [0.24], "w": 1.2, "h": 2.2, "glass": "#4b4b4c", "frame": "#c9bdb3", "recessed": true },
-    { "volume": "main", "facade": "front", "type": "door", "floor": 0,
-      "at": [0.63], "w": 1.2, "h": 2.2, "glass": "#4b4b4c", "frame": "#c9bdb3", "recessed": true },
-    { "volume": "main", "facade": "front", "type": "window", "floor": 1,
-      "at": [0.07, 0.2, 0.31, 0.56, 0.68, 0.88], "w": 1.3, "h": 1.4,
-      "glass": "#979899", "frame": "#e2ddda", "recessed": true },
-    { "volume": "main", "facade": "right", "type": "window", "floor": 1,
-      "at": [0.25, 0.6], "w": 1.3, "h": 1.4, "glass": "#979899", "frame": "#e2ddda", "recessed": true },
-    { "volume": "main", "facade": "back", "type": "window", "floor": 0,
-      "at": [0.25, 0.5, 0.75], "w": 1.3, "h": 1.3, "glass": "#979899", "frame": "#e2ddda" },
-    { "volume": "main", "facade": "back", "type": "window", "floor": 1,
-      "at": [0.25, 0.5, 0.75], "w": 1.3, "h": 1.3, "glass": "#979899", "frame": "#e2ddda" }
+    {
+      "volume": "main",
+      "facade": "front",
+      "type": "door",
+      "floor": 0,
+      "at": [
+        0.24
+      ],
+      "w": 1.2,
+      "h": 2.2,
+      "glass": "#4b4b4c",
+      "frame": "#c9bdb3",
+      "recessed": true
+    },
+    {
+      "volume": "main",
+      "facade": "front",
+      "type": "door",
+      "floor": 0,
+      "at": [
+        0.63
+      ],
+      "w": 1.2,
+      "h": 2.2,
+      "glass": "#4b4b4c",
+      "frame": "#c9bdb3",
+      "recessed": true
+    },
+    {
+      "volume": "main",
+      "facade": "front",
+      "type": "window",
+      "floor": 1,
+      "at": [
+        0.07,
+        0.2,
+        0.31,
+        0.56,
+        0.68,
+        0.88
+      ],
+      "w": 1.3,
+      "h": 1.4,
+      "glass": "#979899",
+      "frame": "#e2ddda",
+      "recessed": true
+    },
+    {
+      "volume": "main",
+      "facade": "right",
+      "type": "window",
+      "floor": 1,
+      "at": [
+        0.25,
+        0.6
+      ],
+      "w": 1.3,
+      "h": 1.4,
+      "glass": "#979899",
+      "frame": "#e2ddda",
+      "recessed": true
+    },
+    {
+      "volume": "main",
+      "facade": "back",
+      "type": "window",
+      "floor": 0,
+      "at": [
+        0.25,
+        0.5,
+        0.75
+      ],
+      "w": 1.3,
+      "h": 1.3,
+      "glass": "#979899",
+      "frame": "#e2ddda"
+    },
+    {
+      "volume": "main",
+      "facade": "back",
+      "type": "window",
+      "floor": 1,
+      "at": [
+        0.25,
+        0.5,
+        0.75
+      ],
+      "w": 1.3,
+      "h": 1.3,
+      "glass": "#979899",
+      "frame": "#e2ddda"
+    }
   ],
   "terraces": [
-    { "onVolume": "main", "side": "front", "floor": 1, "at": 0.17, "w": 3.4, "depth": 1.4,
-      "parapet": { "h": 1.1, "color": "#f6f1f7" },
-      "rail": { "type": "bars", "h": 0.4, "color": "#587164" } },
-    { "onVolume": "main", "side": "front", "floor": 1, "at": 0.66, "w": 3.4, "depth": 1.4,
-      "parapet": { "h": 1.1, "color": "#f6f1f7" },
-      "rail": { "type": "bars", "h": 0.4, "color": "#587164" } }
+    {
+      "onVolume": "main",
+      "side": "front",
+      "floor": 1,
+      "at": 0.17,
+      "w": 3.4,
+      "depth": 1.4,
+      "parapet": {
+        "h": 1.1,
+        "color": "#f6f1f7"
+      },
+      "rail": {
+        "type": "bars",
+        "h": 0.4,
+        "color": "#587164"
+      }
+    },
+    {
+      "onVolume": "main",
+      "side": "front",
+      "floor": 1,
+      "at": 0.66,
+      "w": 3.4,
+      "depth": 1.4,
+      "parapet": {
+        "h": 1.1,
+        "color": "#f6f1f7"
+      },
+      "rail": {
+        "type": "bars",
+        "h": 0.4,
+        "color": "#587164"
+      }
+    }
   ],
   "props": [
-    { "type": "lamp-globe", "volume": "main", "facade": "front", "at": 0.17 },
-    { "type": "lamp-globe", "volume": "main", "facade": "front", "at": 0.66 }
+    {
+      "type": "lamp-globe",
+      "volume": "main",
+      "facade": "front",
+      "at": 0.17
+    },
+    {
+      "type": "lamp-globe",
+      "volume": "main",
+      "facade": "front",
+      "at": 0.66
+    }
   ],
   "frontage": {
-    "wall": { "type": "brick", "color": "#c9bdb3", "mortar": "#e2ddda", "h": 1.6 },
+    "wall": {
+      "type": "brick",
+      "color": "#c9bdb3",
+      "mortar": "#e2ddda",
+      "h": 1.6
+    },
     "gates": [
-      { "kind": "pedestrian", "w": 1.1, "at": 0.12, "style": "bars", "color": "#98999b" }
+      {
+        "kind": "pedestrian",
+        "w": 1.1,
+        "at": 0.12,
+        "style": "bars",
+        "color": "#98999b"
+      }
     ],
-    "sidewalk": { "material": "paving-brick", "color": "#ce9c7a", "joint": "#a68b76", "w": 3.0 },
-    "verge": { "grass": "#909f4e", "grassDark": "#375730" },
-    "road": { "surface": "asphalt", "color": "#5e6672" }
+    "sidewalk": {
+      "material": "paving-brick",
+      "color": "#ce9c7a",
+      "joint": "#a68b76",
+      "w": 3
+    },
+    "verge": {
+      "grass": "#909f4e",
+      "grassDark": "#375730"
+    },
+    "road": {
+      "surface": "asphalt",
+      "color": "#5e6672"
+    }
   },
-  "sky": { "top": "#5ea2db", "horizon": "#9fcfe4", "cloud": "#f4f6f6" },
+  "environment": {
+    "props": [
+      {
+        "model": "tree_palmDetailedTall",
+        "h": 10,
+        "t": 0.06,
+        "inset": 1.2,
+        "tint": {
+          "leafs": "#3f9b42",
+          "wood": "#a08a67",
+          "*": "#a08a67"
+        },
+        "rxz": 0.85
+      },
+      {
+        "model": "plant_bushLarge",
+        "h": 3,
+        "t": 0.18,
+        "inset": 0.9,
+        "rxz": 1.2,
+        "tint": {
+          "leafs": "#b23a75",
+          "*": "#8f2f5e"
+        }
+      },
+      {
+        "model": "tree_oak",
+        "h": 4.5,
+        "t": 0.32,
+        "inset": 2.2,
+        "rxz": 1.2,
+        "tint": {
+          "leafs": "#3c7031",
+          "wood": "#6e5138",
+          "*": "#6e5138"
+        }
+      },
+      {
+        "hedge": true,
+        "h": 2.1,
+        "t0": 0.4,
+        "t1": 0.72,
+        "step": 1.2,
+        "inset": 1.3,
+        "d": 1.4,
+        "colors": [
+          "#57952c",
+          "#4e8a28",
+          "#3c7031"
+        ]
+      },
+      {
+        "model": "tree_oak",
+        "h": 5.5,
+        "t": 0.8,
+        "inset": 2.4,
+        "rxz": 1.3,
+        "tint": {
+          "leafs": "#6b7f4e",
+          "wood": "#6e5138",
+          "*": "#6e5138"
+        }
+      },
+      {
+        "model": "plant_bushDetailed",
+        "h": 1.8,
+        "t": 0.62,
+        "inset": 1,
+        "tint": {
+          "leafs": "#a8a13f",
+          "*": "#8f8a38"
+        }
+      },
+      {
+        "model": "plant_bushDetailed",
+        "h": 1.1,
+        "t": 0.02,
+        "inset": -1.6,
+        "tint": {
+          "leafs": "#375730",
+          "*": "#375730"
+        }
+      },
+      {
+        "model": "plant_bush",
+        "h": 0.9,
+        "t": 0.3,
+        "inset": -1.6,
+        "tint": {
+          "leafs": "#44603a",
+          "*": "#44603a"
+        }
+      },
+      {
+        "model": "pot_large",
+        "h": 0.7,
+        "t": 0.2,
+        "inset": 0.5,
+        "tint": {
+          "wood": "#b8683f",
+          "*": "#a05a36"
+        }
+      },
+      {
+        "model": "grass_leafs",
+        "h": 0.6,
+        "t": 0.2,
+        "inset": 0.5,
+        "y": 0.55,
+        "tint": {
+          "grass": "#5c9440",
+          "*": "#5c9440"
+        }
+      },
+      {
+        "planter": true,
+        "t": 0.9,
+        "inset": -0.6,
+        "w": 2.2,
+        "d": 1.1,
+        "color": "#bdb4a6",
+        "rot": "along"
+      },
+      {
+        "car": true,
+        "t": 0.4,
+        "inset": -4.7,
+        "rot": "along",
+        "color": "#eceae4"
+      },
+      {
+        "car": true,
+        "t": 0.58,
+        "inset": -4.7,
+        "rot": "along",
+        "flip": true,
+        "color": "#3d5a82"
+      }
+    ]
+  },
+  "sky": {
+    "top": "#5ea2db",
+    "horizon": "#9fcfe4",
+    "cloud": "#f4f6f6"
+  },
   "notes": "Flat-roofed 2-family corner 'kufsa' duplex: entire ground floor and the upper-floor corner/centre panels are clad in warm-grey concrete block courses (#c9bdb3, light joints), the rest of the upper floor is bright white stucco. Two big white balcony boxes cantilever over the entries - solid stucco parapets topped by curved GREEN wrought-iron rails (#587164); terraces entries use non-schema floor/at/w/depth fields (schema gap: terraces have no position/size control, and the curved bombe rail profile is not expressible). Both upper-floor window rows wear grey horizontal louvre shutters rather than clear glass (schema gap: no louvre/shutter style on openings - glass hex sampled from the louvres). Entry doors are dark steel with a decorative laser-cut leaf pattern (schema gap), set in deep recessed porches through the block skin; round white globe sconces sit on each balcony box face. Frontage: same concrete-block compound walls at varying heights forming an L-shaped front yard, grey vertical-bar pedestrian gate, full terracotta herringbone brick paving from the porches across the sidewalk (#ce9c7a), asphalt road at left with a light concrete kerb strip (#c6b7aa), and to the right a grass verge with round dark-green hedge blobs (#344b36/#93b58c highlights) - hedges pending prop factory. The AniRacers track with colour blocks is visible far right in the ref background (ignore for the building program). Sampled colours from 12x9 + 24x18 grids 2026-07-03."
 }

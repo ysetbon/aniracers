@@ -1,59 +1,413 @@
 {
   "id": "556855842",
-  "refs": { "scene": "restyled/bld_556855842.png", "iso": "restyled/iso/bld_556855842.png" },
+  "refs": {
+    "scene": "restyled/bld_556855842.png",
+    "iso": "restyled/iso/bld_556855842.png"
+  },
   "footprint": "obb",
-  "floorH": 3.0,
+  "floorH": 3,
   "volumes": [
-    { "name": "main", "x0": 0.0, "x1": 1.0, "z0": 0.0, "z1": 0.62, "floors": 2,
+    {
+      "name": "main",
+      "x0": 0,
+      "x1": 1,
+      "z0": 0,
+      "z1": 0.62,
+      "floors": 2,
       "wall": "#d7b590",
-      "roof": { "form": "hip", "color": "#a18579", "overhang": 0.6 } },
-    { "name": "rear", "x0": 0.0, "x1": 0.68, "z0": 0.62, "z1": 1.0, "floors": 2,
+      "roof": {
+        "form": "hip",
+        "color": "#a18579",
+        "overhang": 0.6
+      }
+    },
+    {
+      "name": "rear",
+      "x0": 0,
+      "x1": 0.68,
+      "z0": 0.62,
+      "z1": 1,
+      "floors": 2,
       "wall": "#d7b590",
-      "roof": { "form": "hip", "color": "#a18579", "overhang": 0.6 } },
-    { "name": "rearwing", "x0": 0.68, "x1": 1.0, "z0": 0.62, "z1": 1.0, "floors": 1,
+      "roof": {
+        "form": "hip",
+        "color": "#a18579",
+        "overhang": 0.6
+      }
+    },
+    {
+      "name": "rearwing",
+      "x0": 0.68,
+      "x1": 1,
+      "z0": 0.62,
+      "z1": 1,
+      "floors": 1,
       "wall": "#d7b590",
-      "roof": { "form": "flat", "fascia": { "h": 0.3, "color": "#d7b590", "overhang": 0.1 } } }
+      "roof": {
+        "form": "flat",
+        "fascia": {
+          "h": 0.3,
+          "color": "#d7b590",
+          "overhang": 0.1
+        }
+      }
+    }
   ],
   "openings": [
-    { "volume": "main", "facade": "front", "type": "window", "floor": 0,
-      "at": [0.22], "w": 1.5, "h": 1.4, "glass": "#646a6e", "frame": "#edf7fb", "recessed": true },
-    { "volume": "main", "facade": "front", "type": "door", "floor": 0,
-      "at": [0.5], "w": 1.05, "h": 2.15, "glass": "#a89a8e", "frame": "#edf7fb", "recessed": true },
-    { "volume": "main", "facade": "front", "type": "window", "floor": 1,
-      "at": [0.22], "w": 1.5, "h": 1.4, "glass": "#646a6e", "frame": "#edf7fb", "recessed": true },
-    { "volume": "main", "facade": "front", "type": "window", "floor": 1,
-      "at": [0.47], "w": 1.2, "h": 1.3, "glass": "#646a6e", "frame": "#edf7fb", "recessed": true },
-    { "volume": "main", "facade": "front", "type": "window", "floor": 1,
-      "at": [0.85], "w": 1.6, "h": 0.8, "glass": "#d2d4e0", "frame": "#edf7fb" },
-    { "volume": "main", "facade": "right", "type": "window", "floor": 0,
-      "at": [0.3, 0.7], "w": 1.3, "h": 1.3, "glass": "#646a6e", "frame": "#edf7fb", "recessed": true },
-    { "volume": "main", "facade": "right", "type": "window", "floor": 1,
-      "at": [0.3, 0.7], "w": 1.3, "h": 1.3, "glass": "#646a6e", "frame": "#edf7fb", "recessed": true },
-    { "volume": "main", "facade": "left", "type": "window", "floor": 0,
-      "at": [0.35, 0.7], "w": 1.3, "h": 1.3, "glass": "#646a6e", "frame": "#edf7fb", "recessed": true },
-    { "volume": "main", "facade": "left", "type": "window", "floor": 1,
-      "at": [0.35, 0.7], "w": 1.3, "h": 1.3, "glass": "#646a6e", "frame": "#edf7fb", "recessed": true },
-    { "volume": "rear", "facade": "back", "type": "window", "floor": 0,
-      "at": [0.3, 0.7], "w": 1.3, "h": 1.3, "glass": "#646a6e", "frame": "#edf7fb" },
-    { "volume": "rear", "facade": "back", "type": "window", "floor": 1,
-      "at": [0.3, 0.7], "w": 1.3, "h": 1.3, "glass": "#646a6e", "frame": "#edf7fb" }
+    {
+      "volume": "main",
+      "facade": "front",
+      "type": "window",
+      "floor": 0,
+      "at": [
+        0.22
+      ],
+      "w": 1.5,
+      "h": 1.4,
+      "glass": "#646a6e",
+      "frame": "#edf7fb",
+      "recessed": true
+    },
+    {
+      "volume": "main",
+      "facade": "front",
+      "type": "door",
+      "floor": 0,
+      "at": [
+        0.5
+      ],
+      "w": 1.05,
+      "h": 2.15,
+      "glass": "#a89a8e",
+      "frame": "#edf7fb",
+      "recessed": true
+    },
+    {
+      "volume": "main",
+      "facade": "front",
+      "type": "window",
+      "floor": 1,
+      "at": [
+        0.22
+      ],
+      "w": 1.5,
+      "h": 1.4,
+      "glass": "#646a6e",
+      "frame": "#edf7fb",
+      "recessed": true
+    },
+    {
+      "volume": "main",
+      "facade": "front",
+      "type": "window",
+      "floor": 1,
+      "at": [
+        0.47
+      ],
+      "w": 1.2,
+      "h": 1.3,
+      "glass": "#646a6e",
+      "frame": "#edf7fb",
+      "recessed": true
+    },
+    {
+      "volume": "main",
+      "facade": "front",
+      "type": "window",
+      "floor": 1,
+      "at": [
+        0.85
+      ],
+      "w": 1.6,
+      "h": 0.8,
+      "glass": "#d2d4e0",
+      "frame": "#edf7fb"
+    },
+    {
+      "volume": "main",
+      "facade": "right",
+      "type": "window",
+      "floor": 0,
+      "at": [
+        0.3,
+        0.7
+      ],
+      "w": 1.3,
+      "h": 1.3,
+      "glass": "#646a6e",
+      "frame": "#edf7fb",
+      "recessed": true
+    },
+    {
+      "volume": "main",
+      "facade": "right",
+      "type": "window",
+      "floor": 1,
+      "at": [
+        0.3,
+        0.7
+      ],
+      "w": 1.3,
+      "h": 1.3,
+      "glass": "#646a6e",
+      "frame": "#edf7fb",
+      "recessed": true
+    },
+    {
+      "volume": "main",
+      "facade": "left",
+      "type": "window",
+      "floor": 0,
+      "at": [
+        0.35,
+        0.7
+      ],
+      "w": 1.3,
+      "h": 1.3,
+      "glass": "#646a6e",
+      "frame": "#edf7fb",
+      "recessed": true
+    },
+    {
+      "volume": "main",
+      "facade": "left",
+      "type": "window",
+      "floor": 1,
+      "at": [
+        0.35,
+        0.7
+      ],
+      "w": 1.3,
+      "h": 1.3,
+      "glass": "#646a6e",
+      "frame": "#edf7fb",
+      "recessed": true
+    },
+    {
+      "volume": "rear",
+      "facade": "back",
+      "type": "window",
+      "floor": 0,
+      "at": [
+        0.3,
+        0.7
+      ],
+      "w": 1.3,
+      "h": 1.3,
+      "glass": "#646a6e",
+      "frame": "#edf7fb"
+    },
+    {
+      "volume": "rear",
+      "facade": "back",
+      "type": "window",
+      "floor": 1,
+      "at": [
+        0.3,
+        0.7
+      ],
+      "w": 1.3,
+      "h": 1.3,
+      "glass": "#646a6e",
+      "frame": "#edf7fb"
+    }
   ],
   "terraces": [
-    { "onVolume": "rearwing", "side": "top",
-      "parapet": { "h": 0.3, "color": "#d7b590" },
-      "rail": { "type": "bars", "h": 0.85, "color": "#afb0b2" } }
+    {
+      "onVolume": "rearwing",
+      "side": "top",
+      "parapet": {
+        "h": 0.3,
+        "color": "#d7b590"
+      },
+      "rail": {
+        "type": "bars",
+        "h": 0.85,
+        "color": "#afb0b2"
+      }
+    }
   ],
   "props": [],
   "frontage": {
     "gates": [
-      { "kind": "vehicle", "w": 3.5, "at": 0.12, "style": "slat", "color": "#a09281" },
-      { "kind": "pedestrian", "w": 1.1, "at": 0.3, "style": "slat", "color": "#a4978c" }
+      {
+        "kind": "vehicle",
+        "w": 3.5,
+        "at": 0.12,
+        "style": "slat",
+        "color": "#a09281"
+      },
+      {
+        "kind": "pedestrian",
+        "w": 1.1,
+        "at": 0.3,
+        "style": "slat",
+        "color": "#a4978c"
+      }
     ],
-    "sidewalk": { "material": "concrete", "color": "#b0a18e", "joint": "#958a80", "w": 1.2 },
-    "verge": { "grass": "#94b742", "grassDark": "#436326",
-               "flowers": { "palette": ["#b09286", "#dcc0ac"], "perM2": 0.2 } },
-    "road": { "surface": "asphalt", "color": "#6c6167" }
+    "sidewalk": {
+      "material": "concrete",
+      "color": "#b0a18e",
+      "joint": "#958a80",
+      "w": 1.2
+    },
+    "verge": {
+      "grass": "#94b742",
+      "grassDark": "#436326",
+      "flowers": {
+        "palette": [
+          "#b09286",
+          "#dcc0ac"
+        ],
+        "perM2": 0.2
+      }
+    },
+    "road": {
+      "surface": "asphalt",
+      "color": "#6c6167"
+    }
   },
-  "sky": { "top": "#5ea2db", "horizon": "#9fcfe4", "cloud": "#f4f6f6" },
+  "environment": {
+    "driveway": {
+      "at": 0.12,
+      "w": 3.5,
+      "color": "#6c6167"
+    },
+    "props": [
+      {
+        "model": "tree_oak",
+        "h": 3.4,
+        "t": 0.22,
+        "inset": 2.4,
+        "rxz": 1.1,
+        "tint": {
+          "leafs": "#2f6b2b",
+          "wood": "#6e5138",
+          "*": "#6e5138"
+        }
+      },
+      {
+        "model": "tree_palmDetailedTall",
+        "h": 9.5,
+        "t": 0.48,
+        "inset": 2.8,
+        "tint": {
+          "leafs": "#3f9b42",
+          "wood": "#a08a67",
+          "*": "#a08a67"
+        },
+        "rxz": 0.85
+      },
+      {
+        "model": "tree_palmTall",
+        "h": 7.5,
+        "t": 0.56,
+        "inset": 1.7,
+        "tint": {
+          "leafs": "#46a648",
+          "wood": "#a08a67",
+          "*": "#a08a67"
+        }
+      },
+      {
+        "model": "tree_palmDetailedTall",
+        "h": 10.5,
+        "t": 0.65,
+        "inset": 3.6,
+        "tint": {
+          "leafs": "#3f9b42",
+          "wood": "#a08a67",
+          "*": "#a08a67"
+        },
+        "rxz": 0.85
+      },
+      {
+        "model": "plant_bushDetailed",
+        "h": 1.2,
+        "t": 0.38,
+        "inset": 1.2,
+        "tint": {
+          "leafs": "#3c7031",
+          "*": "#3c7031"
+        }
+      },
+      {
+        "model": "tree_pineTallB",
+        "h": 8.5,
+        "t": 0.88,
+        "inset": 1.8,
+        "rxz": 0.62,
+        "tint": {
+          "leafs": "#2f5d2a",
+          "wood": "#6e5138",
+          "*": "#6e5138"
+        }
+      },
+      {
+        "model": "tree_pineTallA",
+        "h": 7,
+        "t": 0.96,
+        "inset": 2.4,
+        "rxz": 0.55,
+        "tint": {
+          "leafs": "#33642c",
+          "wood": "#6e5138",
+          "*": "#6e5138"
+        }
+      },
+      {
+        "model": "tree_palmTall",
+        "h": 10.5,
+        "t": 0.92,
+        "inset": 4.8,
+        "tint": {
+          "leafs": "#3f9b42",
+          "wood": "#a08a67",
+          "*": "#a08a67"
+        },
+        "rxz": 0.85
+      },
+      {
+        "model": "pot_large",
+        "h": 0.75,
+        "t": -0.04,
+        "inset": 0.7,
+        "tint": {
+          "wood": "#b8683f",
+          "*": "#a05a36"
+        }
+      },
+      {
+        "model": "flower_redA",
+        "h": 0.55,
+        "t": -0.04,
+        "inset": 0.7,
+        "y": 0.55,
+        "tint": {
+          "*": "#c23b30"
+        }
+      },
+      {
+        "car": true,
+        "t": 0.87,
+        "inset": -4.7,
+        "rot": "along",
+        "color": "#b9bcc0"
+      },
+      {
+        "car": true,
+        "t": 1.04,
+        "inset": -4.7,
+        "rot": "along",
+        "flip": true,
+        "color": "#9aa0a6"
+      }
+    ]
+  },
+  "sky": {
+    "top": "#5ea2db",
+    "horizon": "#9fcfe4",
+    "cloud": "#f4f6f6"
+  },
   "notes": "Classic sandy-tan hipped-roof villa (#d7b590 walls). Roof: mocha-brown hip (#a18579 on the clean iso plane; the scene ref reads it much darker ~#635045 at the shadowed eave — critic should judge in scene light), actually two merged hip masses with a slightly offset ridge and a small brown chimney (prop pending). Every regular window has a grey ROLLER-SHUTTER box above and a partially lowered grey shutter (#79746b) — schema gap: no shutters field on openings; modelled as recessed windows with dark #646a6e glass. Floor-1 far right has a light horizontal strip/corner glazing (#d2d4e0). Greige panel front door (#a89a8e) inside a deep tan porch recess. Right-rear single-storey wing carries a roof terrace with a light aluminium bar rail (#afb0b2). Frontage (schema gap: no slat-fence wall type, so wall omitted): a low rendered beige base wall (#c9a88a) topped by a horizontal greige aluminium-slat fence (#a49a8d) to ~1.6m total, with a double slat vehicle gate at left and a slat pedestrian gate with intercom panel; asphalt driveway (#6c6167) runs straight to the road with a light concrete kerb strip. Yard: two low-poly palm trees left of the door and a citrus/orange tree with yellow fruits right of it (tree props pending); background flower meadow with round trees; grass verge with rocks (#7c7a66) and pink/white flowers at both frame edges. Sampled colours from 24x18 grids 2026-07-03."
 }
