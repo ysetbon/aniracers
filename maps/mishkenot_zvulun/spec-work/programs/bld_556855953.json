@@ -26,6 +26,29 @@
     "verge": { "grass": "#5db63f", "grassDark": "#437c34" },
     "road": { "surface": "asphalt", "color": "#8f9296" }
   },
+  "environment": {
+    "props": [
+      { "model": "tree_oak", "h": 9, "t": 0.12, "inset": 2, "rxz": 0.55, "tint": { "leafs": "#2f5d2a", "wood": "#5a4a30", "*": "#5a4a30" } },
+      { "model": "tree_oak", "h": 8, "t": 0.17, "inset": 2.6, "rxz": 0.55, "tint": { "leafs": "#33642c", "wood": "#5a4a30", "*": "#5a4a30" } },
+      { "model": "tree_oak", "h": 5, "t": 0.08, "inset": 2.2, "rxz": 1.1, "tint": { "leafs": "#4c8a34", "wood": "#6e5138", "*": "#6e5138" } },
+      { "model": "tree_palmTall", "h": 9, "t": 0.35, "inset": 3, "rxz": 0.85, "tint": { "leafs": "#3f9b42", "wood": "#a08a67", "*": "#a08a67" } },
+      { "model": "tree_palmDetailedTall", "h": 10.5, "t": 0.42, "inset": 3.6, "rxz": 0.85, "tint": { "leafs": "#46a648", "wood": "#a08a67", "*": "#a08a67" } },
+      { "model": "tree_oak", "h": 7, "t": 0.72, "inset": 2.5, "rxz": 1.4, "tint": { "leafs": "#2f6b2b", "wood": "#6e5138", "*": "#6e5138" } },
+      { "model": "plant_bushLarge", "h": 2, "t": 0.5, "inset": 2, "rxz": 1.3, "tint": { "leafs": "#4c8a34", "*": "#44603a" } },
+      { "model": "plant_bushLarge", "h": 1.8, "t": 0.62, "inset": 2.2, "rxz": 1.2, "tint": { "leafs": "#57952c", "*": "#44603a" } },
+      { "model": "plant_bushLarge", "h": 1.6, "t": 0.2, "inset": 1, "rxz": 1.1, "tint": { "leafs": "#4c8a34", "*": "#44603a" } },
+      { "car": true, "t": 0.28, "inset": 3, "rot": "along", "color": "#3a6ea5" },
+      { "car": true, "t": 0.55, "inset": 0.6, "rot": "along", "color": "#c0392b" },
+      { "car": true, "t": 0.9, "inset": -4.7, "rot": "along", "flip": true, "color": "#b23a2e" },
+      { "car": true, "t": 1.05, "inset": -4.7, "rot": "along", "flip": true, "color": "#3d5a82" },
+      { "car": true, "t": 0.75, "inset": -4.85, "rot": "along", "color": "#2f6ea5" },
+      { "bin": true, "t": 0.48, "inset": -0.8, "rot": "along" },
+      { "bin": true, "t": 0.05, "inset": -0.8, "rot": "along" },
+      { "lamp": true, "t": 0.6, "inset": -1, "rot": 90 },
+      { "model": "pot_large", "h": 0.5, "t": 0.15, "inset": 0.3, "tint": { "wood": "#b8683f", "woodBarkDark": "#a05a36" } },
+      { "model": "pot_large", "h": 0.5, "t": 0.68, "inset": 0.3, "tint": { "wood": "#b8683f", "woodBarkDark": "#a05a36" } }
+    ]
+  },
   "sky": { "top": "#5ea2db", "horizon": "#9fcfe4", "cloud": "#f4f6f6" },
   "notes": "Corner-lot two-storey white/cream house (#ededdf) with orange terracotta hip roof (#c85e34), rooftop solar panels and skylights. Row of upper windows, some with diamond-pattern grilles; a dark-blue double entrance door. A lower single-storey right wing under its own terracotta hip roof. Frontage is a multi-colour concrete-block wall (brown/tan/grey banded, #b6a884) with a grey ornate arched metal vehicle gate and a grey panel pedestrian door; blue and red cars in the driveway, planters and a green bin, red-white kerb wrapping the corner. Sampled colours 2026-07-04."
 }

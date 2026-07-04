@@ -28,6 +28,18 @@
     "sidewalk": { "material": "stone-slabs", "color": "#c4c0b6", "joint": "#a4a096", "w": 2.5 },
     "verge": { "grass": "#5db63f", "grassDark": "#437c34", "flowers": { "palette": ["#e0567a", "#6aa8e0", "#f6f3ea"], "perM2": 0.3 } }
   },
+  "environment": {
+    "props": [
+      { "model": "tree_palmTall", "h": 9, "t": 0.02, "inset": 2.5, "rxz": 0.85, "tint": { "leafs": "#3f9b42", "wood": "#a08a67", "*": "#a08a67" } },
+      { "model": "tree_oak", "h": 8, "t": 0.33, "inset": 2, "rxz": 0.6, "tint": { "leafs": "#2f5d2a", "wood": "#5a4a30", "*": "#5a4a30" } },
+      { "model": "tree_oak", "h": 4.5, "t": 0.16, "inset": 2.2, "rxz": 1.1, "tint": { "leafs": "#4c8a34", "wood": "#6e5138", "*": "#6e5138" } },
+      { "model": "plant_bushLarge", "h": 2.5, "t": 0.04, "inset": 1, "rxz": 1.3, "tint": { "leafs": "#4c8a34", "*": "#44603a" } },
+      { "model": "plant_bushLarge", "h": 2.5, "t": 0.93, "inset": 1, "rxz": 1.3, "tint": { "leafs": "#4c8a34", "*": "#44603a" } },
+      { "model": "plant_bushLarge", "h": 1.6, "t": 0.72, "inset": 0.9, "rxz": 1, "tint": { "leafs": "#57952c", "*": "#44603a" } },
+      { "model": "pot_large", "h": 0.5, "t": 0.02, "inset": 0.4, "tint": { "wood": "#b8683f", "woodBarkDark": "#a05a36" } },
+      { "model": "pot_large", "h": 0.5, "t": 0.55, "inset": 0.4, "tint": { "wood": "#b8683f", "woodBarkDark": "#a05a36" } }
+    ]
+  },
   "sky": { "top": "#5ea2db", "horizon": "#9fcfe4", "cloud": "#f4f6f6" },
   "notes": "Front elevation of a pair of adjoining two-storey cream houses (#e6dcc6) with orange terracotta gable roofs (#c05a34) — modelled as two side-by-side volumes. The left entrance is sheltered by a grey metal canopy porch with an AC unit and a grilled window beneath; upper windows have security grilles. A central white panel door with its own metal canopy. Frontage is a brown timber picket fence (#8a5a2f) with a white pedestrian door and pink/blue flower planter boxes at the base. Sampled colours 2026-07-04."
 }

@@ -20,6 +20,18 @@
     "sidewalk": { "material": "stone-slabs", "color": "#cfc9bd", "joint": "#bab3a5", "w": 3.0 },
     "verge": { "grass": "#8fb060", "grassDark": "#66794f" }
   },
+  "environment": {
+    "props": [
+      { "model": "tree_oak", "h": 11, "t": 0.45, "inset": 3, "rxz": 0.7, "tint": { "leafs": "#2f5d2a", "wood": "#5a4a30", "*": "#5a4a30" } },
+      { "model": "tree_palmTall", "h": 9, "t": 0.06, "inset": 3, "rxz": 0.85, "tint": { "leafs": "#46a648", "wood": "#a08a67", "*": "#a08a67" } },
+      { "model": "tree_palmDetailedTall", "h": 10, "t": 0.92, "inset": 2.5, "rxz": 0.9, "tint": { "leafs": "#3f9b42", "wood": "#8a6a44", "*": "#8a6a44" } },
+      { "model": "plant_bushLarge", "h": 1.2, "t": 0.18, "inset": 0.7, "rxz": 1, "tint": { "leafs": "#57952c", "*": "#44603a" } },
+      { "car": true, "t": 0.55, "inset": 2, "rot": "along", "color": "#eceae4" },
+      { "bin": true, "t": 0.42, "inset": -0.9, "rot": "along" },
+      { "bin": true, "t": 0.49, "inset": -0.9, "rot": "along" },
+      { "lamp": true, "t": 0.32, "inset": 1.5, "rot": 90 }
+    ]
+  },
   "sky": { "top": "#5ea2db", "horizon": "#9fcfe4", "cloud": "#f4f6f6" },
   "notes": "Same streetscape/style as bld_556855971 (shared paekrBV restyle); slightly wider footprint modelled with a pair of upper windows. Cream villa, terracotta hipped roof, white perforated-metal fence on cream stone-block wall. Colours sampled from ref 2026-07-04."
 }

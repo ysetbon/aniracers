@@ -21,6 +21,15 @@
     "sidewalk": { "material": "stone-slabs", "color": "#bcbdb8", "joint": "#a6a7a2", "w": 3.0 },
     "verge": { "grass": "#7aa348", "grassDark": "#567331" }
   },
+  "environment": {
+    "props": [
+      { "model": "tree_palmDetailedTall", "h": 12.5, "t": 0.5, "inset": 2.4, "rxz": 0.9, "tint": { "leafs": "#3f8f3e", "wood": "#7a5f3f", "*": "#7a5f3f" } },
+      { "model": "tree_palmTall", "h": 9, "t": 0.18, "inset": 4.2, "rxz": 0.85, "tint": { "leafs": "#46a648", "wood": "#a08a67", "*": "#a08a67" } },
+      { "hedge": true, "h": 2.2, "t0": 0.55, "t1": 1.0, "step": 1.2, "inset": 1.4, "d": 1.4, "colors": ["#57952c", "#4e8a28", "#3c7031"] },
+      { "model": "plant_bushLarge", "h": 1.6, "t": 0.12, "inset": 1.1, "rxz": 1.2, "tint": { "leafs": "#4c8a34", "*": "#44603a" } },
+      { "model": "plant_bush", "h": 1.1, "t": 0.85, "inset": 1.0, "rxz": 1.0, "tint": { "leafs": "#5c9440", "*": "#44603a" } }
+    ]
+  },
   "sky": { "top": "#4f9ad9", "horizon": "#9cccea", "cloud": "#f4f6f6" },
   "notes": "Same streetscape/style as bld_556855981 (shared p9xRLgg restyle): white two-storey house with orange-red gabled roof behind a tall grey precast-concrete decorative wall/gate. Wider footprint modelled with paired windows. Colours sampled from ref 2026-07-04."
 }
