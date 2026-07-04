@@ -95,6 +95,7 @@ page.on('request', rq => {
     const base = Object.keys(VENDOR).find(k => u.endsWith(k));
     if (base) return rq.respond({ status: 200, contentType: 'text/javascript',
       body: fs.readFileSync(path.join(ROOT, 'scripts/vendor', VENDOR[base])) });
+    if (/DRACOLoader\.js$|\/draco\//.test(u)) return rq.continue();   // let the Draco loader+decoder through (v4 is Draco-compressed)
     return rq.abort();
   }
   rq.continue();

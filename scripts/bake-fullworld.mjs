@@ -29,7 +29,7 @@ const inRegion = (x, z) => x >= REGION[0] && x <= REGION[1] && z >= REGION[2] &&
 // passes must NOT override: keep their hand-authored env (exact trees/cars/hedges) + scene
 // furniture, and SUPPRESS procedural furniture + aerial trees inside them. Add zones here as
 // more areas get the exact treatment.
-const CURATED = [[90, 165, -420, -240]];   // T-junction (HaRav Toledano x Unterman)
+const CURATED = [[85, 175, -450, -235]];   // T-junction (HaRav Toledano x Unterman) — sized to cover the full junction the hero cameras see, so no generic content bleeds into view
 const inCurated = (x, z) => CURATED.some(c => x >= c[0] && x <= c[1] && z >= c[2] && z <= c[3]);
 
 const BLD = JSON.parse(fs.readFileSync(W.paths.buildings, 'utf8')).buildings;
@@ -169,7 +169,7 @@ const sceneRoads = ROADS.filter(rd => rd.pts && rd.pts.length >= 2 && rd.type !=
     const sc = SCENE.roads.find(x => String(x.id) === String(rd.id));
     if (sc) return { ...sc, pts: clipPts(rd.pts, sc.clipLen) };   // curated (paver etc.)
     return { id: rd.id, surface: 'asphalt', color: '#8f9296', halfW: HALFW[rd.type] || 3.0,
-      kerb: '#b9bdc2', paint: [], pts: clipToRegion(rd.pts) };
+      kerb: '#b9bdc2', paint: [], generic: true, pts: clipToRegion(rd.pts) };
   })
   .filter(rd => rd.pts.length >= 2);
 console.log(`[${W.name}] v4: ${sceneRoads.length} roads in region`);
@@ -201,6 +201,7 @@ var SCENE=` + JSON.stringify({ ...SCENE, roads: sceneRoads,
 var TREES=` + JSON.stringify(AERIAL_TREES) + `;
 var CURATED=` + JSON.stringify(CURATED) + `;
 function inCur(x,z){for(var i=0;i<CURATED.length;i++){var c=CURATED[i];if(x>=c[0]&&x<=c[1]&&z>=c[2]&&z<=c[3])return true;}return false;}
+function inCurM(x,z,m){for(var i=0;i<CURATED.length;i++){var c=CURATED[i];if(x>=c[0]-m&&x<=c[1]+m&&z>=c[2]-m&&z<=c[3]+m)return true;}return false;}
 var KP=[],KN=[],KC=[];
 function collect(mesh){var g=mesh.geometry;g=g.index?g.toNonIndexed():g.clone();g.applyMatrix4(mesh.matrixWorld);
   if(!g.attributes.normal)g.computeVertexNormals();
@@ -491,6 +492,7 @@ function bakeRoadPrepped(rd,segs){
     var a0=Math.max(g.s0,startAt)-ext0, a1=s1+ext1;
     var mid=(a0+a1)/2, len=a1-a0;
     var cx=g.ax+g.ux*(mid-g.s0),cz=g.az+g.uz*(mid-g.s0);
+    if(rd.generic&&inCurM(cx,cz,7))continue;   // generic roads don't render inside a curated part (+margin so boundary-crossing segments don't bleed in)
     var rot=Math.atan2(g.ux,g.uz);
     if(rd.surface==='pavers'){
       // designed ground: dark grout base, then a ~1m tile grid (0.94m tiles → 0.06m seams)
@@ -563,7 +565,10 @@ if (!argv.includes('--nodraco')) {
   try {
     const gp = await import('gltf-pipeline');
     const processGlb = gp.processGlb || (gp.default && gp.default.processGlb);   // CJS interop
-    const out = await processGlb(fs.readFileSync(OUT), { dracoOptions: { compressionLevel: 7 } });
+    // 18-bit position precision (~0.5cm over the 1.2km world) — the DEFAULT 11 bits (~0.5m)
+    // collapses the mm-scale paver tiles / kerb caps / sign panels into z-fighting slabs.
+    const out = await processGlb(fs.readFileSync(OUT),
+      { dracoOptions: { compressionLevel: 7, quantizePositionBits: 18, quantizeNormalBits: 8, quantizeColorBits: 8 } });
     fs.writeFileSync(OUT, out.glb);
     console.log(`wrote ${path.relative(ROOT, OUT)} (${rawMB}MB raw -> ${(out.glb.length / 1048576).toFixed(1)}MB draco)`);
   } catch (e) { console.warn('draco skipped (gltf-pipeline missing?): ' + e.message + '\n  raw GLB kept at ' + rawMB + 'MB'); }
