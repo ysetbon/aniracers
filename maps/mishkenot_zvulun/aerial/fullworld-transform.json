@@ -1,0 +1,21 @@
+{
+  "world": {
+    "xWest": -600,
+    "xEast": 600,
+    "zNorth": -520,
+    "zSouth": 600
+  },
+  "image": {
+    "W": 2400,
+    "H": 2240
+  },
+  "lonlat": {
+    "minLon": 34.87300460031717,
+    "maxLon": 34.885758712976305,
+    "minLat": 32.30117736545408,
+    "maxLat": 32.31123853651703
+  },
+  "mPerPxX": 0.5,
+  "mPerPxZ": 0.5,
+  "map": "worldX = xWest + (px+0.5)/W*(xEast-xWest); worldZ = zNorth + (py+0.5)/H*(zSouth-zNorth)"
+}

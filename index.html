@@ -1744,7 +1744,8 @@ async function buildMishkenotWorld(){
     // ?gen3d = Meshy test bake (integrate-gen3d.mjs); ?v3 = scene-program bake (rebake-programs.mjs);
     // ?test1 = one-house new-method pilot; ?test2 = scene-faithful refs version (bake-test-world.mjs)
     // ?test3 = whole T-junction area (bake-tjunction.mjs) — check BEFORE test2/test1 (substring match)
-    const mishGlb=location.search.includes('test4')?'/assets/mishkenot/world_test4.glb'   // T-junction, trees from aerial detection
+    const mishGlb=location.search.includes('v4')?'/assets/mishkenot/world_v4.glb'          // whole-neighbourhood build (bake-fullworld.mjs)
+                 :location.search.includes('test4')?'/assets/mishkenot/world_test4.glb'   // T-junction, trees from aerial detection
                  :location.search.includes('test3')?'/assets/mishkenot/world_test3.glb'
                  :location.search.includes('test2')?'/assets/mishkenot/world_test2.glb'
                  :location.search.includes('test1')?'/assets/mishkenot/world_test.glb'
