@@ -1,0 +1,31 @@
+{
+  "id": "406278507",
+  "refs": { "scene": "restyled/scene-fullworld/bld_406278507_pBWTjdF.png", "iso": "restyled/iso/bld_406278507.png" },
+  "footprint": "obb",
+  "floorH": 3.0,
+  "volumes": [
+    { "name": "main", "x0": 0.0, "x1": 1.0, "z0": 0.0, "z1": 1.0, "floors": 2,
+      "wall": "#eef0ef",
+      "roof": { "form": "flat", "fascia": { "h": 0.45, "color": "#7a5a3a", "overhang": 0.4 } } }
+  ],
+  "openings": [
+    { "volume": "main", "facade": "left", "type": "window", "floor": 1, "at": [0.2], "w": 1.0, "h": 1.0, "glass": "#5b6166", "frame": "#e6e8e6", "recessed": true },
+    { "volume": "main", "facade": "left", "type": "window", "floor": 0, "at": [0.2], "w": 1.0, "h": 1.0, "glass": "#5b6166", "frame": "#e6e8e6", "recessed": true },
+    { "volume": "main", "facade": "front", "type": "window", "floor": 1, "at": [0.4, 0.7], "w": 1.1, "h": 1.1, "glass": "#5b6166", "frame": "#e6e8e6", "recessed": true },
+    { "volume": "main", "facade": "front", "type": "door", "floor": 0, "at": [0.55], "w": 1.3, "h": 2.1, "glass": "#5b6166", "frame": "#dcdedb", "recessed": true }
+  ],
+  "terraces": [
+    { "onVolume": "main", "side": "front", "rail": { "type": "bars", "h": 0.95, "color": "#3f3c34" } }
+  ],
+  "props": [
+    { "type": "ac", "volume": "main", "facade": "left", "floor": 1, "at": 0.55 },
+    { "type": "ac", "volume": "main", "facade": "left", "floor": 1, "at": 0.72 }
+  ],
+  "frontage": {
+    "wall": { "type": "wood", "color": "#b5793f", "mortar": "#96632f", "h": 1.5 },
+    "sidewalk": { "material": "stone-slabs", "color": "#c4bcac", "joint": "#a99f8b", "w": 3.5 },
+    "verge": { "grass": "#5f9d3f", "grassDark": "#4a7a30" }
+  },
+  "sky": { "top": "#5ea2db", "horizon": "#9fcfe4", "cloud": "#f4f6f6" },
+  "notes": "Two-storey house, bright off-white render (#eef0ef) with a warm brown timber eaves fascia (#7a5a3a). First-floor balcony with black metal-bar rail and roof-mounted solar/AC gear; wall AC units on the left return. Small square windows scattered across the white walls. Timber slat boundary fence (#b5793f) heavily overgrown with ivy along the street, on a raised render plinth. Seen mostly from the side/rear; front openings inferred. Colours pixel-sampled from the ref."
+}

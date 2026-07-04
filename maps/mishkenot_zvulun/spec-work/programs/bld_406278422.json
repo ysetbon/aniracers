@@ -1,0 +1,31 @@
+{
+  "id": "406278422",
+  "refs": { "scene": "restyled/scene-fullworld/bld_406278422_pl9fsu0.png" },
+  "footprint": "obb",
+  "floorH": 3.0,
+  "volumes": [
+    { "name": "main", "x0": 0.0, "x1": 1.0, "z0": 0.0, "z1": 1.0, "floors": 3,
+      "wall": "#d8c8a4",
+      "roof": { "form": "flat", "fascia": { "h": 0.5, "color": "#cbba95", "overhang": 0.25 } } }
+  ],
+  "openings": [
+    { "volume": "main", "facade": "front", "type": "window", "floor": 0, "at": [0.15], "w": 3.2, "h": 2.4, "glass": "#6f8a9c", "frame": "#3f3c34", "recessed": true },
+    { "volume": "main", "facade": "front", "type": "window", "floor": 0, "cols": 2, "at": [0.55, 0.82], "w": 1.6, "h": 1.6, "glass": "#2a3138", "frame": "#cbbb95", "recessed": true },
+    { "volume": "main", "facade": "front", "type": "window", "floor": 1, "at": [0.15], "w": 3.2, "h": 1.8, "glass": "#6f8a9c", "frame": "#3f3c34", "recessed": true },
+    { "volume": "main", "facade": "front", "type": "window", "floor": 1, "cols": 2, "at": [0.55, 0.82], "w": 1.6, "h": 1.5, "glass": "#2a3138", "frame": "#cbbb95", "recessed": true },
+    { "volume": "main", "facade": "front", "type": "window", "floor": 2, "cols": 2, "at": [0.3, 0.7], "w": 1.6, "h": 1.4, "glass": "#2a3138", "frame": "#cbbb95", "recessed": true }
+  ],
+  "terraces": [
+    { "onVolume": "main", "side": "front",
+      "parapet": { "h": 0.9, "color": "#c9b98d" },
+      "rail": { "type": "glass", "h": 1.0, "color": "#b7c2c9" } }
+  ],
+  "props": [],
+  "frontage": {
+    "wall": { "type": "ashlar", "color": "#cdb98a", "mortar": "#b8a374", "h": 1.6 },
+    "sidewalk": { "material": "brick", "color": "#9c6a48", "joint": "#7f5636", "w": 3.0 },
+    "road": { "surface": "asphalt", "color": "#7f8388" }
+  },
+  "sky": { "top": "#5ea2db", "horizon": "#9fcfe4", "cloud": "#f4f6f6" },
+  "notes": "Modern sand-plaster three-storey apartment building with large blue-glass curtain-wall windows framed dark, recessed dark-glazed balconies, and a cantilevered top-floor terrace with a beige parapet awning plus glass railing. Flat roofs. Frontage is a panelled ashlar compound wall with a grey slat fence over a brick sidewalk; a matching building is under construction next door. Colours estimated 2026-07-04."
+}

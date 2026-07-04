@@ -1,0 +1,34 @@
+{
+  "id": "383407937",
+  "refs": { "scene": "restyled/scene-fullworld/bld_383407937_peRO5vr.png" },
+  "footprint": "obb",
+  "floorH": 3.0,
+  "volumes": [
+    { "name": "main", "x0": 0.0, "x1": 0.52, "z0": 0.0, "z1": 1.0, "floors": 7,
+      "wall": "#d8caa9",
+      "roof": { "form": "flat", "fascia": { "h": 0.6, "color": "#cfc09d", "overhang": 0.25 } } },
+    { "name": "block", "x0": 0.52, "x1": 1.0, "z0": 0.0, "z1": 1.0, "floors": 7,
+      "wall": "#ede9df",
+      "roof": { "form": "flat", "fascia": { "h": 0.6, "color": "#e2ddd0", "overhang": 0.25 } } }
+  ],
+  "openings": [
+    { "volume": "main", "facade": "front", "type": "window", "floor": 5, "cols": 2, "at": [0.3, 0.7], "w": 1.3, "h": 1.3, "glass": "#8f9a9d", "frame": "#e6e2d8", "recessed": true },
+    { "volume": "main", "facade": "front", "type": "window", "floor": 3, "cols": 2, "at": [0.3, 0.7], "w": 1.3, "h": 1.3, "glass": "#8f9a9d", "frame": "#e6e2d8", "recessed": true },
+    { "volume": "main", "facade": "front", "type": "window", "floor": 1, "cols": 2, "at": [0.3, 0.7], "w": 1.3, "h": 1.3, "glass": "#8f9a9d", "frame": "#e6e2d8", "recessed": true },
+    { "volume": "block", "facade": "front", "type": "window", "floor": 5, "cols": 2, "at": [0.35, 0.72], "w": 1.3, "h": 1.3, "glass": "#8f9a9d", "frame": "#e6e2d8", "recessed": true },
+    { "volume": "block", "facade": "front", "type": "window", "floor": 3, "cols": 2, "at": [0.35, 0.72], "w": 1.3, "h": 1.3, "glass": "#8f9a9d", "frame": "#e6e2d8", "recessed": true },
+    { "volume": "block", "facade": "front", "type": "window", "floor": 1, "cols": 2, "at": [0.35, 0.72], "w": 1.3, "h": 1.3, "glass": "#8f9a9d", "frame": "#e6e2d8", "recessed": true }
+  ],
+  "terraces": [
+    { "onVolume": "main", "side": "front", "parapet": { "h": 0.9, "color": "#ede9df" }, "rail": { "type": "solid", "h": 0.2, "color": "#e2ddd0" } }
+  ],
+  "props": [],
+  "frontage": {
+    "wall": { "type": "brick", "color": "#ceac6f", "mortar": "#b08d4f", "h": 1.5 },
+    "gates": [{ "kind": "pedestrian", "w": 1.2, "style": "flat-bar", "color": "#eeeeea" }],
+    "sidewalk": { "material": "brick", "color": "#b7867f", "joint": "#9c6f68", "w": 4.0 },
+    "verge": { "grass": "#7fb84a", "grassDark": "#586a44", "flowers": { "palette": ["#e04438", "#f2d24b", "#f6f3ea"], "perM2": 0.12 } }
+  },
+  "sky": { "top": "#5ea2db", "horizon": "#9fcfe4", "cloud": "#f4f6f6" },
+  "notes": "Multi-storey residential block (~7 storeys). Two tones: a warm tan-cream section (left) and a bright off-white section (right) with recessed balconies and grey louvered roller-shutter panels beside the windows. Flat roofs. Fronted by a low sandstone-brick wall topped with a white metal-mesh fence, shrubs and flowering beds, plus a masonry stair at the right. Colours eyeballed from ref."
+}

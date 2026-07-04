@@ -1,0 +1,36 @@
+{
+  "id": "665026263",
+  "refs": { "scene": "restyled/scene-fullworld/bld_665026263_pEqebhf.png" },
+  "footprint": "obb",
+  "floorH": 3.0,
+  "volumes": [
+    { "name": "main", "x0": 0.0, "x1": 0.72, "z0": 0.0, "z1": 1.0, "floors": 2,
+      "wall": "#e4d8bf",
+      "roof": { "form": "flat", "color": "#c9d1bd", "fascia": { "h": 0.6, "color": "#cdd3bd", "overhang": 0.3 } } },
+    { "name": "stonewing", "x0": 0.72, "x1": 1.0, "z0": 0.0, "z1": 1.0, "floors": 2,
+      "wall": "#cdb998",
+      "roof": { "form": "flat", "color": "#bcac8c", "fascia": { "h": 0.6, "color": "#bcac8c", "overhang": 0.3 } } }
+  ],
+  "openings": [
+    { "volume": "main", "facade": "front", "type": "opening", "floor": 0,
+      "at": [0.22, 0.6], "w": 3.4, "h": 2.6, "glass": "#788b96", "frame": "#656b62", "recessed": true },
+    { "volume": "main", "facade": "front", "type": "door", "floor": 0,
+      "at": [0.08], "w": 1.4, "h": 2.4, "glass": "#8ea0a8", "frame": "#e9e2ce", "recessed": true },
+    { "volume": "main", "facade": "front", "type": "window", "floor": 1,
+      "at": [0.25, 0.55, 0.85], "w": 1.8, "h": 1.4, "glass": "#5e8aad", "frame": "#ede7cc", "recessed": true },
+    { "volume": "stonewing", "facade": "front", "type": "window", "floor": 1,
+      "at": [0.5], "w": 1.2, "h": 1.4, "glass": "#5b655f", "frame": "#cdb998", "recessed": true }
+  ],
+  "terraces": [
+    { "onVolume": "main", "side": "front",
+      "rail": { "type": "glass", "h": 1.0, "color": "#a59f8a" } }
+  ],
+  "props": [],
+  "frontage": {
+    "wall": { "type": "stone-block", "color": "#cdb998", "mortar": "#bcac8c", "h": 0.9 },
+    "sidewalk": { "material": "packed-earth", "color": "#a77c5a", "joint": "#8a6a4e", "w": 6.0 },
+    "verge": { "grass": "#4b5f28", "grassDark": "#243b17" }
+  },
+  "sky": { "top": "#83ccd1", "horizon": "#ede7cc", "cloud": "#f4f6f6" },
+  "notes": "Modern two-storey mixed-use / commercial building. Ground floor is a full-height glazed storefront (curtain wall, blue-grey glass #788b96 with grey mullions #656b62) and a glazed entrance door where a figure exits. Upper floor is cream render (#e4d8bf / #ede7cc) with a glass-railed balcony terrace across the front and a stone-clad right wing (#cdb998). Flat roofs with pale cream/green-tinted spandrel bands. Frontage is open brown packed-earth ground (#a77c5a) with stone-block low planters (#cdb998) holding agave and a potted palm; wall-mounted downlights and a person (props not encoded). Colours sampled from 12x9 grid 2026-07-04."
+}

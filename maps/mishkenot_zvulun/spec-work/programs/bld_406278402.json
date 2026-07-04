@@ -1,0 +1,30 @@
+{
+  "id": "406278402",
+  "refs": { "scene": "restyled/scene-fullworld/bld_406278402_pa1gfjB.png" },
+  "footprint": "obb",
+  "floorH": 3.0,
+  "volumes": [
+    { "name": "main", "x0": 0.0, "x1": 1.0, "z0": 0.0, "z1": 1.0, "floors": 3,
+      "wall": "#d8cfb5",
+      "roof": { "form": "flat", "fascia": { "h": 0.5, "color": "#cfc6ab", "overhang": 0.25 } } }
+  ],
+  "openings": [
+    { "volume": "main", "facade": "front", "type": "window", "floor": 2, "cols": 3, "at": [0.2, 0.5, 0.8], "w": 1.2, "h": 1.4, "glass": "#26282c", "frame": "#d0c7ac", "recessed": true },
+    { "volume": "main", "facade": "front", "type": "window", "floor": 1, "cols": 3, "at": [0.2, 0.5, 0.8], "w": 1.2, "h": 1.4, "glass": "#26282c", "frame": "#d0c7ac", "recessed": true },
+    { "volume": "main", "facade": "front", "type": "door", "floor": 0, "at": [0.5], "w": 1.4, "h": 2.3, "glass": "#26282c", "frame": "#c6bda2", "recessed": true },
+    { "volume": "main", "facade": "front", "type": "window", "floor": 0, "cols": 2, "at": [0.22, 0.78], "w": 1.2, "h": 1.3, "glass": "#26282c", "frame": "#d0c7ac", "recessed": true }
+  ],
+  "terraces": [
+    { "onVolume": "main", "side": "front", "rail": { "type": "bars", "h": 0.95, "color": "#cfc9ba" } }
+  ],
+  "props": [
+    { "type": "ac", "volume": "main", "facade": "front", "floor": 2, "at": 0.85 }
+  ],
+  "frontage": {
+    "wall": { "type": "hedge", "color": "#4e9e3e", "mortar": "#3c7a30", "h": 1.7 },
+    "sidewalk": { "material": "brick", "color": "#b5623f", "joint": "#96502f", "w": 3.0 },
+    "road": { "surface": "asphalt", "color": "#7f8388" }
+  },
+  "sky": { "top": "#5ea2db", "horizon": "#9fcfe4", "cloud": "#f4f6f6" },
+  "notes": "Cream/beige three-storey apartment block, flat roof with solar panels and a rooftop tank; front facade has stacked recessed balconies with metal-bar railings and dark-glazed windows. Fronted by a clipped boxy green hedge along a brick sidewalk and asphalt street. Colours estimated 2026-07-04."
+}

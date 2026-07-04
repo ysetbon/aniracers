@@ -1,0 +1,30 @@
+{
+  "id": "557798976",
+  "refs": { "scene": "restyled/scene-fullworld/bld_557798976_plREIxl.png" },
+  "footprint": "obb",
+  "floorH": 3.0,
+  "volumes": [
+    { "name": "main", "x0": 0.0, "x1": 1.0, "z0": 0.0, "z1": 1.0, "floors": 2,
+      "wall": "#e9e0d8",
+      "roof": { "form": "hip", "color": "#c36c56", "fascia": { "h": 0.5, "color": "#d1bda4", "overhang": 0.4 } } }
+  ],
+  "openings": [
+    { "volume": "main", "facade": "front", "type": "window", "floor": 1,
+      "at": [0.3, 0.7], "w": 1.3, "h": 1.2, "glass": "#3f3f40", "frame": "#e9e0d8", "recessed": true },
+    { "volume": "main", "facade": "front", "type": "door", "floor": 0,
+      "at": [0.32], "w": 1.4, "h": 2.2, "glass": "#454a50", "frame": "#b7aea5", "recessed": true },
+    { "volume": "main", "facade": "front", "type": "window", "floor": 0,
+      "at": [0.68], "w": 1.3, "h": 1.3, "glass": "#3f3f40", "frame": "#e9e0d8", "recessed": true }
+  ],
+  "terraces": [],
+  "props": [],
+  "frontage": {
+    "wall": { "type": "picket", "color": "#e4ddd4", "mortar": "#d1bda4", "h": 1.9 },
+    "gates": [{ "kind": "pedestrian", "w": 1.1, "style": "picket", "color": "#e4ddd4" }],
+    "sidewalk": { "material": "brick-herringbone", "color": "#c36c56", "joint": "#a86656", "w": 3.5 },
+    "verge": { "grass": "#627839", "grassDark": "#384a24" },
+    "road": { "surface": "asphalt", "color": "#908080" }
+  },
+  "sky": { "top": "#66bffd", "horizon": "#7ccafc", "cloud": "#f4f6f6" },
+  "notes": "Single-family cottage, cream/white render (#e9e0d8) with orange terracotta HIPPED tile roof (#c36c56). Lower storey occluded by a white timber picket fence plus a tan block boundary wall with protruding stones; upper storey window band visible above. Openings below the fence are plausible (door + flanking windows). Red-brick herringbone sidewalk, grey asphalt road at right. Green + blue wheelie bins and a grey car occupy the near verge (props not encoded). Colours sampled from 12x9 grid 2026-07-04."
+}

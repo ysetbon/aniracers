@@ -1,0 +1,32 @@
+{
+  "id": "406278405",
+  "refs": { "scene": "restyled/scene-fullworld/bld_406278405_pdgzVYy.png" },
+  "footprint": "obb",
+  "floorH": 3.0,
+  "volumes": [
+    { "name": "main", "x0": 0.0, "x1": 1.0, "z0": 0.0, "z1": 1.0, "floors": 2,
+      "wall": "#d9cdb2",
+      "bands": [
+        { "floor": 1, "y0": 0.25, "y1": 0.95, "x0": 0.28, "x1": 0.5, "color": "#6f97a3", "style": "lattice" },
+        { "floor": 0, "y0": 0.15, "y1": 0.85, "x0": 0.02, "x1": 0.12, "color": "#6f97a3", "style": "lattice" }
+      ],
+      "roof": { "form": "flat", "fascia": { "h": 0.6, "color": "#8a4a3a", "overhang": 0.2 } } }
+  ],
+  "openings": [
+    { "volume": "main", "facade": "front", "type": "window", "floor": 1, "at": [0.62], "w": 1.2, "h": 1.2, "glass": "#2a2c30", "frame": "#c7bfa5", "recessed": true },
+    { "volume": "main", "facade": "front", "type": "window", "floor": 1, "at": [0.16], "w": 1.1, "h": 1.1, "glass": "#2a2c30", "frame": "#c7bfa5", "recessed": true },
+    { "volume": "main", "facade": "front", "type": "door", "floor": 0, "at": [0.42], "w": 1.2, "h": 2.2, "glass": "#4a4740", "frame": "#c0b799", "recessed": true },
+    { "volume": "main", "facade": "front", "type": "window", "floor": 0, "at": [0.7], "w": 1.1, "h": 1.1, "glass": "#2a2c30", "frame": "#c7bfa5", "recessed": true }
+  ],
+  "terraces": [],
+  "props": [
+    { "type": "ac", "volume": "main", "facade": "front", "floor": 1, "at": 0.1 },
+    { "type": "ac", "volume": "main", "side": "top", "at": 0.85 }
+  ],
+  "frontage": {
+    "sidewalk": { "material": "brick", "color": "#8a5238", "joint": "#6f4229", "w": 3.5 },
+    "road": { "surface": "asphalt", "color": "#7f8388" }
+  },
+  "sky": { "top": "#5ea2db", "horizon": "#9fcfe4", "cloud": "#f4f6f6" },
+  "notes": "Beige-plaster two-storey block with turquoise/blue-grey perforated screen panels over several windows and vertical-bar security grilles; flat roof with a dark-terracotta parapet band and roof-mounted AC units. Blue house-number '2' plaque. Corner site: a wire-mesh fenced storage yard, brown shed and green wheelie bin sit alongside (props pending). Colours estimated 2026-07-04."
+}

@@ -1,0 +1,30 @@
+{
+  "id": "557798990",
+  "refs": { "scene": "restyled/scene-fullworld/bld_557798990_p1lAf2m.png" },
+  "footprint": "obb",
+  "floorH": 3.0,
+  "volumes": [
+    { "name": "main", "x0": 0.0, "x1": 1.0, "z0": 0.0, "z1": 1.0, "floors": 2,
+      "wall": "#d0bd97",
+      "bands": [{ "floor": 0, "y0": 0.0, "y1": 0.35, "color": "#9c9a9d", "style": "slats" }],
+      "roof": { "form": "hip", "color": "#524e57", "fascia": { "h": 0.4, "color": "#524e57", "overhang": 0.3 } } }
+  ],
+  "openings": [
+    { "volume": "main", "facade": "front", "type": "window", "floor": 1,
+      "at": [0.3, 0.62, 0.88], "w": 1.5, "h": 1.4, "glass": "#262c31", "frame": "#b0a488", "recessed": true },
+    { "volume": "main", "facade": "front", "type": "window", "floor": 0,
+      "at": [0.4, 0.75], "w": 1.5, "h": 1.5, "glass": "#262c31", "frame": "#b0a488", "recessed": true }
+  ],
+  "terraces": [],
+  "props": [],
+  "frontage": {
+    "wall": { "type": "stone", "color": "#a89f9a", "mortar": "#c7bcae", "h": 1.2 },
+    "gates": [{ "kind": "vehicle", "w": 4.5, "style": "sliding-panel", "color": "#9c9a9d" },
+              { "kind": "pedestrian", "w": 1.2, "style": "bars", "color": "#2c3050" }],
+    "sidewalk": { "material": "stone-slabs", "color": "#9c9a9d", "joint": "#7f7d80", "w": 4.0 },
+    "verge": { "grass": "#517a47", "grassDark": "#2c373a" },
+    "road": { "surface": "asphalt", "color": "#4a4a52" }
+  },
+  "sky": { "top": "#70b6fd", "horizon": "#80c1fa", "cloud": "#f4f6f6" },
+  "notes": "Two-storey villa, warm cream render (#d0bd97) over a pale stone plinth band (#9c9a9d), capped by a STEEP dark charcoal-purple hipped/mansard roof (#524e57) carrying three skylight dormers (dormers not encodable, expressed via hip roof). Dark-glass windows (#262c31) with pale surrounds. Frontage is a low stone wall topped by a navy wrought-iron railing (#2c3050) with a wide silver sliding vehicle gate (#9c9a9d) and a pedestrian gate; grey slab sidewalk, dark asphalt road with parked cars (not encoded). Colours sampled from 12x9 grid 2026-07-04."
+}

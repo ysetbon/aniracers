@@ -1,0 +1,33 @@
+{
+  "id": "406278516",
+  "refs": { "scene": "restyled/scene-fullworld/bld_406278516_p7ASfc5.png", "iso": "restyled/iso/bld_406278516.png" },
+  "footprint": "obb",
+  "floorH": 3.0,
+  "volumes": [
+    { "name": "main", "x0": 0.0, "x1": 1.0, "z0": 0.0, "z1": 1.0, "floors": 2,
+      "wall": "#d8c9a0",
+      "bands": [
+        { "floor": 0, "y0": 0.15, "y1": 0.85, "x0": 0.34, "x1": 0.5, "color": "#a03c33", "style": "flat" }
+      ],
+      "roof": { "form": "hip", "color": "#b5432c", "fascia": { "h": 0.35, "color": "#8f3323", "overhang": 0.4 } } }
+  ],
+  "openings": [
+    { "volume": "main", "facade": "front", "type": "window", "floor": 1, "at": [0.58], "w": 1.1, "h": 1.1, "glass": "#3f4650", "frame": "#e2d6ad", "recessed": true },
+    { "volume": "main", "facade": "front", "type": "window", "floor": 0, "at": [0.2], "w": 1.0, "h": 1.0, "glass": "#3f4650", "frame": "#e2d6ad", "recessed": true },
+    { "volume": "main", "facade": "front", "type": "window", "floor": 0, "at": [0.58], "w": 1.0, "h": 1.0, "glass": "#3f4650", "frame": "#e2d6ad", "recessed": true },
+    { "volume": "main", "facade": "front", "type": "door", "floor": 0, "at": [0.42], "w": 1.2, "h": 2.0, "glass": "#3f4650", "frame": "#cbba91", "recessed": true }
+  ],
+  "terraces": [],
+  "props": [
+    { "type": "ac", "volume": "main", "facade": "front", "floor": 1, "at": 0.55 },
+    { "type": "ac", "volume": "main", "facade": "right", "floor": 1, "at": 0.5 }
+  ],
+  "frontage": {
+    "wall": { "type": "panel", "color": "#eef0ee", "mortar": "#d8dad6", "h": 1.8 },
+    "sidewalk": { "material": "brick", "color": "#b17a55", "joint": "#95653f", "w": 3.5 },
+    "verge": { "grass": "#6ba83f", "grassDark": "#4e7d2e" },
+    "road": { "surface": "asphalt", "color": "#4c5054" }
+  },
+  "sky": { "top": "#5ea2db", "horizon": "#9fcfe4", "cloud": "#f4f6f6" },
+  "notes": "Two-storey house, warm sand render (#d8c9a0) with an exposed grey render right return (#8f8f88 shading). Terracotta clay hipped roof (#b5432c) with a thin front eaves band. A recessed deep-red balcony/loggia panel (#a03c33) sits centre-left of the street facade above the entry; dark windows (#3f4650) with cream reveals, a barred metal gate below the loggia, wall AC units. Frontage: white pre-cast panel wall (#eef0ee) with sawtooth coping to the street, brick sidewalk. Colours pixel-sampled from the ref."
+}

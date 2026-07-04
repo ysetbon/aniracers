@@ -1,0 +1,26 @@
+{
+  "id": "556855970",
+  "refs": { "scene": "restyled/scene-fullworld/bld_556855970_pbvEeBK.png", "iso": "restyled/iso/bld_556855970.png" },
+  "footprint": "obb",
+  "floorH": 3.0,
+  "volumes": [
+    { "name": "main", "x0": 0.0, "x1": 1.0, "z0": 0.0, "z1": 1.0, "floors": 2,
+      "wall": "#dce3e7",
+      "roof": { "form": "flat", "fascia": { "h": 0.6, "color": "#cdd5d9", "overhang": 0.3 } } }
+  ],
+  "openings": [
+    { "volume": "main", "facade": "front", "type": "window", "floor": 1, "cols": 4, "at": [0.15, 0.38, 0.62, 0.85], "w": 1.5, "h": 1.4, "glass": "#4b555c", "frame": "#e8edef", "recessed": true },
+    { "volume": "main", "facade": "front", "type": "window", "floor": 0, "cols": 3, "at": [0.2, 0.5, 0.8], "w": 1.5, "h": 1.4, "glass": "#4b555c", "frame": "#e8edef", "recessed": true },
+    { "volume": "main", "facade": "front", "type": "door", "floor": 0, "at": [0.5], "w": 1.5, "h": 2.3, "glass": "#4b555c", "frame": "#e8edef", "recessed": true }
+  ],
+  "terraces": [],
+  "props": [],
+  "frontage": {
+    "wall": { "type": "concrete", "color": "#9b9e99", "mortar": "#8a8d88", "h": 1.9 },
+    "sidewalk": { "material": "stone-slabs", "color": "#b58a6f", "joint": "#8a8474", "w": 3.5 },
+    "verge": { "grass": "#8fb060", "grassDark": "#66794f" },
+    "road": { "surface": "asphalt", "color": "#8f9296" }
+  },
+  "sky": { "top": "#5ea2db", "horizon": "#9fcfe4", "cloud": "#f4f6f6" },
+  "notes": "Building almost fully occluded: a pale near-white institutional block (kindergarten/gan) sits behind a tall concrete retaining wall topped by a blue steel picket fence (#2f80c6, not expressible in frontage.wall - modelled as plain concrete wall), big low-poly trees and a wooden playground gazebo+green slide (props not in schema). Massing inferred as a 2-floor flat-roof block with plausible window grid. Multicolour brick paver sidewalk. Colours sampled from ref 2026-07-04."
+}

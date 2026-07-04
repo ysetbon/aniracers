@@ -1,0 +1,31 @@
+{
+  "id": "556855964",
+  "refs": { "scene": "restyled/scene-fullworld/bld_556855964_p9YX8kJ.png" },
+  "footprint": "obb",
+  "floorH": 3.0,
+  "volumes": [
+    { "name": "main", "x0": 0.0, "x1": 1.0, "z0": 0.0, "z1": 1.0, "floors": 2,
+      "wall": "#e7dfcb",
+      "roof": { "form": "gable", "color": "#c95f38", "fascia": { "h": 0.4, "color": "#a5502c", "overhang": 0.45 } } }
+  ],
+  "openings": [
+    { "volume": "main", "facade": "front", "type": "window", "floor": 1, "cols": 2, "at": [0.35, 0.68], "w": 1.3, "h": 1.2, "glass": "#3f4a52", "frame": "#cfcbc0", "recessed": true },
+    { "volume": "main", "facade": "front", "type": "window", "floor": 0, "at": [0.3], "w": 1.1, "h": 1.1, "glass": "#3f4a52", "frame": "#cfcbc0", "recessed": true },
+    { "volume": "main", "facade": "front", "type": "door", "floor": 0, "at": [0.7], "w": 1.2, "h": 2.2, "glass": "#b8b4a8", "frame": "#c9c2b2", "recessed": true }
+  ],
+  "terraces": [
+    { "onVolume": "main", "side": "front", "rail": { "type": "bars", "h": 1.0, "color": "#e2dfd6" } }
+  ],
+  "props": [
+    { "type": "satellite-dish", "volume": "main", "side": "top", "at": 0.5 }
+  ],
+  "frontage": {
+    "wall": { "type": "picket", "color": "#e6ddc8", "mortar": "#d0c6ac", "h": 1.5 },
+    "gates": [{ "kind": "vehicle", "w": 4.2, "style": "ornate-arch", "color": "#6f8f6a" }],
+    "sidewalk": { "material": "brick-pavers", "color": "#a8846c", "joint": "#8a6850", "w": 3.5 },
+    "verge": { "grass": "#5f9a3f", "grassDark": "#4a7a34" },
+    "road": { "surface": "asphalt", "color": "#8f9296" }
+  },
+  "sky": { "top": "#4f97d8", "horizon": "#9fcfe4", "cloud": "#f4f6f6" },
+  "notes": "Two-storey cream private house with an orange terracotta gable roof and a roof-mounted satellite dish. Upper floor has a front balcony with a white bar rail; grey window shutters; a grey entrance door at ground level. Frontage is a cream picket fence with a green ornate metal vehicle gate and a white mailbox. Sampled from ref 2026-07-04."
+}

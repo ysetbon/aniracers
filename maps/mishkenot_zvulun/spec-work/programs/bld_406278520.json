@@ -1,0 +1,30 @@
+{
+  "id": "406278520",
+  "refs": { "scene": "restyled/scene-fullworld/bld_406278520_pTRIkQS.png", "iso": "restyled/iso/bld_406278520.png" },
+  "footprint": "obb",
+  "floorH": 3.0,
+  "volumes": [
+    { "name": "main", "x0": 0.0, "x1": 1.0, "z0": 0.0, "z1": 1.0, "floors": 2,
+      "wall": "#e6b89a",
+      "roof": { "form": "hip", "color": "#c0392b", "fascia": { "h": 0.35, "color": "#9e2f24", "overhang": 0.4 } } },
+    { "name": "porch", "x0": 0.32, "x1": 0.6, "z0": 0.0, "z1": 0.22, "floors": 1,
+      "wall": "#e6b89a",
+      "roof": { "form": "gable", "color": "#c0392b", "fascia": { "h": 0.3, "color": "#9e2f24", "overhang": 0.4 } } }
+  ],
+  "openings": [
+    { "volume": "main", "facade": "front", "type": "window", "floor": 1, "at": [0.2, 0.45, 0.72], "w": 1.1, "h": 1.1, "glass": "#3f4650", "frame": "#efceb6", "recessed": true },
+    { "volume": "main", "facade": "front", "type": "window", "floor": 0, "at": [0.72], "w": 1.1, "h": 1.1, "glass": "#3f4650", "frame": "#efceb6", "recessed": true },
+    { "volume": "porch", "facade": "front", "type": "door", "floor": 0, "at": [0.5], "w": 1.3, "h": 2.1, "glass": "#3f4650", "frame": "#d9a888", "recessed": true }
+  ],
+  "terraces": [],
+  "props": [],
+  "frontage": {
+    "wall": { "type": "block", "color": "#c9bd9d", "mortar": "#b3a684", "h": 1.4 },
+    "gates": [{ "kind": "vehicle", "w": 4.5, "style": "ornate-arch", "color": "#8fa0ac" }],
+    "sidewalk": { "material": "brick", "color": "#b17a55", "joint": "#95653f", "w": 3.5 },
+    "verge": { "grass": "#6ba83f", "grassDark": "#4e7d2e" },
+    "road": { "surface": "asphalt", "color": "#8f4a2f" }
+  },
+  "sky": { "top": "#5ea2db", "horizon": "#9fcfe4", "cloud": "#f4f6f6" },
+  "notes": "Two-storey villa in warm salmon/peach render (#e6b89a) under a red clay hipped roof (#c0392b). A projecting front entry porch carries its own small red gabled roof over the door. Rows of dark windows (#3f4650) with pale reveals. Frontage: low ashlar block wall (#c9bd9d) with an ornate pale-blue-grey metal vehicle gate (#8fa0ac) and clipped hedge, brick sidewalk beside a paver road. Colours pixel-sampled from the ref."
+}

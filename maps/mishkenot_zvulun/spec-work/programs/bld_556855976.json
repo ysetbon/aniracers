@@ -1,0 +1,28 @@
+{
+  "id": "556855976",
+  "refs": { "scene": "restyled/scene-fullworld/bld_556855976_p3Wc8cU.png", "iso": "restyled/iso/bld_556855976.png" },
+  "footprint": "obb",
+  "floorH": 3.0,
+  "volumes": [
+    { "name": "main", "x0": 0.0, "x1": 1.0, "z0": 0.0, "z1": 1.0, "floors": 2,
+      "wall": "#d8ccb4",
+      "roof": { "form": "hip", "color": "#b95e30", "overhang": 0.4 } }
+  ],
+  "openings": [
+    { "volume": "main", "facade": "front", "type": "window", "floor": 1, "cols": 2, "at": [0.33, 0.7], "w": 1.4, "h": 1.4, "glass": "#4b555c", "frame": "#e2dac6", "recessed": true },
+    { "volume": "main", "facade": "front", "type": "window", "floor": 0, "at": [0.3], "w": 1.4, "h": 1.3, "glass": "#4b555c", "frame": "#e2dac6", "recessed": true },
+    { "volume": "main", "facade": "front", "type": "door", "floor": 0, "at": [0.7], "w": 1.3, "h": 2.2, "glass": "#4b555c", "frame": "#e2dac6", "recessed": true }
+  ],
+  "terraces": [],
+  "props": [],
+  "frontage": {
+    "wall": { "type": "stone", "color": "#d5b071", "mortar": "#c19a5c", "h": 1.4 },
+    "gates": [{ "kind": "vehicle", "w": 6.5, "style": "ornate", "color": "#3d4147" },
+              { "kind": "pedestrian", "w": 1.1, "style": "ornate", "color": "#3d4147" }],
+    "sidewalk": { "material": "stone-slabs", "color": "#b58a6f", "joint": "#8a8474", "w": 3.0 },
+    "verge": { "grass": "#8fb060", "grassDark": "#66794f" },
+    "road": { "surface": "asphalt", "color": "#8f9296" }
+  },
+  "sky": { "top": "#5ea2db", "horizon": "#9fcfe4", "cloud": "#f4f6f6" },
+  "notes": "Building fully occluded: the frame is dominated by a long charcoal (#3d4147) metal sliding driveway gate with decorative square panels and a cut-out horse/animal figure, plus a small pedestrian gate, all on a tan sandstone-block (#d5b071) low wall. Big dark-green trees with red pomegranates and a grey utility cabinet in front. Massing inferred as a 2-floor cream villa with terracotta hipped roof (a small tiled roof is just visible far right). Multicolour brick pavers, red-white kerb. Colours sampled from ref 2026-07-04."
+}

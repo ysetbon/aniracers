@@ -1,0 +1,36 @@
+{
+  "id": "556855955",
+  "refs": { "scene": "restyled/scene-fullworld/bld_556855955_p7a6FYL.png" },
+  "footprint": "obb",
+  "floorH": 3.0,
+  "volumes": [
+    { "name": "main", "x0": 0.0, "x1": 0.5, "z0": 0.0, "z1": 1.0, "floors": 4,
+      "wall": "#e3d9bf",
+      "roof": { "form": "flat", "fascia": { "h": 0.7, "color": "#d6ccae", "overhang": 0.3 } } },
+    { "name": "east", "x0": 0.5, "x1": 1.0, "z0": 0.0, "z1": 0.95, "floors": 4,
+      "wall": "#eeece6",
+      "roof": { "form": "flat", "fascia": { "h": 0.7, "color": "#e4e2da", "overhang": 0.3 } } }
+  ],
+  "openings": [
+    { "volume": "main", "facade": "front", "type": "window", "floor": 3, "cols": 3, "at": [0.2, 0.5, 0.8], "w": 1.4, "h": 1.4, "glass": "#cfd6da", "frame": "#f2f0ea", "recessed": true },
+    { "volume": "main", "facade": "front", "type": "window", "floor": 2, "cols": 3, "at": [0.2, 0.5, 0.8], "w": 1.4, "h": 1.4, "glass": "#cfd6da", "frame": "#f2f0ea", "recessed": true },
+    { "volume": "main", "facade": "front", "type": "window", "floor": 1, "cols": 3, "at": [0.2, 0.5, 0.8], "w": 1.4, "h": 1.4, "glass": "#cfd6da", "frame": "#f2f0ea", "recessed": true },
+    { "volume": "main", "facade": "front", "type": "window", "floor": 0, "cols": 2, "at": [0.28, 0.72], "w": 1.4, "h": 1.3, "glass": "#c6cdd2", "frame": "#b8bcbf", "recessed": true },
+    { "volume": "main", "facade": "front", "type": "door", "floor": 0, "at": [0.5], "w": 1.6, "h": 2.3, "glass": "#3f4a52", "frame": "#c9433a", "recessed": true },
+    { "volume": "east", "facade": "front", "type": "window", "floor": 3, "cols": 2, "at": [0.35, 0.7], "w": 1.3, "h": 1.3, "glass": "#cfd6da", "frame": "#f2f0ea", "recessed": true },
+    { "volume": "east", "facade": "front", "type": "window", "floor": 2, "cols": 2, "at": [0.35, 0.7], "w": 1.3, "h": 1.3, "glass": "#cfd6da", "frame": "#f2f0ea", "recessed": true },
+    { "volume": "east", "facade": "front", "type": "window", "floor": 1, "cols": 2, "at": [0.35, 0.7], "w": 1.3, "h": 1.3, "glass": "#cfd6da", "frame": "#f2f0ea", "recessed": true }
+  ],
+  "terraces": [],
+  "props": [
+    { "type": "watertank", "volume": "east", "side": "top", "at": 0.5 },
+    { "type": "ac", "volume": "main", "facade": "front", "floor": 0, "at": 0.85 }
+  ],
+  "frontage": {
+    "sidewalk": { "material": "brick-pavers", "color": "#b98a6a", "joint": "#9a6f52", "w": 4.0 },
+    "verge": { "grass": "#5f9a3f", "grassDark": "#4a7a34", "flowers": { "palette": ["#e08bbf", "#f6f3ea"], "perM2": 0.1 } },
+    "road": { "surface": "asphalt", "color": "#8f9296" }
+  },
+  "sky": { "top": "#4f97d8", "horizon": "#9fcfe4", "cloud": "#f4f6f6" },
+  "notes": "Large residential apartment block, occluded by street trees. Two flat-roofed volumes: warm cream left block (4 floors, ground-floor windows have grey security bars) and a white right block (4 floors). Red fabric awning (#c9433a) over the ground entrance. Roof water tanks visible. Windows are light reflective glass with white frames. Sampled from ref 2026-07-04."
+}

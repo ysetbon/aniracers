@@ -1,0 +1,30 @@
+{
+  "id": "556597996",
+  "refs": { "scene": "restyled/scene-fullworld/bld_556597996_pbjCj6z.png" },
+  "footprint": "obb",
+  "floorH": 3.0,
+  "volumes": [
+    { "name": "main", "x0": 0.0, "x1": 0.66, "z0": 0.0, "z1": 1.0, "floors": 2,
+      "wall": "#ded2b6",
+      "bands": [{ "floor": 0, "y0": 0.0, "y1": 0.5, "color": "#cbb488", "style": "blocks" }],
+      "roof": { "form": "flat", "fascia": { "h": 0.5, "color": "#e6dcc2", "overhang": 0.2 } } },
+    { "name": "wing", "x0": 0.66, "x1": 1.0, "z0": 0.0, "z1": 0.9, "floors": 2,
+      "wall": "#ded2b6",
+      "roof": { "form": "hip", "color": "#c56a3d", "fascia": { "h": 0.35, "color": "#e6dcc2", "overhang": 0.4 } } }
+  ],
+  "openings": [
+    { "volume": "main", "facade": "front", "type": "window", "floor": 1, "cols": 2, "at": [0.3, 0.65], "w": 1.3, "h": 1.4, "glass": "#565750", "frame": "#eee9dc", "recessed": true, "bars": true },
+    { "volume": "main", "facade": "front", "type": "door", "floor": 0, "at": [0.3], "w": 1.3, "h": 2.2, "glass": "#4a4038", "frame": "#c9b482", "recessed": true },
+    { "volume": "wing", "facade": "front", "type": "window", "floor": 1, "at": [0.5], "w": 1.2, "h": 1.3, "glass": "#565750", "frame": "#eee9dc", "recessed": true, "bars": true }
+  ],
+  "terraces": [],
+  "props": [],
+  "frontage": {
+    "wall": { "type": "block", "color": "#cbb388", "mortar": "#e0d3ae", "h": 1.5 },
+    "gates": [{ "kind": "vehicle", "w": 4.5, "style": "ornate-arch", "color": "#d8d8d0" }],
+    "sidewalk": { "material": "stone-slabs", "color": "#bfc0bd", "joint": "#a5a6a2", "w": 3.0 },
+    "road": { "surface": "asphalt", "color": "#808387" }
+  },
+  "sky": { "top": "#5ea2db", "horizon": "#9fcfe4", "cloud": "#f4f6f6" },
+  "notes": "Cream two-storey villa; main block flat-roofed with a stone-block accent band at ground level, a right wing capped by a small terracotta hipped tile roof. Upper windows recessed behind grey security grilles. Frontage mixes a tan stone-block wall, a brown wood-slat fence section and a light silver ornate metal vehicle gate; a red MIZAR real-estate sign hangs on the wall. Cypress, hedge, black pickup and car in the drive. Colours sampled from ref 2026-07-04."
+}

@@ -1,0 +1,29 @@
+{
+  "id": "406278456",
+  "refs": { "scene": "restyled/scene-fullworld/bld_406278456_pgMLOzY.png" },
+  "footprint": "obb",
+  "floorH": 3.0,
+  "volumes": [
+    { "name": "main", "x0": 0.0, "x1": 1.0, "z0": 0.0, "z1": 1.0, "floors": 2,
+      "wall": "#d9ca9f",
+      "roof": { "form": "flat", "fascia": { "h": 0.6, "color": "#cdbd8f", "overhang": 0.3 } } }
+  ],
+  "openings": [
+    { "volume": "main", "facade": "front", "type": "window", "floor": 1, "cols": 3, "at": [0.22, 0.52, 0.82], "w": 1.5, "h": 1.3, "glass": "#2b3038", "frame": "#d2c398", "recessed": true },
+    { "volume": "main", "facade": "front", "type": "door", "floor": 0, "at": [0.28], "w": 1.3, "h": 2.3, "glass": "#242830", "frame": "#c6b688", "recessed": true },
+    { "volume": "main", "facade": "front", "type": "window", "floor": 0, "cols": 2, "at": [0.6, 0.85], "w": 1.6, "h": 1.6, "glass": "#242830", "frame": "#c6b688", "recessed": true }
+  ],
+  "terraces": [
+    { "onVolume": "main", "side": "front", "floor": 1, "parapet": { "h": 0.5, "color": "#d9ca9f" }, "rail": { "type": "glass", "h": 1.0, "color": "#a9b7bd" } }
+  ],
+  "props": [
+    { "type": "ac", "volume": "main", "facade": "front", "floor": 1, "at": 0.15 },
+    { "type": "lamp-globe", "volume": "main", "facade": "front", "at": 0.6 }
+  ],
+  "frontage": {
+    "wall": { "type": "ashlar", "color": "#d3c496", "mortar": "#c2b184", "h": 1.5 },
+    "sidewalk": { "material": "brick", "color": "#b25a3f", "joint": "#8f4530", "w": 2.5 }
+  },
+  "sky": { "top": "#5ea2db", "horizon": "#9fcfe4", "cloud": "#f4f6f6" },
+  "notes": "Two-storey sandstone-ashlar townhouse. Ground floor: recessed entry (door numbered 29) reached by a short stone stair, wall-mounted mailboxes, a dark-slat privacy screen/fence in front of the ground-floor loggia. Upper floor is a set-back terrace behind a clear glass balustrade on cream posts. Flat roof, wall-mounted carriage lamp. Front paving is red brick. Sandstone block coursing shown as lighter/darker ashlar tones. Palm and street trees are environment (omitted). Colours sampled from ref 2026-07-04."
+}

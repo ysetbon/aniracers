@@ -1,0 +1,30 @@
+{
+  "id": "406278431",
+  "refs": { "scene": "restyled/scene-fullworld/bld_406278431_pdgzVYy.png" },
+  "footprint": "obb",
+  "floorH": 3.0,
+  "volumes": [
+    { "name": "main", "x0": 0.0, "x1": 1.0, "z0": 0.0, "z1": 1.0, "floors": 2,
+      "wall": "#e4e6e4",
+      "roof": { "form": "flat", "fascia": { "h": 0.5, "color": "#e8eae8", "overhang": 0.3 } } }
+  ],
+  "openings": [
+    { "volume": "main", "facade": "front", "type": "window", "floor": 1,
+      "cols": 2, "at": [0.32, 0.7], "w": 1.3, "h": 1.3, "glass": "#46505a", "frame": "#dcdedc", "recessed": true },
+    { "volume": "main", "facade": "front", "type": "window", "floor": 0,
+      "at": [0.32], "w": 1.3, "h": 1.3, "glass": "#46505a", "frame": "#dcdedc", "recessed": true },
+    { "volume": "main", "facade": "front", "type": "door", "floor": 0,
+      "at": [0.7], "w": 1.3, "h": 2.2, "glass": "#46505a", "frame": "#dcdedc", "recessed": true }
+  ],
+  "terraces": [],
+  "props": [],
+  "frontage": {
+    "wall": { "type": "stone", "color": "#c6a877", "mortar": "#ddc9a0", "h": 0.9 },
+    "gates": [{ "kind": "pedestrian", "w": 1.1, "style": "picket", "color": "#eef0ef" }],
+    "sidewalk": { "material": "stone-slabs", "color": "#c2bcb0", "joint": "#a8a294", "w": 3.5 },
+    "verge": { "grass": "#4d8f39", "grassDark": "#38692a" },
+    "road": { "surface": "asphalt", "color": "#8a8d91" }
+  },
+  "sky": { "top": "#4f9edd", "horizon": "#9fcfe4", "cloud": "#f4f6f6" },
+  "notes": "Subject building largely OCCLUDED by large leafy trees and a boundary fence; the white flat-roofed 1-2 storey massing (#e4e6e4) with dark-glazed windows is glimpsed behind. Modelled as a plausible 2-storey white house. Frontage is the clear content: a white picket fence sitting on a tan stone-rubble base wall (#c6a877), clipped hedges, a mailbox, and parked cars (blue, white) at the kerb. Colours read from ref 2026-07-04."
+}

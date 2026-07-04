@@ -1,0 +1,27 @@
+{
+  "id": "556855948",
+  "refs": { "scene": "restyled/scene-fullworld/bld_556855948_pk2GE4o.png", "iso": "restyled/iso/bld_556855948.png" },
+  "footprint": "obb",
+  "floorH": 3.0,
+  "volumes": [
+    { "name": "main", "x0": 0.0, "x1": 1.0, "z0": 0.0, "z1": 1.0, "floors": 2,
+      "wall": "#d9b855",
+      "roof": { "form": "gable", "color": "#bf5a33", "fascia": { "h": 0.4, "color": "#d9b855", "overhang": 0.4 } } }
+  ],
+  "openings": [
+    { "volume": "main", "facade": "front", "type": "window", "floor": 1, "cols": 3, "at": [0.42, 0.55, 0.68], "w": 0.7, "h": 1.2, "glass": "#3f4a86", "frame": "#f2efe6", "recessed": true },
+    { "volume": "main", "facade": "front", "type": "door", "floor": 0, "at": [0.55], "w": 1.4, "h": 2.2, "glass": "#3f4a86", "frame": "#e0dccf", "recessed": true },
+    { "volume": "main", "facade": "front", "type": "window", "floor": 0, "at": [0.72], "w": 1.0, "h": 1.3, "glass": "#3f4a86", "frame": "#f2efe6", "recessed": true }
+  ],
+  "terraces": [],
+  "props": [
+    { "type": "ac", "volume": "main", "facade": "front", "floor": 1, "at": 0.58 }
+  ],
+  "frontage": {
+    "wall": { "type": "solid", "color": "#2c2c2e", "h": 2.0 },
+    "gates": [{ "kind": "vehicle", "w": 5.0, "style": "solid-panel", "color": "#2c2c2e" }],
+    "sidewalk": { "material": "stone-slabs", "color": "#cbc7bd", "joint": "#a8a49a", "w": 2.5 }
+  },
+  "sky": { "top": "#5ea2db", "horizon": "#9fcfe4", "cloud": "#f4f6f6" },
+  "notes": "Two-storey ochre/mustard render house (#d9b855) with an orange terracotta gable roof (#bf5a33) and a smaller terracotta lean-to roof over the timber-pergola entrance porch. Windows are narrow with deep-blue glass (#3f4a86) and white frames; a wall AC unit sits above the porch. Frontage is dominated by a tall matte-black solid metal sliding gate with three small white vent panels; a fruit tree (red/pink berries) and potted plant to the right, a white municipal noticeboard cabinet (event poster, '40') and a green wheelie bin at the kerb (props pending). Sampled colours 2026-07-04."
+}

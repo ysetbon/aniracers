@@ -1,0 +1,29 @@
+{
+  "id": "556855954",
+  "refs": { "scene": "restyled/scene-fullworld/bld_556855954_pcCH4Gz.png", "iso": "restyled/iso/bld_556855954.png" },
+  "footprint": "obb",
+  "floorH": 3.0,
+  "volumes": [
+    { "name": "main", "x0": 0.0, "x1": 0.7, "z0": 0.0, "z1": 1.0, "floors": 2,
+      "wall": "#ece7db",
+      "roof": { "form": "gable", "color": "#8a4a34", "fascia": { "h": 0.4, "color": "#ece7db", "overhang": 0.4 } } },
+    { "name": "carport", "x0": 0.7, "x1": 1.0, "z0": 0.35, "z1": 1.0, "floors": 1,
+      "wall": "#d9d3c6",
+      "roof": { "form": "gable", "color": "#8a5a2f", "fascia": { "h": 0.35, "color": "#8a5a2f", "overhang": 0.5 } } }
+  ],
+  "openings": [
+    { "volume": "main", "facade": "front", "type": "window", "floor": 1, "cols": 2, "at": [0.35, 0.6], "w": 1.1, "h": 1.2, "glass": "#7a828a", "frame": "#f2efe6", "recessed": true },
+    { "volume": "main", "facade": "front", "type": "window", "floor": 0, "at": [0.35], "w": 1.1, "h": 1.2, "glass": "#7a828a", "frame": "#f2efe6", "recessed": true },
+    { "volume": "carport", "facade": "front", "type": "opening", "floor": 0, "at": [0.5], "w": 2.6, "h": 2.2, "glass": "#4a4640", "frame": "#8a5a2f", "recessed": true }
+  ],
+  "terraces": [],
+  "props": [],
+  "frontage": {
+    "wall": { "type": "solid", "color": "#f2efe8", "h": 1.9 },
+    "gates": [{ "kind": "pedestrian", "w": 1.1, "style": "panel", "color": "#f2efe8" }],
+    "sidewalk": { "material": "brick", "color": "#b58a5e", "joint": "#94694a", "w": 3.0 },
+    "road": { "surface": "asphalt", "color": "#8f9296" }
+  },
+  "sky": { "top": "#5ea2db", "horizon": "#9fcfe4", "cloud": "#f4f6f6" },
+  "notes": "Two-storey white/cream house (#ece7db) with a red-brown tile gable roof (#8a4a34, darker than neighbours). A timber gabled carport/porch (#8a5a2f) projects on the right, its bay open to a garage stacked with boxes. Frontage is a tall smooth white solid wall (#f2efe8) with a matching white panel pedestrian gate and a twin-globe lamp post at the kerb; brick-paved forecourt, a purple Peugeot 307 parked on the drive, palms and a rounded hedge. Sampled colours 2026-07-04."
+}

@@ -1,0 +1,37 @@
+{
+  "id": "406278435",
+  "refs": { "scene": "restyled/scene-fullworld/bld_406278435_pp2mPmk.png" },
+  "footprint": "obb",
+  "floorH": 3.0,
+  "volumes": [
+    { "name": "main", "x0": 0.0, "x1": 1.0, "z0": 0.0, "z1": 1.0, "floors": 3,
+      "wall": "#eceeed",
+      "roof": { "form": "flat", "fascia": { "h": 0.6, "color": "#eceeed", "overhang": 0.25 } } }
+  ],
+  "openings": [
+    { "volume": "main", "facade": "front", "type": "window", "floor": 2,
+      "cols": 2, "at": [0.3, 0.72], "w": 1.2, "h": 1.3, "glass": "#465058", "frame": "#dcdedd", "recessed": true },
+    { "volume": "main", "facade": "front", "type": "window", "floor": 1,
+      "cols": 2, "at": [0.3, 0.72], "w": 1.2, "h": 1.3, "glass": "#465058", "frame": "#dcdedd", "recessed": true },
+    { "volume": "main", "facade": "front", "type": "window", "floor": 0,
+      "at": [0.3], "w": 1.2, "h": 1.3, "glass": "#465058", "frame": "#dcdedd", "recessed": true }
+  ],
+  "terraces": [
+    { "onVolume": "main", "side": "front",
+      "rail": { "type": "bars", "h": 1.0, "color": "#c7cac9" } }
+  ],
+  "props": [
+    { "type": "ac", "volume": "main", "facade": "front", "floor": 1, "at": 0.55 },
+    { "type": "ac", "volume": "main", "facade": "front", "floor": 0, "at": 0.55 }
+  ],
+  "frontage": {
+    "wall": { "type": "render", "color": "#9a8a6d", "mortar": "#c6c9cb", "h": 1.4 },
+    "gates": [{ "kind": "pedestrian", "w": 1.1, "style": "ornate-arch", "color": "#c9cbc9" }],
+    "sidewalk": { "material": "stone-slabs", "color": "#cbc4b6", "joint": "#b0a998", "w": 3.5 },
+    "verge": { "grass": "#5aa03f", "grassDark": "#3f7f2f",
+               "flowers": { "palette": ["#b0459c", "#e6d24a", "#f2f0e8"], "perM2": 0.1 } },
+    "road": { "surface": "asphalt", "color": "#8a8d91" }
+  },
+  "sky": { "top": "#4f9edd", "horizon": "#9fcfe4", "cloud": "#f4f6f6" },
+  "notes": "White-rendered apartment block, ~3 storeys, flat roof. Front carries stacked balconies with grey metal-bar railings; several windows fitted with pale-cream roller shades/awnings and AC condensers on the facade. Frontage: a taupe/brown retaining wall (#9a8a6d) topped with a grey Greek-key (meander) frieze band (#c6c9cb) on a tan stone-rubble base, an ornate metal pedestrian gate, blue+grey wheelie bins, stone-slab sidewalk, planted verge, parked cars. Colours read from ref 2026-07-04."
+}

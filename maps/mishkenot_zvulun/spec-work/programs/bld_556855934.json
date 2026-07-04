@@ -1,0 +1,33 @@
+{
+  "id": "556855934",
+  "refs": { "scene": "restyled/scene-fullworld/bld_556855934_p9YX8kJ.png", "iso": "restyled/iso/bld_556855934.png" },
+  "footprint": "obb",
+  "floorH": 3.0,
+  "volumes": [
+    { "name": "main", "x0": 0.18, "x1": 1.0, "z0": 0.0, "z1": 1.0, "floors": 3,
+      "wall": "#ece7dc",
+      "roof": { "form": "hip", "color": "#4a4a4d", "fascia": { "h": 0.4, "color": "#ece7dc", "overhang": 0.35 } } },
+    { "name": "wing", "x0": 0.0, "x1": 0.18, "z0": 0.3, "z1": 1.0, "floors": 1,
+      "wall": "#d9d3c6",
+      "roof": { "form": "flat", "fascia": { "h": 0.4, "color": "#cfc9bc", "overhang": 0.2 } } }
+  ],
+  "openings": [
+    { "volume": "main", "facade": "front", "type": "window", "floor": 2, "cols": 3, "at": [0.35, 0.6, 0.82], "w": 0.9, "h": 0.9, "glass": "#8f9aa0", "frame": "#f2efe6", "recessed": true },
+    { "volume": "main", "facade": "front", "type": "window", "floor": 1, "cols": 2, "at": [0.55, 0.82], "w": 1.2, "h": 1.2, "glass": "#8f9aa0", "frame": "#e0dccf", "recessed": true },
+    { "volume": "main", "facade": "front", "type": "window", "floor": 0, "at": [0.55], "w": 1.6, "h": 0.8, "glass": "#8f9aa0", "frame": "#e0dccf", "recessed": true }
+  ],
+  "terraces": [],
+  "props": [
+    { "type": "ac", "volume": "main", "facade": "front", "floor": 1, "at": 0.35 }
+  ],
+  "frontage": {
+    "wall": { "type": "picket", "color": "#f2efe6", "h": 1.4 },
+    "gates": [{ "kind": "vehicle", "w": 4.5, "style": "timber-panel", "color": "#a06a38" },
+              { "kind": "pedestrian", "w": 1.1, "style": "timber-panel", "color": "#a06a38" }],
+    "sidewalk": { "material": "stone-slabs", "color": "#9a8f7e", "joint": "#7e7466", "w": 3.0 },
+    "verge": { "grass": "#6bbb45", "grassDark": "#4e7c3c" },
+    "road": { "surface": "asphalt", "color": "#8f9296" }
+  },
+  "sky": { "top": "#5ea2db", "horizon": "#9fcfe4", "cloud": "#f4f6f6" },
+  "notes": "Tall narrow three-storey house (#ece7dc) with a dark charcoal-slate hip roof (#4a4a4d) — distinctive against the terracotta neighbours. Windows have pale stone/render surrounds; small square windows near the roofline. A single-storey flat-roofed side wing sits to the left. Frontage is a white picket fence with a wide timber double vehicle gate (#a06a38) and a matching timber pedestrian gate marked house-number 32; green and blue wheelie bins at the kerb. Sampled colours 2026-07-04."
+}

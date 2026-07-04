@@ -1,0 +1,32 @@
+{
+  "id": "556855985",
+  "refs": { "scene": "restyled/scene-fullworld/bld_556855985_p2xLGtZ.png", "iso": "restyled/iso/bld_556855985.png" },
+  "footprint": "obb",
+  "floorH": 3.0,
+  "volumes": [
+    { "name": "main", "x0": 0.0, "x1": 1.0, "z0": 0.0, "z1": 1.0, "floors": 5,
+      "wall": "#c7c8c3",
+      "roof": { "form": "flat", "fascia": { "h": 0.5, "color": "#b9bab5", "overhang": 0.25 } } }
+  ],
+  "openings": [
+    { "volume": "main", "facade": "front", "type": "window", "floor": 4, "cols": 3, "at": [0.2, 0.5, 0.8], "w": 1.5, "h": 1.4, "glass": "#4a525a", "frame": "#cfd0cb", "recessed": true },
+    { "volume": "main", "facade": "front", "type": "window", "floor": 3, "cols": 3, "at": [0.2, 0.5, 0.8], "w": 1.5, "h": 1.4, "glass": "#4a525a", "frame": "#cfd0cb", "recessed": true },
+    { "volume": "main", "facade": "front", "type": "window", "floor": 2, "cols": 3, "at": [0.2, 0.5, 0.8], "w": 1.5, "h": 1.4, "glass": "#4a525a", "frame": "#cfd0cb", "recessed": true },
+    { "volume": "main", "facade": "front", "type": "window", "floor": 1, "cols": 3, "at": [0.2, 0.5, 0.8], "w": 1.5, "h": 1.4, "glass": "#4a525a", "frame": "#cfd0cb", "recessed": true },
+    { "volume": "main", "facade": "front", "type": "window", "floor": 0, "cols": 3, "at": [0.25, 0.6, 0.82], "w": 1.4, "h": 1.3, "glass": "#3c434b", "frame": "#8f9298", "recessed": true },
+    { "volume": "main", "facade": "front", "type": "door", "floor": 0, "at": [0.45], "w": 1.8, "h": 2.4, "glass": "#4a525a", "frame": "#7a3b34", "recessed": true }
+  ],
+  "terraces": [
+    { "onVolume": "main", "side": "front", "rail": { "type": "bars", "h": 1.0, "color": "#3b3f45" } }
+  ],
+  "props": [],
+  "frontage": {
+    "wall": { "type": "concrete", "color": "#b7bab5", "mortar": "#a3a6a1", "h": 1.3 },
+    "gates": [{ "kind": "pedestrian", "w": 1.2, "style": "bars", "color": "#d4d6d1" }],
+    "sidewalk": { "material": "stone-slabs", "color": "#bfc0bb", "joint": "#a7a8a3", "w": 3.5 },
+    "verge": { "grass": "#7fbf3c", "grassDark": "#5a8a2a" },
+    "road": { "surface": "asphalt", "color": "#8f9296" }
+  },
+  "sky": { "top": "#4f9ad9", "horizon": "#9cccea", "cloud": "#f4f6f6" },
+  "notes": "Multi-storey (5-floor) pale grey-beige apartment block. Upper floors have recessed balconies with dark metal bar railings (#3b3f45) - modelled as a front terrace rail applied across upper floors. Ground floor windows carry dark security grilles (grille modelled via darker frame). Recessed main entrance has a maroon/red-brown accent (#7a3b34, used as the door frame). Property is enclosed by a chain-link fence on a concrete retaining wall (chain-link not expressible - modelled as concrete wall + bar pedestrian gate). Big palm and street trees, silver car, green+blue bins, red-white kerb. Colours sampled from ref 2026-07-04."
+}

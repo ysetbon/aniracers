@@ -1,0 +1,30 @@
+{
+  "id": "406278450",
+  "refs": { "scene": "restyled/scene-fullworld/bld_406278450_p8w5mTP.png" },
+  "footprint": "obb",
+  "floorH": 3.0,
+  "volumes": [
+    { "name": "main", "x0": 0.0, "x1": 1.0, "z0": 0.0, "z1": 1.0, "floors": 4,
+      "wall": "#e4ddc6",
+      "roof": { "form": "flat", "fascia": { "h": 0.55, "color": "#d8cfb2", "overhang": 0.2 } } }
+  ],
+  "openings": [
+    { "volume": "main", "facade": "front", "type": "window", "floor": 3, "cols": 2, "at": [0.3, 0.7], "w": 1.4, "h": 1.4, "glass": "#5a5f5c", "frame": "#e6e0cd", "recessed": true },
+    { "volume": "main", "facade": "front", "type": "window", "floor": 2, "cols": 2, "at": [0.3, 0.7], "w": 1.4, "h": 1.4, "glass": "#5a5f5c", "frame": "#e6e0cd", "recessed": true },
+    { "volume": "main", "facade": "front", "type": "window", "floor": 1, "cols": 2, "at": [0.3, 0.7], "w": 1.4, "h": 1.4, "glass": "#5a5f5c", "frame": "#e6e0cd", "recessed": true },
+    { "volume": "main", "facade": "front", "type": "door", "floor": 0, "at": [0.5], "w": 1.5, "h": 2.3, "glass": "#4c514e", "frame": "#d3c8ab", "recessed": true }
+  ],
+  "terraces": [],
+  "props": [
+    { "type": "ac", "volume": "main", "facade": "front", "floor": 2, "at": 0.15 }
+  ],
+  "frontage": {
+    "wall": { "type": "rubble", "color": "#b9b1a0", "mortar": "#c8c1b1", "h": 1.5 },
+    "gates": [{ "kind": "pedestrian", "w": 1.2, "style": "bars", "color": "#b9bcbd" }],
+    "sidewalk": { "material": "stone-slabs", "color": "#c3b39c", "joint": "#a89880", "w": 2.5 },
+    "verge": { "grass": "#b5c08a", "grassDark": "#8a976a" },
+    "road": { "surface": "asphalt", "color": "#8f9296" }
+  },
+  "sky": { "top": "#5ea2db", "horizon": "#9fcfe4", "cloud": "#f4f6f6" },
+  "notes": "Cream apartment block, ~4 storeys, flat roof, faint arched top feature over the entry. Small footprint - only a fragment of a larger building is in frame, rest occluded; massing kept as a single box with plausible window grid. Foreground is a fenced garden: pale-green lawn with brick edging, grey metal loop/picket railings, a stone-rubble base wall and a brown wooden fence at right (garden props are environment, omitted). Colours sampled from ref 2026-07-04."
+}

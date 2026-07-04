@@ -1,0 +1,25 @@
+{
+  "id": "556598003",
+  "refs": { "scene": "restyled/scene-fullworld/bld_556598003_p1lAf2m.png" },
+  "footprint": "obb",
+  "floorH": 3.0,
+  "volumes": [
+    { "name": "main", "x0": 0.0, "x1": 1.0, "z0": 0.0, "z1": 1.0, "floors": 2,
+      "wall": "#ddc98c",
+      "roof": { "form": "flat", "fascia": { "h": 0.45, "color": "#d4c084", "overhang": 0.2 } } }
+  ],
+  "openings": [
+    { "volume": "main", "facade": "front", "type": "window", "floor": 1, "cols": 2, "at": [0.4, 0.75], "w": 1.2, "h": 1.4, "glass": "#dad9cf", "frame": "#eeece0", "recessed": true },
+    { "volume": "main", "facade": "front", "type": "window", "floor": 0, "at": [0.5], "w": 1.2, "h": 1.3, "glass": "#3a4450", "frame": "#eeece0", "recessed": true }
+  ],
+  "terraces": [],
+  "props": [],
+  "frontage": {
+    "wall": { "type": "slats", "color": "#c2a05a", "mortar": "#cfd0cb", "h": 1.6 },
+    "gates": [{ "kind": "pedestrian", "w": 1.1, "style": "slats", "color": "#c2a05a" }],
+    "sidewalk": { "material": "brick-pavers", "color": "#a85c39", "joint": "#8f4e31", "w": 3.0 },
+    "road": { "surface": "asphalt", "color": "#808387" }
+  },
+  "sky": { "top": "#5ea2db", "horizon": "#9fcfe4", "cloud": "#f4f6f6" },
+  "notes": "Close-up corner of a two-storey tan-yellow render house, flat roof (a pale angled parasol/pergola shows over the top). Upper windows have folded silver-white louvered shutters. Frontage is a tan vertical wood-slat fence and gate on a grey stone-block pier, with a utility box (Hebrew label) and a yellow real-estate sign at the kerb. Large green bush and round tree in front. Colours sampled from ref 2026-07-04."
+}

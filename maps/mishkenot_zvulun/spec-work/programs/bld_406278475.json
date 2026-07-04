@@ -1,0 +1,31 @@
+{
+  "id": "406278475",
+  "refs": { "scene": "restyled/scene-fullworld/bld_406278475_p8TFEUk.png", "iso": "" },
+  "footprint": "obb",
+  "floorH": 3.0,
+  "volumes": [
+    { "name": "main", "x0": 0.0, "x1": 1.0, "z0": 0.0, "z1": 1.0, "floors": 3,
+      "wall": "#e8eaec",
+      "roof": { "form": "flat", "fascia": { "h": 0.5, "color": "#dfe1e2", "overhang": 0.25 } } }
+  ],
+  "openings": [
+    { "volume": "main", "facade": "front", "type": "window", "floor": 2, "cols": 3, "at": [0.2, 0.5, 0.8], "w": 1.6, "h": 1.5, "glass": "#5a636b", "frame": "#f4f5f3", "recessed": true },
+    { "volume": "main", "facade": "front", "type": "window", "floor": 1, "cols": 3, "at": [0.2, 0.5, 0.8], "w": 1.6, "h": 1.5, "glass": "#5a636b", "frame": "#f4f5f3", "recessed": true },
+    { "volume": "main", "facade": "front", "type": "door", "floor": 0, "at": [0.5], "w": 1.4, "h": 2.3, "glass": "#5a636b", "frame": "#6e5138", "recessed": true },
+    { "volume": "main", "facade": "front", "type": "window", "floor": 0, "cols": 2, "at": [0.2, 0.8], "w": 1.6, "h": 1.6, "glass": "#5a636b", "frame": "#f4f5f3", "recessed": true }
+  ],
+  "terraces": [
+    { "onVolume": "main", "side": "front", "rail": { "type": "glass", "h": 1.0, "color": "#aeb9bf" } },
+    { "onVolume": "main", "side": "top", "parapet": { "h": 0.4, "color": "#e8eaec" }, "rail": { "type": "bars", "h": 1.0, "color": "#6e5138" } }
+  ],
+  "props": [ { "type": "ac", "volume": "main", "facade": "front", "floor": 1, "at": 0.65 } ],
+  "frontage": {
+    "wall": { "type": "stone", "color": "#b8ac96", "mortar": "#cbc2ae", "h": 1.0 },
+    "gates": [ { "kind": "pedestrian", "w": 1.4, "style": "greek-key", "color": "#c9ccce" } ],
+    "sidewalk": { "material": "stone-slabs", "color": "#c9c6bd", "joint": "#b3b0a6", "w": 3.0 },
+    "verge": { "grass": "#6fa53c", "grassDark": "#4f6b3c" },
+    "road": { "surface": "asphalt", "color": "#8f9296" }
+  },
+  "sky": { "top": "#5ea2db", "horizon": "#9fcfe4", "cloud": "#f4f6f6" },
+  "notes": "Modern white 3-storey townhouse; large windows with white frames, front glass-rail balconies, and a rooftop timber PERGOLA over a roof terrace (pergola modelled as roof-terrace rail; wood beams not expressible). Israeli flag on facade (no prop type). Ground floor recessed. Frontage: rubble-stone low garden walls with a decorative greek-key metal gate; hedges, palm & cypress trees. Colours sampled 2026-07-04."
+}

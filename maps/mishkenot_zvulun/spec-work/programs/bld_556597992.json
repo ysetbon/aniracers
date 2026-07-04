@@ -1,0 +1,27 @@
+{
+  "id": "556597992",
+  "refs": { "scene": "restyled/scene-fullworld/bld_556597992_p07mQzT.png" },
+  "footprint": "obb",
+  "floorH": 3.0,
+  "volumes": [
+    { "name": "main", "x0": 0.0, "x1": 1.0, "z0": 0.0, "z1": 1.0, "floors": 2,
+      "wall": "#d8bf6e",
+      "roof": { "form": "hip", "color": "#3a3833", "fascia": { "h": 0.35, "color": "#d0b96e", "overhang": 0.4 } } }
+  ],
+  "openings": [
+    { "volume": "main", "facade": "front", "type": "window", "floor": 1, "cols": 3, "at": [0.2, 0.5, 0.8], "w": 1.1, "h": 1.2, "glass": "#3a4450", "frame": "#efe9d8", "recessed": true },
+    { "volume": "main", "facade": "front", "type": "window", "floor": 0, "cols": 2, "at": [0.3, 0.7], "w": 1.2, "h": 1.3, "glass": "#3a4450", "frame": "#efe9d8", "recessed": true },
+    { "volume": "main", "facade": "front", "type": "door", "floor": 0, "at": [0.5], "w": 1.3, "h": 2.2, "glass": "#4a4038", "frame": "#c7ad63", "recessed": true }
+  ],
+  "terraces": [],
+  "props": [],
+  "frontage": {
+    "wall": { "type": "block", "color": "#cdb46a", "mortar": "#c0a255", "h": 1.6 },
+    "rail": { "type": "bars", "h": 0.5, "color": "#3d7a48" },
+    "gates": [{ "kind": "vehicle", "w": 4.0, "style": "ornate-arch", "color": "#2b2b2b" }],
+    "sidewalk": { "material": "brick-pavers", "color": "#b45f3d", "joint": "#9a5236", "w": 3.5 },
+    "road": { "surface": "asphalt", "color": "#808387" }
+  },
+  "sky": { "top": "#5ea2db", "horizon": "#9fcfe4", "cloud": "#f4f6f6" },
+  "notes": "Two-storey tan-yellow house with dark hipped roof, largely hidden behind a very large dark low-poly tree at a street corner. Massing and openings reconstructed from the partially visible yellow neighbours. Tan block compound wall topped by a low green railing/fence and an ornate metal vehicle gate; red brick-paver sidewalk. Colours sampled from ref 2026-07-04."
+}

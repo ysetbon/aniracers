@@ -1,0 +1,31 @@
+{
+  "id": "556855853",
+  "refs": { "scene": "restyled/scene-fullworld/bld_556855853_pf8OpA5.png", "iso": "restyled/iso/bld_556855853.png" },
+  "footprint": "obb",
+  "floorH": 3.0,
+  "volumes": [
+    { "name": "main", "x0": 0.0, "x1": 0.72, "z0": 0.0, "z1": 1.0, "floors": 2,
+      "wall": "#ece5d6",
+      "roof": { "form": "hip", "color": "#c05a34", "fascia": { "h": 0.4, "color": "#ece5d6", "overhang": 0.4 } } },
+    { "name": "wing", "x0": 0.72, "x1": 1.0, "z0": 0.0, "z1": 1.0, "floors": 2,
+      "wall": "#e2ddd2",
+      "roof": { "form": "flat", "fascia": { "h": 0.5, "color": "#d7d2c6", "overhang": 0.2 } } }
+  ],
+  "openings": [
+    { "volume": "main", "facade": "front", "type": "window", "floor": 1, "cols": 2, "at": [0.25, 0.62], "w": 1.4, "h": 1.3, "glass": "#7a828a", "frame": "#f2efe6", "recessed": true },
+    { "volume": "main", "facade": "front", "type": "door", "floor": 0, "at": [0.44], "w": 1.6, "h": 2.3, "glass": "#5a6066", "frame": "#8a5a2f", "recessed": true },
+    { "volume": "wing", "facade": "front", "type": "window", "floor": 1, "at": [0.5], "w": 1.6, "h": 1.4, "glass": "#7a828a", "frame": "#f2efe6", "recessed": true }
+  ],
+  "terraces": [
+    { "onVolume": "wing", "side": "front", "rail": { "type": "bars", "h": 0.9, "color": "#e6e2d8" } }
+  ],
+  "props": [],
+  "frontage": {
+    "wall": { "type": "stone", "color": "#c9c3b6", "mortar": "#a89f90", "h": 1.9 },
+    "gates": [{ "kind": "pedestrian", "w": 1.1, "style": "panel", "color": "#c1bcb0" }],
+    "sidewalk": { "material": "stone-slabs", "color": "#b0a696", "joint": "#948a7c", "w": 2.5 },
+    "verge": { "grass": "#7cbf48", "grassDark": "#557c3a" }
+  },
+  "sky": { "top": "#5ea2db", "horizon": "#9fcfe4", "cloud": "#f4f6f6" },
+  "notes": "Community/childcare building (sign reads a phone number). Two-storey cream house (#ece5d6) with orange terracotta hip roof (#c05a34) and rooftop solar panel. Timber gabled entrance porch/pergola (#8a5a2f) shelters the front door. Upper-floor windows have security grilles (bars not expressible). Right wing is a lower flat-roofed block with a white-railed balcony and a wall-mounted signboard. Frontage is a white picket fence over a rough stone rockery base with a grey panel pedestrian door on the right; lush palms/shrubs and a large foreground tree. Sampled colours 2026-07-04."
+}

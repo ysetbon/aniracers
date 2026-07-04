@@ -1,0 +1,28 @@
+{
+  "id": "406279065",
+  "refs": { "scene": "restyled/scene-fullworld/bld_406279065_po6Mnlw.png", "iso": "restyled/iso/bld_406279065.png" },
+  "footprint": "obb",
+  "floorH": 3.0,
+  "volumes": [
+    { "name": "main", "x0": 0.0, "x1": 1.0, "z0": 0.0, "z1": 1.0, "floors": 2,
+      "wall": "#d6d2c7",
+      "roof": { "form": "flat", "fascia": { "h": 0.5, "color": "#c8c3b6", "overhang": 0.25 } } }
+  ],
+  "openings": [
+    { "volume": "main", "facade": "front", "type": "door", "floor": 0,
+      "at": [0.22], "w": 1.3, "h": 2.2, "glass": "#3c2a1c", "frame": "#5a3d28", "recessed": true },
+    { "volume": "main", "facade": "front", "type": "window", "floor": 1,
+      "at": [0.28], "w": 1.2, "h": 1.2, "glass": "#47536a", "frame": "#c8c3b6", "recessed": true },
+    { "volume": "main", "facade": "front", "type": "window", "floor": 0,
+      "at": [0.6], "w": 1.2, "h": 1.2, "glass": "#47536a", "frame": "#c8c3b6", "recessed": true }
+  ],
+  "props": [],
+  "frontage": {
+    "wall": { "type": "stone", "color": "#b9b3a3", "mortar": "#cfc9ba", "h": 1.0 },
+    "sidewalk": { "material": "brick-pavers", "color": "#7a4a3a", "joint": "#663d31", "w": 3.5 },
+    "verge": { "grass": "#4f7a34", "grassDark": "#3c5c2a" },
+    "road": { "surface": "brick-pavers", "color": "#7a4a3a" }
+  },
+  "sky": { "top": "#4a9fe0", "horizon": "#a9d4ea", "cloud": "#f4f6f6" },
+  "notes": "Real house heavily occluded by a large green hedge, a lemon tree and a palm trunk. Visible: cream/off-white rendered walls, an ornate arched WOODEN pedestrian gate/door (#5a3d28) with steps up, a blue-glass upper window. Low stone base wall to the street. Silver sedan parked on brick-paver drive. Roof not visible -> flat assumed. Colours sampled from ref 2026-07-04."
+}

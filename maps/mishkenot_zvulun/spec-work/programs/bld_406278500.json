@@ -1,0 +1,35 @@
+{
+  "id": "406278500",
+  "refs": { "scene": "restyled/scene-fullworld/bld_406278500_pINw5lT.png", "iso": "restyled/iso/bld_406278500.png" },
+  "footprint": "obb",
+  "floorH": 3.0,
+  "volumes": [
+    { "name": "main", "x0": 0.0, "x1": 1.0, "z0": 0.0, "z1": 1.0, "floors": 3,
+      "wall": "#e8e0c8",
+      "roof": { "form": "flat", "fascia": { "h": 0.5, "color": "#e0d6bc", "overhang": 0.3 } } },
+    { "name": "core", "x0": 0.42, "x1": 0.6, "z0": 0.0, "z1": 0.5, "floors": 3,
+      "wall": "#d9b877",
+      "roof": { "form": "flat", "fascia": { "h": 0.6, "color": "#cdac6e", "overhang": 0.2 } } }
+  ],
+  "openings": [
+    { "volume": "core", "facade": "front", "type": "opening", "floor": 1, "at": [0.5], "w": 4.0, "h": 3.0, "glass": "#3f4650", "frame": "#d9b877", "recessed": true },
+    { "volume": "core", "facade": "front", "type": "opening", "floor": 0, "at": [0.5], "w": 3.6, "h": 2.6, "glass": "#3f4650", "frame": "#d9b877", "recessed": true },
+    { "volume": "main", "facade": "front", "type": "window", "floor": 2, "cols": 5, "at": [0.1, 0.28, 0.5, 0.72, 0.9], "w": 1.4, "h": 1.3, "glass": "#3f4650", "frame": "#e8e0c8", "recessed": true },
+    { "volume": "main", "facade": "front", "type": "window", "floor": 1, "cols": 4, "at": [0.15, 0.32, 0.68, 0.88], "w": 1.5, "h": 1.5, "glass": "#3f4650", "frame": "#e8e0c8", "recessed": true },
+    { "volume": "main", "facade": "front", "type": "window", "floor": 0, "cols": 4, "at": [0.15, 0.32, 0.68, 0.88], "w": 1.4, "h": 1.4, "glass": "#3f4650", "frame": "#d9b877", "recessed": true }
+  ],
+  "terraces": [
+    { "onVolume": "main", "side": "front", "rail": { "type": "glass", "h": 1.0, "color": "#b9c6c9" } },
+    { "onVolume": "main", "side": "top", "parapet": { "h": 0.5, "color": "#e8e0c8" }, "rail": { "type": "bars", "h": 0.9, "color": "#c9a86a" } }
+  ],
+  "props": [],
+  "frontage": {
+    "wall": { "type": "block", "color": "#cbbfa2", "mortar": "#b6ac90", "h": 1.2 },
+    "gates": [{ "kind": "pedestrian", "w": 1.2, "style": "bars", "color": "#8f8c85" }],
+    "sidewalk": { "material": "brick", "color": "#b17a55", "joint": "#95653f", "w": 3.5 },
+    "verge": { "grass": "#7bbf46", "grassDark": "#5c8f35" },
+    "road": { "surface": "asphalt", "color": "#54585c" }
+  },
+  "sky": { "top": "#5ea2db", "horizon": "#9fcfe4", "cloud": "#f4f6f6" },
+  "notes": "Large modern 3-storey apartment complex, warm cream render (#e8e0c8) with sand-coloured (#d9b877) accent frames. A recessed full-height glazed stair/entry core sits centrally with big grey (#3f4650) glazing. Cantilevered balconies with glass rails at floors 1-2; roof terraces edged by low parapets and slatted timber pergolas (#c9a86a) on top. Rows of tall dark windows across all floors. Low block boundary wall with a barred pedestrian gate and brick sidewalk. Colours pixel-sampled from the ref."
+}

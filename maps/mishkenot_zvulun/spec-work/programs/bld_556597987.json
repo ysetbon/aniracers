@@ -1,0 +1,31 @@
+{
+  "id": "556597987",
+  "refs": { "scene": "restyled/scene-fullworld/bld_556597987_peazj9A.png", "iso": "restyled/iso/bld_556597987.png" },
+  "footprint": "obb",
+  "floorH": 3.0,
+  "volumes": [
+    { "name": "main", "x0": 0.0, "x1": 1.0, "z0": 0.0, "z1": 1.0, "floors": 2,
+      "wall": "#eef0ec",
+      "roof": { "form": "hip", "color": "#c05f34", "fascia": { "h": 0.4, "color": "#e2e2dc", "overhang": 0.35 } } }
+  ],
+  "openings": [
+    { "volume": "main", "facade": "front", "type": "window", "floor": 1,
+      "at": [0.3, 0.7], "w": 1.2, "h": 1.2, "glass": "#5a6470", "frame": "#eef0ec", "recessed": true },
+    { "volume": "main", "facade": "front", "type": "window", "floor": 0,
+      "at": [0.3], "w": 1.2, "h": 1.2, "glass": "#5a6470", "frame": "#eef0ec", "recessed": true },
+    { "volume": "main", "facade": "front", "type": "door", "floor": 0,
+      "at": [0.65], "w": 1.3, "h": 2.1, "glass": "#5a6470", "frame": "#dcdcd4", "recessed": true }
+  ],
+  "props": [
+    { "type": "solar", "volume": "main", "facade": "top", "at": 0.5 }
+  ],
+  "frontage": {
+    "wall": { "type": "stone-block", "color": "#bdb49e", "mortar": "#d0c8b4", "h": 1.4 },
+    "gates": [{ "kind": "pedestrian", "w": 1.2, "style": "bars", "color": "#9a9e9c" }],
+    "sidewalk": { "material": "asphalt", "color": "#8a5a44", "joint": "#754a38", "w": 3.5 },
+    "verge": { "grass": "#4f8a2f", "grassDark": "#3c6a24" },
+    "road": { "surface": "asphalt", "color": "#6f7276" }
+  },
+  "sky": { "top": "#4a9fe0", "horizon": "#a9d4ea", "cloud": "#f4f6f6" },
+  "notes": "Real low white houses along a shared street. White render (#eef0ec); the near block has a low roof carrying solar water-heater PANELS and wall louvre vents, the adjacent house has a clear ORANGE terracotta HIP tile roof (#c05f34) with a flat carport canopy. Modelled as a white 2-storey with orange hip roof + roof solar prop. Frontage: light sandstone-block boundary wall, metal gate, red kerb, palms and shade trees, blue direction signs. Colours sampled from ref 2026-07-04."
+}

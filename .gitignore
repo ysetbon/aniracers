@@ -30,3 +30,6 @@ maps/**/critic-work/
 
 # Gemini facade elevations (regenerable via gemini-facade.mjs) — keep the manifest
 maps/**/facades/*.png
+
+# full-world batch refs (regenerable; keep programs+GLB, not the 100s of restyle PNGs)
+maps/mishkenot_zvulun/restyled/scene-fullworld/

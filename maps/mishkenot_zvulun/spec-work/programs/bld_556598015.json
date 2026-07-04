@@ -1,0 +1,31 @@
+{
+  "id": "556598015",
+  "refs": { "scene": "restyled/scene-fullworld/bld_556598015_p7rMIwC.png", "iso": "restyled/iso/bld_556598015.png" },
+  "footprint": "obb",
+  "floorH": 3.0,
+  "volumes": [
+    { "name": "main", "x0": 0.0, "x1": 1.0, "z0": 0.0, "z1": 1.0, "floors": 3,
+      "wall": "#cdb98c",
+      "bands": [{ "floor": 0, "y0": 0.0, "y1": 1.0, "color": "#c6ac82", "style": "stone" }],
+      "roof": { "form": "hip", "color": "#b76038", "fascia": { "h": 0.4, "color": "#d6c39a", "overhang": 0.35 } } }
+  ],
+  "openings": [
+    { "volume": "main", "facade": "front", "type": "window", "floor": 2,
+      "at": [0.3, 0.75], "w": 1.2, "h": 1.3, "glass": "#e3e0d5", "frame": "#eceadf", "recessed": true },
+    { "volume": "main", "facade": "front", "type": "window", "floor": 1,
+      "at": [0.3, 0.75], "w": 1.2, "h": 1.3, "glass": "#e3e0d5", "frame": "#eceadf", "recessed": true },
+    { "volume": "main", "facade": "front", "type": "door", "floor": 0,
+      "at": [0.72], "w": 1.2, "h": 2.2, "glass": "#4a525a", "frame": "#5a626a", "recessed": true },
+    { "volume": "main", "facade": "front", "type": "window", "floor": 0,
+      "at": [0.3], "w": 1.2, "h": 1.2, "glass": "#e3e0d5", "frame": "#eceadf", "recessed": true }
+  ],
+  "terraces": [],
+  "props": [],
+  "frontage": {
+    "wall": { "type": "brick", "color": "#c3a878", "mortar": "#a98f60", "h": 1.5 },
+    "sidewalk": { "material": "stone-slabs", "color": "#b7b3a9", "joint": "#96907e", "w": 4.0 },
+    "verge": { "grass": "#5f8a3a", "grassDark": "#3f5f28" }
+  },
+  "sky": { "top": "#4fa3e2", "horizon": "#8fc9ea", "cloud": "#eef4f6" },
+  "notes": "Real 3-storey sandstone building, pale ashlar/stone-block render (#cdb98c) with a heavier stone-block base course. Windows across all floors are fitted with white louvered roller-shutter blinds (#e3e0d5). Small clay tile roof section. Dark grey steel entry door (#4a525a) reached by stepped brick platforms with a potted plant and wall mailbox; tan brick retaining wall. Grey stone-slab sidewalk, cypress trees. Colours sampled from ref."
+}

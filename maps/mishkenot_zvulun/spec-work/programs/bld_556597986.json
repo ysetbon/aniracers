@@ -1,0 +1,32 @@
+{
+  "id": "556597986",
+  "refs": { "scene": "restyled/scene-fullworld/bld_556597986_pjsnYAA.png", "iso": "restyled/iso/bld_556597986.png" },
+  "footprint": "obb",
+  "floorH": 3.0,
+  "volumes": [
+    { "name": "main", "x0": 0.0, "x1": 1.0, "z0": 0.0, "z1": 1.0, "floors": 2,
+      "wall": "#e8e2d0",
+      "bands": [
+        { "floor": 0, "y0": 0.0, "y1": 0.8, "x0": 0.55, "x1": 1.0, "color": "#c8ad7d", "style": "ashlar" }
+      ],
+      "roof": { "form": "flat", "fascia": { "h": 0.4, "color": "#dcd5c2", "overhang": 0.3 } } }
+  ],
+  "openings": [
+    { "volume": "main", "facade": "front", "type": "door", "floor": 0,
+      "at": [0.55], "w": 1.2, "h": 2.2, "glass": "#8a97a4", "frame": "#b07a3f", "recessed": true },
+    { "volume": "main", "facade": "front", "type": "window", "floor": 0,
+      "at": [0.3], "w": 1.2, "h": 1.2, "glass": "#5a6b82", "frame": "#e8e2d0", "recessed": true },
+    { "volume": "main", "facade": "right", "type": "window", "floor": 1,
+      "at": [0.5], "w": 1.0, "h": 1.0, "glass": "#5a6b82", "frame": "#e8e2d0", "recessed": true }
+  ],
+  "props": [],
+  "frontage": {
+    "wall": { "type": "stone-block", "color": "#c8c2b0", "mortar": "#dad5c6", "h": 1.2 },
+    "gates": [{ "kind": "pedestrian", "w": 1.4, "style": "picket", "color": "#eceae2" }],
+    "sidewalk": { "material": "stone-slabs", "color": "#d0c8b4", "joint": "#b8af9c", "w": 3.5 },
+    "verge": { "grass": "#4f8a2f", "grassDark": "#3c6a24" },
+    "road": { "surface": "stone-slabs", "color": "#d0c8b4" }
+  },
+  "sky": { "top": "#4a9fe0", "horizon": "#a9d4ea", "cloud": "#f4f6f6" },
+  "notes": "Real 2-storey house, close view. Cream/off-white render (#e8e2d0) with a sandstone ashlar-block band on the lower-right bay (#c8ad7d). WOODEN front door (#b07a3f) with a small glazed panel, intercom and letter-slot, reached over a low white picket gate; a blue-glass window at left behind a hedge. A brown timber pergola/eave slat overhangs the right corner. Flat roof. Frontage: low light stone-block boundary walls, planter box, lemon shrub, palm and shade tree, silver saloon on the stone-slab drive. Colours sampled from ref 2026-07-04."
+}

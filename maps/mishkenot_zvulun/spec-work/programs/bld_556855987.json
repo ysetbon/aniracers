@@ -1,0 +1,47 @@
+{
+  "id": "556855987",
+  "refs": { "scene": "restyled/scene-fullworld/bld_556855987_p8DdudY.png" },
+  "footprint": "obb",
+  "floorH": 3.0,
+  "volumes": [
+    { "name": "main", "x0": 0.0, "x1": 0.7, "z0": 0.0, "z1": 1.0, "floors": 5,
+      "wall": "#eef0f0",
+      "roof": { "form": "flat", "fascia": { "h": 0.6, "color": "#e6e8e8", "overhang": 0.2 } } },
+    { "name": "wing", "x0": 0.7, "x1": 1.0, "z0": 0.0, "z1": 1.0, "floors": 5,
+      "wall": "#e9ebeb",
+      "roof": { "form": "flat", "fascia": { "h": 0.6, "color": "#e6e8e8", "overhang": 0.2 } } }
+  ],
+  "openings": [
+    { "volume": "main", "facade": "front", "type": "window", "floor": 4, "cols": 3,
+      "at": [0.25, 0.5, 0.75], "w": 1.4, "h": 1.5, "glass": "#3c4247", "frame": "#dfe1e1", "recessed": true },
+    { "volume": "main", "facade": "front", "type": "window", "floor": 3, "cols": 3,
+      "at": [0.25, 0.5, 0.75], "w": 1.4, "h": 1.5, "glass": "#3c4247", "frame": "#dfe1e1", "recessed": true },
+    { "volume": "main", "facade": "front", "type": "window", "floor": 2, "cols": 3,
+      "at": [0.25, 0.5, 0.75], "w": 1.4, "h": 1.5, "glass": "#3c4247", "frame": "#dfe1e1", "recessed": true },
+    { "volume": "main", "facade": "front", "type": "window", "floor": 1, "cols": 3,
+      "at": [0.25, 0.5, 0.75], "w": 1.4, "h": 1.5, "glass": "#3c4247", "frame": "#dfe1e1", "recessed": true },
+    { "volume": "main", "facade": "front", "type": "window", "floor": 0, "cols": 2,
+      "at": [0.3, 0.6], "w": 1.4, "h": 1.4, "glass": "#3c4247", "frame": "#dfe1e1", "recessed": true },
+    { "volume": "wing", "facade": "front", "type": "window", "floor": 3,
+      "at": [0.5], "w": 1.3, "h": 1.5, "glass": "#3c4247", "frame": "#dfe1e1", "recessed": true },
+    { "volume": "wing", "facade": "front", "type": "window", "floor": 2,
+      "at": [0.5], "w": 1.3, "h": 1.5, "glass": "#3c4247", "frame": "#dfe1e1", "recessed": true }
+  ],
+  "terraces": [
+    { "onVolume": "wing", "side": "front",
+      "parapet": { "h": 1.0, "color": "#eef0f0" },
+      "rail": { "type": "solid", "h": 1.0, "color": "#e6e8e8" } }
+  ],
+  "props": [
+    { "type": "ac", "volume": "main", "facade": "front", "floor": 1, "at": 0.15 }
+  ],
+  "frontage": {
+    "wall": { "type": "barrier", "color": "#9aa0a4", "mortar": "#9aa0a4", "h": 1.1 },
+    "sidewalk": { "material": "brick-pavers", "color": "#b5623f", "joint": "#9a5236", "w": 3.5 },
+    "verge": { "grass": "#7fae4b", "grassDark": "#5c7040",
+               "flowers": { "palette": ["#a12a2a", "#c93b3b", "#6c8a3f"], "perM2": 0.2 } },
+    "road": { "surface": "asphalt", "color": "#6f7276" }
+  },
+  "sky": { "top": "#5ea2db", "horizon": "#9fcfe4", "cloud": "#f4f6f6" },
+  "notes": "White (#eef0f0) 5-storey apartment block, flat roof with low parapet. Regular grid of dark-glass windows with white frames; the right wing has a curved/rounded balcony stack (approximated as a solid-parapet front terrace). Frontage is an open lot behind a grey tubular safety barrier (no solid wall); red brick-paver sidewalk, rose verge, asphalt road with red-white curb. A yellow bus-shelter/recycling kiosk sits on the verge (prop pending)."
+}

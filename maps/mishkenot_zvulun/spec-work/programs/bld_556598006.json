@@ -1,0 +1,28 @@
+{
+  "id": "556598006",
+  "refs": { "scene": "restyled/scene-fullworld/bld_556598006_p1lAf2m.png", "iso": "restyled/iso/bld_556598006.png" },
+  "footprint": "obb",
+  "floorH": 3.0,
+  "volumes": [
+    { "name": "main", "x0": 0.0, "x1": 1.0, "z0": 0.0, "z1": 1.0, "floors": 2,
+      "wall": "#d6c39c",
+      "roof": { "form": "hip", "color": "#b85f39", "fascia": { "h": 0.45, "color": "#dccdaa", "overhang": 0.45 } } }
+  ],
+  "openings": [
+    { "volume": "main", "facade": "front", "type": "window", "floor": 1,
+      "at": [0.36, 0.72], "w": 1.4, "h": 1.5, "glass": "#2e3742", "frame": "#e6e4da", "recessed": true },
+    { "volume": "main", "facade": "front", "type": "window", "floor": 0,
+      "at": [0.5], "w": 1.4, "h": 1.4, "glass": "#2e3742", "frame": "#e6e4da", "recessed": true }
+  ],
+  "terraces": [],
+  "props": [],
+  "frontage": {
+    "wall": { "type": "picket", "color": "#e8e7e0", "mortar": "#d0cfc6", "h": 1.5 },
+    "gates": [{ "kind": "pedestrian", "w": 1.2, "style": "bars", "color": "#8f9498" },
+              { "kind": "vehicle", "w": 3.0, "style": "bars", "color": "#8f9498" }],
+    "sidewalk": { "material": "brick-pavers", "color": "#b06a4f", "joint": "#96593f", "w": 3.5 },
+    "verge": { "grass": "#4f7a37", "grassDark": "#375528" }
+  },
+  "sky": { "top": "#3f9fe6", "horizon": "#8fc9ea", "cloud": "#eef4f6" },
+  "notes": "Real 2-storey sandstone house, warm tan render (#d6c39c), red clay hipped tile roof (only ridge visible over the blank street wall). Upper floor has grilled/barred windows (#2e3742 glass, white frames, security grilles not encodable). Ground-floor window largely hidden behind a tall clipped hedge. Frontage is a low white wall topped by a white picket fence with brick piers (tan/orange blocks) and metal side gates; wheelie bins and wall mailbox at kerb. Colours sampled from ref."
+}

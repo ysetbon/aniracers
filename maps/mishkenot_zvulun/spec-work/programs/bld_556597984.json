@@ -1,0 +1,36 @@
+{
+  "id": "556597984",
+  "refs": { "scene": "restyled/scene-fullworld/bld_556597984_p4ffRSY.png", "iso": "restyled/iso/bld_556597984.png" },
+  "footprint": "obb",
+  "floorH": 3.0,
+  "volumes": [
+    { "name": "main", "x0": 0.0, "x1": 1.0, "z0": 0.0, "z1": 1.0, "floors": 2,
+      "wall": "#f2f1ec",
+      "bands": [
+        { "floor": 1, "y0": 0.1, "y1": 0.95, "x0": 0.0, "x1": 0.28, "color": "#b79a6f", "style": "slats" }
+      ],
+      "roof": { "form": "flat", "fascia": { "h": 0.45, "color": "#e4e2dc", "overhang": 0.25 } } }
+  ],
+  "openings": [
+    { "volume": "main", "facade": "front", "type": "window", "floor": 1,
+      "at": [0.35, 0.62, 0.85], "w": 1.2, "h": 1.3, "glass": "#565b5f", "frame": "#f2f1ec", "recessed": true },
+    { "volume": "main", "facade": "front", "type": "window", "floor": 0,
+      "at": [0.35, 0.85], "w": 1.2, "h": 1.3, "glass": "#565b5f", "frame": "#f2f1ec", "recessed": true },
+    { "volume": "main", "facade": "front", "type": "door", "floor": 0,
+      "at": [0.62], "w": 1.3, "h": 2.2, "glass": "#454a4e", "frame": "#e4e2dc", "recessed": true },
+    { "volume": "main", "facade": "left", "type": "window", "floor": 1,
+      "at": [0.4], "w": 1.1, "h": 1.2, "glass": "#565b5f", "frame": "#f2f1ec", "recessed": true }
+  ],
+  "props": [
+    { "type": "ac", "volume": "main", "facade": "front", "floor": 1, "at": 0.5 }
+  ],
+  "frontage": {
+    "wall": { "type": "stone-block", "color": "#c3a878", "mortar": "#d8c39c", "h": 1.9 },
+    "gates": [{ "kind": "pedestrian", "w": 1.2, "style": "bars", "color": "#9a9e9c" }],
+    "sidewalk": { "material": "brick-pavers", "color": "#9a6a52", "joint": "#845844", "w": 3.5 },
+    "verge": { "grass": "#4f8a2f", "grassDark": "#3c6a24" },
+    "road": { "surface": "brick-pavers", "color": "#9a6a52" }
+  },
+  "sky": { "top": "#4a9fe0", "horizon": "#a9d4ea", "cloud": "#f4f6f6" },
+  "notes": "Real crisp white 2-storey residential building on a corner. Bright white render (#f2f1ec) with a warm sandstone-block accent stripe (#b79a6f) down the left bay. Windows have dark grey roller-shutters/grilles (#565b5f) in white reveals. Wall-mounted AC units, a hot-water tank on the flat roof. Flat roof with slim parapet. Frontage: multi-tone sandstone-block boundary wall (pink/tan blocks) with a metal pedestrian gate, cypress and palm trees, clipped green hedges. Colours sampled from ref 2026-07-04."
+}

@@ -1,0 +1,26 @@
+{
+  "id": "556855981",
+  "refs": { "scene": "restyled/scene-fullworld/bld_556855981_p9xRLgg.png", "iso": "restyled/iso/bld_556855981.png" },
+  "footprint": "obb",
+  "floorH": 3.0,
+  "volumes": [
+    { "name": "main", "x0": 0.0, "x1": 1.0, "z0": 0.0, "z1": 1.0, "floors": 2,
+      "wall": "#edf0f0",
+      "roof": { "form": "gable", "color": "#cf562b", "overhang": 0.4 } }
+  ],
+  "openings": [
+    { "volume": "main", "facade": "front", "type": "window", "floor": 1, "at": [0.45], "w": 1.4, "h": 1.3, "glass": "#4b555c", "frame": "#e8ecec", "recessed": true },
+    { "volume": "main", "facade": "front", "type": "window", "floor": 0, "cols": 2, "at": [0.3, 0.7], "w": 1.4, "h": 1.3, "glass": "#4b555c", "frame": "#e8ecec", "recessed": true },
+    { "volume": "main", "facade": "front", "type": "door", "floor": 0, "at": [0.5], "w": 1.3, "h": 2.2, "glass": "#4b555c", "frame": "#e8ecec", "recessed": true }
+  ],
+  "terraces": [],
+  "props": [],
+  "frontage": {
+    "wall": { "type": "concrete-panel", "color": "#b8bcbd", "mortar": "#a6abac", "h": 2.0 },
+    "gates": [{ "kind": "vehicle", "w": 4.5, "style": "panel", "color": "#c4c8c9" }],
+    "sidewalk": { "material": "stone-slabs", "color": "#bcbdb8", "joint": "#a6a7a2", "w": 3.0 },
+    "verge": { "grass": "#7aa348", "grassDark": "#567331" }
+  },
+  "sky": { "top": "#4f9ad9", "horizon": "#9cccea", "cloud": "#f4f6f6" },
+  "notes": "White/off-white two-storey house with an orange-red gabled (pitched) roof carrying a blue solar panel and a satellite dish; an upper window is visible. Foreground is a tall grey precast-concrete decorative wall/driveway gate with a wavy top and small scroll motifs and diamond-textured base panels (motifs not expressible - modelled as concrete-panel wall + panel gate). Blue hatchback parked, cypress trees. Colours sampled from ref 2026-07-04."
+}

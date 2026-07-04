@@ -1,0 +1,34 @@
+{
+  "id": "556855967",
+  "refs": { "scene": "restyled/scene-fullworld/bld_556855967_p6kE-X2.png" },
+  "footprint": "obb",
+  "floorH": 3.0,
+  "volumes": [
+    { "name": "main", "x0": 0.0, "x1": 0.66, "z0": 0.0, "z1": 1.0, "floors": 2,
+      "wall": "#d9c298",
+      "roof": { "form": "hip", "color": "#cd6036", "fascia": { "h": 0.4, "color": "#a5502c", "overhang": 0.45 } } },
+    { "name": "wing", "x0": 0.66, "x1": 1.0, "z0": 0.2, "z1": 1.0, "floors": 2,
+      "wall": "#d4bd92",
+      "roof": { "form": "hip", "color": "#cd6036", "fascia": { "h": 0.35, "color": "#a5502c", "overhang": 0.4 } } }
+  ],
+  "openings": [
+    { "volume": "main", "facade": "front", "type": "window", "floor": 1, "cols": 2, "at": [0.35, 0.7], "w": 1.3, "h": 1.2, "glass": "#3f4a52", "frame": "#cabf9c", "recessed": true },
+    { "volume": "main", "facade": "front", "type": "window", "floor": 0, "at": [0.4], "w": 1.3, "h": 1.2, "glass": "#3f4a52", "frame": "#cabf9c", "recessed": true },
+    { "volume": "wing", "facade": "front", "type": "window", "floor": 1, "cols": 2, "at": [0.3, 0.7], "w": 0.7, "h": 1.0, "glass": "#3f4a52", "frame": "#cabf9c", "recessed": true }
+  ],
+  "terraces": [
+    { "onVolume": "main", "side": "front", "rail": { "type": "bars", "h": 1.0, "color": "#adb1ad" } }
+  ],
+  "props": [
+    { "type": "solar-panel", "volume": "main", "side": "top", "at": 0.35 },
+    { "type": "watertank", "volume": "main", "side": "top", "at": 0.55 }
+  ],
+  "frontage": {
+    "wall": { "type": "block", "color": "#dccca2", "mortar": "#c6b58a", "h": 1.9 },
+    "sidewalk": { "material": "brick-pavers", "color": "#a8846c", "joint": "#8a6850", "w": 4.0 },
+    "verge": { "grass": "#5f9a3f", "grassDark": "#4a7a34" },
+    "road": { "surface": "asphalt", "color": "#8b8e92" }
+  },
+  "sky": { "top": "#5ea2db", "horizon": "#9fcfe4", "cloud": "#f4f6f6" },
+  "notes": "Two-storey warm tan/sand house with an orange terracotta hipped roof carrying solar panels and a white water tank. Upper floor of the main block has a front balcony with a grey metal bar rail; a lower hip-roofed wing to the right. Tall curved cream stone-block compound wall at the frontage with potted plants. Sampled from ref 2026-07-04."
+}

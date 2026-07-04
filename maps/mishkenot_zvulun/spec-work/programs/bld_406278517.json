@@ -1,0 +1,26 @@
+{
+  "id": "406278517",
+  "refs": { "scene": "restyled/scene-fullworld/bld_406278517_p8w5mTP.png", "iso": "restyled/iso/bld_406278517.png" },
+  "footprint": "obb",
+  "floorH": 3.0,
+  "volumes": [
+    { "name": "main", "x0": 0.0, "x1": 1.0, "z0": 0.0, "z1": 1.0, "floors": 2,
+      "wall": "#e0d3b0",
+      "roof": { "form": "gable", "color": "#c8622f", "fascia": { "h": 0.35, "color": "#a84e22", "overhang": 0.45 } } }
+  ],
+  "openings": [
+    { "volume": "main", "facade": "front", "type": "window", "floor": 1, "at": [0.3, 0.68], "w": 1.1, "h": 1.2, "glass": "#4a5158", "frame": "#ece0be", "recessed": true },
+    { "volume": "main", "facade": "front", "type": "window", "floor": 0, "at": [0.3, 0.68], "w": 1.1, "h": 1.3, "glass": "#4a5158", "frame": "#ece0be", "recessed": true },
+    { "volume": "main", "facade": "front", "type": "door", "floor": 0, "at": [0.5], "w": 1.3, "h": 2.1, "glass": "#4a5158", "frame": "#d3c6a2", "recessed": true }
+  ],
+  "terraces": [],
+  "props": [],
+  "frontage": {
+    "wall": { "type": "wood", "color": "#6b4327", "mortar": "#54341e", "h": 1.6 },
+    "sidewalk": { "material": "brick", "color": "#b17a55", "joint": "#95653f", "w": 3.0 },
+    "verge": { "grass": "#6ba83f", "grassDark": "#4e7d2e" },
+    "road": { "surface": "asphalt", "color": "#8f4a2f" }
+  },
+  "sky": { "top": "#5ea2db", "horizon": "#9fcfe4", "cloud": "#f4f6f6" },
+  "notes": "Two-and-a-half-storey villa with a tall steep gabled/hipped roof clad in bright orange clay tiles (#c8622f), cream render walls (#e0d3b0). Regular tall windows (#4a5158) with cream reveals over two main floors and a gable attic; central entry. A smaller terracotta-roofed wing steps forward to the left. Frontage: dark timber slat fence (#6b4327) on a rubble-stone base to the street, framed by palms and cypress. Colours pixel-sampled from the ref."
+}

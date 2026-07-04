@@ -1,0 +1,35 @@
+{
+  "id": "556855937",
+  "refs": { "scene": "restyled/scene-fullworld/bld_556855937_pf8OpA5.png", "iso": "restyled/iso/bld_556855937.png" },
+  "footprint": "obb",
+  "floorH": 3.0,
+  "volumes": [
+    { "name": "main", "x0": 0.28, "x1": 1.0, "z0": 0.0, "z1": 1.0, "floors": 2,
+      "wall": "#eceadd",
+      "roof": { "form": "hip", "color": "#c05a34", "fascia": { "h": 0.4, "color": "#eceadd", "overhang": 0.4 } } },
+    { "name": "wing", "x0": 0.0, "x1": 0.28, "z0": 0.2, "z1": 1.0, "floors": 1,
+      "wall": "#e2ddce",
+      "roof": { "form": "hip", "color": "#c05a34", "fascia": { "h": 0.35, "color": "#e2ddce", "overhang": 0.4 } } }
+  ],
+  "openings": [
+    { "volume": "main", "facade": "front", "type": "window", "floor": 1, "cols": 2, "at": [0.4, 0.7], "w": 1.1, "h": 1.2, "glass": "#7a828a", "frame": "#f2efe6", "recessed": true },
+    { "volume": "main", "facade": "front", "type": "door", "floor": 0, "at": [0.45], "w": 1.4, "h": 2.2, "glass": "#6a7278", "frame": "#e0dccf", "recessed": true },
+    { "volume": "wing", "facade": "front", "type": "garage", "floor": 0, "at": [0.5], "w": 3.0, "h": 2.2, "glass": "#e4e0d6", "frame": "#e4e0d6", "recessed": false }
+  ],
+  "terraces": [
+    { "onVolume": "main", "side": "front", "rail": { "type": "bars", "h": 0.9, "color": "#e6e2d8" } }
+  ],
+  "props": [
+    { "type": "ac", "volume": "main", "facade": "front", "floor": 1, "at": 0.85 },
+    { "type": "ac", "volume": "main", "facade": "front", "floor": 0, "at": 0.85 }
+  ],
+  "frontage": {
+    "wall": { "type": "picket", "color": "#f2efe6", "h": 1.4 },
+    "gates": [{ "kind": "vehicle", "w": 3.2, "style": "panel", "color": "#eceadd" },
+              { "kind": "pedestrian", "w": 1.1, "style": "ornate-bars", "color": "#3f6ea8" }],
+    "sidewalk": { "material": "asphalt", "color": "#8f9296", "joint": "#7a7d80", "w": 3.0 },
+    "verge": { "grass": "#5db63f", "grassDark": "#437c34" }
+  },
+  "sky": { "top": "#5ea2db", "horizon": "#9fcfe4", "cloud": "#f4f6f6" },
+  "notes": "Two-storey white/cream house (#eceadd) with orange terracotta hip roof (#c05a34). Upper floor has a front balcony (light rail) with a timber pergola; wall-mounted AC units on both floors. A lower single-storey left wing with its own terracotta hip roof holds a white panel garage door. Frontage: a white sliding panel vehicle gate and a distinctive blue ornate-bar pedestrian gate marked house-number 38, with a wall-mounted mailbox and terracotta flower planters; white picket fence with sandstone base to the right. A pedestrian figure and red car on the street. Sampled colours 2026-07-04."
+}

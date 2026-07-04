@@ -1,0 +1,29 @@
+{
+  "id": "383409999",
+  "refs": { "scene": "restyled/scene-fullworld/bld_383409999_prg0N9F.png" },
+  "footprint": "obb",
+  "floorH": 3.0,
+  "volumes": [
+    { "name": "main", "x0": 0.0, "x1": 0.72, "z0": 0.0, "z1": 1.0, "floors": 3,
+      "wall": "#6b7684",
+      "roof": { "form": "flat", "fascia": { "h": 0.7, "color": "#7c8794", "overhang": 0.25 } } },
+    { "name": "left", "x0": 0.72, "x1": 1.0, "z0": 0.0, "z1": 1.0, "floors": 3,
+      "wall": "#d9cfb9",
+      "roof": { "form": "flat", "fascia": { "h": 0.7, "color": "#cec3ac", "overhang": 0.25 } } }
+  ],
+  "openings": [
+    { "volume": "main", "facade": "front", "type": "window", "floor": 2, "cols": 3, "at": [0.25, 0.55, 0.85], "w": 2.0, "h": 1.6, "glass": "#7d8a95", "frame": "#cdd2d5", "recessed": true },
+    { "volume": "main", "facade": "front", "type": "garage", "floor": 0, "cols": 2, "at": [0.35, 0.75], "w": 3.4, "h": 2.9, "glass": "#3a4653", "frame": "#6a7684", "recessed": true },
+    { "volume": "main", "facade": "front", "type": "opening", "floor": 1, "cols": 2, "at": [0.35, 0.75], "w": 2.6, "h": 2.2, "glass": "#3a4653", "frame": "#6a7684", "recessed": true },
+    { "volume": "left", "facade": "front", "type": "window", "floor": 2, "at": [0.5], "w": 1.4, "h": 1.4, "glass": "#7d8a95", "frame": "#cec3ac", "recessed": true },
+    { "volume": "left", "facade": "front", "type": "opening", "floor": 0, "at": [0.5], "w": 1.4, "h": 2.4, "glass": "#3a4653", "frame": "#cec3ac", "recessed": true }
+  ],
+  "terraces": [],
+  "props": [],
+  "frontage": {
+    "sidewalk": { "material": "stone-slabs", "color": "#cfccc4", "joint": "#b6b3ab", "w": 4.5 },
+    "verge": { "grass": "#7fb84a", "grassDark": "#586a44" }
+  },
+  "sky": { "top": "#5ea2db", "horizon": "#9fcfe4", "cloud": "#f4f6f6" },
+  "notes": "Two/three-storey commercial building (W~58m). Blue-grey main volume with a fully glazed ground-floor bakery/cafe storefront (wide glass shopfronts, illuminated signboard) and large strip windows on the first floor; a cream-rendered left volume adjoins. Flat roofs. Raised stone-slab terrace/plaza with steps in front, cafe seating and planters (no fence). Colours eyeballed from ref."
+}

@@ -1,0 +1,31 @@
+{
+  "id": "556855993",
+  "refs": { "scene": "restyled/scene-fullworld/bld_556855993_pN8xZ__.png" },
+  "footprint": "obb",
+  "floorH": 3.0,
+  "volumes": [
+    { "name": "main", "x0": 0.0, "x1": 1.0, "z0": 0.0, "z1": 1.0, "floors": 2,
+      "wall": "#cfd0d0",
+      "roof": { "form": "hip", "color": "#c24a2e", "fascia": { "h": 0.3, "color": "#dcdcda", "overhang": 0.4 } } }
+  ],
+  "openings": [
+    { "volume": "main", "facade": "front", "type": "window", "floor": 1, "cols": 4,
+      "at": [0.15, 0.4, 0.6, 0.85], "w": 1.1, "h": 1.4, "glass": "#4a4e50", "frame": "#ececeb", "recessed": true },
+    { "volume": "main", "facade": "front", "type": "door", "floor": 0,
+      "at": [0.22], "w": 1.1, "h": 2.2, "glass": "#4a3526", "frame": "#4a3526", "recessed": true },
+    { "volume": "main", "facade": "front", "type": "window", "floor": 0, "cols": 2,
+      "at": [0.42, 0.68], "w": 1.2, "h": 1.4, "glass": "#d8cdb0", "frame": "#ececeb", "recessed": true }
+  ],
+  "terraces": [],
+  "props": [
+    { "type": "awning", "volume": "main", "facade": "front", "floor": 0, "at": 0.75 }
+  ],
+  "frontage": {
+    "wall": { "type": "rubble-stone", "color": "#c6c1b6", "mortar": "#aca69a", "h": 0.9 },
+    "gates": [{ "kind": "pedestrian", "w": 1.1, "style": "panel", "color": "#e6e6e2" }],
+    "sidewalk": { "material": "stone-slabs", "color": "#bdb8ac", "joint": "#a29d90", "w": 3.5 },
+    "road": { "surface": "asphalt", "color": "#7d8084" }
+  },
+  "sky": { "top": "#5ea2db", "horizon": "#9fcfe4", "cloud": "#f4f6f6" },
+  "notes": "Two-storey light-grey (#cfd0d0) house with a red (#c24a2e) hipped tile roof. Windows have white frames with beige roller-shutters (#d8cdb0, shown as light glass on ground floor); brown door under a small red-tile entry canopy (left), and a green scalloped awning over the right ground-floor window (prop). Frontage: low rubble-stone base wall (#c6c1b6) topped by a brown-timber picket fence with a green hedge and a white pedestrian gate; terracotta plant pots; stone-slab sidewalk."
+}

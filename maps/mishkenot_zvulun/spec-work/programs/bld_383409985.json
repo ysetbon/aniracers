@@ -1,0 +1,33 @@
+{
+  "id": "383409985",
+  "refs": { "scene": "restyled/scene-fullworld/bld_383409985_phR-crq.png" },
+  "footprint": "obb",
+  "floorH": 3.0,
+  "volumes": [
+    { "name": "main", "x0": 0.0, "x1": 1.0, "z0": 0.0, "z1": 1.0, "floors": 6,
+      "wall": "#e6e7e3",
+      "bands": [
+        { "floor": 0, "y0": 0.0, "y1": 1.0, "x0": 0.0, "x1": 0.22, "color": "#7d5a3c", "style": "slats" },
+        { "floor": 2, "y0": 0.0, "y1": 1.0, "x0": 0.0, "x1": 0.22, "color": "#7d5a3c", "style": "slats" },
+        { "floor": 4, "y0": 0.0, "y1": 1.0, "x0": 0.0, "x1": 0.22, "color": "#7d5a3c", "style": "slats" }
+      ],
+      "roof": { "form": "flat", "fascia": { "h": 0.5, "color": "#dcddd8", "overhang": 0.2 } } }
+  ],
+  "openings": [
+    { "volume": "main", "facade": "front", "type": "window", "floor": 5, "cols": 4, "at": [0.35, 0.55, 0.72, 0.88], "w": 1.1, "h": 1.2, "glass": "#8894a0", "frame": "#dfe2e2", "recessed": true },
+    { "volume": "main", "facade": "front", "type": "window", "floor": 3, "cols": 4, "at": [0.35, 0.55, 0.72, 0.88], "w": 1.1, "h": 1.2, "glass": "#8894a0", "frame": "#dfe2e2", "recessed": true },
+    { "volume": "main", "facade": "front", "type": "window", "floor": 1, "cols": 4, "at": [0.35, 0.55, 0.72, 0.88], "w": 1.1, "h": 1.2, "glass": "#8894a0", "frame": "#dfe2e2", "recessed": true }
+  ],
+  "terraces": [
+    { "onVolume": "main", "side": "front", "parapet": { "h": 0.9, "color": "#b9c0c2" }, "rail": { "type": "solid", "h": 0.2, "color": "#c9cfd0" } }
+  ],
+  "props": [],
+  "frontage": {
+    "wall": { "type": "brick", "color": "#d6c7a1", "mortar": "#bda87f", "h": 1.7 },
+    "gates": [{ "kind": "pedestrian", "w": 1.2, "style": "flat-bar", "color": "#6f97b8" }],
+    "sidewalk": { "material": "stone-slabs", "color": "#d6d2ca", "joint": "#bcb8b0", "w": 4.0 },
+    "verge": { "grass": "#7fb84a", "grassDark": "#586a44" }
+  },
+  "sky": { "top": "#5ea2db", "horizon": "#9fcfe4", "cloud": "#f4f6f6" },
+  "notes": "Wide off-white apartment block (~6 storeys, W~58m) with a faint grey tile-grid pattern. Left bays carry brown louvered roller-shutter strips (modelled as slat bands); right bays have grey recessed balconies (approximated as a front terrace band). Flat roof. Fronted by a sandstone-block wall topped with a blue metal-mesh fence and autumn-toned shrubs. Colours eyeballed from ref."
+}

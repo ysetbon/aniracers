@@ -1,0 +1,41 @@
+{
+  "id": "406278427",
+  "refs": { "scene": "restyled/scene-fullworld/bld_406278427_pTRIkQS.png" },
+  "footprint": "obb",
+  "floorH": 3.0,
+  "volumes": [
+    { "name": "main", "x0": 0.0, "x1": 0.68, "z0": 0.0, "z1": 1.0, "floors": 2,
+      "wall": "#e7e5de",
+      "roof": { "form": "flat", "fascia": { "h": 0.5, "color": "#eae8e1", "overhang": 0.25 } } },
+    { "name": "entry", "x0": 0.68, "x1": 1.0, "z0": 0.0, "z1": 0.7, "floors": 2,
+      "wall": "#e7e5de",
+      "roof": { "form": "pyramid", "color": "#b04a2f", "overhang": 0.45 } }
+  ],
+  "openings": [
+    { "volume": "main", "facade": "front", "type": "window", "floor": 1,
+      "cols": 2, "at": [0.3, 0.68], "w": 1.3, "h": 1.3, "glass": "#2f3844", "frame": "#eef0ee", "recessed": true },
+    { "volume": "main", "facade": "front", "type": "window", "floor": 0,
+      "at": [0.3], "w": 1.4, "h": 1.4, "glass": "#2f3844", "frame": "#eef0ee", "recessed": true },
+    { "volume": "entry", "facade": "front", "type": "door", "floor": 0,
+      "at": [0.5], "w": 1.4, "h": 2.3, "glass": "#3c4654", "frame": "#c9c6bc", "recessed": true },
+    { "volume": "entry", "facade": "front", "type": "window", "floor": 1,
+      "at": [0.5], "w": 1.0, "h": 1.1, "glass": "#2f3844", "frame": "#eef0ee", "recessed": true }
+  ],
+  "terraces": [],
+  "props": [
+    { "type": "lamp-globe", "volume": "entry", "facade": "front", "floor": 0, "at": 0.15 }
+  ],
+  "frontage": {
+    "wall": { "type": "stone", "color": "#8f8570", "mortar": "#b8b09a", "h": 1.3 },
+    "gates": [
+      { "kind": "vehicle", "w": 4.5, "style": "ornate-arch", "color": "#b9bcc0" },
+      { "kind": "pedestrian", "w": 1.2, "style": "ornate-arch", "color": "#b9bcc0" }
+    ],
+    "sidewalk": { "material": "stone-slabs", "color": "#cbb79c", "joint": "#b09a80", "w": 3.5 },
+    "verge": { "grass": "#6ea23c", "grassDark": "#4f7a30",
+               "flowers": { "palette": ["#c73a33", "#e6d24a", "#f2f0e8"], "perM2": 0.1 } },
+    "road": { "surface": "asphalt", "color": "#86898d" }
+  },
+  "sky": { "top": "#4f9edd", "horizon": "#9fcfe4", "cloud": "#f4f6f6" },
+  "notes": "White-rendered house. Right-of-centre entry porch/tower capped by a prominent red clay-tile PYRAMID/hip roof (#b04a2f) over a dark blue-grey panelled door; twin wall lanterns flank the door. Main flat-roofed 2-storey block to the left with dark-glazed windows. Garden with palms, cypresses and potted plants in front. Frontage: ornate silver wrought-iron fence and sliding vehicle gate on a stone-rubble base wall, herringbone stone-slab sidewalk. Colours read from ref 2026-07-04."
+}

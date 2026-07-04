@@ -1,0 +1,34 @@
+{
+  "id": "406278420",
+  "refs": { "scene": "restyled/scene-fullworld/bld_406278420_p0b02wB.png" },
+  "footprint": "obb",
+  "floorH": 3.0,
+  "volumes": [
+    { "name": "main", "x0": 0.0, "x1": 1.0, "z0": 0.0, "z1": 1.0, "floors": 2,
+      "wall": "#eeece4",
+      "roof": { "form": "hip", "fascia": { "h": 0.45, "color": "#5a3f2a", "overhang": 0.4 }, "color": "#b4502f" } }
+  ],
+  "openings": [
+    { "volume": "main", "facade": "front", "type": "door", "floor": 0, "at": [0.5], "w": 1.3, "h": 2.3, "glass": "#5f5751", "frame": "#c8c2b4", "recessed": true },
+    { "volume": "main", "facade": "front", "type": "window", "floor": 0, "at": [0.72], "w": 1.1, "h": 1.2, "glass": "#2b2d31", "frame": "#c8c2b4", "recessed": true },
+    { "volume": "main", "facade": "front", "type": "window", "floor": 1, "at": [0.28], "w": 1.6, "h": 1.5, "glass": "#7f96a8", "frame": "#c8c2b4", "recessed": true },
+    { "volume": "main", "facade": "front", "type": "window", "floor": 1, "at": [0.72], "w": 1.2, "h": 1.3, "glass": "#2b2d31", "frame": "#c8c2b4", "recessed": true }
+  ],
+  "terraces": [
+    { "onVolume": "main", "side": "front",
+      "parapet": { "h": 0.4, "color": "#eeece4" },
+      "rail": { "type": "glass", "h": 1.0, "color": "#b7c2c9" } }
+  ],
+  "props": [],
+  "frontage": {
+    "wall": { "type": "plaster", "color": "#e6e2d6", "mortar": "#d3cdbd", "h": 1.2 },
+    "gates": [
+      { "kind": "vehicle", "w": 4.0, "style": "ornate-arch", "color": "#3a3733" },
+      { "kind": "pedestrian", "w": 1.1, "style": "ornate-arch", "color": "#3a3733" }
+    ],
+    "sidewalk": { "material": "stone-slabs", "color": "#c9bda6", "joint": "#b0a58c", "w": 3.0 },
+    "road": { "surface": "asphalt", "color": "#7f8388" }
+  },
+  "sky": { "top": "#5ea2db", "horizon": "#9fcfe4", "cloud": "#f4f6f6" },
+  "notes": "White-plaster two-storey corner villa under a hipped red-clay tile roof with dark timber eaves. A first-floor front balcony has a slender metal-framed glass railing with a light pergola/canopy frame; ground floor has a central door and barred windows. Frontage is a low white plaster wall with an ornate dark metal gate, a bank of mailboxes and a grey wheelie bin over a stone-slab sidewalk. Colours estimated 2026-07-04."
+}

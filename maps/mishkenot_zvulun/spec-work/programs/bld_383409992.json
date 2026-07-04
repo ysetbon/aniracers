@@ -1,0 +1,29 @@
+{
+  "id": "383409992",
+  "refs": { "scene": "restyled/scene-fullworld/bld_383409992_prg0N9F.png" },
+  "footprint": "obb",
+  "floorH": 3.0,
+  "volumes": [
+    { "name": "main", "x0": 0.0, "x1": 0.62, "z0": 0.0, "z1": 1.0, "floors": 3,
+      "wall": "#4a5a6e",
+      "roof": { "form": "flat", "fascia": { "h": 0.7, "color": "#5c6c80", "overhang": 0.25 } } },
+    { "name": "right", "x0": 0.62, "x1": 1.0, "z0": 0.0, "z1": 1.0, "floors": 3,
+      "wall": "#d8cdb0",
+      "roof": { "form": "flat", "fascia": { "h": 0.7, "color": "#cdc1a2", "overhang": 0.25 } } }
+  ],
+  "openings": [
+    { "volume": "main", "facade": "front", "type": "window", "floor": 2, "cols": 4, "at": [0.12, 0.37, 0.62, 0.85], "w": 1.6, "h": 1.5, "glass": "#5a6b7e", "frame": "#8b97a6", "recessed": true },
+    { "volume": "main", "facade": "front", "type": "window", "floor": 1, "cols": 3, "at": [0.18, 0.5, 0.82], "w": 1.6, "h": 1.4, "glass": "#5a6b7e", "frame": "#8b97a6", "recessed": true },
+    { "volume": "main", "facade": "front", "type": "garage", "floor": 0, "cols": 3, "at": [0.18, 0.5, 0.82], "w": 3.2, "h": 2.8, "glass": "#2f3d4c", "frame": "#6a7684", "recessed": true },
+    { "volume": "right", "facade": "front", "type": "garage", "floor": 0, "cols": 2, "at": [0.35, 0.72], "w": 3.0, "h": 2.8, "glass": "#3a4653", "frame": "#c6b89a", "recessed": true },
+    { "volume": "right", "facade": "front", "type": "window", "floor": 2, "cols": 2, "at": [0.35, 0.72], "w": 1.4, "h": 1.4, "glass": "#5a6b7e", "frame": "#cdc1a2", "recessed": true }
+  ],
+  "terraces": [],
+  "props": [],
+  "frontage": {
+    "sidewalk": { "material": "stone-slabs", "color": "#d3d0c8", "joint": "#bab7ae", "w": 4.0 },
+    "verge": { "grass": "#7fb84a", "grassDark": "#586a44" }
+  },
+  "sky": { "top": "#5ea2db", "horizon": "#9fcfe4", "cloud": "#f4f6f6" },
+  "notes": "Two/three-storey commercial retail block (W~57m, shallow). Deep blue-grey main facade with a ground-floor row of glazed shopfronts (bakery, travel agent, market, etc. -- modelled as wide garage/shop openings) and strip windows above; a cream-rendered right wing carries more shopfronts and a signboard. Flat roofs. Open stone-slab plaza/pavement in front (no fence). Colours eyeballed from ref."
+}

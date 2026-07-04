@@ -1,0 +1,29 @@
+{
+  "id": "556597993",
+  "refs": { "scene": "restyled/scene-fullworld/bld_556597993_p07mQzT.png" },
+  "footprint": "obb",
+  "floorH": 3.0,
+  "volumes": [
+    { "name": "main", "x0": 0.0, "x1": 1.0, "z0": 0.0, "z1": 1.0, "floors": 2,
+      "wall": "#ececea",
+      "bands": [{ "floor": 0, "y0": 0.0, "y1": 1.0, "x0": 0.0, "x1": 0.08, "color": "#8a5a34", "style": "slats" },
+                { "floor": 1, "y0": 0.0, "y1": 1.0, "x0": 0.0, "x1": 0.08, "color": "#8a5a34", "style": "slats" }],
+      "roof": { "form": "flat", "fascia": { "h": 0.4, "color": "#e6e6e2", "overhang": 0.2 } } }
+  ],
+  "openings": [
+    { "volume": "main", "facade": "front", "type": "window", "floor": 1, "cols": 2, "at": [0.4, 0.75], "w": 1.3, "h": 1.4, "glass": "#8b9199", "frame": "#f4f4f0", "recessed": true },
+    { "volume": "main", "facade": "front", "type": "window", "floor": 0, "cols": 2, "at": [0.4, 0.75], "w": 1.3, "h": 1.4, "glass": "#8b9199", "frame": "#f4f4f0", "recessed": true }
+  ],
+  "terraces": [
+    { "onVolume": "main", "side": "right",
+      "rail": { "type": "bars", "h": 0.9, "color": "#3a3a37" } }
+  ],
+  "props": [],
+  "frontage": {
+    "wall": { "type": "brick", "color": "#c99f5e", "mortar": "#b58c4e", "h": 1.6 },
+    "sidewalk": { "material": "brick-pavers", "color": "#b25e3c", "joint": "#9a5236", "w": 3.0 },
+    "road": { "surface": "asphalt", "color": "#808387" }
+  },
+  "sky": { "top": "#5ea2db", "horizon": "#9fcfe4", "cloud": "#f4f6f6" },
+  "notes": "Close-up of a white-render two-storey house, flat roof. Upper and lower front windows fitted with grey louvered roller shutters and white frames. A vertical brown wood-plank accent strip runs the full height of the left corner (encoded as narrow slat bands). To the right a raised terrace with a dark horizontal-bar metal rail sits on a tan-brick retaining wall. Red brick-paver ground. Colours sampled from ref 2026-07-04."
+}

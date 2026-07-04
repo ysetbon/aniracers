@@ -1,0 +1,29 @@
+{
+  "id": "556598007",
+  "refs": { "scene": "restyled/scene-fullworld/bld_556598007_p1lAf2m.png", "iso": "restyled/iso/bld_556598007.png" },
+  "footprint": "obb",
+  "floorH": 3.0,
+  "volumes": [
+    { "name": "main", "x0": 0.0, "x1": 1.0, "z0": 0.0, "z1": 1.0, "floors": 2,
+      "wall": "#d3bf98",
+      "roof": { "form": "hip", "color": "#b05a34", "fascia": { "h": 0.45, "color": "#d9caa6", "overhang": 0.45 } } }
+  ],
+  "openings": [
+    { "volume": "main", "facade": "front", "type": "window", "floor": 1,
+      "at": [0.62], "w": 1.2, "h": 1.4, "glass": "#2e3742", "frame": "#dccca6", "recessed": true },
+    { "volume": "main", "facade": "front", "type": "window", "floor": 0,
+      "at": [0.6], "w": 1.4, "h": 1.5, "glass": "#2e3742", "frame": "#dccca6", "recessed": true }
+  ],
+  "terraces": [],
+  "props": [
+    { "type": "tank", "volume": "main", "facade": "top", "at": 0.45 }
+  ],
+  "frontage": {
+    "wall": { "type": "picket", "color": "#e8e7e0", "mortar": "#d0cfc6", "h": 1.4 },
+    "sidewalk": { "material": "brick-pavers", "color": "#b06a4f", "joint": "#96593f", "w": 3.5 },
+    "verge": { "grass": "#5f8a3a", "grassDark": "#3f5f28",
+               "flowers": { "palette": ["#8fb6c8", "#6f9a45", "#f3f1e8"], "perM2": 0.2 } }
+  },
+  "sky": { "top": "#3f9fe6", "horizon": "#8fc9ea", "cloud": "#eef4f6" },
+  "notes": "Real 2-storey sandstone house, tan render (#d3bf98) with red clay hipped tile roof and a black cylindrical water tank on the roof (prop 'tank'). Barred/grilled windows (#2e3742). Frontage: low wall + white picket fence; verge planted with blue-green hydrangea shrubs; blue and green wheelie bins and mailboxes at kerb, red brick-paver sidewalk. Colours sampled from ref."
+}

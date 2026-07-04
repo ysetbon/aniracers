@@ -1,0 +1,28 @@
+{
+  "id": "556310917",
+  "refs": { "scene": "restyled/scene-fullworld/bld_556310917_p3BpM_7.png", "iso": "restyled/iso/bld_556310917.png" },
+  "footprint": "obb",
+  "floorH": 3.0,
+  "volumes": [
+    { "name": "main", "x0": 0.0, "x1": 1.0, "z0": 0.0, "z1": 1.0, "floors": 3,
+      "wall": "#dfe1e2",
+      "roof": { "form": "flat", "fascia": { "h": 0.4, "color": "#d0d2d3", "overhang": 0.2 } } }
+  ],
+  "openings": [
+    { "volume": "main", "facade": "front", "type": "window", "floor": 2,
+      "at": [0.25, 0.55, 0.82], "w": 1.2, "h": 1.2, "glass": "#8a97a4", "frame": "#eef0f0", "recessed": true },
+    { "volume": "main", "facade": "front", "type": "window", "floor": 1,
+      "at": [0.25, 0.55, 0.82], "w": 1.2, "h": 1.2, "glass": "#8a97a4", "frame": "#eef0f0", "recessed": true },
+    { "volume": "main", "facade": "front", "type": "window", "floor": 0,
+      "at": [0.25, 0.55, 0.82], "w": 1.2, "h": 1.2, "glass": "#8a97a4", "frame": "#eef0f0", "recessed": true }
+  ],
+  "props": [],
+  "frontage": {
+    "wall": { "type": "hoarding", "color": "#e8eaec", "h": 2.2 },
+    "sidewalk": { "material": "brick-pavers", "color": "#b3a898", "joint": "#9c9284", "w": 3.5 },
+    "verge": { "grass": "#5c8a34", "grassDark": "#456a2a" },
+    "road": { "surface": "asphalt", "color": "#9a9ca0" }
+  },
+  "sky": { "top": "#8fb4cc", "horizon": "#c3d2da", "cloud": "#eef2f4" },
+  "notes": "Footprint is a cleared/under-development lot: the scene shows a tall WHITE corrugated-metal site hoarding along the street with sand mounds and a lone palm behind it, and distant white apartment towers on the horizon. The building itself is occluded, so massing is reconstructed as a plausible white rendered residential block (3 floors, flat roof, regular windows) to match the neighbourhood towers. Hazy warm sky. Colours sampled from ref 2026-07-04."
+}

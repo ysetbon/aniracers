@@ -1,0 +1,32 @@
+{
+  "id": "406278528",
+  "refs": { "scene": "restyled/scene-fullworld/bld_406278528_ptkElgg.png", "iso": "restyled/iso/bld_406278528.png" },
+  "footprint": "obb",
+  "floorH": 3.0,
+  "volumes": [
+    { "name": "main", "x0": 0.0, "x1": 1.0, "z0": 0.0, "z1": 1.0, "floors": 2,
+      "wall": "#cdc4ae",
+      "roof": { "form": "gable", "color": "#b85f33", "fascia": { "h": 0.4, "color": "#d8d0bd", "overhang": 0.3 } } }
+  ],
+  "openings": [
+    { "volume": "main", "facade": "front", "type": "window", "floor": 1,
+      "at": [0.32, 0.62], "w": 1.1, "h": 1.2, "glass": "#4a5560", "frame": "#d8d0bd", "recessed": true },
+    { "volume": "main", "facade": "front", "type": "window", "floor": 0,
+      "at": [0.32, 0.62], "w": 1.1, "h": 1.2, "glass": "#4a5560", "frame": "#d8d0bd", "recessed": true },
+    { "volume": "main", "facade": "left", "type": "window", "floor": 1,
+      "at": [0.4], "w": 1.0, "h": 1.1, "glass": "#4a5560", "frame": "#d8d0bd", "recessed": true }
+  ],
+  "props": [
+    { "type": "ac", "volume": "main", "facade": "front", "floor": 1, "at": 0.75 }
+  ],
+  "frontage": {
+    "wall": { "type": "bars", "color": "#6e8098", "h": 1.6 },
+    "gates": [{ "kind": "vehicle", "w": 5.0, "style": "bars", "color": "#6e8098" },
+              { "kind": "pedestrian", "w": 1.2, "style": "bars", "color": "#6e8098" }],
+    "sidewalk": { "material": "brick-pavers", "color": "#b07a4f", "joint": "#9a6a42", "w": 3.2 },
+    "verge": { "grass": "#7ba33f", "grassDark": "#5c7a3a" },
+    "road": { "surface": "asphalt", "color": "#9a9ca0" }
+  },
+  "sky": { "top": "#4a9fe0", "horizon": "#a9d4ea", "cloud": "#f4f6f6" },
+  "notes": "Real stone house largely occluded by a blue-grey ornate metal fence and tall conifers/palms. Light limestone-block walls (block coursing not expressible), prominent street-facing GABLE end with orange terracotta tile roof. Small barred windows (grilles not expressible as openings field). AC unit on wall. Green wheelie bin at fence base. Colours sampled from ref 2026-07-04."
+}

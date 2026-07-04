@@ -1,0 +1,36 @@
+{
+  "id": "556597989",
+  "refs": { "scene": "restyled/scene-fullworld/bld_556597989_pbjCj6z.png", "iso": "restyled/iso/bld_556597989.png" },
+  "footprint": "obb",
+  "floorH": 3.0,
+  "volumes": [
+    { "name": "main", "x0": 0.0, "x1": 1.0, "z0": 0.0, "z1": 1.0, "floors": 3,
+      "wall": "#cdb083",
+      "roof": { "form": "hip", "color": "#b0472e", "fascia": { "h": 0.5, "color": "#d8bd8e", "overhang": 0.35 } } }
+  ],
+  "openings": [
+    { "volume": "main", "facade": "front", "type": "window", "floor": 2,
+      "at": [0.22, 0.42, 0.62, 0.82], "w": 1.0, "h": 1.3, "glass": "#4a5566", "frame": "#e0c99a", "recessed": true },
+    { "volume": "main", "facade": "front", "type": "window", "floor": 1,
+      "at": [0.22, 0.42, 0.62, 0.82], "w": 1.0, "h": 1.4, "glass": "#4a5566", "frame": "#e0c99a", "recessed": true },
+    { "volume": "main", "facade": "front", "type": "door", "floor": 0,
+      "at": [0.38], "w": 1.4, "h": 2.3, "glass": "#4a5566", "frame": "#8a5a30", "recessed": true },
+    { "volume": "main", "facade": "front", "type": "window", "floor": 0,
+      "at": [0.6, 0.82], "w": 1.0, "h": 1.4, "glass": "#4a5566", "frame": "#e0c99a", "recessed": true }
+  ],
+  "terraces": [
+    { "onVolume": "main", "side": "front",
+      "rail": { "type": "balusters", "h": 0.9, "color": "#e0d3ad" } }
+  ],
+  "props": [],
+  "frontage": {
+    "wall": { "type": "stone-block", "color": "#cdb183", "mortar": "#ddc79a", "h": 1.5 },
+    "gates": [{ "kind": "vehicle", "w": 3.5, "style": "ornate-arch", "color": "#7a7f83" },
+              { "kind": "pedestrian", "w": 1.4, "style": "ornate-arch", "color": "#7a7f83" }],
+    "sidewalk": { "material": "brick-pavers", "color": "#c0a882", "joint": "#a8906c", "w": 3.5 },
+    "verge": { "grass": "#4f8a2f", "grassDark": "#3c6a24" },
+    "road": { "surface": "asphalt", "color": "#4b4e52" }
+  },
+  "sky": { "top": "#4a9fe0", "horizon": "#a9d4ea", "cloud": "#f4f6f6" },
+  "notes": "Real ornate 3-storey villa. Warm tan sandstone render (#cdb083) with moulded window surrounds; arched-head windows with keystones (arch not expressible -> rectangular openings), dark blue-grey glass. Red-orange terracotta HIP tile roof (#b0472e) with a small top pediment. Cream balustraded balconies at first and second floors, wood entry doors (#8a5a30). Frontage: sandstone-block boundary wall with a red trim band and ornate grey metal vehicle + pedestrian gates, an external stair to a side unit, cypress and palm trees. Colours sampled from ref 2026-07-04."
+}

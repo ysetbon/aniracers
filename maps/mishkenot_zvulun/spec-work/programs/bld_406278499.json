@@ -1,0 +1,30 @@
+{
+  "id": "406278499",
+  "refs": { "scene": "restyled/scene-fullworld/bld_406278499_pDwEw_n.png", "iso": "restyled/iso/bld_406278499.png" },
+  "footprint": "obb",
+  "floorH": 3.0,
+  "volumes": [
+    { "name": "main", "x0": 0.0, "x1": 1.0, "z0": 0.0, "z1": 1.0, "floors": 4,
+      "wall": "#dcc99e",
+      "bands": [
+        { "floor": 0, "y0": 0.0, "y1": 1.0, "x0": 0.12, "x1": 0.14, "color": "#c9b589", "style": "flat" },
+        { "floor": 0, "y0": 0.0, "y1": 1.0, "x0": 0.44, "x1": 0.46, "color": "#c9b589", "style": "flat" },
+        { "floor": 0, "y0": 0.0, "y1": 1.0, "x0": 0.72, "x1": 0.74, "color": "#c9b589", "style": "flat" }
+      ],
+      "roof": { "form": "flat", "fascia": { "h": 0.4, "color": "#c9b589", "overhang": 0.2 } } }
+  ],
+  "openings": [
+    { "volume": "main", "facade": "front", "type": "door", "floor": 0, "at": [0.1], "w": 2.0, "h": 2.6, "glass": "#6f7d84", "frame": "#5c666b", "recessed": true },
+    { "volume": "main", "facade": "right", "type": "window", "floor": 3, "at": [0.7], "w": 1.4, "h": 1.2, "glass": "#7a92a8", "frame": "#c9b589", "recessed": true },
+    { "volume": "main", "facade": "right", "type": "window", "floor": 1, "at": [0.7], "w": 1.4, "h": 1.2, "glass": "#7a92a8", "frame": "#c9b589", "recessed": true }
+  ],
+  "terraces": [],
+  "props": [
+    { "type": "lamp-globe", "volume": "main", "facade": "front", "at": 0.5 }
+  ],
+  "frontage": {
+    "sidewalk": { "material": "brick", "color": "#b58a66", "joint": "#9c7455", "w": 4.0 }
+  },
+  "sky": { "top": "#5ea2db", "horizon": "#9fcfe4", "cloud": "#f4f6f6" },
+  "notes": "Large service/rear face of a big apartment block seen very close. Plain tan-sand render (#dcc99e) divided by thin vertical pilaster reveals (#c9b589). A grey steel service double-door (#6f7d84) with a round porthole sits under a cast concrete canopy; a wall-mounted floodlight above. Blue-glazed windows (#7a92a8) wrap onto the right return in shadow. Flat roof. Herringbone brick paving apron (#b58a66). Most of the street facade is blank on this face; upper-floor openings inferred from the visible return. Colours pixel-sampled from the ref."
+}

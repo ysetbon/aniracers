@@ -1,0 +1,33 @@
+{
+  "id": "557798991",
+  "refs": { "scene": "restyled/scene-fullworld/bld_557798991_p1lAf2m.png" },
+  "footprint": "obb",
+  "floorH": 3.0,
+  "volumes": [
+    { "name": "main", "x0": 0.0, "x1": 1.0, "z0": 0.0, "z1": 1.0, "floors": 2,
+      "wall": "#d3bf98",
+      "roof": { "form": "flat", "color": "#61656a", "fascia": { "h": 0.5, "color": "#61656a", "overhang": 0.3 } } }
+  ],
+  "openings": [
+    { "volume": "main", "facade": "front", "type": "window", "floor": 1,
+      "at": [0.25, 0.55, 0.82], "w": 1.4, "h": 1.4, "glass": "#3a352c", "frame": "#675f53", "recessed": true },
+    { "volume": "main", "facade": "front", "type": "window", "floor": 0,
+      "at": [0.55, 0.82], "w": 1.4, "h": 1.4, "glass": "#3a352c", "frame": "#675f53", "recessed": true },
+    { "volume": "main", "facade": "left", "type": "window", "floor": 1,
+      "at": [0.4, 0.7], "w": 1.3, "h": 1.3, "glass": "#3a352c", "frame": "#675f53", "recessed": true }
+  ],
+  "terraces": [
+    { "onVolume": "main", "side": "left",
+      "rail": { "type": "bars", "h": 0.9, "color": "#a4a79e" } }
+  ],
+  "props": [],
+  "frontage": {
+    "wall": { "type": "stone-block", "color": "#a4a79e", "mortar": "#8d8a83", "h": 1.5 },
+    "gates": [{ "kind": "vehicle", "w": 5.0, "style": "panel-sliding", "color": "#a3b6bd" },
+              { "kind": "pedestrian", "w": 1.1, "style": "glazed", "color": "#e6e9e9" }],
+    "sidewalk": { "material": "brick", "color": "#8b6a57", "joint": "#7a5c4a", "w": 3.5 },
+    "verge": { "grass": "#517a47", "grassDark": "#172f15" }
+  },
+  "sky": { "top": "#6cc5fc", "horizon": "#86d4fd", "cloud": "#f4f6f6" },
+  "notes": "Two-storey house, warm cream/tan render (#d3bf98) with a low dark-grey roof deck (#61656a) carrying dark-blue solar panels and a skylight (panels not encodable). Windows have beige louvered shutters (#675f53), modelled as beige-framed openings. An external metal staircase with tube handrails climbs the left facade (expressed as a left-side railed terrace; stair prim unavailable). Frontage: tall pale grey stone-block wall (#a4a79e) with a light blue-grey sliding vehicle gate (#a3b6bd) and a white glazed pedestrian gate (#e6e9e9); brown brick sidewalk (#8b6a57), cypress and palm behind. Colours sampled from 12x9 grid 2026-07-04."
+}

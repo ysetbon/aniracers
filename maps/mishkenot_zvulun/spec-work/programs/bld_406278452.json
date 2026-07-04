@@ -1,0 +1,25 @@
+{
+  "id": "406278452",
+  "refs": { "scene": "restyled/scene-fullworld/bld_406278452_pp2mPmk.png" },
+  "footprint": "obb",
+  "floorH": 3.0,
+  "volumes": [
+    { "name": "main", "x0": 0.0, "x1": 1.0, "z0": 0.0, "z1": 1.0, "floors": 2,
+      "wall": "#dcdad2",
+      "roof": { "form": "flat", "fascia": { "h": 0.5, "color": "#cfcdc4", "overhang": 0.2 } } }
+  ],
+  "openings": [
+    { "volume": "main", "facade": "front", "type": "window", "floor": 1, "cols": 2, "at": [0.3, 0.7], "w": 1.3, "h": 1.3, "glass": "#3f4550", "frame": "#e2e0d8", "recessed": true },
+    { "volume": "main", "facade": "front", "type": "window", "floor": 0, "cols": 2, "at": [0.3, 0.7], "w": 1.3, "h": 1.3, "glass": "#3f4550", "frame": "#e2e0d8", "recessed": true },
+    { "volume": "main", "facade": "front", "type": "door", "floor": 0, "at": [0.5], "w": 1.3, "h": 2.2, "glass": "#353a42", "frame": "#d4d2c9", "recessed": true }
+  ],
+  "terraces": [],
+  "props": [],
+  "frontage": {
+    "wall": { "type": "picket", "color": "#f0efeb", "h": 1.2 },
+    "sidewalk": { "material": "asphalt", "color": "#8f9296", "w": 3.0 },
+    "road": { "surface": "asphalt", "color": "#8f9296" }
+  },
+  "sky": { "top": "#5ea2db", "horizon": "#9fcfe4", "cloud": "#f4f6f6" },
+  "notes": "Building almost entirely occluded by a large low-poly street tree in the ref. Visible sliver at left is a low off-white/grey structure (1-2 storeys) with a dark window behind a white picket fence; a stone-rubble wall runs along the right. Modelled as a plausible 2-storey box with a simple window grid. Frontage: white picket fence to a grey asphalt kerb. Colours sampled from the visible edges 2026-07-04."
+}

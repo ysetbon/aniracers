@@ -1,0 +1,36 @@
+{
+  "id": "406278521",
+  "refs": { "scene": "restyled/scene-fullworld/bld_406278521_pAOUM3r.png", "iso": "restyled/iso/bld_406278521.png" },
+  "footprint": "obb",
+  "floorH": 3.0,
+  "volumes": [
+    { "name": "main", "x0": 0.0, "x1": 0.62, "z0": 0.0, "z1": 1.0, "floors": 2,
+      "wall": "#eef0ef",
+      "roof": { "form": "gable", "color": "#6e3b28", "fascia": { "h": 0.3, "color": "#552c1e", "overhang": 0.4 } } },
+    { "name": "attic", "x0": 0.06, "x1": 0.34, "z0": 0.1, "z1": 0.9, "floors": 1,
+      "wall": "#e8dfb0",
+      "roof": { "form": "flat", "fascia": { "h": 0.35, "color": "#6e3b28", "overhang": 0.15 } } },
+    { "name": "wingR", "x0": 0.62, "x1": 1.0, "z0": 0.2, "z1": 1.0, "floors": 2,
+      "wall": "#eeeae0",
+      "roof": { "form": "hip", "color": "#b5623c", "fascia": { "h": 0.3, "color": "#9a5232", "overhang": 0.35 } } }
+  ],
+  "openings": [
+    { "volume": "attic", "facade": "front", "type": "window", "floor": 0, "cols": 3, "at": [0.25, 0.5, 0.75], "w": 0.9, "h": 1.0, "glass": "#3f4650", "frame": "#f0e8c4", "recessed": true },
+    { "volume": "main", "facade": "front", "type": "window", "floor": 1, "cols": 4, "at": [0.15, 0.38, 0.62, 0.85], "w": 1.2, "h": 1.2, "glass": "#3f4650", "frame": "#e6e8e6", "recessed": true },
+    { "volume": "main", "facade": "front", "type": "door", "floor": 0, "at": [0.2], "w": 1.2, "h": 2.1, "glass": "#6e3b28", "frame": "#5a3020", "recessed": true },
+    { "volume": "main", "facade": "front", "type": "window", "floor": 0, "at": [0.5], "w": 1.3, "h": 1.6, "glass": "#3f4650", "frame": "#e6e8e6", "recessed": true }
+  ],
+  "terraces": [],
+  "props": [
+    { "type": "lamp-globe", "volume": "main", "facade": "front", "at": 0.3 }
+  ],
+  "frontage": {
+    "wall": { "type": "block", "color": "#c9bd9d", "mortar": "#b3a684", "h": 1.5 },
+    "gates": [{ "kind": "pedestrian", "w": 1.1, "style": "ornate-arch", "color": "#3f3c34" }],
+    "sidewalk": { "material": "stone-slabs", "color": "#c9c0ad", "joint": "#b3a98f", "w": 3.5 },
+    "verge": { "grass": "#6ba83f", "grassDark": "#4e7d2e" },
+    "road": { "surface": "asphalt", "color": "#4c5054" }
+  },
+  "sky": { "top": "#5ea2db", "horizon": "#9fcfe4", "cloud": "#f4f6f6" },
+  "notes": "Two-storey house, off-white render (#eef0ef) with a pale-yellow set-back attic block (#e8dfb0) carrying three small square windows, all under a brown clay gabled roof (#6e3b28). First floor has a continuous band of dark ribbon windows (#3f4650); ground floor has an entry door with a wall lamp and a taller window. A lower white wing with a terracotta hipped roof (#b5623c) steps back on the right. Frontage: tan ashlar block wall (#c9bd9d) topped by a diamond breeze-block lattice, ornate pedestrian gate, stone-slab sidewalk. Colours pixel-sampled from the ref."
+}

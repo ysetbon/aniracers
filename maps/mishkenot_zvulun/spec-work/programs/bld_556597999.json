@@ -1,0 +1,29 @@
+{
+  "id": "556597999",
+  "refs": { "scene": "restyled/scene-fullworld/bld_556597999_p282pyM.png" },
+  "footprint": "obb",
+  "floorH": 3.0,
+  "volumes": [
+    { "name": "main", "x0": 0.0, "x1": 1.0, "z0": 0.0, "z1": 1.0, "floors": 2,
+      "wall": "#e4dcc4",
+      "roof": { "form": "flat", "fascia": { "h": 0.45, "color": "#ddd4bc", "overhang": 0.2 } } }
+  ],
+  "openings": [
+    { "volume": "main", "facade": "front", "type": "window", "floor": 1, "cols": 3, "at": [0.2, 0.45, 0.72], "w": 1.1, "h": 1.4, "glass": "#d8d6cc", "frame": "#b0b0a8", "recessed": true },
+    { "volume": "main", "facade": "front", "type": "window", "floor": 0, "cols": 2, "at": [0.3, 0.6], "w": 1.2, "h": 1.4, "glass": "#d8d6cc", "frame": "#b0b0a8", "recessed": true },
+    { "volume": "main", "facade": "front", "type": "door", "floor": 0, "at": [0.82], "w": 1.2, "h": 2.2, "glass": "#4a4038", "frame": "#c9bfa2", "recessed": true }
+  ],
+  "terraces": [
+    { "onVolume": "main", "side": "top",
+      "parapet": { "h": 0.9, "color": "#e8e6da" },
+      "rail": { "type": "bars", "h": 0.35, "color": "#e8e6da" } }
+  ],
+  "props": [],
+  "frontage": {
+    "wall": { "type": "slats", "color": "#8a5a34", "mortar": "#e4e2d6", "h": 1.5 },
+    "sidewalk": { "material": "stone-slabs", "color": "#bcbdba", "joint": "#a3a49f", "w": 3.0 },
+    "road": { "surface": "asphalt", "color": "#808387" }
+  },
+  "sky": { "top": "#5ea2db", "horizon": "#9fcfe4", "cloud": "#f4f6f6" },
+  "notes": "Cream-render two-storey house with a flat roof and a walled roof-terrace (white parapet and rail) at the top-right. Front windows fitted with closed white louvered shutters in grey frames. Frontage is a brown wood-panel fence with white infill panels and a matching wood railing. A bare tree stands at the kerb, palms and a terracotta-roofed neighbour beyond. Colours sampled from ref 2026-07-04."
+}

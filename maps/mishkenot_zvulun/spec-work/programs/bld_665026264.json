@@ -1,0 +1,39 @@
+{
+  "id": "665026264",
+  "refs": { "scene": "restyled/scene-fullworld/bld_665026264_pIG_9bC.png" },
+  "footprint": "obb",
+  "floorH": 3.0,
+  "volumes": [
+    { "name": "yellow", "x0": 0.0, "x1": 0.5, "z0": 0.0, "z1": 1.0, "floors": 2,
+      "wall": "#c4a667",
+      "roof": { "form": "flat", "color": "#c1a76a", "fascia": { "h": 0.5, "color": "#c1a76a", "overhang": 0.3 } } },
+    { "name": "white", "x0": 0.5, "x1": 1.0, "z0": 0.0, "z1": 1.0, "floors": 2,
+      "wall": "#adaaa2",
+      "bands": [{ "floor": 0, "y0": 0.0, "y1": 1.0, "color": "#9f918c", "style": "slats" }],
+      "roof": { "form": "flat", "color": "#a6a19e", "fascia": { "h": 0.5, "color": "#a6a19e", "overhang": 0.3 } } }
+  ],
+  "openings": [
+    { "volume": "yellow", "facade": "front", "type": "opening", "floor": 0,
+      "at": [0.4], "w": 3.2, "h": 2.6, "glass": "#48737c", "frame": "#2d2f26", "recessed": true },
+    { "volume": "yellow", "facade": "front", "type": "window", "floor": 1,
+      "at": [0.35, 0.7], "w": 1.6, "h": 1.4, "glass": "#151c31", "frame": "#c4a667", "recessed": true },
+    { "volume": "white", "facade": "front", "type": "window", "floor": 1,
+      "at": [0.3, 0.6, 0.85], "w": 1.3, "h": 1.4, "glass": "#262d3f", "frame": "#adaaa2", "recessed": true },
+    { "volume": "white", "facade": "front", "type": "window", "floor": 0,
+      "at": [0.4, 0.7], "w": 1.2, "h": 1.4, "glass": "#33553d", "frame": "#9f918c", "recessed": true }
+  ],
+  "terraces": [
+    { "onVolume": "yellow", "side": "front",
+      "rail": { "type": "bars", "h": 0.9, "color": "#534e39" } }
+  ],
+  "props": [],
+  "frontage": {
+    "wall": { "type": "stone-block", "color": "#a29995", "mortar": "#8c7c67", "h": 1.2 },
+    "sidewalk": { "material": "asphalt-paving", "color": "#bda297", "joint": "#a08e84", "w": 3.5 },
+    "verge": { "grass": "#416825", "grassDark": "#375923",
+               "flowers": { "palette": ["#5c3932", "#7b5e6d", "#594738"], "perM2": 0.15 } },
+    "road": { "surface": "asphalt", "color": "#434e61" }
+  },
+  "sky": { "top": "#6eb2fb", "horizon": "#9ad1f3", "cloud": "#f4f6f6" },
+  "notes": "Corner mixed-use building in two masses. Left volume is mustard-yellow render (#c4a667), two storeys, with a dark teal-glass storefront at ground (#48737c) and a small railed balcony with dark windows above. Right volume is pale grey/white render (#adaaa2) over a grey sandstone ashlar ground band (#9f918c) with dark-glazed windows (#262d3f). Flat roofs. Frontage: low pale-grey stone-block retaining wall (#a29995) topped by a clipped green hedge (#416825), a maroon barberry shrub (#5c3932), a bare sapling, a green litter bin and a red hydrant; asphalt-paved sidewalk, parking bays with silver car and van, tower cranes on the skyline (context, not encoded). Colours sampled from 12x9 grid 2026-07-04."
+}

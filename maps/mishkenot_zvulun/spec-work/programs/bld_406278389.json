@@ -1,0 +1,24 @@
+{
+  "id": "406278389",
+  "refs": { "scene": "restyled/scene-fullworld/bld_406278389_p8w5mTP.png" },
+  "footprint": "obb",
+  "floorH": 3.0,
+  "volumes": [
+    { "name": "main", "x0": 0.0, "x1": 1.0, "z0": 0.0, "z1": 1.0, "floors": 2,
+      "wall": "#eceae2",
+      "roof": { "form": "gabled", "fascia": { "h": 0.45, "color": "#7a5638", "overhang": 0.35 }, "color": "#b0472c" } }
+  ],
+  "openings": [
+    { "volume": "main", "facade": "front", "type": "door", "floor": 0, "at": [0.5], "w": 1.3, "h": 2.2, "glass": "#3b4650", "frame": "#dedbd0", "recessed": true },
+    { "volume": "main", "facade": "front", "type": "window", "floor": 0, "cols": 2, "at": [0.22, 0.78], "w": 1.2, "h": 1.2, "glass": "#5f7788", "frame": "#dedbd0", "recessed": true },
+    { "volume": "main", "facade": "front", "type": "window", "floor": 1, "cols": 3, "at": [0.2, 0.5, 0.8], "w": 1.1, "h": 1.2, "glass": "#5f7788", "frame": "#dedbd0", "recessed": true }
+  ],
+  "terraces": [],
+  "props": [],
+  "frontage": {
+    "wall": { "type": "wood-slats", "color": "#6e4d33", "mortar": "#5a3f2a", "h": 1.7 },
+    "sidewalk": { "material": "brick", "color": "#9c5a3f", "joint": "#7f4830", "w": 3.5 }
+  },
+  "sky": { "top": "#5ea2db", "horizon": "#9fcfe4", "cloud": "#f4f6f6" },
+  "notes": "Building largely occluded by mature trees and a tall brown wood-slat fence over a rubble-stone base. Visible: white-plaster two-storey house with red-tile gable roof and one blue-glass window. Massing and openings are plausible reconstructions of a standard Netanya villa. Frontage: wood-slat fence (rubble base not separately expressible). Colours estimated 2026-07-04."
+}

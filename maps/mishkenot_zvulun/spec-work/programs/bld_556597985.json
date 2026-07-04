@@ -1,0 +1,34 @@
+{
+  "id": "556597985",
+  "refs": { "scene": "restyled/scene-fullworld/bld_556597985_p4ffRSY.png", "iso": "restyled/iso/bld_556597985.png" },
+  "footprint": "obb",
+  "floorH": 3.0,
+  "volumes": [
+    { "name": "main", "x0": 0.0, "x1": 1.0, "z0": 0.0, "z1": 1.0, "floors": 2,
+      "wall": "#cabf9f",
+      "bands": [
+        { "floor": 1, "y0": 0.0, "y1": 1.0, "color": "#c3b593", "style": "ashlar" }
+      ],
+      "roof": { "form": "flat", "fascia": { "h": 0.45, "color": "#d8ceb0", "overhang": 0.25 } } }
+  ],
+  "openings": [
+    { "volume": "main", "facade": "front", "type": "window", "floor": 1,
+      "at": [0.3, 0.62, 0.85], "w": 1.2, "h": 1.3, "glass": "#6a6f6f", "frame": "#eceadd", "recessed": true },
+    { "volume": "main", "facade": "front", "type": "window", "floor": 0,
+      "at": [0.3, 0.62], "w": 1.2, "h": 1.3, "glass": "#6a6f6f", "frame": "#eceadd", "recessed": true },
+    { "volume": "main", "facade": "right", "type": "window", "floor": 1,
+      "at": [0.4], "w": 1.1, "h": 1.2, "glass": "#6a6f6f", "frame": "#eceadd", "recessed": true }
+  ],
+  "props": [
+    { "type": "ac", "volume": "main", "facade": "front", "floor": 1, "at": 0.55 }
+  ],
+  "frontage": {
+    "wall": { "type": "stone-block", "color": "#c3a878", "mortar": "#d8c39c", "h": 1.9 },
+    "gates": [{ "kind": "pedestrian", "w": 1.2, "style": "picket", "color": "#e0ddd4" }],
+    "sidewalk": { "material": "brick-pavers", "color": "#9a6a52", "joint": "#845844", "w": 3.2 },
+    "verge": { "grass": "#4f8a2f", "grassDark": "#3c6a24" },
+    "road": { "surface": "brick-pavers", "color": "#9a6a52" }
+  },
+  "sky": { "top": "#4a9fe0", "horizon": "#a9d4ea", "cloud": "#f4f6f6" },
+  "notes": "Real 2-storey beige residential block, corner view. Warm beige render (#cabf9f) with sandstone ashlar block coursing on the upper floor. Windows fitted with grey security grilles (#6a6f6f) in pale reveals. Wall-mounted AC units, TV antennas on the flat roof, small parapet. Frontage: multi-tone sandstone-block boundary wall, white picket sub-fence, red flowering shrub, palms; a shared 'residential zone' sign on the street. Colours sampled from ref 2026-07-04."
+}

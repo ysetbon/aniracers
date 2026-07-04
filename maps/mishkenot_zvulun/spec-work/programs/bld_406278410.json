@@ -1,0 +1,30 @@
+{
+  "id": "406278410",
+  "refs": { "scene": "restyled/scene-fullworld/bld_406278410_pAOUM3r.png" },
+  "footprint": "obb",
+  "floorH": 3.0,
+  "volumes": [
+    { "name": "main", "x0": 0.0, "x1": 1.0, "z0": 0.0, "z1": 1.0, "floors": 2,
+      "wall": "#d3c3a0",
+      "roof": { "form": "flat", "fascia": { "h": 0.5, "color": "#c6b48f", "overhang": 0.25 } } }
+  ],
+  "openings": [
+    { "volume": "main", "facade": "front", "type": "garage", "floor": 0, "at": [0.68], "w": 3.0, "h": 2.2, "glass": "#b9a888", "frame": "#a8976f", "recessed": true },
+    { "volume": "main", "facade": "front", "type": "door", "floor": 0, "at": [0.3], "w": 1.2, "h": 2.2, "glass": "#5f4636", "frame": "#8a7a58", "recessed": true },
+    { "volume": "main", "facade": "front", "type": "window", "floor": 1, "cols": 3, "at": [0.25, 0.5, 0.78], "w": 1.2, "h": 1.3, "glass": "#2a2c30", "frame": "#d6c6a2", "recessed": true }
+  ],
+  "terraces": [],
+  "props": [],
+  "frontage": {
+    "wall": { "type": "ashlar", "color": "#d6c39a", "mortar": "#c2ad82", "h": 1.8 },
+    "gates": [
+      { "kind": "vehicle", "w": 4.5, "style": "ornate-arch", "color": "#cfd0cc" },
+      { "kind": "pedestrian", "w": 1.2, "style": "ornate-arch", "color": "#cfd0cc" }
+    ],
+    "sidewalk": { "material": "stone-slabs", "color": "#a89d8b", "joint": "#8d8474", "w": 3.0 },
+    "verge": { "grass": "#84bf4a", "grassDark": "#5c6a49" },
+    "road": { "surface": "asphalt", "color": "#7f8388" }
+  },
+  "sky": { "top": "#5ea2db", "horizon": "#9fcfe4", "cloud": "#f4f6f6" },
+  "notes": "Tan/sand-plaster two-storey house, flat parapet roof, ground-floor garage plus pedestrian door and barred upper windows. Frontage is a coursed ashlar-block compound wall fronted by ornate silver/white metal double gates, palms and a green wheelie bin over a stone-slab sidewalk. Colours estimated 2026-07-04."
+}

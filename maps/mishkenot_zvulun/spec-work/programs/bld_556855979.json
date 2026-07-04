@@ -1,0 +1,30 @@
+{
+  "id": "556855979",
+  "refs": { "scene": "restyled/scene-fullworld/bld_556855979_pJBnJa7.png", "iso": "restyled/iso/bld_556855979.png" },
+  "footprint": "obb",
+  "floorH": 3.0,
+  "volumes": [
+    { "name": "main", "x0": 0.0, "x1": 1.0, "z0": 0.15, "z1": 1.0, "floors": 2,
+      "wall": "#c67c65",
+      "roof": { "form": "hip", "color": "#bf5330", "overhang": 0.5 } },
+    { "name": "porch", "x0": 0.25, "x1": 0.55, "z0": 0.0, "z1": 0.15, "floors": 1,
+      "wall": "#c67c65",
+      "roof": { "form": "hip", "color": "#bf5330", "overhang": 0.6 } }
+  ],
+  "openings": [
+    { "volume": "main", "facade": "front", "type": "window", "floor": 1, "cols": 3, "at": [0.4, 0.5, 0.6], "w": 0.5, "h": 1.4, "glass": "#3f4750", "frame": "#c67c65", "recessed": true },
+    { "volume": "main", "facade": "front", "type": "window", "floor": 0, "at": [0.72], "w": 1.4, "h": 1.3, "glass": "#3f4750", "frame": "#d9d4c6", "recessed": true },
+    { "volume": "porch", "facade": "front", "type": "door", "floor": 0, "at": [0.5], "w": 1.3, "h": 2.2, "glass": "#3f4750", "frame": "#d9d4c6", "recessed": true }
+  ],
+  "terraces": [],
+  "props": [],
+  "frontage": {
+    "wall": { "type": "stone-block", "color": "#d8cdb8", "mortar": "#c6b99f", "h": 1.1 },
+    "gates": [{ "kind": "vehicle", "w": 5.5, "style": "ornate-arch", "color": "#e6e4dd" },
+              { "kind": "pedestrian", "w": 1.1, "style": "ornate-arch", "color": "#e6e4dd" }],
+    "sidewalk": { "material": "stone-slabs", "color": "#cabf9d", "joint": "#b4a880", "w": 3.5 },
+    "verge": { "grass": "#6f9a3f", "grassDark": "#4f7229" }
+  },
+  "sky": { "top": "#6ab0e4", "horizon": "#a7d4ea", "cloud": "#f4f6f6" },
+  "notes": "Well-visible salmon/terracotta-pink two-storey villa with an orange-red tiled hipped roof; a small tiled entrance-porch canopy projects at the front (modelled as a low 1-floor porch volume). Upper facade has three narrow vertical slit windows; a ground-floor window at right has security bars/grille (bars not expressible in openings). Frontage: very ornate white wrought-iron vehicle+pedestrian gates with a blue '6' house-number plate, a cream stone-block low wall and a brown wood picket fence to the right (#9a6a3f). Palm with orange dates, green bin and planters in front (props not in schema). Colours sampled from ref 2026-07-04."
+}

@@ -1,0 +1,23 @@
+{
+  "id": "406278419",
+  "refs": { "scene": "restyled/scene-fullworld/bld_406278419_pCQXdL3.png" },
+  "footprint": "obb",
+  "floorH": 3.0,
+  "volumes": [
+    { "name": "shed", "x0": 0.0, "x1": 1.0, "z0": 0.0, "z1": 1.0, "floors": 1,
+      "wall": "#d6cdb6",
+      "roof": { "form": "flat", "fascia": { "h": 0.35, "color": "#8f8f88", "overhang": 0.2 }, "color": "#8f8f88" } }
+  ],
+  "openings": [
+    { "volume": "shed", "facade": "front", "type": "opening", "floor": 0, "cols": 3, "at": [0.2, 0.5, 0.8], "w": 3.5, "h": 2.6, "glass": "#3a3d42", "frame": "#6f6f68", "recessed": true }
+  ],
+  "terraces": [],
+  "props": [],
+  "frontage": {
+    "wall": { "type": "block", "color": "#d8d0bc", "mortar": "#c2b9a2", "h": 2.2 },
+    "sidewalk": { "material": "stone-slabs", "color": "#d3bca0", "joint": "#b39d82", "w": 3.5 },
+    "road": { "surface": "asphalt", "color": "#7f8388" }
+  },
+  "sky": { "top": "#5ea2db", "horizon": "#9fcfe4", "cloud": "#f4f6f6" },
+  "notes": "Open-air stone/marble workshop ('שיש לנצח' monument maker) - a low single-storey structure that is mostly an exposed steel-frame with grey metal canopy roofing over machinery and stone slabs; steel frame not directly expressible so modelled as one floor with a flat metal roof and open front bays. Dominant street element is the tall coursed stone-block boundary wall carrying the banner sign, over a red-and-white kerbed sidewalk. Colours estimated 2026-07-04."
+}

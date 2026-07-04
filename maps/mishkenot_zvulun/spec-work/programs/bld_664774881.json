@@ -1,0 +1,38 @@
+{
+  "id": "664774881",
+  "refs": { "scene": "restyled/scene-fullworld/bld_664774881_ponzQq-.png" },
+  "footprint": "obb",
+  "floorH": 3.0,
+  "volumes": [
+    { "name": "main", "x0": 0.0, "x1": 1.0, "z0": 0.0, "z1": 1.0, "floors": 5,
+      "wall": "#c4ae8a",
+      "roof": { "form": "flat", "color": "#c9b592", "fascia": { "h": 0.6, "color": "#c9b592", "overhang": 0.25 } } }
+  ],
+  "openings": [
+    { "volume": "main", "facade": "front", "type": "window", "floor": 4,
+      "at": [0.25, 0.5, 0.75], "w": 1.2, "h": 1.4, "glass": "#5d5645", "frame": "#97876d", "recessed": true },
+    { "volume": "main", "facade": "front", "type": "window", "floor": 3,
+      "at": [0.25, 0.5, 0.75], "w": 1.2, "h": 1.4, "glass": "#5d5645", "frame": "#97876d", "recessed": true },
+    { "volume": "main", "facade": "front", "type": "window", "floor": 2,
+      "at": [0.25, 0.5, 0.75], "w": 1.2, "h": 1.4, "glass": "#5d5645", "frame": "#97876d", "recessed": true },
+    { "volume": "main", "facade": "front", "type": "door", "floor": 0,
+      "at": [0.3], "w": 1.6, "h": 2.5, "glass": "#445663", "frame": "#5d5645", "recessed": true },
+    { "volume": "main", "facade": "left", "type": "window", "floor": 4,
+      "at": [0.35, 0.7], "w": 1.3, "h": 1.4, "glass": "#5d5645", "frame": "#97876d", "recessed": true },
+    { "volume": "main", "facade": "left", "type": "window", "floor": 3,
+      "at": [0.35, 0.7], "w": 1.3, "h": 1.4, "glass": "#5d5645", "frame": "#97876d", "recessed": true }
+  ],
+  "terraces": [
+    { "onVolume": "main", "side": "left",
+      "rail": { "type": "bars", "h": 1.0, "color": "#5e5547" } }
+  ],
+  "props": [],
+  "frontage": {
+    "wall": { "type": "stone-block", "color": "#cdb898", "mortar": "#b39878", "h": 1.5 },
+    "sidewalk": { "material": "brick", "color": "#af7875", "joint": "#8b756e", "w": 4.0 },
+    "verge": { "grass": "#4e6b36", "grassDark": "#37411f" },
+    "road": { "surface": "asphalt", "color": "#737780" }
+  },
+  "sky": { "top": "#60aaef", "horizon": "#87c4f0", "cloud": "#f4f6f6" },
+  "notes": "Multi-storey sandstone corner apartment block (cel-shaded ref with outlines), warm ashlar (#c4ae8a) - coursing not expressible. About five storeys; the left facade carries a stack of recessed balconies with dark rails (#5e5547) and terracotta planters (planters not encoded), grid windows are dark-glazed (#5d5645). Ground-floor entrance is dark glazing. Frontage: low tan stone-block retaining wall (#cdb898), clipped green hedges and cypress behind, a red hydrant, red-brick sidewalk (#af7875) and parked cars on the asphalt (not encoded). Colours sampled from 12x9 grid 2026-07-04."
+}

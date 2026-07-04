@@ -1,0 +1,29 @@
+{
+  "id": "556855958",
+  "refs": { "scene": "restyled/scene-fullworld/bld_556855958_psuiUbL.png" },
+  "footprint": "obb",
+  "floorH": 3.0,
+  "volumes": [
+    { "name": "main", "x0": 0.0, "x1": 1.0, "z0": 0.0, "z1": 1.0, "floors": 2,
+      "wall": "#eceae2",
+      "roof": { "form": "hip", "color": "#c65f39", "fascia": { "h": 0.35, "color": "#a84e2e", "overhang": 0.4 } } }
+  ],
+  "openings": [
+    { "volume": "main", "facade": "front", "type": "window", "floor": 1, "cols": 2, "at": [0.35, 0.7], "w": 1.2, "h": 1.2, "glass": "#3f4a52", "frame": "#eceae2", "recessed": true },
+    { "volume": "main", "facade": "front", "type": "window", "floor": 0, "at": [0.7], "w": 1.3, "h": 1.3, "glass": "#3f4a52", "frame": "#eceae2", "recessed": true },
+    { "volume": "main", "facade": "front", "type": "door", "floor": 0, "at": [0.32], "w": 1.2, "h": 2.2, "glass": "#33414c", "frame": "#cfc9bd", "recessed": true }
+  ],
+  "terraces": [
+    { "onVolume": "main", "side": "front", "rail": { "type": "bars", "h": 1.0, "color": "#e0ddd4" } }
+  ],
+  "props": [],
+  "frontage": {
+    "wall": { "type": "picket", "color": "#eeeae0", "mortar": "#d6d1c4", "h": 1.5 },
+    "gates": [{ "kind": "pedestrian", "w": 1.1, "style": "picket", "color": "#eeeae0" }],
+    "sidewalk": { "material": "stone-slabs", "color": "#b3aca0", "joint": "#9a938a", "w": 3.0 },
+    "verge": { "grass": "#5f9a3f", "grassDark": "#4a7a34" },
+    "road": { "surface": "asphalt", "color": "#8f9296" }
+  },
+  "sky": { "top": "#4f97d8", "horizon": "#9fcfe4", "cloud": "#f4f6f6" },
+  "notes": "Small white 2-storey private house with an orange terracotta hipped roof. Upper floor has a small front balcony with a cream metal bar rail. Dark blue-grey glass, white frames. White picket-fence frontage on a low concrete-block wall, blue porthole detail and a blue mailbox. Sampled from ref 2026-07-04."
+}

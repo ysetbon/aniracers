@@ -1,0 +1,28 @@
+{
+  "id": "556855947",
+  "refs": { "scene": "restyled/scene-fullworld/bld_556855947_pEH4Uir.png", "iso": "restyled/iso/bld_556855947.png" },
+  "footprint": "obb",
+  "floorH": 3.0,
+  "volumes": [
+    { "name": "main", "x0": 0.0, "x1": 1.0, "z0": 0.0, "z1": 1.0, "floors": 2,
+      "wall": "#d9cfb6",
+      "roof": { "form": "flat", "fascia": { "h": 0.5, "color": "#cec3a8", "overhang": 0.25 } } }
+  ],
+  "openings": [
+    { "volume": "main", "facade": "front", "type": "window", "floor": 1, "cols": 3, "at": [0.3, 0.55, 0.8], "w": 1.3, "h": 1.3, "glass": "#586066", "frame": "#e0d6bd", "recessed": true },
+    { "volume": "main", "facade": "front", "type": "window", "floor": 0, "cols": 2, "at": [0.4, 0.7], "w": 1.3, "h": 1.3, "glass": "#586066", "frame": "#e0d6bd", "recessed": true }
+  ],
+  "terraces": [
+    { "onVolume": "main", "side": "top", "parapet": { "h": 0.4, "color": "#d9cfb6" }, "rail": { "type": "bars", "h": 1.0, "color": "#5a7c4a" } }
+  ],
+  "props": [],
+  "frontage": {
+    "wall": { "type": "stone", "color": "#d9c79a", "mortar": "#b8a373", "h": 2.0 },
+    "gates": [],
+    "sidewalk": { "material": "stone-slabs", "color": "#d8c9a8", "joint": "#b8a880", "w": 3.5 },
+    "verge": { "grass": "#4f9a34", "grassDark": "#3a6e2c", "flowers": { "palette": ["#e0621f", "#f08a2a", "#4f9a34"], "perM2": 0.4 } },
+    "road": { "surface": "asphalt", "color": "#8f9296" }
+  },
+  "sky": { "top": "#5ea2db", "horizon": "#9fcfe4", "cloud": "#f4f6f6" },
+  "notes": "Building heavily occluded by its own frontage — the frame is dominated by a dense orange-trumpet-flower (Campsis) hedge (#e0621f blooms on green #4f9a34) spilling over a brown horizontal-slat fence with green metal posts, all atop a tall sandstone-block retaining wall (#d9c79a) with weep-holes. Behind, only the cream upper wall (#d9cfb6) and a green rooftop pergola/rail structure are visible; two-storey flat-roofed massing and openings are inferred/plausible. Wide sandstone-slab sidewalk, power lines, parked cars and neighbouring cream houses down the street. No visible gate in frame. Sampled colours 2026-07-04."
+}

@@ -1,0 +1,40 @@
+{
+  "id": "406278472",
+  "refs": { "scene": "restyled/scene-fullworld/bld_406278472_p9gX9Q5.png", "iso": "" },
+  "footprint": "obb",
+  "floorH": 3.0,
+  "volumes": [
+    { "name": "main", "x0": 0.0, "x1": 0.62, "z0": 0.0, "z1": 1.0, "floors": 3,
+      "wall": "#e8d9b0",
+      "roof": { "form": "flat", "fascia": { "h": 0.5, "color": "#efe3bf", "overhang": 0.3 } } },
+    { "name": "wing", "x0": 0.62, "x1": 1.0, "z0": 0.06, "z1": 1.0, "floors": 3,
+      "wall": "#e4d4a9",
+      "roof": { "form": "flat", "fascia": { "h": 0.5, "color": "#efe3bf", "overhang": 0.3 } } }
+  ],
+  "openings": [
+    { "volume": "main", "facade": "front", "type": "window", "floor": 2, "cols": 4, "at": [0.14, 0.38, 0.62, 0.86], "w": 1.3, "h": 1.3, "glass": "#4f5760", "frame": "#f0efe6", "recessed": true },
+    { "volume": "main", "facade": "front", "type": "window", "floor": 1, "cols": 4, "at": [0.14, 0.38, 0.62, 0.86], "w": 1.3, "h": 1.3, "glass": "#4f5760", "frame": "#f0efe6", "recessed": true },
+    { "volume": "main", "facade": "front", "type": "window", "floor": 0, "cols": 3, "at": [0.14, 0.5, 0.86], "w": 1.3, "h": 1.3, "glass": "#4f5760", "frame": "#f0efe6", "recessed": true },
+    { "volume": "main", "facade": "front", "type": "door", "floor": 0, "at": [0.38], "w": 1.4, "h": 2.2, "glass": "#4f5760", "frame": "#cdbd93", "recessed": true },
+    { "volume": "wing", "facade": "front", "type": "window", "floor": 2, "cols": 2, "at": [0.3, 0.7], "w": 1.3, "h": 1.3, "glass": "#4f5760", "frame": "#f0efe6", "recessed": true },
+    { "volume": "wing", "facade": "front", "type": "window", "floor": 1, "cols": 2, "at": [0.3, 0.7], "w": 1.3, "h": 1.3, "glass": "#4f5760", "frame": "#f0efe6", "recessed": true },
+    { "volume": "wing", "facade": "front", "type": "door", "floor": 0, "at": [0.5], "w": 1.4, "h": 2.2, "glass": "#4f5760", "frame": "#cdbd93", "recessed": true }
+  ],
+  "terraces": [
+    { "onVolume": "main", "side": "front", "rail": { "type": "bars", "h": 1.0, "color": "#e4d9bd" } },
+    { "onVolume": "wing", "side": "front", "rail": { "type": "bars", "h": 1.0, "color": "#e4d9bd" } }
+  ],
+  "props": [
+    { "type": "ac", "volume": "main", "facade": "front", "floor": 1, "at": 0.55 },
+    { "type": "ac", "volume": "wing", "facade": "front", "floor": 1, "at": 0.55 }
+  ],
+  "frontage": {
+    "wall": { "type": "stone", "color": "#b7ac95", "mortar": "#c9c0ac", "h": 1.1 },
+    "gates": [],
+    "sidewalk": { "material": "stone-slabs", "color": "#c8a889", "joint": "#b5947a", "w": 3.0 },
+    "verge": { "grass": "#79a83f", "grassDark": "#5c6d3f" },
+    "road": { "surface": "asphalt", "color": "#8f9296" }
+  },
+  "sky": { "top": "#5ea2db", "horizon": "#9fcfe4", "cloud": "#f4f6f6" },
+  "notes": "Long cream 3-storey apartment block, stepped/setback massing (modelled as main + slightly recessed wing). Flat roofs with satellite dishes & antenna (props not expressible). Small red-tile gabled entrance canopies over doors (per-entrance pitched canopy not expressible -- noted). Balcony slabs with horizontal cream slat rails; windows with roll-shutters/grilles. Rubble stone frontage wall + metal railing, parking lot with cars. Colours sampled 2026-07-04."
+}

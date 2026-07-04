@@ -1,0 +1,26 @@
+{
+  "id": "406278370",
+  "refs": { "scene": "restyled/scene-fullworld/bld_406278370_pBWTjdF.png" },
+  "footprint": "obb",
+  "floorH": 3.0,
+  "volumes": [
+    { "name": "main", "x0": 0.0, "x1": 1.0, "z0": 0.0, "z1": 1.0, "floors": 2,
+      "wall": "#cdb98e",
+      "roof": { "form": "flat", "fascia": { "h": 0.55, "color": "#d6c295", "overhang": 0.3 } } }
+  ],
+  "openings": [
+    { "volume": "main", "facade": "front", "type": "window", "floor": 1, "cols": 3, "w": 1.4, "h": 1.2, "glass": "#454a50", "frame": "#dccaa0", "recessed": true },
+    { "volume": "main", "facade": "front", "type": "garage", "floor": 0, "at": [0.68], "w": 3.0, "h": 2.4, "glass": "#8f8a7f", "frame": "#bfa976", "recessed": true },
+    { "volume": "main", "facade": "front", "type": "window", "floor": 0, "at": [0.2, 0.42], "w": 1.4, "h": 1.3, "glass": "#454a50", "frame": "#dccaa0", "recessed": true }
+  ],
+  "terraces": [],
+  "props": [],
+  "frontage": {
+    "wall": { "type": "bars", "color": "#9a9ea2", "mortar": "#c4c7ca", "h": 1.5 },
+    "gates": [{ "kind": "pedestrian", "w": 1.4, "style": "bars", "color": "#9a9ea2" }],
+    "sidewalk": { "material": "stone-slabs", "color": "#d8d2c4", "joint": "#c2bcae", "w": 4.0 },
+    "verge": { "grass": "#7ba33f", "grassDark": "#586f3d" }
+  },
+  "sky": { "top": "#5ea2db", "horizon": "#9fcfe4", "cloud": "#f4f6f6" },
+  "notes": "Low tan/beige building (community or service block) behind a grey tubular-steel perimeter fence, with taller white apartment buildings behind (background, not the subject). Modelled as a 2-storey tan block with a flat roof, a wide garage/service door and windows. Frontage: grey metal bar fence and gate, pale stone-slab plaza, clipped low-poly ball trees, lawn, wheelie bin. Colours estimated from ref."
+}

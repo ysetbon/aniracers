@@ -1,0 +1,33 @@
+{
+  "id": "406278449",
+  "refs": { "scene": "restyled/scene-fullworld/bld_406278449_pFfE9PG.png" },
+  "footprint": "obb",
+  "floorH": 3.0,
+  "volumes": [
+    { "name": "main", "x0": 0.0, "x1": 1.0, "z0": 0.0, "z1": 1.0, "floors": 4,
+      "wall": "#e9e9e5",
+      "roof": { "form": "flat", "fascia": { "h": 0.55, "color": "#dedcd4", "overhang": 0.2 } } },
+    { "name": "penthouse", "x0": 0.15, "x1": 0.75, "z0": 0.25, "z1": 0.9, "floors": 1,
+      "wall": "#e4e4df",
+      "roof": { "form": "flat", "fascia": { "h": 0.5, "color": "#dedcd4", "overhang": 0.2 } } }
+  ],
+  "openings": [
+    { "volume": "main", "facade": "front", "type": "window", "floor": 3, "cols": 3, "at": [0.2, 0.5, 0.8], "w": 1.3, "h": 1.3, "glass": "#3a4048", "frame": "#e0e0da", "recessed": true },
+    { "volume": "main", "facade": "front", "type": "window", "floor": 2, "cols": 3, "at": [0.2, 0.5, 0.8], "w": 1.3, "h": 1.3, "glass": "#3a4048", "frame": "#e0e0da", "recessed": true },
+    { "volume": "main", "facade": "front", "type": "window", "floor": 1, "cols": 3, "at": [0.2, 0.5, 0.8], "w": 1.3, "h": 1.3, "glass": "#3a4048", "frame": "#e0e0da", "recessed": true },
+    { "volume": "main", "facade": "front", "type": "door", "floor": 0, "at": [0.5], "w": 1.5, "h": 2.3, "glass": "#33383f", "frame": "#d6d6cf", "recessed": true },
+    { "volume": "main", "facade": "front", "type": "window", "floor": 0, "cols": 2, "at": [0.2, 0.8], "w": 1.3, "h": 1.3, "glass": "#3a4048", "frame": "#e0e0da", "recessed": true },
+    { "volume": "penthouse", "facade": "front", "type": "window", "floor": 0, "cols": 2, "at": [0.35, 0.65], "w": 1.3, "h": 1.3, "glass": "#3a4048", "frame": "#e0e0da", "recessed": true }
+  ],
+  "terraces": [],
+  "props": [],
+  "frontage": {
+    "wall": { "type": "rubble", "color": "#c9b48a", "mortar": "#d7c6a0", "h": 1.7 },
+    "gates": [{ "kind": "pedestrian", "w": 1.2, "style": "bars", "color": "#c8c4bc" }],
+    "sidewalk": { "material": "stone-slabs", "color": "#b8b1a2", "joint": "#a49c8c", "w": 3.0 },
+    "verge": { "grass": "#6faa3f", "grassDark": "#4f7a34" },
+    "road": { "surface": "asphalt", "color": "#8f9296" }
+  },
+  "sky": { "top": "#5ea2db", "horizon": "#9fcfe4", "cloud": "#f4f6f6" },
+  "notes": "Large off-white apartment block (~4 storeys) with a set-back penthouse level, flat roofs. Dark windows with white frames. Front is heavily screened by cypress and palm trees plus a stone-rubble base wall topped with grey precast concrete fence panels and green wheelie dumpsters (trees/bins are environment props, omitted). Big footprint. Colours sampled from ref 2026-07-04."
+}

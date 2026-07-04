@@ -1,0 +1,32 @@
+{
+  "id": "556855994",
+  "refs": { "scene": "restyled/scene-fullworld/bld_556855994_pbyGHrz.png" },
+  "footprint": "obb",
+  "floorH": 3.0,
+  "volumes": [
+    { "name": "main", "x0": 0.0, "x1": 1.0, "z0": 0.0, "z1": 1.0, "floors": 2,
+      "wall": "#c9cac9",
+      "roof": { "form": "hip", "color": "#c1482d", "fascia": { "h": 0.3, "color": "#d8d8d6", "overhang": 0.4 } } }
+  ],
+  "openings": [
+    { "volume": "main", "facade": "front", "type": "window", "floor": 1, "cols": 2,
+      "at": [0.3, 0.7], "w": 1.1, "h": 1.3, "glass": "#7a8085", "frame": "#e0e0de", "recessed": true },
+    { "volume": "main", "facade": "front", "type": "door", "floor": 0,
+      "at": [0.35], "w": 1.1, "h": 2.2, "glass": "#4a3526", "frame": "#4a3526", "recessed": true },
+    { "volume": "main", "facade": "front", "type": "window", "floor": 0,
+      "at": [0.68], "w": 1.2, "h": 1.3, "glass": "#7a8085", "frame": "#e0e0de", "recessed": true }
+  ],
+  "terraces": [],
+  "props": [
+    { "type": "ac", "volume": "main", "facade": "front", "floor": 1, "at": 0.55 }
+  ],
+  "frontage": {
+    "wall": { "type": "rubble-stone", "color": "#c6c1b4", "mortar": "#aaa494", "h": 1.4 },
+    "gates": [{ "kind": "vehicle", "w": 4.5, "style": "slat-steel", "color": "#9c6b3f" },
+              { "kind": "pedestrian", "w": 1.1, "style": "slat-steel", "color": "#9c6b3f" }],
+    "sidewalk": { "material": "brick-pavers", "color": "#8f8a80", "joint": "#767166", "w": 4.0 },
+    "road": { "surface": "asphalt", "color": "#6f7276" }
+  },
+  "sky": { "top": "#5ea2db", "horizon": "#9fcfe4", "cloud": "#f4f6f6" },
+  "notes": "Two-storey light-grey (#c9cac9) house with a red (#c1482d) hipped tile roof and a small red-tile pitched entry canopy over the door. Grey-glass windows, wall AC units. Frontage: rubble-stone base wall (#c6c1b4) with a tan plaster upper section and a horizontal metal-and-timber slat sliding gate + matching pedestrian gate; grey brick-paver sidewalk with green recycle bins and a house-number plate. Occluded on the right by a large tree."
+}

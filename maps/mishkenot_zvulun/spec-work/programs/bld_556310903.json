@@ -1,0 +1,34 @@
+{
+  "id": "556310903",
+  "refs": { "scene": "restyled/scene-fullworld/bld_556310903_pggRs49.png", "iso": "restyled/iso/bld_556310903.png" },
+  "footprint": "obb",
+  "floorH": 3.0,
+  "volumes": [
+    { "name": "main", "x0": 0.0, "x1": 1.0, "z0": 0.0, "z1": 1.0, "floors": 4,
+      "wall": "#c2c4c6",
+      "roof": { "form": "flat", "fascia": { "h": 0.4, "color": "#b4b6b8", "overhang": 0.15 } } }
+  ],
+  "openings": [
+    { "volume": "main", "facade": "front", "type": "opening", "floor": 3,
+      "at": [0.18, 0.45, 0.78], "w": 1.6, "h": 1.7, "glass": "#3a3d42", "frame": "#b4b6b8", "recessed": true },
+    { "volume": "main", "facade": "front", "type": "opening", "floor": 2,
+      "at": [0.18, 0.45, 0.78], "w": 1.6, "h": 1.7, "glass": "#3a3d42", "frame": "#b4b6b8", "recessed": true },
+    { "volume": "main", "facade": "front", "type": "opening", "floor": 1,
+      "at": [0.18, 0.45, 0.78], "w": 1.6, "h": 1.7, "glass": "#3a3d42", "frame": "#b4b6b8", "recessed": true },
+    { "volume": "main", "facade": "front", "type": "opening", "floor": 0,
+      "at": [0.45, 0.78], "w": 1.8, "h": 2.3, "glass": "#2f3236", "frame": "#b4b6b8", "recessed": true }
+  ],
+  "terraces": [
+    { "onVolume": "main", "side": "front",
+      "rail": { "type": "bars", "h": 0.9, "color": "#b0b2b4" } }
+  ],
+  "props": [],
+  "frontage": {
+    "wall": { "type": "mesh", "color": "#9a9c9e", "h": 1.8 },
+    "sidewalk": { "material": "dirt", "color": "#b07a45", "joint": "#96683a", "w": 4.0 },
+    "verge": { "grass": "#b07a45", "grassDark": "#96683a" },
+    "road": { "surface": "dirt", "color": "#b07a45" }
+  },
+  "sky": { "top": "#4a9fe0", "horizon": "#a9d4ea", "cloud": "#f4f6f6" },
+  "notes": "Real building UNDER CONSTRUCTION: bare grey reinforced-concrete frame, ~4 storeys, no finished walls yet. Open floor slabs, columns and unglazed window/door openings (modelled type 'opening', dark voids, no glazing). Cantilevered balcony slabs with temporary rail. Yellow concrete-pump hose, timber formwork, cement/aggregate bags and cinder-block stacks on the raw earth site; mesh site fence. Colours sampled from ref 2026-07-04."
+}

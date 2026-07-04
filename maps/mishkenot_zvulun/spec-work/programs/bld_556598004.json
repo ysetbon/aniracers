@@ -1,0 +1,29 @@
+{
+  "id": "556598004",
+  "refs": { "scene": "restyled/scene-fullworld/bld_556598004_piBXQmr.png" },
+  "footprint": "obb",
+  "floorH": 3.0,
+  "volumes": [
+    { "name": "main", "x0": 0.0, "x1": 1.0, "z0": 0.0, "z1": 1.0, "floors": 2,
+      "wall": "#e6dcc2",
+      "roof": { "form": "flat", "fascia": { "h": 0.45, "color": "#ded3b8", "overhang": 0.2 } } }
+  ],
+  "openings": [
+    { "volume": "main", "facade": "front", "type": "window", "floor": 1, "cols": 2, "at": [0.2, 0.4], "w": 1.2, "h": 1.4, "glass": "#3a3d40", "frame": "#f0ece0", "recessed": true, "bars": true },
+    { "volume": "main", "facade": "front", "type": "window", "floor": 0, "at": [0.3], "w": 1.0, "h": 1.2, "glass": "#3a3d40", "frame": "#f0ece0", "recessed": true, "bars": true },
+    { "volume": "main", "facade": "front", "type": "door", "floor": 0, "at": [0.55], "w": 1.3, "h": 2.2, "glass": "#4a4038", "frame": "#cabf9e", "recessed": true }
+  ],
+  "terraces": [
+    { "onVolume": "main", "side": "front",
+      "parapet": { "h": 0.4, "color": "#d8ccb0" } }
+  ],
+  "props": [],
+  "frontage": {
+    "wall": { "type": "tile", "color": "#c9a06a", "mortar": "#d8b98a", "h": 1.3 },
+    "gates": [{ "kind": "pedestrian", "w": 1.1, "style": "glass", "color": "#dde0e0" }],
+    "sidewalk": { "material": "stone-slabs", "color": "#bfc0bd", "joint": "#a5a6a2", "w": 3.0 },
+    "road": { "surface": "asphalt", "color": "#7f8286" }
+  },
+  "sky": { "top": "#5ea2db", "horizon": "#9fcfe4", "cloud": "#f4f6f6" },
+  "notes": "Cream-render two-storey villa, flat roof, with a flat entry-porch slab over the ground-floor door (encoded as a front parapet). Paired upper windows and a small ground window sit behind dark decorative security grilles in white frames. Frontage is a checkerboard tan/orange tile base wall topped by a white metal picket fence and frosted-glass gate panels carrying a blue Hebrew warning notice. Silvery low-poly bushes, palms and cypress; grey stone-slab sidewalk, red-tile-roofed neighbour beyond. Colours sampled from ref 2026-07-04."
+}

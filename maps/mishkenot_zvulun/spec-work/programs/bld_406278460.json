@@ -1,0 +1,33 @@
+{
+  "id": "406278460",
+  "refs": { "scene": "restyled/scene-fullworld/bld_406278460_p9gX9Q5.png" },
+  "footprint": "obb",
+  "floorH": 3.0,
+  "volumes": [
+    { "name": "main", "x0": 0.0, "x1": 1.0, "z0": 0.0, "z1": 1.0, "floors": 6,
+      "wall": "#cdbb92",
+      "roof": { "form": "flat", "fascia": { "h": 0.7, "color": "#c2b087", "overhang": 0.25 } } }
+  ],
+  "openings": [
+    { "volume": "main", "facade": "front", "type": "window", "floor": 5, "cols": 3, "at": [0.2, 0.5, 0.8], "w": 1.4, "h": 1.4, "glass": "#33383e", "frame": "#c6b489", "recessed": true },
+    { "volume": "main", "facade": "front", "type": "window", "floor": 4, "cols": 3, "at": [0.2, 0.5, 0.8], "w": 1.4, "h": 1.4, "glass": "#33383e", "frame": "#c6b489", "recessed": true },
+    { "volume": "main", "facade": "front", "type": "window", "floor": 3, "cols": 3, "at": [0.2, 0.5, 0.8], "w": 1.4, "h": 1.4, "glass": "#33383e", "frame": "#c6b489", "recessed": true },
+    { "volume": "main", "facade": "front", "type": "window", "floor": 2, "cols": 3, "at": [0.2, 0.5, 0.8], "w": 1.4, "h": 1.4, "glass": "#33383e", "frame": "#c6b489", "recessed": true },
+    { "volume": "main", "facade": "front", "type": "window", "floor": 1, "cols": 3, "at": [0.2, 0.5, 0.8], "w": 1.4, "h": 1.4, "glass": "#33383e", "frame": "#c6b489", "recessed": true },
+    { "volume": "main", "facade": "front", "type": "opening", "floor": 0, "cols": 3, "at": [0.2, 0.5, 0.8], "w": 2.0, "h": 2.6, "glass": "#2a2620", "frame": "#b8a679", "recessed": true }
+  ],
+  "terraces": [
+    { "onVolume": "main", "side": "front", "floor": 5, "parapet": { "h": 0.4, "color": "#cdbb92" }, "rail": { "type": "glass", "h": 0.9, "color": "#9fb0b8" } },
+    { "onVolume": "main", "side": "front", "floor": 4, "parapet": { "h": 0.4, "color": "#cdbb92" }, "rail": { "type": "glass", "h": 0.9, "color": "#9fb0b8" } },
+    { "onVolume": "main", "side": "front", "floor": 3, "parapet": { "h": 0.4, "color": "#cdbb92" }, "rail": { "type": "glass", "h": 0.9, "color": "#9fb0b8" } },
+    { "onVolume": "main", "side": "front", "floor": 2, "parapet": { "h": 0.4, "color": "#cdbb92" }, "rail": { "type": "glass", "h": 0.9, "color": "#9fb0b8" } }
+  ],
+  "props": [],
+  "frontage": {
+    "wall": { "type": "block", "color": "#d8c69b", "mortar": "#c6b488", "h": 1.0 },
+    "sidewalk": { "material": "dirt", "color": "#c9a86f", "w": 4.0 },
+    "road": { "surface": "dirt", "color": "#c2a068" }
+  },
+  "sky": { "top": "#5ea2db", "horizon": "#9fcfe4", "cloud": "#f4f6f6" },
+  "notes": "Tall sandstone-ashlar apartment tower (~6 storeys), still under construction. Upper floors have projecting balconies with clear glass balustrades on the right half of the facade; ground floor is a deep recessed columned loggia (tall dark openings between piers). Flat roof. Sandstone block coursing shown via ashlar-toned wall. Frontage is raw building site: bare sand/earth, a low sandstone block wall, scaffolding, rubble sacks and bricks (all construction props are environment, omitted). Colours sampled from ref 2026-07-04."
+}

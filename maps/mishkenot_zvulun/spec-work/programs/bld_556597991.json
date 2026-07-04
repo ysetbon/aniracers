@@ -1,0 +1,25 @@
+{
+  "id": "556597991",
+  "refs": { "scene": "restyled/scene-fullworld/bld_556597991_p2q2xfO.png" },
+  "footprint": "obb",
+  "floorH": 3.0,
+  "volumes": [
+    { "name": "main", "x0": 0.0, "x1": 1.0, "z0": 0.0, "z1": 1.0, "floors": 2,
+      "wall": "#c2a49b",
+      "roof": { "form": "hip", "color": "#5c3a38", "fascia": { "h": 0.35, "color": "#c9aca3", "overhang": 0.4 } } }
+  ],
+  "openings": [
+    { "volume": "main", "facade": "front", "type": "window", "floor": 1, "cols": 2, "at": [0.3, 0.7], "w": 1.1, "h": 1.2, "glass": "#3f4450", "frame": "#efe9e2", "recessed": true },
+    { "volume": "main", "facade": "front", "type": "window", "floor": 0, "cols": 2, "at": [0.3, 0.7], "w": 1.1, "h": 1.2, "glass": "#3f4450", "frame": "#efe9e2", "recessed": true }
+  ],
+  "terraces": [],
+  "props": [],
+  "frontage": {
+    "wall": { "type": "block", "color": "#ddd3bd", "mortar": "#c8bda6", "h": 1.9 },
+    "gates": [{ "kind": "pedestrian", "w": 1.1, "style": "ornate-arch", "color": "#2a2926" }],
+    "sidewalk": { "material": "brick-pavers", "color": "#a45c3c", "joint": "#8d4e33", "w": 3.5 },
+    "road": { "surface": "asphalt", "color": "#7f8286" }
+  },
+  "sky": { "top": "#5ea2db", "horizon": "#9fcfe4", "cloud": "#f4f6f6" },
+  "notes": "Corner two-storey house almost entirely occluded by a large low-poly hedge. Visible upper block has dusty mauve-tan render and a dark maroon hipped roof with small white-framed windows. Massing and openings are plausible reconstructions behind the hedge. Cream block compound wall with an ornate black pedestrian gate, red brick-paver corner plaza. Colours sampled from ref 2026-07-04."
+}

@@ -1,0 +1,30 @@
+{
+  "id": "557798992",
+  "refs": { "scene": "restyled/scene-fullworld/bld_557798992_p07mQzT.png" },
+  "footprint": "obb",
+  "floorH": 3.0,
+  "volumes": [
+    { "name": "main", "x0": 0.0, "x1": 1.0, "z0": 0.0, "z1": 1.0, "floors": 2,
+      "wall": "#b39280",
+      "roof": { "form": "flat", "color": "#aca37f", "fascia": { "h": 0.55, "color": "#b8a086", "overhang": 0.3 } } }
+  ],
+  "openings": [
+    { "volume": "main", "facade": "front", "type": "window", "floor": 1,
+      "at": [0.3, 0.62], "w": 1.5, "h": 1.3, "glass": "#5a5768", "frame": "#aca37f", "recessed": true },
+    { "volume": "main", "facade": "front", "type": "door", "floor": 0,
+      "at": [0.3], "w": 1.5, "h": 2.3, "glass": "#5a5768", "frame": "#9d9683", "recessed": true },
+    { "volume": "main", "facade": "front", "type": "window", "floor": 0,
+      "at": [0.65], "w": 1.5, "h": 1.4, "glass": "#5a5768", "frame": "#aca37f", "recessed": true }
+  ],
+  "terraces": [],
+  "props": [],
+  "frontage": {
+    "wall": { "type": "stone-brick", "color": "#b39280", "mortar": "#9d9683", "h": 1.4 },
+    "gates": [{ "kind": "pedestrian", "w": 1.2, "style": "bars", "color": "#787e7e" }],
+    "sidewalk": { "material": "brick", "color": "#c8746a", "joint": "#a6605a", "w": 3.5 },
+    "verge": { "grass": "#367944", "grassDark": "#153c2c" },
+    "road": { "surface": "asphalt", "color": "#5b5a6a" }
+  },
+  "sky": { "top": "#42a6ff", "horizon": "#63bafe", "cloud": "#f4f6f6" },
+  "notes": "Small single/two-storey public building (kindergarten - gan), sandy render/stone (#b39280) with a flat roof; a rounded tan public block sits behind (background). The lot is fenced with a grey tube railing (#787e7e) around a playground - dark green shade canopy, blue play-house with red roof, red slide and coloured bins - none of which are encodable and are omitted. Building facade largely occluded; openings are plausible. Frontage: sandy stone-brick wall (#b39280) and a red-brick sidewalk (#c8746a) with green + pink wheelie bins and street trees (not encoded). Colours sampled from 12x9 grid 2026-07-04."
+}

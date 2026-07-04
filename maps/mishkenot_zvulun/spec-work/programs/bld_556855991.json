@@ -1,0 +1,29 @@
+{
+  "id": "556855991",
+  "refs": { "scene": "restyled/scene-fullworld/bld_556855991_p9xRLgg.png" },
+  "footprint": "obb",
+  "floorH": 3.0,
+  "volumes": [
+    { "name": "main", "x0": 0.0, "x1": 1.0, "z0": 0.0, "z1": 1.0, "floors": 2,
+      "wall": "#e7dcc9",
+      "roof": { "form": "hip", "color": "#c34a2f", "fascia": { "h": 0.3, "color": "#ddd1bc", "overhang": 0.4 } } }
+  ],
+  "openings": [
+    { "volume": "main", "facade": "front", "type": "window", "floor": 1, "cols": 2,
+      "at": [0.3, 0.7], "w": 1.2, "h": 1.3, "glass": "#7a8085", "frame": "#e2d8c4", "recessed": true },
+    { "volume": "main", "facade": "front", "type": "window", "floor": 0, "cols": 2,
+      "at": [0.3, 0.7], "w": 1.2, "h": 1.4, "glass": "#7a8085", "frame": "#e2d8c4", "recessed": true }
+  ],
+  "terraces": [],
+  "props": [
+    { "type": "ac", "volume": "main", "facade": "left", "floor": 0, "at": 0.3 }
+  ],
+  "frontage": {
+    "wall": { "type": "stone-block", "color": "#cfc7b4", "mortar": "#b6ae9a", "h": 1.6 },
+    "gates": [{ "kind": "vehicle", "w": 3.5, "style": "ornate-scroll", "color": "#4a4a4a" }],
+    "sidewalk": { "material": "stone-cobble", "color": "#b0aca4", "joint": "#928d84", "w": 4.0 },
+    "road": { "surface": "asphalt", "color": "#7d8084" }
+  },
+  "sky": { "top": "#5ea2db", "horizon": "#9fcfe4", "cloud": "#f4f6f6" },
+  "notes": "Small two-storey cream (#e7dcc9) house with a red (#c34a2f) hipped tile roof. Grey-glass windows with cream frames, side wall AC unit. Frontage: light stone-block boundary wall (#cfc7b4) with an ornate scroll wrought-iron gate/grille (dark #4a4a4a) and brown-timber slat fence sections alongside; grey cobble plaza. One of a row of near-identical red-roof houses."
+}

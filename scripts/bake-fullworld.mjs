@@ -169,13 +169,16 @@ console.log(`[${W.name}] v4: ${sceneRoads.length} roads in region`);
 
 // Keep aerial trees in-region and out of the roadway/kerb (island grass + parked-car strips
 // read as canopy from above). Done in node where nearestRoad + half-widths are available.
-const AERIAL_TREES = TREES.filter(t => {
+let AERIAL_TREES = TREES.filter(t => {
   if (!inRegion(t.x, t.z)) return false;
   const r = nearestRoad(t.x, t.z);
   const scR = sceneRoads.find(x => x.id === r.id);
   return r.d >= ((scR ? scR.halfW : 3.2) + 0.6);
 });
-console.log(`[${W.name}] v4: aerial trees ${AERIAL_TREES.length} kept (in region, off-road)`);
+// perf cap for the full hood: keep the biggest canopies (largest area first) up to --treecap
+const TREECAP = +arg('treecap', '1600');
+if (AERIAL_TREES.length > TREECAP) AERIAL_TREES = AERIAL_TREES.slice().sort((a, b) => b.area - a.area).slice(0, TREECAP);
+console.log(`[${W.name}] v4: aerial trees ${AERIAL_TREES.length} kept (in region, off-road, cap ${TREECAP})`);
 
 const PAGE = String.raw`<!doctype html><html><head><meta charset=utf8></head><body>
 <script src="/three.min.js"></script>

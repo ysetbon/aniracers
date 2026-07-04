@@ -1,0 +1,35 @@
+{
+  "id": "556855986",
+  "refs": { "scene": "restyled/scene-fullworld/bld_556855986_pbyGHrz.png" },
+  "footprint": "obb",
+  "floorH": 3.0,
+  "volumes": [
+    { "name": "main", "x0": 0.32, "x1": 1.0, "z0": 0.0, "z1": 1.0, "floors": 2,
+      "wall": "#e7dfc4",
+      "roof": { "form": "flat", "fascia": { "h": 0.55, "color": "#efe8ce", "overhang": 0.3 } } },
+    { "name": "stair", "x0": 0.0, "x1": 0.32, "z0": 0.0, "z1": 1.0, "floors": 2,
+      "wall": "#e7dfc4",
+      "roof": { "form": "flat", "fascia": { "h": 1.0, "color": "#efe8ce", "overhang": 0.25 } } }
+  ],
+  "openings": [
+    { "volume": "main", "facade": "front", "type": "window", "floor": 1,
+      "at": [0.25, 0.45], "w": 0.9, "h": 1.0, "glass": "#26292b", "frame": "#3a382f", "recessed": true },
+    { "volume": "main", "facade": "front", "type": "door", "floor": 0,
+      "at": [0.3], "w": 1.1, "h": 2.2, "glass": "#3a2a1e", "frame": "#4a3526", "recessed": true },
+    { "volume": "main", "facade": "front", "type": "window", "floor": 0,
+      "at": [0.7], "w": 1.2, "h": 1.2, "glass": "#26292b", "frame": "#3a382f", "recessed": true },
+    { "volume": "stair", "facade": "front", "type": "window", "floor": 1,
+      "at": [0.5], "w": 0.8, "h": 1.0, "glass": "#26292b", "frame": "#3a382f", "recessed": true }
+  ],
+  "terraces": [],
+  "props": [],
+  "frontage": {
+    "wall": { "type": "brick", "color": "#ddc99a", "mortar": "#cbb488", "h": 1.4 },
+    "gates": [{ "kind": "vehicle", "w": 5.0, "style": "steel-panel", "color": "#b9bcc0" },
+              { "kind": "pedestrian", "w": 1.1, "style": "steel-panel", "color": "#b9bcc0" }],
+    "sidewalk": { "material": "brick-pavers", "color": "#b5623f", "joint": "#9a5236", "w": 4.0 },
+    "road": { "surface": "asphalt", "color": "#7d8084" }
+  },
+  "sky": { "top": "#5ea2db", "horizon": "#9fcfe4", "cloud": "#f4f6f6" },
+  "notes": "Two-storey cream (#e7dfc4) villa, flat roof; left stair block parapet steps slightly higher (taller fascia). Small dark square windows upper floor, brown door + window ground. Frontage: cream block wall with brushed stainless-steel sliding vehicle gate + matching pedestrian gate and glass-panel fence sections; red brick-paver sidewalk. Tall palms and cypress + a big round shrub occlude much of the front-right (neighbour house on right is a separate building)."
+}

@@ -1,0 +1,29 @@
+{
+  "id": "383409993",
+  "refs": { "scene": "restyled/scene-fullworld/bld_383409993_p3Uek1z.png" },
+  "footprint": "obb",
+  "floorH": 3.0,
+  "volumes": [
+    { "name": "main", "x0": 0.0, "x1": 1.0, "z0": 0.0, "z1": 1.0, "floors": 5,
+      "wall": "#6f9b83",
+      "bands": [
+        { "floor": 1, "y0": 0.0, "y1": 1.0, "x0": 0.35, "x1": 0.75, "color": "#dfe3df", "style": "solid" },
+        { "floor": 3, "y0": 0.0, "y1": 1.0, "x0": 0.0, "x1": 0.4, "color": "#dfe3df", "style": "solid" }
+      ],
+      "roof": { "form": "flat", "fascia": { "h": 0.5, "color": "#dfe3df", "overhang": 0.2 } } }
+  ],
+  "openings": [
+    { "volume": "main", "facade": "front", "type": "window", "floor": 4, "cols": 2, "at": [0.35, 0.72], "w": 1.2, "h": 1.3, "glass": "#7c8785", "frame": "#d7dbd7", "recessed": true },
+    { "volume": "main", "facade": "front", "type": "window", "floor": 3, "cols": 2, "at": [0.35, 0.72], "w": 1.2, "h": 1.3, "glass": "#7c8785", "frame": "#d7dbd7", "recessed": true },
+    { "volume": "main", "facade": "front", "type": "window", "floor": 2, "cols": 2, "at": [0.35, 0.72], "w": 1.2, "h": 1.3, "glass": "#7c8785", "frame": "#d7dbd7", "recessed": true },
+    { "volume": "main", "facade": "front", "type": "door", "floor": 0, "cols": 2, "at": [0.3, 0.7], "w": 1.1, "h": 2.2, "glass": "#7c8785", "frame": "#8f9391", "recessed": true }
+  ],
+  "terraces": [],
+  "props": [],
+  "frontage": {
+    "sidewalk": { "material": "stone-slabs", "color": "#c9c8c2", "joint": "#b0afa8", "w": 3.0 },
+    "verge": { "grass": "#7fb84a", "grassDark": "#586a44" }
+  },
+  "sky": { "top": "#5ea2db", "horizon": "#9fcfe4", "cloud": "#f4f6f6" },
+  "notes": "Teal-green and white patchwork residential block (~5 storeys), same family as neighbouring green blocks. Green wall with off-white panels (approximated as white solid bands); windows and a wall-mounted AC unit visible; grey entrance doors at the base. Flat roof. Heavily occluded in the ref by large low-poly shrubs and a bare fruit tree; front is open paving with wheelie bins. Colours eyeballed from ref."
+}

@@ -1,0 +1,33 @@
+{
+  "id": "556855959",
+  "refs": { "scene": "restyled/scene-fullworld/bld_556855959_psuiUbL.png" },
+  "footprint": "obb",
+  "floorH": 3.0,
+  "volumes": [
+    { "name": "wing", "x0": 0.0, "x1": 0.34, "z0": 0.1, "z1": 1.0, "floors": 2,
+      "wall": "#e6decb",
+      "roof": { "form": "flat", "fascia": { "h": 0.5, "color": "#dad0bc", "overhang": 0.25 } } },
+    { "name": "main", "x0": 0.34, "x1": 1.0, "z0": 0.0, "z1": 1.0, "floors": 2,
+      "wall": "#efeee7",
+      "roof": { "form": "gable", "color": "#c85f37", "fascia": { "h": 0.35, "color": "#a84e2c", "overhang": 0.4 } } }
+  ],
+  "openings": [
+    { "volume": "main", "facade": "front", "type": "window", "floor": 1, "cols": 3, "at": [0.25, 0.5, 0.75], "w": 0.7, "h": 1.1, "glass": "#3f4a52", "frame": "#d8d2c4", "recessed": true },
+    { "volume": "main", "facade": "front", "type": "door", "floor": 0, "at": [0.28], "w": 1.3, "h": 2.2, "glass": "#4a4438", "frame": "#5a5248", "recessed": true },
+    { "volume": "wing", "facade": "front", "type": "window", "floor": 0, "at": [0.5], "w": 1.1, "h": 1.2, "glass": "#c6cdd2", "frame": "#e6decb", "recessed": true }
+  ],
+  "terraces": [],
+  "props": [
+    { "type": "ac", "volume": "main", "facade": "front", "floor": 0, "at": 0.4 },
+    { "type": "solar-panel", "volume": "main", "side": "top", "at": 0.5 }
+  ],
+  "frontage": {
+    "wall": { "type": "stucco", "color": "#e6c6c6", "mortar": "#d0b0b0", "h": 1.6 },
+    "gates": [{ "kind": "vehicle", "w": 4.5, "style": "bars", "color": "#3a3630" }],
+    "sidewalk": { "material": "colour-pavers", "color": "#b89a86", "joint": "#8f7462", "w": 3.5 },
+    "verge": { "grass": "#4f8a34", "grassDark": "#3e6d2a" },
+    "road": { "surface": "asphalt", "color": "#8b8e92" }
+  },
+  "sky": { "top": "#4f97d8", "horizon": "#9fcfe4", "cloud": "#f4f6f6" },
+  "notes": "Two-storey private house. Left flat-roofed cream wing joined to a white main block under an orange terracotta gable roof carrying solar panels and skylights. Ground floor has a dark diagonal-slat garage/utility door and an AC unit; upper floor a row of narrow windows. Pinkish stucco compound wall with a dark barred vehicle gate; cars in the driveway. Sampled from ref 2026-07-04."
+}

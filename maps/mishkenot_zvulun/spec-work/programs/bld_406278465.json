@@ -1,0 +1,32 @@
+{
+  "id": "406278465",
+  "refs": { "scene": "restyled/scene-fullworld/bld_406278465_pBWTjdF.png" },
+  "footprint": "obb",
+  "floorH": 3.0,
+  "volumes": [
+    { "name": "main", "x0": 0.0, "x1": 0.65, "z0": 0.0, "z1": 1.0, "floors": 2,
+      "wall": "#e4d9bd",
+      "roof": { "form": "flat", "fascia": { "h": 0.5, "color": "#d8ccae", "overhang": 0.2 } } },
+    { "name": "bay", "x0": 0.65, "x1": 1.0, "z0": 0.0, "z1": 0.85, "floors": 2,
+      "wall": "#dccfaf",
+      "roof": { "form": "flat", "fascia": { "h": 0.5, "color": "#d8ccae", "overhang": 0.2 } } }
+  ],
+  "openings": [
+    { "volume": "main", "facade": "front", "type": "window", "floor": 1, "cols": 2, "at": [0.3, 0.7], "w": 1.3, "h": 1.6, "glass": "#8a8a80", "frame": "#e0d5b9", "recessed": true },
+    { "volume": "main", "facade": "front", "type": "window", "floor": 0, "cols": 2, "at": [0.3, 0.7], "w": 1.2, "h": 1.2, "glass": "#5a5a52", "frame": "#e0d5b9", "recessed": true },
+    { "volume": "bay", "facade": "front", "type": "window", "floor": 1, "at": [0.5], "w": 1.4, "h": 1.6, "glass": "#8a8a80", "frame": "#e0d5b9", "recessed": true },
+    { "volume": "bay", "facade": "front", "type": "door", "floor": 0, "at": [0.5], "w": 1.4, "h": 2.3, "glass": "#4a4a44", "frame": "#d4c8ac", "recessed": true }
+  ],
+  "terraces": [
+    { "onVolume": "bay", "side": "front", "floor": 1, "parapet": { "h": 0.5, "color": "#dccfaf" }, "rail": { "type": "bars", "h": 0.5, "color": "#8a8a80" } }
+  ],
+  "props": [],
+  "frontage": {
+    "wall": { "type": "block", "color": "#cdae76", "mortar": "#b9985f", "h": 1.5 },
+    "gates": [{ "kind": "vehicle", "w": 4.5, "style": "bars", "color": "#b7b9b5" }],
+    "sidewalk": { "material": "brick", "color": "#a85e3c", "joint": "#8a4a2e", "w": 3.0 },
+    "road": { "surface": "brick", "color": "#a85e3c" }
+  },
+  "sky": { "top": "#5ea2db", "horizon": "#9fcfe4", "cloud": "#f4f6f6" },
+  "notes": "Modern cream/sand cubist villa, 2 storeys, flat roofs, angular stepped massing (main block plus a projecting front bay). Tall grey-louvered window slots, recessed dark entrance, a small upper-floor balcony with a low metal rail on the bay. Frontage: cream plaster + tan patterned-brick banded compound wall with a metal bar vehicle gate; red-brick paved street. Colours sampled from ref 2026-07-04."
+}

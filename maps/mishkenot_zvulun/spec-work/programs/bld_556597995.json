@@ -1,0 +1,26 @@
+{
+  "id": "556597995",
+  "refs": { "scene": "restyled/scene-fullworld/bld_556597995_pbjCj6z.png" },
+  "footprint": "obb",
+  "floorH": 3.0,
+  "volumes": [
+    { "name": "main", "x0": 0.0, "x1": 1.0, "z0": 0.0, "z1": 1.0, "floors": 2,
+      "wall": "#e8e8e4",
+      "roof": { "form": "flat", "fascia": { "h": 0.45, "color": "#e0e0da", "overhang": 0.15 } } }
+  ],
+  "openings": [
+    { "volume": "main", "facade": "front", "type": "window", "floor": 1, "cols": 2, "at": [0.25, 0.6], "w": 1.0, "h": 1.1, "glass": "#3a3d40", "frame": "#8a6a44", "recessed": true },
+    { "volume": "main", "facade": "front", "type": "door", "floor": 0, "at": [0.35], "w": 1.2, "h": 2.2, "glass": "#6e4a2c", "frame": "#8a6a44", "recessed": true },
+    { "volume": "main", "facade": "front", "type": "window", "floor": 0, "at": [0.7], "w": 1.0, "h": 1.1, "glass": "#3a3d40", "frame": "#8a6a44", "recessed": true }
+  ],
+  "terraces": [],
+  "props": [],
+  "frontage": {
+    "wall": { "type": "brick", "color": "#dad9d2", "mortar": "#c6c5bd", "h": 1.6 },
+    "gates": [{ "kind": "pedestrian", "w": 1.2, "style": "ornate-arch", "color": "#262524" }],
+    "sidewalk": { "material": "brick-pavers", "color": "#b25f3c", "joint": "#9a5236", "w": 3.0 },
+    "road": { "surface": "asphalt", "color": "#7f8286" }
+  },
+  "sky": { "top": "#5ea2db", "horizon": "#9fcfe4", "cloud": "#f4f6f6" },
+  "notes": "Row of white cubic modernist flat-roofed houses. Small square windows deeply recessed with brown wood frames; brown entry doors. White brick / block compound wall with an ornate black iron pedestrian gate. Palms, cypress, agave and large round hedges in the yard; red brick-paver path. Colours sampled from ref 2026-07-04."
+}

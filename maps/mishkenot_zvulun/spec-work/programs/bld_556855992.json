@@ -1,0 +1,29 @@
+{
+  "id": "556855992",
+  "refs": { "scene": "restyled/scene-fullworld/bld_556855992_pmwGtps.png" },
+  "footprint": "obb",
+  "floorH": 3.0,
+  "volumes": [
+    { "name": "main", "x0": 0.0, "x1": 1.0, "z0": 0.0, "z1": 1.0, "floors": 2,
+      "wall": "#ecebe4",
+      "roof": { "form": "hip", "color": "#bf4a30", "fascia": { "h": 0.3, "color": "#e2dfd6", "overhang": 0.4 } } }
+  ],
+  "openings": [
+    { "volume": "main", "facade": "front", "type": "window", "floor": 1, "cols": 2,
+      "at": [0.35, 0.62], "w": 1.0, "h": 1.3, "glass": "#2f3336", "frame": "#e2dfd6", "recessed": true },
+    { "volume": "main", "facade": "front", "type": "garage", "floor": 0,
+      "at": [0.35], "w": 2.6, "h": 2.2, "glass": "#8a8880", "frame": "#cfccc3", "recessed": true },
+    { "volume": "main", "facade": "front", "type": "window", "floor": 0,
+      "at": [0.72], "w": 1.1, "h": 1.3, "glass": "#2f3336", "frame": "#e2dfd6", "recessed": true }
+  ],
+  "terraces": [],
+  "props": [],
+  "frontage": {
+    "wall": { "type": "block-course", "color": "#cabfa3", "mortar": "#b3a988", "h": 1.7 },
+    "gates": [{ "kind": "pedestrian", "w": 1.1, "style": "ornate-bars", "color": "#3a3a3a" }],
+    "sidewalk": { "material": "brick-pavers", "color": "#9a938a", "joint": "#807a71", "w": 4.0 },
+    "road": { "surface": "asphalt", "color": "#7d8084" }
+  },
+  "sky": { "top": "#5ea2db", "horizon": "#9fcfe4", "cloud": "#f4f6f6" },
+  "notes": "Two-storey white (#ecebe4) villa with a red (#bf4a30) hipped tile roof, gable dormer over the entry bay. Dark windows with white frames, ground-floor garage. Frontage: tan horizontally-coursed block wall (#cabfa3) with a dark ornate wrought-iron pedestrian gate and clipped hedge; grey brick-paver sidewalk, asphalt road with red-white curb and parked cars. Part of a row of near-identical red-roof villas."
+}

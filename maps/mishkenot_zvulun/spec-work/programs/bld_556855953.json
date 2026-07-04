@@ -1,0 +1,31 @@
+{
+  "id": "556855953",
+  "refs": { "scene": "restyled/scene-fullworld/bld_556855953_pcCH4Gz.png", "iso": "restyled/iso/bld_556855953.png" },
+  "footprint": "obb",
+  "floorH": 3.0,
+  "volumes": [
+    { "name": "main", "x0": 0.0, "x1": 0.75, "z0": 0.0, "z1": 1.0, "floors": 2,
+      "wall": "#ededdf",
+      "roof": { "form": "hip", "color": "#c85e34", "fascia": { "h": 0.4, "color": "#ededdf", "overhang": 0.4 } } },
+    { "name": "wing", "x0": 0.75, "x1": 1.0, "z0": 0.2, "z1": 1.0, "floors": 1,
+      "wall": "#e6e2d4",
+      "roof": { "form": "hip", "color": "#c85e34", "fascia": { "h": 0.35, "color": "#e6e2d4", "overhang": 0.4 } } }
+  ],
+  "openings": [
+    { "volume": "main", "facade": "front", "type": "window", "floor": 1, "cols": 3, "at": [0.28, 0.5, 0.72], "w": 1.0, "h": 1.1, "glass": "#586066", "frame": "#f2efe6", "recessed": true },
+    { "volume": "main", "facade": "front", "type": "door", "floor": 0, "at": [0.55], "w": 1.6, "h": 2.4, "glass": "#3a4650", "frame": "#e0dccf", "recessed": true },
+    { "volume": "main", "facade": "front", "type": "window", "floor": 0, "at": [0.3], "w": 1.2, "h": 1.2, "glass": "#586066", "frame": "#f2efe6", "recessed": true }
+  ],
+  "terraces": [],
+  "props": [],
+  "frontage": {
+    "wall": { "type": "block-mixed", "color": "#b6a884", "mortar": "#8a8072", "h": 1.7 },
+    "gates": [{ "kind": "vehicle", "w": 4.0, "style": "ornate-arch", "color": "#9a9c94" },
+              { "kind": "pedestrian", "w": 1.0, "style": "panel", "color": "#b8b4aa" }],
+    "sidewalk": { "material": "stone-slabs", "color": "#b8a884", "joint": "#968872", "w": 3.5 },
+    "verge": { "grass": "#5db63f", "grassDark": "#437c34" },
+    "road": { "surface": "asphalt", "color": "#8f9296" }
+  },
+  "sky": { "top": "#5ea2db", "horizon": "#9fcfe4", "cloud": "#f4f6f6" },
+  "notes": "Corner-lot two-storey white/cream house (#ededdf) with orange terracotta hip roof (#c85e34), rooftop solar panels and skylights. Row of upper windows, some with diamond-pattern grilles; a dark-blue double entrance door. A lower single-storey right wing under its own terracotta hip roof. Frontage is a multi-colour concrete-block wall (brown/tan/grey banded, #b6a884) with a grey ornate arched metal vehicle gate and a grey panel pedestrian door; blue and red cars in the driveway, planters and a green bin, red-white kerb wrapping the corner. Sampled colours 2026-07-04."
+}

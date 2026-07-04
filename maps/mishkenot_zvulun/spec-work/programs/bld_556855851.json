@@ -1,0 +1,33 @@
+{
+  "id": "556855851",
+  "refs": { "scene": "restyled/scene-fullworld/bld_556855851_pEH4Uir.png", "iso": "restyled/iso/bld_556855851.png" },
+  "footprint": "obb",
+  "floorH": 3.0,
+  "volumes": [
+    { "name": "main", "x0": 0.0, "x1": 1.0, "z0": 0.0, "z1": 1.0, "floors": 2,
+      "wall": "#e6dcc2",
+      "bands": [{ "floor": 0, "y0": 0.0, "y1": 1.0, "color": "#a6c3c6", "style": "mural" }],
+      "roof": { "form": "hip", "color": "#bd5834", "fascia": { "h": 0.4, "color": "#e6dcc2", "overhang": 0.4 } } }
+  ],
+  "openings": [
+    { "volume": "main", "facade": "front", "type": "window", "floor": 1, "cols": 3, "at": [0.2, 0.5, 0.8], "w": 1.0, "h": 1.0, "glass": "#8f9aa0", "frame": "#f2efe6", "recessed": true },
+    { "volume": "main", "facade": "front", "type": "door", "floor": 0, "at": [0.3], "w": 1.4, "h": 2.2, "glass": "#6a7278", "frame": "#c7c1b2", "recessed": true },
+    { "volume": "main", "facade": "front", "type": "window", "floor": 0, "at": [0.65], "w": 1.2, "h": 1.2, "glass": "#8f9aa0", "frame": "#f2efe6", "recessed": true },
+    { "volume": "main", "facade": "left", "type": "window", "floor": 1, "cols": 2, "at": [0.35, 0.7], "w": 1.0, "h": 1.0, "glass": "#8f9aa0", "frame": "#f2efe6", "recessed": true }
+  ],
+  "terraces": [
+    { "onVolume": "main", "side": "left", "rail": { "type": "bars", "h": 0.9, "color": "#c9cbc4" } }
+  ],
+  "props": [
+    { "type": "ac", "volume": "main", "facade": "front", "floor": 1, "at": 0.9 }
+  ],
+  "frontage": {
+    "wall": { "type": "picket", "color": "#f2efe6", "h": 1.4 },
+    "gates": [{ "kind": "pedestrian", "w": 1.4, "style": "picket", "color": "#f2efe6" }],
+    "sidewalk": { "material": "stone-slabs", "color": "#a89d90", "joint": "#8f867a", "w": 3.5 },
+    "verge": { "grass": "#6bbb45", "grassDark": "#4e7c3c" },
+    "road": { "surface": "asphalt", "color": "#8f9296" }
+  },
+  "sky": { "top": "#5ea2db", "horizon": "#9fcfe4", "cloud": "#f4f6f6" },
+  "notes": "Kindergarten. Two-storey: cream upper floor (#e6dcc2), grey-blue painted ground floor with a colourful children's mural (#a6c3c6, encoded as a floor-0 band 'mural'). Orange terracotta hip roof (#bd5834) with rooftop solar panels and a satellite dish (props pending). A large blue fabric shade awning/tent is stretched over the ground-floor front-right (not expressible; note only). Upper-floor balcony with light-grey rail on the left facade. Frontage is a white picket fence with green privacy-mesh backing and a white picket pedestrian gate over pink-grey stone-slab paving; low-poly trees at left. Sampled colours 2026-07-04."
+}

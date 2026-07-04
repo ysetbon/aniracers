@@ -1,0 +1,34 @@
+{
+  "id": "556855963",
+  "refs": { "scene": "restyled/scene-fullworld/bld_556855963_p9YX8kJ.png" },
+  "footprint": "obb",
+  "floorH": 3.0,
+  "volumes": [
+    { "name": "main", "x0": 0.0, "x1": 0.72, "z0": 0.0, "z1": 1.0, "floors": 2,
+      "wall": "#e6ddca",
+      "roof": { "form": "gable", "color": "#7c4f31", "fascia": { "h": 0.4, "color": "#5f3c25", "overhang": 0.45 } } },
+    { "name": "wing", "x0": 0.72, "x1": 1.0, "z0": 0.2, "z1": 1.0, "floors": 2,
+      "wall": "#e2d9c4",
+      "roof": { "form": "hip", "color": "#7c4f31", "fascia": { "h": 0.35, "color": "#5f3c25", "overhang": 0.4 } } }
+  ],
+  "openings": [
+    { "volume": "main", "facade": "front", "type": "window", "floor": 1, "cols": 3, "at": [0.22, 0.5, 0.78], "w": 0.9, "h": 1.2, "glass": "#3f4a52", "frame": "#cfcabb", "recessed": true },
+    { "volume": "main", "facade": "front", "type": "window", "floor": 0, "cols": 2, "at": [0.3, 0.72], "w": 1.4, "h": 1.3, "glass": "#3f4a52", "frame": "#cfcabb", "recessed": true },
+    { "volume": "wing", "facade": "front", "type": "window", "floor": 1, "at": [0.5], "w": 1.0, "h": 1.2, "glass": "#3f4a52", "frame": "#cfcabb", "recessed": true }
+  ],
+  "terraces": [
+    { "onVolume": "main", "side": "front", "rail": { "type": "bars", "h": 1.0, "color": "#8fa4b8" } }
+  ],
+  "props": [
+    { "type": "ac", "volume": "main", "facade": "front", "floor": 1, "at": 0.9 }
+  ],
+  "frontage": {
+    "wall": { "type": "block", "color": "#d9cba4", "mortar": "#c2b088", "h": 1.5 },
+    "gates": [{ "kind": "pedestrian", "w": 1.1, "style": "bars", "color": "#3a3630" }],
+    "sidewalk": { "material": "brick-pavers", "color": "#a88a72", "joint": "#8a6c56", "w": 3.0 },
+    "verge": { "grass": "#5f9a3f", "grassDark": "#4a7a34" },
+    "road": { "surface": "asphalt", "color": "#8f9296" }
+  },
+  "sky": { "top": "#4f97d8", "horizon": "#9fcfe4", "cloud": "#f4f6f6" },
+  "notes": "Two-storey cream house with a dark-brown tiled gable roof (plus a lower hip-roofed wing). Upper floor has a wide front balcony with a blue-grey diagonal metal rail and awning-style window shutters; an AC unit at the upper right. House number '25' sign at the gate. Beige block compound wall with a leafy hedge. Sampled from ref 2026-07-04."
+}

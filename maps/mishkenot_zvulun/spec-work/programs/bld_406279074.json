@@ -1,0 +1,34 @@
+{
+  "id": "406279074",
+  "refs": { "scene": "restyled/scene-fullworld/bld_406279074_p0842KD.png", "iso": "restyled/iso/bld_406279074.png" },
+  "footprint": "obb",
+  "floorH": 3.0,
+  "volumes": [
+    { "name": "main", "x0": 0.0, "x1": 1.0, "z0": 0.0, "z1": 1.0, "floors": 3,
+      "wall": "#e0d3b3",
+      "bands": [
+        { "floor": 2, "y0": 0.0, "y1": 1.0, "x0": 0.6, "x1": 1.0, "color": "#9c6b3a", "style": "slats" }
+      ],
+      "roof": { "form": "flat", "fascia": { "h": 0.4, "color": "#c9863f", "overhang": 0.25 } } }
+  ],
+  "openings": [
+    { "volume": "main", "facade": "front", "type": "window", "floor": 2,
+      "at": [0.28, 0.5], "w": 1.4, "h": 1.6, "glass": "#a06e3f", "frame": "#e8ddc0", "recessed": true },
+    { "volume": "main", "facade": "front", "type": "window", "floor": 1,
+      "at": [0.28], "w": 1.4, "h": 1.6, "glass": "#a06e3f", "frame": "#e8ddc0", "recessed": true },
+    { "volume": "main", "facade": "front", "type": "window", "floor": 1,
+      "at": [0.5], "w": 1.3, "h": 1.3, "glass": "#5a6b82", "frame": "#e8ddc0", "recessed": true },
+    { "volume": "main", "facade": "left", "type": "window", "floor": 1,
+      "at": [0.5], "w": 2.2, "h": 1.6, "glass": "#5a6b82", "frame": "#e8ddc0", "recessed": true }
+  ],
+  "props": [],
+  "frontage": {
+    "wall": { "type": "picket", "color": "#d8d5cc", "h": 1.4 },
+    "gates": [{ "kind": "pedestrian", "w": 1.2, "style": "picket", "color": "#c7c3b8" }],
+    "sidewalk": { "material": "brick-pavers", "color": "#a8593f", "joint": "#8f4a36", "w": 3.5 },
+    "verge": { "grass": "#7ba33f", "grassDark": "#5c7a3a" },
+    "road": { "surface": "brick-pavers", "color": "#a8593f" }
+  },
+  "sky": { "top": "#4a9fe0", "horizon": "#a9d4ea", "cloud": "#f4f6f6" },
+  "notes": "Real 3-storey cream house, close street view. Warm cream render (#e0d3b3). Tall windows behind BROWN wooden louvred shutters (#a06e3f) plus blue-glass windows with white surrounds (#e8ddc0); a white fabric awning over the mid window. Top storey right corner clad with brown horizontal wood slats (band). Flat roof with a thin orange fascia line. Left side has a glazed sunroom/veranda. White picket boundary fence over a low render base, palm tree, mailbox, green + grey bins on the brick-paver sidewalk. Colours sampled from ref 2026-07-04."
+}

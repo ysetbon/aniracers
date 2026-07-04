@@ -1,0 +1,29 @@
+{
+  "id": "406278478",
+  "refs": { "scene": "restyled/scene-fullworld/bld_406278478_pNhcbaY.png", "iso": "" },
+  "footprint": "obb",
+  "floorH": 3.0,
+  "volumes": [
+    { "name": "main", "x0": 0.0, "x1": 1.0, "z0": 0.0, "z1": 1.0, "floors": 3,
+      "wall": "#d8c39a",
+      "roof": { "form": "flat", "fascia": { "h": 0.5, "color": "#e0cda5", "overhang": 0.3 } } }
+  ],
+  "openings": [
+    { "volume": "main", "facade": "front", "type": "window", "floor": 0, "cols": 2, "at": [0.15, 0.5], "w": 1.3, "h": 1.3, "glass": "#4b5560", "frame": "#e6d4ad", "recessed": true },
+    { "volume": "main", "facade": "front", "type": "window", "floor": 1, "cols": 2, "at": [0.15, 0.5], "w": 1.3, "h": 1.3, "glass": "#4b5560", "frame": "#e6d4ad", "recessed": true },
+    { "volume": "main", "facade": "right", "type": "window", "floor": 1, "at": [0.5], "w": 1.3, "h": 1.3, "glass": "#4b5560", "frame": "#e6d4ad", "recessed": true },
+    { "volume": "main", "facade": "right", "type": "window", "floor": 2, "at": [0.5], "w": 1.3, "h": 1.3, "glass": "#4b5560", "frame": "#e6d4ad", "recessed": true }
+  ],
+  "terraces": [
+    { "onVolume": "main", "side": "right", "rail": { "type": "bars", "h": 0.9, "color": "#8a7d63" } }
+  ],
+  "props": [],
+  "frontage": {
+    "wall": { "type": "concrete", "color": "#c7c3b6", "mortar": "#d4d1c6", "h": 1.9 },
+    "gates": [],
+    "sidewalk": { "material": "stone-slabs", "color": "#b3a58c", "joint": "#9a8d76", "w": 3.0 },
+    "verge": { "grass": "#4f6b34", "grassDark": "#38502a" }
+  },
+  "sky": { "top": "#5ea2db", "horizon": "#9fcfe4", "cloud": "#f4f6f6" },
+  "notes": "Cream/tan apartment building, painterly restyle, seen from a rear alley -- heavily occluded by a tall concrete compound wall (with a grey 'HOT' utility cabinet), a pile of dumped cardboard, dense dark bushes and trees. Visible: cream ashlar walls, stacked balcony slabs with horizontal wood-tone slat rails on the right facade, flat roof. Cobblestone paving. Massing/openings on the occluded front are plausible. Colours sampled 2026-07-04."
+}

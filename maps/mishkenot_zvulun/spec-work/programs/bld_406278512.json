@@ -1,0 +1,36 @@
+{
+  "id": "406278512",
+  "refs": { "scene": "restyled/scene-fullworld/bld_406278512_pAOUM3r.png", "iso": "restyled/iso/bld_406278512.png" },
+  "footprint": "obb",
+  "floorH": 3.0,
+  "volumes": [
+    { "name": "main", "x0": 0.0, "x1": 1.0, "z0": 0.0, "z1": 1.0, "floors": 2,
+      "wall": "#d8c398",
+      "roof": { "form": "flat", "fascia": { "h": 0.4, "color": "#cbb488", "overhang": 0.2 } } },
+    { "name": "penthouse", "x0": 0.12, "x1": 0.78, "z0": 0.1, "z1": 0.9, "floors": 1,
+      "wall": "#6b4327",
+      "bands": [
+        { "floor": 0, "y0": 0.35, "y1": 0.7, "x0": 0.0, "x1": 1.0, "color": "#2f3640", "style": "glass" }
+      ],
+      "roof": { "form": "flat", "fascia": { "h": 0.5, "color": "#5a3722", "overhang": 0.45 } } }
+  ],
+  "openings": [
+    { "volume": "main", "facade": "front", "type": "window", "floor": 1, "cols": 3, "at": [0.2, 0.45, 0.7], "w": 1.2, "h": 1.2, "glass": "#3f4650", "frame": "#e2d3ab", "recessed": true },
+    { "volume": "main", "facade": "front", "type": "garage", "floor": 0, "at": [0.25], "w": 3.2, "h": 2.4, "glass": "#c9b78a", "frame": "#b8a577", "recessed": true },
+    { "volume": "main", "facade": "front", "type": "door", "floor": 0, "at": [0.5], "w": 1.3, "h": 2.2, "glass": "#3f4650", "frame": "#cbb488", "recessed": true }
+  ],
+  "terraces": [],
+  "props": [
+    { "type": "ac", "volume": "main", "facade": "front", "floor": 1, "at": 0.85 },
+    { "type": "ac", "volume": "main", "facade": "left", "floor": 0, "at": 0.4 }
+  ],
+  "frontage": {
+    "wall": { "type": "stone", "color": "#c2b393", "mortar": "#ab9c7c", "h": 1.9 },
+    "gates": [{ "kind": "vehicle", "w": 5.0, "style": "ornate-arch", "color": "#9a9a93" }],
+    "sidewalk": { "material": "stone-slabs", "color": "#b7b1a4", "joint": "#9d968a", "w": 4.0 },
+    "verge": { "grass": "#6ba83f", "grassDark": "#4e7d2e" },
+    "road": { "surface": "asphalt", "color": "#8f9296" }
+  },
+  "sky": { "top": "#5ea2db", "horizon": "#9fcfe4", "cloud": "#f4f6f6" },
+  "notes": "Two-storey villa in warm sand render (#d8c398) topped by a set-back dark-brown penthouse floor (#6b4327) with a continuous dark clerestory glazing strip (#2f3640) under a deep flat fascia. Ground floor has a light tan sectional garage door (#c9b78a) and a recessed dark entry; AC units on the walls. Frontage: tall ashlar stone boundary wall (#c2b393) with an ornate grey metal vehicle gate (#9a9a93) and stone pillars, over stone-slab sidewalk. Colours pixel-sampled from the ref."
+}

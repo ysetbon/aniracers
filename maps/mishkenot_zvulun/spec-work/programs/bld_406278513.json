@@ -1,0 +1,29 @@
+{
+  "id": "406278513",
+  "refs": { "scene": "restyled/scene-fullworld/bld_406278513_p67DRVv.png", "iso": "restyled/iso/bld_406278513.png" },
+  "footprint": "obb",
+  "floorH": 3.0,
+  "volumes": [
+    { "name": "main", "x0": 0.0, "x1": 1.0, "z0": 0.0, "z1": 1.0, "floors": 2,
+      "wall": "#cfc3a8",
+      "roof": { "form": "gable", "color": "#c9a86a", "fascia": { "h": 0.3, "color": "#b8965a", "overhang": 0.4 } } }
+  ],
+  "openings": [
+    { "volume": "main", "facade": "front", "type": "window", "floor": 1, "at": [0.62], "w": 1.2, "h": 1.4, "glass": "#4a5158", "frame": "#dcd1b8", "recessed": true },
+    { "volume": "main", "facade": "front", "type": "window", "floor": 0, "at": [0.6], "w": 1.0, "h": 1.0, "glass": "#4a5158", "frame": "#b7ac92", "recessed": true },
+    { "volume": "main", "facade": "front", "type": "door", "floor": 0, "at": [0.85], "w": 1.2, "h": 2.1, "glass": "#c9c1ad", "frame": "#b7ac92", "recessed": true },
+    { "volume": "main", "facade": "left", "type": "window", "floor": 1, "at": [0.35], "w": 0.9, "h": 0.7, "glass": "#4a5158", "frame": "#b7ac92", "recessed": true },
+    { "volume": "main", "facade": "left", "type": "window", "floor": 0, "at": [0.35], "w": 0.9, "h": 0.7, "glass": "#4a5158", "frame": "#b7ac92", "recessed": true }
+  ],
+  "terraces": [],
+  "props": [],
+  "frontage": {
+    "wall": { "type": "stone", "color": "#c2b19a", "mortar": "#a8977f", "h": 1.2 },
+    "gates": [{ "kind": "vehicle", "w": 3.0, "style": "panel", "color": "#9a9ca0" },
+              { "kind": "pedestrian", "w": 1.0, "style": "bars", "color": "#3f3c34" }],
+    "sidewalk": { "material": "stone-slabs", "color": "#c0b7a4", "joint": "#a89e88", "w": 3.0 },
+    "verge": { "grass": "#6ba83f", "grassDark": "#4e7d2e" }
+  },
+  "sky": { "top": "#5ea2db", "horizon": "#9fcfe4", "cloud": "#f4f6f6" },
+  "notes": "Classic Jerusalem-stone house, ashlar sandstone blocks (#cfc3a8) with a steep gabled roof clad in tan clay tiles (#c9a86a). Small grilled ground/half-basement windows and larger upper windows (#4a5158); pale entry door under a small flat canopy reached by steps. Frontage: rubble-stone base wall (#c2b19a) with a grey panel vehicle gate and a black barred pedestrian gate, plus a red paved forecourt. Colours pixel-sampled from the ref."
+}

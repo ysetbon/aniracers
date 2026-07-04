@@ -1,0 +1,27 @@
+{
+  "id": "406278407",
+  "refs": { "scene": "restyled/scene-fullworld/bld_406278407_pBWTjdF.png" },
+  "footprint": "obb",
+  "floorH": 3.0,
+  "volumes": [
+    { "name": "main", "x0": 0.0, "x1": 1.0, "z0": 0.0, "z1": 1.0, "floors": 2,
+      "wall": "#cdb98c",
+      "roof": { "form": "flat", "fascia": { "h": 0.55, "color": "#c3ae82", "overhang": 0.25 } } }
+  ],
+  "openings": [
+    { "volume": "main", "facade": "front", "type": "door", "floor": 0, "at": [0.72], "w": 1.3, "h": 2.3, "glass": "#5f4636", "frame": "#6e4a2e", "recessed": true },
+    { "volume": "main", "facade": "front", "type": "window", "floor": 0, "cols": 2, "at": [0.25, 0.5], "w": 1.2, "h": 1.3, "glass": "#2b2d31", "frame": "#d6c49a", "recessed": true },
+    { "volume": "main", "facade": "front", "type": "window", "floor": 1, "cols": 2, "at": [0.3, 0.7], "w": 1.3, "h": 1.4, "glass": "#2b2d31", "frame": "#d6c49a", "recessed": true }
+  ],
+  "terraces": [
+    { "onVolume": "main", "side": "front", "rail": { "type": "bars", "h": 0.95, "color": "#4a463c" } }
+  ],
+  "props": [],
+  "frontage": {
+    "wall": { "type": "brick", "color": "#9c5a3f", "mortar": "#7f4830", "h": 1.4 },
+    "sidewalk": { "material": "stone-slabs", "color": "#a89d8b", "joint": "#8d8474", "w": 3.0 },
+    "road": { "surface": "asphalt", "color": "#7f8388" }
+  },
+  "sky": { "top": "#5ea2db", "horizon": "#9fcfe4", "cloud": "#f4f6f6" },
+  "notes": "Row of tan/sand-plaster two-storey townhouses with flat parapet roofs, thick corner pilasters, recessed dark-glazed windows, small first-floor balconies with dark metal-bar railings, and a wooden entry door. Frontage mixes a red-brick compound wall with tan plaster, green wheelie bins and a stone-slab sidewalk. Colours estimated 2026-07-04."
+}

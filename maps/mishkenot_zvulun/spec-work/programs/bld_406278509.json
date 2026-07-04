@@ -1,0 +1,28 @@
+{
+  "id": "406278509",
+  "refs": { "scene": "restyled/scene-fullworld/bld_406278509_p8TFEUk.png", "iso": "restyled/iso/bld_406278509.png" },
+  "footprint": "obb",
+  "floorH": 3.0,
+  "volumes": [
+    { "name": "main", "x0": 0.0, "x1": 1.0, "z0": 0.0, "z1": 1.0, "floors": 4,
+      "wall": "#e8eaea",
+      "roof": { "form": "flat", "fascia": { "h": 0.4, "color": "#7a5a3a", "overhang": 0.25 } } }
+  ],
+  "openings": [
+    { "volume": "main", "facade": "front", "type": "window", "floor": 3, "cols": 5, "at": [0.1, 0.3, 0.5, 0.7, 0.9], "w": 1.3, "h": 1.3, "glass": "#3f4650", "frame": "#eef0f0", "recessed": true },
+    { "volume": "main", "facade": "front", "type": "window", "floor": 2, "cols": 5, "at": [0.1, 0.3, 0.5, 0.7, 0.9], "w": 1.3, "h": 1.3, "glass": "#3f4650", "frame": "#eef0f0", "recessed": true },
+    { "volume": "main", "facade": "front", "type": "window", "floor": 1, "cols": 5, "at": [0.1, 0.3, 0.5, 0.7, 0.9], "w": 1.3, "h": 1.3, "glass": "#3f4650", "frame": "#eef0f0", "recessed": true },
+    { "volume": "main", "facade": "front", "type": "window", "floor": 0, "cols": 4, "at": [0.15, 0.35, 0.65, 0.85], "w": 1.3, "h": 1.3, "glass": "#3f4650", "frame": "#eef0f0", "recessed": true }
+  ],
+  "terraces": [],
+  "props": [],
+  "frontage": {
+    "wall": { "type": "stone", "color": "#c9b48f", "mortar": "#b09b78", "h": 1.3 },
+    "gates": [{ "kind": "pedestrian", "w": 1.2, "style": "bars", "color": "#7a5a3a" }],
+    "sidewalk": { "material": "brick", "color": "#b17a55", "joint": "#95653f", "w": 4.0 },
+    "verge": { "grass": "#6ba83f", "grassDark": "#4e7d2e" },
+    "road": { "surface": "asphalt", "color": "#8f9296" }
+  },
+  "sky": { "top": "#5ea2db", "horizon": "#9fcfe4", "cloud": "#f4f6f6" },
+  "notes": "Large multi-storey apartment block, off-white render (#e8eaea) with dark punched windows (#3f4650) in a regular grid, flat roof with a thin brown fascia. Building is heavily occluded in the ref by a timber slat boundary fence (#b5793f) on a rubble/ashlar stone base (#c9b48f), a fenced carport and street trees; massing and window grid reconstructed as plausible visible facade. Israeli flag on a neighbour. Herringbone brick sidewalk. Colours pixel-sampled from the ref."
+}

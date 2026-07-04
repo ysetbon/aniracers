@@ -1,0 +1,26 @@
+{
+  "id": "406278383",
+  "refs": { "scene": "restyled/scene-fullworld/bld_406278383_pdgzVYy.png" },
+  "footprint": "obb",
+  "floorH": 3.0,
+  "volumes": [
+    { "name": "main", "x0": 0.0, "x1": 1.0, "z0": 0.0, "z1": 1.0, "floors": 3,
+      "wall": "#cbbd9a",
+      "roof": { "form": "barrel", "color": "#c9bd9c", "fascia": { "h": 0.5, "color": "#d3c6a3", "overhang": 0.3 } } }
+  ],
+  "openings": [
+    { "volume": "main", "facade": "front", "type": "window", "floor": 2, "cols": 4, "w": 1.3, "h": 1.3, "glass": "#5a636b", "frame": "#d8cba6", "recessed": true },
+    { "volume": "main", "facade": "front", "type": "window", "floor": 1, "cols": 4, "w": 1.3, "h": 1.3, "glass": "#5a636b", "frame": "#d8cba6", "recessed": true },
+    { "volume": "main", "facade": "front", "type": "window", "floor": 0, "cols": 4, "w": 1.3, "h": 1.3, "glass": "#5a636b", "frame": "#d8cba6", "recessed": true }
+  ],
+  "terraces": [],
+  "props": [],
+  "frontage": {
+    "wall": { "type": "wood", "color": "#a9702f", "mortar": "#8f5c26", "h": 1.6 },
+    "gates": [{ "kind": "vehicle", "w": 4.0, "style": "ornate-arch", "color": "#3a3f45" }],
+    "sidewalk": { "material": "stone-slabs", "color": "#c8a7ad", "joint": "#a98790", "w": 4.0 },
+    "verge": { "grass": "#7ba33f", "grassDark": "#586f3d" }
+  },
+  "sky": { "top": "#5ea2db", "horizon": "#9fcfe4", "cloud": "#f4f6f6" },
+  "notes": "Wide tan ashlar-stone building, ~3 floors, capped by a run of repeated barrel-VAULT roof profiles (the wavy silhouette against the sky). roof.form 'barrel' -- factory renders only flat/gable/hip today, so this is a factory extension (barrel run of vaults). Regular grid of windows with grey roller shutters (shutters not expressible). Frontage: cream stucco piers with a horizontal wood-slat fence and a dark ornate metal vehicle gate with diamond motifs; pink/mauve mixed-tone paver plaza, wood bin, cypress and yellow-green low-poly trees. Colours estimated from ref."
+}

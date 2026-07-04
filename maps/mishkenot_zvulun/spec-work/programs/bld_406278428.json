@@ -1,0 +1,33 @@
+{
+  "id": "406278428",
+  "refs": { "scene": "restyled/scene-fullworld/bld_406278428_pFlzGG2.png" },
+  "footprint": "obb",
+  "floorH": 3.0,
+  "volumes": [
+    { "name": "main", "x0": 0.0, "x1": 1.0, "z0": 0.0, "z1": 1.0, "floors": 2,
+      "wall": "#e6dbb6",
+      "roof": { "form": "hip", "color": "#b1492c", "overhang": 0.45 } }
+  ],
+  "openings": [
+    { "volume": "main", "facade": "front", "type": "window", "floor": 1,
+      "at": [0.35], "w": 1.5, "h": 1.2, "glass": "#454e58", "frame": "#eef0ee", "recessed": true },
+    { "volume": "main", "facade": "front", "type": "window", "floor": 0,
+      "at": [0.35], "w": 1.5, "h": 1.2, "glass": "#454e58", "frame": "#c6c9cb", "recessed": true }
+  ],
+  "terraces": [
+    { "onVolume": "main", "side": "front",
+      "parapet": { "h": 1.0, "color": "#9c5836" },
+      "rail": { "type": "bars", "h": 0.9, "color": "#9c5836" } }
+  ],
+  "props": [
+    { "type": "ac", "volume": "main", "facade": "left", "floor": 0, "at": 0.4 }
+  ],
+  "frontage": {
+    "wall": { "type": "stone", "color": "#bdb4a3", "mortar": "#d1cabc", "h": 0.6 },
+    "sidewalk": { "material": "stone-slabs", "color": "#bdb4a3", "joint": "#a49b8b", "w": 3.5 },
+    "verge": { "grass": "#4f8f3a", "grassDark": "#3a6b2c" },
+    "road": { "surface": "asphalt", "color": "#8a8d91" }
+  },
+  "sky": { "top": "#4f9edd", "horizon": "#9fcfe4", "cloud": "#f4f6f6" },
+  "notes": "Cream/beige rendered 2-storey house seen at an oblique front-left angle; red clay-tile hip roof eave visible along the top (#b1492c). Blue '11' address plaque on the left return wall. First-floor front has a terracotta breeze-block lattice privacy screen (#9c5836) enclosing a balcony (modelled as front terrace with matching parapet+rail). Ground-floor window fitted with a grey security grille; upper window has a plain white frame. AC condenser on the left flank. Foreground: clipped green hedge and stone-slab sidewalk. Colours read from ref 2026-07-04."
+}

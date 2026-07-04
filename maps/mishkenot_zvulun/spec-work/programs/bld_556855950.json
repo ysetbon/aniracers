@@ -1,0 +1,28 @@
+{
+  "id": "556855950",
+  "refs": { "scene": "restyled/scene-fullworld/bld_556855950_pcCH4Gz.png", "iso": "restyled/iso/bld_556855950.png" },
+  "footprint": "obb",
+  "floorH": 3.0,
+  "volumes": [
+    { "name": "main", "x0": 0.0, "x1": 1.0, "z0": 0.0, "z1": 1.0, "floors": 2,
+      "wall": "#ddd0b3",
+      "roof": { "form": "hip", "color": "#c05a34", "fascia": { "h": 0.4, "color": "#ddd0b3", "overhang": 0.4 } } }
+  ],
+  "openings": [
+    { "volume": "main", "facade": "front", "type": "window", "floor": 1, "cols": 2, "at": [0.4, 0.62], "w": 1.2, "h": 1.2, "glass": "#586066", "frame": "#e6dcc2", "recessed": true },
+    { "volume": "main", "facade": "front", "type": "opening", "floor": 0, "cols": 2, "at": [0.4, 0.62], "w": 1.3, "h": 1.6, "glass": "#586066", "frame": "#e6dcc2", "recessed": true }
+  ],
+  "terraces": [
+    { "onVolume": "main", "side": "front", "parapet": { "h": 0.95, "color": "#ddd0b3" }, "rail": { "type": "balustrade", "h": 0.95, "color": "#e6dcc2" } }
+  ],
+  "props": [],
+  "frontage": {
+    "wall": { "type": "stone", "color": "#cbc0a2", "mortar": "#a89a78", "h": 1.7 },
+    "gates": [{ "kind": "vehicle", "w": 4.0, "style": "ornate-arch", "color": "#3a3a3c" }],
+    "sidewalk": { "material": "stone-slabs", "color": "#a8a096", "joint": "#8a8278", "w": 3.5 },
+    "verge": { "grass": "#5db63f", "grassDark": "#437c34" },
+    "road": { "surface": "asphalt", "color": "#8f9296" }
+  },
+  "sky": { "top": "#5ea2db", "horizon": "#9fcfe4", "cloud": "#f4f6f6" },
+  "notes": "Two-storey cream/beige house (#ddd0b3) with orange terracotta hip roof (#c05a34). The front upper floor has a projecting balcony/terrace with a cream masonry balustrade; ground floor has tall arched openings. Frontage is a sandstone-block base wall (#cbc0a2) topped by a black ornate arched wrought-iron fence and matching gate; white picket to the right. Palms and shrubs, a silver minivan parked on the driveway, green bin, small dog on the corner sidewalk. Sampled colours 2026-07-04."
+}

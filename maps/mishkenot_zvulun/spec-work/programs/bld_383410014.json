@@ -1,0 +1,33 @@
+{
+  "id": "383410014",
+  "refs": { "scene": "restyled/scene-fullworld/bld_383410014_prg0N9F.png" },
+  "footprint": "obb",
+  "floorH": 3.0,
+  "volumes": [
+    { "name": "stone", "x0": 0.0, "x1": 0.4, "z0": 0.0, "z1": 1.0, "floors": 2,
+      "wall": "#cbb283",
+      "roof": { "form": "flat", "fascia": { "h": 0.6, "color": "#c1a878", "overhang": 0.25 } } },
+    { "name": "modern", "x0": 0.4, "x1": 0.75, "z0": 0.0, "z1": 1.0, "floors": 2,
+      "wall": "#b6bbbd",
+      "roof": { "form": "flat", "fascia": { "h": 0.6, "color": "#aab0b2", "overhang": 0.25 } } },
+    { "name": "clad", "x0": 0.75, "x1": 1.0, "z0": 0.0, "z1": 1.0, "floors": 2,
+      "wall": "#8f9498",
+      "roof": { "form": "flat", "fascia": { "h": 0.6, "color": "#82878b", "overhang": 0.25 } } }
+  ],
+  "openings": [
+    { "volume": "stone", "facade": "front", "type": "window", "floor": 1, "cols": 4, "at": [0.35, 0.5, 0.65, 0.8], "w": 0.6, "h": 2.0, "glass": "#3a444e", "frame": "#c1a878", "recessed": true },
+    { "volume": "stone", "facade": "front", "type": "window", "floor": 0, "cols": 2, "at": [0.4, 0.72], "w": 1.6, "h": 1.3, "glass": "#4a5560", "frame": "#c1a878", "recessed": true },
+    { "volume": "modern", "facade": "front", "type": "window", "floor": 1, "cols": 4, "at": [0.2, 0.4, 0.6, 0.8], "w": 0.7, "h": 1.0, "glass": "#4a5560", "frame": "#d6d9da", "recessed": true },
+    { "volume": "modern", "facade": "front", "type": "opening", "floor": 0, "at": [0.5], "w": 0.5, "h": 3.0, "glass": "#2f3a44", "frame": "#aab0b2", "recessed": true },
+    { "volume": "clad", "facade": "front", "type": "window", "floor": 0, "cols": 2, "at": [0.35, 0.7], "w": 1.4, "h": 1.4, "glass": "#4a5560", "frame": "#d6d9da", "recessed": true }
+  ],
+  "terraces": [],
+  "props": [],
+  "frontage": {
+    "wall": { "type": "bar", "color": "#2f6b3a", "mortar": "#2f6b3a", "h": 1.0 },
+    "sidewalk": { "material": "stone-slabs", "color": "#cfccc4", "joint": "#b6b3ab", "w": 3.5 },
+    "verge": { "grass": "#7fb84a", "grassDark": "#586a44", "flowers": { "palette": ["#e04438", "#f2d24b", "#8a5fb0"], "perM2": 0.1 } }
+  },
+  "sky": { "top": "#5ea2db", "horizon": "#9fcfe4", "cloud": "#f4f6f6" },
+  "notes": "Large low-rise institutional/commercial complex (footprint ~52x49m). Three abutting blocks: a tan sandstone-ashlar block (left) with tall narrow strip windows, a pale-grey modernist block (centre, RE/MAX signage) with a vertical slot window, and a grey metal-clad block (right). All ~2 storeys, flat roofs. Fronted by a green metal railing (bar fence) over a low kerb, with hedges and flower planters. Colours eyeballed from ref."
+}

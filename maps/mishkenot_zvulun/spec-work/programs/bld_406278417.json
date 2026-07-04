@@ -1,0 +1,26 @@
+{
+  "id": "406278417",
+  "refs": { "scene": "restyled/scene-fullworld/bld_406278417_p8w5mTP.png" },
+  "footprint": "obb",
+  "floorH": 3.0,
+  "volumes": [
+    { "name": "main", "x0": 0.0, "x1": 1.0, "z0": 0.0, "z1": 1.0, "floors": 3,
+      "wall": "#e9e7de",
+      "roof": { "form": "flat", "fascia": { "h": 0.5, "color": "#ddd9cd", "overhang": 0.2 } } }
+  ],
+  "openings": [
+    { "volume": "main", "facade": "front", "type": "window", "floor": 2, "cols": 2, "at": [0.3, 0.7], "w": 1.6, "h": 1.0, "glass": "#3a3d42", "frame": "#cfcbbf", "recessed": true },
+    { "volume": "main", "facade": "front", "type": "window", "floor": 1, "cols": 2, "at": [0.3, 0.7], "w": 1.6, "h": 1.0, "glass": "#3a3d42", "frame": "#cfcbbf", "recessed": true },
+    { "volume": "main", "facade": "front", "type": "window", "floor": 0, "cols": 2, "at": [0.3, 0.7], "w": 1.6, "h": 1.0, "glass": "#3a3d42", "frame": "#cfcbbf", "recessed": true }
+  ],
+  "terraces": [
+    { "onVolume": "main", "side": "front", "rail": { "type": "bars", "h": 0.95, "color": "#6a6a64" } }
+  ],
+  "props": [],
+  "frontage": {
+    "wall": { "type": "wood-slats", "color": "#6e4d33", "mortar": "#5a3f2a", "h": 1.7 },
+    "sidewalk": { "material": "stone-slabs", "color": "#c9bda6", "joint": "#b0a58c", "w": 3.0 }
+  },
+  "sky": { "top": "#5ea2db", "horizon": "#9fcfe4", "cloud": "#f4f6f6" },
+  "notes": "Building seen behind a brown wood-slat fence over a rubble-stone base with a lemon tree and palms. Visible: white/cream multi-storey (approx. 3-floor) block with flat roof, ribbon windows, vent louvers and recessed balconies with metal-bar rails. Massing above the fence is a plausible reconstruction; frontage is the wood-slat fence (rubble base not separately expressible). Colours estimated 2026-07-04."
+}

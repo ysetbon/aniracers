@@ -1,0 +1,38 @@
+{
+  "id": "406279071",
+  "refs": { "scene": "restyled/scene-fullworld/bld_406279071_pDwEw_n.png", "iso": "restyled/iso/bld_406279071.png" },
+  "footprint": "obb",
+  "floorH": 3.0,
+  "volumes": [
+    { "name": "main", "x0": 0.0, "x1": 1.0, "z0": 0.0, "z1": 1.0, "floors": 3,
+      "wall": "#e4e3dd",
+      "roof": { "form": "flat", "fascia": { "h": 0.4, "color": "#d6d5cf", "overhang": 0.2 } } }
+  ],
+  "openings": [
+    { "volume": "main", "facade": "front", "type": "window", "floor": 2,
+      "at": [0.3, 0.62], "w": 1.2, "h": 1.2, "glass": "#5a6b7a", "frame": "#ecebe6", "recessed": true },
+    { "volume": "main", "facade": "front", "type": "window", "floor": 1,
+      "at": [0.3, 0.62], "w": 1.2, "h": 1.2, "glass": "#5a6b7a", "frame": "#ecebe6", "recessed": true },
+    { "volume": "main", "facade": "front", "type": "opening", "floor": 1,
+      "at": [0.45], "w": 2.4, "h": 2.3, "glass": "#3c4650", "frame": "#ecebe6", "recessed": true },
+    { "volume": "main", "facade": "front", "type": "door", "floor": 0,
+      "at": [0.5], "w": 1.6, "h": 2.3, "glass": "#3c4650", "frame": "#d6d5cf", "recessed": true }
+  ],
+  "terraces": [
+    { "onVolume": "main", "side": "front",
+      "parapet": { "h": 0.9, "color": "#e4e3dd" },
+      "rail": { "type": "solid", "h": 0.9, "color": "#e4e3dd" } }
+  ],
+  "props": [
+    { "type": "ac", "volume": "main", "facade": "front", "floor": 2, "at": 0.55 },
+    { "type": "ac", "volume": "main", "facade": "front", "floor": 1, "at": 0.4 }
+  ],
+  "frontage": {
+    "wall": { "type": "chain-link", "color": "#b7bcbf", "h": 1.8 },
+    "sidewalk": { "material": "sand", "color": "#e0c98e", "joint": "#c9b078", "w": 3.0 },
+    "verge": { "grass": "#7ba33f", "grassDark": "#5c7a3a" },
+    "road": { "surface": "brick-pavers", "color": "#a05a42" }
+  },
+  "sky": { "top": "#4a9fe0", "horizon": "#a9d4ea", "cloud": "#f4f6f6" },
+  "notes": "Real white rendered apartment block (3 floors) seen over a chain-link fence and trees, with a sandy kindergarten yard in front (colourful playhouse, colourful picket play-fences). White walls, flat roof. Small ORANGE terracotta tiled awnings/pent roofs over the upper windows and a GREEN-and-white striped fabric awning over the ground-floor recessed veranda (awning types not expressible -> recessed opening). Balconies with white solid parapets, potted plants, AC units, a washing line. Colours sampled from ref 2026-07-04."
+}

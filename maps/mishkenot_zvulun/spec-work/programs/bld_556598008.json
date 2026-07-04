@@ -1,0 +1,30 @@
+{
+  "id": "556598008",
+  "refs": { "scene": "restyled/scene-fullworld/bld_556598008_pGAWGhT.png", "iso": "restyled/iso/bld_556598008.png" },
+  "footprint": "obb",
+  "floorH": 3.0,
+  "volumes": [
+    { "name": "main", "x0": 0.0, "x1": 1.0, "z0": 0.0, "z1": 1.0, "floors": 2,
+      "wall": "#e7dfc9",
+      "roof": { "form": "hip", "color": "#bb6038", "fascia": { "h": 0.5, "color": "#ece3ca", "overhang": 0.4 } } }
+  ],
+  "openings": [
+    { "volume": "main", "facade": "front", "type": "window", "floor": 1,
+      "at": [0.3, 0.7], "w": 1.3, "h": 1.4, "glass": "#34404a", "frame": "#eceadf", "recessed": true },
+    { "volume": "main", "facade": "front", "type": "window", "floor": 0,
+      "at": [0.32], "w": 1.3, "h": 1.4, "glass": "#34404a", "frame": "#eceadf", "recessed": true },
+    { "volume": "main", "facade": "front", "type": "door", "floor": 0,
+      "at": [0.72], "w": 1.3, "h": 2.2, "glass": "#34404a", "frame": "#c9b48c", "recessed": true }
+  ],
+  "terraces": [],
+  "props": [],
+  "frontage": {
+    "wall": { "type": "brick", "color": "#eae7dc", "mortar": "#7c5a44", "h": 1.7 },
+    "gates": [{ "kind": "vehicle", "w": 4.5, "style": "bars", "color": "#2b3242" },
+              { "kind": "pedestrian", "w": 1.1, "style": "bars", "color": "#2b3242" }],
+    "sidewalk": { "material": "stone-slabs", "color": "#b3aa96", "joint": "#96907e", "w": 4.0 },
+    "verge": { "grass": "#5f8a3a", "grassDark": "#3f5f28" }
+  },
+  "sky": { "top": "#3f9fe6", "horizon": "#8fc9ea", "cloud": "#eef4f6" },
+  "notes": "Real 2-storey house, pale cream render (#e7dfc9) with red clay hipped tile roof. White-framed windows with security grilles (#34404a glass). Corner lot; entry on the right. A steel-framed solar-panel carport stands over the front yard (not encodable in schema; noted). Frontage: white wall with a brown-brick base band and dark-navy steel gates (vehicle + pedestrian); grey stone-slab sidewalk. Colours sampled from ref."
+}

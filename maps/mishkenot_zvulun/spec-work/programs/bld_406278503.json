@@ -1,0 +1,28 @@
+{
+  "id": "406278503",
+  "refs": { "scene": "restyled/scene-fullworld/bld_406278503_pgaKJ2m.png", "iso": "restyled/iso/bld_406278503.png" },
+  "footprint": "obb",
+  "floorH": 3.0,
+  "volumes": [
+    { "name": "main", "x0": 0.0, "x1": 1.0, "z0": 0.0, "z1": 1.0, "floors": 3,
+      "wall": "#ddd0b0",
+      "roof": { "form": "flat", "fascia": { "h": 0.7, "color": "#d0c2a0", "overhang": 0.25 } } }
+  ],
+  "openings": [
+    { "volume": "main", "facade": "front", "type": "window", "floor": 2, "cols": 3, "at": [0.22, 0.5, 0.78], "w": 1.2, "h": 1.2, "glass": "#4a4f45", "frame": "#e4d8b8", "recessed": true },
+    { "volume": "main", "facade": "front", "type": "window", "floor": 1, "cols": 3, "at": [0.22, 0.5, 0.78], "w": 1.2, "h": 1.2, "glass": "#4a4f45", "frame": "#e4d8b8", "recessed": true },
+    { "volume": "main", "facade": "front", "type": "window", "floor": 0, "cols": 2, "at": [0.3, 0.7], "w": 1.2, "h": 1.2, "glass": "#4a4f45", "frame": "#e4d8b8", "recessed": true },
+    { "volume": "main", "facade": "front", "type": "door", "floor": 0, "at": [0.5], "w": 1.4, "h": 2.2, "glass": "#4a4f45", "frame": "#d0c2a0", "recessed": true }
+  ],
+  "terraces": [
+    { "onVolume": "main", "side": "top", "parapet": { "h": 0.7, "color": "#ddd0b0" }, "rail": { "type": "bars", "h": 0.4, "color": "#c2b48f" } }
+  ],
+  "props": [],
+  "frontage": {
+    "wall": { "type": "wood", "color": "#b08a52", "mortar": "#96723f", "h": 1.6 },
+    "sidewalk": { "material": "stone-slabs", "color": "#c9c0ad", "joint": "#b3a98f", "w": 3.0 },
+    "verge": { "grass": "#6ba83f", "grassDark": "#4e7d2e" }
+  },
+  "sky": { "top": "#5ea2db", "horizon": "#9fcfe4", "cloud": "#f4f6f6" },
+  "notes": "Compact 3-storey apartment block in warm cream render (#ddd0b0). Flat roof with a crenellated parapet of small merlon blocks along the top edge (expressed via a taller fascia plus a low top-terrace bar rail). Regular grid of dark windows (#4a4f45) with cream reveals; central ground entry. Timber slat boundary fence (#b08a52) to the street. Part of a denser cluster; colours pixel-sampled from the ref."
+}

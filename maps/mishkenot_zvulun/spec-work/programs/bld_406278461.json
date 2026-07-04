@@ -1,0 +1,24 @@
+{
+  "id": "406278461",
+  "refs": { "scene": "restyled/scene-fullworld/bld_406278461_p7pTwPC.png" },
+  "footprint": "obb",
+  "floorH": 3.0,
+  "volumes": [
+    { "name": "main", "x0": 0.0, "x1": 1.0, "z0": 0.0, "z1": 1.0, "floors": 1,
+      "wall": "#a9cdd8",
+      "roof": { "form": "flat", "fascia": { "h": 0.5, "color": "#9cc0cc", "overhang": 0.2 } } }
+  ],
+  "openings": [
+    { "volume": "main", "facade": "front", "type": "window", "floor": 0, "cols": 2, "at": [0.4, 0.62], "w": 1.6, "h": 1.4, "glass": "#8f9aa0", "frame": "#c2dbe2", "recessed": true }
+  ],
+  "terraces": [],
+  "props": [],
+  "frontage": {
+    "wall": { "type": "bars", "color": "#9fb4bd", "h": 1.8 },
+    "sidewalk": { "material": "brick", "color": "#c98a5e", "joint": "#a86c46", "w": 2.5 },
+    "verge": { "grass": "#8fb84e", "grassDark": "#6a8f3c", "flowers": { "palette": ["#e04438", "#f2d24b", "#4a90c0"], "perM2": 0.2 } },
+    "road": { "surface": "asphalt", "color": "#8f9296" }
+  },
+  "sky": { "top": "#5ea2db", "horizon": "#9fcfe4", "cloud": "#f4f6f6" },
+  "notes": "Low single-storey pale-blue public building (Hebrew wall lettering 'ביה' suggests a school/institution). Flat roof with a small stepped roof structure and parapet. Wide grey-louvered windows. Small footprint - only the front corner is in frame. Frontage: tall grey metal bar fence on a plaster base wall, green lawn with a brick edge and colourful flowerbeds; a red/blue fire-hydrant assembly sits at the wall corner (env). Colours sampled from ref 2026-07-04."
+}

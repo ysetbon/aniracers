@@ -1,0 +1,33 @@
+{
+  "id": "556855949",
+  "refs": { "scene": "restyled/scene-fullworld/bld_556855949_pk2GE4o.png", "iso": "restyled/iso/bld_556855949.png" },
+  "footprint": "obb",
+  "floorH": 3.0,
+  "volumes": [
+    { "name": "main", "x0": 0.0, "x1": 0.7, "z0": 0.0, "z1": 1.0, "floors": 2,
+      "wall": "#e3d8bf",
+      "roof": { "form": "hip", "color": "#c85e34", "fascia": { "h": 0.4, "color": "#e3d8bf", "overhang": 0.4 } } },
+    { "name": "wing", "x0": 0.7, "x1": 1.0, "z0": 0.15, "z1": 1.0, "floors": 1,
+      "wall": "#ddd2b8",
+      "roof": { "form": "hip", "color": "#c85e34", "fascia": { "h": 0.35, "color": "#ddd2b8", "overhang": 0.4 } } }
+  ],
+  "openings": [
+    { "volume": "main", "facade": "front", "type": "window", "floor": 1, "cols": 2, "at": [0.35, 0.6], "w": 1.2, "h": 1.3, "glass": "#586066", "frame": "#f2efe6", "recessed": true },
+    { "volume": "main", "facade": "front", "type": "window", "floor": 0, "cols": 2, "at": [0.35, 0.6], "w": 1.2, "h": 1.3, "glass": "#586066", "frame": "#f2efe6", "recessed": true },
+    { "volume": "wing", "facade": "front", "type": "garage", "floor": 0, "at": [0.5], "w": 2.8, "h": 2.2, "glass": "#e0dccf", "frame": "#e0dccf", "recessed": false }
+  ],
+  "terraces": [
+    { "onVolume": "main", "side": "front", "rail": { "type": "bars", "h": 0.9, "color": "#8a6a3f" } }
+  ],
+  "props": [],
+  "frontage": {
+    "wall": { "type": "panel", "color": "#e6dcbf", "mortar": "#b58a3f", "h": 1.6 },
+    "gates": [{ "kind": "vehicle", "w": 4.0, "style": "panel", "color": "#f2efe6" },
+              { "kind": "pedestrian", "w": 1.2, "style": "ornate-arch", "color": "#9a9c94" }],
+    "sidewalk": { "material": "stone-slabs", "color": "#c4bba6", "joint": "#a49a84", "w": 3.0 },
+    "verge": { "grass": "#5db63f", "grassDark": "#437c34" },
+    "road": { "surface": "asphalt", "color": "#8f9296" }
+  },
+  "sky": { "top": "#5ea2db", "horizon": "#9fcfe4", "cloud": "#f4f6f6" },
+  "notes": "Two-storey cream/beige house (#e3d8bf) with orange terracotta hip roof (#c85e34) and a front upper balcony with timber rail/pergola. A lower single-storey right wing under its own terracotta hip roof holds a white garage door. Windows have security grilles (not expressible). Frontage is a two-tone fence of cream panels with mustard/ochre framing (#b58a3f), a white panel double vehicle gate on the left and a grey ornate arched iron gate on the right; parasol in the yard, stone-slab forecourt, green bin, several parked cars. Sampled colours 2026-07-04."
+}

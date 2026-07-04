@@ -1,0 +1,33 @@
+{
+  "id": "556855952",
+  "refs": { "scene": "restyled/scene-fullworld/bld_556855952_p9xRLgg.png", "iso": "restyled/iso/bld_556855952.png" },
+  "footprint": "obb",
+  "floorH": 3.0,
+  "volumes": [
+    { "name": "left", "x0": 0.0, "x1": 0.55, "z0": 0.0, "z1": 1.0, "floors": 2,
+      "wall": "#e6dcc6",
+      "roof": { "form": "gable", "color": "#c05a34", "fascia": { "h": 0.4, "color": "#e6dcc6", "overhang": 0.4 } } },
+    { "name": "right", "x0": 0.55, "x1": 1.0, "z0": 0.0, "z1": 1.0, "floors": 2,
+      "wall": "#e6dcc6",
+      "roof": { "form": "gable", "color": "#c05a34", "fascia": { "h": 0.4, "color": "#e6dcc6", "overhang": 0.4 } } }
+  ],
+  "openings": [
+    { "volume": "left", "facade": "front", "type": "window", "floor": 1, "at": [0.4], "w": 1.1, "h": 1.2, "glass": "#7a828a", "frame": "#f2efe6", "recessed": true },
+    { "volume": "left", "facade": "front", "type": "window", "floor": 0, "at": [0.7], "w": 1.1, "h": 1.2, "glass": "#586066", "frame": "#f2efe6", "recessed": true },
+    { "volume": "right", "facade": "front", "type": "door", "floor": 0, "at": [0.2], "w": 1.2, "h": 2.2, "glass": "#6a7278", "frame": "#e0dccf", "recessed": true },
+    { "volume": "right", "facade": "front", "type": "window", "floor": 1, "at": [0.6], "w": 1.2, "h": 1.0, "glass": "#7a828a", "frame": "#f2efe6", "recessed": true }
+  ],
+  "terraces": [],
+  "props": [
+    { "type": "ac", "volume": "left", "facade": "front", "floor": 0, "at": 0.35 },
+    { "type": "ac", "volume": "right", "facade": "front", "floor": 1, "at": 0.55 }
+  ],
+  "frontage": {
+    "wall": { "type": "picket", "color": "#8a5a2f", "h": 1.4 },
+    "gates": [{ "kind": "pedestrian", "w": 1.0, "style": "panel", "color": "#f2efe6" }],
+    "sidewalk": { "material": "stone-slabs", "color": "#c4c0b6", "joint": "#a4a096", "w": 2.5 },
+    "verge": { "grass": "#5db63f", "grassDark": "#437c34", "flowers": { "palette": ["#e0567a", "#6aa8e0", "#f6f3ea"], "perM2": 0.3 } }
+  },
+  "sky": { "top": "#5ea2db", "horizon": "#9fcfe4", "cloud": "#f4f6f6" },
+  "notes": "Front elevation of a pair of adjoining two-storey cream houses (#e6dcc6) with orange terracotta gable roofs (#c05a34) — modelled as two side-by-side volumes. The left entrance is sheltered by a grey metal canopy porch with an AC unit and a grilled window beneath; upper windows have security grilles. A central white panel door with its own metal canopy. Frontage is a brown timber picket fence (#8a5a2f) with a white pedestrian door and pink/blue flower planter boxes at the base. Sampled colours 2026-07-04."
+}

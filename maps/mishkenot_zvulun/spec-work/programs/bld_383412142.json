@@ -1,0 +1,28 @@
+{
+  "id": "383412142",
+  "refs": { "scene": "restyled/scene-fullworld/bld_383412142_pkk-lFA.png" },
+  "footprint": "obb",
+  "floorH": 3.0,
+  "volumes": [
+    { "name": "main", "x0": 0.0, "x1": 1.0, "z0": 0.0, "z1": 1.0, "floors": 2,
+      "wall": "#cf9f5f",
+      "roof": { "form": "flat", "fascia": { "h": 0.5, "color": "#d6a866", "overhang": 0.3 },
+        "parapet": { "h": 0.8, "color": "#c99656" } } }
+  ],
+  "openings": [
+    { "volume": "main", "facade": "front", "type": "window", "floor": 1, "at": [0.18, 0.4, 0.62], "w": 1.3, "h": 1.4, "glass": "#3f4a54", "frame": "#e4d3b0", "recessed": true },
+    { "volume": "main", "facade": "front", "type": "window", "floor": 0, "at": [0.15, 0.35], "w": 1.3, "h": 1.4, "glass": "#3f4a54", "frame": "#e4d3b0", "recessed": true },
+    { "volume": "main", "facade": "front", "type": "opening", "floor": 0, "at": [0.68, 0.88], "w": 2.6, "h": 2.4, "glass": "#2e3944", "frame": "#c9b98f", "recessed": true }
+  ],
+  "terraces": [
+    { "onVolume": "main", "side": "top", "rail": { "type": "bars", "h": 0.7, "color": "#c99656" } }
+  ],
+  "props": [],
+  "frontage": {
+    "wall": { "type": "stone", "color": "#dccbaa", "mortar": "#e4d6b8", "h": 1.9 },
+    "sidewalk": { "material": "stone-slabs", "color": "#a7a29a", "joint": "#8f8a82", "w": 3.0 },
+    "verge": { "grass": "#7ba33f", "grassDark": "#586f3d" }
+  },
+  "sky": { "top": "#5ea2db", "horizon": "#9fcfe4", "cloud": "#f4f6f6" },
+  "notes": "Two-storey tan building (looks part-commercial). Upper floor: row of windows, some with rolling shutters and small juliet-balcony bar rails. Ground floor: paired windows on the left and a large dark storefront glazing on the right (type 'opening'). A parapet balustrade (vertical bars) runs along the flat-roof edge -- encoded as roof parapet + a top terrace bar rail. Frontage: light tan ashlar stone boundary wall with a brick-lattice vent panel; palm trees, paver sidewalk, blue car. Colours estimated from ref."
+}

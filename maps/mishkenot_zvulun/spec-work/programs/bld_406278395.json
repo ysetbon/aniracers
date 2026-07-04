@@ -1,0 +1,26 @@
+{
+  "id": "406278395",
+  "refs": { "scene": "restyled/scene-fullworld/bld_406278395_pFlzGG2.png" },
+  "footprint": "obb",
+  "floorH": 3.0,
+  "volumes": [
+    { "name": "main", "x0": 0.0, "x1": 1.0, "z0": 0.0, "z1": 1.0, "floors": 2,
+      "wall": "#efe8d5",
+      "bands": [
+        { "floor": 1, "y0": 0.55, "y1": 1.0, "x0": 0.02, "x1": 0.42, "color": "#a8462f", "style": "breezeblock" },
+        { "floor": 0, "y0": 0.0, "y1": 0.55, "x0": 0.02, "x1": 0.42, "color": "#a8462f", "style": "breezeblock" }
+      ],
+      "roof": { "form": "flat", "fascia": { "h": 0.4, "color": "#e7e0cd", "overhang": 0.25 } } }
+  ],
+  "openings": [
+    { "volume": "main", "facade": "front", "type": "window", "floor": 1, "at": [0.22], "w": 2.6, "h": 1.9, "glass": "#1e2530", "frame": "#eceae0", "recessed": true },
+    { "volume": "main", "facade": "front", "type": "window", "floor": 0, "at": [0.72], "w": 2.4, "h": 1.4, "glass": "#22252b", "frame": "#eceae0", "recessed": true }
+  ],
+  "terraces": [],
+  "props": [],
+  "frontage": {
+    "sidewalk": { "material": "brick", "color": "#b5623f", "joint": "#96502f", "w": 3.0 }
+  },
+  "sky": { "top": "#5ea2db", "horizon": "#9fcfe4", "cloud": "#f4f6f6" },
+  "notes": "Facade close-up (same building family as 406278394): cream-plaster two-storey wall, red perforated breeze-block screen panels top and bottom, a white diamond-lattice security grille over a wide dark-glazed window with laundry lines, a wider low barred window at ground right, and a grey wall-mounted control box. Flat roof inferred. Colours estimated 2026-07-04."
+}

@@ -1,0 +1,30 @@
+{
+  "id": "383410002",
+  "refs": { "scene": "restyled/scene-fullworld/bld_383410002_pbi1EAv.png" },
+  "footprint": "obb",
+  "floorH": 3.0,
+  "volumes": [
+    { "name": "main", "x0": 0.0, "x1": 0.72, "z0": 0.0, "z1": 1.0, "floors": 2,
+      "wall": "#e6dcc2",
+      "roof": { "form": "hipped", "color": "#b8442a", "overhang": 0.55 } },
+    { "name": "porch", "x0": 0.72, "x1": 1.0, "z0": 0.0, "z1": 0.55, "floors": 1,
+      "wall": "#e6dcc2",
+      "roof": { "form": "flat", "fascia": { "h": 0.4, "color": "#b5442c", "overhang": 0.3 } } }
+  ],
+  "openings": [
+    { "volume": "main", "facade": "front", "type": "window", "floor": 1, "cols": 2, "at": [0.35, 0.7], "w": 1.3, "h": 1.2, "glass": "#6a6e69", "frame": "#efeade", "recessed": true },
+    { "volume": "main", "facade": "front", "type": "window", "floor": 0, "at": [0.35], "w": 1.3, "h": 1.2, "glass": "#6a6e69", "frame": "#efeade", "recessed": true },
+    { "volume": "main", "facade": "front", "type": "door", "floor": 0, "at": [0.7], "w": 1.2, "h": 2.2, "glass": "#6a6e69", "frame": "#c19a6b", "recessed": true },
+    { "volume": "porch", "facade": "front", "type": "opening", "floor": 0, "at": [0.5], "w": 1.6, "h": 2.2, "glass": "#6a6e69", "frame": "#efeade", "recessed": true }
+  ],
+  "terraces": [],
+  "props": [],
+  "frontage": {
+    "wall": { "type": "brick", "color": "#c6b184", "mortar": "#a89468", "h": 1.9 },
+    "gates": [{ "kind": "pedestrian", "w": 1.3, "style": "ornate-arch", "color": "#eeeee9" }],
+    "sidewalk": { "material": "brick", "color": "#b8785a", "joint": "#9c664c", "w": 3.5 },
+    "verge": { "grass": "#7fb84a", "grassDark": "#586a44", "flowers": { "palette": ["#e04438", "#f2d24b", "#f6f3ea"], "perM2": 0.12 } }
+  },
+  "sky": { "top": "#5ea2db", "horizon": "#9fcfe4", "cloud": "#f4f6f6" },
+  "notes": "Two-storey private villa with cream stucco walls and a terracotta red HIPPED tile roof, plus a small single-storey entry porch on the right with a red flat awning. Framed windows and a wood-surround entry door. Compound wall is tan/grey checkerboard stone blocks with a white ornate pedestrian gate (number '67'), flower planters and a mailbox; cypress and palm trees. Colours eyeballed from ref."
+}

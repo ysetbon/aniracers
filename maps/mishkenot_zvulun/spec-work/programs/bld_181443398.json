@@ -1,0 +1,30 @@
+{
+  "id": "181443398",
+  "refs": { "scene": "restyled/scene-fullworld/bld_181443398_pkk-lFA.png" },
+  "footprint": "obb",
+  "floorH": 3.0,
+  "volumes": [
+    { "name": "main", "x0": 0.0, "x1": 0.6, "z0": 0.0, "z1": 1.0, "floors": 2,
+      "wall": "#e8e2d3",
+      "roof": { "form": "hipped", "color": "#bc4a2b", "overhang": 0.5 } },
+    { "name": "wing", "x0": 0.6, "x1": 1.0, "z0": 0.15, "z1": 1.0, "floors": 1,
+      "wall": "#e8e2d3",
+      "roof": { "form": "hipped", "color": "#bc4a2b", "overhang": 0.5 } }
+  ],
+  "openings": [
+    { "volume": "main", "facade": "front", "type": "window", "floor": 1, "cols": 2, "at": [0.3, 0.7], "w": 1.3, "h": 1.2, "glass": "#6b6f6a", "frame": "#f0ece1", "recessed": true },
+    { "volume": "main", "facade": "front", "type": "window", "floor": 0, "at": [0.3], "w": 1.3, "h": 1.2, "glass": "#6b6f6a", "frame": "#f0ece1", "recessed": true },
+    { "volume": "main", "facade": "front", "type": "door", "floor": 0, "at": [0.7], "w": 1.2, "h": 2.2, "glass": "#6b6f6a", "frame": "#c19a6b", "recessed": true },
+    { "volume": "wing", "facade": "front", "type": "window", "floor": 0, "at": [0.5], "w": 1.3, "h": 1.2, "glass": "#6b6f6a", "frame": "#f0ece1", "recessed": true }
+  ],
+  "terraces": [],
+  "props": [],
+  "frontage": {
+    "wall": { "type": "brick", "color": "#cba85f", "mortar": "#9c6b3e", "h": 1.9 },
+    "gates": [{ "kind": "pedestrian", "w": 1.3, "style": "ornate-arch", "color": "#8c8f92" }],
+    "sidewalk": { "material": "brick", "color": "#b07a5b", "joint": "#98684d", "w": 3.5 },
+    "verge": { "grass": "#8dbf55", "grassDark": "#5f7048" }
+  },
+  "sky": { "top": "#5ea2db", "horizon": "#9fcfe4", "cloud": "#f4f6f6" },
+  "notes": "Two-storey private villa with cream stucco walls and a bright terracotta red HIPPED tile roof (main block 2 floors, lower right wing 1 floor, its own hipped roof). Framed windows and a recessed entry door. Compound wall is a checkerboard of tan/orange/red-brown blocks with a grey ornate pedestrian gate and mailbox. Cypress and palm trees. Colours eyeballed from ref."
+}

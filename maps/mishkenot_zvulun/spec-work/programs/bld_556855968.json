@@ -1,0 +1,36 @@
+{
+  "id": "556855968",
+  "refs": { "scene": "restyled/scene-fullworld/bld_556855968_pbJ3iDX.png" },
+  "footprint": "obb",
+  "floorH": 3.0,
+  "volumes": [
+    { "name": "main", "x0": 0.0, "x1": 1.0, "z0": 0.0, "z1": 1.0, "floors": 2,
+      "wall": "#e8c99f",
+      "roof": { "form": "gable", "color": "#ce6137", "fascia": { "h": 0.4, "color": "#a5502c", "overhang": 0.45 } } },
+    { "name": "porch", "x0": 0.0, "x1": 0.5, "z0": 0.0, "z1": 0.3, "floors": 1,
+      "wall": "#e4c59b",
+      "roof": { "form": "hip", "color": "#ce6137", "fascia": { "h": 0.3, "color": "#a5502c", "overhang": 0.5 } } }
+  ],
+  "openings": [
+    { "volume": "main", "facade": "front", "type": "window", "floor": 1, "cols": 2, "at": [0.3, 0.62], "w": 1.0, "h": 1.1, "glass": "#3f4a52", "frame": "#d8b98c", "recessed": true },
+    { "volume": "main", "facade": "front", "type": "window", "floor": 0, "at": [0.72], "w": 1.4, "h": 1.3, "glass": "#3f4a52", "frame": "#d8b98c", "recessed": true },
+    { "volume": "porch", "facade": "front", "type": "door", "floor": 0, "at": [0.5], "w": 1.3, "h": 2.2, "glass": "#33414c", "frame": "#c9a878", "recessed": true }
+  ],
+  "terraces": [
+    { "onVolume": "main", "side": "front", "rail": { "type": "lattice", "h": 1.0, "color": "#b98f5c" } }
+  ],
+  "props": [
+    { "type": "solar-panel", "volume": "main", "side": "top", "at": 0.35 },
+    { "type": "watertank", "volume": "main", "side": "top", "at": 0.6 }
+  ],
+  "frontage": {
+    "wall": { "type": "block", "color": "#d5d0c6", "mortar": "#bdb7ab", "h": 1.9 },
+    "gates": [{ "kind": "vehicle", "w": 4.2, "style": "perforated", "color": "#d8d4cb" },
+              { "kind": "pedestrian", "w": 1.0, "style": "picket", "color": "#b98f5c" }],
+    "sidewalk": { "material": "brick-pavers", "color": "#a8927e", "joint": "#8a7462", "w": 4.0 },
+    "verge": { "grass": "#5f9a3f", "grassDark": "#4a7a34" },
+    "road": { "surface": "asphalt", "color": "#8b8e92" }
+  },
+  "sky": { "top": "#5ea2db", "horizon": "#9fcfe4", "cloud": "#f4f6f6" },
+  "notes": "Two-storey peach/tan house with an orange terracotta gable roof carrying solar panels and a water-heater tank. Upper floor has a front balcony with a wooden lattice/pergola rail and an awning-style window shutter; a lower hip-roofed entry porch at ground level. Grey diamond-faced concrete-block compound wall with a white perforated metal vehicle gate, a wooden pedestrian gate and a '17' house sign. Sampled from ref 2026-07-04."
+}

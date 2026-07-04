@@ -1,0 +1,28 @@
+{
+  "id": "556855962",
+  "refs": { "scene": "restyled/scene-fullworld/bld_556855962_p9YX8kJ.png" },
+  "footprint": "obb",
+  "floorH": 3.0,
+  "volumes": [
+    { "name": "main", "x0": 0.0, "x1": 1.0, "z0": 0.0, "z1": 1.0, "floors": 2,
+      "wall": "#dccba4",
+      "roof": { "form": "hip", "color": "#cd6238", "fascia": { "h": 0.4, "color": "#a5502c", "overhang": 0.45 } } }
+  ],
+  "openings": [
+    { "volume": "main", "facade": "front", "type": "window", "floor": 1, "cols": 2, "at": [0.3, 0.68], "w": 1.6, "h": 1.3, "glass": "#3f4a52", "frame": "#6f4c30", "recessed": true },
+    { "volume": "main", "facade": "front", "type": "window", "floor": 0, "cols": 2, "at": [0.3, 0.72], "w": 1.4, "h": 1.2, "glass": "#3f4a52", "frame": "#6f4c30", "recessed": true },
+    { "volume": "main", "facade": "front", "type": "door", "floor": 0, "at": [0.5], "w": 1.2, "h": 2.2, "glass": "#33414c", "frame": "#c9c2b2", "recessed": true }
+  ],
+  "terraces": [
+    { "onVolume": "main", "side": "front", "rail": { "type": "bars", "h": 1.0, "color": "#aeb2ae" } }
+  ],
+  "props": [],
+  "frontage": {
+    "wall": { "type": "block", "color": "#d8c9a0", "mortar": "#c2b088", "h": 1.5 },
+    "sidewalk": { "material": "stone-slabs", "color": "#b3aca0", "joint": "#9a938a", "w": 3.0 },
+    "verge": { "grass": "#5f9a3f", "grassDark": "#4a7a34" },
+    "road": { "surface": "asphalt", "color": "#8f9296" }
+  },
+  "sky": { "top": "#5ea2db", "horizon": "#9fcfe4", "cloud": "#f4f6f6" },
+  "notes": "Two-storey tan/sand terraced house with an orange terracotta hipped roof. Upper floor has a front balcony with grey metal bar rail; windows have brown timber frames. Beige block compound wall with a trimmed green hedge above it at the frontage. Sampled from ref 2026-07-04."
+}

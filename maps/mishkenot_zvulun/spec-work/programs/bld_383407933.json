@@ -1,0 +1,28 @@
+{
+  "id": "383407933",
+  "refs": { "scene": "restyled/scene-fullworld/bld_383407933_pnPftmF.png" },
+  "footprint": "obb",
+  "floorH": 3.0,
+  "volumes": [
+    { "name": "main", "x0": 0.0, "x1": 1.0, "z0": 0.0, "z1": 1.0, "floors": 7,
+      "wall": "#89a0ad",
+      "roof": { "form": "flat", "fascia": { "h": 0.6, "color": "#9fb2bd", "overhang": 0.25 } } }
+  ],
+  "openings": [
+    { "volume": "main", "facade": "front", "type": "window", "floor": 6, "cols": 3, "at": [0.2, 0.5, 0.8], "w": 1.4, "h": 1.4, "glass": "#5f6d76", "frame": "#dfe4e5", "recessed": true },
+    { "volume": "main", "facade": "front", "type": "window", "floor": 4, "cols": 3, "at": [0.2, 0.5, 0.8], "w": 1.4, "h": 1.4, "glass": "#5f6d76", "frame": "#dfe4e5", "recessed": true },
+    { "volume": "main", "facade": "front", "type": "window", "floor": 2, "cols": 3, "at": [0.2, 0.5, 0.8], "w": 1.4, "h": 1.4, "glass": "#5f6d76", "frame": "#dfe4e5", "recessed": true },
+    { "volume": "main", "facade": "front", "type": "window", "floor": 0, "cols": 3, "at": [0.2, 0.5, 0.8], "w": 1.4, "h": 1.4, "glass": "#5f6d76", "frame": "#dfe4e5", "recessed": true }
+  ],
+  "terraces": [
+    { "onVolume": "main", "side": "front", "parapet": { "h": 0.9, "color": "#a9b6bd" }, "rail": { "type": "solid", "h": 0.2, "color": "#b8c2c8" } }
+  ],
+  "props": [],
+  "frontage": {
+    "wall": { "type": "brick", "color": "#c6a271", "mortar": "#a8834f", "h": 1.8 },
+    "sidewalk": { "material": "stone-slabs", "color": "#d4d5d1", "joint": "#bbbcb8", "w": 3.5 },
+    "verge": { "grass": "#7fb84a", "grassDark": "#586a44" }
+  },
+  "sky": { "top": "#5ea2db", "horizon": "#9fcfe4", "cloud": "#f4f6f6" },
+  "notes": "Blue-grey rendered apartment slab (~7 storeys) with a regular grid of white-framed windows and shallow recessed balconies (pale grey-white parapets, approximated as a front terrace band). Flat roof with light fascia. Sits above a tan sandstone retaining wall with clipped hedges and a stair; broken paving on the sidewalk. Colours eyeballed from ref."
+}

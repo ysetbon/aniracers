@@ -1,0 +1,26 @@
+{
+  "id": "556855960",
+  "refs": { "scene": "restyled/scene-fullworld/bld_556855960_phu16E3.png" },
+  "footprint": "obb",
+  "floorH": 3.0,
+  "volumes": [
+    { "name": "main", "x0": 0.0, "x1": 1.0, "z0": 0.0, "z1": 1.0, "floors": 2,
+      "wall": "#e5ddc7",
+      "roof": { "form": "hip", "color": "#cf6a3f", "fascia": { "h": 0.4, "color": "#a8532e", "overhang": 0.45 } } }
+  ],
+  "openings": [
+    { "volume": "main", "facade": "front", "type": "window", "floor": 1, "at": [0.55], "w": 1.4, "h": 1.2, "glass": "#3f4a52", "frame": "#7a5334", "recessed": true },
+    { "volume": "main", "facade": "front", "type": "window", "floor": 0, "cols": 2, "at": [0.4, 0.75], "w": 1.3, "h": 1.2, "glass": "#3f4a52", "frame": "#7a5334", "recessed": true }
+  ],
+  "terraces": [],
+  "props": [],
+  "frontage": {
+    "wall": { "type": "picket", "color": "#c79a5e", "mortar": "#ddd2b8", "h": 1.5 },
+    "gates": [{ "kind": "vehicle", "w": 4.0, "style": "ornate-arch", "color": "#3a3630" }],
+    "sidewalk": { "material": "colour-pavers", "color": "#b89a80", "joint": "#8f7460", "w": 3.5 },
+    "verge": { "grass": "#5f9a3f", "grassDark": "#4a7a34" },
+    "road": { "surface": "asphalt", "color": "#8b8e92" }
+  },
+  "sky": { "top": "#4f97d8", "horizon": "#9fcfe4", "cloud": "#f4f6f6" },
+  "notes": "Two-storey cream private house with an orange terracotta hipped roof and a deep eave overhang. Windows have brown timber frames. Frontage is a wooden picket fence on a low cream block wall with a dark ornate metal vehicle gate at the left; cypress and shade trees. Sampled from ref 2026-07-04."
+}

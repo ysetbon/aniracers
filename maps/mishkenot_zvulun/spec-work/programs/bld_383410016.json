@@ -1,0 +1,29 @@
+{
+  "id": "383410016",
+  "refs": { "scene": "restyled/scene-fullworld/bld_383410016_pdmIqlv.png" },
+  "footprint": "obb",
+  "floorH": 3.0,
+  "volumes": [
+    { "name": "main", "x0": 0.0, "x1": 1.0, "z0": 0.0, "z1": 1.0, "floors": 5,
+      "wall": "#b0895a",
+      "roof": { "form": "flat", "fascia": { "h": 0.6, "color": "#b8905e", "overhang": 0.3 } } }
+  ],
+  "openings": [
+    { "volume": "main", "facade": "front", "type": "window", "floor": 4, "cols": 3, "w": 1.3, "h": 1.3, "glass": "#363b41", "frame": "#d8c9a8", "recessed": true },
+    { "volume": "main", "facade": "front", "type": "window", "floor": 3, "cols": 3, "w": 1.3, "h": 1.3, "glass": "#363b41", "frame": "#d8c9a8", "recessed": true },
+    { "volume": "main", "facade": "front", "type": "window", "floor": 2, "cols": 3, "w": 1.3, "h": 1.3, "glass": "#363b41", "frame": "#d8c9a8", "recessed": true },
+    { "volume": "main", "facade": "front", "type": "window", "floor": 1, "cols": 3, "w": 1.3, "h": 1.3, "glass": "#363b41", "frame": "#d8c9a8", "recessed": true },
+    { "volume": "main", "facade": "front", "type": "door", "floor": 0, "at": [0.5], "w": 1.6, "h": 2.4, "glass": "#363b41", "frame": "#bb8a54", "recessed": true },
+    { "volume": "main", "facade": "front", "type": "window", "floor": 0, "at": [0.2, 0.8], "w": 1.3, "h": 1.3, "glass": "#363b41", "frame": "#d8c9a8", "recessed": true }
+  ],
+  "terraces": [],
+  "props": [],
+  "frontage": {
+    "wall": { "type": "brick", "color": "#b79a6d", "mortar": "#cdb890", "h": 1.5 },
+    "gates": [{ "kind": "pedestrian", "w": 1.4, "style": "ornate-arch", "color": "#e6e6e6" }],
+    "sidewalk": { "material": "stone-slabs", "color": "#c98c62", "joint": "#b0764f", "w": 3.0 },
+    "verge": { "grass": "#7cae4a", "grassDark": "#5b7d43" }
+  },
+  "sky": { "top": "#5ea2db", "horizon": "#9fcfe4", "cloud": "#f4f6f6" },
+  "notes": "Warm brown/tan multi-storey apartment block; only the right edge is visible in ref (heavily occluded by low-poly trees). ~5 floors of grid windows, top window shows grey security grille (no bars field in schema -- factory extension needed). Flat roof. Frontage is a tan ashlar/brick compound wall with a white ornate metal gate and terracotta paver walk. Occluded portions given plausible regular window grid. Colours estimated from ref (sampler not run)."
+}

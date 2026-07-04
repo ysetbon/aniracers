@@ -1,0 +1,34 @@
+{
+  "id": "556598012",
+  "refs": { "scene": "restyled/scene-fullworld/bld_556598012_p282pyM.png", "iso": "restyled/iso/bld_556598012.png" },
+  "footprint": "obb",
+  "floorH": 3.0,
+  "volumes": [
+    { "name": "main", "x0": 0.0, "x1": 1.0, "z0": 0.0, "z1": 1.0, "floors": 2,
+      "wall": "#d7c29a",
+      "roof": { "form": "hip", "color": "#c56a3d", "fascia": { "h": 0.5, "color": "#ddcaa2", "overhang": 0.45 } } }
+  ],
+  "openings": [
+    { "volume": "main", "facade": "front", "type": "window", "floor": 1,
+      "at": [0.55, 0.82], "w": 1.2, "h": 1.3, "glass": "#33414c", "frame": "#d8c8a6", "recessed": true },
+    { "volume": "main", "facade": "front", "type": "window", "floor": 0,
+      "at": [0.3, 0.55], "w": 1.2, "h": 1.3, "glass": "#33414c", "frame": "#d8c8a6", "recessed": true },
+    { "volume": "main", "facade": "front", "type": "door", "floor": 0,
+      "at": [0.82], "w": 1.2, "h": 2.2, "glass": "#5a4331", "frame": "#6f4a2d", "recessed": true }
+  ],
+  "terraces": [
+    { "onVolume": "main", "side": "front",
+      "parapet": { "h": 0.4, "color": "#d7c29a" },
+      "rail": { "type": "bars", "h": 0.95, "color": "#2c2c28" } }
+  ],
+  "props": [
+    { "type": "ac", "volume": "main", "facade": "front", "floor": 0, "at": 0.15 }
+  ],
+  "frontage": {
+    "wall": { "type": "brick", "color": "#cbb184", "mortar": "#b39c72", "h": 1.6 },
+    "sidewalk": { "material": "brick-pavers", "color": "#c7ae82", "joint": "#ab9264", "w": 3.5 },
+    "verge": { "grass": "#3f5f2a", "grassDark": "#2c4420" }
+  },
+  "sky": { "top": "#4fa3e2", "horizon": "#8fc9ea", "cloud": "#f0f5f7" },
+  "notes": "Real 2-storey house, warm tan render (#d7c29a) with orange clay hipped tile roof and wide eave. Upper floor has a front balcony on the left with a black metal bar railing; grouped windows across floor 1. Ground floor: windows plus a wood entry door (#6f4a2d) on the right, and a wall AC unit. Sand-block boundary wall (#cbb184) around the lot; black car in the driveway. Colours sampled from ref."
+}

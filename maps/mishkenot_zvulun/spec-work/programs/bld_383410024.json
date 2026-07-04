@@ -1,0 +1,26 @@
+{
+  "id": "383410024",
+  "refs": { "scene": "restyled/scene-fullworld/bld_383410024_pQInVFv.png" },
+  "footprint": "obb",
+  "floorH": 3.0,
+  "volumes": [
+    { "name": "main", "x0": 0.0, "x1": 1.0, "z0": 0.0, "z1": 1.0, "floors": 2,
+      "wall": "#e9e9e4",
+      "roof": { "form": "barrel", "color": "#9aa0a6", "fascia": { "h": 0.4, "color": "#b0b4b8", "overhang": 0.4 } } }
+  ],
+  "openings": [
+    { "volume": "main", "facade": "front", "type": "window", "floor": 1, "cols": 4, "w": 2.0, "h": 1.6, "glass": "#3a4550", "frame": "#c9ccce", "recessed": false },
+    { "volume": "main", "facade": "front", "type": "opening", "floor": 0, "at": [0.2, 0.42, 0.64, 0.86], "w": 2.4, "h": 2.6, "glass": "#2f3a44", "frame": "#c9ccce", "recessed": false },
+    { "volume": "main", "facade": "front", "type": "door", "floor": 0, "at": [0.5], "w": 2.2, "h": 2.6, "glass": "#2f3a44", "frame": "#c9ccce", "recessed": false }
+  ],
+  "terraces": [],
+  "props": [],
+  "frontage": {
+    "wall": { "type": "bars", "color": "#5a8f6a", "mortar": "#d6d6d0", "h": 1.6 },
+    "gates": [{ "kind": "pedestrian", "w": 1.4, "style": "bars", "color": "#5a8f6a" }],
+    "sidewalk": { "material": "stone-slabs", "color": "#c07850", "joint": "#a3623f", "w": 4.0 },
+    "verge": { "grass": "#8ab04e", "grassDark": "#5f7c43" }
+  },
+  "sky": { "top": "#5ea2db", "horizon": "#9fcfe4", "cloud": "#f4f6f6" },
+  "notes": "Public / school building ('HaChinuch HaIvri' entrance sign). Dominant feature is a large corrugated grey barrel-VAULT roof spanning the front (roof.form 'barrel' -- factory currently renders only flat/gable/hip, so a barrel form is a factory extension; falls back to open until added). White/cream stucco walls with a full-height glass curtain-wall / storefront glazing at ground level and a window band above. Green tubular-steel perimeter fence and pedestrian gate, terracotta-paver plaza with a low-poly tree island and curved entrance steps (steps/ramp not expressible). Colours estimated from ref."
+}

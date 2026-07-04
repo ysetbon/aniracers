@@ -1,0 +1,31 @@
+{
+  "id": "556855966",
+  "refs": { "scene": "restyled/scene-fullworld/bld_556855966_pbJ3iDX.png" },
+  "footprint": "obb",
+  "floorH": 3.0,
+  "volumes": [
+    { "name": "main", "x0": 0.0, "x1": 0.7, "z0": 0.0, "z1": 1.0, "floors": 2,
+      "wall": "#eeece5",
+      "roof": { "form": "gable", "color": "#cf6237", "fascia": { "h": 0.4, "color": "#a5502c", "overhang": 0.45 } } },
+    { "name": "wing", "x0": 0.7, "x1": 1.0, "z0": 0.25, "z1": 1.0, "floors": 1,
+      "wall": "#e8e6de",
+      "roof": { "form": "hip", "color": "#cf6237", "fascia": { "h": 0.3, "color": "#a5502c", "overhang": 0.4 } } }
+  ],
+  "openings": [
+    { "volume": "main", "facade": "front", "type": "window", "floor": 1, "cols": 3, "at": [0.28, 0.5, 0.72], "w": 0.8, "h": 1.0, "glass": "#3f4a52", "frame": "#e0ddd4", "recessed": true },
+    { "volume": "main", "facade": "front", "type": "window", "floor": 0, "cols": 2, "at": [0.3, 0.7], "w": 1.2, "h": 1.2, "glass": "#3f4a52", "frame": "#e0ddd4", "recessed": true },
+    { "volume": "wing", "facade": "front", "type": "door", "floor": 0, "at": [0.5], "w": 1.2, "h": 2.2, "glass": "#33414c", "frame": "#c9c2b2", "recessed": true }
+  ],
+  "terraces": [],
+  "props": [],
+  "frontage": {
+    "wall": { "type": "block", "color": "#ddd0b2", "mortar": "#c6b892", "h": 1.7 },
+    "gates": [{ "kind": "vehicle", "w": 4.2, "style": "panelled", "color": "#4a4034" },
+              { "kind": "pedestrian", "w": 1.0, "style": "bars", "color": "#4a4034" }],
+    "sidewalk": { "material": "brick-pavers", "color": "#a8846c", "joint": "#8a6850", "w": 4.0 },
+    "verge": { "grass": "#5f9a3f", "grassDark": "#4a7a34" },
+    "road": { "surface": "asphalt", "color": "#8b8e92" }
+  },
+  "sky": { "top": "#5ea2db", "horizon": "#9fcfe4", "cloud": "#f4f6f6" },
+  "notes": "Two-storey white private house set back behind a tall compound wall, with an orange terracotta gable roof over the main block and a lower single-storey hip-roofed wing. Small windows upper floor. Beige stone-block compound wall with a dark-brown panelled vehicle gate and a thin barred pedestrian gate. Sampled from ref 2026-07-04."
+}
