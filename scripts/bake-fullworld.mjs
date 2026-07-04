@@ -25,6 +25,12 @@ const OUT = arg('out', path.join(path.dirname(W.paths.assetGlb), 'world_v4.glb')
 const PROPS_DIR = path.join(ROOT, 'assets/props/kenney-nature');
 const REGION = (arg('region', '40,210,-460,-180')).split(',').map(Number);   // xW,xE,zN,zS
 const inRegion = (x, z) => x >= REGION[0] && x <= REGION[1] && z >= REGION[2] && z <= REGION[3];
+// Curated zones = hand-tuned areas (the T-junction test3 set) that the generic full-world
+// passes must NOT override: keep their hand-authored env (exact trees/cars/hedges) + scene
+// furniture, and SUPPRESS procedural furniture + aerial trees inside them. Add zones here as
+// more areas get the exact treatment.
+const CURATED = [[90, 165, -420, -240]];   // T-junction (HaRav Toledano x Unterman)
+const inCurated = (x, z) => CURATED.some(c => x >= c[0] && x <= c[1] && z >= c[2] && z <= c[3]);
 
 const BLD = JSON.parse(fs.readFileSync(W.paths.buildings, 'utf8')).buildings;
 const ROADS = JSON.parse(fs.readFileSync(path.join(W.paths.dir, 'roads.json'), 'utf8')).roads;
@@ -109,7 +115,8 @@ for (const b of regionBld) {
     const frontage = { a: P(lo2 - 1.2), b: P(hi + 1.2), nx: -nx, nz: -nz };
     const roadFrame = { qx: r.qx, qz: r.qz, ux: r.ux, uz: r.uz, nx: (o.cx - r.qx) / dl, nz: (o.cz - r.qz) / dl };
     jobs.push({ id: ID, program, obb: { cx: o.cx, cz: o.cz }, rotY,
-      W: front.lateral, D: front.depth, frontage, roadFrame, off, seed: parseInt(ID.slice(-6)) || 7 });
+      W: front.lateral, D: front.depth, frontage, roadFrame, off, seed: parseInt(ID.slice(-6)) || 7,
+      curated: inCurated(o.cx, o.cz) });
     nProg++;
   } else {
     // auto-extrude fallback: real OSM footprint + default cream wall + roof + windows/parapet.
@@ -171,6 +178,7 @@ console.log(`[${W.name}] v4: ${sceneRoads.length} roads in region`);
 // read as canopy from above). Done in node where nearestRoad + half-widths are available.
 let AERIAL_TREES = TREES.filter(t => {
   if (!inRegion(t.x, t.z)) return false;
+  if (inCurated(t.x, t.z)) return false;   // curated zones use their exact hand-placed trees
   const r = nearestRoad(t.x, t.z);
   const scR = sceneRoads.find(x => x.id === r.id);
   return r.d >= ((scR ? scR.halfW : 3.2) + 0.6);
@@ -191,6 +199,8 @@ var JOBS=` + JSON.stringify(jobs) + `;
 var SCENE=` + JSON.stringify({ ...SCENE, roads: sceneRoads,
   ground: { lawn: SCENE.ground.lawn, x0: REGION[0] - 20, x1: REGION[1] + 20, z0: REGION[2] - 20, z1: REGION[3] + 20 } }) + `;
 var TREES=` + JSON.stringify(AERIAL_TREES) + `;
+var CURATED=` + JSON.stringify(CURATED) + `;
+function inCur(x,z){for(var i=0;i<CURATED.length;i++){var c=CURATED[i];if(x>=c[0]&&x<=c[1]&&z>=c[2]&&z<=c[3])return true;}return false;}
 var KP=[],KN=[],KC=[];
 function collect(mesh){var g=mesh.geometry;g=g.index?g.toNonIndexed():g.clone();g.applyMatrix4(mesh.matrixWorld);
   if(!g.attributes.normal)g.computeVertexNormals();
@@ -361,7 +371,7 @@ async function bakeBuilding(JOB){
   var placed=0;var rnd=(function(seed){var s2=seed>>>0||1;return function(){s2=(s2*1664525+1013904223)>>>0;return s2/4294967296;};})(JOB.seed);
   var specs=env.props||[];
   for(var i2=0;i2<specs.length;i2++){var sp=specs[i2];
-    if(sp.model&&sp.model.indexOf('tree_')===0)continue;   // test4: trees come from aerial, not hand-authored
+    if(!JOB.curated&&sp.model&&sp.model.indexOf('tree_')===0)continue;   // outside curated zones trees come from aerial; inside, keep the exact hand-placed trees
     if(sp.car||sp.lamp||sp.bin||sp.planter){
       var pk=F(sp.t,sp.inset!=null?sp.inset:1);
       // 'along': car/prop local X axis onto the road direction u — rotation.y=θ maps
@@ -421,17 +431,18 @@ function bakeStreetFurniture(){
     var segs=roadWalk(rd.pts),hw=rd.halfW||3.2;if(segs.total<10)continue;
     // globe lamps ~38m apart, alternating side, on the verge just past the kerb
     for(var s=16,li=0;s<segs.total-5;s+=38,li++){var f=atArc(segs,s),sd=(li%2)?1:-1;
-      collectAll(mkGlobeLamp(f.x+f.nx*(hw+0.7)*sd,f.z+f.nz*(hw+0.7)*sd));n++;}
+      var lx=f.x+f.nx*(hw+0.7)*sd,lz=f.z+f.nz*(hw+0.7)*sd;if(inCur(lx,lz))continue;   // curated zones have their own scene lamps
+      collectAll(mkGlobeLamp(lx,lz));n++;}
     // parked cars ~15m apart, alternating side, ~55% density, hugging the kerb
     for(var s2=9,ci=0;s2<segs.total-5;s2+=15,ci++){if(hsh(r*131+ci*7)>0.55)continue;
       var f2=atArc(segs,s2),sd2=(ci%2)?1:-1;
-      var cx=f2.x+f2.nx*(hw+1.25)*sd2,cz=f2.z+f2.nz*(hw+1.25)*sd2;
+      var cx=f2.x+f2.nx*(hw+1.25)*sd2,cz=f2.z+f2.nz*(hw+1.25)*sd2;if(inCur(cx,cz))continue;   // curated zones have hand-authored cars
       var rot=Math.atan2(-f2.uz,f2.ux)+(sd2<0?Math.PI:0);
       collectAll(mkCar({color:CARCOLORS[Math.floor(hsh(r*977+ci*13)*CARCOLORS.length)]},cx,cz,rot));n++;}
     // T-sign at each dead-end endpoint, facing back down the road
     var ends=[[rd.pts[0],rd.pts[1]],[rd.pts[rd.pts.length-1],rd.pts[rd.pts.length-2]]];
     for(var e=0;e<2;e++){var a=ends[e][0],b=ends[e][1],k=Math.round(a[0])+'_'+Math.round(a[1]);
-      if(ep[k]===1){var dx=a[0]-b[0],dz=a[1]-b[1],L=Math.hypot(dx,dz)||1;
+      if(ep[k]===1&&!inCur(a[0],a[1])){var dx=a[0]-b[0],dz=a[1]-b[1],L=Math.hypot(dx,dz)||1;
         collectAll(mkTSign(a[0]-dx/L*2.5+(-dz/L)*(hw+0.6),a[1]-dz/L*2.5+(dx/L)*(hw+0.6),Math.atan2(-dx,-dz)));n++;}}}
   return n;}
 
@@ -550,7 +561,8 @@ try { await browser.close(); } catch {} server.close();
 // Skip with --nodraco. Needs gltf-pipeline (npm i gltf-pipeline).
 if (!argv.includes('--nodraco')) {
   try {
-    const { processGlb } = await import('gltf-pipeline');
+    const gp = await import('gltf-pipeline');
+    const processGlb = gp.processGlb || (gp.default && gp.default.processGlb);   // CJS interop
     const out = await processGlb(fs.readFileSync(OUT), { dracoOptions: { compressionLevel: 7 } });
     fs.writeFileSync(OUT, out.glb);
     console.log(`wrote ${path.relative(ROOT, OUT)} (${rawMB}MB raw -> ${(out.glb.length / 1048576).toFixed(1)}MB draco)`);
