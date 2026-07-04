@@ -28,6 +28,21 @@
     "verge": { "grass": "#4f8a34", "grassDark": "#3e6d2a" },
     "road": { "surface": "asphalt", "color": "#8b8e92" }
   },
+  "environment": {
+    "props": [
+      { "model": "tree_palmDetailedTall", "h": 9, "t": 0.03, "inset": 3, "rxz": 0.85, "tint": { "leafs": "#3f9b42", "wood": "#a08a67", "*": "#a08a67" } },
+      { "model": "tree_palmTall", "h": 6.5, "t": 0.08, "inset": 4.2, "rxz": 0.85, "tint": { "leafs": "#46a648", "wood": "#a08a67", "*": "#a08a67" } },
+      { "hedge": true, "t0": 0.12, "t1": 0.34, "step": 1.2, "inset": 1.3, "h": 2, "d": 1.4, "colors": ["#57952c", "#4e8a28", "#3c7031"] },
+      { "model": "tree_oak", "h": 5.5, "t": 0.6, "inset": 2, "rxz": 1.2, "tint": { "leafs": "#2f5d2a", "wood": "#6e5138", "*": "#6e5138" } },
+      { "model": "plant_bushLarge", "h": 2.8, "t": 0.6, "inset": 1.2, "rxz": 1.2, "tint": { "leafs": "#c0356f", "*": "#44603a" } },
+      { "model": "tree_oak", "h": 4.5, "t": 0.96, "inset": 3.5, "rxz": 1.0, "tint": { "leafs": "#5c9440", "wood": "#6e5138", "*": "#6e5138" } },
+      { "car": true, "t": 0.48, "inset": -4.7, "rot": "along", "color": "#3d5a82" },
+      { "car": true, "t": 0.66, "inset": -4.7, "rot": "along", "flip": true, "color": "#b9bcc0" },
+      { "bin": true, "t": 0.02, "inset": -0.7, "rot": "along" },
+      { "bin": true, "t": 0.06, "inset": -0.7, "rot": "along" },
+      { "bin": true, "t": 0.1, "inset": -0.7, "rot": "along" }
+    ]
+  },
   "sky": { "top": "#4f97d8", "horizon": "#9fcfe4", "cloud": "#f4f6f6" },
   "notes": "Two-storey private house. Left flat-roofed cream wing joined to a white main block under an orange terracotta gable roof carrying solar panels and skylights. Ground floor has a dark diagonal-slat garage/utility door and an AC unit; upper floor a row of narrow windows. Pinkish stucco compound wall with a dark barred vehicle gate; cars in the driveway. Sampled from ref 2026-07-04."
 }

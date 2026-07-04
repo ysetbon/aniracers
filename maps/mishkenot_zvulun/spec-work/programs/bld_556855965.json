@@ -22,6 +22,94 @@
     "verge": { "grass": "#5f9a3f", "grassDark": "#4a7a34" },
     "road": { "surface": "asphalt", "color": "#8f9296" }
   },
+  "environment": {
+    "props": [
+      {
+        "planter": true,
+        "t": 0.12,
+        "inset": 1.6,
+        "w": 3.2,
+        "d": 1.6,
+        "color": "#cbb488",
+        "rot": "along"
+      },
+      {
+        "model": "tree_palmDetailedTall",
+        "h": 9.0,
+        "t": 0.14,
+        "inset": 2.2,
+        "rxz": 0.85,
+        "tint": { "leafs": "#3f9b42", "wood": "#a08a67", "*": "#a08a67" }
+      },
+      {
+        "model": "tree_palmTall",
+        "h": 7.0,
+        "t": 0.2,
+        "inset": 2.6,
+        "rxz": 0.85,
+        "tint": { "leafs": "#46a648", "wood": "#a08a67", "*": "#a08a67" }
+      },
+      {
+        "model": "tree_oak",
+        "h": 11.0,
+        "t": 0.08,
+        "inset": 3.2,
+        "rxz": 0.6,
+        "tint": { "leafs": "#2a5226", "wood": "#5a4630", "*": "#5a4630" }
+      },
+      {
+        "model": "tree_oak",
+        "h": 7.0,
+        "t": 0.92,
+        "inset": 2.6,
+        "rxz": 1.25,
+        "tint": { "leafs": "#c8862e", "wood": "#6e5138", "*": "#6e5138" }
+      },
+      {
+        "model": "tree_oak",
+        "h": 6.5,
+        "t": 0.05,
+        "inset": 4.5,
+        "rxz": 1.2,
+        "tint": { "leafs": "#c07a2c", "wood": "#6e5138", "*": "#6e5138" }
+      },
+      {
+        "model": "plant_bushLarge",
+        "h": 2.6,
+        "t": 0.42,
+        "inset": 1.0,
+        "rxz": 1.3,
+        "tint": { "leafs": "#4c8a34", "*": "#44603a" }
+      },
+      {
+        "model": "plant_bushLarge",
+        "h": 2.5,
+        "t": 0.56,
+        "inset": 1.0,
+        "rxz": 1.3,
+        "tint": { "leafs": "#57952c", "*": "#44603a" }
+      },
+      {
+        "model": "plant_bushLarge",
+        "h": 2.6,
+        "t": 0.7,
+        "inset": 1.0,
+        "rxz": 1.3,
+        "tint": { "leafs": "#4c8a34", "*": "#44603a" }
+      },
+      {
+        "model": "plant_bushLarge",
+        "h": 2.5,
+        "t": 0.85,
+        "inset": 1.0,
+        "rxz": 1.3,
+        "tint": { "leafs": "#57952c", "*": "#44603a" }
+      },
+      { "car": true, "t": 0.28, "inset": -4.7, "rot": "along", "color": "#2e3138" },
+      { "car": true, "t": 0.48, "inset": -4.7, "rot": "along", "color": "#e4e2da" },
+      { "car": true, "t": 0.86, "inset": -4.7, "rot": "along", "flip": true, "color": "#4a6b3a" }
+    ]
+  },
   "sky": { "top": "#4f97d8", "horizon": "#9fcfe4", "cloud": "#f4f6f6" },
-  "notes": "Two-storey cream private house with an orange terracotta hipped roof. Windows on both floors have brown timber frames; central ground-floor entrance. Beige block compound wall with a planter and a light pedestrian gate; cypress and palms alongside. Sampled from ref 2026-07-04."
+  "notes": "Two-storey cream private house with an orange terracotta hipped roof. Windows on both floors have brown timber frames; central ground-floor entrance. Beige block compound wall with a planter and a light pedestrian gate; cypress and palms alongside. Sampled from ref 2026-07-04. Environment: corner raised planter with palms, a tall dark cypress, two autumn-orange oaks, a run of large round bushes along the walkway, and dark/white/green cars parked at the kerb 2026-07-05."
 }

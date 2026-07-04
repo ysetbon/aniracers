@@ -29,6 +29,53 @@
     "verge": { "grass": "#5f9a3f", "grassDark": "#4a7a34" },
     "road": { "surface": "asphalt", "color": "#8f9296" }
   },
+  "environment": {
+    "props": [
+      {
+        "hedge": true,
+        "h": 2.9,
+        "t0": 0.03,
+        "t1": 0.9,
+        "step": 1.2,
+        "inset": 1.3,
+        "colors": ["#57952c", "#4e8a28", "#3c7031"]
+      },
+      {
+        "model": "tree_palmDetailedTall",
+        "h": 11.0,
+        "t": 0.45,
+        "inset": 3.0,
+        "rxz": 0.85,
+        "tint": { "leafs": "#3f9b42", "wood": "#a08a67", "*": "#a08a67" }
+      },
+      {
+        "model": "tree_palmTall",
+        "h": 8.0,
+        "t": 0.3,
+        "inset": 3.6,
+        "rxz": 0.85,
+        "tint": { "leafs": "#46a648", "wood": "#a08a67", "*": "#a08a67" }
+      },
+      {
+        "model": "tree_palmTall",
+        "h": 6.0,
+        "t": 0.18,
+        "inset": 4.0,
+        "rxz": 0.85,
+        "tint": { "leafs": "#3f9b42", "wood": "#a08a67", "*": "#a08a67" }
+      },
+      {
+        "model": "tree_oak",
+        "h": 5.5,
+        "t": 0.92,
+        "inset": 2.6,
+        "rxz": 1.2,
+        "tint": { "leafs": "#3c7031", "wood": "#6e5138", "*": "#6e5138" }
+      },
+      { "bin": true, "t": 0.02, "inset": -0.6, "rot": "along" },
+      { "car": true, "t": 0.94, "inset": -4.7, "rot": "along", "flip": true, "color": "#3f5f9a" }
+    ]
+  },
   "sky": { "top": "#4f97d8", "horizon": "#9fcfe4", "cloud": "#f4f6f6" },
-  "notes": "Two-storey cream house with a dark-brown tiled gable roof (plus a lower hip-roofed wing). Upper floor has a wide front balcony with a blue-grey diagonal metal rail and awning-style window shutters; an AC unit at the upper right. House number '25' sign at the gate. Beige block compound wall with a leafy hedge. Sampled from ref 2026-07-04."
+  "notes": "Two-storey cream house with a dark-brown tiled gable roof (plus a lower hip-roofed wing). Upper floor has a wide front balcony with a blue-grey diagonal metal rail and awning-style window shutters; an AC unit at the upper right. House number '25' sign at the gate. Beige block compound wall with a leafy hedge. Sampled from ref 2026-07-04. Environment: full leafy hedge, a tall detailed palm plus banana/fan palms, a round oak at right, a green bin at the left corner and a blue car at the far kerb 2026-07-05."
 }

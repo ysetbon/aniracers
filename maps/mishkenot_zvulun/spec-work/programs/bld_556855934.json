@@ -28,6 +28,18 @@
     "verge": { "grass": "#6bbb45", "grassDark": "#4e7c3c" },
     "road": { "surface": "asphalt", "color": "#8f9296" }
   },
+  "environment": {
+    "props": [
+      { "model": "tree_oak", "h": 8, "t": 0.32, "inset": 2.2, "rxz": 1.45, "tint": { "leafs": "#3c7031", "wood": "#8f8a80", "*": "#8f8a80" } },
+      { "model": "tree_oak", "h": 4, "t": 0.02, "inset": 2.6, "rxz": 1.0, "tint": { "leafs": "#7fae3e", "wood": "#b8a884", "*": "#b8a884" } },
+      { "model": "tree_oak", "h": 9.5, "t": 1.04, "inset": 3.2, "rxz": 0.6, "tint": { "leafs": "#254a24", "wood": "#5a4a34", "*": "#5a4a34" } },
+      { "model": "tree_oak", "h": 10, "t": 1.12, "inset": 3.4, "rxz": 0.6, "tint": { "leafs": "#2a4f27", "wood": "#5a4a34", "*": "#5a4a34" } },
+      { "model": "tree_oak", "h": 9, "t": 1.2, "inset": 3.6, "rxz": 0.6, "tint": { "leafs": "#254a24", "wood": "#5a4a34", "*": "#5a4a34" } },
+      { "model": "tree_oak", "h": 4.5, "t": 0.97, "inset": 5.5, "rxz": 1.0, "tint": { "leafs": "#5c9440", "wood": "#8f8a80", "*": "#8f8a80" } },
+      { "bin": true, "t": 0.04, "inset": -0.8, "rot": "along" },
+      { "bin": true, "t": 0.09, "inset": -0.8, "rot": "along" }
+    ]
+  },
   "sky": { "top": "#5ea2db", "horizon": "#9fcfe4", "cloud": "#f4f6f6" },
   "notes": "Tall narrow three-storey house (#ece7dc) with a dark charcoal-slate hip roof (#4a4a4d) — distinctive against the terracotta neighbours. Windows have pale stone/render surrounds; small square windows near the roofline. A single-storey flat-roofed side wing sits to the left. Frontage is a white picket fence with a wide timber double vehicle gate (#a06a38) and a matching timber pedestrian gate marked house-number 32; green and blue wheelie bins at the kerb. Sampled colours 2026-07-04."
 }

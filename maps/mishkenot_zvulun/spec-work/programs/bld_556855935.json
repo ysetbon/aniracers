@@ -26,6 +26,16 @@
     "verge": { "grass": "#5db63f", "grassDark": "#437c34" },
     "road": { "surface": "asphalt", "color": "#8f9296" }
   },
+  "environment": {
+    "props": [
+      { "model": "tree_oak", "h": 7, "t": 0.5, "inset": 2.2, "rxz": 1.35, "tint": { "leafs": "#3c7031", "wood": "#6e5138", "*": "#6e5138" } },
+      { "model": "tree_oak", "h": 6, "t": 0.62, "inset": 2.8, "rxz": 1.2, "tint": { "leafs": "#4c8a34", "wood": "#6e5138", "*": "#6e5138" } },
+      { "model": "tree_oak", "h": 4, "t": 0.02, "inset": 2.4, "rxz": 1.0, "tint": { "leafs": "#5c9440", "wood": "#6e5138", "*": "#6e5138" } },
+      { "model": "tree_oak", "h": 5, "t": 0.9, "inset": 3.2, "rxz": 1.1, "tint": { "leafs": "#3c7031", "wood": "#6e5138", "*": "#6e5138" } },
+      { "car": true, "t": 0.95, "inset": -4.7, "rot": "along", "flip": true, "color": "#eceae4" },
+      { "car": true, "t": 1.2, "inset": -4.7, "rot": "along", "flip": true, "color": "#b83a2e" }
+    ]
+  },
   "sky": { "top": "#5ea2db", "horizon": "#9fcfe4", "cloud": "#f4f6f6" },
   "notes": "Two-storey render house (#dcd6c8), grey-cream, with a lower single-storey front wing under its own orange terracotta hip roof (#c05a34); main block also terracotta hip. A wall-mounted AC unit sits on the upper floor. The windows are filled with colourful geometric stained-glass-style panes (blue triangles with an orange strip) in white frames. Frontage is a white picket fence on a sandstone-block base wall (#d8c79a) with a white panel pedestrian gate; brick-paved forecourt, a neighbour's timber carport and a red car to the right. Sampled colours 2026-07-04."
 }

@@ -36,6 +36,7 @@ const inRegion = (x, z) => x >= REGION[0] && x <= REGION[1] && z >= REGION[2] &&
 const CURATED = [
   { b: [85, 175, -450, -235], roads: true },    // Part 1: T-junction (HaRav Toledano x Unterman)
   { b: [20, 85, -450, -235], roads: false },    // Part 2: West cluster (rides the generic roads)
+  { b: [270, 360, -360, -270], roads: false },  // Part 3: East cluster (rides the generic roads)
 ];
 const inCurated = (x, z) => CURATED.some(p => x >= p.b[0] && x <= p.b[1] && z >= p.b[2] && z <= p.b[3]);
 
