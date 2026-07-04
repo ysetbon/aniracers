@@ -1,7 +1,7 @@
 # paver-street-north — Mid paver street looking north to the red-roofed backdrop house; parked cars on the paver edges, cypress+palms flanking.
 
 target: maps/mishkenot_zvulun/restyled/scene-tjunction/raw_road_699330771_2_a.jpg
-render: maps/mishkenot_zvulun/art-match/hero_paver-street-north.png
+render: maps\mishkenot_zvulun\art-match\hero_paver-street-north.png
 camera: x=122.4 z=-346.5 heading=6 fov=72 eye=2.5 pitch=3
 
 ## ground

@@ -152,7 +152,11 @@ for (const s of shots) {
         sun.shadow.camera.top = R; sun.shadow.camera.bottom = -R; sun.shadow.camera.far = 320;
         sun.shadow.bias = -0.0006; sun.shadow.camera.updateProjectionMatrix();
       }
-      if (hemi) { saved.hemi = { int: hemi.intensity }; hemi.intensity = 0.5; }
+      // strong WARM fill: without it, street-facing (backlit) cream facades crush to dead
+      // grey and the facade relief (quoins/sills/string-courses) disappears. The target keeps
+      // shaded walls bright warm cream — a high warm-sky / warm-ground-bounce hemisphere.
+      if (hemi) { saved.hemi = { int: hemi.intensity, col: hemi.color.clone(), grd: hemi.groundColor.clone() };
+        hemi.intensity = 0.95; hemi.color.setHex(0xfff3de); hemi.groundColor.setHex(0xcdb89a); }
       saved.tone = d.renderer.toneMapping; saved.exp = d.renderer.toneMappingExposure;
       d.renderer.toneMapping = THREE.ACESFilmicToneMapping; d.renderer.toneMappingExposure = 1.08;
       d.renderer.shadowMap.needsUpdate = true;
@@ -169,7 +173,7 @@ for (const s of shots) {
         sun.shadow.camera.left = saved.sun.L; sun.shadow.camera.right = saved.sun.R; sun.shadow.camera.top = saved.sun.T;
         sun.shadow.camera.bottom = saved.sun.B; sun.shadow.camera.far = saved.sun.far; sun.shadow.bias = saved.sun.bias;
         sun.target.position.copy(saved.sun.tpos); sun.shadow.camera.updateProjectionMatrix(); }
-      if (hemi && saved.hemi) hemi.intensity = saved.hemi.int;
+      if (hemi && saved.hemi) { hemi.intensity = saved.hemi.int; hemi.color.copy(saved.hemi.col); hemi.groundColor.copy(saved.hemi.grd); }
       d.renderer.toneMapping = saved.tone; d.renderer.toneMappingExposure = saved.exp;
     }
     for (const o of hidden) o.visible = true;

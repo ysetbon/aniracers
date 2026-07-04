@@ -1,7 +1,7 @@
 # junction-north — THE target frame: standing just south of the T-node looking north up the terracotta paver street, island + blue T-sign on the right.
 
 target: docs/target-street-image.png
-render: maps/mishkenot_zvulun/art-match/hero_junction-north.png
+render: maps\mishkenot_zvulun\art-match\hero_junction-north.png
 camera: x=119.1 z=-326.8 heading=6 fov=72 eye=2.5 pitch=4
 
 ## ground

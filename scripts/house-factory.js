@@ -118,11 +118,27 @@ function makeFootprintBuilding(foot,p){
 // Deterministic: same program -> byte-identical geometry (seeded LCG, no Math.random).
 function lcg(seed){var s=seed>>>0||1;return function(){s=(s*1664525+1013904223)>>>0;return s/4294967296;};}
 function dim(c,f){var col=new THREE.Color(hx(c));col.multiplyScalar(f);return col.getHex();}
+// lightness shift that CLAMPS (unlike dim's multiplyScalar, which overflows getHex on
+// near-white walls). +dl lightens, -dl darkens; used for facade trim (Pass 2).
+function shade(c,dl){var col=new THREE.Color(hx(c));col.offsetHSL(0,0,dl);return col.getHex();}
 
 function v3Volume(g,vol,W,D,floorH){
   var w=(vol.x1-vol.x0)*W, d=(vol.z1-vol.z0)*D, h=(vol.floors||1)*floorH;
   var cx=(-W/2)+(vol.x0+vol.x1)/2*W, cz=(-D/2)+(vol.z0+vol.z1)/2*D;
   g.add(box(w,h,d,vol.wall,cx,h/2,cz));
+  // --- facade trim (Pass 2): grounds + articulates EVERY volume so blank end-walls stop
+  // reading as flat grey slabs. Subtle by design (Israeli stucco blocks, not ornate villas).
+  // Toggle off per-volume with "trim":false.
+  if(vol.trim!==false){var wc=vol.wall,floors=vol.floors||1;
+    // ground plinth: a slightly proud, slightly darker base course grounds the mass
+    var plH=Math.min(0.85,h*0.4);
+    g.add(box(w+0.18,plH,d+0.18,shade(wc,-0.06),cx,plH/2,cz));
+    // floor-line string courses at each interior division + a cornice line under the roof
+    for(var fl=1;fl<floors;fl++)g.add(box(w+0.12,0.16,d+0.12,shade(wc,0.05),cx,fl*floorH,cz));
+    g.add(box(w+0.12,0.2,d+0.12,shade(wc,0.05),cx,h-0.1,cz));
+    // corner pilasters: narrow proud vertical strips define the box edges (subtle quoin read)
+    var qc=shade(wc,0.045),cor=[[cx-w/2,cz-d/2],[cx+w/2,cz-d/2],[cx-w/2,cz+d/2],[cx+w/2,cz+d/2]];
+    for(var ci=0;ci<4;ci++)g.add(box(0.28,h,0.28,qc,cor[ci][0],h/2,cor[ci][1]));}
   // bands: horizontal accent strips; 'slats' = several thin boards. Default wraps the
   // volume; with x0/x1 (fractions of the volume width) they sit proud of front+back only.
   var bands=vol.bands||[];
@@ -167,6 +183,10 @@ function v3Openings(g,program,exts,floorH){
       if(op.recessed){var m0=winBox(op.w+0.34,(op.h||1.4)+0.34,0.06,dim(exts[op.volume].wallColor||'#ffffff',0.82),px,y,pz,phi);g.add(m0);}
       if(op.frame){g.add(winBox(op.w+0.22,(op.h||1.4)+0.22,0.1,op.frame,px+f.nx*0.03,y,pz+f.nz*0.03,phi));}
       g.add(winBox(op.w,(op.h||1.4),0.14,op.glass||'#4b5058',px+f.nx*0.06,y,pz+f.nz*0.06,phi));
+      // sill + lintel (Pass 2): proud relief so openings read as designed, casting shadow lines
+      if(op.type!=='door'){var oh=op.h||1.4,wcl=ext.wallColor||'#e8e2d0';
+        g.add(winBox(op.w+0.3,0.12,0.24,shade(wcl,0.08),px+f.nx*0.12,y-oh/2-0.09,pz+f.nz*0.12,phi));
+        g.add(winBox(op.w+0.26,0.14,0.16,shade(wcl,0.03),px+f.nx*0.07,y+oh/2+0.13,pz+f.nz*0.07,phi));}
       if(op.type==='door'){g.add(winBox(op.w+0.5,0.14,0.9,'#e8e2d2',px+f.nx*0.4,(op.h||2.2)+0.15,pz+f.nz*0.4,phi));}}}
 }
 function v3Terraces(g,program,exts){
