@@ -1,0 +1,23 @@
+{
+  "id": "556855847",
+  "refs": { "scene": "restyled/scene-fullworld/bld_556855847_p73jZRF.png", "iso": "restyled/iso/bld_556855847.png" },
+  "footprint": "obb",
+  "floorH": 3.0,
+  "volumes": [
+    { "name": "shell", "x0": 0.0, "x1": 1.0, "z0": 0.0, "z1": 1.0, "floors": 2,
+      "wall": "#b2b4b1",
+      "roof": { "form": "flat", "fascia": { "h": 0.35, "color": "#a9aba8", "overhang": 0.1 } } }
+  ],
+  "openings": [
+    { "volume": "shell", "facade": "front", "type": "opening", "floor": 1, "cols": 3, "at": [0.2, 0.5, 0.8], "w": 1.6, "h": 1.6, "glass": "#6a6c69", "frame": "#a9aba8", "recessed": true },
+    { "volume": "shell", "facade": "front", "type": "opening", "floor": 0, "cols": 3, "at": [0.2, 0.5, 0.8], "w": 1.6, "h": 1.8, "glass": "#6a6c69", "frame": "#a9aba8", "recessed": true }
+  ],
+  "props": [],
+  "frontage": {
+    "wall": { "type": "corrugated", "color": "#c6cacc", "mortar": "#aeb2b4", "h": 2.0 },
+    "sidewalk": { "material": "stone-slabs", "color": "#cbc4b7", "joint": "#b6afa1", "w": 3.0 },
+    "road": { "surface": "asphalt", "color": "#8f9296" }
+  },
+  "sky": { "top": "#5ea2db", "horizon": "#9fcfe4", "cloud": "#f4f6f6" },
+  "notes": "Active construction site: unfinished grey concrete-block shell (~2 floors) with rebar, scaffolding and workers on top; open block openings instead of glazed windows. Frontage is a corrugated grey metal site hoarding with blue and red graffiti paint splats (paint not encodable in wall schema; noted). Sampled visually 2026-07-04."
+}

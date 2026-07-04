@@ -1,0 +1,30 @@
+{
+  "id": "556598017",
+  "refs": { "scene": "restyled/scene-fullworld/bld_556598017_p7rMIwC.png", "iso": "restyled/iso/bld_556598017.png" },
+  "footprint": "obb",
+  "floorH": 3.0,
+  "volumes": [
+    { "name": "main", "x0": 0.0, "x1": 0.72, "z0": 0.0, "z1": 1.0, "floors": 2,
+      "wall": "#d4c7a9",
+      "roof": { "form": "hipped", "color": "#b8613a", "fascia": { "h": 0.4, "color": "#cabd9e", "overhang": 0.5 } } },
+    { "name": "garageWing", "x0": 0.72, "x1": 1.0, "z0": 0.35, "z1": 1.0, "floors": 1,
+      "wall": "#d4c7a9",
+      "roof": { "form": "flat", "fascia": { "h": 0.35, "color": "#cabd9e", "overhang": 0.2 } } }
+  ],
+  "openings": [
+    { "volume": "main", "facade": "front", "type": "window", "floor": 1, "cols": 2, "at": [0.35, 0.75], "w": 1.1, "h": 1.2, "glass": "#4e4a44", "frame": "#cbbd9d", "recessed": true },
+    { "volume": "main", "facade": "front", "type": "door", "floor": 0, "at": [0.35], "w": 1.3, "h": 2.3, "glass": "#3a352e", "frame": "#c1b494", "recessed": true },
+    { "volume": "main", "facade": "front", "type": "window", "floor": 0, "at": [0.72], "w": 1.1, "h": 1.2, "glass": "#4e4a44", "frame": "#cbbd9d", "recessed": true },
+    { "volume": "garageWing", "facade": "front", "type": "garage", "floor": 0, "at": [0.5], "w": 2.6, "h": 2.2, "glass": "#8a5a34", "frame": "#c1b494", "recessed": true }
+  ],
+  "props": [],
+  "frontage": {
+    "wall": { "type": "brick", "color": "#cabd9e", "mortar": "#b7a988", "h": 1.9 },
+    "gates": [ { "kind": "vehicle", "w": 4.5, "style": "ornate-arch", "color": "#8c887e" },
+               { "kind": "pedestrian", "w": 1.1, "style": "ornate-arch", "color": "#8c887e" } ],
+    "sidewalk": { "material": "stone-slabs", "color": "#cbbfa8", "joint": "#b7ab92", "w": 3.0 },
+    "road": { "surface": "asphalt", "color": "#8f9296" }
+  },
+  "sky": { "top": "#5ea2db", "horizon": "#9fcfe4", "cloud": "#f4f6f6" },
+  "notes": "Cream ashlar 2-storey villa with terracotta hipped tile roof (roof finials/chimney), stone quoins, recessed dark windows and a recessed arched entrance; single-storey garage wing with brown roll-up door on the right. Compound: cream block wall with ornate grey metal vehicle + pedestrian gates. Sampled visually 2026-07-04."
+}

@@ -1,0 +1,30 @@
+{
+  "id": "556598048",
+  "refs": { "scene": "restyled/scene-fullworld/bld_556598048_ph_fq2m.png", "iso": "restyled/iso/bld_556598048.png" },
+  "footprint": "obb",
+  "floorH": 3.0,
+  "volumes": [
+    { "name": "main", "x0": 0.0, "x1": 1.0, "z0": 0.0, "z1": 1.0, "floors": 2,
+      "wall": "#d99a5c",
+      "roof": { "form": "hipped", "color": "#c1442c", "fascia": { "h": 0.4, "color": "#cf9057", "overhang": 0.5 } } }
+  ],
+  "openings": [
+    { "volume": "main", "facade": "front", "type": "window", "floor": 1, "cols": 4, "at": [0.18, 0.38, 0.62, 0.82], "w": 1.0, "h": 1.2, "glass": "#3f3b35", "frame": "#b5794a", "recessed": true },
+    { "volume": "main", "facade": "front", "type": "window", "floor": 0, "cols": 2, "at": [0.32, 0.68], "w": 1.0, "h": 1.2, "glass": "#3f3b35", "frame": "#b5794a", "recessed": true },
+    { "volume": "main", "facade": "front", "type": "door", "floor": 0, "cols": 2, "at": [0.42, 0.58], "w": 1.1, "h": 2.2, "glass": "#2f2b26", "frame": "#b5794a", "recessed": true }
+  ],
+  "terraces": [
+    { "onVolume": "main", "side": "front",
+      "rail": { "type": "bars", "h": 1.0, "color": "#c98a4e" } }
+  ],
+  "props": [],
+  "frontage": {
+    "wall": { "type": "brick", "color": "#c98a52", "mortar": "#8a5a34", "h": 1.7 },
+    "gates": [ { "kind": "vehicle", "w": 4.0, "style": "ornate-arch", "color": "#2b2824" },
+               { "kind": "pedestrian", "w": 1.1, "style": "ornate-arch", "color": "#2b2824" } ],
+    "sidewalk": { "material": "stone-slabs", "color": "#cabfa8", "joint": "#b6ab92", "w": 3.0 },
+    "road": { "surface": "asphalt", "color": "#8f9296" }
+  },
+  "sky": { "top": "#5ea2db", "horizon": "#9fcfe4", "cloud": "#f4f6f6" },
+  "notes": "Two-storey orange-render semi-detached villa with a bright red hipped tile roof, twin dark entrance doors, dark recessed windows, and small first-floor balconies with orange bar rails. Compound wall in orange render carrying a dark decorative tile-band frieze (mortar colour) + ornate black metal vehicle and pedestrian gates. Sampled visually 2026-07-04."
+}

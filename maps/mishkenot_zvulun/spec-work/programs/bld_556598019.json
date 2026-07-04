@@ -1,0 +1,37 @@
+{
+  "id": "556598019",
+  "refs": { "scene": "restyled/scene-fullworld/bld_556598019_p221kO2.png", "iso": "restyled/iso/bld_556598019.png" },
+  "footprint": "obb",
+  "floorH": 3.0,
+  "volumes": [
+    { "name": "main", "x0": 0.0, "x1": 1.0, "z0": 0.25, "z1": 1.0, "floors": 3,
+      "wall": "#e7dfce",
+      "roof": { "form": "flat", "fascia": { "h": 0.5, "color": "#ded6c4", "overhang": 0.25 } } },
+    { "name": "frontStep", "x0": 0.15, "x1": 0.85, "z0": 0.0, "z1": 0.25, "floors": 2,
+      "wall": "#e7dfce",
+      "roof": { "form": "flat", "fascia": { "h": 0.4, "color": "#ded6c4", "overhang": 0.2 } } }
+  ],
+  "openings": [
+    { "volume": "main", "facade": "front", "type": "window", "floor": 2, "cols": 3, "at": [0.2, 0.5, 0.82], "w": 1.2, "h": 1.2, "glass": "#5a5750", "frame": "#d6cdb9", "recessed": true },
+    { "volume": "main", "facade": "front", "type": "window", "floor": 1, "cols": 3, "at": [0.2, 0.5, 0.82], "w": 1.2, "h": 1.2, "glass": "#5a5750", "frame": "#d6cdb9", "recessed": true },
+    { "volume": "frontStep", "facade": "front", "type": "window", "floor": 0, "cols": 2, "at": [0.35, 0.65], "w": 2.0, "h": 1.6, "glass": "#4f6f86", "frame": "#d6cdb9", "recessed": true },
+    { "volume": "frontStep", "facade": "front", "type": "door", "floor": 0, "at": [0.5], "w": 1.2, "h": 2.2, "glass": "#4f6f86", "frame": "#d6cdb9", "recessed": true }
+  ],
+  "terraces": [
+    { "onVolume": "frontStep", "side": "top",
+      "parapet": { "h": 0.5, "color": "#e7dfce" },
+      "rail": { "type": "bars", "h": 0.9, "color": "#8f9196" } }
+  ],
+  "props": [
+    { "type": "ac", "volume": "main", "facade": "front", "floor": 1, "at": 0.4 },
+    { "type": "ac", "volume": "frontStep", "facade": "front", "floor": 0, "at": 0.2 }
+  ],
+  "frontage": {
+    "wall": { "type": "brick", "color": "#d5a463", "mortar": "#c79754", "h": 1.2 },
+    "gates": [ { "kind": "pedestrian", "w": 1.1, "style": "ornate-arch", "color": "#2f2c28" } ],
+    "sidewalk": { "material": "stone-slabs", "color": "#cbbfa8", "joint": "#b7ab92", "w": 3.0 },
+    "road": { "surface": "asphalt", "color": "#8f9296" }
+  },
+  "sky": { "top": "#5ea2db", "horizon": "#9fcfe4", "cloud": "#f4f6f6" },
+  "notes": "Cream 3-storey stepped villa/apartment with flat roofs, setback massing and a lower 2-storey front block carrying a roof terrace with grey bar railing. Ground floor has a blue-glazed shopfront/awning; AC units on facade. Frontage: low tan render wall with grey mesh panels (modelled as short wall) + ornate black pedestrian gate. Sampled visually 2026-07-04."
+}

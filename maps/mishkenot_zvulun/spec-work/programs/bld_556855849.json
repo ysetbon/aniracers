@@ -1,0 +1,24 @@
+{
+  "id": "556855849",
+  "refs": { "scene": "restyled/scene-fullworld/bld_556855849_phwzlw2.png", "iso": "restyled/iso/bld_556855849.png" },
+  "footprint": "obb",
+  "floorH": 3.0,
+  "volumes": [
+    { "name": "shed", "x0": 0.15, "x1": 0.6, "z0": 0.3, "z1": 0.85, "floors": 1,
+      "wall": "#dcdcd6",
+      "roof": { "form": "flat", "fascia": { "h": 0.3, "color": "#cfcfc9", "overhang": 0.15 } } }
+  ],
+  "openings": [
+    { "volume": "shed", "facade": "front", "type": "door", "floor": 0, "at": [0.55], "w": 1.6, "h": 2.1, "glass": "#9a6a3c", "frame": "#c9c9c2", "recessed": true },
+    { "volume": "shed", "facade": "front", "type": "window", "floor": 0, "at": [0.2], "w": 0.8, "h": 0.7, "glass": "#7a7c78", "frame": "#c9c9c2", "recessed": true }
+  ],
+  "props": [],
+  "frontage": {
+    "wall": { "type": "corrugated", "color": "#d0d0ca", "mortar": "#bcbcb6", "h": 2.0 },
+    "sidewalk": { "material": "brick", "color": "#a86a4a", "joint": "#96593c", "w": 2.6 },
+    "verge": { "grass": "#7fae4c", "grassDark": "#5d6f45" },
+    "road": { "surface": "asphalt", "color": "#8f9296" }
+  },
+  "sky": { "top": "#5ea2db", "horizon": "#9fcfe4", "cloud": "#f4f6f6" },
+  "notes": "Largely a vacant/cleared sandy lot with green tarp netting on stakes and debris; the only built structure is a small single-storey white shed/container with a wooden door at the back-left. Modelled as that small flat-roofed shed on the plot. Frontage is a white corrugated metal fence; background houses have red tile roofs. Sampled visually 2026-07-04."
+}

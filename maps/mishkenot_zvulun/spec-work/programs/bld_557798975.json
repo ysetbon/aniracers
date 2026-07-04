@@ -1,0 +1,29 @@
+{
+  "id": "557798975",
+  "refs": { "scene": "restyled/scene-fullworld/bld_557798975_po6YRNv.png", "iso": "restyled/iso/bld_557798975.png" },
+  "footprint": "obb",
+  "floorH": 3.0,
+  "volumes": [
+    { "name": "main", "x0": 0.0, "x1": 0.78, "z0": 0.0, "z1": 1.0, "floors": 1,
+      "wall": "#cfc8bc",
+      "roof": { "form": "hipped", "color": "#c1502e", "fascia": { "h": 0.4, "color": "#c9b8a2", "overhang": 0.55 } } },
+    { "name": "carport", "x0": 0.78, "x1": 1.0, "z0": 0.25, "z1": 1.0, "floors": 1,
+      "wall": "#cfc8bc",
+      "roof": { "form": "flat", "fascia": { "h": 0.3, "color": "#c9b8a2", "overhang": 0.2 } } }
+  ],
+  "openings": [
+    { "volume": "main", "facade": "front", "type": "window", "floor": 0, "cols": 2, "at": [0.22, 0.62], "w": 1.6, "h": 1.2, "glass": "#5a5750", "frame": "#d0c8b6", "recessed": true },
+    { "volume": "main", "facade": "front", "type": "door", "floor": 0, "at": [0.42], "w": 1.1, "h": 2.2, "glass": "#2f2b26", "frame": "#c1b8a4", "recessed": true }
+  ],
+  "props": [],
+  "frontage": {
+    "wall": { "type": "brick", "color": "#cdc7b8", "mortar": "#bcb5a4", "h": 1.4 },
+    "gates": [ { "kind": "pedestrian", "w": 1.1, "style": "ornate-arch", "color": "#7a766d" },
+               { "kind": "vehicle", "w": 3.5, "style": "ornate-arch", "color": "#7a766d" } ],
+    "sidewalk": { "material": "stone-slabs", "color": "#cbc2b3", "joint": "#b7ae9f", "w": 3.2 },
+    "verge": { "grass": "#7fae4c", "grassDark": "#5d6f45" },
+    "road": { "surface": "asphalt", "color": "#8f9296" }
+  },
+  "sky": { "top": "#5ea2db", "horizon": "#9fcfe4", "cloud": "#f4f6f6" },
+  "notes": "Single-storey house with a large orange/terracotta hipped tile roof carrying a small gabled dormer window; grey-beige patchy stucco walls, dark front door, wide windows, and a side carport with a blue tarp cover. Frontage: stone block wall with ornate grey diamond-pattern metal gates and wooden planter boxes; clipped hedge behind. Sampled visually 2026-07-04."
+}

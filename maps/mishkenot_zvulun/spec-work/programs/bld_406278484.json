@@ -1,0 +1,34 @@
+{
+  "id": "406278484",
+  "refs": { "scene": "restyled/scene-fullworld/bld_406278484_pmHnm_o.png" },
+  "footprint": "obb",
+  "floorH": 3.0,
+  "volumes": [
+    { "name": "main", "x0": 0.0, "x1": 1.0, "z0": 0.0, "z1": 1.0, "floors": 3,
+      "wall": "#e0d3af",
+      "bands": [{ "floor": 0, "y0": 0.0, "y1": 0.35, "color": "#d18a4a", "style": "plaster" }],
+      "roof": { "form": "flat", "fascia": { "h": 0.5, "color": "#d5c8a3", "overhang": 0.3 } } }
+  ],
+  "openings": [
+    { "volume": "main", "facade": "front", "type": "window", "floor": 2, "cols": 3,
+      "at": [0.2, 0.5, 0.8], "w": 1.4, "h": 1.3, "glass": "#4d5560", "frame": "#e9dcb9", "recessed": true },
+    { "volume": "main", "facade": "front", "type": "window", "floor": 1, "cols": 3,
+      "at": [0.2, 0.5, 0.8], "w": 1.4, "h": 1.3, "glass": "#4d5560", "frame": "#e9dcb9", "recessed": true },
+    { "volume": "main", "facade": "front", "type": "door", "floor": 0,
+      "at": [0.5], "w": 1.5, "h": 2.2, "glass": "#4d5560", "frame": "#e9dcb9", "recessed": true }
+  ],
+  "props": [
+    { "type": "ac", "volume": "main", "facade": "front", "floor": 2, "at": 0.15 },
+    { "type": "ac", "volume": "main", "facade": "front", "floor": 1, "at": 0.15 }
+  ],
+  "roof": { "form": "flat", "color": "#d5c8a3" },
+  "frontage": {
+    "wall": { "type": "stone", "color": "#c9c2b4", "mortar": "#aca597", "h": 1.1 },
+    "gates": [{ "kind": "pedestrian", "w": 1.2, "style": "slats", "color": "#9aa0a3" }],
+    "sidewalk": { "material": "stone", "color": "#c1b5a3", "joint": "#a89b88", "w": 2.5 },
+    "verge": { "grass": "#4e8b3a", "grassDark": "#356226" },
+    "road": { "surface": "asphalt", "color": "#8f9296" }
+  },
+  "sky": { "top": "#4f9bd6", "horizon": "#a6d1e6", "cloud": "#eef2f2" },
+  "notes": "Cream/beige apartment building, largely occluded by a grey slatted metal fence, palms and dense bushes. Visible: cream plaster upper walls with grey wall-mounted AC boxes and an orange terracotta plinth band at ground level; city high-rise towers in the far background. Flat roof. Occluded facade reconstructed with a plausible regular window grid and ground entrance. Frontage: grey horizontal-slat metal fence on a rubble-stone base with an equipment cabinet. Colours sampled from ref 2026-07-04."
+}

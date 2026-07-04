@@ -1,0 +1,25 @@
+{
+  "id": "406278527",
+  "refs": { "scene": "restyled/scene-fullworld/bld_406278527_pbg4E0P.png", "iso": "restyled/iso/bld_406278527.png" },
+  "footprint": "obb",
+  "floorH": 3.0,
+  "volumes": [
+    { "name": "main", "x0": 0.0, "x1": 1.0, "z0": 0.0, "z1": 1.0, "floors": 3,
+      "wall": "#e8e6e0",
+      "roof": { "form": "flat", "fascia": { "h": 0.5, "color": "#e2e0da", "overhang": 0.25 } } }
+  ],
+  "openings": [
+    { "volume": "main", "facade": "front", "type": "window", "floor": 2, "cols": 3, "at": [0.2, 0.5, 0.8], "w": 1.3, "h": 1.3, "glass": "#4a4d52", "frame": "#dcdad3", "recessed": true },
+    { "volume": "main", "facade": "front", "type": "window", "floor": 1, "cols": 3, "at": [0.2, 0.5, 0.8], "w": 1.3, "h": 1.3, "glass": "#4a4d52", "frame": "#dcdad3", "recessed": true },
+    { "volume": "main", "facade": "front", "type": "window", "floor": 0, "cols": 2, "at": [0.3, 0.7], "w": 1.3, "h": 1.3, "glass": "#4a4d52", "frame": "#dcdad3", "recessed": true }
+  ],
+  "props": [],
+  "frontage": {
+    "wall": { "type": "brick", "color": "#d7c49a", "mortar": "#c9b689", "h": 2.4 },
+    "gates": [ { "kind": "vehicle", "w": 3.5, "style": "panel", "color": "#8f8c86" } ],
+    "sidewalk": { "material": "stone-slabs", "color": "#b8ab97", "joint": "#a89a85", "w": 2.8 },
+    "road": { "surface": "asphalt", "color": "#8f9296" }
+  },
+  "sky": { "top": "#5ea2db", "horizon": "#9fcfe4", "cloud": "#f4f6f6" },
+  "notes": "White/cream 3-storey apartment block with dark recessed windows, mostly occluded by a tall sandstone ashlar compound wall topped with grey decorative recessed-panel fence sections. Frontage wall modelled tall (2.4m) with the grey panel screen as a vehicle gate colour. Sampled visually 2026-07-04."
+}

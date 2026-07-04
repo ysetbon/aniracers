@@ -1,0 +1,25 @@
+{
+  "id": "557798973",
+  "refs": { "scene": "restyled/scene-fullworld/bld_557798973_p1lAf2m.png", "iso": "restyled/iso/bld_557798973.png" },
+  "footprint": "obb",
+  "floorH": 3.0,
+  "volumes": [
+    { "name": "main", "x0": 0.0, "x1": 1.0, "z0": 0.0, "z1": 1.0, "floors": 2,
+      "wall": "#d8cdb8",
+      "roof": { "form": "hipped", "color": "#6b6560", "fascia": { "h": 0.4, "color": "#cabfa4", "overhang": 0.45 } } }
+  ],
+  "openings": [
+    { "volume": "main", "facade": "front", "type": "window", "floor": 1, "cols": 3, "at": [0.2, 0.5, 0.8], "w": 1.2, "h": 1.2, "glass": "#545049", "frame": "#d0c6b2", "recessed": true },
+    { "volume": "main", "facade": "front", "type": "window", "floor": 0, "cols": 2, "at": [0.3, 0.7], "w": 1.4, "h": 1.3, "glass": "#545049", "frame": "#d0c6b2", "recessed": true },
+    { "volume": "main", "facade": "front", "type": "door", "floor": 0, "at": [0.5], "w": 1.2, "h": 2.2, "glass": "#3d3931", "frame": "#c7bca6", "recessed": true }
+  ],
+  "props": [],
+  "frontage": {
+    "wall": { "type": "brick", "color": "#d8d2c4", "mortar": "#c6bfae", "h": 1.5 },
+    "gates": [ { "kind": "vehicle", "w": 4.5, "style": "panel", "color": "#6f7f92" } ],
+    "sidewalk": { "material": "stone-slabs", "color": "#c9beaa", "joint": "#b5a993", "w": 2.8 },
+    "road": { "surface": "brick", "color": "#a85a44" }
+  },
+  "sky": { "top": "#5ea2db", "horizon": "#9fcfe4", "cloud": "#f4f6f6" },
+  "notes": "Beige/cream 2-storey house(s) with grey-brown hipped tile roofs; adjacent villa on the right has an arched ground-floor window. Frontage: white/sandstone block pillars carrying blue-grey metal panel fence sections and a grey vehicle gate; brick-red road. Sampled visually 2026-07-04."
+}

@@ -1,0 +1,28 @@
+{
+  "id": "406278495",
+  "refs": { "scene": "restyled/scene-fullworld/bld_406278495_pThKBNR.png", "iso": "restyled/iso/bld_406278495.png" },
+  "footprint": "obb",
+  "floorH": 3.0,
+  "volumes": [
+    { "name": "main", "x0": 0.0, "x1": 1.0, "z0": 0.0, "z1": 1.0, "floors": 3,
+      "wall": "#efeee7",
+      "roof": { "form": "flat", "fascia": { "h": 0.5, "color": "#e6e4dc", "overhang": 0.25 } } },
+    { "name": "gableEnd", "x0": 0.78, "x1": 1.0, "z0": 0.0, "z1": 1.0, "floors": 3,
+      "wall": "#efeee7",
+      "roof": { "form": "hipped", "color": "#9c6144", "fascia": { "h": 0.4, "color": "#e6e4dc", "overhang": 0.4 } } }
+  ],
+  "openings": [
+    { "volume": "main", "facade": "front", "type": "window", "floor": 2, "cols": 4, "at": [0.12, 0.4, 0.62, 0.9], "w": 1.0, "h": 1.1, "glass": "#70737a", "frame": "#e8e6df", "recessed": true },
+    { "volume": "main", "facade": "front", "type": "window", "floor": 1, "cols": 4, "at": [0.12, 0.4, 0.62, 0.9], "w": 1.0, "h": 1.1, "glass": "#70737a", "frame": "#e8e6df", "recessed": true },
+    { "volume": "main", "facade": "front", "type": "window", "floor": 0, "cols": 3, "at": [0.12, 0.62, 0.9], "w": 1.0, "h": 1.1, "glass": "#70737a", "frame": "#e8e6df", "recessed": true },
+    { "volume": "main", "facade": "front", "type": "door", "floor": 0, "at": [0.4], "w": 1.1, "h": 2.1, "glass": "#5c5f63", "frame": "#d9d6cd", "recessed": true }
+  ],
+  "props": [],
+  "frontage": {
+    "wall": { "type": "picket", "color": "#f2f0ea", "mortar": "#9a938a", "h": 1.1 },
+    "sidewalk": { "material": "stone-slabs", "color": "#cfc7b9", "joint": "#bcb3a3", "w": 3.2 },
+    "verge": { "grass": "#7fae4c", "grassDark": "#5d6f45" }
+  },
+  "sky": { "top": "#5ea2db", "horizon": "#9fcfe4", "cloud": "#f4f6f6" },
+  "notes": "Long white multi-storey apartment block (3 floors), several stepped white volumes with small square grey windows. Right end has a brown terracotta hipped roof; the rest reads as flat-roofed white parapet blocks. Frontage is a white picket fence set on a rubble-stone base (picket type + stone mortar colour). Sampled visually 2026-07-04."
+}

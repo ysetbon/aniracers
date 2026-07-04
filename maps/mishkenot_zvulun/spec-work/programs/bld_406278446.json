@@ -1,0 +1,35 @@
+{
+  "id": "406278446",
+  "refs": { "scene": "restyled/scene-fullworld/bld_406278446_pgaKJ2m.png" },
+  "footprint": "obb",
+  "floorH": 3.0,
+  "volumes": [
+    { "name": "main", "x0": 0.0, "x1": 1.0, "z0": 0.0, "z1": 1.0, "floors": 3,
+      "wall": "#ddd2ac",
+      "roof": { "form": "flat", "fascia": { "h": 0.55, "color": "#d2c69e", "overhang": 0.3 } } }
+  ],
+  "openings": [
+    { "volume": "main", "facade": "front", "type": "window", "floor": 2, "cols": 3,
+      "at": [0.12, 0.42, 0.72], "w": 1.4, "h": 1.3, "glass": "#4d5560", "frame": "#efe6c8", "recessed": true },
+    { "volume": "main", "facade": "front", "type": "window", "floor": 1, "cols": 3,
+      "at": [0.12, 0.42, 0.72], "w": 1.4, "h": 1.3, "glass": "#4d5560", "frame": "#efe6c8", "recessed": true },
+    { "volume": "main", "facade": "front", "type": "window", "floor": 0, "cols": 2,
+      "at": [0.72, 0.9], "w": 1.4, "h": 1.3, "glass": "#4d5560", "frame": "#efe6c8", "recessed": true },
+    { "volume": "main", "facade": "front", "type": "door", "floor": 0,
+      "at": [0.42], "w": 1.6, "h": 2.3, "glass": "#4d5560", "frame": "#8f8d84", "recessed": true }
+  ],
+  "terraces": [
+    { "onVolume": "main", "side": "front",
+      "rail": { "type": "glass", "h": 0.9, "color": "#b6bec2" } }
+  ],
+  "roof": { "form": "flat", "color": "#d2c69e" },
+  "frontage": {
+    "wall": { "type": "stone", "color": "#c8b58a", "mortar": "#ab9868", "h": 1.6 },
+    "gates": [{ "kind": "pedestrian", "w": 1.2, "style": "bars", "color": "#c7cbc9" }],
+    "sidewalk": { "material": "stone", "color": "#9a8f88", "joint": "#847a73", "w": 3.0 },
+    "verge": { "grass": "#4e8b3a", "grassDark": "#356226" },
+    "road": { "surface": "asphalt", "color": "#7a7d80" }
+  },
+  "sky": { "top": "#4f9bd6", "horizon": "#a6d1e6", "cloud": "#eef2f2" },
+  "notes": "Cream apartment/synagogue building, 3 floors, flat roof. A grey Star-of-David relief motif and small square vent windows decorate the upper facade; balconies with glass rails; a small gabled entrance canopy shelters the recessed entry door and metal-bar gate. Frontage: rubble-stone-clad garden wall carrying framed mosaic murals, planters, wooden fence section, palms and a printed recycling bin. Colours sampled from ref 2026-07-04."
+}

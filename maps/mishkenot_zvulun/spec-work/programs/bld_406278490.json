@@ -1,0 +1,31 @@
+{
+  "id": "406278490",
+  "refs": { "scene": "restyled/scene-fullworld/bld_406278490_pCyVJA-.png" },
+  "footprint": "obb",
+  "floorH": 3.0,
+  "volumes": [
+    { "name": "main", "x0": 0.0, "x1": 1.0, "z0": 0.0, "z1": 1.0, "floors": 3,
+      "wall": "#ebe4ce",
+      "roof": { "form": "gabled", "color": "#5f3f28", "fascia": { "h": 0.4, "color": "#5f3f28", "overhang": 0.5 } } }
+  ],
+  "openings": [
+    { "volume": "main", "facade": "front", "type": "window", "floor": 2, "cols": 2,
+      "at": [0.35, 0.62], "w": 1.2, "h": 1.2, "glass": "#5aa39a", "frame": "#eee7d2", "recessed": true },
+    { "volume": "main", "facade": "front", "type": "window", "floor": 1, "cols": 2,
+      "at": [0.35, 0.62], "w": 1.2, "h": 1.2, "glass": "#5aa39a", "frame": "#eee7d2", "recessed": true },
+    { "volume": "main", "facade": "front", "type": "window", "floor": 0, "cols": 1,
+      "at": [0.4], "w": 1.2, "h": 1.2, "glass": "#4d5560", "frame": "#eee7d2", "recessed": true }
+  ],
+  "terraces": [
+    { "onVolume": "main", "side": "front",
+      "rail": { "type": "bars", "h": 1.0, "color": "#e0d9c2" } }
+  ],
+  "roof": { "form": "gabled", "color": "#5f3f28" },
+  "frontage": {
+    "sidewalk": { "material": "brick", "color": "#c08a5e", "joint": "#a06f47", "w": 3.0 },
+    "verge": { "grass": "#4e8b3a", "grassDark": "#356226" },
+    "road": { "surface": "asphalt", "color": "#8f9296" }
+  },
+  "sky": { "top": "#63b0e0", "horizon": "#a9d6ec", "cloud": "#f2f5f5" },
+  "notes": "Cream/off-white 3-storey apartment block in a repeating row, seen at its gable end. Low-pitch gabled roof with a wide brown fascia/eave overhang; teal-green louvred rolling shutters over recessed balconies, small square windows, brown drainpipe on the blank end wall. Roof antennas and satellite dishes. Frontage: sandy planting strip and brick-paver walkway, street lamp, grey utility boxes; door number '1'. Colours sampled from ref 2026-07-04."
+}

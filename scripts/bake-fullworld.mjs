@@ -417,14 +417,26 @@ async function main(){
   for(var bi=0;bi<JOBS.length;bi++)placed+=await bakeBuilding(JOBS[bi]);
   var aerialTrees=await bakeAerialTrees();
   console.log('  aerial trees placed: '+aerialTrees+' / '+TREES.length);
+  // weld coincident vertices -> indexed geometry (big GLB shrink for box-heavy scenes).
+  // key on quantized pos+normal+colour so flat-shaded faces keep their hard edges.
+  var vmap=new Map(),P=[],N=[],C=[],IDX=[],nv=KP.length/3;
+  for(var vi=0;vi<nv;vi++){var b0=vi*3;
+    var k=(Math.round(KP[b0]*400))+'_'+(Math.round(KP[b0+1]*400))+'_'+(Math.round(KP[b0+2]*400))
+      +'|'+(Math.round(KN[b0]*50))+'_'+(Math.round(KN[b0+1]*50))+'_'+(Math.round(KN[b0+2]*50))
+      +'|'+(Math.round(KC[b0]*63))+'_'+(Math.round(KC[b0+1]*63))+'_'+(Math.round(KC[b0+2]*63));
+    var e=vmap.get(k);
+    if(e===undefined){e=P.length/3;vmap.set(k,e);P.push(KP[b0],KP[b0+1],KP[b0+2]);N.push(KN[b0],KN[b0+1],KN[b0+2]);C.push(KC[b0],KC[b0+1],KC[b0+2]);}
+    IDX.push(e);}
+  console.log('  weld: '+nv+' -> '+(P.length/3)+' verts ('+Math.round(100-100*(P.length/3)/nv)+'% fewer)');
   var geo=new THREE.BufferGeometry();
-  geo.setAttribute('position',new THREE.Float32BufferAttribute(KP,3));
-  geo.setAttribute('normal',new THREE.Float32BufferAttribute(KN,3));
-  geo.setAttribute('color',new THREE.Float32BufferAttribute(KC,3));
+  geo.setAttribute('position',new THREE.Float32BufferAttribute(P,3));
+  geo.setAttribute('normal',new THREE.Float32BufferAttribute(N,3));
+  geo.setAttribute('color',new THREE.Float32BufferAttribute(C,3));
+  geo.setIndex(IDX);
   var mesh=new THREE.Mesh(geo,new THREE.MeshLambertMaterial({vertexColors:true,side:THREE.DoubleSide}));
   var glb=await new Promise(function(res,rej){new THREE.GLTFExporter().parse(mesh,res,{binary:true},rej);});
   var bytes=new Uint8Array(glb),bin='';for(var i3=0;i3<bytes.length;i3++)bin+=String.fromCharCode(bytes[i3]);
-  window.RESULT={b64:btoa(bin),tris:KP.length/9,props:placed,buildings:JOBS.length};
+  window.RESULT={b64:btoa(bin),tris:KP.length/9,verts:P.length/3,props:placed,buildings:JOBS.length};
 }
 function bakeRoadPrepped(rd,segs){
   var y=rd.raise!=null?rd.raise:0.02, topH=0.1;

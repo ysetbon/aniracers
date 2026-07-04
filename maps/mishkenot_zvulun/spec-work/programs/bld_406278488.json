@@ -1,0 +1,36 @@
+{
+  "id": "406278488",
+  "refs": { "scene": "restyled/scene-fullworld/bld_406278488_pNHY9G3.png" },
+  "footprint": "obb",
+  "floorH": 3.0,
+  "volumes": [
+    { "name": "tower", "x0": 0.0, "x1": 1.0, "z0": 0.0, "z1": 1.0, "floors": 9,
+      "wall": "#d7ccb2",
+      "roof": { "form": "flat", "fascia": { "h": 0.7, "color": "#cabfa3", "overhang": 0.3 } } }
+  ],
+  "openings": [
+    { "volume": "tower", "facade": "front", "type": "window", "floor": 8, "cols": 2, "at": [0.28, 0.62], "w": 1.4, "h": 1.3, "glass": "#3f4a54", "frame": "#d7ccb2", "recessed": true },
+    { "volume": "tower", "facade": "front", "type": "window", "floor": 7, "cols": 2, "at": [0.28, 0.62], "w": 1.4, "h": 1.3, "glass": "#3f4a54", "frame": "#d7ccb2", "recessed": true },
+    { "volume": "tower", "facade": "front", "type": "window", "floor": 6, "cols": 2, "at": [0.28, 0.62], "w": 1.4, "h": 1.3, "glass": "#3f4a54", "frame": "#d7ccb2", "recessed": true },
+    { "volume": "tower", "facade": "front", "type": "window", "floor": 5, "cols": 2, "at": [0.28, 0.62], "w": 1.4, "h": 1.3, "glass": "#3f4a54", "frame": "#d7ccb2", "recessed": true },
+    { "volume": "tower", "facade": "front", "type": "window", "floor": 4, "cols": 2, "at": [0.28, 0.62], "w": 1.4, "h": 1.3, "glass": "#3f4a54", "frame": "#d7ccb2", "recessed": true },
+    { "volume": "tower", "facade": "front", "type": "window", "floor": 3, "cols": 2, "at": [0.28, 0.62], "w": 1.4, "h": 1.3, "glass": "#3f4a54", "frame": "#d7ccb2", "recessed": true },
+    { "volume": "tower", "facade": "front", "type": "window", "floor": 2, "cols": 2, "at": [0.28, 0.62], "w": 1.4, "h": 1.3, "glass": "#3f4a54", "frame": "#d7ccb2", "recessed": true },
+    { "volume": "tower", "facade": "front", "type": "window", "floor": 1, "cols": 2, "at": [0.28, 0.62], "w": 1.4, "h": 1.3, "glass": "#3f4a54", "frame": "#d7ccb2", "recessed": true },
+    { "volume": "tower", "facade": "front", "type": "opening", "floor": 0, "cols": 3, "at": [0.2, 0.5, 0.8], "w": 1.6, "h": 2.6, "glass": "#6d7276", "frame": "#c3b89e", "recessed": true }
+  ],
+  "terraces": [
+    { "onVolume": "tower", "side": "front",
+      "rail": { "type": "glass", "h": 0.9, "color": "#c1c8cb" } }
+  ],
+  "roof": { "form": "flat", "color": "#cabfa3" },
+  "frontage": {
+    "wall": { "type": "plaster", "color": "#d9cfb5", "mortar": "#c6bc9f", "h": 1.6 },
+    "gates": [{ "kind": "vehicle", "w": 4.0, "style": "ornate-arch", "color": "#7a3b30" }],
+    "sidewalk": { "material": "stone", "color": "#c7c0af", "joint": "#aaa392", "w": 3.5 },
+    "verge": { "grass": "#5a9a3c", "grassDark": "#3e7028" },
+    "road": { "surface": "asphalt", "color": "#8f9296" }
+  },
+  "sky": { "top": "#4f9bd6", "horizon": "#a6d1e6", "cloud": "#eef2f2" },
+  "notes": "Tall residential tower (~9 storeys) in warm beige plaster/ashlar. Projecting balconies with glass balustrades run up the facade, dark rolling-shutter windows between them; the ground floor is recessed behind columns (pilotis) with tall glazed openings. Flat roof. Frontage: cream compound wall with a wide ornate dark-red metal vehicle gate opening onto a paved forecourt; utility pole, dumpsters, trees, hills backdrop. Colours sampled from ref 2026-07-04."
+}

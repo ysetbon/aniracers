@@ -1,0 +1,38 @@
+{
+  "id": "406278485",
+  "refs": { "scene": "restyled/scene-fullworld/bld_406278485_pfsvtFd.png" },
+  "footprint": "obb",
+  "floorH": 3.0,
+  "volumes": [
+    { "name": "main", "x0": 0.0, "x1": 0.72, "z0": 0.0, "z1": 1.0, "floors": 3,
+      "wall": "#ece2c6",
+      "roof": { "form": "flat", "fascia": { "h": 0.5, "color": "#e0d6ba", "overhang": 0.3 } } },
+    { "name": "round", "x0": 0.72, "x1": 1.0, "z0": 0.0, "z1": 1.0, "floors": 3,
+      "wall": "#eae0c4",
+      "roof": { "form": "flat", "fascia": { "h": 0.55, "color": "#e0d6ba", "overhang": 0.35 } } }
+  ],
+  "openings": [
+    { "volume": "main", "facade": "front", "type": "window", "floor": 2, "cols": 3,
+      "at": [0.2, 0.5, 0.8], "w": 1.4, "h": 1.3, "glass": "#4a545e", "frame": "#efe6ca", "recessed": true },
+    { "volume": "main", "facade": "front", "type": "window", "floor": 1, "cols": 3,
+      "at": [0.2, 0.5, 0.8], "w": 1.4, "h": 1.3, "glass": "#4a545e", "frame": "#efe6ca", "recessed": true },
+    { "volume": "round", "facade": "front", "type": "window", "floor": 2, "cols": 2,
+      "at": [0.4, 0.75], "w": 1.4, "h": 1.4, "glass": "#4a545e", "frame": "#efe6ca", "recessed": true },
+    { "volume": "round", "facade": "front", "type": "window", "floor": 1, "cols": 2,
+      "at": [0.4, 0.75], "w": 1.4, "h": 1.4, "glass": "#4a545e", "frame": "#efe6ca", "recessed": true }
+  ],
+  "terraces": [
+    { "onVolume": "round", "side": "front",
+      "rail": { "type": "glass", "h": 0.9, "color": "#b6bec2" } }
+  ],
+  "roof": { "form": "flat", "color": "#e0d6ba" },
+  "frontage": {
+    "wall": { "type": "plaster", "color": "#e2dcc8", "mortar": "#cfc7ae", "h": 1.6 },
+    "gates": [{ "kind": "pedestrian", "w": 1.2, "style": "slats", "color": "#4a3524" }],
+    "sidewalk": { "material": "brick", "color": "#9a5a4a", "joint": "#7a4438", "w": 3.0 },
+    "verge": { "grass": "#4e8b3a", "grassDark": "#356226" },
+    "road": { "surface": "asphalt", "color": "#8f9296" }
+  },
+  "sky": { "top": "#5aa6dc", "horizon": "#a9d6ec", "cloud": "#f2f5f5" },
+  "notes": "Cream apartment building with a rounded corner tower at the right end carrying stacked curved glass-rail balconies. 3 floors, flat roof. Mostly occluded by a purple-leaf ornamental tree, green trees and a lattice transmission mast. Frontage: dark-brown horizontal wood-slat fence over a cream plaster wall with decorative pierced breeze-block (lattice) panels; painted utility cabinets, reddish brick pavers. Occluded facade reconstructed with plausible window grid. Colours sampled from ref 2026-07-04."
+}

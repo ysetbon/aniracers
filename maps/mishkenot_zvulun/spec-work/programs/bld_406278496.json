@@ -1,0 +1,24 @@
+{
+  "id": "406278496",
+  "refs": { "scene": "restyled/scene-fullworld/bld_406278496_pa1gfjB.png", "iso": "restyled/iso/bld_406278496.png" },
+  "footprint": "obb",
+  "floorH": 3.0,
+  "volumes": [
+    { "name": "main", "x0": 0.0, "x1": 1.0, "z0": 0.0, "z1": 1.0, "floors": 2,
+      "wall": "#d9cdb4",
+      "roof": { "form": "hipped", "color": "#b45f3c", "fascia": { "h": 0.4, "color": "#cabfa4", "overhang": 0.45 } } }
+  ],
+  "openings": [
+    { "volume": "main", "facade": "front", "type": "window", "floor": 1, "cols": 3, "at": [0.2, 0.5, 0.8], "w": 1.1, "h": 1.2, "glass": "#5f5a54", "frame": "#e0d6c2", "recessed": true },
+    { "volume": "main", "facade": "front", "type": "window", "floor": 0, "cols": 2, "at": [0.3, 0.7], "w": 1.1, "h": 1.2, "glass": "#5f5a54", "frame": "#e0d6c2", "recessed": true },
+    { "volume": "main", "facade": "front", "type": "door", "floor": 0, "at": [0.5], "w": 1.1, "h": 2.1, "glass": "#4b463f", "frame": "#c9bda2", "recessed": true }
+  ],
+  "props": [ { "type": "ac", "volume": "main", "facade": "front", "floor": 0, "at": 0.15 } ],
+  "frontage": {
+    "wall": { "type": "brick", "color": "#c9bda2", "mortar": "#ddd3bd", "h": 1.8 },
+    "sidewalk": { "material": "stone-slabs", "color": "#cfc4ad", "joint": "#bdb29c", "w": 2.6 },
+    "road": { "surface": "brick", "color": "#a85a44" }
+  },
+  "sky": { "top": "#5ea2db", "horizon": "#9fcfe4", "cloud": "#f4f6f6" },
+  "notes": "Row of beige/cream 2-storey houses with terracotta hipped tile roofs behind a sandstone rubble compound wall; wall-mounted AC unit visible. Brick-paved red road in frame. Subject partly occluded by street trees; modelled as one representative beige hipped-roof house. Sampled visually 2026-07-04."
+}

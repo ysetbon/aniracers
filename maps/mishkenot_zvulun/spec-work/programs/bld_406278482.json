@@ -1,0 +1,47 @@
+{
+  "id": "406278482",
+  "refs": { "scene": "restyled/scene-fullworld/bld_406278482_p20rPIj.png" },
+  "footprint": "obb",
+  "floorH": 3.0,
+  "volumes": [
+    { "name": "main", "x0": 0.0, "x1": 0.7, "z0": 0.0, "z1": 1.0, "floors": 4,
+      "wall": "#f1ebd6",
+      "roof": { "form": "flat", "fascia": { "h": 0.5, "color": "#e6dfc7", "overhang": 0.25 } } },
+    { "name": "wing", "x0": 0.7, "x1": 1.0, "z0": 0.0, "z1": 1.0, "floors": 4,
+      "wall": "#efe8d1",
+      "roof": { "form": "flat", "fascia": { "h": 0.6, "color": "#e6dfc7", "overhang": 0.25 } } }
+  ],
+  "openings": [
+    { "volume": "main", "facade": "front", "type": "window", "floor": 3, "cols": 3,
+      "at": [0.2, 0.5, 0.8], "w": 1.3, "h": 1.2, "glass": "#8f9698", "frame": "#f1ebd6", "recessed": true },
+    { "volume": "main", "facade": "front", "type": "window", "floor": 2, "cols": 3,
+      "at": [0.2, 0.5, 0.8], "w": 1.3, "h": 1.2, "glass": "#8f9698", "frame": "#f1ebd6", "recessed": true },
+    { "volume": "main", "facade": "front", "type": "window", "floor": 1, "cols": 3,
+      "at": [0.2, 0.5, 0.8], "w": 1.3, "h": 1.2, "glass": "#8f9698", "frame": "#f1ebd6", "recessed": true },
+    { "volume": "main", "facade": "front", "type": "door", "floor": 0,
+      "at": [0.35], "w": 1.5, "h": 2.2, "glass": "#5f6a6e", "frame": "#c9beA0", "recessed": true },
+    { "volume": "wing", "facade": "front", "type": "window", "floor": 3, "cols": 2,
+      "at": [0.35, 0.7], "w": 1.3, "h": 1.2, "glass": "#8f9698", "frame": "#efe8d1", "recessed": true },
+    { "volume": "wing", "facade": "front", "type": "window", "floor": 2, "cols": 2,
+      "at": [0.35, 0.7], "w": 1.3, "h": 1.2, "glass": "#8f9698", "frame": "#efe8d1", "recessed": true },
+    { "volume": "wing", "facade": "front", "type": "window", "floor": 1, "cols": 2,
+      "at": [0.35, 0.7], "w": 1.3, "h": 1.2, "glass": "#8f9698", "frame": "#efe8d1", "recessed": true }
+  ],
+  "terraces": [
+    { "onVolume": "main", "side": "front",
+      "rail": { "type": "bars", "h": 1.0, "color": "#e6dfc7" } }
+  ],
+  "props": [
+    { "type": "ac", "volume": "main", "facade": "front", "floor": 2, "at": 0.62 },
+    { "type": "ac", "volume": "wing", "facade": "front", "floor": 2, "at": 0.5 }
+  ],
+  "roof": { "form": "flat", "color": "#e6dfc7" },
+  "frontage": {
+    "wall": { "type": "stone", "color": "#c9bd9c", "mortar": "#ac9f7c", "h": 0.9 },
+    "sidewalk": { "material": "brick", "color": "#c08a5e", "joint": "#a06f47", "w": 3.5 },
+    "verge": { "grass": "#5a9a3c", "grassDark": "#3e7028" },
+    "road": { "surface": "asphalt", "color": "#8f9296" }
+  },
+  "sky": { "top": "#63b0e0", "horizon": "#a9d6ec", "cloud": "#f2f5f5" },
+  "notes": "Cream/off-white 4-storey apartment block with a slightly taller stair wing at the right end. Flat roofs with roof-mounted solar water heaters (dark panels + white cylinders) and a small terracotta pergola. Grey rolling-shutter and glazed windows, balconies with cream bar rails, wall AC units, ground-floor entrance. Frontage: large brick-paver parking court edged with a low rubble-stone wall and clipped hedges. Colours sampled from ref 2026-07-04."
+}
