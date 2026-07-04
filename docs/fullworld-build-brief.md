@@ -107,6 +107,33 @@ baked GLB (small, lets the user drive without rebaking — the project does this
 - **Test-URL routing:** `index.html` substring-matches — check `test4` before `test3` before
   `test2`/`test1`; add `v4` similarly. Game needs `?world=mishkenot` to auto-start.
 
+## Build status — full-world baker landed (session 2026-07-04)
+`scripts/bake-fullworld.mjs` generalizes the test3/test4 pipeline to the WHOLE neighbourhood
+and bakes `assets/mishkenot/world_v4.glb`, wired to `?world=mishkenot&v4` **and now the
+default** `?world=mishkenot` (raw OSM2World world moved to explicit `?osm`). Verified by
+driving the real game on localhost: the `junction-north` hero frame reproduces the test3/8090
+look, and four camera points spread across the wider hood (NE/SW/E/N) all read as test3 —
+grey kerbed asphalt with centre seam, terracotta pavers on the core spine, cream low-poly
+facades, muted grass, warm sun, low-poly verge trees.
+- **Division of labour honoured** where reachable: 16 core buildings keep full v3 facade trim;
+  the other 285 are cream footprint extrusions (`makeFootprintBuilding`, the test3 background
+  look — small GLB, no hand-authoring). Roads auto-built from `roads.json` (paver = pedestrian/
+  plaza, asphalt otherwise; the four tuned T-junction roads keep their `scene-tjunction.json`
+  surface). Ground = one box over the footprint extent. Islands/T-sign/lamps/bollards kept.
+- **Trees:** real AERIAL positions in the `tjunction` AOI + a deterministic procedural verge
+  pass everywhere else. Re-run `bake-fullworld.mjs` and it auto-prefers a `fullworld-trees.json`
+  if present (`--trees=fullworld`, `--noproc` to drop the verge fill, `--bbox=` for a corridor).
+- **BLOCKED — full-world real aerial:** this session's egress policy 403s every imagery host
+  (`services.arcgisonline.com`, google, OSM tiles…), so `fetch-aerial-aoi.mjs --tag=fullworld`
+  could not run. Committed `tjunction` aerial covers the core; the procedural verge pass is the
+  brief's stated fallback for the rest. In an env with Esri egress: `fetch-aerial-aoi
+  --tag=fullworld --aoi=-603,608,-527,604` then `detect-trees --tag=fullworld --debug`, then
+  rebake — the baker swaps procedural verge trees for real positions automatically.
+- **Not done (needs `GEMINI_KEY`, absent here):** the per-street SV→Gemini small-object layer
+  (signs/lamps/gates beyond the T-junction) — the slower corridor-by-corridor pass (brief §4).
+- Bake: `PUPPETEER_EXECUTABLE_PATH=/opt/pw-browsers/chromium-1194/chrome-linux/chrome
+  node scripts/bake-fullworld.mjs --world=netanya` (~2 min → `world_v4.glb`, ~64 MB, 624k tris).
+
 ## State pointers
 - Branch `claude/mishkenot-fullworld-artmatch`. Key commits: `6a96786` (test4 aerial trees),
   `0a6aad4` (live-game lighting), `1519164` (facade trim). PR #6 is the T-junction (test3) home.

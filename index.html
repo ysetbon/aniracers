@@ -1748,8 +1748,11 @@ async function buildMishkenotWorld(){
                  :location.search.includes('test3')?'/assets/mishkenot/world_test3.glb'
                  :location.search.includes('test2')?'/assets/mishkenot/world_test2.glb'
                  :location.search.includes('test1')?'/assets/mishkenot/world_test.glb'
+                 :location.search.includes('v4')?'/assets/mishkenot/world_v4.glb'          // WHOLE neighbourhood, test3 look scaled (bake-fullworld.mjs) — check BEFORE v3 (substring)
                  :location.search.includes('v3')?'/assets/mishkenot/world_v3.glb'
-                 :location.search.includes('gen3d')?'/assets/mishkenot/world_gen3d.glb':'/assets/mishkenot/world.glb';
+                 :location.search.includes('gen3d')?'/assets/mishkenot/world_gen3d.glb'
+                 :location.search.includes('osm')?'/assets/mishkenot/world.glb'            // raw OSM2World world (explicit ?osm)
+                 :'/assets/mishkenot/world_v4.glb';                                        // DEFAULT: the scaled test3 look (whole neighbourhood)
     const gltf=await new Promise((res,rej)=>new THREE.GLTFLoader().load(mishGlb,res,undefined,rej));
     const root=gltf.scene;
     root.traverse(o=>{ if(o.isMesh){
