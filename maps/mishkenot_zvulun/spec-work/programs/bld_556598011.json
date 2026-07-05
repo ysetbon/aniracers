@@ -27,6 +27,17 @@
     "verge": { "grass": "#6f9a45", "grassDark": "#4a6b30",
                "flowers": { "palette": ["#9a7bc0", "#7fae4a", "#f3f1e8"], "perM2": 0.2 } }
   },
+  "environment": {
+    "props": [
+      { "model": "tree_oak", "h": 6.5, "t": 0.6, "inset": 1.8, "rxz": 1.35, "tint": { "leafs": "#4a8a3a", "wood": "#6e5138", "*": "#6e5138" } },
+      { "model": "plant_bushLarge", "h": 1.4, "t": 0.3, "inset": 0.7, "rxz": 1.3, "tint": { "leafs": "#9a7bc0", "*": "#4c8a34" } },
+      { "model": "plant_bushLarge", "h": 1.3, "t": 0.42, "inset": 0.7, "rxz": 1.2, "tint": { "leafs": "#4c8a34", "*": "#44603a" } },
+      { "model": "plant_bushLarge", "h": 1.4, "t": 0.55, "inset": 0.7, "rxz": 1.2, "tint": { "leafs": "#9a7bc0", "*": "#4c8a34" } },
+      { "model": "plant_bushSmall", "h": 0.9, "t": 0.5, "inset": -0.6, "rxz": 1, "tint": { "leafs": "#5c9440", "*": "#44603a" } },
+      { "model": "pot_large", "h": 0.7, "t": 0.12, "inset": 1, "tint": { "wood": "#b8683f", "woodBarkDark": "#a05a36" } },
+      { "car": true, "t": 0.88, "inset": -4.7, "rot": "along", "flip": true, "color": "#c9cdd0" }
+    ]
+  },
   "sky": { "top": "#6fb0da", "horizon": "#a4cde0", "cloud": "#f0f5f7" },
   "notes": "Real 2-storey house, pale cream render (#ece7da). A rounded/canted entrance bay projects at the front-left with a tall round-arched window fitted with a grey security grille (#4a5560). Wood entry door (#7a5334) reached by a flight of stone steps with a planter. Right/rear wing has an orange clay tile roof. Low cream perimeter wall; stone-slab paving, purple/green verge planting. Colours sampled from ref."
 }

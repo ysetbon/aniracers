@@ -29,6 +29,21 @@
     "sidewalk": { "material": "brick-pavers", "color": "#c7ae82", "joint": "#ab9264", "w": 3.5 },
     "verge": { "grass": "#3f5f2a", "grassDark": "#2c4420" }
   },
+  "environment": {
+    "props": [
+      { "model": "tree_oak", "h": 6.5, "t": 0.48, "inset": 1, "rxz": 1, "tint": { "leafs": "#7a6b44", "wood": "#7a6247", "*": "#7a6247" } },
+      { "model": "tree_oak", "h": 5.5, "t": 0.05, "inset": 1.6, "rxz": 1.3, "tint": { "leafs": "#4a8a3a", "wood": "#6e5138", "*": "#6e5138" } },
+      { "model": "tree_palmDetailedTall", "h": 9, "t": 0.86, "inset": 3, "rxz": 0.85, "tint": { "leafs": "#3f8f3c", "wood": "#9c8560", "*": "#9c8560" } },
+      { "model": "tree_oak", "h": 8, "t": 0.9, "inset": 2.4, "rxz": 0.55, "tint": { "leafs": "#233a1e", "wood": "#4c3a26", "*": "#4c3a26" } },
+      { "model": "tree_oak", "h": 8.5, "t": 0.95, "inset": 3.4, "rxz": 0.55, "tint": { "leafs": "#20361c", "wood": "#4c3a26", "*": "#4c3a26" } },
+      { "model": "tree_oak", "h": 5, "t": 1.0, "inset": 4, "rxz": 1.3, "tint": { "leafs": "#4a8a3a", "wood": "#6e5138", "*": "#6e5138" } },
+      { "hedge": true, "h": 1.5, "t0": 0.12, "t1": 0.5, "step": 1.2, "inset": -1, "colors": ["#2c4420", "#355226", "#3c7031"] },
+      { "model": "plant_bushLarge", "h": 2, "t": 0.88, "inset": 0.8, "rxz": 1.2, "tint": { "leafs": "#3f7a2e", "*": "#44603a" } },
+      { "car": true, "t": 0.3, "inset": -2.8, "rot": "along", "color": "#1c1c1c" },
+      { "car": true, "t": 0.96, "inset": -4.7, "rot": "along", "flip": true, "color": "#c6c9cc" },
+      { "bin": true, "t": 0.72, "inset": -1, "rot": "along" }
+    ]
+  },
   "sky": { "top": "#4fa3e2", "horizon": "#8fc9ea", "cloud": "#f0f5f7" },
   "notes": "Real 2-storey house, warm tan render (#d7c29a) with orange clay hipped tile roof and wide eave. Upper floor has a front balcony on the left with a black metal bar railing; grouped windows across floor 1. Ground floor: windows plus a wood entry door (#6f4a2d) on the right, and a wall AC unit. Sand-block boundary wall (#cbb184) around the lot; black car in the driveway. Colours sampled from ref."
 }

@@ -25,6 +25,21 @@
     "sidewalk": { "material": "stone-slabs", "color": "#b3aa96", "joint": "#96907e", "w": 4.0 },
     "verge": { "grass": "#5f8a3a", "grassDark": "#3f5f28" }
   },
+  "environment": {
+    "props": [
+      { "model": "tree_oak", "h": 9, "t": 0.82, "inset": 3.4, "rxz": 0.55, "tint": { "leafs": "#233a1e", "wood": "#4c3a26", "*": "#4c3a26" } },
+      { "model": "tree_oak", "h": 9.5, "t": 0.9, "inset": 4.2, "rxz": 0.55, "tint": { "leafs": "#20361c", "wood": "#4c3a26", "*": "#4c3a26" } },
+      { "model": "tree_palmDetailedTall", "h": 9, "t": 0.5, "inset": 4, "rxz": 0.85, "tint": { "leafs": "#3f8f3c", "wood": "#9c8560", "*": "#9c8560" } },
+      { "model": "tree_oak", "h": 6, "t": 0.18, "inset": 1.6, "rxz": 1.3, "tint": { "leafs": "#4a8a3a", "wood": "#6e5138", "*": "#6e5138" } },
+      { "hedge": true, "h": 1.4, "t0": 0.14, "t1": 0.42, "step": 1.2, "inset": -1, "colors": ["#5f9a34", "#4e8a28", "#3c7031"] },
+      { "model": "plant_bushLarge", "h": 2.2, "t": 0.9, "inset": 0.8, "rxz": 1.2, "tint": { "leafs": "#4c8a34", "*": "#44603a" } },
+      { "model": "plant_bushLarge", "h": 2, "t": 0.95, "inset": 1.1, "rxz": 1.1, "tint": { "leafs": "#4c8a34", "*": "#44603a" } },
+      { "model": "pot_large", "h": 0.7, "t": 0.4, "inset": 1, "tint": { "wood": "#b8683f", "woodBarkDark": "#a05a36" } },
+      { "car": true, "t": 0.35, "inset": -4.7, "rot": "along", "color": "#eceae4" },
+      { "car": true, "t": 0.1, "inset": -4.7, "rot": "along", "flip": true, "color": "#3f6ea0" },
+      { "bin": true, "t": 0.03, "inset": -4.5, "rot": "along" }
+    ]
+  },
   "sky": { "top": "#3f9fe6", "horizon": "#8fc9ea", "cloud": "#eef4f6" },
   "notes": "Real 2-storey house, pale cream render (#e7dfc9) with red clay hipped tile roof. White-framed windows with security grilles (#34404a glass). Corner lot; entry on the right. A steel-framed solar-panel carport stands over the front yard (not encodable in schema; noted). Frontage: white wall with a brown-brick base band and dark-navy steel gates (vehicle + pedestrian); grey stone-slab sidewalk. Colours sampled from ref."
 }

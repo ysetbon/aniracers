@@ -32,6 +32,17 @@
     "sidewalk": { "material": "brick-pavers", "color": "#a85a44", "joint": "#8c4835", "w": 4.0 },
     "verge": { "grass": "#5f8a3a", "grassDark": "#3f5f28" }
   },
+  "environment": {
+    "props": [
+      { "bin": true, "t": 0.52, "inset": -0.9, "rot": "along" },
+      { "model": "tree_oak", "h": 5.0, "t": 0.2, "inset": 1.8, "rxz": 0.6,
+        "tint": { "leafs": "#20401c", "wood": "#5c4a34", "*": "#5c4a34" } },
+      { "model": "plant_bushLarge", "h": 2.1, "t": 0.82, "inset": 1.0, "rxz": 1.2,
+        "tint": { "leafs": "#4fa030", "*": "#44603a" } },
+      { "car": true, "t": 0.3, "inset": -4.7, "rot": "along", "color": "#26262a" },
+      { "car": true, "t": 0.72, "inset": -4.7, "rot": "along", "flip": true, "color": "#8b9096" }
+    ]
+  },
   "sky": { "top": "#4fa3e2", "horizon": "#8fc9ea", "cloud": "#f0f5f7" },
-  "notes": "Real 2-storey house, two-tone facade: a smoother pale mauve-render left block (#cdbcbf) and a right block clad in stone-brick veneer (#c3a789) featuring a classical triangular-pediment door surround over a dark-red wood door (#7a3b2f). Tall dark windows; flat roof/parapet with a small finial. Frontage: stone-block low wall carrying an ornate black wrought-iron fence with scrollwork and matching gates; yellow wheelie bin; red brick-paver patterned sidewalk. Colours sampled from ref."
+  "notes": "Real 2-storey house, two-tone facade: a smoother pale mauve-render left block (#cdbcbf) and a right block clad in stone-brick veneer (#c3a789) featuring a classical triangular-pediment door surround over a dark-red wood door (#7a3b2f). Tall dark windows; flat roof/parapet with a small finial. Frontage: stone-block low wall carrying an ornate black wrought-iron fence with scrollwork and matching gates; yellow wheelie bin; red brick-paver patterned sidewalk. Colours sampled from ref. Environment (2026-07-05): yellow kerbside bin, a dark cypress and rounded bush in the yard, and two parked cars (black hatchback, grey car) - continuing the shared p7rMIwC street scene."
 }
