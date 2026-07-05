@@ -36,6 +36,31 @@
     "sidewalk": { "material": "brick", "color": "#b8785a", "joint": "#9c664c", "w": 3.5 },
     "verge": { "grass": "#5aa838", "grassDark": "#3f7a2a", "flowers": { "palette": ["#e6d24b", "#f2e277", "#c9d24b"], "perM2": 0.1 } }
   },
+  "environment": {
+    "props": [
+      { "model": "tree_oak", "h": 8.0, "t": 0.03, "inset": 2.6, "rxz": 1.5, "tint": { "leafs": "#3f7a35", "wood": "#6e5138", "*": "#6e5138" } },
+      { "model": "tree_oak", "h": 7.0, "t": 0.42, "inset": 2.5, "rxz": 1.4, "tint": { "leafs": "#4a8a3c", "wood": "#6e5138", "*": "#6e5138" } },
+      { "model": "tree_oak", "h": 5.5, "t": 0.3, "inset": 1.8, "rxz": 0.6, "tint": { "leafs": "#7a6a44", "wood": "#5f4632", "*": "#5f4632" } },
+      { "model": "tree_oak", "h": 6.5, "t": 0.55, "inset": 2.2, "rxz": 0.55, "tint": { "leafs": "#1f4d24", "wood": "#5f4632", "*": "#5f4632" } },
+      { "model": "tree_oak", "h": 6.0, "t": 0.62, "inset": 2.2, "rxz": 0.55, "tint": { "leafs": "#24572a", "wood": "#5f4632", "*": "#5f4632" } },
+      { "model": "tree_oak", "h": 5.6, "t": 0.69, "inset": 2.2, "rxz": 0.55, "tint": { "leafs": "#1f4d24", "wood": "#5f4632", "*": "#5f4632" } },
+      { "model": "tree_palmTall", "h": 9.0, "t": 0.82, "inset": 2.2, "rxz": 0.85, "tint": { "leafs": "#46a648", "wood": "#a08a67", "*": "#a08a67" } },
+      { "hedge": true, "h": 2.2, "t0": 0.05, "t1": 0.95, "step": 1.2, "inset": 1.3, "d": 1.4, "colors": ["#57952c", "#4e8a28", "#3c7031"] },
+      { "hedge": true, "h": 1.6, "t0": 0.0, "t1": 1.0, "step": 1.2, "inset": -0.3, "d": 1.3, "colors": ["#6fa832", "#57952c", "#4e8a28"] },
+      { "model": "flower_yellowA", "h": 0.8, "t": 0.12, "inset": 0.45, "rxz": 1.2, "tint": { "leafs": "#e6d24b", "*": "#57952c" } },
+      { "model": "flower_yellowA", "h": 0.8, "t": 0.28, "inset": 0.45, "rxz": 1.2, "tint": { "leafs": "#f2e277", "*": "#57952c" } },
+      { "model": "flower_yellowA", "h": 0.8, "t": 0.44, "inset": 0.45, "rxz": 1.2, "tint": { "leafs": "#e6d24b", "*": "#57952c" } },
+      { "model": "flower_yellowA", "h": 0.8, "t": 0.6, "inset": 0.45, "rxz": 1.2, "tint": { "leafs": "#f2e277", "*": "#57952c" } },
+      { "model": "flower_yellowA", "h": 0.8, "t": 0.76, "inset": 0.45, "rxz": 1.2, "tint": { "leafs": "#e6d24b", "*": "#57952c" } },
+      { "model": "pot_large", "h": 0.75, "t": 0.04, "inset": 0.5, "rxz": 1.0, "tint": { "wood": "#e0c020", "woodBarkDark": "#c9a814" } },
+      { "model": "pot_large", "h": 0.75, "t": 0.92, "inset": 0.5, "rxz": 1.0, "tint": { "wood": "#e0c020", "woodBarkDark": "#c9a814" } },
+      { "bin": true, "t": 0.88, "inset": -0.8, "rot": "along" },
+      { "lamp": true, "t": 0.15, "inset": -15.5, "rot": 90 },
+      { "car": true, "t": 0.03, "inset": -4.7, "rot": "along", "color": "#b23b30" },
+      { "car": true, "t": 0.09, "inset": -4.7, "rot": "along", "flip": true, "color": "#eceae4" },
+      { "car": true, "t": 0.15, "inset": -4.7, "rot": "along", "color": "#b9bcc0" }
+    ]
+  },
   "sky": { "top": "#5ea2db", "horizon": "#9fcfe4", "cloud": "#f4f6f6" },
-  "notes": "Tall office/apartment tower (~10+ storeys) with a distinctive full-height central curtain-wall of blue reflective glass (#4a7fb0), modelled as per-floor glassblock bands on the central volume; flanked by two cream-rendered / grey-blue side volumes. Flat roofs. Fronted by a rough grey fieldstone wall with a bench, clipped hedges and yellow flower beds. Colours eyeballed from ref."
+  "notes": "Tall office/apartment tower (~10+ storeys) with a distinctive full-height central curtain-wall of blue reflective glass (#4a7fb0), modelled as per-floor glassblock bands on the central volume; flanked by two cream-rendered / grey-blue side volumes. Flat roofs. Fronted by a rough grey fieldstone wall with a bench, clipped hedges and yellow flower beds. Colours eyeballed from ref. Environment: two big oaks, one near-bare tree, a dark cypress trio and a palm above two clipped-hedge rows, yellow flowering beds, two yellow planters, a bin and streetlamp, plus a row of parked cars sampled from the ref."
 }

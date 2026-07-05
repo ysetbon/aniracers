@@ -23,6 +23,19 @@
     "sidewalk": { "material": "stone-slabs", "color": "#d4d5d1", "joint": "#bbbcb8", "w": 3.5 },
     "verge": { "grass": "#7fb84a", "grassDark": "#586a44" }
   },
+  "environment": {
+    "props": [
+      { "model": "tree_oak", "h": 7.0, "t": 0.06, "inset": 2.2, "rxz": 1.45, "tint": { "leafs": "#3f7a35", "wood": "#6e5138", "*": "#6e5138" } },
+      { "model": "tree_oak", "h": 5.0, "t": 0.44, "inset": 2.4, "rxz": 1.0, "tint": { "leafs": "#4a8a3c", "wood": "#6e5138", "*": "#6e5138" } },
+      { "model": "tree_oak", "h": 4.6, "t": 0.58, "inset": 2.5, "rxz": 0.95, "tint": { "leafs": "#57952c", "wood": "#6e5138", "*": "#6e5138" } },
+      { "model": "tree_oak", "h": 5.2, "t": 0.72, "inset": 1.6, "rxz": 0.55, "tint": { "leafs": "#7a6a44", "wood": "#5f4632", "*": "#5f4632" } },
+      { "hedge": true, "h": 3.0, "t0": 0.02, "t1": 0.62, "step": 1.2, "inset": 1.3, "d": 1.4, "colors": ["#57952c", "#4e8a28", "#3c7031"] },
+      { "hedge": true, "h": 1.4, "t0": 0.02, "t1": 0.58, "step": 1.2, "inset": -0.4, "d": 1.3, "colors": ["#6fa832", "#57952c", "#4e8a28"] },
+      { "bin": true, "t": 0.94, "inset": -0.8, "rot": "along" },
+      { "lamp": true, "t": 0.5, "inset": -15.5, "rot": 90 },
+      { "car": true, "t": 0.98, "inset": -4.7, "rot": "along", "color": "#2f3540" }
+    ]
+  },
   "sky": { "top": "#5ea2db", "horizon": "#9fcfe4", "cloud": "#f4f6f6" },
-  "notes": "Blue-grey rendered apartment slab (~7 storeys) with a regular grid of white-framed windows and shallow recessed balconies (pale grey-white parapets, approximated as a front terrace band). Flat roof with light fascia. Sits above a tan sandstone retaining wall with clipped hedges and a stair; broken paving on the sidewalk. Colours eyeballed from ref."
+  "notes": "Blue-grey rendered apartment slab (~7 storeys) with a regular grid of white-framed windows and shallow recessed balconies (pale grey-white parapets, approximated as a front terrace band). Flat roof with light fascia. Sits above a tan sandstone retaining wall with clipped hedges and a stair; broken paving on the sidewalk. Colours eyeballed from ref. Environment: oak trees + one near-bare tree above a tall clipped hedge, a lower road-side hedge, kerbside bin, streetlamp and a dark car at the kerb, sampled from scene ref."
 }

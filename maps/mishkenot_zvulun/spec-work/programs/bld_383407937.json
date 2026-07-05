@@ -29,6 +29,21 @@
     "sidewalk": { "material": "brick", "color": "#b7867f", "joint": "#9c6f68", "w": 4.0 },
     "verge": { "grass": "#7fb84a", "grassDark": "#586a44", "flowers": { "palette": ["#e04438", "#f2d24b", "#f6f3ea"], "perM2": 0.12 } }
   },
+  "environment": {
+    "props": [
+      { "model": "tree_oak", "h": 3.6, "t": 0.03, "inset": 2.2, "rxz": 0.85, "tint": { "leafs": "#3f7a35", "wood": "#6e5138", "*": "#6e5138" } },
+      { "model": "tree_oak", "h": 4.6, "t": 0.2, "inset": 2.5, "rxz": 0.95, "tint": { "leafs": "#4a8a3c", "wood": "#6e5138", "*": "#6e5138" } },
+      { "model": "tree_oak", "h": 4.2, "t": 0.34, "inset": 2.5, "rxz": 0.9, "tint": { "leafs": "#57952c", "wood": "#6e5138", "*": "#6e5138" } },
+      { "model": "tree_oak", "h": 6.0, "t": 0.52, "inset": 1.9, "rxz": 1.05, "tint": { "leafs": "#b0563a", "wood": "#6e5138", "*": "#6e5138" } },
+      { "model": "plant_bushLarge", "h": 1.6, "t": 0.03, "inset": 0.7, "rxz": 1.2, "tint": { "leafs": "#4c8a34", "*": "#44603a" } },
+      { "model": "plant_bushLarge", "h": 1.5, "t": 0.13, "inset": 0.7, "rxz": 1.15, "tint": { "leafs": "#57952c", "*": "#44603a" } },
+      { "model": "plant_bushLarge", "h": 1.6, "t": 0.24, "inset": 0.7, "rxz": 1.2, "tint": { "leafs": "#4c8a34", "*": "#44603a" } },
+      { "model": "plant_bushLarge", "h": 1.5, "t": 0.37, "inset": 0.7, "rxz": 1.15, "tint": { "leafs": "#6fa832", "*": "#44603a" } },
+      { "model": "plant_bushLarge", "h": 1.6, "t": 0.5, "inset": 0.7, "rxz": 1.2, "tint": { "leafs": "#4c8a34", "*": "#44603a" } },
+      { "model": "plant_bushLarge", "h": 1.5, "t": 0.63, "inset": 0.7, "rxz": 1.15, "tint": { "leafs": "#57952c", "*": "#44603a" } },
+      { "lamp": true, "t": 0.82, "inset": -15.5, "rot": 90 }
+    ]
+  },
   "sky": { "top": "#5ea2db", "horizon": "#9fcfe4", "cloud": "#f4f6f6" },
-  "notes": "Multi-storey residential block (~7 storeys). Two tones: a warm tan-cream section (left) and a bright off-white section (right) with recessed balconies and grey louvered roller-shutter panels beside the windows. Flat roofs. Fronted by a low sandstone-brick wall topped with a white metal-mesh fence, shrubs and flowering beds, plus a masonry stair at the right. Colours eyeballed from ref."
+  "notes": "Multi-storey residential block (~7 storeys). Two tones: a warm tan-cream section (left) and a bright off-white section (right) with recessed balconies and grey louvered roller-shutter panels beside the windows. Flat roofs. Fronted by a low sandstone-brick wall topped with a white metal-mesh fence, shrubs and flowering beds, plus a masonry stair at the right. Colours eyeballed from ref. Environment: green round trees plus one terracotta autumn-leaf tree behind the fence, a run of small bright bushes along the wall base and a globe streetlamp; parking bays in ref are empty so no cars."
 }
