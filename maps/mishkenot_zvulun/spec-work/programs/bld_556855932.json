@@ -23,6 +23,79 @@
     "sidewalk": { "material": "brick", "color": "#b06a4a", "joint": "#8a5238", "w": 2.5 },
     "verge": { "grass": "#5db63f", "grassDark": "#437c34" }
   },
+  "environment": {
+    "props": [
+      {
+        "model": "tree_oak",
+        "h": 7.0,
+        "t": 0.22,
+        "inset": 3.0,
+        "rxz": 1.6,
+        "tint": { "leafs": "#3f8f38", "wood": "#6e5138", "*": "#6e5138" }
+      },
+      {
+        "model": "tree_oak",
+        "h": 6.5,
+        "t": 0.42,
+        "inset": 3.6,
+        "rxz": 1.4,
+        "tint": { "leafs": "#46a63e", "wood": "#6e5138", "*": "#6e5138" }
+      },
+      {
+        "model": "tree_oak",
+        "h": 6.2,
+        "t": 0.86,
+        "inset": 3.2,
+        "rxz": 1.5,
+        "tint": { "leafs": "#3f8f38", "wood": "#6e5138", "*": "#6e5138" }
+      },
+      {
+        "model": "plant_bushLarge",
+        "h": 2.0,
+        "t": 0.33,
+        "inset": 1.4,
+        "rxz": 1.2,
+        "tint": { "leafs": "#4c8a34", "*": "#44603a" }
+      },
+      {
+        "model": "plant_bushLarge",
+        "h": 1.8,
+        "t": 0.5,
+        "inset": 1.2,
+        "rxz": 1.1,
+        "tint": { "leafs": "#46a63e", "*": "#44603a" }
+      },
+      {
+        "model": "plant_bushLarge",
+        "h": 2.2,
+        "t": 0.78,
+        "inset": 1.0,
+        "rxz": 1.3,
+        "tint": { "leafs": "#3f8f38", "*": "#44603a" }
+      },
+      {
+        "model": "pot_large",
+        "h": 0.8,
+        "t": 0.82,
+        "inset": 0.7,
+        "tint": { "wood": "#8f8f8f", "woodBarkDark": "#767676" }
+      },
+      {
+        "bin": true,
+        "t": 0.12,
+        "inset": -1.0,
+        "rot": "along"
+      },
+      {
+        "car": true,
+        "t": 0.97,
+        "inset": -4.7,
+        "rot": "along",
+        "flip": true,
+        "color": "#2a2c30"
+      }
+    ]
+  },
   "sky": { "top": "#5ea2db", "horizon": "#9fcfe4", "cloud": "#f4f6f6" },
-  "notes": "Two-storey cream house (#e0d6bd) with orange terracotta hip roof (#bf5a33) and rooftop solar panels. Front facade has chunky timber-framed windows and shutters (#8a6a3f) and a brown timber lattice/pergola screen at the upper floor over a front terrace. Frontage is a decorative low wall of white panels embossed with diamond and fleur-de-lis motifs, an ornate grey wrought-iron fence with diamond pattern, and a green panelled pedestrian door beside an ornate metal vehicle gate; brick-paved forecourt. A large white municipal recycling cabinet (Hebrew text) stands at the kerb (prop pending). Sampled colours 2026-07-04."
+  "notes": "Two-storey cream house (#e0d6bd) with orange terracotta hip roof (#bf5a33) and rooftop solar panels. Front facade has chunky timber-framed windows and shutters (#8a6a3f) and a brown timber lattice/pergola screen at the upper floor over a front terrace. Frontage is a decorative low wall of white panels embossed with diamond and fleur-de-lis motifs, an ornate grey wrought-iron fence with diamond pattern, and a green panelled pedestrian door beside an ornate metal vehicle gate; brick-paved forecourt. Env: several big round green oaks fill the front yard, rounded green bushes hug the fence line, a grey rectangular planter pot with a bush sits near the gate, a large white municipal recycling cabinet (bin, Hebrew text) stands at the left kerb, and a dark car is parked at the right kerb. Sampled colours 2026-07-04."
 }

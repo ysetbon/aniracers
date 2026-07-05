@@ -18,6 +18,34 @@
     "sidewalk": { "material": "stone-slabs", "color": "#cbc4b7", "joint": "#b6afa1", "w": 3.0 },
     "road": { "surface": "asphalt", "color": "#8f9296" }
   },
+  "environment": {
+    "props": [
+      {
+        "model": "tree_oak",
+        "h": 6.2,
+        "t": 0.5,
+        "inset": -1.2,
+        "rxz": 1.25,
+        "tint": { "leafs": "#7cb83f", "wood": "#6e5138", "*": "#6e5138" }
+      },
+      {
+        "model": "tree_oak",
+        "h": 3.4,
+        "t": 0.92,
+        "inset": -1.1,
+        "rxz": 0.65,
+        "tint": { "leafs": "#6fb03a", "wood": "#6e5138", "*": "#6e5138" }
+      },
+      {
+        "model": "grass_leafs",
+        "h": 0.6,
+        "t": 0.5,
+        "inset": -1.3,
+        "y": 0.5,
+        "tint": { "grass": "#5c9440", "*": "#5c9440" }
+      }
+    ]
+  },
   "sky": { "top": "#5ea2db", "horizon": "#9fcfe4", "cloud": "#f4f6f6" },
-  "notes": "Active construction site: unfinished grey concrete-block shell (~2 floors) with rebar, scaffolding and workers on top; open block openings instead of glazed windows. Frontage is a corrugated grey metal site hoarding with blue and red graffiti paint splats (paint not encodable in wall schema; noted). Sampled visually 2026-07-04."
+  "notes": "Active construction site: unfinished grey concrete-block shell (~2 floors) with rebar, scaffolding and workers on top; open block openings instead of glazed windows. Frontage is a corrugated grey metal site hoarding with blue and red graffiti paint splats (paint not encodable in wall schema; noted). Env: one large lush green/yellow oak in a stone-slab tree-pit at the kerb centre, plus a small sapling oak further along, grass tuft at the big tree's base; no parked cars. Sampled visually 2026-07-04."
 }
