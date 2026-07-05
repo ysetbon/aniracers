@@ -27,6 +27,24 @@
     "sidewalk": { "material": "brick-pavers", "color": "#8f8a80", "joint": "#767166", "w": 4.0 },
     "road": { "surface": "asphalt", "color": "#6f7276" }
   },
+  "environment": {
+    "props": [
+      { "model": "tree_palmDetailedTall", "h": 8, "t": 0.3, "inset": 1.8, "rxz": 0.85,
+        "tint": { "leafs": "#3f9b42", "wood": "#a08a67", "*": "#a08a67" } },
+      { "model": "tree_oak", "h": 8, "t": 0.42, "inset": 2.0, "rxz": 0.55,
+        "tint": { "leafs": "#24461f", "wood": "#5c4630", "*": "#5c4630" } },
+      { "model": "tree_oak", "h": 7, "t": 0.2, "inset": 2.2, "rxz": 0.55,
+        "tint": { "leafs": "#26491f", "wood": "#5c4630", "*": "#5c4630" } },
+      { "model": "tree_oak", "h": 7.5, "t": 0.9, "inset": 1.4, "rxz": 1.5,
+        "tint": { "leafs": "#2f6b2b", "wood": "#6e5138", "*": "#6e5138" } },
+      { "model": "plant_bushLarge", "h": 2.2, "t": 0.25, "inset": 1.5, "rxz": 1.2,
+        "tint": { "leafs": "#3f8a30", "*": "#44603a" } },
+      { "bin": true, "t": 0.14, "inset": -0.5, "rot": "along", "color": "#3a9f4a" },
+      { "bin": true, "t": 0.72, "inset": -0.5, "rot": "along", "color": "#3a9f4a" },
+      { "bin": true, "t": 1.0, "inset": -0.5, "rot": "along", "color": "#3a9f4a" },
+      { "car": true, "t": 0.02, "inset": -4.7, "rot": "along", "color": "#e6e6e4" }
+    ]
+  },
   "sky": { "top": "#5ea2db", "horizon": "#9fcfe4", "cloud": "#f4f6f6" },
   "notes": "Two-storey light-grey (#c9cac9) house with a red (#c1482d) hipped tile roof and a small red-tile pitched entry canopy over the door. Grey-glass windows, wall AC units. Frontage: rubble-stone base wall (#c6c1b4) with a tan plaster upper section and a horizontal metal-and-timber slat sliding gate + matching pedestrian gate; grey brick-paver sidewalk with green recycle bins and a house-number plate. Occluded on the right by a large tree."
 }
