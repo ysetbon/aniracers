@@ -19,6 +19,22 @@
     "gates": [{ "kind": "pedestrian", "w": 1.0, "style": "ornate-bars", "color": "#7a7d80" }],
     "sidewalk": { "material": "brick", "color": "#b58a5e", "joint": "#94694a", "w": 3.0 }
   },
+  "environment": {
+    "props": [
+      { "model": "tree_palmDetailedTall", "h": 7, "t": 0.28, "inset": 3.0, "rxz": 0.9, "tint": { "leafs": "#3f8f3a", "wood": "#8a7550", "*": "#8a7550" } },
+      { "model": "plant_bushLarge", "h": 4, "t": 0.2, "inset": 3.6, "rxz": 1.6, "tint": { "leafs": "#3f8b34", "*": "#3f6b30" } },
+      { "model": "tree_palmTall", "h": 9, "t": 0.13, "inset": 4.8, "rxz": 0.85, "tint": { "leafs": "#357a30", "wood": "#8a7550", "*": "#8a7550" } },
+      { "model": "tree_oak", "h": 6.5, "t": 0.08, "inset": 5.0, "rxz": 0.6, "tint": { "leafs": "#2f5d2a", "wood": "#6e5138", "*": "#6e5138" } },
+      { "model": "plant_bushLarge", "h": 2.4, "t": 0.5, "inset": 1.2, "rxz": 1.2, "tint": { "leafs": "#4c8a34", "*": "#44603a" } },
+      { "model": "tree_oak", "h": 3, "t": 0.56, "inset": 1.0, "rxz": 0.9, "tint": { "leafs": "#3c7031", "wood": "#6e5138", "*": "#6e5138" } },
+      { "model": "pot_large", "h": 0.8, "t": 0.35, "inset": 1.1, "tint": { "wood": "#b8683f", "woodBarkDark": "#a05a36" } },
+      { "model": "plant_bush", "h": 1.2, "t": 0.62, "inset": 1.3, "tint": { "leafs": "#4e8a28", "*": "#3c7031" } },
+      { "bin": true, "t": 0.79, "inset": -0.7, "rot": "along", "color": "#3d6fb0" },
+      { "bin": true, "t": 0.84, "inset": -0.7, "rot": "along", "color": "#4a9a3c" },
+      { "model": "pot_large", "h": 0.7, "t": 0.96, "inset": 0.6, "tint": { "wood": "#b8683f", "woodBarkDark": "#a05a36" } },
+      { "model": "grass_leafs", "h": 0.7, "t": 0.96, "inset": 0.6, "y": 0.6, "tint": { "grass": "#5c9440", "*": "#5c9440" } }
+    ]
+  },
   "sky": { "top": "#5ea2db", "horizon": "#9fcfe4", "cloud": "#f4f6f6" },
   "notes": "Tall two-storey white render house (#f0ece0) with a red/terracotta tile roof (#c05a34, only a small pitch visible). An upper window has a security grille; the entrance is sheltered by a modern grey metal canopy on brackets. Frontage is a mixed sandstone-block wall (#d6c9a6) with a brown vertical-slat timber fence and a small grey ornate-bar pedestrian gate; brick/paver forecourt, blue and green wheelie bins at the kerb, potted shrubs. Sampled colours 2026-07-04."
 }

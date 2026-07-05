@@ -28,6 +28,20 @@
     "verge": { "grass": "#5db63f", "grassDark": "#437c34" },
     "road": { "surface": "asphalt", "color": "#8f9296" }
   },
+  "environment": {
+    "props": [
+      { "model": "tree_oak", "h": 9, "t": 0.05, "inset": 2.6, "rxz": 1.45, "tint": { "leafs": "#4a8b32", "wood": "#6e5138", "*": "#6e5138" } },
+      { "model": "tree_oak", "h": 8, "t": 0.2, "inset": 2.9, "rxz": 1.35, "tint": { "leafs": "#6a8a5a", "wood": "#6e5138", "*": "#6e5138" } },
+      { "model": "tree_oak", "h": 6.5, "t": 0.86, "inset": 2, "rxz": 1.3, "tint": { "leafs": "#3f8b3a", "wood": "#6e5138", "*": "#6e5138" } },
+      { "model": "plant_bushLarge", "h": 2, "t": 0.8, "inset": 0.9, "rxz": 1.1, "tint": { "leafs": "#4c8a34", "*": "#44603a" } },
+      { "model": "pot_large", "h": 0.8, "t": 0.83, "inset": 0.7, "tint": { "wood": "#b8683f", "woodBarkDark": "#a05a36" } },
+      { "model": "grass_leafs", "h": 0.9, "t": 0.83, "inset": 0.7, "y": 0.6, "tint": { "grass": "#5c9440", "*": "#5c9440" } },
+      { "bin": true, "t": 0.97, "inset": -0.8, "rot": "along" },
+      { "car": true, "t": 0.3, "inset": -4.7, "rot": "along", "color": "#d8dadd" },
+      { "car": true, "t": 0.55, "inset": -4.7, "rot": "along", "flip": true, "color": "#8a9aa6" },
+      { "car": true, "t": 0.78, "inset": -4.7, "rot": "along", "flip": true, "color": "#3d5a82" }
+    ]
+  },
   "sky": { "top": "#5ea2db", "horizon": "#9fcfe4", "cloud": "#f4f6f6" },
   "notes": "Two-storey cream/beige house (#e3d8bf) with orange terracotta hip roof (#c85e34) and a front upper balcony with timber rail/pergola. A lower single-storey right wing under its own terracotta hip roof holds a white garage door. Windows have security grilles (not expressible). Frontage is a two-tone fence of cream panels with mustard/ochre framing (#b58a3f), a white panel double vehicle gate on the left and a grey ornate arched iron gate on the right; parasol in the yard, stone-slab forecourt, green bin, several parked cars. Sampled colours 2026-07-04."
 }
