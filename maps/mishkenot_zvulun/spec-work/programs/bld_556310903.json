@@ -29,6 +29,18 @@
     "verge": { "grass": "#b07a45", "grassDark": "#96683a" },
     "road": { "surface": "dirt", "color": "#b07a45" }
   },
+  "environment": {
+    "props": [
+      { "bin": true, "t": 0.85, "inset": -1.0, "rot": "along" },
+      { "model": "rock_smallA", "h": 0.6, "t": 0.2, "inset": -1.5, "rxz": 1.2, "tint": { "*": "#c9c4bd" } },
+      { "model": "rock_smallB", "h": 0.5, "t": 0.35, "inset": -2.2, "rxz": 1.1, "tint": { "*": "#bcb7af" } },
+      { "model": "rock_smallA", "h": 0.7, "t": 0.6, "inset": -2.6, "rxz": 1.3, "tint": { "*": "#c4bfb7" } },
+      { "model": "rock_smallB", "h": 0.4, "t": 0.72, "inset": -1.2, "rxz": 1.0, "tint": { "*": "#b8b3ab" } },
+      { "model": "grass_leafs", "h": 0.6, "t": 0.5, "inset": 1.0, "rxz": 1.0, "tint": { "grass": "#5c9440", "*": "#5c9440" } },
+      { "model": "grass_leafs", "h": 0.5, "t": 0.92, "inset": 0.6, "rxz": 1.0, "tint": { "grass": "#4c8a3c", "*": "#4c8a3c" } },
+      { "model": "plant_bushSmall", "h": 0.8, "t": 0.95, "inset": 1.2, "rxz": 1.0, "tint": { "leafs": "#5c9b3e", "*": "#44603a" } }
+    ]
+  },
   "sky": { "top": "#4a9fe0", "horizon": "#a9d4ea", "cloud": "#f4f6f6" },
-  "notes": "Real building UNDER CONSTRUCTION: bare grey reinforced-concrete frame, ~4 storeys, no finished walls yet. Open floor slabs, columns and unglazed window/door openings (modelled type 'opening', dark voids, no glazing). Cantilevered balcony slabs with temporary rail. Yellow concrete-pump hose, timber formwork, cement/aggregate bags and cinder-block stacks on the raw earth site; mesh site fence. Colours sampled from ref 2026-07-04."
+  "notes": "Real building UNDER CONSTRUCTION: bare grey reinforced-concrete frame, ~4 storeys, no finished walls yet. Open floor slabs, columns and unglazed window/door openings (modelled type 'opening', dark voids, no glazing). Cantilevered balcony slabs with temporary rail. Yellow concrete-pump hose, timber formwork, cement/aggregate bags and cinder-block stacks on the raw earth site; mesh site fence. Colours sampled from ref 2026-07-04. Environment: an active construction site, so no cars or street trees - a metal site bin, scattered concrete-rubble rocks and a few weed tufts/small bush sprouting from the raw earth. Sampled from ref 2026-07-05."
 }

@@ -35,6 +35,23 @@
     "verge": { "grass": "#79a83f", "grassDark": "#5c6d3f" },
     "road": { "surface": "asphalt", "color": "#8f9296" }
   },
+  "environment": {
+    "props": [
+      { "model": "tree_oak", "h": 7.5, "t": 0.03, "inset": 2.0, "rxz": 0.55, "tint": { "leafs": "#2f5d2a", "wood": "#5c4a30", "*": "#5c4a30" } },
+      { "model": "tree_oak", "h": 6.5, "t": 0.07, "inset": 3.2, "rxz": 0.5, "tint": { "leafs": "#356b2e", "wood": "#5c4a30", "*": "#5c4a30" } },
+      { "model": "tree_oak", "h": 5.0, "t": 0.46, "inset": 2.4, "rxz": 1.2, "tint": { "leafs": "#4e8a3a", "wood": "#6e5138", "*": "#6e5138" } },
+      { "model": "tree_oak", "h": 4.5, "t": 0.8, "inset": 2.6, "rxz": 1.1, "tint": { "leafs": "#4c8a34", "wood": "#6e5138", "*": "#6e5138" } },
+      { "model": "tree_palmDetailedTall", "h": 10.0, "t": 0.93, "inset": 3.0, "rxz": 0.85, "tint": { "leafs": "#3f9b42", "wood": "#a08a67", "*": "#a08a67" } },
+      { "hedge": true, "t0": 0.12, "t1": 0.32, "step": 1.2, "inset": 1.3, "h": 2.0, "d": 1.4, "colors": ["#6fa832", "#57952c", "#4e8a28"] },
+      { "car": true, "t": 0.42, "inset": -4.7, "rot": "along", "color": "#c9cdd0" },
+      { "car": true, "t": 0.55, "inset": 3.0, "rot": "along", "flip": true, "color": "#c7cacd" },
+      { "car": true, "t": 0.68, "inset": 3.0, "rot": "along", "color": "#bfc2c5" },
+      { "bin": true, "t": 0.88, "inset": -1.0, "rot": "along" },
+      { "bin": true, "t": 0.91, "inset": -1.6, "rot": "along" },
+      { "model": "rock_smallA", "h": 0.5, "t": 0.72, "inset": -3.0, "rxz": 1.2, "tint": { "*": "#c9c4bd" } },
+      { "model": "rock_smallB", "h": 0.4, "t": 0.75, "inset": -3.4, "rxz": 1.1, "tint": { "*": "#bdb8b0" } }
+    ]
+  },
   "sky": { "top": "#5ea2db", "horizon": "#9fcfe4", "cloud": "#f4f6f6" },
-  "notes": "Long cream 3-storey apartment block, stepped/setback massing (modelled as main + slightly recessed wing). Flat roofs with satellite dishes & antenna (props not expressible). Small red-tile gabled entrance canopies over doors (per-entrance pitched canopy not expressible -- noted). Balcony slabs with horizontal cream slat rails; windows with roll-shutters/grilles. Rubble stone frontage wall + metal railing, parking lot with cars. Colours sampled 2026-07-04."
+  "notes": "Long cream 3-storey apartment block, stepped/setback massing (modelled as main + slightly recessed wing). Flat roofs with satellite dishes & antenna (props not expressible). Small red-tile gabled entrance canopies over doors (per-entrance pitched canopy not expressible -- noted). Balcony slabs with horizontal cream slat rails; windows with roll-shutters/grilles. Rubble stone frontage wall + metal railing, parking lot with cars. Colours sampled 2026-07-04. Environment: dark cypresses at left, round green trees mid/right, a tall palm at right; bright-green hedge behind the stone wall; a silver sedan on the road plus two silver cars parked in the lot; two green bins and rubble rocks on the median. Sampled from ref 2026-07-05."
 }
