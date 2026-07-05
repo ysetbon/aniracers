@@ -42,6 +42,18 @@
     "verge": { "grass": "#7aa845", "grassDark": "#5a7c40" },
     "road": { "surface": "asphalt", "color": "#7d8084" }
   },
+  "environment": {
+    "props": [
+      { "car": true, "t": 0.13, "inset": -4.7, "rot": "along", "color": "#45484d" },
+      { "car": true, "t": 0.3, "inset": -4.7, "rot": "along", "color": "#b7babe" },
+      { "car": true, "t": 0.46, "inset": -4.7, "rot": "along", "color": "#5a86a6" },
+      { "car": true, "t": 0.6, "inset": -4.7, "rot": "along", "color": "#eceae4" },
+      { "model": "tree_oak", "h": 8, "t": 0.97, "inset": 2.2, "rxz": 1.4, "tint": { "leafs": "#3c7031", "wood": "#6e5138", "*": "#6e5138" } },
+      { "model": "plant_bushLarge", "h": 2.2, "t": 0.72, "inset": 2, "rxz": 1.2, "tint": { "leafs": "#4c8a34", "*": "#44603a" } },
+      { "model": "plant_bushLarge", "h": 2, "t": 0.82, "inset": 2, "rxz": 1.1, "tint": { "leafs": "#57952c", "*": "#3c7031" } },
+      { "model": "tree_palmDetailedTall", "h": 6, "t": 0.5, "inset": 3.5, "rxz": 0.85, "tint": { "leafs": "#3f9b42", "wood": "#a08a67", "*": "#a08a67" } }
+    ]
+  },
   "sky": { "top": "#4f9edd", "horizon": "#9fcfe4", "cloud": "#f4f6f6" },
   "notes": "Tall white 4-storey apartment block, flat roof with a decorative parapet of small square merlon-notches along the top (not encodable — expressed as plain flat fascia). Windows carry metal French-balcony grilles (grey) across upper floors; ground floor mostly blank render. A lower right wing carries a small red clay-tile hip roof (#a8472e). AC condensers on the facade. Frontage: red-brick low wall (#a3573f) with a white picket fence set back behind it, stone-slab sidewalk, red/white kerb, parked cars. Colours read from ref 2026-07-04."
 }

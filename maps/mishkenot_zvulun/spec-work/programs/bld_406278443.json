@@ -29,6 +29,20 @@
     "verge": { "grass": "#4e8b3a", "grassDark": "#356226" },
     "road": { "surface": "asphalt", "color": "#6f7376" }
   },
+  "environment": {
+    "props": [
+      { "car": true, "t": 0.45, "inset": -4.7, "rot": "along", "color": "#bb3a2c" },
+      { "car": true, "t": 0.66, "inset": -4.7, "rot": "along", "color": "#c2c5c9" },
+      { "car": true, "t": 0.9, "inset": -4.7, "rot": "along", "flip": true, "color": "#eceae4" },
+      { "model": "tree_oak", "h": 7, "t": 0.02, "inset": 1.6, "rxz": 0.6, "tint": { "leafs": "#2b4d24", "wood": "#5a4630", "*": "#5a4630" } },
+      { "model": "tree_palmDetailedTall", "h": 5, "t": 0.42, "inset": 2.2, "rxz": 0.85, "tint": { "leafs": "#46a648", "wood": "#a08a67", "*": "#a08a67" } },
+      { "model": "tree_oak", "h": 8, "t": 0.85, "inset": 3, "rxz": 1.3, "tint": { "leafs": "#3c7031", "wood": "#6e5138", "*": "#6e5138" } },
+      { "model": "tree_oak", "h": 7.5, "t": 1.05, "inset": 3.2, "rxz": 1.3, "tint": { "leafs": "#2f6b2b", "wood": "#6e5138", "*": "#6e5138" } },
+      { "model": "plant_bush", "h": 1.2, "t": 0.04, "inset": 0.4, "tint": { "leafs": "#4c8a34", "*": "#44603a" } },
+      { "model": "plant_bushLarge", "h": 2.4, "t": 1.0, "inset": 0, "rxz": 1.4, "tint": { "leafs": "#3c7031", "*": "#38632a" } },
+      { "bin": true, "t": 0.6, "inset": -0.3, "rot": "along" }
+    ]
+  },
   "sky": { "top": "#5aa6dc", "horizon": "#a9d6ec", "cloud": "#f2f5f5" },
   "notes": "Classic Israeli two-storey house, peach/tan stucco walls with a reddish-brown recessed stair panel between the two floors, orange terracotta HIPPED tiled roof with wide eaves. White-framed windows with rolling shutters, a grey metal grille over the ground-floor balcony, wall-mounted AC units, drainpipe. Frontage: ornate grey metal pedestrian gate set in a tan brick/block garden wall; hills backdrop, yellow post box, street sign. Colours sampled from ref 2026-07-04."
 }

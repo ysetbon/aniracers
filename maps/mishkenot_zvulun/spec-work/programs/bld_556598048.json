@@ -20,11 +20,162 @@
   "props": [],
   "frontage": {
     "wall": { "type": "brick", "color": "#c98a52", "mortar": "#8a5a34", "h": 1.7 },
-    "gates": [ { "kind": "vehicle", "w": 4.0, "style": "ornate-arch", "color": "#2b2824" },
-               { "kind": "pedestrian", "w": 1.1, "style": "ornate-arch", "color": "#2b2824" } ],
+    "gates": [ { "kind": "vehicle", "w": 4.0, "at": 0.3, "style": "ornate-arch", "color": "#2b2824" },
+               { "kind": "pedestrian", "w": 1.1, "at": 0.42, "style": "ornate-arch", "color": "#2b2824" } ],
     "sidewalk": { "material": "stone-slabs", "color": "#cabfa8", "joint": "#b6ab92", "w": 3.0 },
     "road": { "surface": "asphalt", "color": "#8f9296" }
   },
+  "environment": {
+    "ground": { "lawn": "#6ba83f", "size": [220, 180] },
+    "road": { "surface": "#8f9296", "kerb": "#c4bfba", "halfW": 3.4, "len": 160 },
+    "driveway": { "at": 0.3, "w": 4.0, "color": "#9a8a72" },
+    "props": [
+      {
+        "model": "tree_oak",
+        "h": 10.0,
+        "t": 0.02,
+        "inset": 2.2,
+        "rxz": 0.6,
+        "tint": { "leafs": "#233f1f", "wood": "#5a4632", "*": "#5a4632" }
+      },
+      {
+        "model": "tree_oak",
+        "h": 8.5,
+        "t": 0.06,
+        "inset": 2.8,
+        "rxz": 0.6,
+        "tint": { "leafs": "#2a5226", "wood": "#5a4632", "*": "#5a4632" }
+      },
+      {
+        "model": "plant_bushSmall",
+        "h": 1.4,
+        "t": 0.1,
+        "inset": 1.0,
+        "rxz": 1.1,
+        "tint": { "leafs": "#4c8a34", "*": "#44603a" }
+      },
+      {
+        "model": "tree_palmDetailedTall",
+        "h": 9.5,
+        "t": 0.18,
+        "inset": 2.5,
+        "rxz": 0.85,
+        "tint": { "leafs": "#3f9b42", "wood": "#a08a67", "*": "#a08a67" }
+      },
+      {
+        "model": "tree_palmDetailedTall",
+        "h": 8.5,
+        "t": 0.16,
+        "inset": 3.4,
+        "rxz": 0.85,
+        "tint": { "leafs": "#46a648", "wood": "#a08a67", "*": "#a08a67" }
+      },
+      {
+        "model": "tree_oak",
+        "h": 8.5,
+        "t": 0.92,
+        "inset": 1.5,
+        "rxz": 1.7,
+        "tint": { "leafs": "#4f8a3a", "wood": "#6e5138", "*": "#6e5138" }
+      },
+      {
+        "model": "tree_oak",
+        "h": 5.5,
+        "t": 0.72,
+        "inset": 4.2,
+        "rxz": 1.2,
+        "tint": { "leafs": "#6f9a3a", "wood": "#6e5138", "*": "#6e5138" }
+      },
+      {
+        "model": "tree_oak",
+        "h": 5.0,
+        "t": 0.82,
+        "inset": 4.5,
+        "rxz": 1.2,
+        "tint": { "leafs": "#6f9a3a", "wood": "#6e5138", "*": "#6e5138" }
+      },
+      {
+        "planter": true,
+        "t": 0.05,
+        "inset": -0.6,
+        "w": 1.4,
+        "d": 1.0,
+        "color": "#b6ab92"
+      },
+      {
+        "planter": true,
+        "t": 0.5,
+        "inset": -0.6,
+        "w": 1.4,
+        "d": 1.0,
+        "color": "#b6ab92"
+      },
+      {
+        "lamp": true,
+        "t": 0.55,
+        "inset": -14.0,
+        "rot": 90
+      },
+      {
+        "lamp": true,
+        "t": 0.85,
+        "inset": -14.0,
+        "rot": 90
+      },
+      {
+        "bin": true,
+        "t": 0.8,
+        "inset": -0.6,
+        "rot": "along"
+      },
+      {
+        "car": true,
+        "t": 0.28,
+        "inset": 1.6,
+        "rot": "along",
+        "color": "#3a4f7a"
+      },
+      {
+        "car": true,
+        "t": 0.34,
+        "inset": 1.6,
+        "rot": "along",
+        "flip": true,
+        "color": "#b83a2e"
+      },
+      {
+        "car": true,
+        "t": 0.5,
+        "inset": -4.7,
+        "rot": "along",
+        "color": "#c23a2c"
+      },
+      {
+        "car": true,
+        "t": 0.62,
+        "inset": -4.7,
+        "rot": "along",
+        "flip": true,
+        "color": "#2f5488"
+      },
+      {
+        "car": true,
+        "t": 0.73,
+        "inset": -4.7,
+        "rot": "along",
+        "flip": true,
+        "color": "#cfd2d4"
+      },
+      {
+        "car": true,
+        "t": 0.86,
+        "inset": -4.7,
+        "rot": "along",
+        "flip": true,
+        "color": "#c2c5c7"
+      }
+    ]
+  },
   "sky": { "top": "#5ea2db", "horizon": "#9fcfe4", "cloud": "#f4f6f6" },
-  "notes": "Two-storey orange-render semi-detached villa with a bright red hipped tile roof, twin dark entrance doors, dark recessed windows, and small first-floor balconies with orange bar rails. Compound wall in orange render carrying a dark decorative tile-band frieze (mortar colour) + ornate black metal vehicle and pedestrian gates. Sampled visually 2026-07-04."
+  "notes": "Two-storey orange-render semi-detached villa with a bright red hipped tile roof, twin dark entrance doors, dark recessed windows, and small first-floor balconies with orange bar rails. Compound wall in orange render carrying a dark decorative tile-band frieze (mortar colour) + ornate black metal vehicle and pedestrian gates. Environment added 2026-07-05 from scene ref: two tall dark cypresses (thin oaks) and two palms with a small bush at the left, a big round oak at the right foreground plus two distant oaks, two grey sidewalk planters, two lamp posts, a black wheelie bin, a red and a blue car parked in the gated driveway, and four cars (red, blue, silver, silver) along the right kerb. Sampled visually 2026-07-04."
 }
