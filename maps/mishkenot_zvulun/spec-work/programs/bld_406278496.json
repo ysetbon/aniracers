@@ -19,6 +19,24 @@
     "sidewalk": { "material": "stone-slabs", "color": "#cfc4ad", "joint": "#bdb29c", "w": 2.6 },
     "road": { "surface": "brick", "color": "#a85a44" }
   },
+  "environment": {
+    "props": [
+      { "model": "tree_oak", "h": 6.5, "t": 0.14, "inset": 2.2, "rxz": 1.35,
+        "tint": { "leafs": "#6aa83a", "wood": "#6e5138", "*": "#6e5138" } },
+      { "model": "tree_oak", "h": 7.0, "t": 0.4, "inset": 2.4, "rxz": 1.3,
+        "tint": { "leafs": "#57952c", "wood": "#6e5138", "*": "#6e5138" } },
+      { "model": "tree_oak", "h": 6.5, "t": 0.72, "inset": 2.2, "rxz": 1.35,
+        "tint": { "leafs": "#6aa83a", "wood": "#6e5138", "*": "#6e5138" } },
+      { "model": "tree_palmTall", "h": 8.5, "t": 0.86, "inset": 3.0, "rxz": 0.85,
+        "tint": { "leafs": "#3f9b42", "wood": "#a08a67", "*": "#a08a67" } },
+      { "model": "plant_bushLarge", "h": 2.2, "t": 0.03, "inset": 1.5, "rxz": 1.2,
+        "tint": { "leafs": "#4c8a34", "*": "#44603a" } },
+      { "bin": true, "t": 0.95, "inset": -0.7, "rot": "along" },
+      { "bin": true, "t": 0.99, "inset": -0.9, "rot": "along" },
+      { "car": true, "t": 0.2, "inset": -4.7, "rot": "along", "color": "#c7cacb" },
+      { "car": true, "t": 0.6, "inset": -4.7, "rot": "along", "flip": true, "color": "#2b2d30" }
+    ]
+  },
   "sky": { "top": "#5ea2db", "horizon": "#9fcfe4", "cloud": "#f4f6f6" },
-  "notes": "Row of beige/cream 2-storey houses with terracotta hipped tile roofs behind a sandstone rubble compound wall; wall-mounted AC unit visible. Brick-paved red road in frame. Subject partly occluded by street trees; modelled as one representative beige hipped-roof house. Sampled visually 2026-07-04."
+  "notes": "Row of beige/cream 2-storey houses with terracotta hipped tile roofs behind a sandstone rubble compound wall; wall-mounted AC unit visible. Brick-paved red road in frame. Subject partly occluded by street trees; modelled as one representative beige hipped-roof house. Sampled visually 2026-07-04. Environment added 2026-07-05: 3 round oaks + a palm + a bush, green/blue kerbside bins, and 2 parked cars (silver hatchback + black SUV)."
 }

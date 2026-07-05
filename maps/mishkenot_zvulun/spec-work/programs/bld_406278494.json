@@ -31,6 +31,27 @@
     "verge": { "grass": "#4e8b3a", "grassDark": "#356226" },
     "road": { "surface": "asphalt", "color": "#4a4d50" }
   },
+  "environment": {
+    "props": [
+      { "lamp": true, "t": 0.02, "inset": -0.4, "rot": 90 },
+      { "model": "tree_oak", "h": 6.5, "t": 0.5, "inset": 2.6, "rxz": 1.0,
+        "tint": { "leafs": "#7a6a4a", "wood": "#6e5138", "*": "#6e5138" } },
+      { "model": "tree_oak", "h": 5.0, "t": 0.36, "inset": 2.2, "rxz": 0.9,
+        "tint": { "leafs": "#4c8a34", "wood": "#6e5138", "*": "#6e5138" } },
+      { "model": "tree_oak", "h": 4.5, "t": 0.62, "inset": 2.4, "rxz": 0.85,
+        "tint": { "leafs": "#57952c", "wood": "#6e5138", "*": "#6e5138" } },
+      { "hedge": true, "h": 2.2, "t0": 0.18, "t1": 0.72, "step": 1.2, "inset": 1.3, "d": 1.6,
+        "colors": ["#57952c", "#4e8a28", "#3c7031"] },
+      { "model": "plant_bushLarge", "h": 2.6, "t": 0.14, "inset": 1.4, "rxz": 1.3,
+        "tint": { "leafs": "#4c8a34", "*": "#44603a" } },
+      { "model": "plant_bushLarge", "h": 2.4, "t": 0.8, "inset": 1.3, "rxz": 1.2,
+        "tint": { "leafs": "#57952c", "*": "#44603a" } },
+      { "model": "rock_smallA", "h": 0.6, "t": 0.9, "inset": 1.1,
+        "tint": { "*": "#9a4b34" } },
+      { "model": "rock_smallB", "h": 0.5, "t": 0.94, "inset": 0.9,
+        "tint": { "*": "#a8563b" } }
+    ]
+  },
   "sky": { "top": "#63b0e0", "horizon": "#a9d6ec", "cloud": "#f2f5f5" },
-  "notes": "White plaster modern apartment building, ~4 floors, flat roof. Dark rolling-shutter windows, a tan/beige plaster accent panel wraps the ground-floor corner, top-floor terrace sheltered by a brown timber pergola. City high-rise towers in the background. Frontage: glass-and-metal balustrade with a green privacy mesh screen over a reddish rubble-stone base; dark paver drive, dense shrubs and a bare-limbed tree. Lower facade partly occluded; reconstructed with plausible openings. Colours sampled from ref 2026-07-04."
+  "notes": "White plaster modern apartment building, ~4 floors, flat roof. Dark rolling-shutter windows, a tan/beige plaster accent panel wraps the ground-floor corner, top-floor terrace sheltered by a brown timber pergola. City high-rise towers in the background. Frontage: glass-and-metal balustrade with a green privacy mesh screen over a reddish rubble-stone base; dark paver drive, dense shrubs and a bare-limbed tree. Lower facade partly occluded; reconstructed with plausible openings. Colours sampled from ref 2026-07-04. Environment added 2026-07-05: globe lamp, bare-limbed tree + 2 leafy trees, hedge run and large bushes, reddish rockery; no cars in this yard-heavy view."
 }

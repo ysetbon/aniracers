@@ -28,6 +28,30 @@
     "verge": { "grass": "#6faa3f", "grassDark": "#4f7a34" },
     "road": { "surface": "asphalt", "color": "#8f9296" }
   },
+  "environment": {
+    "props": [
+      { "model": "tree_oak", "h": 9.5, "t": 0.04, "inset": 3.0, "rxz": 0.58,
+        "tint": { "leafs": "#234a20", "wood": "#6e5138", "*": "#6e5138" } },
+      { "model": "tree_oak", "h": 10.5, "t": 0.12, "inset": 3.4, "rxz": 0.6,
+        "tint": { "leafs": "#2a5323", "wood": "#6e5138", "*": "#6e5138" } },
+      { "model": "tree_oak", "h": 6.0, "t": 0.3, "inset": 2.2, "rxz": 1.3,
+        "tint": { "leafs": "#4a8f36", "wood": "#6e5138", "*": "#6e5138" } },
+      { "model": "tree_oak", "h": 5.5, "t": 0.42, "inset": 2.6, "rxz": 1.25,
+        "tint": { "leafs": "#57952c", "wood": "#6e5138", "*": "#6e5138" } },
+      { "model": "tree_palmDetailedTall", "h": 9.0, "t": 0.56, "inset": 2.4, "rxz": 0.85,
+        "tint": { "leafs": "#3f9b42", "wood": "#a08a67", "*": "#a08a67" } },
+      { "model": "plant_bushLarge", "h": 2.4, "t": 0.48, "inset": 1.6, "rxz": 1.2,
+        "tint": { "leafs": "#4c8a34", "*": "#44603a" } },
+      { "model": "plant_bushLarge", "h": 2.0, "t": 0.66, "inset": 1.5, "rxz": 1.1,
+        "tint": { "leafs": "#57952c", "*": "#44603a" } },
+      { "bin": true, "t": 0.24, "inset": -0.7, "rot": "along" },
+      { "bin": true, "t": 0.28, "inset": -0.7, "rot": "along" },
+      { "car": true, "t": 0.46, "inset": -4.7, "rot": "along", "color": "#c9ccce" },
+      { "car": true, "t": 0.66, "inset": -4.7, "rot": "along", "flip": true, "color": "#eceae4" },
+      { "car": true, "t": 0.86, "inset": -4.7, "rot": "along", "flip": true, "color": "#d8d2c4" },
+      { "car": true, "t": 1.05, "inset": -4.6, "rot": "along", "flip": true, "color": "#cdbf9f" }
+    ]
+  },
   "sky": { "top": "#5ea2db", "horizon": "#9fcfe4", "cloud": "#f4f6f6" },
-  "notes": "Large off-white apartment block (~4 storeys) with a set-back penthouse level, flat roofs. Dark windows with white frames. Front is heavily screened by cypress and palm trees plus a stone-rubble base wall topped with grey precast concrete fence panels and green wheelie dumpsters (trees/bins are environment props, omitted). Big footprint. Colours sampled from ref 2026-07-04."
+  "notes": "Large off-white apartment block (~4 storeys) with a set-back penthouse level, flat roofs. Dark windows with white frames. Front is heavily screened by cypress and palm trees plus a stone-rubble base wall topped with grey precast concrete fence panels and green wheelie dumpsters (trees/bins are environment props, omitted). Big footprint. Colours sampled from ref 2026-07-04. Environment added 2026-07-05: 2 dark cypress + 2 round oaks + palm + bushes, 2 green dumpsters, 4 parked cars (silver, white, cream, beige)."
 }

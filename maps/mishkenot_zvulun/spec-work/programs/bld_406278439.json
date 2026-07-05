@@ -31,6 +31,25 @@
     "verge": { "grass": "#5a9a3c", "grassDark": "#3e7028" },
     "road": { "surface": "asphalt", "color": "#8f9296" }
   },
+  "environment": {
+    "props": [
+      { "model": "tree_oak", "h": 7.0, "t": 0.04, "inset": 2.0, "rxz": 0.6, "tint": { "leafs": "#22461f", "wood": "#5c4632", "*": "#5c4632" } },
+      { "model": "tree_oak", "h": 6.5, "t": 0.08, "inset": 2.8, "rxz": 0.6, "tint": { "leafs": "#284d22", "wood": "#5c4632", "*": "#5c4632" } },
+      { "model": "tree_oak", "h": 6.0, "t": 0.13, "inset": 2.2, "rxz": 1.35, "tint": { "leafs": "#3c8a34", "wood": "#6e5138", "*": "#6e5138" } },
+      { "model": "tree_palmTall", "h": 8.0, "t": 0.58, "inset": 2.5, "rxz": 0.85, "tint": { "leafs": "#3f9b42", "wood": "#a08a67", "*": "#a08a67" } },
+      { "model": "tree_palmTall", "h": 7.0, "t": 0.64, "inset": 3.0, "rxz": 0.85, "tint": { "leafs": "#46a648", "wood": "#a08a67", "*": "#a08a67" } },
+      { "model": "tree_oak", "h": 7.5, "t": 0.96, "inset": 2.0, "rxz": 1.5, "tint": { "leafs": "#4c9a3a", "wood": "#6e5138", "*": "#6e5138" } },
+      { "model": "plant_bushLarge", "h": 2.2, "t": 0.42, "inset": 1.4, "rxz": 1.2, "tint": { "leafs": "#3c8a34", "*": "#44603a" } },
+      { "model": "plant_bushLarge", "h": 2.0, "t": 0.72, "inset": 1.3, "rxz": 1.1, "tint": { "leafs": "#4c8a34", "*": "#44603a" } },
+      { "model": "grass_leafs", "h": 0.7, "t": 0.24, "inset": -0.5, "tint": { "grass": "#5c9440", "*": "#5c9440" } },
+      { "model": "grass_leafs", "h": 0.6, "t": 0.84, "inset": -0.5, "tint": { "grass": "#4c8a3c", "*": "#4c8a3c" } },
+      { "car": true, "t": 0.14, "inset": -4.7, "rot": "along", "color": "#23252a" },
+      { "car": true, "t": 0.32, "inset": -4.7, "rot": "along", "flip": true, "color": "#b6babd" },
+      { "bin": true, "t": 0.50, "inset": -0.7, "rot": "along", "color": "#3d6fb0" },
+      { "bin": true, "t": 0.54, "inset": -0.7, "rot": "along", "color": "#7a4a2e" },
+      { "bin": true, "t": 0.58, "inset": -0.7, "rot": "along", "color": "#3f8a3a" }
+    ]
+  },
   "sky": { "top": "#63b0e0", "horizon": "#a9d6ec", "cloud": "#f2f5f5" },
-  "notes": "White plaster apartment building, 3 floors, flat roof (small terracotta pergola accent behind), numerous grey AC units, balconies with white bar rails, cream/yellow window blinds. Frontage: tall brown-plaster planter/retaining wall topped with a grey Greek-key relief frieze over a rubble-stone base; reddish brick paver sidewalk. Colours sampled from ref 2026-07-04."
+  "notes": "White plaster apartment building, 3 floors, flat roof (small terracotta pergola accent behind), numerous grey AC units, balconies with white bar rails, cream/yellow window blinds. Frontage: tall brown-plaster planter/retaining wall topped with a grey Greek-key relief frieze over a rubble-stone base; reddish brick paver sidewalk. Colours sampled from ref 2026-07-04. Environment added 2026-07-05 from shared scene ref: black sedan + silver hatchback at kerb, dark cypresses and round tree left, two yard palms centre, big oak right, entry bushes, grass tufts, and blue/brown/green wheelie bins."
 }
