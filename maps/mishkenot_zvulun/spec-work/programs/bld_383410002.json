@@ -25,6 +25,26 @@
     "sidewalk": { "material": "brick", "color": "#b8785a", "joint": "#9c664c", "w": 3.5 },
     "verge": { "grass": "#7fb84a", "grassDark": "#586a44", "flowers": { "palette": ["#e04438", "#f2d24b", "#f6f3ea"], "perM2": 0.12 } }
   },
+  "environment": {
+    "props": [
+      { "model": "tree_oak", "h": 8, "t": 0.27, "inset": 2.2, "rxz": 0.55, "tint": { "leafs": "#2f5d2a", "wood": "#6e5138", "*": "#6e5138" } },
+      { "model": "tree_oak", "h": 7, "t": 0.34, "inset": 1.8, "rxz": 0.55, "tint": { "leafs": "#2f5d2a", "wood": "#6e5138", "*": "#6e5138" } },
+      { "model": "tree_oak", "h": 8.5, "t": 0.42, "inset": 2.4, "rxz": 0.55, "tint": { "leafs": "#33642c", "wood": "#6e5138", "*": "#6e5138" } },
+      { "model": "tree_palmDetailedTall", "h": 9, "t": 0.5, "inset": 2.6, "rxz": 0.85, "tint": { "leafs": "#3f9b42", "wood": "#a08a67", "*": "#a08a67" } },
+      { "model": "plant_bushLarge", "h": 2.5, "t": 0.12, "inset": 1.2, "rxz": 1.3, "tint": { "leafs": "#4c8a34", "*": "#44603a" } },
+      { "model": "plant_bushLarge", "h": 2.2, "t": 0.2, "inset": 1.1, "rxz": 1.2, "tint": { "leafs": "#57952c", "*": "#44603a" } },
+      { "model": "tree_oak", "h": 7, "t": 0.92, "inset": 2.0, "rxz": 1.3, "tint": { "leafs": "#3c7031", "wood": "#6e5138", "*": "#6e5138" } },
+      { "model": "tree_oak", "h": 6.5, "t": 1.05, "inset": 2.2, "rxz": 1.25, "tint": { "leafs": "#2f6b2b", "wood": "#6e5138", "*": "#6e5138" } },
+      { "bin": true, "t": 0.04, "inset": 0.4, "rot": "along" },
+      { "bin": true, "t": 0.08, "inset": 0.4, "rot": "along" },
+      { "model": "pot_large", "h": 0.75, "t": 0.88, "inset": -0.6, "tint": { "wood": "#e6e2dc", "woodBarkDark": "#cfcbc4" } },
+      { "car": true, "t": 0.5, "inset": -4.7, "rot": "along", "color": "#eceae4" },
+      { "car": true, "t": 0.62, "inset": -4.7, "rot": "along", "flip": true, "color": "#29344a" },
+      { "car": true, "t": 0.74, "inset": -4.7, "rot": "along", "flip": true, "color": "#d98a2b" },
+      { "car": true, "t": 0.86, "inset": -4.7, "rot": "along", "flip": true, "color": "#3d5a82" },
+      { "car": true, "t": 0.98, "inset": -4.7, "rot": "along", "flip": true, "color": "#b9bcc0" }
+    ]
+  },
   "sky": { "top": "#5ea2db", "horizon": "#9fcfe4", "cloud": "#f4f6f6" },
-  "notes": "Two-storey private villa with cream stucco walls and a terracotta red HIPPED tile roof, plus a small single-storey entry porch on the right with a red flat awning. Framed windows and a wood-surround entry door. Compound wall is tan/grey checkerboard stone blocks with a white ornate pedestrian gate (number '67'), flower planters and a mailbox; cypress and palm trees. Colours eyeballed from ref."
+  "notes": "Two-storey private villa with cream stucco walls and a terracotta red HIPPED tile roof, plus a small single-storey entry porch on the right with a red flat awning. Framed windows and a wood-surround entry door. Compound wall is tan/grey checkerboard stone blocks with a white ornate pedestrian gate (number '67'), flower planters and a mailbox; cypress and palm trees. Colours eyeballed from ref. Environment added 2026-07-05 from scene ref: dark cypresses + green palm + round oaks in the yard, low front bushes, two dark kerb bins, a white flower planter, and a kerbside row of parked cars (white/navy/orange/blue/silver)."
 }

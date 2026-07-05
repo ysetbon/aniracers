@@ -20,6 +20,21 @@
     "sidewalk": { "material": "brick-pavers", "color": "#b45f3d", "joint": "#9a5236", "w": 3.0 },
     "road": { "surface": "asphalt", "color": "#808387" }
   },
+  "environment": {
+    "props": [
+      { "model": "tree_oak", "h": 6, "t": 0.08, "inset": 2.6, "rxz": 1.5, "tint": { "leafs": "#3c7031", "wood": "#6e5138", "*": "#6e5138" } },
+      { "model": "tree_oak", "h": 5.5, "t": 0.2, "inset": 2.8, "rxz": 1.4, "tint": { "leafs": "#2f6b2b", "wood": "#6e5138", "*": "#6e5138" } },
+      { "model": "plant_bushLarge", "h": 3, "t": 0.32, "inset": 2.2, "rxz": 1.5, "tint": { "leafs": "#4c8a34", "*": "#44603a" } },
+      { "model": "tree_oak", "h": 6, "t": 0.55, "inset": 0.5, "rxz": 0.9, "tint": { "leafs": "#4c8a3c", "wood": "#6e5138", "*": "#6e5138" } },
+      { "model": "tree_oak", "h": 8, "t": 0.95, "inset": 2.0, "rxz": 0.55, "tint": { "leafs": "#2f5d2a", "wood": "#6e5138", "*": "#6e5138" } },
+      { "bin": true, "t": 0.04, "inset": 0.5, "rot": "along" },
+      { "bin": true, "t": 0.08, "inset": 0.5, "rot": "along" },
+      { "model": "pot_large", "h": 0.6, "t": 0.4, "inset": 0.6, "tint": { "wood": "#a06a3f", "woodBarkDark": "#8a5730" } },
+      { "model": "pot_large", "h": 0.6, "t": 0.46, "inset": 0.6, "tint": { "wood": "#a06a3f", "woodBarkDark": "#8a5730" } },
+      { "car": true, "t": 0.75, "inset": -4.7, "rot": "along", "color": "#c9ccce" },
+      { "car": true, "t": 1.0, "inset": -4.7, "rot": "along", "flip": true, "color": "#b9bcc0" }
+    ]
+  },
   "sky": { "top": "#5ea2db", "horizon": "#9fcfe4", "cloud": "#f4f6f6" },
-  "notes": "Building almost fully occluded by a compound wall, fences, hedges and a leaning tree; only a green gable-roof mass and light-render walls peek above. Massing and openings are a plausible reconstruction. Frontage is a cream stone-block wall topped by a mix of weathered-grey and brown wood slats plus a green mesh railing section. Red brick-paver sidewalk, bins and planters. Colours sampled from ref 2026-07-04."
+  "notes": "Building almost fully occluded by a compound wall, fences, hedges and a leaning tree; only a green gable-roof mass and light-render walls peek above. Massing and openings are a plausible reconstruction. Frontage is a cream stone-block wall topped by a mix of weathered-grey and brown wood slats plus a green mesh railing section. Red brick-paver sidewalk, bins and planters. Colours sampled from ref 2026-07-04. Environment added 2026-07-05 from scene ref: large round foliage/bushes overhanging the wall, a leaning street tree in a kerb pit, a right-side cypress, two kerb bins (grey + green), two wooden planter boxes, and a parked silver wagon plus a distant silver car."
 }
