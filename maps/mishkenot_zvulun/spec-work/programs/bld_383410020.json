@@ -27,6 +27,25 @@
     "verge": { "grass": "#6f9a3f", "grassDark": "#556f3d", "flowers": { "palette": ["#e06aa0", "#4b8fd6", "#f6f3ea"], "perM2": 0.2 } },
     "road": { "surface": "asphalt", "color": "#3f4247" }
   },
+  "environment": {
+    "props": [
+      { "car": true, "t": 0.06, "inset": -4.7, "rot": "along", "color": "#2b2f36" },
+      { "car": true, "t": 0.32, "inset": -4.7, "rot": "along", "color": "#d8cba0" },
+      { "car": true, "t": 0.95, "inset": -4.7, "rot": "along", "flip": true, "color": "#d0d3d6" },
+      { "model": "tree_oak", "h": 7, "t": 0.24, "inset": 1.6, "rxz": 1.3, "tint": { "leafs": "#4c8a34", "wood": "#6e5138", "*": "#6e5138" } },
+      { "model": "tree_oak", "h": 7, "t": 0.72, "inset": 1.6, "rxz": 1.3, "tint": { "leafs": "#3f8a32", "wood": "#6e5138", "*": "#6e5138" } },
+      { "model": "plant_bushLarge", "h": 2.5, "t": 0.12, "inset": 1, "rxz": 1.3, "tint": { "leafs": "#4c8a34", "*": "#44603a" } },
+      { "model": "plant_bushLarge", "h": 2.2, "t": 0.18, "inset": 1.2, "rxz": 1.2, "tint": { "leafs": "#57952c", "*": "#44603a" } },
+      { "model": "grass_leafsLarge", "h": 1.2, "t": 0.58, "inset": 0.9, "rxz": 1.2, "tint": { "grass": "#6f9a3f", "*": "#6f9a3f" } },
+      { "model": "grass_leafsLarge", "h": 1, "t": 0.64, "inset": 1.1, "rxz": 1.1, "tint": { "grass": "#5c9440", "*": "#5c9440" } },
+      { "model": "flower_yellowA", "h": 0.4, "t": 0.26, "inset": 1, "rxz": 1, "tint": { "*": "#e06aa0" } },
+      { "model": "flower_yellowA", "h": 0.4, "t": 0.3, "inset": 1.2, "rxz": 1, "tint": { "*": "#4b8fd6" } },
+      { "bin": true, "t": 0.4, "inset": -0.8, "rot": "along" },
+      { "bin": true, "t": 0.62, "inset": -0.8, "rot": "along" },
+      { "bin": true, "t": 0.66, "inset": -0.8, "rot": "along" },
+      { "lamp": true, "t": 0.9, "inset": -0.6, "rot": 90 }
+    ]
+  },
   "sky": { "top": "#5ea2db", "horizon": "#9fcfe4", "cloud": "#f4f6f6" },
   "notes": "Clear 4-storey sand/cream apartment block. Front facade dominated by stacked protruding cream balconies (floors 1-3) with dark glass windows recessed behind -- encoded as a front terrace slab plus paired wide windows per floor. Ground floor: recessed dark entrance door flanked by windows, with a mailbox/intercom panel (no field -- omitted). Flat roof with low parapet. Frontage is a tan ashlar stone compound wall with a lighter fine-stone entry pillar/gate, grey stone-slab sidewalk, lawn with pink+blue flowers, asphalt road in frame. Colours estimated from ref."
 }
