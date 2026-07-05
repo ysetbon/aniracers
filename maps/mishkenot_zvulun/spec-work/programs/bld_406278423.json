@@ -24,6 +24,21 @@
     "sidewalk": { "material": "brick", "color": "#9c6a48", "joint": "#7f5636", "w": 3.0 },
     "road": { "surface": "asphalt", "color": "#7f8388" }
   },
+  "environment": {
+    "props": [
+      { "car": true, "t": 0.36, "inset": -4.7, "rot": "along", "color": "#eceae4" },
+      { "car": true, "t": -0.04, "inset": -4.85, "rot": "along", "color": "#b0392c" },
+      { "model": "tree_palmDetailedTall", "h": 11, "t": 0.9, "inset": 2.6, "rxz": 0.85, "tint": { "leafs": "#3f9b42", "wood": "#8a6b45", "*": "#8a6b45" } },
+      { "model": "tree_oak", "h": 4.5, "t": 0.62, "inset": 2.6, "rxz": 0.65, "tint": { "leafs": "#4c8a3c", "wood": "#6e5138", "*": "#6e5138" } },
+      { "model": "plant_bushLarge", "h": 3, "t": 0.86, "inset": 1.8, "rxz": 1.3, "tint": { "leafs": "#57952c", "*": "#44603a" } },
+      { "model": "plant_bushLarge", "h": 2.4, "t": 0.78, "inset": 2.4, "rxz": 1.1, "tint": { "leafs": "#4e8a28", "*": "#44603a" } },
+      { "model": "pot_small", "h": 0.6, "t": 0.07, "inset": 1, "tint": { "wood": "#b8683f", "woodBarkDark": "#a05a36" } },
+      { "model": "grass_leafs", "h": 0.7, "t": 0.07, "inset": 1, "y": 0.5, "tint": { "grass": "#5c9440", "*": "#5c9440" } },
+      { "model": "rock_smallA", "h": 0.4, "t": 0.95, "inset": 3.5, "tint": { "*": "#b7ad95" } },
+      { "model": "rock_smallB", "h": 0.35, "t": 0.7, "inset": 3.8, "tint": { "*": "#b7ad95" } },
+      { "lamp": true, "t": 0.5, "inset": -0.8, "rot": 90 }
+    ]
+  },
   "sky": { "top": "#5ea2db", "horizon": "#9fcfe4", "cloud": "#f4f6f6" },
   "notes": "Weathered tan-plaster two-storey house under a hipped/pyramidal red-clay tile roof with dark timber eaves. Small barred windows, a red-slat louvred shutter/screen on the first floor, a wall AC condenser and climbing vine. Frontage is a grey metal picket/bar fence on a low plaster base over a brick sidewalk; an empty dirt lot with a palm sits alongside. Colours estimated 2026-07-04."
 }

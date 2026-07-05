@@ -29,6 +29,24 @@
     "verge": { "grass": "#6ba83f", "grassDark": "#4e7d2e" },
     "road": { "surface": "asphalt", "color": "#8f9296" }
   },
+  "environment": {
+    "props": [
+      { "car": true, "t": 0.2, "inset": -4.7, "rot": "along", "color": "#eceae4" },
+      { "car": true, "t": 0.7, "inset": -4.7, "rot": "along", "flip": true, "color": "#b9bcc0" },
+      { "car": true, "t": 0.86, "inset": -4.85, "rot": "along", "flip": true, "color": "#7a2824" },
+      { "car": true, "t": 0.98, "inset": -4.85, "rot": "along", "flip": true, "color": "#4e7d3a" },
+      { "car": true, "t": 1.1, "inset": -4.85, "rot": "along", "flip": true, "color": "#dcdad4" },
+      { "model": "tree_oak", "h": 8, "t": 0.02, "inset": 2, "rxz": 0.55, "tint": { "leafs": "#2c4a2a", "wood": "#6e5138", "*": "#6e5138" } },
+      { "model": "tree_oak", "h": 7.5, "t": 0.09, "inset": 2.3, "rxz": 0.55, "tint": { "leafs": "#2f5d2a", "wood": "#6e5138", "*": "#6e5138" } },
+      { "model": "tree_palmDetailedTall", "h": 8.5, "t": 0.55, "inset": 1.6, "rxz": 0.85, "tint": { "leafs": "#3f9b42", "wood": "#8a6b45", "*": "#8a6b45" } },
+      { "model": "tree_oak", "h": 5, "t": 0.78, "inset": 2.6, "rxz": 1.2, "tint": { "leafs": "#4c8a3c", "wood": "#6e5138", "*": "#6e5138" } },
+      { "hedge": true, "h": 2, "t0": 0.28, "t1": 0.58, "step": 1.2, "inset": 1.3, "d": 1.4, "colors": [ "#57952c", "#4e8a28", "#3c7031" ] },
+      { "model": "pot_large", "h": 0.75, "t": 0.34, "inset": 0.6, "tint": { "wood": "#b8683f", "woodBarkDark": "#a05a36" } },
+      { "model": "pot_large", "h": 0.75, "t": 0.5, "inset": 0.6, "tint": { "wood": "#b8683f", "woodBarkDark": "#a05a36" } },
+      { "bin": true, "t": 0.14, "inset": -0.5, "rot": "along" },
+      { "lamp": true, "t": 0.68, "inset": -1, "rot": 90 }
+    ]
+  },
   "sky": { "top": "#5ea2db", "horizon": "#9fcfe4", "cloud": "#f4f6f6" },
   "notes": "Two-storey corner house. Street facade cream render (#d9d2bb); the exposed right return is grey render (#8f9296). Steep brown clay hipped roof (#6b4a2f) with deep eaves. Two vertical terracotta breeze-block lattice panels (#b06b45) flank the front windows; windows carry grey roller shutters. Ashlar block boundary wall with ornate dark metal pedestrian gate, clipped hedges and stone-slab sidewalk. Colours pixel-sampled from the ref."
 }
