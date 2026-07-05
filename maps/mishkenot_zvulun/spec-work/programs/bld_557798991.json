@@ -28,6 +28,58 @@
     "sidewalk": { "material": "brick", "color": "#8b6a57", "joint": "#7a5c4a", "w": 3.5 },
     "verge": { "grass": "#517a47", "grassDark": "#172f15" }
   },
+  "environment": {
+    "props": [
+      {
+        "model": "plant_bushLarge", "h": 2.6, "t": 0.04, "inset": 1.5, "rxz": 1.3,
+        "tint": { "leafs": "#4c8a34", "*": "#44603a" }
+      },
+      {
+        "model": "plant_bushLarge", "h": 2.1, "t": 0.11, "inset": 1.2, "rxz": 1.1,
+        "tint": { "leafs": "#57952c", "*": "#44603a" }
+      },
+      {
+        "model": "tree_palmDetailedTall", "h": 7, "t": 0.35, "inset": 2.6, "rxz": 0.9,
+        "tint": { "leafs": "#6fb03e", "wood": "#9c8560", "*": "#9c8560" }
+      },
+      {
+        "model": "plant_bushLarge", "h": 2.6, "t": 0.28, "inset": 1.3, "rxz": 1.25,
+        "tint": { "leafs": "#4c8a34", "*": "#44603a" }
+      },
+      {
+        "model": "plant_bushLarge", "h": 2.4, "t": 0.46, "inset": 1.2, "rxz": 1.2,
+        "tint": { "leafs": "#57952c", "*": "#44603a" }
+      },
+      {
+        "model": "tree_oak", "h": 5, "t": 0.5, "inset": 3.4, "rxz": 1.1,
+        "tint": { "leafs": "#3f7d30", "wood": "#6e5138", "*": "#6e5138" }
+      },
+      {
+        "model": "tree_oak", "h": 9.5, "t": 0.6, "inset": 2.7, "rxz": 0.6,
+        "tint": { "leafs": "#2c5626", "wood": "#5a4530", "*": "#5a4530" }
+      },
+      {
+        "model": "tree_oak", "h": 10, "t": 0.67, "inset": 2.7, "rxz": 0.6,
+        "tint": { "leafs": "#2f5d2a", "wood": "#5a4530", "*": "#5a4530" }
+      },
+      {
+        "model": "tree_oak", "h": 9, "t": 0.74, "inset": 2.7, "rxz": 0.6,
+        "tint": { "leafs": "#2c5626", "wood": "#5a4530", "*": "#5a4530" }
+      },
+      {
+        "model": "tree_oak", "h": 8.5, "t": 0.81, "inset": 2.7, "rxz": 0.6,
+        "tint": { "leafs": "#33642c", "wood": "#5a4530", "*": "#5a4530" }
+      },
+      {
+        "model": "plant_bushLarge", "h": 2.8, "t": 0.63, "inset": 1.4, "rxz": 1.4,
+        "tint": { "leafs": "#7a9a72", "*": "#5f7a58" }
+      },
+      {
+        "model": "plant_bushLarge", "h": 3, "t": 0.9, "inset": 1.4, "rxz": 1.5,
+        "tint": { "leafs": "#7a9a72", "*": "#5f7a58" }
+      }
+    ]
+  },
   "sky": { "top": "#6cc5fc", "horizon": "#86d4fd", "cloud": "#f4f6f6" },
-  "notes": "Two-storey house, warm cream/tan render (#d3bf98) with a low dark-grey roof deck (#61656a) carrying dark-blue solar panels and a skylight (panels not encodable). Windows have beige louvered shutters (#675f53), modelled as beige-framed openings. An external metal staircase with tube handrails climbs the left facade (expressed as a left-side railed terrace; stair prim unavailable). Frontage: tall pale grey stone-block wall (#a4a79e) with a light blue-grey sliding vehicle gate (#a3b6bd) and a white glazed pedestrian gate (#e6e9e9); brown brick sidewalk (#8b6a57), cypress and palm behind. Colours sampled from 12x9 grid 2026-07-04."
+  "notes": "Two-storey house, warm cream/tan render (#d3bf98) with a low dark-grey roof deck (#61656a) carrying dark-blue solar panels and a skylight (panels not encodable). Windows have beige louvered shutters (#675f53), modelled as beige-framed openings. An external metal staircase with tube handrails climbs the left facade (expressed as a left-side railed terrace; stair prim unavailable). Frontage: tall pale grey stone-block wall (#a4a79e) with a light blue-grey sliding vehicle gate (#a3b6bd) and a white glazed pedestrian gate (#e6e9e9); brown brick sidewalk (#8b6a57), cypress and palm behind. Colours sampled from 12x9 grid 2026-07-04. Environment: no parked cars in ref; lush walled garden - a big bright-green palm centre, four tall dark cypresses (tree_oak rxz0.6) right, bright-green cube shrubs and round grey-green shrubs; yellow fire hydrant on the kerb omitted (no model). 2026-07-05."
 }

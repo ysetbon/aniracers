@@ -25,6 +25,49 @@
     "verge": { "grass": "#367944", "grassDark": "#153c2c" },
     "road": { "surface": "asphalt", "color": "#5b5a6a" }
   },
+  "environment": {
+    "props": [
+      {
+        "model": "plant_bushLarge", "h": 3, "t": 0.04, "inset": 3, "rxz": 1.4,
+        "tint": { "leafs": "#4f8a52", "*": "#4a6a48" }
+      },
+      {
+        "car": true, "t": 0.13, "inset": -4.7, "rot": "along", "color": "#33538a"
+      },
+      {
+        "car": true, "t": 0.24, "inset": -4.7, "rot": "along", "flip": true, "color": "#9b968a"
+      },
+      {
+        "car": true, "t": 0.35, "inset": -4.7, "rot": "along", "color": "#e6e3da"
+      },
+      {
+        "model": "tree_oak", "h": 5.5, "t": 0.2, "inset": -0.6, "rxz": 1.15,
+        "tint": { "leafs": "#4e8f3a", "wood": "#6e5138", "*": "#6e5138" }
+      },
+      {
+        "model": "tree_oak", "h": 5, "t": 0.33, "inset": -0.6, "rxz": 1.1,
+        "tint": { "leafs": "#3f7d30", "wood": "#6e5138", "*": "#6e5138" }
+      },
+      {
+        "model": "tree_oak", "h": 5.5, "t": 0.46, "inset": -0.6, "rxz": 1.15,
+        "tint": { "leafs": "#4e8f3a", "wood": "#6e5138", "*": "#6e5138" }
+      },
+      {
+        "model": "tree_oak", "h": 5, "t": 0.6, "inset": -0.6, "rxz": 1.1,
+        "tint": { "leafs": "#3f7d30", "wood": "#6e5138", "*": "#6e5138" }
+      },
+      {
+        "model": "tree_oak", "h": 12, "t": 0.5, "inset": 2.6, "rxz": 0.65,
+        "tint": { "leafs": "#234a20", "wood": "#5a4530", "*": "#5a4530" }
+      },
+      {
+        "bin": true, "t": 0.44, "inset": -0.3, "rot": "along", "color": "#9fd68a"
+      },
+      {
+        "bin": true, "t": 0.56, "inset": -0.3, "rot": "along", "color": "#d3707a"
+      }
+    ]
+  },
   "sky": { "top": "#42a6ff", "horizon": "#63bafe", "cloud": "#f4f6f6" },
-  "notes": "Small single/two-storey public building (kindergarten - gan), sandy render/stone (#b39280) with a flat roof; a rounded tan public block sits behind (background). The lot is fenced with a grey tube railing (#787e7e) around a playground - dark green shade canopy, blue play-house with red roof, red slide and coloured bins - none of which are encodable and are omitted. Building facade largely occluded; openings are plausible. Frontage: sandy stone-brick wall (#b39280) and a red-brick sidewalk (#c8746a) with green + pink wheelie bins and street trees (not encoded). Colours sampled from 12x9 grid 2026-07-04."
+  "notes": "Small single/two-storey public building (kindergarten - gan), sandy render/stone (#b39280) with a flat roof; a rounded tan public block sits behind (background). The lot is fenced with a grey tube railing (#787e7e) around a playground - dark green shade canopy, blue play-house with red roof, red slide and coloured bins - none of which are encodable and are omitted. Building facade largely occluded; openings are plausible. Frontage: sandy stone-brick wall (#b39280) and a red-brick sidewalk (#c8746a) with green + pink wheelie bins and street trees. Colours sampled from 12x9 grid 2026-07-04. Environment: three cars parked at the left kerb (blue/tan/white), a row of round-canopy street trees (tree_oak) in the sidewalk, one huge dark cypress (tree_oak rxz0.65), green + pink wheelie bins by the wall, background shrubs; power poles and playground props omitted (no models). 2026-07-05."
 }
