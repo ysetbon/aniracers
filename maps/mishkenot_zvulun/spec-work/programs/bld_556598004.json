@@ -24,6 +24,14 @@
     "sidewalk": { "material": "stone-slabs", "color": "#bfc0bd", "joint": "#a5a6a2", "w": 3.0 },
     "road": { "surface": "asphalt", "color": "#7f8286" }
   },
+  "environment": {
+    "props": [
+      { "model": "plant_bushLarge", "h": 3.0, "t": 0.08, "inset": 1.1, "rxz": 1.5, "tint": { "leafs": "#4c8a34", "*": "#44603a" } },
+      { "model": "tree_oak", "h": 5.0, "t": 0.4, "inset": 2.0, "rxz": 1.1, "tint": { "leafs": "#3c7a30", "wood": "#6e5138", "*": "#6e5138" } },
+      { "model": "plant_bushDetailed", "h": 2.0, "t": 0.62, "inset": 1.2, "rxz": 1.1, "tint": { "leafs": "#57952c", "*": "#44603a" } },
+      { "car": true, "t": 0.5, "inset": -4.7, "rot": "along", "color": "#dcdad2" }
+    ]
+  },
   "sky": { "top": "#5ea2db", "horizon": "#9fcfe4", "cloud": "#f4f6f6" },
-  "notes": "Cream-render two-storey villa, flat roof, with a flat entry-porch slab over the ground-floor door (encoded as a front parapet). Paired upper windows and a small ground window sit behind dark decorative security grilles in white frames. Frontage is a checkerboard tan/orange tile base wall topped by a white metal picket fence and frosted-glass gate panels carrying a blue Hebrew warning notice. Silvery low-poly bushes, palms and cypress; grey stone-slab sidewalk, red-tile-roofed neighbour beyond. Colours sampled from ref 2026-07-04."
+  "notes": "Cream-render two-storey villa, flat roof, with a flat entry-porch slab over the ground-floor door (encoded as a front parapet). Paired upper windows and a small ground window sit behind dark decorative security grilles in white frames. Frontage is a checkerboard tan/orange tile base wall topped by a white metal picket fence and frosted-glass gate panels carrying a blue Hebrew warning notice. Silvery low-poly bushes, palms and cypress; grey stone-slab sidewalk, red-tile-roofed neighbour beyond. Colours sampled from ref 2026-07-04. Environment added 2026-07-05: large green leafy bush at left, green round oak behind the fence, smaller green bush, one light hatchback at the kerb, sampled from ref."
 }

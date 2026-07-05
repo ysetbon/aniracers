@@ -20,6 +20,21 @@
     "sidewalk": { "material": "stone-slabs", "color": "#c9beaa", "joint": "#b5a993", "w": 2.8 },
     "road": { "surface": "brick", "color": "#a85a44" }
   },
+  "environment": {
+    "props": [
+      { "model": "tree_oak", "h": 6, "t": 0.02, "inset": 3.0, "rxz": 1.2, "tint": { "leafs": "#2f7030", "wood": "#6e5138", "*": "#6e5138" } },
+      { "model": "tree_oak", "h": 5, "t": 0.09, "inset": 3.6, "rxz": 1.1, "tint": { "leafs": "#357634", "wood": "#6e5138", "*": "#6e5138" } },
+      { "model": "tree_oak", "h": 5, "t": 0.36, "inset": -0.4, "rxz": 0.55, "tint": { "leafs": "#6e5138", "wood": "#6e5138", "*": "#6e5138" } },
+      { "model": "pot_large", "h": 0.55, "t": 0.36, "inset": -0.4, "tint": { "wood": "#9a6b3f", "woodBarkDark": "#855633" } },
+      { "model": "tree_palmDetailedTall", "h": 9, "t": 0.55, "inset": 3.0, "rxz": 0.85, "tint": { "leafs": "#4a8f3e", "wood": "#a08a67", "*": "#a08a67" } },
+      { "model": "plant_bushLarge", "h": 2.5, "t": 0.46, "inset": 1.4, "rxz": 1.3, "tint": { "leafs": "#3c7031", "*": "#44603a" } },
+      { "model": "plant_bushLarge", "h": 2.6, "t": 0.62, "inset": 1.4, "rxz": 1.3, "tint": { "leafs": "#4c8a34", "*": "#44603a" } },
+      { "bin": true, "t": 0.3, "inset": -0.6, "rot": "along", "color": "#4e8a3a" },
+      { "car": true, "t": 0.05, "inset": -4.7, "rot": "along", "color": "#9c3b34" },
+      { "car": true, "t": 0.13, "inset": -4.7, "rot": "along", "color": "#7a2f2c" },
+      { "car": true, "t": 0.21, "inset": -4.7, "rot": "along", "color": "#3d5a82" }
+    ]
+  },
   "sky": { "top": "#5ea2db", "horizon": "#9fcfe4", "cloud": "#f4f6f6" },
-  "notes": "Beige/cream 2-storey house(s) with grey-brown hipped tile roofs; adjacent villa on the right has an arched ground-floor window. Frontage: white/sandstone block pillars carrying blue-grey metal panel fence sections and a grey vehicle gate; brick-red road. Sampled visually 2026-07-04."
+  "notes": "Beige/cream 2-storey house(s) with grey-brown hipped tile roofs; adjacent villa on the right has an arched ground-floor window. Frontage: white/sandstone block pillars carrying blue-grey metal panel fence sections and a grey vehicle gate; brick-red road. Sampled visually 2026-07-04. Environment added 2026-07-05 from low-poly street ref: left oak cluster, a leafless street tree in a kerbside tree-pit (brown-tinted oak + planter), a large banana-palm behind the fence, two green bushes, a green bin by the gate, and three cars parked at the left kerb (red/maroon/blue)."
 }

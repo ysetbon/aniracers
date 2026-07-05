@@ -20,6 +20,19 @@
     "sidewalk": { "material": "brick-pavers", "color": "#a85c39", "joint": "#8f4e31", "w": 3.0 },
     "road": { "surface": "asphalt", "color": "#808387" }
   },
+  "environment": {
+    "props": [
+      { "car": true, "t": 0.42, "inset": -4.7, "rot": "along", "color": "#eceae4" },
+      { "car": true, "t": 0.86, "inset": -4.7, "rot": "along", "flip": true, "color": "#6c7176" },
+      { "model": "tree_palmDetailedTall", "h": 9.5, "t": 0.52, "inset": 3.0, "rxz": 0.85, "tint": { "leafs": "#2f7d3a", "wood": "#8a7350", "*": "#8a7350" } },
+      { "model": "tree_palmTall", "h": 8.0, "t": 0.59, "inset": 3.6, "rxz": 0.85, "tint": { "leafs": "#357f3c", "wood": "#8a7350", "*": "#8a7350" } },
+      { "model": "tree_oak", "h": 7.5, "t": 0.46, "inset": 2.6, "rxz": 0.55, "tint": { "leafs": "#274d24", "wood": "#5c4632", "*": "#5c4632" } },
+      { "model": "tree_oak", "h": 6.5, "t": 0.37, "inset": 2.8, "rxz": 0.55, "tint": { "leafs": "#2b5528", "wood": "#5c4632", "*": "#5c4632" } },
+      { "model": "plant_bushLarge", "h": 2.8, "t": 0.13, "inset": 1.1, "rxz": 1.4, "tint": { "leafs": "#9aa896", "*": "#7d7f74" } },
+      { "model": "plant_bushLarge", "h": 2.4, "t": 0.22, "inset": 1.3, "rxz": 1.3, "tint": { "leafs": "#a2b09c", "*": "#7d7f74" } },
+      { "model": "plant_bushLarge", "h": 2.2, "t": 0.72, "inset": 1.3, "rxz": 1.1, "tint": { "leafs": "#4c8a34", "*": "#44603a" } }
+    ]
+  },
   "sky": { "top": "#5ea2db", "horizon": "#9fcfe4", "cloud": "#f4f6f6" },
-  "notes": "Close-up corner of a two-storey tan-yellow render house, flat roof (a pale angled parasol/pergola shows over the top). Upper windows have folded silver-white louvered shutters. Frontage is a tan vertical wood-slat fence and gate on a grey stone-block pier, with a utility box (Hebrew label) and a yellow real-estate sign at the kerb. Large green bush and round tree in front. Colours sampled from ref 2026-07-04."
+  "notes": "Close-up corner of a two-storey tan-yellow render house, flat roof (a pale angled parasol/pergola shows over the top). Upper windows have folded silver-white louvered shutters. Frontage is a tan vertical wood-slat fence and gate on a grey stone-block pier, with a utility box (Hebrew label) and a yellow real-estate sign at the kerb. Large green bush and round tree in front. Colours sampled from ref 2026-07-04. Environment added 2026-07-05: white hatchback + grey SUV at kerb, central palm cluster, dark thin cypresses, silvery-green and green low-poly bushes along the frontage, sampled from ref."
 }
