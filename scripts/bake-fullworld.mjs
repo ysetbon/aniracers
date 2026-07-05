@@ -83,6 +83,28 @@ const CURATED = [
   { b: [270, 360, 450, 540], roads: false },    // Part 47: NE-far cluster (rides the generic roads)
   { b: [360, 450, 180, 270], roads: false },    // Part 48: E-far2 cluster (rides the generic roads)
   { b: [540, 630, -180, -90], roads: false },   // Part 49: E-edge2 cluster (rides the generic roads)
+  // Parts 50-69: the scattered singleton tail — every remaining SV-modelled building,
+  // each its own 90m tile (all roads:false, ride the generic road net).
+  { b: [-360, -270, -90, 0], roads: false },
+  { b: [90, 180, -270, -180], roads: false },
+  { b: [-270, -180, -180, -90], roads: false },
+  { b: [-270, -180, -90, 0], roads: false },
+  { b: [-360, -270, -180, -90], roads: false },
+  { b: [-180, -90, -90, 0], roads: false },
+  { b: [-180, -90, -270, -180], roads: false },
+  { b: [450, 540, 90, 180], roads: false },
+  { b: [360, 450, -90, 0], roads: false },
+  { b: [450, 540, 0, 90], roads: false },
+  { b: [360, 450, 270, 360], roads: false },
+  { b: [-270, -180, -360, -270], roads: false },
+  { b: [-360, -270, -450, -360], roads: false },
+  { b: [90, 180, -450, -360], roads: false },
+  { b: [180, 270, -450, -360], roads: false },
+  { b: [90, 180, -180, -90], roads: false },
+  { b: [90, 180, -90, 0], roads: false },
+  { b: [0, 90, 450, 540], roads: false },
+  { b: [-270, -180, 360, 450], roads: false },
+  { b: [-360, -270, 360, 450], roads: false },
 ];
 const inCurated = (x, z) => CURATED.some(p => x >= p.b[0] && x <= p.b[1] && z >= p.b[2] && z <= p.b[3]);
 

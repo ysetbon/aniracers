@@ -25,6 +25,22 @@
     "sidewalk": { "material": "brick", "color": "#c07a5c", "joint": "#a9694e", "w": 3.0 },
     "verge": { "grass": "#7bbd54", "grassDark": "#5c7d43" }
   },
+  "environment": {
+    "props": [
+      { "model": "tree_palmDetailedTall", "h": 10, "t": 0.5, "inset": 2.8, "rxz": 0.9, "tint": { "leafs": "#3f8b3a", "wood": "#7a5a3c", "*": "#7a5a3c" } },
+      { "model": "tree_oak", "h": 3.5, "t": 0.08, "inset": 2.0, "rxz": 1.2, "tint": { "leafs": "#4f8a3a", "wood": "#6e5138", "*": "#6e5138" } },
+      { "model": "tree_oak", "h": 4, "t": 0.18, "inset": 2.6, "rxz": 1.2, "tint": { "leafs": "#5a9a3c", "wood": "#6e5138", "*": "#6e5138" } },
+      { "model": "tree_oak", "h": 4, "t": 0.62, "inset": 2.6, "rxz": 1.2, "tint": { "leafs": "#4f8a3a", "wood": "#6e5138", "*": "#6e5138" } },
+      { "model": "tree_oak", "h": 3.8, "t": 0.7, "inset": 3.0, "rxz": 1.2, "tint": { "leafs": "#5a9a3c", "wood": "#6e5138", "*": "#6e5138" } },
+      { "model": "tree_oak", "h": 6, "t": 0.9, "inset": 2.6, "rxz": 0.6, "tint": { "leafs": "#24421f", "wood": "#5a4a30", "*": "#5a4a30" } },
+      { "model": "tree_oak", "h": 6.5, "t": 0.97, "inset": 3.0, "rxz": 0.6, "tint": { "leafs": "#24421f", "wood": "#5a4a30", "*": "#5a4a30" } },
+      { "model": "rock_smallA", "h": 0.5, "t": 0.86, "inset": 0.5, "tint": { "*": "#b9b2a4" } },
+      { "model": "rock_smallB", "h": 0.4, "t": 0.9, "inset": 0.9, "tint": { "*": "#b9b2a4" } },
+      { "model": "rock_smallA", "h": 0.45, "t": 0.83, "inset": 1.0, "tint": { "*": "#b9b2a4" } },
+      { "model": "grass_leafsLarge", "h": 0.8, "t": 0.3, "inset": 1.2, "tint": { "grass": "#4c8a3c", "*": "#4c8a3c" } },
+      { "model": "grass_leafs", "h": 0.6, "t": 0.4, "inset": 1.5, "tint": { "grass": "#5aa03c", "*": "#5aa03c" } }
+    ]
+  },
   "sky": { "top": "#5ea2db", "horizon": "#9fcfe4", "cloud": "#f4f6f6" },
   "notes": "Small white house seen from the rear/backyard behind a weathered grey wood fence. Two hipped orange terracotta tile roofs: a taller 2-storey block (left, pyramidal hip) and a lower single-storey wing (right/front, hip) with a blue-glazed window. White stucco walls. Solar water heaters (white tanks + dark panels) sit on both roofs -- no solar/tank prop type in schema, omitted. Foreground: grey plank fence with a brown pedestrian gate on the right, green lawn verge, and reddish brick paving read as the sidewalk band. Palm and low-poly trees in frame are environment, omitted per rules. Colours pixel-sampled from ref 2026-07-04."
 }

@@ -21,6 +21,17 @@
     "sidewalk": { "material": "stone-slabs", "color": "#c07850", "joint": "#a3623f", "w": 4.0 },
     "verge": { "grass": "#8ab04e", "grassDark": "#5f7c43" }
   },
+  "environment": {
+    "props": [
+      { "model": "tree_oak", "h": 7.5, "t": 0.55, "inset": 2.2, "rxz": 1.45, "tint": { "leafs": "#5f9a3a", "wood": "#6e5138", "*": "#6e5138" } },
+      { "model": "grass_leafs", "h": 0.9, "t": 0.06, "inset": 1.6, "rxz": 1.0, "tint": { "grass": "#6a8f3c", "*": "#6a8f3c" } },
+      { "model": "grass_leafs", "h": 0.8, "t": 0.11, "inset": 2.1, "rxz": 1.0, "tint": { "grass": "#7ea54a", "*": "#7ea54a" } },
+      { "model": "grass_leafsLarge", "h": 1.0, "t": 0.03, "inset": 2.4, "rxz": 1.0, "tint": { "grass": "#5f7c43", "*": "#5f7c43" } },
+      { "model": "rock_smallA", "h": 0.5, "t": 0.04, "inset": 1.2, "rxz": 1.2, "tint": { "*": "#8a8f8c" } },
+      { "model": "rock_smallB", "h": 0.4, "t": 0.14, "inset": 2.4, "rxz": 1.1, "tint": { "*": "#9aa0a0" } },
+      { "car": true, "t": 0.22, "inset": 2.7, "rot": "along", "color": "#3a3d40" }
+    ]
+  },
   "sky": { "top": "#5ea2db", "horizon": "#9fcfe4", "cloud": "#f4f6f6" },
-  "notes": "Public / school building ('HaChinuch HaIvri' entrance sign). Dominant feature is a large corrugated grey barrel-VAULT roof spanning the front (roof.form 'barrel' -- factory currently renders only flat/gable/hip, so a barrel form is a factory extension; falls back to open until added). White/cream stucco walls with a full-height glass curtain-wall / storefront glazing at ground level and a window band above. Green tubular-steel perimeter fence and pedestrian gate, terracotta-paver plaza with a low-poly tree island and curved entrance steps (steps/ramp not expressible). Colours estimated from ref."
+  "notes": "Public / school building ('HaChinuch HaIvri' entrance sign). Dominant feature is a large corrugated grey barrel-VAULT roof spanning the front (roof.form 'barrel' -- factory currently renders only flat/gable/hip, so a barrel form is a factory extension; falls back to open until added). White/cream stucco walls with a full-height glass curtain-wall / storefront glazing at ground level and a window band above. Green tubular-steel perimeter fence and pedestrian gate, terracotta-paver plaza with a low-poly tree island and curved entrance steps (steps/ramp not expressible). Environment: single large green oak in the plaza tree-island, cattail grass tufts and grey rocks at the steps, one dark car parked inside the fenced yard. Colours estimated from ref."
 }

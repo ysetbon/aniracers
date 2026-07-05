@@ -25,6 +25,11 @@
   "frontage": {
     "sidewalk": { "material": "brick", "color": "#b58a66", "joint": "#9c7455", "w": 4.0 }
   },
+  "environment": {
+    "props": [
+      { "bin": true, "t": 0.16, "inset": -0.8, "rot": "along" }
+    ]
+  },
   "sky": { "top": "#5ea2db", "horizon": "#9fcfe4", "cloud": "#f4f6f6" },
-  "notes": "Large service/rear face of a big apartment block seen very close. Plain tan-sand render (#dcc99e) divided by thin vertical pilaster reveals (#c9b589). A grey steel service double-door (#6f7d84) with a round porthole sits under a cast concrete canopy; a wall-mounted floodlight above. Blue-glazed windows (#7a92a8) wrap onto the right return in shadow. Flat roof. Herringbone brick paving apron (#b58a66). Most of the street facade is blank on this face; upper-floor openings inferred from the visible return. Colours pixel-sampled from the ref."
+  "notes": "Large service/rear face of a big apartment block seen very close. Plain tan-sand render (#dcc99e) divided by thin vertical pilaster reveals (#c9b589). A grey steel service double-door (#6f7d84) with a round porthole sits under a cast concrete canopy; a wall-mounted floodlight above. Blue-glazed windows (#7a92a8) wrap onto the right return in shadow. Flat roof. Herringbone brick paving apron (#b58a66). Most of the street facade is blank on this face; upper-floor openings inferred from the visible return. Environment: bare service apron with just a single bin by the door (no vegetation on this face, matching the ref). Colours pixel-sampled from the ref."
 }

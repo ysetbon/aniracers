@@ -28,6 +28,23 @@
     "sidewalk": { "material": "stone-slabs", "color": "#c9beaa", "joint": "#b5a993", "w": 3.2 },
     "road": { "surface": "asphalt", "color": "#8f9296" }
   },
+  "environment": {
+    "props": [
+      { "car": true, "t": 0.05, "inset": -4.7, "rot": "along", "color": "#5a5450" },
+      { "car": true, "t": 0.26, "inset": -4.7, "rot": "along", "flip": true, "color": "#2a2a2c" },
+      { "car": true, "t": 0.42, "inset": -4.7, "rot": "along", "color": "#e8e6e0" },
+      { "car": true, "t": 0.54, "inset": -4.7, "rot": "along", "color": "#26304a" },
+      { "car": true, "t": 0.84, "inset": -4.7, "rot": "along", "flip": true, "color": "#c3c4c2" },
+      { "model": "tree_oak", "h": 5, "t": 0.12, "inset": 2.0, "rxz": 1.1, "tint": { "leafs": "#5a9a3c", "wood": "#6e5138", "*": "#6e5138" } },
+      { "model": "tree_oak", "h": 4.5, "t": 0.2, "inset": 2.4, "rxz": 1.1, "tint": { "leafs": "#6faa46", "wood": "#6e5138", "*": "#6e5138" } },
+      { "model": "tree_oak", "h": 6, "t": 0.66, "inset": 2.6, "rxz": 1.2, "tint": { "leafs": "#4f8a3a", "wood": "#6e5138", "*": "#6e5138" } },
+      { "model": "tree_oak", "h": 5.5, "t": 0.76, "inset": 3.0, "rxz": 1.2, "tint": { "leafs": "#5a9a3c", "wood": "#6e5138", "*": "#6e5138" } },
+      { "model": "tree_oak", "h": 6, "t": 0.9, "inset": 2.6, "rxz": 1.2, "tint": { "leafs": "#4f8a3a", "wood": "#6e5138", "*": "#6e5138" } },
+      { "model": "flower_yellowA", "h": 0.4, "t": 0.6, "inset": 0.6, "tint": { "*": "#e2b431" } },
+      { "model": "rock_smallA", "h": 0.5, "t": 0.62, "inset": -2.2, "tint": { "*": "#6f7276" } },
+      { "model": "rock_smallB", "h": 0.4, "t": 0.1, "inset": -3.5, "tint": { "*": "#6f7276" } }
+    ]
+  },
   "sky": { "top": "#5ea2db", "horizon": "#9fcfe4", "cloud": "#f4f6f6" },
   "notes": "Tall tan/beige residential apartment block, roughly 7 storeys, flat roof, regular grid of dark recessed windows and recessed loggia balconies (some with cream sun-awnings). Ground floor has garage/parking entrances. Frontage: sandstone brick wall with ornate grey pedestrian gate. Sampled visually 2026-07-04."
 }

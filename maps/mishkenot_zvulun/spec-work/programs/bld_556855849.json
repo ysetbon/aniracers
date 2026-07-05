@@ -19,6 +19,24 @@
     "verge": { "grass": "#7fae4c", "grassDark": "#5d6f45" },
     "road": { "surface": "asphalt", "color": "#8f9296" }
   },
+  "environment": {
+    "props": [
+      { "model": "tree_oak", "h": 7, "t": 0.52, "inset": 3.0, "rxz": 0.6, "tint": { "leafs": "#23401e", "wood": "#5a4a30", "*": "#5a4a30" } },
+      { "model": "tree_oak", "h": 6.5, "t": 0.6, "inset": 3.4, "rxz": 0.6, "tint": { "leafs": "#23401e", "wood": "#5a4a30", "*": "#5a4a30" } },
+      { "model": "tree_oak", "h": 7, "t": 0.68, "inset": 3.0, "rxz": 0.6, "tint": { "leafs": "#23401e", "wood": "#5a4a30", "*": "#5a4a30" } },
+      { "model": "tree_oak", "h": 6, "t": 0.46, "inset": 3.0, "rxz": 1.4, "tint": { "leafs": "#6a8f3a", "wood": "#6e5138", "*": "#6e5138" } },
+      { "model": "tree_oak", "h": 5, "t": 0.06, "inset": 2.6, "rxz": 1.3, "tint": { "leafs": "#7a9a4a", "wood": "#6e5138", "*": "#6e5138" } },
+      { "model": "plant_bushLarge", "h": 2.2, "t": 0.16, "inset": 2.0, "rxz": 1.2, "tint": { "leafs": "#6f9440", "*": "#52684f" } },
+      { "model": "plant_bushLarge", "h": 2.4, "t": 0.74, "inset": 2.6, "rxz": 1.2, "tint": { "leafs": "#6a8f3a", "*": "#52684f" } },
+      { "model": "rock_smallA", "h": 0.7, "t": 0.5, "inset": 1.0, "tint": { "*": "#b6afa1" } },
+      { "model": "rock_smallB", "h": 0.6, "t": 0.62, "inset": 1.5, "tint": { "*": "#b6afa1" } },
+      { "model": "rock_smallA", "h": 0.65, "t": 0.78, "inset": 1.0, "tint": { "*": "#b6afa1" } },
+      { "model": "grass_leafs", "h": 0.7, "t": 0.3, "inset": 0.6, "tint": { "grass": "#6a9a3c", "*": "#6a9a3c" } },
+      { "model": "grass_leafs", "h": 0.6, "t": 0.42, "inset": 0.9, "tint": { "grass": "#5c9440", "*": "#5c9440" } },
+      { "bin": true, "t": 0.88, "inset": -3.4, "rot": "along" },
+      { "bin": true, "t": 0.93, "inset": -3.4, "rot": "along" }
+    ]
+  },
   "sky": { "top": "#5ea2db", "horizon": "#9fcfe4", "cloud": "#f4f6f6" },
   "notes": "Largely a vacant/cleared sandy lot with green tarp netting on stakes and debris; the only built structure is a small single-storey white shed/container with a wooden door at the back-left. Modelled as that small flat-roofed shed on the plot. Frontage is a white corrugated metal fence; background houses have red tile roofs. Sampled visually 2026-07-04."
 }

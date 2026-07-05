@@ -28,6 +28,25 @@
     "sidewalk": { "material": "stone-slabs", "color": "#cfccc4", "joint": "#b6b3ab", "w": 3.5 },
     "verge": { "grass": "#7fb84a", "grassDark": "#586a44", "flowers": { "palette": ["#e04438", "#f2d24b", "#8a5fb0"], "perM2": 0.1 } }
   },
+  "environment": {
+    "props": [
+      { "car": true, "t": 0.18, "inset": -4.7, "rot": "along", "color": "#cfd2d0" },
+      { "car": true, "t": 0.5, "inset": -4.7, "rot": "along", "flip": true, "color": "#34506e" },
+      { "car": true, "t": 0.75, "inset": -4.7, "rot": "along", "flip": true, "color": "#dfe1df" },
+      { "car": true, "t": 0.95, "inset": -4.8, "rot": "along", "flip": true, "color": "#b9bcc0" },
+      { "model": "tree_oak", "h": 6.5, "t": 0.5, "inset": 2.5, "rxz": 1.3, "tint": { "leafs": "#3c7a2e", "wood": "#6e5138", "*": "#6e5138" } },
+      { "model": "tree_palmDetailedTall", "h": 6.0, "t": 0.2, "inset": 2.2, "rxz": 0.85, "tint": { "leafs": "#3f9b42", "wood": "#a08a67", "*": "#a08a67" } },
+      { "model": "tree_palmDetailedTall", "h": 6.0, "t": 0.72, "inset": 2.2, "rxz": 0.85, "tint": { "leafs": "#46a648", "wood": "#a08a67", "*": "#a08a67" } },
+      { "model": "tree_oak", "h": 4.5, "t": 0.88, "inset": 2.6, "rxz": 1.2, "tint": { "leafs": "#4c8a34", "wood": "#6e5138", "*": "#6e5138" } },
+      { "model": "tree_oak", "h": 4.5, "t": 0.08, "inset": 2.6, "rxz": 1.2, "tint": { "leafs": "#5a9a34", "wood": "#6e5138", "*": "#6e5138" } },
+      { "hedge": true, "t0": 0.05, "t1": 0.95, "step": 1.3, "inset": 1.4, "h": 1.6, "d": 1.4, "colors": ["#5a9a2c", "#4e8a28", "#3c7031"] },
+      { "model": "plant_bushLarge", "h": 1.8, "t": 0.3, "inset": 1.6, "rxz": 1.2, "tint": { "leafs": "#4c8a34", "*": "#44603a" } },
+      { "model": "plant_bushLarge", "h": 1.8, "t": 0.62, "inset": 1.6, "rxz": 1.2, "tint": { "leafs": "#5a9a34", "*": "#44603a" } },
+      { "model": "pot_large", "h": 0.8, "t": 0.12, "inset": 0.6, "tint": { "wood": "#b8683f", "woodBarkDark": "#a05a36" } },
+      { "model": "pot_large", "h": 0.8, "t": 0.55, "inset": 0.6, "tint": { "wood": "#b8683f", "woodBarkDark": "#a05a36" } },
+      { "model": "flower_yellowA", "h": 0.4, "t": 0.13, "inset": 0.6, "rxz": 1.0 }
+    ]
+  },
   "sky": { "top": "#5ea2db", "horizon": "#9fcfe4", "cloud": "#f4f6f6" },
-  "notes": "Large low-rise institutional/commercial complex (footprint ~52x49m). Three abutting blocks: a tan sandstone-ashlar block (left) with tall narrow strip windows, a pale-grey modernist block (centre, RE/MAX signage) with a vertical slot window, and a grey metal-clad block (right). All ~2 storeys, flat roofs. Fronted by a green metal railing (bar fence) over a low kerb, with hedges and flower planters. Colours eyeballed from ref."
+  "notes": "Large low-rise institutional/commercial complex (footprint ~52x49m). Three abutting blocks: a tan sandstone-ashlar block (left) with tall narrow strip windows, a pale-grey modernist block (centre, RE/MAX signage) with a vertical slot window, and a grey metal-clad block (right). All ~2 storeys, flat roofs. Fronted by a green metal railing (bar fence) over a low kerb, with hedges and flower planters. Colours eyeballed from ref. Environment: silver / blue / white sedans parked across the street, a large oak plus two palms and small oaks, a low green hedge/bush row along the verge, terracotta flower planters with yellow/red/purple blooms."
 }

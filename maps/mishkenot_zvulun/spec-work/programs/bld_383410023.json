@@ -28,6 +28,30 @@
     "verge": { "grass": "#7cae4a", "grassDark": "#586f3d" },
     "road": { "surface": "asphalt", "color": "#9fa2a6" }
   },
+  "environment": {
+    "props": [
+      { "car": true, "t": 0.72, "inset": -4.7, "rot": "along", "flip": true, "color": "#b5392c" },
+      { "car": true, "t": 0.95, "inset": -4.8, "rot": "along", "flip": true, "color": "#c6c9c7" },
+      { "model": "tree_oak", "h": 7.0, "t": 0.14, "inset": 2.2, "rxz": 0.6, "tint": { "leafs": "#2f6b2b", "wood": "#6e5138", "*": "#6e5138" } },
+      { "model": "tree_oak", "h": 6.0, "t": 0.17, "inset": 2.8, "rxz": 0.6, "tint": { "leafs": "#35722c", "wood": "#6e5138", "*": "#6e5138" } },
+      { "model": "tree_palmDetailedTall", "h": 8.0, "t": 0.3, "inset": 2.5, "rxz": 0.85, "tint": { "leafs": "#3f9b42", "wood": "#a08a67", "*": "#a08a67" } },
+      { "model": "tree_palmDetailedTall", "h": 7.0, "t": 0.36, "inset": 3.0, "rxz": 0.85, "tint": { "leafs": "#46a648", "wood": "#a08a67", "*": "#a08a67" } },
+      { "model": "tree_oak", "h": 6.5, "t": 0.72, "inset": 2.6, "rxz": 1.3, "tint": { "leafs": "#3c8a2e", "wood": "#6e5138", "*": "#6e5138" } },
+      { "model": "tree_oak", "h": 6.0, "t": 0.9, "inset": 3.0, "rxz": 1.25, "tint": { "leafs": "#4c8a34", "wood": "#6e5138", "*": "#6e5138" } },
+      { "model": "plant_bushLarge", "h": 2.0, "t": 0.05, "inset": 1.2, "rxz": 1.2, "tint": { "leafs": "#4c8a34", "*": "#44603a" } },
+      { "model": "plant_bushLarge", "h": 1.8, "t": 0.1, "inset": 1.6, "rxz": 1.1, "tint": { "leafs": "#5a9a34", "*": "#44603a" } },
+      { "model": "plant_bush", "h": 1.5, "t": 0.22, "inset": 1.4, "rxz": 1.0, "tint": { "leafs": "#4e8a28", "*": "#44603a" } },
+      { "model": "plant_bushLarge", "h": 1.5, "t": 0.62, "inset": 1.2, "rxz": 1.1, "tint": { "leafs": "#4c8a34", "*": "#44603a" } },
+      { "model": "plant_bushLarge", "h": 1.5, "t": 0.8, "inset": 1.3, "rxz": 1.1, "tint": { "leafs": "#5a9a34", "*": "#44603a" } },
+      { "model": "rock_smallA", "h": 0.8, "t": 0.06, "inset": 1.0, "rxz": 1.2, "tint": { "*": "#9a958c" } },
+      { "model": "rock_smallB", "h": 0.7, "t": 0.12, "inset": 1.3, "rxz": 1.1, "tint": { "*": "#8f8a80" } },
+      { "bin": true, "t": 0.34, "inset": -0.6, "rot": "along" },
+      { "bin": true, "t": 0.55, "inset": -0.8, "rot": "along" },
+      { "model": "pot_large", "h": 0.75, "t": 0.6, "inset": 0.8, "tint": { "wood": "#b8683f", "woodBarkDark": "#a05a36" } },
+      { "model": "pot_small", "h": 0.5, "t": 0.28, "inset": -0.5, "tint": { "wood": "#b8683f", "woodBarkDark": "#a05a36" } },
+      { "lamp": true, "t": 0.6, "inset": -0.8 }
+    ]
+  },
   "sky": { "top": "#5ea2db", "horizon": "#9fcfe4", "cloud": "#f4f6f6" },
-  "notes": "Grey ashlar-stone apartment tower, ~6 floors. Regular grid of dark blue-grey windows; several front windows have glass-balustrade balconies (encoded as a front terrace with glass rail). Flat roof. Frontage: cream stucco base wall topped with blue-tinted mesh/grille fence panels (mesh not expressible -- approximated as low stone wall + bar pedestrian gate), a gold/ornate vehicle gate, cream-paver forecourt, palm and low-poly trees, lamp post, red car. Colours estimated from ref."
+  "notes": "Grey ashlar-stone apartment tower, ~6 floors. Regular grid of dark blue-grey windows; several front windows have glass-balustrade balconies (encoded as a front terrace with glass rail). Flat roof. Frontage: cream stucco base wall topped with blue-tinted mesh/grille fence panels (mesh not expressible -- approximated as low stone wall + bar pedestrian gate), a gold/ornate vehicle gate, cream-paver forecourt, palm and low-poly trees, lamp post, red car. Colours estimated from ref. Environment: red car (plus a distant silver) parked at the right kerb, tall cypresses (thin oaks) and palms on the left, leafy oaks on the right, a rocky shrub bed on the left mound with more bushes by the gate, green + blue wheelie bins and terracotta pots near the kerb, one globe lamp."
 }

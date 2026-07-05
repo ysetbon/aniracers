@@ -42,6 +42,22 @@
                "flowers": { "palette": ["#a12a2a", "#c93b3b", "#6c8a3f"], "perM2": 0.2 } },
     "road": { "surface": "asphalt", "color": "#6f7276" }
   },
+  "environment": {
+    "ground": { "lawn": "#7fae4b", "size": [220, 180] },
+    "road": { "surface": "#6f7276", "kerb": "#c94a44", "halfW": 3.4, "len": 160 },
+    "props": [
+      { "model": "tree_oak", "h": 7, "t": 0.32, "inset": 2.6, "rxz": 1.3, "tint": { "leafs": "#5a9a3a", "wood": "#6e5138", "*": "#6e5138" } },
+      { "model": "tree_oak", "h": 6, "t": 0.12, "inset": 3, "rxz": 1.25, "tint": { "leafs": "#4c8a34", "wood": "#6e5138", "*": "#6e5138" } },
+      { "model": "tree_oak", "h": 6.5, "t": 0.62, "inset": 2.8, "rxz": 1.3, "tint": { "leafs": "#5a9a3a", "wood": "#6e5138", "*": "#6e5138" } },
+      { "model": "tree_oak", "h": 6, "t": 0.88, "inset": 2.6, "rxz": 1.2, "tint": { "leafs": "#5a9a3a", "wood": "#6e5138", "*": "#6e5138" } },
+      { "model": "tree_oak", "h": 9, "t": 0.2, "inset": 3.4, "rxz": 0.6, "tint": { "leafs": "#2c5a2a", "wood": "#6e5138", "*": "#6e5138" } },
+      { "model": "tree_palmDetailedTall", "h": 9, "t": 0.4, "inset": 3.6, "rxz": 0.85, "tint": { "leafs": "#3f8f3c", "wood": "#a08a67", "*": "#a08a67" } },
+      { "model": "plant_bushLarge", "h": 2.2, "t": 0.15, "inset": -1.2, "rxz": 1.3, "tint": { "leafs": "#4c8a34", "*": "#7a3030" } },
+      { "model": "plant_bushLarge", "h": 2, "t": 0.35, "inset": -1.4, "rxz": 1.2, "tint": { "leafs": "#4c8a34", "*": "#7a3030" } },
+      { "model": "plant_bushLarge", "h": 2.2, "t": 0.55, "inset": -1.2, "rxz": 1.3, "tint": { "leafs": "#4c8a34", "*": "#7a3030" } },
+      { "model": "plant_bushLarge", "h": 2, "t": 0.75, "inset": -1.4, "rxz": 1.2, "tint": { "leafs": "#4c8a34", "*": "#7a3030" } }
+    ]
+  },
   "sky": { "top": "#5ea2db", "horizon": "#9fcfe4", "cloud": "#f4f6f6" },
   "notes": "White (#eef0f0) 5-storey apartment block, flat roof with low parapet. Regular grid of dark-glass windows with white frames; the right wing has a curved/rounded balcony stack (approximated as a solid-parapet front terrace). Frontage is an open lot behind a grey tubular safety barrier (no solid wall); red brick-paver sidewalk, rose verge, asphalt road with red-white curb. A yellow bus-shelter/recycling kiosk sits on the verge (prop pending)."
 }

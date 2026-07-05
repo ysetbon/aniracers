@@ -19,6 +19,23 @@
     "verge": { "grass": "#8fb84e", "grassDark": "#6a8f3c", "flowers": { "palette": ["#e04438", "#f2d24b", "#4a90c0"], "perM2": 0.2 } },
     "road": { "surface": "asphalt", "color": "#8f9296" }
   },
+  "environment": {
+    "props": [
+      { "model": "tree_palmDetailedTall", "h": 10.0, "t": 0.2, "inset": 2.6, "rxz": 0.9, "tint": { "leafs": "#7aa63f", "wood": "#6e5138", "*": "#6e5138" } },
+      { "model": "tree_palmDetailedTall", "h": 9.0, "t": 0.05, "inset": 3.3, "rxz": 0.9, "tint": { "leafs": "#6f9a3c", "wood": "#6e5138", "*": "#6e5138" } },
+      { "model": "tree_oak", "h": 4.5, "t": 0.92, "inset": 2.2, "rxz": 1.0, "tint": { "leafs": "#4e8a2c", "wood": "#6e5138", "*": "#6e5138" } },
+      { "model": "plant_bushLarge", "h": 1.8, "t": 0.42, "inset": 2.0, "rxz": 1.3, "tint": { "leafs": "#4c8a34", "*": "#44603a" } },
+      { "model": "plant_bushLarge", "h": 1.6, "t": 0.58, "inset": 2.2, "rxz": 1.2, "tint": { "leafs": "#3c7031", "*": "#44603a" } },
+      { "model": "plant_bushLarge", "h": 1.6, "t": 0.76, "inset": 1.9, "rxz": 1.2, "tint": { "leafs": "#4c8a34", "*": "#44603a" } },
+      { "model": "plant_bushLarge", "h": 1.4, "t": 0.96, "inset": -1.0, "rxz": 1.0, "tint": { "leafs": "#b5338a", "*": "#6e2f5a" } },
+      { "model": "flower_yellowA", "h": 0.6, "t": 0.88, "inset": -0.8, "rxz": 1.0, "tint": { "*": "#f2d24b" } },
+      { "model": "plant_bushSmall", "h": 0.7, "t": 0.92, "inset": -1.2, "rxz": 1.0, "tint": { "leafs": "#4a90c0", "*": "#3f7fae" } },
+      { "model": "flower_yellowA", "h": 0.5, "t": 0.82, "inset": -1.3, "rxz": 1.0, "tint": { "*": "#e04438" } },
+      { "model": "grass_leafs", "h": 0.7, "t": 0.35, "inset": -0.6, "rxz": 1.0, "tint": { "grass": "#6a8f3c", "*": "#6a8f3c" } },
+      { "model": "rock_smallA", "h": 0.4, "t": 0.02, "inset": -0.6, "rxz": 1.1, "tint": { "*": "#8a8f8c" } },
+      { "bin": true, "t": 0.12, "inset": 1.0, "rot": "along" }
+    ]
+  },
   "sky": { "top": "#5ea2db", "horizon": "#9fcfe4", "cloud": "#f4f6f6" },
-  "notes": "Low single-storey pale-blue public building (Hebrew wall lettering 'ביה' suggests a school/institution). Flat roof with a small stepped roof structure and parapet. Wide grey-louvered windows. Small footprint - only the front corner is in frame. Frontage: tall grey metal bar fence on a plaster base wall, green lawn with a brick edge and colourful flowerbeds; a red/blue fire-hydrant assembly sits at the wall corner (env). Colours sampled from ref 2026-07-04."
+  "notes": "Low single-storey pale-blue public building (Hebrew wall lettering 'ביה' suggests a school/institution). Flat roof with a small stepped roof structure and parapet. Wide grey-louvered windows. Small footprint - only the front corner is in frame. Frontage: tall grey metal bar fence on a plaster base wall, green lawn with a brick edge and colourful flowerbeds; a red/blue fire-hydrant assembly sits at the wall corner. Environment: two tall leafy palms shading the yard, a small oak on the right, green shrubs behind the fence, a colourful flowerbed (magenta bougainvillea, yellow and red and blue flowers) along the brick sidewalk, grass and rock, a grey bin at the wall base. Colours sampled from ref 2026-07-04."
 }

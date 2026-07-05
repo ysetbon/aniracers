@@ -28,6 +28,23 @@
     "sidewalk": { "material": "stone-slabs", "color": "#d6d2ca", "joint": "#bcb8b0", "w": 4.0 },
     "verge": { "grass": "#7fb84a", "grassDark": "#586a44" }
   },
+  "environment": {
+    "props": [
+      { "car": true, "t": 0.08, "inset": -4.7, "rot": "along", "color": "#26282b" },
+      { "car": true, "t": 0.42, "inset": -4.7, "rot": "along", "color": "#d9dad6" },
+      { "car": true, "t": 0.72, "inset": -4.7, "rot": "along", "flip": true, "color": "#3a3d40" },
+      { "car": true, "t": 0.95, "inset": -4.9, "rot": "along", "flip": true, "color": "#b9bcc0" },
+      { "model": "tree_oak", "h": 6.0, "t": 0.05, "inset": 2.5, "rxz": 1.3, "tint": { "leafs": "#2f6b2b", "wood": "#6e5138", "*": "#6e5138" } },
+      { "model": "tree_oak", "h": 5.5, "t": 0.18, "inset": 2.8, "rxz": 1.2, "tint": { "leafs": "#b5642c", "wood": "#6e5138", "*": "#6e5138" } },
+      { "model": "tree_oak", "h": 5.5, "t": 0.82, "inset": 2.6, "rxz": 1.25, "tint": { "leafs": "#4a7d2e", "wood": "#6e5138", "*": "#6e5138" } },
+      { "model": "tree_oak", "h": 5.0, "t": 0.95, "inset": 3.0, "rxz": 1.2, "tint": { "leafs": "#5a8a34", "wood": "#6e5138", "*": "#6e5138" } },
+      { "hedge": true, "t0": 0.1, "t1": 0.75, "step": 1.2, "inset": 1.4, "h": 2.2, "d": 1.6, "colors": ["#57952c", "#4e8a28", "#3c7031"] },
+      { "model": "plant_bushLarge", "h": 2.6, "t": 0.3, "inset": 1.5, "rxz": 1.3, "tint": { "leafs": "#b5642c", "*": "#8a4a24" } },
+      { "model": "plant_bushLarge", "h": 2.4, "t": 0.5, "inset": 1.5, "rxz": 1.2, "tint": { "leafs": "#a85a2c", "*": "#8a4a24" } },
+      { "model": "plant_bushLarge", "h": 2.5, "t": 0.62, "inset": 1.5, "rxz": 1.2, "tint": { "leafs": "#4c8a34", "*": "#44603a" } },
+      { "lamp": true, "t": 0.45, "inset": -1.0 }
+    ]
+  },
   "sky": { "top": "#5ea2db", "horizon": "#9fcfe4", "cloud": "#f4f6f6" },
-  "notes": "Wide off-white apartment block (~6 storeys, W~58m) with a faint grey tile-grid pattern. Left bays carry brown louvered roller-shutter strips (modelled as slat bands); right bays have grey recessed balconies (approximated as a front terrace band). Flat roof. Fronted by a sandstone-block wall topped with a blue metal-mesh fence and autumn-toned shrubs. Colours eyeballed from ref."
+  "notes": "Wide off-white apartment block (~6 storeys, W~58m) with a faint grey tile-grid pattern. Left bays carry brown louvered roller-shutter strips (modelled as slat bands); right bays have grey recessed balconies (approximated as a front terrace band). Flat roof. Fronted by a sandstone-block wall topped with a blue metal-mesh fence and autumn-toned shrubs. Colours eyeballed from ref. Environment: 3-4 parked cars in the front lot (near-black, silver Ford, charcoal hatchback, silver), green+autumn-orange oaks and a dense hedge/shrub bed behind the blue mesh fence, one lamp post."
 }
