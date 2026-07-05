@@ -25,6 +25,14 @@
     "verge": { "grass": "#577f3c", "grassDark": "#4a6d33" },
     "road": { "surface": "asphalt", "color": "#8a8582" }
   },
+  "environment": {
+    "props": [
+      { "car": true, "t": 0.4, "inset": -4.7, "rot": "along", "color": "#c9cdd0" },
+      { "hedge": true, "h": 3.0, "t0": 0.0, "t1": 0.33, "step": 1.2, "inset": 1.3, "colors": ["#57952c", "#4e8a28", "#3c7031"] },
+      { "model": "plant_bushLarge", "h": 2.8, "t": 0.16, "inset": 1.5, "rxz": 1.3, "tint": { "leafs": "#4e8a28", "*": "#44603a" } },
+      { "lamp": true, "t": 0.98, "inset": -0.6, "rot": 90 }
+    ]
+  },
   "sky": { "top": "#c1a580", "horizon": "#dabb94", "cloud": "#f4f6f6" },
   "notes": "Building fully occluded by a tall golden sandstone ashlar boundary wall (#d5ba83) that fills the frame; a row of pale cream storage-locker doors (#dbcab6) with pyramidal panels runs along its base and a small grey louvered vent sits mid-wall. Massing and openings behind the wall are plausible (three-storey sandstone block, #cdb07d). Frontage: the gold ashlar wall itself, a solid pale pedestrian gate, terracotta-tile sidewalk (#c88a71), green hedge behind, silver car parked in front (not encoded). Colours sampled from 12x9 grid 2026-07-04."
 }
