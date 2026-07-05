@@ -28,6 +28,16 @@
     "sidewalk": { "material": "dirt", "color": "#c9a86f", "w": 4.0 },
     "road": { "surface": "dirt", "color": "#c2a068" }
   },
+  "environment": {
+    "props": [
+      { "bin": true, "t": 0.28, "inset": -0.8, "rot": "along" },
+      { "model": "rock_smallA", "h": 0.9, "t": 0.5, "inset": 0.5, "rxz": 1.3, "tint": { "*": "#dcd6c8" } },
+      { "model": "rock_smallB", "h": 0.7, "t": 0.62, "inset": 0.8, "rxz": 1.1, "tint": { "*": "#cfc8b8" } },
+      { "model": "rock_smallA", "h": 0.8, "t": 0.72, "inset": 0.4, "rxz": 1.2, "tint": { "*": "#d4cec0" } },
+      { "model": "rock_smallB", "h": 0.6, "t": 0.4, "inset": 1.0, "rxz": 1.0, "tint": { "*": "#cbc4b4" } },
+      { "model": "rock_smallA", "h": 0.7, "t": 0.85, "inset": 0.6, "rxz": 1.1, "tint": { "*": "#d8d2c4" } }
+    ]
+  },
   "sky": { "top": "#5ea2db", "horizon": "#9fcfe4", "cloud": "#f4f6f6" },
   "notes": "Tall sandstone-ashlar apartment tower (~6 storeys), still under construction. Upper floors have projecting balconies with clear glass balustrades on the right half of the facade; ground floor is a deep recessed columned loggia (tall dark openings between piers). Flat roof. Sandstone block coursing shown via ashlar-toned wall. Frontage is raw building site: bare sand/earth, a low sandstone block wall, scaffolding, rubble sacks and bricks (all construction props are environment, omitted). Colours sampled from ref 2026-07-04."
 }
