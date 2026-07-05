@@ -26,6 +26,16 @@
     "sidewalk": { "material": "brick", "color": "#9c6a48", "joint": "#7f5636", "w": 3.0 },
     "road": { "surface": "asphalt", "color": "#7f8388" }
   },
+  "environment": {
+    "props": [
+      { "model": "tree_oak", "h": 7.0, "t": 0.5, "inset": -0.5, "rxz": 1.2, "tint": { "leafs": "#4a8a3a", "wood": "#6e5138", "*": "#6e5138" } },
+      { "model": "tree_oak", "h": 4.0, "t": 0.25, "inset": -0.3, "rxz": 0.5, "tint": { "leafs": "#8a7a4a", "wood": "#9a8156", "*": "#9a8156" } },
+      { "hedge": true, "t0": 0.0, "t1": 0.55, "step": 1.2, "inset": -5.0, "h": 2.0, "d": 1.4, "colors": ["#4c8a34", "#3c7031", "#2f6b2b"] },
+      { "hedge": true, "t0": 0.6, "t1": 0.95, "step": 1.2, "inset": -5.0, "h": 2.0, "d": 1.4, "colors": ["#57952c", "#3c7031", "#2f6b2b"] },
+      { "model": "plant_bushLarge", "h": 1.4, "t": 0.02, "inset": 0.8, "rxz": 1.0, "tint": { "leafs": "#4c8a34", "*": "#44603a" } },
+      { "lamp": true, "t": 0.82, "inset": -1.2, "rot": 90 }
+    ]
+  },
   "sky": { "top": "#5ea2db", "horizon": "#9fcfe4", "cloud": "#f4f6f6" },
-  "notes": "Modern sand-plaster three-storey apartment building with large blue-glass curtain-wall windows framed dark, recessed dark-glazed balconies, and a cantilevered top-floor terrace with a beige parapet awning plus glass railing. Flat roofs. Frontage is a panelled ashlar compound wall with a grey slat fence over a brick sidewalk; a matching building is under construction next door. Colours estimated 2026-07-04."
+  "notes": "Modern sand-plaster three-storey apartment building with large blue-glass curtain-wall windows framed dark, recessed dark-glazed balconies, and a cantilevered top-floor terrace with a beige parapet awning plus glass railing. Flat roofs. Frontage is a panelled ashlar compound wall with a grey slat fence over a brick sidewalk; a matching building is under construction next door. Colours estimated 2026-07-04. Environment (2026-07-05): leafy oak street tree in a kerb pit, a thin bare sapling to its left, dark large-leaf bush hedges on the near median, a low bush by the wall and a green lamp pole; no parked cars in ref."
 }

@@ -30,6 +30,28 @@
     "verge": { "grass": "#7bbf46", "grassDark": "#5c8f35" },
     "road": { "surface": "asphalt", "color": "#54585c" }
   },
+  "environment": {
+    "ground": { "lawn": "#7bbf46", "size": [220, 180] },
+    "road": { "surface": "#54585c", "kerb": "#bcbfc2", "halfW": 3.4, "len": 160 },
+    "props": [
+      { "model": "tree_oak", "h": 4.5, "t": 0.13, "inset": 1.8, "rxz": 0.7,
+        "tint": { "leafs": "#6a9a3a", "wood": "#6e5138", "*": "#6e5138" } },
+      { "model": "tree_oak", "h": 6.0, "t": 0.76, "inset": 1.8, "rxz": 1.35,
+        "tint": { "leafs": "#3c7a30", "wood": "#6e5138", "*": "#6e5138" } },
+      { "model": "tree_oak", "h": 7.0, "t": 0.98, "inset": 1.6, "rxz": 0.55,
+        "tint": { "leafs": "#243f20", "wood": "#5a4632", "*": "#5a4632" } },
+      { "model": "pot_large", "h": 0.7, "t": 0.42, "inset": 0.7,
+        "tint": { "wood": "#b8683f", "woodBarkDark": "#a05a36" } },
+      { "model": "grass_leafs", "h": 0.6, "t": 0.42, "inset": 0.7, "y": 0.5,
+        "tint": { "grass": "#5c9440", "*": "#5c9440" } },
+      { "model": "pot_large", "h": 0.7, "t": 0.63, "inset": 0.7,
+        "tint": { "wood": "#b8683f", "woodBarkDark": "#a05a36" } },
+      { "model": "grass_leafs", "h": 0.6, "t": 0.63, "inset": 0.7, "y": 0.5,
+        "tint": { "grass": "#4c8a3c", "*": "#4c8a3c" } },
+      { "bin": true, "t": 0.93, "inset": 0.6, "rot": "along" },
+      { "bin": true, "t": 0.96, "inset": 0.6, "rot": "along" }
+    ]
+  },
   "sky": { "top": "#5ea2db", "horizon": "#9fcfe4", "cloud": "#f4f6f6" },
-  "notes": "Large modern 3-storey apartment complex, warm cream render (#e8e0c8) with sand-coloured (#d9b877) accent frames. A recessed full-height glazed stair/entry core sits centrally with big grey (#3f4650) glazing. Cantilevered balconies with glass rails at floors 1-2; roof terraces edged by low parapets and slatted timber pergolas (#c9a86a) on top. Rows of tall dark windows across all floors. Low block boundary wall with a barred pedestrian gate and brick sidewalk. Colours pixel-sampled from the ref."
+  "notes": "Large modern 3-storey apartment complex, warm cream render (#e8e0c8) with sand-coloured (#d9b877) accent frames. A recessed full-height glazed stair/entry core sits centrally with big grey (#3f4650) glazing. Cantilevered balconies with glass rails at floors 1-2; roof terraces edged by low parapets and slatted timber pergolas (#c9a86a) on top. Rows of tall dark windows across all floors. Low block boundary wall with a barred pedestrian gate and brick sidewalk. Environment added 2026-07-05: a thin young sapling in a left kerb pit, a large round-canopy oak in a road-side pit to the right, a dark slim cypress at the far-right corner, terracotta planter pots with grass tufts along the boundary wall, and green wheelie bins at the right end. No parked cars visible. Colours pixel-sampled from the ref."
 }

@@ -27,6 +27,20 @@
     "sidewalk": { "material": "brick", "color": "#a85e3c", "joint": "#8a4a2e", "w": 3.0 },
     "road": { "surface": "brick", "color": "#a85e3c" }
   },
+  "environment": {
+    "ground": { "lawn": "#6c7c57", "size": [220, 180] },
+    "road": { "surface": "#a85e3c", "kerb": "#c4b088", "halfW": 3.4, "len": 160 },
+    "driveway": { "at": 0.82, "w": 4.5, "color": "#9a6b4a" },
+    "props": [
+      { "model": "tree_oak", "h": 7.0, "t": 0.05, "inset": 2.0, "rxz": 0.6,
+        "tint": { "leafs": "#2b4d24", "wood": "#5a4632", "*": "#5a4632" } },
+      { "model": "tree_oak", "h": 5.0, "t": 0.32, "inset": 2.6, "rxz": 0.9,
+        "tint": { "leafs": "#a8bf3c", "wood": "#5a4632", "*": "#5a4632" } },
+      { "model": "tree_oak", "h": 6.0, "t": 0.72, "inset": 2.2, "rxz": 1.25,
+        "tint": { "leafs": "#3f8a34", "wood": "#6e5138", "*": "#6e5138" } },
+      { "bin": true, "t": 0.28, "inset": -0.3, "rot": "along" }
+    ]
+  },
   "sky": { "top": "#5ea2db", "horizon": "#9fcfe4", "cloud": "#f4f6f6" },
-  "notes": "Modern cream/sand cubist villa, 2 storeys, flat roofs, angular stepped massing (main block plus a projecting front bay). Tall grey-louvered window slots, recessed dark entrance, a small upper-floor balcony with a low metal rail on the bay. Frontage: cream plaster + tan patterned-brick banded compound wall with a metal bar vehicle gate; red-brick paved street. Colours sampled from ref 2026-07-04."
+  "notes": "Modern cream/sand cubist villa, 2 storeys, flat roofs, angular stepped massing (main block plus a projecting front bay). Tall grey-louvered window slots, recessed dark entrance, a small upper-floor balcony with a low metal rail on the bay. Frontage: cream plaster + tan patterned-brick banded compound wall with a metal bar vehicle gate; red-brick paved street. Environment added 2026-07-05: dark slim cypress at the left corner, a chartreuse/lime young tree in the front yard, a round-canopy oak to the right, and a grey wheelie bin on the paving near the pedestrian door. No parked cars visible. Colours sampled from ref."
 }

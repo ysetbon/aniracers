@@ -22,6 +22,17 @@
     "sidewalk": { "material": "stone-slabs", "color": "#a89d8b", "joint": "#8d8474", "w": 3.0 },
     "road": { "surface": "asphalt", "color": "#7f8388" }
   },
+  "environment": {
+    "props": [
+      { "model": "tree_oak", "h": 9.0, "t": 0.03, "inset": 1.2, "rxz": 1.5, "tint": { "leafs": "#3f8a34", "wood": "#6e5138", "*": "#6e5138" } },
+      { "model": "tree_oak", "h": 9.0, "t": 0.62, "inset": 1.6, "rxz": 0.6, "tint": { "leafs": "#2b5526", "wood": "#6e5138", "*": "#6e5138" } },
+      { "model": "plant_bushLarge", "h": 1.8, "t": 0.06, "inset": 0.3, "rxz": 1.1, "tint": { "leafs": "#4c8a34", "*": "#3c7031" } },
+      { "model": "plant_bush", "h": 1.2, "t": 0.12, "inset": 2.5, "rxz": 1.0, "tint": { "leafs": "#57952c", "*": "#44603a" } },
+      { "bin": true, "t": 0.2, "inset": -0.6, "rot": "along" },
+      { "bin": true, "t": 0.85, "inset": -0.5, "rot": "along" },
+      { "lamp": true, "t": 0.45, "inset": -0.8, "rot": 90 }
+    ]
+  },
   "sky": { "top": "#5ea2db", "horizon": "#9fcfe4", "cloud": "#f4f6f6" },
-  "notes": "Row of tan/sand-plaster two-storey townhouses with flat parapet roofs, thick corner pilasters, recessed dark-glazed windows, small first-floor balconies with dark metal-bar railings, and a wooden entry door. Frontage mixes a red-brick compound wall with tan plaster, green wheelie bins and a stone-slab sidewalk. Colours estimated 2026-07-04."
+  "notes": "Row of tan/sand-plaster two-storey townhouses with flat parapet roofs, thick corner pilasters, recessed dark-glazed windows, small first-floor balconies with dark metal-bar railings, and a wooden entry door. Frontage mixes a red-brick compound wall with tan plaster, green wheelie bins and a stone-slab sidewalk. Colours estimated 2026-07-04. Environment (2026-07-05): large round-canopy oak at the left, a tall dark narrow cypress behind the wall, low bushes at the left kerb, two green wheelie bins and a street lamp; no parked cars in ref."
 }
