@@ -35,6 +35,21 @@
     "verge": { "grass": "#7d9b52", "grassDark": "#5c6f43" },
     "road": { "surface": "asphalt", "color": "#8f9296" }
   },
+  "environment": {
+    "props": [
+      { "car": true, "t": 0.18, "inset": -3.4, "rot": "along", "color": "#2f3a5c" },
+      { "car": true, "t": 0.46, "inset": -3.9, "rot": "along", "color": "#6f9ec9" },
+      { "car": true, "t": 0.05, "inset": -5.0, "rot": "along", "flip": true, "color": "#3a3d43" },
+      { "model": "tree_palmTall", "h": 7.0, "t": 0.55, "inset": 0.8, "rxz": 0.55, "tint": { "leafs": "#4c8a3a", "wood": "#a89578", "*": "#a89578" } },
+      { "model": "grass_leafsLarge", "h": 0.9, "t": 0.3, "inset": 0.6, "tint": { "grass": "#6f9046", "*": "#6f9046" } },
+      { "model": "grass_leafs", "h": 0.7, "t": 0.5, "inset": 1.1, "tint": { "grass": "#5c8a3c", "*": "#5c8a3c" } },
+      { "model": "grass_leafsLarge", "h": 0.9, "t": 0.72, "inset": 0.7, "tint": { "grass": "#6f9046", "*": "#6f9046" } },
+      { "model": "grass_leafs", "h": 0.7, "t": 0.88, "inset": 1.2, "tint": { "grass": "#5c8a3c", "*": "#5c8a3c" } },
+      { "model": "pot_large", "h": 0.75, "t": 0.02, "inset": 1.2, "tint": { "wood": "#b8402f", "woodBarkDark": "#9a331f" } },
+      { "model": "grass_leafs", "h": 0.6, "t": 0.02, "inset": 1.2, "y": 0.55, "tint": { "grass": "#5c9440", "*": "#5c9440" } },
+      { "lamp": true, "t": 0.06, "inset": -6.0, "rot": 90 }
+    ]
+  },
   "sky": { "top": "#5ea2db", "horizon": "#9fcfe4", "cloud": "#f4f6f6" },
-  "notes": "Tall cream/sand apartment block, ~5 storeys, flat roof. Facade steps back on the right (wing volume). Many white/grey wall AC units, dark-grey windows with light cream frames, some recessed balconies. Frontage is a low brown stone-rubble retaining wall, grass verge and red-white curbed asphalt (curb striping not encodable). Neighbouring lower block with red planter at far left is out of footprint. Colours sampled from ref 2026-07-04."
+  "notes": "Tall cream/sand apartment block, ~5 storeys, flat roof. Facade steps back on the right (wing volume). Many white/grey wall AC units, dark-grey windows with light cream frames, some recessed balconies. Frontage is a low brown stone-rubble retaining wall, grass verge and red-white curbed asphalt (curb striping not encodable). Neighbouring lower block with red planter at far left is out of footprint. Colours sampled from ref 2026-07-04. Environment added 2026-07-05: parking court with a dark-blue pickup, a light-blue sedan and a charcoal car in the foreground; a thin young palm sapling, green grass tufts along the verge, a red planter and a globe street lamp at the left (sampled from p20rPIj scene)."
 }

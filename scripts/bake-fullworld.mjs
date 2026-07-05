@@ -50,6 +50,7 @@ const CURATED = [
   { b: [180, 270, 180, 270], roads: false },    // Part 14: NE-central cluster (rides the generic roads)
   { b: [270, 360, 360, 450], roads: false },    // Part 15: NE-far cluster (rides the generic roads)
   { b: [180, 270, 360, 450], roads: false },    // Part 16: N-far cluster (rides the generic roads)
+  { b: [270, 360, 270, 360], roads: false },    // Part 17: NE-mid cluster (rides the generic roads)
 ];
 const inCurated = (x, z) => CURATED.some(p => x >= p.b[0] && x <= p.b[1] && z >= p.b[2] && z <= p.b[3]);
 

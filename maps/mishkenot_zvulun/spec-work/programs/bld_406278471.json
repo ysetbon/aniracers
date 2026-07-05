@@ -21,6 +21,18 @@
     "verge": { "grass": "#79a83f", "grassDark": "#5c6d3f" },
     "road": { "surface": "asphalt", "color": "#8f9296" }
   },
+  "environment": {
+    "props": [
+      { "model": "tree_oak", "h": 5.5, "t": 0.04, "inset": 4.2, "rxz": 1.2, "tint": { "leafs": "#5aa03a", "wood": "#6e5138", "*": "#6e5138" } },
+      { "model": "tree_oak", "h": 5, "t": 0.16, "inset": 4.8, "rxz": 1.4, "tint": { "leafs": "#4a8f3a", "wood": "#6e5138", "*": "#6e5138" } },
+      { "model": "tree_oak", "h": 5.5, "t": 0.29, "inset": 5.2, "rxz": 1.1, "tint": { "leafs": "#5aa03a", "wood": "#6e5138", "*": "#6e5138" } },
+      { "model": "plant_bushLarge", "h": 3.2, "t": 0.83, "inset": 1, "rxz": 1.5, "tint": { "leafs": "#4c8a34", "*": "#44603a" } },
+      { "model": "plant_bushLarge", "h": 2.6, "t": 0.93, "inset": 0.6, "rxz": 1.3, "tint": { "leafs": "#57952c", "*": "#44603a" } },
+      { "model": "flower_yellowA", "h": 0.5, "t": 0.86, "inset": 1.4, "tint": { "*": "#e07a2a" } },
+      { "bin": true, "t": 0.03, "inset": 0.6 },
+      { "lamp": true, "t": 0.01, "inset": 0.9, "rot": 90 }
+    ]
+  },
   "sky": { "top": "#5ea2db", "horizon": "#9fcfe4", "cloud": "#f4f6f6" },
   "notes": "Cream commercial building, ground-floor bakery (Hebrew sign 'בית מאפה' on a projecting canopy/awning -- awning & signboard not expressible; modelled as a wide shopfront opening + door). Wall largely occluded by a big flowering bush (orange blossoms) in front. AC unit on facade. Flat roof. Lamp globe and wood-slat fence visible at left in ref. Colours sampled 2026-07-04."
 }
