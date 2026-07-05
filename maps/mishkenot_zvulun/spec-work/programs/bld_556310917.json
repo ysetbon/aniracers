@@ -23,6 +23,18 @@
     "verge": { "grass": "#5c8a34", "grassDark": "#456a2a" },
     "road": { "surface": "asphalt", "color": "#9a9ca0" }
   },
+  "environment": {
+    "props": [
+      { "model": "tree_palmDetailedTall", "h": 9, "t": 0.76, "inset": 4.5, "rxz": 0.85, "tint": { "leafs": "#2f6b2b", "wood": "#a08a67", "*": "#a08a67" } },
+      { "model": "grass_leafsLarge", "h": 0.9, "t": 0.1, "inset": -0.4, "rxz": 1.2, "tint": { "grass": "#4c8a3c", "*": "#4c8a3c" } },
+      { "model": "grass_leafsLarge", "h": 0.8, "t": 0.28, "inset": -0.4, "rxz": 1.1, "tint": { "grass": "#5c9440", "*": "#5c9440" } },
+      { "model": "grass_leafs", "h": 0.7, "t": 0.45, "inset": -0.4, "rxz": 1.1, "tint": { "grass": "#4c8a3c", "*": "#4c8a3c" } },
+      { "model": "grass_leafsLarge", "h": 0.85, "t": 0.62, "inset": -0.4, "rxz": 1.1, "tint": { "grass": "#5c9440", "*": "#5c9440" } },
+      { "model": "grass_leafs", "h": 0.7, "t": 0.82, "inset": -0.4, "rxz": 1.0, "tint": { "grass": "#456a2a", "*": "#456a2a" } },
+      { "model": "plant_bushSmall", "h": 0.8, "t": 0.2, "inset": -0.2, "rxz": 1.0, "tint": { "leafs": "#4c8a34", "*": "#44603a" } },
+      { "model": "plant_bushSmall", "h": 0.9, "t": 0.55, "inset": -0.2, "rxz": 1.0, "tint": { "leafs": "#3c7031", "*": "#44603a" } }
+    ]
+  },
   "sky": { "top": "#8fb4cc", "horizon": "#c3d2da", "cloud": "#eef2f4" },
-  "notes": "Footprint is a cleared/under-development lot: the scene shows a tall WHITE corrugated-metal site hoarding along the street with sand mounds and a lone palm behind it, and distant white apartment towers on the horizon. The building itself is occluded, so massing is reconstructed as a plausible white rendered residential block (3 floors, flat roof, regular windows) to match the neighbourhood towers. Hazy warm sky. Colours sampled from ref 2026-07-04."
+  "notes": "Footprint is a cleared/under-development lot: the scene shows a tall WHITE corrugated-metal site hoarding along the street with sand mounds and a lone palm behind it, and distant white apartment towers on the horizon. The building itself is occluded, so massing is reconstructed as a plausible white rendered residential block (3 floors, flat roof, regular windows) to match the neighbourhood towers. Hazy warm sky. Colours sampled from ref 2026-07-04. Environment added 2026-07-05 from scene ref: lone detailed palm behind the hoarding (positive inset), and a strip of low green leafy plants (grass_leafs / grass_leafsLarge + small bushes) in the foreground verge at the road edge; no parked cars visible."
 }
