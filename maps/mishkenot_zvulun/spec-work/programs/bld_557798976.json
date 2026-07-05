@@ -25,6 +25,24 @@
     "verge": { "grass": "#627839", "grassDark": "#384a24" },
     "road": { "surface": "asphalt", "color": "#908080" }
   },
+  "environment": {
+    "props": [
+      { "car": true, "t": 0.1, "inset": -4.9, "rot": "along", "color": "#a8abb0" },
+      { "model": "tree_oak", "h": 8, "t": 0.08, "inset": 3.2, "rxz": 0.6, "tint": { "leafs": "#2c4a24", "wood": "#5c4630", "*": "#5c4630" } },
+      { "model": "tree_oak", "h": 7, "t": 0.15, "inset": 2.6, "rxz": 0.6, "tint": { "leafs": "#33552a", "wood": "#5c4630", "*": "#5c4630" } },
+      { "model": "tree_palmDetailedTall", "h": 10, "t": 0.26, "inset": 3.6, "rxz": 0.85, "tint": { "leafs": "#3f8b3a", "wood": "#a08a67", "*": "#a08a67" } },
+      { "model": "tree_oak", "h": 7.5, "t": 0.8, "inset": 3.2, "rxz": 1.3, "tint": { "leafs": "#3c7031", "wood": "#6e5138", "*": "#6e5138" } },
+      { "model": "tree_oak", "h": 5.5, "t": 0.96, "inset": 3.0, "rxz": 1.0, "tint": { "leafs": "#4a8034", "wood": "#6e5138", "*": "#6e5138" } },
+      { "model": "plant_bushLarge", "h": 2.5, "t": 0.35, "inset": 1.5, "rxz": 1.0, "tint": { "leafs": "#3c7031", "*": "#44603a" } },
+      { "model": "pot_large", "h": 0.6, "t": 0.5, "inset": 0.7, "rxz": 1.2, "tint": { "wood": "#8a6440", "woodBarkDark": "#6e4f32" } },
+      { "model": "grass_leafs", "h": 0.7, "t": 0.5, "inset": 0.7, "y": 0.5, "rxz": 1.0, "tint": { "grass": "#5c9440", "*": "#5c9440" } },
+      { "model": "pot_large", "h": 0.7, "t": 0.35, "inset": 0.9, "rxz": 1.2, "tint": { "wood": "#8a6440", "woodBarkDark": "#6e4f32" } },
+      { "model": "grass_leafsLarge", "h": 1.0, "t": 0.35, "inset": 0.9, "y": 0.5, "rxz": 1.0, "tint": { "grass": "#4c8a3c", "*": "#4c8a3c" } },
+      { "bin": true, "t": 0.06, "inset": -0.8, "rot": "along" },
+      { "bin": true, "t": 0.11, "inset": -0.8, "rot": "along" },
+      { "bin": true, "t": 0.85, "inset": -0.7, "rot": "along" }
+    ]
+  },
   "sky": { "top": "#66bffd", "horizon": "#7ccafc", "cloud": "#f4f6f6" },
-  "notes": "Single-family cottage, cream/white render (#e9e0d8) with orange terracotta HIPPED tile roof (#c36c56). Lower storey occluded by a white timber picket fence plus a tan block boundary wall with protruding stones; upper storey window band visible above. Openings below the fence are plausible (door + flanking windows). Red-brick herringbone sidewalk, grey asphalt road at right. Green + blue wheelie bins and a grey car occupy the near verge (props not encoded). Colours sampled from 12x9 grid 2026-07-04."
+  "notes": "Single-family cottage, cream/white render (#e9e0d8) with orange terracotta HIPPED tile roof (#c36c56). Lower storey occluded by a white timber picket fence plus a tan block boundary wall with protruding stones; upper storey window band visible above. Openings below the fence are plausible (door + flanking windows). Red-brick herringbone sidewalk, grey asphalt road at right. Colours sampled from 12x9 grid 2026-07-04. Environment: grey car foreground-left, two dark cypresses + palm on the left, big broadleaf oaks on the right, green+blue wheelie bins left and a blue bin right by the pole, wooden planters with plants on the sidewalk, tall potted plant behind the fence. Environment sampled 2026-07-05."
 }

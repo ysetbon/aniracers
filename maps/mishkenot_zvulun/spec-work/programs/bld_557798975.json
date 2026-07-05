@@ -24,6 +24,26 @@
     "verge": { "grass": "#7fae4c", "grassDark": "#5d6f45" },
     "road": { "surface": "asphalt", "color": "#8f9296" }
   },
+  "environment": {
+    "props": [
+      { "car": true, "t": 0.7, "inset": -4.7, "rot": "along", "flip": true, "color": "#9a9da2" },
+      { "car": true, "t": 0.08, "inset": -4.85, "rot": "along", "color": "#e8e6e0" },
+      { "car": true, "t": 0.02, "inset": -4.85, "rot": "along", "color": "#a83228" },
+      { "car": true, "t": -0.05, "inset": -4.85, "rot": "along", "flip": true, "color": "#2e3550" },
+      { "model": "tree_palmDetailedTall", "h": 10, "t": 0.5, "inset": 3.2, "rxz": 0.85, "tint": { "leafs": "#3c7a35", "wood": "#a08a67", "*": "#a08a67" } },
+      { "model": "tree_oak", "h": 9, "t": 0.92, "inset": 3.5, "rxz": 0.6, "tint": { "leafs": "#2c4a24", "wood": "#5c4630", "*": "#5c4630" } },
+      { "model": "tree_oak", "h": 8, "t": 0.98, "inset": 2.4, "rxz": 0.6, "tint": { "leafs": "#33552a", "wood": "#5c4630", "*": "#5c4630" } },
+      { "model": "tree_oak", "h": 6.5, "t": 0.28, "inset": 4.2, "rxz": 0.6, "tint": { "leafs": "#2c4a24", "wood": "#5c4630", "*": "#5c4630" } },
+      { "hedge": true, "h": 2, "t0": 0.24, "t1": 0.66, "step": 1.2, "inset": 1.2, "d": 1.4, "colors": [ "#57952c", "#4e8a28", "#3c7031" ] },
+      { "model": "plant_bushLarge", "h": 2, "t": 0.1, "inset": 1.3, "rxz": 1.1, "tint": { "leafs": "#4c8a34", "*": "#44603a" } },
+      { "model": "pot_large", "h": 0.6, "t": 0.44, "inset": 0.7, "rxz": 1.2, "tint": { "wood": "#8a6440", "woodBarkDark": "#6e4f32" } },
+      { "model": "grass_leafs", "h": 0.7, "t": 0.44, "inset": 0.7, "y": 0.5, "rxz": 1.0, "tint": { "grass": "#5c9440", "*": "#5c9440" } },
+      { "model": "pot_large", "h": 0.6, "t": 0.56, "inset": 0.7, "rxz": 1.2, "tint": { "wood": "#8a6440", "woodBarkDark": "#6e4f32" } },
+      { "model": "grass_leafs", "h": 0.7, "t": 0.56, "inset": 0.7, "y": 0.5, "rxz": 1.0, "tint": { "grass": "#4c8a3c", "*": "#4c8a3c" } },
+      { "bin": true, "t": 0.65, "inset": -0.6, "rot": "along" },
+      { "bin": true, "t": 0.68, "inset": -0.6, "rot": "along" }
+    ]
+  },
   "sky": { "top": "#5ea2db", "horizon": "#9fcfe4", "cloud": "#f4f6f6" },
-  "notes": "Single-storey house with a large orange/terracotta hipped tile roof carrying a small gabled dormer window; grey-beige patchy stucco walls, dark front door, wide windows, and a side carport with a blue tarp cover. Frontage: stone block wall with ornate grey diamond-pattern metal gates and wooden planter boxes; clipped hedge behind. Sampled visually 2026-07-04."
+  "notes": "Single-storey house with a large orange/terracotta hipped tile roof carrying a small gabled dormer window; grey-beige patchy stucco walls, dark front door, wide windows, and a side carport with a blue tarp cover. Frontage: stone block wall with ornate grey diamond-pattern metal gates and wooden planter boxes; clipped hedge behind. Sampled visually 2026-07-04. Environment: grey sedan at right kerb, row of parked cars (white/red/dark-blue) to the left, palm behind roof, dark cypresses right and left, clipped green hedge in front, wooden agave planters on sidewalk, blue+green wheelie bins. Environment sampled 2026-07-05."
 }

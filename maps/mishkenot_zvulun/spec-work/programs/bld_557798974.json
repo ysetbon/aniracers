@@ -20,6 +20,21 @@
     "sidewalk": { "material": "brick", "color": "#c07f4c", "joint": "#a86a3c", "w": 3.0 },
     "road": { "surface": "asphalt", "color": "#8f9296" }
   },
+  "environment": {
+    "props": [
+      { "car": true, "t": 0.55, "inset": -4.7, "rot": "along", "color": "#b9bcc0" },
+      { "car": true, "t": 0.9, "inset": -4.7, "rot": "along", "flip": true, "color": "#2a2c30" },
+      { "car": true, "t": 0.18, "inset": -4.9, "rot": "along", "color": "#6a6d72" },
+      { "model": "tree_palmDetailedTall", "h": 10, "t": 0.72, "inset": 2.6, "rxz": 0.85, "tint": { "leafs": "#3f8b3a", "wood": "#a08a67", "*": "#a08a67" } },
+      { "model": "tree_palmTall", "h": 8, "t": 0.05, "inset": 2.2, "rxz": 0.85, "tint": { "leafs": "#4a7a3a", "wood": "#9c8560", "*": "#9c8560" } },
+      { "model": "tree_oak", "h": 6, "t": 0.97, "inset": 3.2, "rxz": 1.2, "tint": { "leafs": "#3c7031", "wood": "#6e5138", "*": "#6e5138" } },
+      { "model": "plant_bushLarge", "h": 1.5, "t": 0.4, "inset": 1.2, "rxz": 1.0, "tint": { "leafs": "#4c8a34", "*": "#44603a" } },
+      { "model": "plant_bushLarge", "h": 1.4, "t": 0.48, "inset": 1.2, "rxz": 1.0, "tint": { "leafs": "#57952c", "*": "#44603a" } },
+      { "model": "pot_large", "h": 0.7, "t": 0.44, "inset": 0.6, "rxz": 1.0, "tint": { "wood": "#b8683f", "woodBarkDark": "#a05a36" } },
+      { "model": "grass_leafs", "h": 0.7, "t": 0.44, "inset": 0.6, "y": 0.5, "rxz": 1.0, "tint": { "grass": "#5c9440", "*": "#5c9440" } },
+      { "bin": true, "t": 0.68, "inset": -0.8, "rot": "along" }
+    ]
+  },
   "sky": { "top": "#5ea2db", "horizon": "#9fcfe4", "cloud": "#f4f6f6" },
-  "notes": "Single-storey tan/beige houses with hipped tile roofs (terracotta and dark charcoal-grey), house number '4' on the wall. Frontage: sandstone block pillars and low wall with grey metal diamond-panel vehicle and pedestrian gates; orange brick paving. Utility lattice pole in foreground. Sampled visually 2026-07-04."
+  "notes": "Single-storey tan/beige houses with hipped tile roofs (terracotta and dark charcoal-grey), house number '4' on the wall. Frontage: sandstone block pillars and low wall with grey metal diamond-panel vehicle and pedestrian gates; orange brick paving. Utility lattice pole in foreground. Sampled visually 2026-07-04. Environment: grey pickup foreground + silver Mazda and dark sedan at kerb; big palm right, dracaena-palm left, green oak far right, round bushes on wall, succulent planter by pole, green wheelie bin. Environment sampled 2026-07-05."
 }
