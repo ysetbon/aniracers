@@ -26,6 +26,21 @@
     "sidewalk": { "material": "stone-slabs", "color": "#c4bcac", "joint": "#a99f8b", "w": 3.5 },
     "verge": { "grass": "#5f9d3f", "grassDark": "#4a7a30" }
   },
+  "environment": {
+    "props": [
+      { "hedge": true, "h": 2.6, "t0": 0.03, "t1": 0.74, "step": 1.2, "inset": 1.3, "d": 1.4, "colors": ["#4c8a34", "#3c7031", "#2f6b2b"] },
+      { "model": "tree_oak", "h": 7, "t": 0.97, "inset": 1.8, "rxz": 1.4, "tint": { "leafs": "#3c7031", "wood": "#6e5138", "*": "#6e5138" } },
+      { "model": "plant_bushLarge", "h": 2.6, "t": 0.05, "inset": -5.4, "rxz": 1.4, "tint": { "leafs": "#4c8a34", "*": "#44603a" } },
+      { "model": "plant_bushLarge", "h": 2.2, "t": 0.14, "inset": -5.6, "rxz": 1.2, "tint": { "leafs": "#57952c", "*": "#44603a" } },
+      { "model": "plant_bushLarge", "h": 2.6, "t": 0.9, "inset": -5.5, "rxz": 1.4, "tint": { "leafs": "#4c8a34", "*": "#44603a" } },
+      { "model": "plant_bushLarge", "h": 2.4, "t": 1.0, "inset": -5.6, "rxz": 1.3, "tint": { "leafs": "#4e8a28", "*": "#44603a" } },
+      { "car": true, "t": 0.83, "inset": -4.7, "rot": "along", "color": "#5f8a48" },
+      { "car": true, "t": 0.7, "inset": -4.7, "rot": "along", "flip": true, "color": "#6f9a58" },
+      { "car": true, "t": 0.98, "inset": -4.7, "rot": "along", "flip": true, "color": "#eceae4" },
+      { "bin": true, "t": 0.78, "inset": -3.9, "rot": "along", "color": "#3f8a3a" },
+      { "lamp": true, "t": 0.73, "inset": -3.2, "rot": 90 }
+    ]
+  },
   "sky": { "top": "#5ea2db", "horizon": "#9fcfe4", "cloud": "#f4f6f6" },
-  "notes": "Two-storey house, bright off-white render (#eef0ef) with a warm brown timber eaves fascia (#7a5a3a). First-floor balcony with black metal-bar rail and roof-mounted solar/AC gear; wall AC units on the left return. Small square windows scattered across the white walls. Timber slat boundary fence (#b5793f) heavily overgrown with ivy along the street, on a raised render plinth. Seen mostly from the side/rear; front openings inferred. Colours pixel-sampled from the ref."
+  "notes": "Two-storey house, bright off-white render (#eef0ef) with a warm brown timber eaves fascia (#7a5a3a). First-floor balcony with black metal-bar rail and roof-mounted solar/AC gear; wall AC units on the left return. Small square windows scattered across the white walls. Timber slat boundary fence (#b5793f) heavily overgrown with ivy along the street, on a raised render plinth. Seen mostly from the side/rear; front openings inferred. Colours pixel-sampled from the ref. Environment sampled 2026-07-05: long ivy-topped fence hedge, overhanging oak on the right, big rounded bushes on the near verge, green + white cars at the red/white kerb, a green recycling bin and a lamp pole."
 }

@@ -21,6 +21,19 @@
     "sidewalk": { "material": "brick", "color": "#b0724c", "joint": "#8f5a3a", "w": 3.0 },
     "road": { "surface": "asphalt", "color": "#9a938a" }
   },
+  "environment": {
+    "props": [
+      { "model": "tree_oak", "h": 4, "t": 0.05, "inset": 2.5, "rxz": 1.0, "tint": { "leafs": "#4c9a3c", "wood": "#6e5138", "*": "#6e5138" } },
+      { "model": "tree_oak", "h": 6, "t": 0.25, "inset": 3.0, "rxz": 0.7, "tint": { "leafs": "#2c5526", "wood": "#6e5138", "*": "#6e5138" } },
+      { "model": "tree_palmDetailedTall", "h": 10, "t": 0.32, "inset": 2.5, "rxz": 0.85, "tint": { "leafs": "#3f9b42", "wood": "#a08a67", "*": "#a08a67" } },
+      { "model": "tree_oak", "h": 7.5, "t": 0.45, "inset": 2.0, "rxz": 1.4, "tint": { "leafs": "#3c8a35", "wood": "#6e5138", "*": "#6e5138" } },
+      { "model": "plant_bushLarge", "h": 2.8, "t": 0.03, "inset": -0.5, "rxz": 1.5, "tint": { "leafs": "#6aad3c", "*": "#44603a" } },
+      { "model": "plant_bushDetailed", "h": 1.5, "t": 0.5, "inset": 1.2, "rxz": 1.2, "tint": { "leafs": "#4c8a34", "*": "#44603a" } },
+      { "bin": true, "t": 0.1, "inset": 0.5, "rot": "along", "color": "#3f8a3a" },
+      { "car": true, "t": 0.55, "inset": -4.5, "rot": "along", "flip": true, "color": "#eef0ef" },
+      { "car": true, "t": 0.8, "inset": -4.85, "rot": "along", "flip": true, "color": "#e6e2d8" }
+    ]
+  },
   "sky": { "top": "#5ea2db", "horizon": "#9fcfe4", "cloud": "#f4f6f6" },
-  "notes": "Subject building is heavily occluded in the ref by palms, a large tree and the compound wall; the clearest reference is the near-identical neighbour to the right - a cream two-storey house with a terracotta hipped tiled roof. Modelled to match that style: cream walls, hipped terracotta roof, plausible window grid. Frontage: grey plaster compound wall with electrical cabinets, a green wheelie dumpster and a vehicle gate; brick-paved street. Colours sampled from ref 2026-07-04."
+  "notes": "Subject building is heavily occluded in the ref by palms, a large tree and the compound wall; the clearest reference is the near-identical neighbour to the right - a cream two-storey house with a terracotta hipped tiled roof. Modelled to match that style: cream walls, hipped terracotta roof, plausible window grid. Frontage: grey plaster compound wall with electrical cabinets, a green wheelie dumpster and a vehicle gate; brick-paved street. Colours sampled from ref 2026-07-04. Environment added 2026-07-05: big palm + round oak + cypress + small tree, leafy corner bush and wall bushes, prominent green dumpster, white pickup and cream sedan parked kerbside - all sampled from the ref."
 }

@@ -30,6 +30,23 @@
     "verge": { "grass": "#5f9d3f", "grassDark": "#4a7a30" },
     "road": { "surface": "asphalt", "color": "#8f9296" }
   },
+  "environment": {
+    "props": [
+      { "model": "tree_oak", "h": 8, "t": 0.14, "inset": 2.2, "rxz": 0.6, "tint": { "leafs": "#2c5526", "wood": "#6e5138", "*": "#6e5138" } },
+      { "model": "tree_oak", "h": 7, "t": 0.2, "inset": 2.4, "rxz": 0.6, "tint": { "leafs": "#31602b", "wood": "#6e5138", "*": "#6e5138" } },
+      { "model": "tree_palmDetailedTall", "h": 7, "t": 0.48, "inset": 2.5, "rxz": 0.85, "tint": { "leafs": "#3f9b42", "wood": "#a08a67", "*": "#a08a67" } },
+      { "model": "tree_oak", "h": 7.5, "t": 0.9, "inset": 2.0, "rxz": 1.5, "tint": { "leafs": "#3c8a35", "wood": "#6e5138", "*": "#6e5138" } },
+      { "hedge": true, "t0": 0.05, "t1": 0.35, "step": 1.2, "inset": 1.3, "h": 2, "d": 1.4, "colors": ["#57952c", "#4e8a28", "#3c7031"] },
+      { "hedge": true, "t0": 0.4, "t1": 0.75, "step": 1.2, "inset": 0.8, "h": 2.2, "d": 1.5, "colors": ["#5aa03c", "#4e8a28", "#3c7031"] },
+      { "hedge": true, "t0": 0.78, "t1": 1.05, "step": 1.2, "inset": 1.3, "h": 2, "d": 1.4, "colors": ["#57952c", "#4e8a28", "#3c7031"] },
+      { "model": "pot_large", "h": 0.7, "t": 0.6, "inset": 1.0, "tint": { "wood": "#e6e2d8", "woodBarkDark": "#cfc9bb" } },
+      { "bin": true, "t": 0.06, "inset": -0.6, "rot": "along" },
+      { "car": true, "t": 0.55, "inset": -4.7, "rot": "along", "color": "#eef0ef" },
+      { "car": true, "t": 0.66, "inset": -4.7, "rot": "along", "flip": true, "color": "#25282c" },
+      { "car": true, "t": 0.78, "inset": -4.85, "rot": "along", "flip": true, "color": "#4a86b4" },
+      { "car": true, "t": 0.92, "inset": -4.85, "rot": "along", "flip": true, "color": "#c9cdd0" }
+    ]
+  },
   "sky": { "top": "#5ea2db", "horizon": "#9fcfe4", "cloud": "#f4f6f6" },
-  "notes": "Compact 3-storey tower house. Cream (#e4e0cd) walls with a central full-height orange (#d98b4a) projecting bay on the street facade carrying two stacked windows. Pyramidal/hipped dark-grey tile roof (#5a5750). Frontage: block wall with orange top band and an ornate metal pedestrian gate with a red medallion. Colours pixel-sampled from the ref."
+  "notes": "Compact 3-storey tower house. Cream (#e4e0cd) walls with a central full-height orange (#d98b4a) projecting bay on the street facade carrying two stacked windows. Pyramidal/hipped dark-grey tile roof (#5a5750). Frontage: block wall with orange top band and an ornate metal pedestrian gate with a red medallion. Colours pixel-sampled from the ref. Environment added 2026-07-05: twin cypresses + palm + big oak, three prominent blocky hedge runs, a white planter box, a kerbside metal bin, and four parked cars (white, black, blue, silver) sampled from the ref."
 }

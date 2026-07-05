@@ -28,6 +28,21 @@
     "verge": { "grass": "#6ba83f", "grassDark": "#4e7d2e" },
     "road": { "surface": "asphalt", "color": "#4c5054" }
   },
+  "environment": {
+    "props": [
+      { "model": "tree_oak", "h": 5, "t": 0.17, "inset": -1.2, "rxz": 1.45, "tint": { "leafs": "#3c7031", "wood": "#6e5138", "*": "#6e5138" } },
+      { "model": "pot_large", "h": 0.75, "t": 0.17, "inset": -0.6, "tint": { "wood": "#9a6b4a", "woodBarkDark": "#7a5236" } },
+      { "model": "tree_oak", "h": 4, "t": 0.96, "inset": -1.3, "rxz": 0.7, "tint": { "leafs": "#4c8a34", "wood": "#8a6b45", "*": "#8a6b45" } },
+      { "model": "plant_bush", "h": 1.2, "t": 0.5, "inset": 0.9, "rxz": 1.0, "tint": { "leafs": "#4c8a34", "*": "#44603a" } },
+      { "model": "plant_bushSmall", "h": 0.8, "t": 0.55, "inset": 0.85, "rxz": 1.0, "tint": { "leafs": "#57952c", "*": "#44603a" } },
+      { "car": true, "t": 0.5, "inset": -4.7, "rot": "along", "color": "#cfd0d3" },
+      { "car": true, "t": 0.3, "inset": -4.7, "rot": "along", "color": "#c6c8cb" },
+      { "car": true, "t": 0.1, "inset": -4.7, "rot": "along", "flip": true, "color": "#3a5f9e" },
+      { "bin": true, "t": 0.7, "inset": 1.0, "rot": "along", "color": "#8f9296" },
+      { "bin": true, "t": 0.75, "inset": 1.0, "rot": "along", "color": "#9a9da1" },
+      { "lamp": true, "t": 0.9, "inset": -1.0, "rot": 90 }
+    ]
+  },
   "sky": { "top": "#5ea2db", "horizon": "#9fcfe4", "cloud": "#f4f6f6" },
-  "notes": "Two-storey house, warm sand render (#d8c9a0) with an exposed grey render right return (#8f8f88 shading). Terracotta clay hipped roof (#b5432c) with a thin front eaves band. A recessed deep-red balcony/loggia panel (#a03c33) sits centre-left of the street facade above the entry; dark windows (#3f4650) with cream reveals, a barred metal gate below the loggia, wall AC units. Frontage: white pre-cast panel wall (#eef0ee) with sawtooth coping to the street, brick sidewalk. Colours pixel-sampled from the ref."
+  "notes": "Two-storey house, warm sand render (#d8c9a0) with an exposed grey render right return (#8f8f88 shading). Terracotta clay hipped roof (#b5432c) with a thin front eaves band. A recessed deep-red balcony/loggia panel (#a03c33) sits centre-left of the street facade above the entry; dark windows (#3f4650) with cream reveals, a barred metal gate below the loggia, wall AC units. Frontage: white pre-cast panel wall (#eef0ee) with sawtooth coping to the street, brick sidewalk. Colours pixel-sampled from the ref. Environment sampled 2026-07-05: big bushy tree in a wood planter on the left sidewalk, a young sapling on the right by a globe lamp, three cars at the kerb (silver Corolla, silver hatchback, blue car), grey utility cabinets against the panel wall, potted plants by the gate."
 }
