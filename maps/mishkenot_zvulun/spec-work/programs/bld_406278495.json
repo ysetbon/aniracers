@@ -23,6 +23,26 @@
     "sidewalk": { "material": "stone-slabs", "color": "#cfc7b9", "joint": "#bcb3a3", "w": 3.2 },
     "verge": { "grass": "#7fae4c", "grassDark": "#5d6f45" }
   },
+  "environment": {
+    "ground": { "lawn": "#7fae4c", "size": [220, 180] },
+    "road": { "surface": "#8f9296", "kerb": "#b9bdc2", "halfW": 3.4, "len": 160 },
+    "props": [
+      { "model": "tree_oak", "h": 9, "t": 0.12, "inset": 2.5, "rxz": 0.6, "tint": { "leafs": "#2f5d2a", "wood": "#6e5138", "*": "#6e5138" } },
+      { "model": "tree_oak", "h": 8, "t": 0.17, "inset": 3.2, "rxz": 0.6, "tint": { "leafs": "#33642c", "wood": "#6e5138", "*": "#6e5138" } },
+      { "model": "tree_oak", "h": 7, "t": 0.32, "inset": 2.0, "rxz": 0.9, "tint": { "leafs": "#4d5b34", "wood": "#6e5138", "*": "#6e5138" } },
+      { "model": "tree_oak", "h": 8, "t": 0.72, "inset": 2.0, "rxz": 1.5, "tint": { "leafs": "#3c7a34", "wood": "#6e5138", "*": "#6e5138" } },
+      { "model": "tree_oak", "h": 7.5, "t": 0.86, "inset": 2.6, "rxz": 1.4, "tint": { "leafs": "#46963a", "wood": "#6e5138", "*": "#6e5138" } },
+      { "hedge": true, "h": 1.5, "t0": 0.4, "t1": 0.68, "step": 1.2, "inset": 1.4, "colors": ["#57952c", "#4e8a28", "#3c7031"] },
+      { "model": "plant_bushLarge", "h": 2.0, "t": 0.03, "inset": 0.6, "rxz": 1.3, "tint": { "leafs": "#52a12e", "*": "#44603a" } },
+      { "model": "plant_bush", "h": 1.2, "t": 0.07, "inset": 0.9, "rxz": 1.1, "tint": { "leafs": "#4c8a34", "*": "#44603a" } },
+      { "model": "grass_leafsLarge", "h": 1.0, "t": 0.05, "inset": 0.4, "tint": { "grass": "#5c9440", "*": "#5c9440" } },
+      { "model": "grass_leafs", "h": 0.8, "t": 0.1, "inset": 0.5, "tint": { "grass": "#4c8a3c", "*": "#4c8a3c" } },
+      { "model": "rock_smallA", "h": 0.5, "t": 0.06, "inset": 0.2, "rxz": 1.1, "tint": { "*": "#9a938a" } },
+      { "model": "rock_smallB", "h": 0.4, "t": 0.11, "inset": 0.55, "rxz": 1.0, "tint": { "*": "#8f8b84" } },
+      { "planter": true, "t": 0.0, "inset": 1.0, "w": 2.4, "d": 1.2, "color": "#8a6a44", "rot": "along" },
+      { "lamp": true, "t": 0.55, "inset": -2.0, "rot": 90 }
+    ]
+  },
   "sky": { "top": "#5ea2db", "horizon": "#9fcfe4", "cloud": "#f4f6f6" },
-  "notes": "Long white multi-storey apartment block (3 floors), several stepped white volumes with small square grey windows. Right end has a brown terracotta hipped roof; the rest reads as flat-roofed white parapet blocks. Frontage is a white picket fence set on a rubble-stone base (picket type + stone mortar colour). Sampled visually 2026-07-04."
+  "notes": "Long white multi-storey apartment block (3 floors), several stepped white volumes with small square grey windows. Right end has a brown terracotta hipped roof; the rest reads as flat-roofed white parapet blocks. Frontage is a white picket fence set on a rubble-stone base (picket type + stone mortar colour). Sampled visually 2026-07-04. Environment added 2026-07-05: tall dark cypresses + bare-ish oak on the left, big round-canopy oaks on the right, foreground bushes/grass/rocks, a low hedge behind the fence, a wooden planter and a globe lamp; no parked cars in the reference."
 }
