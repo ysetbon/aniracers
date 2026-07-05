@@ -24,6 +24,127 @@
     "sidewalk": { "material": "stone-slabs", "color": "#c9c8c2", "joint": "#b0afa8", "w": 3.0 },
     "verge": { "grass": "#7fb84a", "grassDark": "#586a44" }
   },
+  "environment": {
+    "props": [
+      {
+        "model": "tree_oak",
+        "h": 7.5,
+        "t": 0.28,
+        "inset": 2.2,
+        "rxz": 1.3,
+        "tint": { "leafs": "#9a8b52", "wood": "#7a6a4c", "*": "#7a6a4c" }
+      },
+      {
+        "model": "tree_oak",
+        "h": 8,
+        "t": 0.82,
+        "inset": 3.2,
+        "rxz": 1.3,
+        "tint": { "leafs": "#3d2a3a", "wood": "#4a3a30", "*": "#4a3a30" }
+      },
+      {
+        "model": "tree_oak",
+        "h": 7.5,
+        "t": 0.97,
+        "inset": 4.2,
+        "rxz": 1.25,
+        "tint": { "leafs": "#402c3d", "wood": "#4a3a30", "*": "#4a3a30" }
+      },
+      {
+        "model": "tree_oak",
+        "h": 6,
+        "t": 0.9,
+        "inset": 5.5,
+        "rxz": 1.1,
+        "tint": { "leafs": "#5a8a3a", "wood": "#6e5138", "*": "#6e5138" }
+      },
+      {
+        "hedge": true,
+        "h": 2,
+        "t0": 0.0,
+        "t1": 0.2,
+        "step": 1.2,
+        "inset": 1.3,
+        "d": 1.4,
+        "colors": ["#57952c", "#4e8a28", "#3c7031"]
+      },
+      {
+        "model": "plant_bushLarge",
+        "h": 3,
+        "t": 0.36,
+        "inset": 0.9,
+        "rxz": 1.4,
+        "tint": { "leafs": "#7ba838", "*": "#5a7a34" }
+      },
+      {
+        "model": "plant_bushLarge",
+        "h": 3.4,
+        "t": 0.48,
+        "inset": 0.6,
+        "rxz": 1.5,
+        "tint": { "leafs": "#84b13a", "*": "#5a7a34" }
+      },
+      {
+        "model": "plant_bushLarge",
+        "h": 2.8,
+        "t": 0.58,
+        "inset": 1.0,
+        "rxz": 1.4,
+        "tint": { "leafs": "#7ba838", "*": "#5a7a34" }
+      },
+      {
+        "model": "plant_bushLarge",
+        "h": 3.2,
+        "t": 0.68,
+        "inset": 0.7,
+        "rxz": 1.5,
+        "tint": { "leafs": "#84b13a", "*": "#5a7a34" }
+      },
+      {
+        "model": "plant_bushLarge",
+        "h": 2.6,
+        "t": 0.12,
+        "inset": 0.9,
+        "rxz": 1.3,
+        "tint": { "leafs": "#6fa032", "*": "#4e7030" }
+      },
+      {
+        "bin": true,
+        "t": 0.5,
+        "inset": -0.2,
+        "rot": "along"
+      },
+      {
+        "bin": true,
+        "t": 0.55,
+        "inset": -0.2,
+        "rot": "along"
+      },
+      {
+        "model": "grass_leafs",
+        "h": 0.7,
+        "t": 0.86,
+        "inset": 0.8,
+        "y": 0.5,
+        "tint": { "grass": "#5c9440", "*": "#5c9440" }
+      },
+      {
+        "car": true,
+        "t": 0.84,
+        "inset": -4.7,
+        "rot": "along",
+        "color": "#cfd2d4"
+      },
+      {
+        "car": true,
+        "t": 0.98,
+        "inset": -4.7,
+        "rot": "along",
+        "flip": true,
+        "color": "#e8e9e6"
+      }
+    ]
+  },
   "sky": { "top": "#5ea2db", "horizon": "#9fcfe4", "cloud": "#f4f6f6" },
-  "notes": "Teal-green and white patchwork residential block (~5 storeys), same family as neighbouring green blocks. Green wall with off-white panels (approximated as white solid bands); windows and a wall-mounted AC unit visible; grey entrance doors at the base. Flat roof. Heavily occluded in the ref by large low-poly shrubs and a bare fruit tree; front is open paving with wheelie bins. Colours eyeballed from ref."
+  "notes": "Teal-green and white patchwork residential block (~5 storeys), same family as neighbouring green blocks. Green wall with off-white panels (approximated as white solid bands); windows and a wall-mounted AC unit visible; grey entrance doors at the base. Flat roof. Heavily occluded in the ref by large low-poly shrubs and a bare fruit tree; front is open paving with wheelie bins. Colours eyeballed from ref. Environment: bare olive-tan fruit tree centre-left, dark plum-canopy trees plus a green oak on the right, a cluster of large bright-green bushes across the foreground, a short hedge on the left, blue and grey wheelie bins, a grass planter right, and two light-coloured cars parked along the road to the right (from scene ref 2026-07-05)."
 }

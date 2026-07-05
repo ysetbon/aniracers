@@ -27,6 +27,67 @@
     "sidewalk": { "material": "brick", "color": "#b8785a", "joint": "#9c664c", "w": 3.0 },
     "verge": { "grass": "#5aa838", "grassDark": "#3f7a2a" }
   },
+  "environment": {
+    "props": [
+      {
+        "model": "tree_oak",
+        "h": 5.5,
+        "t": 0.03,
+        "inset": 2.4,
+        "rxz": 1.2,
+        "tint": { "leafs": "#4c8a34", "wood": "#6e5138", "*": "#6e5138" }
+      },
+      {
+        "model": "tree_palmDetailedTall",
+        "h": 11,
+        "t": 0.25,
+        "inset": 2.2,
+        "rxz": 0.85,
+        "tint": { "leafs": "#3f9b42", "wood": "#a08a67", "*": "#a08a67" }
+      },
+      {
+        "model": "tree_oak",
+        "h": 7.5,
+        "t": 0.86,
+        "inset": 2.2,
+        "rxz": 1.35,
+        "tint": { "leafs": "#4f9436", "wood": "#6e5138", "*": "#6e5138" }
+      },
+      {
+        "hedge": true,
+        "h": 2.1,
+        "t0": 0.06,
+        "t1": 0.42,
+        "step": 1.2,
+        "inset": 1.4,
+        "d": 1.4,
+        "colors": ["#57952c", "#4e8a28", "#3c7031"]
+      },
+      {
+        "hedge": true,
+        "h": 2.1,
+        "t0": 0.6,
+        "t1": 0.95,
+        "step": 1.2,
+        "inset": 1.4,
+        "d": 1.4,
+        "colors": ["#6fa832", "#57952c", "#4e8a28"]
+      },
+      {
+        "bin": true,
+        "t": 0.34,
+        "inset": -0.3,
+        "rot": "along"
+      },
+      {
+        "car": true,
+        "t": 0.5,
+        "inset": -4.7,
+        "rot": "along",
+        "color": "#b9bcc0"
+      }
+    ]
+  },
   "sky": { "top": "#5ea2db", "horizon": "#9fcfe4", "cloud": "#f4f6f6" },
-  "notes": "Teal-green and white patchwork residential block (~5 storeys) raised on grey pilotis (open pilotis ground floor modelled as tall open bays on grey columns). Green and white panels alternate across the facade (approximated with white solid bands over a green wall); windows have security bars and wall-mounted AC units. Flat roof. White metal pedestrian gate, hedges and a palm at the front; a black ornate gate to the left. Colours eyeballed from ref."
+  "notes": "Teal-green and white patchwork residential block (~5 storeys) raised on grey pilotis (open pilotis ground floor modelled as tall open bays on grey columns). Green and white panels alternate across the facade (approximated with white solid bands over a green wall); windows have security bars and wall-mounted AC units. Flat roof. White metal pedestrian gate, hedges and a palm at the front; a black ornate gate to the left. Colours eyeballed from ref. Environment: tall palm centre-left, large green oak right, smaller oak far left, continuous hedge line along the frontage, blue wheelie bin and one silver car parked at the kerb (from scene ref 2026-07-05)."
 }
