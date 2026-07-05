@@ -20,6 +20,14 @@
     "sidewalk": { "material": "asphalt", "color": "#8f9296", "w": 3.0 },
     "road": { "surface": "asphalt", "color": "#8f9296" }
   },
+  "environment": {
+    "props": [
+      { "model": "tree_oak", "h": 11, "t": 0.48, "inset": 2.6, "rxz": 1.8, "tint": { "leafs": "#4c9a3a", "wood": "#4a3a2c", "*": "#4a3a2c" } },
+      { "car": true, "t": 0.52, "inset": -4.7, "rot": "along", "color": "#e6e4dc" },
+      { "car": true, "t": 0.2, "inset": -4.85, "rot": "along", "color": "#d6d6d0" },
+      { "model": "grass_leafs", "h": 0.6, "t": 0.34, "inset": 0.8, "tint": { "grass": "#5c9440", "*": "#5c9440" } }
+    ]
+  },
   "sky": { "top": "#5ea2db", "horizon": "#9fcfe4", "cloud": "#f4f6f6" },
-  "notes": "Building almost entirely occluded by a large low-poly street tree in the ref. Visible sliver at left is a low off-white/grey structure (1-2 storeys) with a dark window behind a white picket fence; a stone-rubble wall runs along the right. Modelled as a plausible 2-storey box with a simple window grid. Frontage: white picket fence to a grey asphalt kerb. Colours sampled from the visible edges 2026-07-04."
+  "notes": "Building almost entirely occluded by a large low-poly street tree in the ref. Visible sliver at left is a low off-white/grey structure (1-2 storeys) with a dark window behind a white picket fence; a stone-rubble wall runs along the right. Modelled as a plausible 2-storey box with a simple window grid. Frontage: white picket fence to a grey asphalt kerb. Colours sampled from the visible edges 2026-07-04. Environment: one dominant broad leafy oak + two silver/off-white station wagons at the kerb + grass tuft, sampled from ref 2026-07-05."
 }

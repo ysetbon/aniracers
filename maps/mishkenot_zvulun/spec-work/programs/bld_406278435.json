@@ -32,6 +32,45 @@
                "flowers": { "palette": ["#b0459c", "#e6d24a", "#f2f0e8"], "perM2": 0.1 } },
     "road": { "surface": "asphalt", "color": "#8a8d91" }
   },
+  "environment": {
+    "ground": { "lawn": "#5aa03f", "size": [220, 180] },
+    "road": { "surface": "#8a8d91", "kerb": "#b9bdc2", "halfW": 3.4, "len": 160 },
+    "props": [
+      { "model": "tree_oak", "h": 6.5, "t": 0.05, "inset": 3.0, "rxz": 1.5,
+        "tint": { "leafs": "#4e9a3a", "wood": "#6e5138", "*": "#6e5138" } },
+      { "model": "tree_oak", "h": 5.5, "t": 0.0, "inset": 4.2, "rxz": 1.4,
+        "tint": { "leafs": "#57a03a", "wood": "#6e5138", "*": "#6e5138" } },
+      { "model": "tree_palmDetailedTall", "h": 9.0, "t": 0.35, "inset": 3.6, "rxz": 0.85,
+        "tint": { "leafs": "#3f9b42", "wood": "#a08a67", "*": "#a08a67" } },
+      { "model": "tree_palmTall", "h": 8.5, "t": 0.52, "inset": 4.0, "rxz": 0.85,
+        "tint": { "leafs": "#46a648", "wood": "#a08a67", "*": "#a08a67" } },
+      { "model": "tree_palmDetailedTall", "h": 9.5, "t": 0.78, "inset": 4.5, "rxz": 0.85,
+        "tint": { "leafs": "#3f9b42", "wood": "#a08a67", "*": "#a08a67" } },
+      { "model": "tree_oak", "h": 8.0, "t": 0.56, "inset": 4.0, "rxz": 0.6,
+        "tint": { "leafs": "#2b4a24", "wood": "#4a3a2a", "*": "#4a3a2a" } },
+      { "model": "tree_oak", "h": 4.5, "t": 0.94, "inset": 4.0, "rxz": 1.0,
+        "tint": { "leafs": "#5f9a3a", "wood": "#6e5138", "*": "#6e5138" } },
+      { "hedge": true, "h": 2.2, "t0": 0.28, "t1": 0.66, "step": 1.2, "inset": 1.3, "d": 1.4,
+        "colors": ["#57952c", "#4e8a28", "#3c7031"] },
+      { "model": "plant_bushLarge", "h": 2.4, "t": 0.06, "inset": 1.5, "rxz": 1.3,
+        "tint": { "leafs": "#4c8a34", "*": "#44603a" } },
+      { "model": "plant_bush", "h": 1.5, "t": 0.16, "inset": 1.2, "rxz": 1.1,
+        "tint": { "leafs": "#57952c", "*": "#44603a" } },
+      { "model": "grass_leafsLarge", "h": 1.0, "t": 0.7, "inset": 1.2, "y": 0.0,
+        "tint": { "grass": "#4c8a3c", "*": "#4c8a3c" } },
+      { "model": "pot_large", "h": 0.75, "t": 0.05, "inset": 0.8,
+        "tint": { "wood": "#b8683f", "woodBarkDark": "#a05a36" } },
+      { "model": "plant_bushSmall", "h": 0.7, "t": 0.05, "inset": 0.8, "y": 0.7, "rxz": 1.0,
+        "tint": { "leafs": "#b0459c", "*": "#5c8a3a" } },
+      { "bin": true, "t": 0.45, "inset": -0.8, "rot": "along", "color": "#2f5aa0" },
+      { "bin": true, "t": 0.5, "inset": -0.8, "rot": "along", "color": "#8a8d90" },
+      { "lamp": true, "t": 0.7, "inset": -3.5, "rot": 90 },
+      { "car": true, "t": 0.2, "inset": 2.0, "rot": "along", "color": "#6d7c8c" },
+      { "car": true, "t": 0.66, "inset": -4.7, "rot": "along", "color": "#cfd2d4" },
+      { "car": true, "t": 0.96, "inset": -4.7, "rot": "along", "flip": true, "color": "#b8443a" },
+      { "car": true, "t": 1.08, "inset": -4.7, "rot": "along", "flip": true, "color": "#d8c14a" }
+    ]
+  },
   "sky": { "top": "#4f9edd", "horizon": "#9fcfe4", "cloud": "#f4f6f6" },
-  "notes": "White-rendered apartment block, ~3 storeys, flat roof. Front carries stacked balconies with grey metal-bar railings; several windows fitted with pale-cream roller shades/awnings and AC condensers on the facade. Frontage: a taupe/brown retaining wall (#9a8a6d) topped with a grey Greek-key (meander) frieze band (#c6c9cb) on a tan stone-rubble base, an ornate metal pedestrian gate, blue+grey wheelie bins, stone-slab sidewalk, planted verge, parked cars. Colours read from ref 2026-07-04."
+  "notes": "White-rendered apartment block, ~3 storeys, flat roof. Front carries stacked balconies with grey metal-bar railings; several windows fitted with pale-cream roller shades/awnings and AC condensers on the facade. Frontage: a taupe/brown retaining wall (#9a8a6d) topped with a grey Greek-key (meander) frieze band (#c6c9cb) on a tan stone-rubble base, an ornate metal pedestrian gate, blue+grey wheelie bins, stone-slab sidewalk, planted verge, parked cars. Environment: big bright oaks and a dark cypress among several palms in the front yard, a bright hedge run + round bushes along the wall, an agave tuft, a terracotta planter with magenta bougainvillea, blue+grey bins at the kerb, a cobra street lamp, a grey-blue sedan in the driveway plus silver/red/yellow cars parked along the kerb. Colours read from ref 2026-07-04, environment added 2026-07-05."
 }

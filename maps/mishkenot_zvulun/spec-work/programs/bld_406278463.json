@@ -32,6 +32,23 @@
     "verge": { "grass": "#7fa04f", "grassDark": "#5d7640" },
     "road": { "surface": "brick", "color": "#a06a4a" }
   },
+  "environment": {
+    "props": [
+      { "model": "tree_oak", "h": 7.5, "t": 0.12, "inset": 0.6, "rxz": 0.6, "tint": { "leafs": "#2f5d2a", "wood": "#5a4632", "*": "#5a4632" } },
+      { "model": "tree_oak", "h": 7, "t": 0.28, "inset": 0.6, "rxz": 0.6, "tint": { "leafs": "#2f6b2b", "wood": "#5a4632", "*": "#5a4632" } },
+      { "model": "tree_oak", "h": 5, "t": 0.4, "inset": 0.7, "rxz": 1.15, "tint": { "leafs": "#4c9a3a", "wood": "#5a4632", "*": "#5a4632" } },
+      { "model": "tree_oak", "h": 4.5, "t": 0.5, "inset": 0.6, "rxz": 0.55, "tint": { "leafs": "#6a8b3a", "wood": "#5a4632", "*": "#5a4632" } },
+      { "model": "tree_oak", "h": 5.5, "t": 0.72, "inset": 0.6, "rxz": 1.2, "tint": { "leafs": "#3f8b34", "wood": "#5a4632", "*": "#5a4632" } },
+      { "model": "tree_oak", "h": 6, "t": 0.86, "inset": 0.6, "rxz": 1.2, "tint": { "leafs": "#46a648", "wood": "#5a4632", "*": "#5a4632" } },
+      { "model": "plant_bushLarge", "h": 1.6, "t": 0.44, "inset": 1.1, "rxz": 1.2, "tint": { "leafs": "#5d7640", "*": "#44603a" } },
+      { "model": "plant_bushLarge", "h": 1.4, "t": 0.52, "inset": 1.1, "rxz": 1.1, "tint": { "leafs": "#5d7640", "*": "#44603a" } },
+      { "car": true, "t": 0.5, "inset": -4.7, "rot": "along", "color": "#c9c9c3" },
+      { "bin": true, "t": 0.06, "inset": 0.6, "rot": "along" },
+      { "bin": true, "t": 0.1, "inset": 0.6, "rot": "along" },
+      { "lamp": true, "t": 0.18, "inset": -0.4, "rot": 90 },
+      { "lamp": true, "t": 0.62, "inset": -0.4, "rot": 90 }
+    ]
+  },
   "sky": { "top": "#5ea2db", "horizon": "#9fcfe4", "cloud": "#f4f6f6" },
-  "notes": "Very long cream/sand apartment block, 3 storeys, flat roof (widest in this batch at ~67 m). Full-height grey-louvered vertical strips mark the stairwells (encoded as per-floor slat bands at two positions), with regular dark windows either side. A wall AC unit is visible. Frontage: galvanised metal-mesh fence on a stone-rubble base wall, cypress trees, globe street lamp, wheelie bins, brick-paved road with red-white curb (curb striping not encodable). Colours sampled from ref 2026-07-04."
+  "notes": "Very long cream/sand apartment block, 3 storeys, flat roof (widest in this batch at ~67 m). Full-height grey-louvered vertical strips mark the stairwells (encoded as per-floor slat bands at two positions), with regular dark windows either side. A wall AC unit is visible. Frontage: galvanised metal-mesh fence on a stone-rubble base wall, cypress trees, globe street lamp, wheelie bins, brick-paved road with red-white curb (curb striping not encodable). Colours sampled from ref 2026-07-04. Environment: dark thin cypresses + round green trees in sidewalk tree-wells, low green bushes behind the fence, a silver minivan at the kerb, green + blue wheelie bins at left, globe street lamps, sampled from ref 2026-07-05."
 }
