@@ -28,6 +28,25 @@
     "sidewalk": { "material": "brick", "color": "#b8785a", "joint": "#9c664c", "w": 4.0 },
     "verge": { "grass": "#7fb84a", "grassDark": "#586a44" }
   },
+  "environment": {
+    "props": [
+      { "model": "tree_oak", "h": 3.0, "t": 0.28, "inset": 1.8, "rxz": 0.8,
+        "tint": { "leafs": "#5aa03c", "wood": "#6e5138", "*": "#6e5138" } },
+      { "model": "tree_oak", "h": 8.5, "t": 0.55, "inset": 2.5, "rxz": 0.6,
+        "tint": { "leafs": "#2f5d2a", "wood": "#5f4632", "*": "#5f4632" } },
+      { "model": "tree_oak", "h": 7.0, "t": 0.96, "inset": 2.5, "rxz": 0.6,
+        "tint": { "leafs": "#2f5d2a", "wood": "#5f4632", "*": "#5f4632" } },
+      { "model": "plant_bushLarge", "h": 2.6, "t": 0.72, "inset": 1.6, "rxz": 1.3,
+        "tint": { "leafs": "#4c8a34", "*": "#44603a" } },
+      { "model": "plant_bushLarge", "h": 2.3, "t": 0.8, "inset": 1.5, "rxz": 1.2,
+        "tint": { "leafs": "#57952c", "*": "#44603a" } },
+      { "hedge": true, "h": 1.8, "t0": 0.62, "t1": 0.88, "step": 1.2, "inset": 1.3, "d": 1.4,
+        "colors": ["#57952c", "#4e8a28", "#3c7031"] },
+      { "car": true, "t": 0.05, "inset": -4.7, "rot": "along", "flip": true, "color": "#34406a" },
+      { "car": true, "t": 0.16, "inset": -4.7, "rot": "along", "flip": true, "color": "#eceae4" },
+      { "car": true, "t": 0.27, "inset": -4.7, "rot": "along", "flip": true, "color": "#b83a2f" }
+    ]
+  },
   "sky": { "top": "#5ea2db", "horizon": "#9fcfe4", "cloud": "#f4f6f6" },
   "notes": "Cream ashlar-stone apartment building (~6 storeys). Main block shows vertical grey louvered stair-vents (modelled as tall slim openings) and small barred windows; a white/cream rounded stair-and-balcony tower on the right with a curved balcony (approximated as front terrace). Flat roofs. Cream stone compound wall, cypress trees and hedges in front. Colours eyeballed from ref."
 }
