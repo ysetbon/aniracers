@@ -24,6 +24,18 @@
     "wall": { "type": "ashlar", "color": "#d3c496", "mortar": "#c2b184", "h": 1.5 },
     "sidewalk": { "material": "brick", "color": "#b25a3f", "joint": "#8f4530", "w": 2.5 }
   },
+  "environment": {
+    "props": [
+      { "model": "tree_palmDetailedTall", "h": 9.0, "t": 0.1, "inset": 2.0, "rxz": 0.85, "tint": { "leafs": "#3f9b42", "wood": "#8a6b45", "*": "#8a6b45" } },
+      { "model": "tree_oak", "h": 8.0, "t": 0.96, "inset": 1.8, "rxz": 1.4, "tint": { "leafs": "#2f6b2b", "wood": "#6e5138", "*": "#6e5138" } },
+      { "model": "pot_large", "h": 0.8, "t": 0.13, "inset": 0.9, "rxz": 1.0, "tint": { "wood": "#c8b98a", "woodBarkDark": "#b4a374" } },
+      { "model": "grass_leafs", "h": 0.7, "t": 0.13, "inset": 0.9, "rxz": 1.0, "tint": { "grass": "#5c9440", "*": "#5c9440" } },
+      { "model": "grass_leafs", "h": 0.6, "t": 0.17, "inset": 0.85, "rxz": 1.0, "tint": { "grass": "#4c8a3c", "*": "#4c8a3c" } },
+      { "model": "grass_leafsLarge", "h": 1.1, "t": 0.58, "inset": -0.3, "rxz": 1.1, "tint": { "grass": "#4c8a3c", "*": "#3c7031" } },
+      { "model": "plant_bush", "h": 1.4, "t": 0.72, "inset": -0.4, "rxz": 1.1, "tint": { "leafs": "#4c8a34", "*": "#44603a" } },
+      { "car": true, "t": 0.45, "inset": -4.7, "rot": "along", "color": "#e6e6e2" }
+    ]
+  },
   "sky": { "top": "#5ea2db", "horizon": "#9fcfe4", "cloud": "#f4f6f6" },
-  "notes": "Two-storey sandstone-ashlar townhouse. Ground floor: recessed entry (door numbered 29) reached by a short stone stair, wall-mounted mailboxes, a dark-slat privacy screen/fence in front of the ground-floor loggia. Upper floor is a set-back terrace behind a clear glass balustrade on cream posts. Flat roof, wall-mounted carriage lamp. Front paving is red brick. Sandstone block coursing shown as lighter/darker ashlar tones. Palm and street trees are environment (omitted). Colours sampled from ref 2026-07-04."
+  "notes": "Two-storey sandstone-ashlar townhouse. Ground floor: recessed entry (door numbered 29) reached by a short stone stair, wall-mounted mailboxes, a dark-slat privacy screen/fence in front of the ground-floor loggia. Upper floor is a set-back terrace behind a clear glass balustrade on cream posts. Flat roof, wall-mounted carriage lamp. Front paving is red brick. Sandstone block coursing shown as lighter/darker ashlar tones. Colours sampled from ref 2026-07-04. Environment added 2026-07-05: tall palm (left), large dark oak (right), stone planter with grass tufts by the steps, green leafy bushes (bottom-right), one white parked car standing in for the white scooter at the kerb."
 }

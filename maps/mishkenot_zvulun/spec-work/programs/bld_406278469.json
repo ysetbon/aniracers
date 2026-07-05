@@ -30,6 +30,32 @@
     "verge": { "grass": "#7fa04f", "grassDark": "#5d7640" },
     "road": { "surface": "asphalt", "color": "#8f9296" }
   },
+  "environment": {
+    "props": [
+      { "car": true, "t": 0.02, "inset": -4.7, "rot": "along", "color": "#6e2f30" },
+      { "car": true, "t": 0.06, "inset": -4.7, "rot": "along", "color": "#5e7a4a" },
+      { "car": true, "t": 0.1, "inset": -4.7, "rot": "along", "flip": true, "color": "#3a3550" },
+      { "car": true, "t": 0.72, "inset": 3.5, "rot": "along", "color": "#b5322a" },
+      { "car": true, "t": 0.8, "inset": 3.8, "rot": "along", "flip": true, "color": "#c9bfa0" },
+      { "model": "tree_oak", "h": 5.5, "t": 0.08, "inset": 2.0, "rxz": 0.55, "tint": { "leafs": "#2b5a2a", "wood": "#6e5138", "*": "#6e5138" } },
+      { "model": "tree_oak", "h": 7.0, "t": 0.2, "inset": 2.5, "rxz": 1.4, "tint": { "leafs": "#3f8f38", "wood": "#6e5138", "*": "#6e5138" } },
+      { "model": "tree_palmDetailedTall", "h": 9.0, "t": 0.34, "inset": 2.2, "rxz": 0.85, "tint": { "leafs": "#3f9b42", "wood": "#8a6b45", "*": "#8a6b45" } },
+      { "model": "tree_palmDetailedTall", "h": 10.0, "t": 0.4, "inset": 2.4, "rxz": 0.85, "tint": { "leafs": "#46a648", "wood": "#8a6b45", "*": "#8a6b45" } },
+      { "model": "tree_oak", "h": 7.0, "t": 0.46, "inset": 2.2, "rxz": 0.55, "tint": { "leafs": "#2b5a2a", "wood": "#6e5138", "*": "#6e5138" } },
+      { "model": "tree_oak", "h": 8.0, "t": 0.52, "inset": 2.4, "rxz": 0.6, "tint": { "leafs": "#2f5d2a", "wood": "#6e5138", "*": "#6e5138" } },
+      { "model": "tree_oak", "h": 7.0, "t": 0.62, "inset": 2.2, "rxz": 0.55, "tint": { "leafs": "#2b5a2a", "wood": "#6e5138", "*": "#6e5138" } },
+      { "model": "tree_palmDetailedTall", "h": 8.0, "t": 0.9, "inset": 3.0, "rxz": 0.85, "tint": { "leafs": "#3f9b42", "wood": "#8a6b45", "*": "#8a6b45" } },
+      { "model": "tree_oak", "h": 8.0, "t": 1.0, "inset": 1.5, "rxz": 1.5, "tint": { "leafs": "#46a63f", "wood": "#6e5138", "*": "#6e5138" } },
+      { "hedge": true, "h": 2.0, "t0": 0.44, "t1": 0.66, "step": 1.2, "inset": 1.4, "d": 1.4, "colors": ["#57952c", "#4e8a28", "#3c7031"] },
+      { "hedge": true, "h": 2.0, "t0": 0.85, "t1": 0.98, "step": 1.2, "inset": 1.6, "d": 1.4, "colors": ["#4e8a28", "#3c7031", "#57952c"] },
+      { "model": "grass_leafs", "h": 0.6, "t": 0.16, "inset": -0.5, "rxz": 1.0, "tint": { "grass": "#5c9440", "*": "#5c9440" } },
+      { "model": "grass_leafs", "h": 0.6, "t": 0.52, "inset": -0.5, "rxz": 1.0, "tint": { "grass": "#4c8a3c", "*": "#4c8a3c" } },
+      { "lamp": true, "t": 0.12, "inset": -1.0, "rot": 90 },
+      { "lamp": true, "t": 0.55, "inset": 0.5, "rot": 90 },
+      { "bin": true, "t": 0.14, "inset": -0.8, "rot": "along" },
+      { "bin": true, "t": 0.95, "inset": -1.5, "rot": "along" }
+    ]
+  },
   "sky": { "top": "#5ea2db", "horizon": "#9fcfe4", "cloud": "#f4f6f6" },
-  "notes": "Tall grey apartment tower, ~6 storeys, flat roof. Wall is grey render with a lighter grey ashlar-square coursing pattern. The left/front bay carries stacked projecting balconies (glass-and-metal balustrades) over three upper floors; the rest of the facade has regularly spaced dark windows. Frontage: light sandstone concrete-block compound wall with ornate-arch metal double gate (vehicle + pedestrian), terracotta-brick sidewalk, grass strip, red-white curbed asphalt road (curb striping not encodable); cypress and palm trees flank it (env). Colours sampled from ref 2026-07-04."
+  "notes": "Tall grey apartment tower, ~6 storeys, flat roof. Wall is grey render with a lighter grey ashlar-square coursing pattern. The left/front bay carries stacked projecting balconies (glass-and-metal balustrades) over three upper floors; the rest of the facade has regularly spaced dark windows. Frontage: light sandstone concrete-block compound wall with ornate-arch metal double gate (vehicle + pedestrian), terracotta-brick sidewalk, grass strip, red-white curbed asphalt road (curb striping not encodable); cypress and palm trees flank it (env). Colours sampled from ref 2026-07-04. Environment added 2026-07-05: three parked cars on the left kerb (maroon/green/purple), red hatchback + tan car in the right lot, big round oak (left) + far-right foreground oak, four dark cypress (thin tree_oak rxz~0.55), three palms, hedges behind the block wall, sidewalk grass tufts, two street lamps, and two blue kerb bins (left + right foreground)."
 }
