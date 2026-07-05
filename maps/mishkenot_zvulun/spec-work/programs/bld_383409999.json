@@ -24,6 +24,21 @@
     "sidewalk": { "material": "stone-slabs", "color": "#cfccc4", "joint": "#b6b3ab", "w": 4.5 },
     "verge": { "grass": "#7fb84a", "grassDark": "#586a44" }
   },
+  "environment": {
+    "props": [
+      { "car": true, "t": 0.42, "inset": -4.7, "rot": "along", "color": "#b8bcc0" },
+      { "car": true, "t": 0.85, "inset": -4.7, "rot": "along", "flip": true, "color": "#c9b489" },
+      { "car": true, "t": 0.1, "inset": -4.7, "rot": "along", "color": "#8f9296" },
+      { "model": "tree_palmTall", "h": 6.5, "t": 0.62, "inset": 2.0, "rxz": 0.85, "tint": { "leafs": "#46a648", "wood": "#a08a67", "*": "#a08a67" } },
+      { "model": "tree_palmTall", "h": 5.5, "t": 0.28, "inset": 2.0, "rxz": 0.85, "tint": { "leafs": "#3f9b42", "wood": "#a08a67", "*": "#a08a67" } },
+      { "model": "plant_bushLarge", "h": 2.4, "t": 0.55, "inset": 1.8, "rxz": 1.2, "tint": { "leafs": "#4c8a34", "*": "#44603a" } },
+      { "model": "plant_bushDetailed", "h": 1.6, "t": 0.2, "inset": 1.6, "rxz": 1.15, "tint": { "leafs": "#46a648", "*": "#44603a" } },
+      { "model": "plant_bushLarge", "h": 2.0, "t": 0.72, "inset": 1.9, "rxz": 1.2, "tint": { "leafs": "#5c9440", "*": "#44603a" } },
+      { "model": "pot_large", "h": 0.8, "t": 0.28, "inset": 1.9, "tint": { "wood": "#b8683f", "woodBarkDark": "#a05a36" } },
+      { "model": "pot_large", "h": 0.8, "t": 0.62, "inset": 1.9, "tint": { "wood": "#b8683f", "woodBarkDark": "#a05a36" } },
+      { "model": "plant_bushSmall", "h": 1.0, "t": 0.4, "inset": 1.5, "rxz": 1.1, "tint": { "leafs": "#4c8a34", "*": "#44603a" } }
+    ]
+  },
   "sky": { "top": "#5ea2db", "horizon": "#9fcfe4", "cloud": "#f4f6f6" },
   "notes": "Two/three-storey commercial building (W~58m). Blue-grey main volume with a fully glazed ground-floor bakery/cafe storefront (wide glass shopfronts, illuminated signboard) and large strip windows on the first floor; a cream-rendered left volume adjoins. Flat roofs. Raised stone-slab terrace/plaza with steps in front, cafe seating and planters (no fence). Colours eyeballed from ref."
 }
