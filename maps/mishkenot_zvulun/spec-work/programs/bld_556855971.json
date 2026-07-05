@@ -20,6 +20,15 @@
     "sidewalk": { "material": "stone-slabs", "color": "#cfc9bd", "joint": "#bab3a5", "w": 3.0 },
     "verge": { "grass": "#8fb060", "grassDark": "#66794f" }
   },
+  "environment": {
+    "props": [
+      { "model": "tree_palmDetailedTall", "h": 10.0, "t": 0.62, "inset": 2.2, "rxz": 0.85, "tint": { "leafs": "#3f9b42", "wood": "#a08a67", "*": "#a08a67" } },
+      { "model": "tree_palmTall", "h": 9.0, "t": 0.92, "inset": 2.6, "rxz": 0.85, "tint": { "leafs": "#46a648", "wood": "#a08a67", "*": "#a08a67" } },
+      { "model": "plant_bushLarge", "h": 2.4, "t": 0.04, "inset": 1.0, "rxz": 1.2, "tint": { "leafs": "#b5566f", "*": "#4c7a3c" } },
+      { "model": "plant_bushLarge", "h": 1.6, "t": 0.12, "inset": 0.8, "rxz": 1.1, "tint": { "leafs": "#4c8a34", "*": "#44603a" } },
+      { "model": "plant_bushLarge", "h": 1.7, "t": 0.85, "inset": 1.0, "rxz": 1.1, "tint": { "leafs": "#4c8a34", "*": "#44603a" } }
+    ]
+  },
   "sky": { "top": "#5ea2db", "horizon": "#9fcfe4", "cloud": "#f4f6f6" },
-  "notes": "Cream/off-white two-storey villa with terracotta tiled hipped roof; upper window has grey louvered shutters (#9ea1a0), a grey louvered vent on ground floor. Foreground is dominated by a white perforated-metal panel fence with wrought-iron scroll motifs on a cream stone-block retaining wall (fence perforation/motif not expressible - modelled as stone wall). Pink climbing roses and palm at left, terracotta parasol at right (props not in schema). Colours sampled from ref 2026-07-04."
+  "notes": "Cream/off-white two-storey villa with terracotta tiled hipped roof; upper window has grey louvered shutters (#9ea1a0), a grey louvered vent on ground floor. Foreground is dominated by a white perforated-metal panel fence with wrought-iron scroll motifs on a cream stone-block retaining wall (fence perforation/motif not expressible - modelled as stone wall). Pink climbing roses and palm at left, terracotta parasol at right (props not in schema). Colours sampled from ref 2026-07-04. Environment: a tall detailed palm centre-right with a second palm at the right edge, pink-flowering (rose) bush plus a low green bush at left, and a green bush at right; no parked cars visible. Sampled from ref 2026-07-05."
 }

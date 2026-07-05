@@ -21,6 +21,17 @@
     "verge": { "grass": "#8fb060", "grassDark": "#66794f" },
     "road": { "surface": "asphalt", "color": "#8f9296" }
   },
+  "environment": {
+    "props": [
+      { "model": "tree_oak", "h": 7.0, "t": 0.1, "inset": 2.2, "rxz": 1.4, "tint": { "leafs": "#5aa83c", "wood": "#6e5138", "*": "#6e5138" } },
+      { "model": "tree_oak", "h": 6.5, "t": 0.28, "inset": 2.6, "rxz": 1.3, "tint": { "leafs": "#4c8a34", "wood": "#6e5138", "*": "#6e5138" } },
+      { "model": "tree_oak", "h": 6.0, "t": 0.45, "inset": 2.0, "rxz": 1.2, "tint": { "leafs": "#3c7031", "wood": "#6e5138", "*": "#6e5138" } },
+      { "model": "tree_oak", "h": 6.8, "t": 0.65, "inset": 2.6, "rxz": 1.35, "tint": { "leafs": "#5aa83c", "wood": "#6e5138", "*": "#6e5138" } },
+      { "model": "tree_oak", "h": 6.0, "t": 0.85, "inset": 2.2, "rxz": 1.2, "tint": { "leafs": "#4c8a34", "wood": "#6e5138", "*": "#6e5138" } },
+      { "model": "plant_bushLarge", "h": 2.2, "t": 0.2, "inset": 1.2, "rxz": 1.2, "tint": { "leafs": "#4c8a34", "*": "#44603a" } },
+      { "model": "plant_bushLarge", "h": 2.0, "t": 0.55, "inset": 1.2, "rxz": 1.1, "tint": { "leafs": "#3c7031", "*": "#44603a" } }
+    ]
+  },
   "sky": { "top": "#5ea2db", "horizon": "#9fcfe4", "cloud": "#f4f6f6" },
-  "notes": "Building almost fully occluded: a pale near-white institutional block (kindergarten/gan) sits behind a tall concrete retaining wall topped by a blue steel picket fence (#2f80c6, not expressible in frontage.wall - modelled as plain concrete wall), big low-poly trees and a wooden playground gazebo+green slide (props not in schema). Massing inferred as a 2-floor flat-roof block with plausible window grid. Multicolour brick paver sidewalk. Colours sampled from ref 2026-07-04."
+  "notes": "Building almost fully occluded: a pale near-white institutional block (kindergarten/gan) sits behind a tall concrete retaining wall topped by a blue steel picket fence (#2f80c6, not expressible in frontage.wall - modelled as plain concrete wall), big low-poly trees and a wooden playground gazebo+green slide (props not in schema). Massing inferred as a 2-floor flat-roof block with plausible window grid. Multicolour brick paver sidewalk. Colours sampled from ref 2026-07-04. Environment: a row of large low-poly oak trees (bright and mid green) along the fenced park frontage with two shrubs at their base; no parked cars visible. Sampled from ref 2026-07-05."
 }

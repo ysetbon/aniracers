@@ -23,6 +23,20 @@
     "verge": { "grass": "#5f9a3f", "grassDark": "#4a7a34" },
     "road": { "surface": "asphalt", "color": "#8b8e92" }
   },
+  "environment": {
+    "props": [
+      { "model": "tree_oak", "h": 6.5, "t": 0.06, "inset": 1.8, "rxz": 1.4, "tint": { "leafs": "#7d9a4c", "wood": "#6e5138", "*": "#6e5138" } },
+      { "model": "plant_bushLarge", "h": 2.6, "t": 0.02, "inset": 1.0, "rxz": 1.3, "tint": { "leafs": "#3c6b34", "*": "#44603a" } },
+      { "car": true, "t": 0.2, "inset": -4.7, "rot": "along", "color": "#eceae4" },
+      { "model": "tree_oak", "h": 6.0, "t": 0.5, "inset": 0.6, "rxz": 1.2, "tint": { "leafs": "#4c8a34", "wood": "#6e5138", "*": "#6e5138" } },
+      { "model": "tree_oak", "h": 5.5, "t": 0.62, "inset": 1.4, "rxz": 1.1, "tint": { "leafs": "#5a9a3c", "wood": "#6e5138", "*": "#6e5138" } },
+      { "model": "plant_bushLarge", "h": 1.8, "t": 0.42, "inset": 0.9, "rxz": 1.1, "tint": { "leafs": "#4c8a34", "*": "#44603a" } },
+      { "bin": true, "t": 0.56, "inset": -0.7, "rot": "along" },
+      { "car": true, "t": 0.95, "inset": -4.7, "rot": "along", "flip": true, "color": "#c9ccd0" },
+      { "car": true, "t": 1.08, "inset": -4.7, "rot": "along", "flip": true, "color": "#aeb2b6" },
+      { "lamp": true, "t": 0.72, "inset": -1.2, "rot": 90 }
+    ]
+  },
   "sky": { "top": "#5ea2db", "horizon": "#9fcfe4", "cloud": "#f4f6f6" },
-  "notes": "Two-storey white private house with an orange terracotta gable roof carrying solar panels. Windows on both floors have off-white frames; central ground-floor entrance. Brown wooden-slat fence on a low block wall at the frontage; a white car parked on the paved driveway. One of a cluster of similar gable-roofed houses. Sampled from ref 2026-07-04."
+  "notes": "Two-storey white private house with an orange terracotta gable roof carrying solar panels. Windows on both floors have off-white frames; central ground-floor entrance. Brown wooden-slat fence on a low block wall at the frontage; a white car parked on the paved driveway. One of a cluster of similar gable-roofed houses. Sampled from ref 2026-07-04. Environment: overhanging leafy oak + dark bush at left, white sedan on the driveway, two mid-street oaks and a low bush by the gate, green wheelie bin, two grey cars parked at the far kerb, street lamp. Sampled from ref 2026-07-05."
 }
