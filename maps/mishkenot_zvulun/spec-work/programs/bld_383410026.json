@@ -21,6 +21,31 @@
     "sidewalk": { "material": "stone-slabs", "color": "#c98c62", "joint": "#b0764f", "w": 3.0 },
     "verge": { "grass": "#6fa03c", "grassDark": "#4f6d38" }
   },
+  "environment": {
+    "ground": { "lawn": "#6fa03c", "size": [220, 180] },
+    "road": { "surface": "#8f9296", "kerb": "#b9bdc2", "halfW": 3.4, "len": 160 },
+    "props": [
+      { "car": true, "t": 0.1, "inset": -4.7, "rot": "along", "color": "#23272d" },
+      { "car": true, "t": 0.85, "inset": -4.7, "rot": "along", "flip": true, "color": "#3a4046" },
+      { "car": true, "t": 1.08, "inset": -4.7, "rot": "along", "flip": true, "color": "#2d4a80" },
+      { "model": "tree_oak", "h": 6.5, "t": 0.12, "inset": 2.6, "rxz": 1.4,
+        "tint": { "leafs": "#8fb44f", "wood": "#6e5138", "*": "#6e5138" } },
+      { "model": "tree_oak", "h": 5.5, "t": 0.34, "inset": 2.4, "rxz": 1.25,
+        "tint": { "leafs": "#6f8f72", "wood": "#6e5138", "*": "#6e5138" } },
+      { "model": "tree_oak", "h": 3.8, "t": 0.5, "inset": 2.2, "rxz": 0.95,
+        "tint": { "leafs": "#8a9c78", "wood": "#6e5138", "*": "#6e5138" } },
+      { "model": "tree_oak", "h": 5.5, "t": 0.68, "inset": 2.5, "rxz": 1.2,
+        "tint": { "leafs": "#6f8f72", "wood": "#6e5138", "*": "#6e5138" } },
+      { "model": "tree_oak", "h": 5, "t": 0.9, "inset": 2.4, "rxz": 1.2,
+        "tint": { "leafs": "#7d9a7a", "wood": "#6e5138", "*": "#6e5138" } },
+      { "hedge": true, "h": 1.4, "t0": 0.02, "t1": 0.98, "step": 1.2, "inset": 1.5, "d": 1.4,
+        "colors": ["#5a9a34", "#4e8a28", "#3c7031"] },
+      { "model": "plant_bushLarge", "h": 2, "t": 0.42, "inset": 1.2, "rxz": 1.1,
+        "tint": { "leafs": "#5a8a3a", "*": "#44603a" } },
+      { "model": "plant_bushLarge", "h": 1.8, "t": 0.78, "inset": 1.2, "rxz": 1.1,
+        "tint": { "leafs": "#5a8a3a", "*": "#44603a" } }
+    ]
+  },
   "sky": { "top": "#5ea2db", "horizon": "#9fcfe4", "cloud": "#f4f6f6" },
   "notes": "Building heavily occluded -- ref is almost entirely a wall of low-poly trees and a green hedge, with only a small patch of tan/beige facade with windows peeking through the canopy behind. Reconstructed as a tan mid-rise apartment block (~4 floors) with a plausible regular window grid and central entrance. Frontage: clipped green hedge with lawn and terracotta-paver walk (no visible fence). Colours estimated from the visible facade patch."
 }

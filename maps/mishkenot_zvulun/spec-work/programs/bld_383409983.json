@@ -37,6 +37,33 @@
     "verge": { "grass": "#77c043", "grassDark": "#5c9a3c",
                "flowers": { "palette": ["#e46aa0", "#5b9fe0", "#f4f6f0"], "perM2": 0.12 } }
   },
+  "environment": {
+    "ground": { "lawn": "#77c043", "size": [220, 180] },
+    "road": { "surface": "#8f9296", "kerb": "#b9bdc2", "halfW": 3.4, "len": 160 },
+    "props": [
+      { "model": "tree_oak", "h": 6, "t": 0.18, "inset": 2.5, "rxz": 1.4,
+        "tint": { "leafs": "#7d9a7a", "wood": "#6e5138", "*": "#6e5138" } },
+      { "model": "tree_oak", "h": 7.5, "t": 0.4, "inset": 2.2, "rxz": 0.7,
+        "tint": { "leafs": "#4e8a34", "wood": "#8a7a5a", "*": "#8a7a5a" } },
+      { "model": "tree_oak", "h": 6.5, "t": 0.72, "inset": 2.6, "rxz": 0.55,
+        "tint": { "leafs": "#2f5d2a", "wood": "#6e5138", "*": "#6e5138" } },
+      { "model": "tree_oak", "h": 6, "t": 0.92, "inset": 2.4, "rxz": 1.3,
+        "tint": { "leafs": "#8fb44f", "wood": "#6e5138", "*": "#6e5138" } },
+      { "hedge": true, "h": 2.2, "t0": 0.04, "t1": 0.96, "step": 1.2, "inset": 1.3, "d": 1.4,
+        "colors": ["#5a9a34", "#4e8a28", "#3c7031"] },
+      { "model": "plant_bushLarge", "h": 2, "t": 0.55, "inset": 1.0, "rxz": 1.2,
+        "tint": { "leafs": "#4c8a34", "*": "#44603a" } },
+      { "model": "grass_leafs", "h": 0.7, "t": 0.3, "inset": 0.7, "rxz": 1,
+        "tint": { "grass": "#5c9440", "*": "#5c9440" } },
+      { "model": "grass_leafs", "h": 0.6, "t": 0.62, "inset": 0.8, "rxz": 1,
+        "tint": { "grass": "#4c8a3c", "*": "#4c8a3c" } },
+      { "model": "rock_smallA", "h": 0.5, "t": 0.48, "inset": 1.1, "rxz": 1,
+        "tint": { "*": "#8f8b84" } },
+      { "model": "flower_yellowA", "h": 0.4, "t": 0.35, "inset": 0.9, "rxz": 1,
+        "tint": { "*": "#e04438" } },
+      { "bin": true, "t": 0.03, "inset": -0.5, "rot": "along" }
+    ]
+  },
   "sky": { "top": "#5ea2db", "horizon": "#9fcfe4", "cloud": "#f4f6f6" },
   "notes": "Netanya residential block, ~27.4x18.2m, flat roof. Camera looks up from a park; only the top ~2 floors clear a tall low-poly hedge, so lower floors are inferred (4 storeys typical for this footprint) but no openings placed where the ref shows none. Warm beige main wall (#d2c69c). A green-painted (#84b96f) block on the right (wing, slightly shallower/protruding) and a green recessed balcony back-wall on the main volume top floor (encoded as a band). Top floor front: recessed balcony with green parapet and a brown WOOD PERGOLA over it holding potted plants and a laundry line (pergola/plants/laundry not expressible in schema -- factory extension needed; encoded only as the wide 'opening' + terrace). Floor below: single recessed grey-framed window (#e6e3d6 frame, #5f6a63 glass) with a wall-mounted AC unit to its right (prop 'ac'). Open frontage -- pink brick-paver sidewalk and bright grass verge with pink/blue/white flowers; NO compound wall or gate (a clipped hedge stands in front instead, treated as vegetation). Colours pixel-read from the ref 2026-07-04."
 }
