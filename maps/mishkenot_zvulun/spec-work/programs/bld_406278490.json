@@ -26,6 +26,27 @@
     "verge": { "grass": "#4e8b3a", "grassDark": "#356226" },
     "road": { "surface": "asphalt", "color": "#8f9296" }
   },
+  "environment": {
+    "props": [
+      { "model": "tree_oak", "h": 5.5, "t": 0.03, "inset": 2.2, "rxz": 1.25,
+        "tint": { "leafs": "#3f7a34", "wood": "#6e5138", "*": "#6e5138" } },
+      { "model": "grass_leafs", "h": 0.7, "t": 0.35, "inset": 1.0,
+        "tint": { "grass": "#5c9440", "*": "#5c9440" } },
+      { "model": "grass_leafs", "h": 0.6, "t": 0.45, "inset": 1.1,
+        "tint": { "grass": "#4c8a3c", "*": "#4c8a3c" } },
+      { "model": "grass_leafsLarge", "h": 0.75, "t": 0.55, "inset": 0.9,
+        "tint": { "grass": "#5c9440", "*": "#5c9440" } },
+      { "model": "rock_smallA", "h": 0.4, "t": 0.33, "inset": 1.3,
+        "tint": { "*": "#b9b1a0" } },
+      { "model": "rock_smallB", "h": 0.3, "t": 0.41, "inset": 1.4,
+        "tint": { "*": "#c8c0af" } },
+      { "model": "plant_bushLarge", "h": 1.2, "t": 0.62, "inset": 1.0, "rxz": 1.0,
+        "tint": { "leafs": "#4c8a34", "*": "#44603a" } },
+      { "lamp": true, "t": 0.7, "inset": -1.0, "rot": 90 },
+      { "car": true, "t": 0.95, "inset": -4.7, "rot": "along", "flip": true, "color": "#e8e6e0" },
+      { "car": true, "t": 1.08, "inset": -4.7, "rot": "along", "flip": true, "color": "#c9bfa8" }
+    ]
+  },
   "sky": { "top": "#63b0e0", "horizon": "#a9d6ec", "cloud": "#f2f5f5" },
-  "notes": "Cream/off-white 3-storey apartment block in a repeating row, seen at its gable end. Low-pitch gabled roof with a wide brown fascia/eave overhang; teal-green louvred rolling shutters over recessed balconies, small square windows, brown drainpipe on the blank end wall. Roof antennas and satellite dishes. Frontage: sandy planting strip and brick-paver walkway, street lamp, grey utility boxes; door number '1'. Colours sampled from ref 2026-07-04."
+  "notes": "Cream/off-white 3-storey apartment block in a repeating row, seen at its gable end. Low-pitch gabled roof with a wide brown fascia/eave overhang; teal-green louvred rolling shutters over recessed balconies, small square windows, brown drainpipe on the blank end wall. Roof antennas and satellite dishes. Frontage: sandy planting strip and brick-paver walkway, street lamp, grey utility boxes; door number '1'. Colours sampled from ref 2026-07-04. Environment added 2026-07-05: green oak at left, grass tufts and small rocks in the sandy strip, a small bush at the walkway curve, street lamp, and white + beige cars parked at the far-right kerb."
 }

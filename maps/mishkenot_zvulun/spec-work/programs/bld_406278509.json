@@ -23,6 +23,30 @@
     "verge": { "grass": "#6ba83f", "grassDark": "#4e7d2e" },
     "road": { "surface": "asphalt", "color": "#8f9296" }
   },
+  "environment": {
+    "props": [
+      { "model": "tree_oak", "h": 7.0, "t": 0.42, "inset": 3.2, "rxz": 1.4,
+        "tint": { "leafs": "#3c7a30", "wood": "#6e5138", "*": "#6e5138" } },
+      { "model": "tree_oak", "h": 5.0, "t": 0.06, "inset": 2.6, "rxz": 1.15,
+        "tint": { "leafs": "#4c8a34", "wood": "#6e5138", "*": "#6e5138" } },
+      { "model": "tree_oak", "h": 5.5, "t": 0.72, "inset": 3.0, "rxz": 1.2,
+        "tint": { "leafs": "#3f7a34", "wood": "#6e5138", "*": "#6e5138" } },
+      { "model": "tree_oak", "h": 4.5, "t": 0.9, "inset": 3.2, "rxz": 1.0,
+        "tint": { "leafs": "#4c8a34", "wood": "#6e5138", "*": "#6e5138" } },
+      { "model": "pot_large", "h": 0.7, "t": 0.56, "inset": 0.8,
+        "tint": { "wood": "#dcdcdc", "woodBarkDark": "#c2c2c2" } },
+      { "model": "plant_bushSmall", "h": 0.9, "t": 0.56, "inset": 0.8, "rxz": 0.8,
+        "tint": { "leafs": "#3c7031", "*": "#44603a" } },
+      { "model": "pot_large", "h": 0.7, "t": 0.62, "inset": 0.8,
+        "tint": { "wood": "#dcdcdc", "woodBarkDark": "#c2c2c2" } },
+      { "model": "plant_bushSmall", "h": 0.9, "t": 0.62, "inset": 0.8, "rxz": 0.8,
+        "tint": { "leafs": "#4c8a34", "*": "#44603a" } },
+      { "model": "plant_bush", "h": 0.8, "t": 0.68, "inset": 1.4, "rxz": 1.0,
+        "tint": { "leafs": "#3c7031", "*": "#44603a" } },
+      { "car": true, "t": 0.46, "inset": 2.6, "rot": "along", "color": "#2b2f33" },
+      { "car": true, "t": 0.22, "inset": -4.7, "rot": "along", "color": "#2f6fc4" }
+    ]
+  },
   "sky": { "top": "#5ea2db", "horizon": "#9fcfe4", "cloud": "#f4f6f6" },
-  "notes": "Large multi-storey apartment block, off-white render (#e8eaea) with dark punched windows (#3f4650) in a regular grid, flat roof with a thin brown fascia. Building is heavily occluded in the ref by a timber slat boundary fence (#b5793f) on a rubble/ashlar stone base (#c9b48f), a fenced carport and street trees; massing and window grid reconstructed as plausible visible facade. Israeli flag on a neighbour. Herringbone brick sidewalk. Colours pixel-sampled from the ref."
+  "notes": "Large multi-storey apartment block, off-white render (#e8eaea) with dark punched windows (#3f4650) in a regular grid, flat roof with a thin brown fascia. Building is heavily occluded in the ref by a timber slat boundary fence (#b5793f) on a rubble/ashlar stone base (#c9b48f), a fenced carport and street trees; massing and window grid reconstructed as plausible visible facade. Israeli flag on a neighbour. Herringbone brick sidewalk. Colours pixel-sampled from the ref. Environment added 2026-07-05: four green oaks (one large centre tree), two white pots with green bushes on the sidewalk plus a small ground bush, a dark car under the carport inside the yard, and a big blue car at the near kerb."
 }

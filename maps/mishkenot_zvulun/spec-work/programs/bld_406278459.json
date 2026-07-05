@@ -20,6 +20,16 @@
     "gates": [{ "kind": "pedestrian", "w": 1.1, "style": "solid", "color": "#dad7d0" }],
     "sidewalk": { "material": "stone-slabs", "color": "#dcd8d0", "joint": "#c6c1b7", "w": 2.0 }
   },
+  "environment": {
+    "props": [
+      { "model": "tree_oak", "h": 5.0, "t": 0.04, "inset": 2.2, "rxz": 1.2,
+        "tint": { "leafs": "#3c7a34", "wood": "#6e5138", "*": "#6e5138" } },
+      { "model": "plant_bushLarge", "h": 2.2, "t": 0.08, "inset": 1.5, "rxz": 1.3,
+        "tint": { "leafs": "#4c8a34", "*": "#44603a" } },
+      { "model": "plant_bush", "h": 1.4, "t": 0.15, "inset": 1.4, "rxz": 1.0,
+        "tint": { "leafs": "#3c7031", "*": "#44603a" } }
+    ]
+  },
   "sky": { "top": "#5ea2db", "horizon": "#9fcfe4", "cloud": "#f4f6f6" },
-  "notes": "Two-storey white/off-white private house. The left block carries a pitched GABLE roof with pale-grey covering and exposed dark-brown wooden rafter tails / fascia and a deep eave overhang; a satellite dish sits on it. The right block is lower/flat with a canopy. Recessed dark window openings. Frontage: brown wooden picket fence on a white stone-rubble base wall, with a blue address plate reading '12-ב' and a red Hebrew warning sign, and a solid light gate at left. Colours sampled from ref 2026-07-04."
+  "notes": "Two-storey white/off-white private house. The left block carries a pitched GABLE roof with pale-grey covering and exposed dark-brown wooden rafter tails / fascia and a deep eave overhang; a satellite dish sits on it. The right block is lower/flat with a canopy. Recessed dark window openings. Frontage: brown wooden picket fence on a white stone-rubble base wall, with a blue address plate reading '12-ב' and a red Hebrew warning sign, and a solid light gate at left. Colours sampled from ref 2026-07-04. Environment added 2026-07-05: green oak at left plus a green bush cluster behind the picket fence; no parked cars in ref."
 }
