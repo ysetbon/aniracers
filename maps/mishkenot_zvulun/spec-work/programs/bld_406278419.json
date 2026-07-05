@@ -18,6 +18,50 @@
     "sidewalk": { "material": "stone-slabs", "color": "#d3bca0", "joint": "#b39d82", "w": 3.5 },
     "road": { "surface": "asphalt", "color": "#7f8388" }
   },
+  "environment": {
+    "props": [
+      {
+        "model": "tree_oak",
+        "h": 5,
+        "t": 0.28,
+        "inset": -0.3,
+        "rxz": 0.9,
+        "tint": { "leafs": "#8a7d55", "wood": "#6e5138", "*": "#6e5138" }
+      },
+      {
+        "model": "tree_oak",
+        "h": 5.5,
+        "t": 0.64,
+        "inset": -0.3,
+        "rxz": 0.9,
+        "tint": { "leafs": "#8a7d55", "wood": "#6e5138", "*": "#6e5138" }
+      },
+      {
+        "model": "plant_bushLarge",
+        "h": 2.5,
+        "t": 0.15,
+        "inset": -0.8,
+        "rxz": 1.3,
+        "tint": { "leafs": "#57a03a", "*": "#44603a" }
+      },
+      {
+        "model": "plant_bushLarge",
+        "h": 2.2,
+        "t": 0.5,
+        "inset": -0.8,
+        "rxz": 1.2,
+        "tint": { "leafs": "#4c8a34", "*": "#44603a" }
+      },
+      {
+        "model": "plant_bushLarge",
+        "h": 2.4,
+        "t": 0.82,
+        "inset": -0.8,
+        "rxz": 1.3,
+        "tint": { "leafs": "#57a03a", "*": "#44603a" }
+      }
+    ]
+  },
   "sky": { "top": "#5ea2db", "horizon": "#9fcfe4", "cloud": "#f4f6f6" },
-  "notes": "Open-air stone/marble workshop ('שיש לנצח' monument maker) - a low single-storey structure that is mostly an exposed steel-frame with grey metal canopy roofing over machinery and stone slabs; steel frame not directly expressible so modelled as one floor with a flat metal roof and open front bays. Dominant street element is the tall coursed stone-block boundary wall carrying the banner sign, over a red-and-white kerbed sidewalk. Colours estimated 2026-07-04."
+  "notes": "Open-air stone/marble workshop ('שיש לנצח' monument maker) - a low single-storey structure that is mostly an exposed steel-frame with grey metal canopy roofing over machinery and stone slabs; steel frame not directly expressible so modelled as one floor with a flat metal roof and open front bays. Dominant street element is the tall coursed stone-block boundary wall carrying the banner sign, over a red-and-white kerbed sidewalk. Colours estimated 2026-07-04. Environment (2026-07-05): two bare leafless street trees in kerb wells + blocky green bushes along the near verge, sampled from scene ref."
 }
