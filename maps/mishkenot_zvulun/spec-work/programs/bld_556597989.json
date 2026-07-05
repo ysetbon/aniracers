@@ -31,6 +31,26 @@
     "verge": { "grass": "#4f8a2f", "grassDark": "#3c6a24" },
     "road": { "surface": "asphalt", "color": "#4b4e52" }
   },
+  "environment": {
+    "props": [
+      { "car": true, "t": 0.36, "inset": -4.7, "rot": "along", "color": "#c9ccce" },
+      { "car": true, "t": 0.52, "inset": -4.7, "rot": "along", "color": "#c0342b" },
+      { "car": true, "t": 0.66, "inset": -4.7, "rot": "along", "color": "#8fb8cf" },
+      { "car": true, "t": 0.82, "inset": -4.7, "rot": "along", "flip": true, "color": "#4a7a4e" },
+      { "model": "tree_oak", "h": 9, "t": 0.06, "inset": 3.5, "rxz": 0.55, "tint": { "leafs": "#264d24", "wood": "#5c4632", "*": "#5c4632" } },
+      { "model": "tree_oak", "h": 8, "t": 0.5, "inset": 3.0, "rxz": 0.55, "tint": { "leafs": "#264d24", "wood": "#5c4632", "*": "#5c4632" } },
+      { "model": "tree_oak", "h": 7.5, "t": 0.56, "inset": 3.2, "rxz": 0.55, "tint": { "leafs": "#2a5528", "wood": "#5c4632", "*": "#5c4632" } },
+      { "model": "tree_oak", "h": 6, "t": 0.42, "inset": 4.0, "rxz": 1.2, "tint": { "leafs": "#3f8a3a", "wood": "#6e5138", "*": "#6e5138" } },
+      { "model": "tree_palmDetailedTall", "h": 10, "t": 0.9, "inset": 3.0, "rxz": 0.85, "tint": { "leafs": "#3f9b42", "wood": "#a08a67", "*": "#a08a67" } },
+      { "model": "tree_palmDetailedTall", "h": 9, "t": 0.98, "inset": 4.5, "rxz": 0.85, "tint": { "leafs": "#46a648", "wood": "#a08a67", "*": "#a08a67" } },
+      { "model": "plant_bushLarge", "h": 2.5, "t": 0.14, "inset": 1.2, "rxz": 1.3, "tint": { "leafs": "#4c8a34", "*": "#44603a" } },
+      { "model": "plant_bushLarge", "h": 2.2, "t": 0.2, "inset": 1.2, "rxz": 1.2, "tint": { "leafs": "#57952c", "*": "#44603a" } },
+      { "model": "pot_large", "h": 0.75, "t": 0.28, "inset": 0.6, "tint": { "wood": "#b8683f", "woodBarkDark": "#a05a36" } },
+      { "model": "pot_large", "h": 0.7, "t": 0.42, "inset": 0.6, "tint": { "wood": "#b8683f", "woodBarkDark": "#a05a36" } },
+      { "bin": true, "t": 0.24, "inset": -0.6, "rot": "along" },
+      { "bin": true, "t": 0.46, "inset": -0.6, "rot": "along" }
+    ]
+  },
   "sky": { "top": "#4a9fe0", "horizon": "#a9d4ea", "cloud": "#f4f6f6" },
   "notes": "Real ornate 3-storey villa. Warm tan sandstone render (#cdb083) with moulded window surrounds; arched-head windows with keystones (arch not expressible -> rectangular openings), dark blue-grey glass. Red-orange terracotta HIP tile roof (#b0472e) with a small top pediment. Cream balustraded balconies at first and second floors, wood entry doors (#8a5a30). Frontage: sandstone-block boundary wall with a red trim band and ornate grey metal vehicle + pedestrian gates, an external stair to a side unit, cypress and palm trees. Colours sampled from ref 2026-07-04."
 }

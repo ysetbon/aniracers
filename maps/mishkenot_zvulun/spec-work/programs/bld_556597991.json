@@ -20,6 +20,23 @@
     "sidewalk": { "material": "brick-pavers", "color": "#a45c3c", "joint": "#8d4e33", "w": 3.5 },
     "road": { "surface": "asphalt", "color": "#7f8286" }
   },
+  "environment": {
+    "props": [
+      { "car": true, "t": 0.6, "inset": -4.7, "rot": "along", "color": "#eceae4" },
+      { "car": true, "t": 0.95, "inset": -4.7, "rot": "along", "flip": true, "color": "#c6c9cb" },
+      { "hedge": true, "t0": 0.1, "t1": 0.55, "step": 1.2, "inset": 1.4, "h": 4, "d": 1.6, "colors": ["#3f8a3a", "#357a30", "#2f6b2b"] },
+      { "model": "plant_bushLarge", "h": 5, "t": 0.32, "inset": 2.5, "rxz": 2.2, "tint": { "leafs": "#3f8a3a", "*": "#357a30" } },
+      { "model": "tree_oak", "h": 10, "t": 0.5, "inset": 3.5, "rxz": 0.5, "tint": { "leafs": "#20441f", "wood": "#5c4632", "*": "#5c4632" } },
+      { "model": "tree_oak", "h": 9, "t": 0.56, "inset": 3.5, "rxz": 0.5, "tint": { "leafs": "#234a22", "wood": "#5c4632", "*": "#5c4632" } },
+      { "model": "tree_palmDetailedTall", "h": 7, "t": 0.66, "inset": 1.8, "rxz": 0.85, "tint": { "leafs": "#3f9b42", "wood": "#a08a67", "*": "#a08a67" } },
+      { "model": "tree_oak", "h": 6, "t": 0.85, "inset": 3.0, "rxz": 1.2, "tint": { "leafs": "#4f8a2f", "wood": "#6e5138", "*": "#6e5138" } },
+      { "model": "pot_large", "h": 0.8, "t": 0.7, "inset": 0.5, "tint": { "wood": "#b8683f", "woodBarkDark": "#a05a36" } },
+      { "model": "grass_leafs", "h": 0.6, "t": 0.44, "inset": 0.6, "y": 0.5, "tint": { "grass": "#5c9440", "*": "#5c9440" } },
+      { "model": "grass_leafs", "h": 0.55, "t": 0.72, "inset": 0.6, "y": 0.5, "tint": { "grass": "#4c8a3c", "*": "#4c8a3c" } },
+      { "bin": true, "t": 0.06, "inset": -0.6, "rot": "along" },
+      { "bin": true, "t": 0.12, "inset": -0.6, "rot": "along" }
+    ]
+  },
   "sky": { "top": "#5ea2db", "horizon": "#9fcfe4", "cloud": "#f4f6f6" },
   "notes": "Corner two-storey house almost entirely occluded by a large low-poly hedge. Visible upper block has dusty mauve-tan render and a dark maroon hipped roof with small white-framed windows. Massing and openings are plausible reconstructions behind the hedge. Cream block compound wall with an ornate black pedestrian gate, red brick-paver corner plaza. Colours sampled from ref 2026-07-04."
 }

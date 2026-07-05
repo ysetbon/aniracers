@@ -26,6 +26,25 @@
     "sidewalk": { "material": "stone-slabs", "color": "#b9bbbd", "joint": "#9a9ca0", "w": 3.0 },
     "road": { "surface": "asphalt", "color": "#7f8286" }
   },
+  "environment": {
+    "props": [
+      { "car": true, "t": 0.03, "inset": -4.7, "rot": "along", "color": "#b5382c" },
+      { "car": true, "t": 0.13, "inset": -4.7, "rot": "along", "color": "#c6c9cb" },
+      { "car": true, "t": 0.24, "inset": -4.7, "rot": "along", "color": "#b6b9bc" },
+      { "model": "tree_oak", "h": 8.5, "t": 0.13, "inset": 3.0, "rxz": 1.4, "tint": { "leafs": "#7aad34", "wood": "#6e5138", "*": "#6e5138" } },
+      { "model": "tree_oak", "h": 7, "t": 0.27, "inset": 3.2, "rxz": 1.3, "tint": { "leafs": "#8ab63a", "wood": "#6e5138", "*": "#6e5138" } },
+      { "model": "tree_oak", "h": 9, "t": 0.36, "inset": 2.6, "rxz": 0.55, "tint": { "leafs": "#234a22", "wood": "#5c4632", "*": "#5c4632" } },
+      { "model": "tree_oak", "h": 8, "t": 0.45, "inset": 2.8, "rxz": 0.55, "tint": { "leafs": "#264d24", "wood": "#5c4632", "*": "#5c4632" } },
+      { "model": "tree_palmTall", "h": 8, "t": 0.4, "inset": 2.2, "rxz": 0.85, "tint": { "leafs": "#3f9b42", "wood": "#a08a67", "*": "#a08a67" } },
+      { "model": "tree_palmDetailedTall", "h": 5.5, "t": 0.5, "inset": 1.8, "rxz": 0.85, "tint": { "leafs": "#46a648", "wood": "#a08a67", "*": "#a08a67" } },
+      { "model": "plant_bushLarge", "h": 2, "t": 0.58, "inset": 1.2, "rxz": 1.2, "tint": { "leafs": "#4c8a34", "*": "#44603a" } },
+      { "model": "plant_bushLarge", "h": 1.8, "t": 0.8, "inset": 1.2, "rxz": 1.1, "tint": { "leafs": "#57952c", "*": "#44603a" } },
+      { "model": "pot_large", "h": 0.8, "t": 0.55, "inset": 0.8, "tint": { "wood": "#b8683f", "woodBarkDark": "#a05a36" } },
+      { "model": "grass_leafs", "h": 0.6, "t": 0.3, "inset": -0.6, "y": 0.5, "tint": { "grass": "#5c9440", "*": "#5c9440" } },
+      { "bin": true, "t": 0.9, "inset": -0.6, "rot": "along" },
+      { "bin": true, "t": 0.96, "inset": -0.6, "rot": "along" }
+    ]
+  },
   "sky": { "top": "#5ea2db", "horizon": "#9fcfe4", "cloud": "#f4f6f6" },
   "notes": "Two-storey tan-stucco villa. Left/centre block has a terracotta hipped tile roof; right wing is a flat-roofed cube with a horizontal ribbon of three upper windows. Ground entry door on the right wing. Sandstone block compound wall with two ornate black iron gates (vehicle + pedestrian), grey stone-slab sidewalk, red-white kerb. Colours sampled from ref 2026-07-04."
 }

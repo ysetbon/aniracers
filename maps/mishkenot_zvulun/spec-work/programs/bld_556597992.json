@@ -22,6 +22,20 @@
     "sidewalk": { "material": "brick-pavers", "color": "#b45f3d", "joint": "#9a5236", "w": 3.5 },
     "road": { "surface": "asphalt", "color": "#808387" }
   },
+  "environment": {
+    "props": [
+      { "car": true, "t": 0.06, "inset": -4.7, "rot": "along", "color": "#2e3336" },
+      { "car": true, "t": 0.66, "inset": -4.7, "rot": "along", "color": "#e8e9e6" },
+      { "car": true, "t": 1.0, "inset": -4.7, "rot": "along", "flip": true, "color": "#c6c9cb" },
+      { "model": "tree_oak", "h": 10, "t": 0.42, "inset": 2.5, "rxz": 2.2, "tint": { "leafs": "#1f3d1e", "wood": "#5c4632", "*": "#5c4632" } },
+      { "model": "tree_palmDetailedTall", "h": 6, "t": 0.15, "inset": 2.8, "rxz": 0.85, "tint": { "leafs": "#3f9b42", "wood": "#a08a67", "*": "#a08a67" } },
+      { "model": "tree_oak", "h": 6.5, "t": 0.85, "inset": 3.0, "rxz": 1.2, "tint": { "leafs": "#5f9a35", "wood": "#6e5138", "*": "#6e5138" } },
+      { "model": "tree_oak", "h": 5.5, "t": 0.92, "inset": 3.5, "rxz": 1.1, "tint": { "leafs": "#6fa832", "wood": "#6e5138", "*": "#6e5138" } },
+      { "model": "tree_oak", "h": 8, "t": 0.7, "inset": 3.2, "rxz": 0.5, "tint": { "leafs": "#234a22", "wood": "#5c4632", "*": "#5c4632" } },
+      { "model": "grass_leafs", "h": 0.6, "t": 0.4, "inset": 0.6, "y": 0.5, "tint": { "grass": "#4c8a3c", "*": "#4c8a3c" } },
+      { "model": "plant_bush", "h": 1.2, "t": 0.5, "inset": 1.0, "rxz": 1.0, "tint": { "leafs": "#4c8a34", "*": "#44603a" } }
+    ]
+  },
   "sky": { "top": "#5ea2db", "horizon": "#9fcfe4", "cloud": "#f4f6f6" },
   "notes": "Two-storey tan-yellow house with dark hipped roof, largely hidden behind a very large dark low-poly tree at a street corner. Massing and openings reconstructed from the partially visible yellow neighbours. Tan block compound wall topped by a low green railing/fence and an ornate metal vehicle gate; red brick-paver sidewalk. Colours sampled from ref 2026-07-04."
 }
