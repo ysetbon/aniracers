@@ -36,6 +36,27 @@
     "verge": { "grass": "#4f8f3a", "grassDark": "#3a6b2c" },
     "road": { "surface": "asphalt", "color": "#8a8d91" }
   },
+  "environment": {
+    "ground": { "lawn": "#4f8f3a", "size": [220, 180] },
+    "road": { "surface": "#8a8d91", "kerb": "#b9bdc2", "halfW": 3.4, "len": 160 },
+    "driveway": { "at": 0.6, "w": 5.0, "color": "#9a9da1" },
+    "props": [
+      { "model": "tree_oak", "h": 5.5, "t": 0.05, "inset": 2, "rxz": 1.2,
+        "tint": { "leafs": "#3f7e2c", "wood": "#6e5138", "*": "#6e5138" } },
+      { "model": "tree_oak", "h": 6, "t": 0.13, "inset": 2.5, "rxz": 1.25,
+        "tint": { "leafs": "#4e8a28", "wood": "#6e5138", "*": "#6e5138" } },
+      { "model": "tree_oak", "h": 4.5, "t": 0.2, "inset": 2, "rxz": 0.6,
+        "tint": { "leafs": "#2f6b2b", "wood": "#5a4632", "*": "#5a4632" } },
+      { "model": "plant_bushLarge", "h": 2.2, "t": 0.3, "inset": 1.4, "rxz": 1.2,
+        "tint": { "leafs": "#4c8a34", "*": "#44603a" } },
+      { "model": "plant_bushLarge", "h": 2, "t": 0.38, "inset": 1.4, "rxz": 1.1,
+        "tint": { "leafs": "#57952c", "*": "#44603a" } },
+      { "planter": true, "t": 0.03, "inset": 0.9, "w": 1.6, "d": 0.8, "color": "#8a5a34", "rot": "along" },
+      { "car": true, "t": 0.6, "inset": -3.2, "rot": "along", "color": "#c9cbcc" },
+      { "lamp": true, "t": 0.82, "inset": -0.5, "rot": 90 },
+      { "bin": true, "t": 0.97, "inset": -0.6, "rot": "along" }
+    ]
+  },
   "sky": { "top": "#4f9edd", "horizon": "#9fcfe4", "cloud": "#f4f6f6" },
-  "notes": "Large modern tan/beige apartment complex, ~3 storeys, with strongly stepped-back upper floors and deep terraces. Top (attic) floor is set back and clad with a dark-brown fascia/spandrel band (#57452f); mid and lower floors carry wide balconies with glass-and-metal railings. Ground floor is recessed and darker with a grey garage/parking door. Frontage: white rendered perimeter wall with white metal picket fence and a white sliding vehicle gate, clipped hedges, grey paved forecourt, parked silver car. Colours read from ref 2026-07-04."
+  "notes": "Large modern tan/beige apartment complex, ~3 storeys, with strongly stepped-back upper floors and deep terraces. Top (attic) floor is set back and clad with a dark-brown fascia/spandrel band (#57452f); mid and lower floors carry wide balconies with glass-and-metal railings. Ground floor is recessed and darker with a grey garage/parking door. Frontage: white rendered perimeter wall with white metal picket fence and a white sliding vehicle gate, clipped hedges, grey paved forecourt, parked silver car. Colours read from ref 2026-07-04. Environment added 2026-07-05: silver station-wagon parked in grey-paved forecourt, green oaks + conical bush left, wall planter, dark lamp pole and bin toward the right."
 }
