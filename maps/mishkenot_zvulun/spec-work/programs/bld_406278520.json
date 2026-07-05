@@ -25,6 +25,23 @@
     "verge": { "grass": "#6ba83f", "grassDark": "#4e7d2e" },
     "road": { "surface": "asphalt", "color": "#8f4a2f" }
   },
+  "environment": {
+    "props": [
+      { "model": "tree_oak", "h": 9.5, "t": 0.9, "inset": 2.0, "rxz": 1.7, "tint": { "leafs": "#3f8b39", "wood": "#6e5138", "*": "#6e5138" } },
+      { "model": "tree_oak", "h": 5.0, "t": 0.72, "inset": 2.6, "rxz": 1.2, "tint": { "leafs": "#3a8236", "wood": "#6e5138", "*": "#6e5138" } },
+      { "model": "tree_palmDetailedTall", "h": 8.0, "t": 0.05, "inset": 6.0, "rxz": 0.85, "tint": { "leafs": "#3f9b42", "wood": "#a08a67", "*": "#a08a67" } },
+      { "model": "tree_palmDetailedTall", "h": 9.0, "t": 0.12, "inset": 8.0, "rxz": 0.85, "tint": { "leafs": "#46a648", "wood": "#a08a67", "*": "#a08a67" } },
+      { "model": "tree_palmTall", "h": 7.0, "t": 0.02, "inset": 9.0, "rxz": 0.85, "tint": { "leafs": "#3f9b42", "wood": "#a08a67", "*": "#a08a67" } },
+      { "hedge": true, "t0": 0.28, "t1": 0.62, "step": 1.2, "inset": 1.3, "h": 2.0, "d": 1.4, "colors": ["#57952c", "#4e8a28", "#3c7031"] },
+      { "model": "plant_bushLarge", "h": 2.0, "t": 0.4, "inset": 1.6, "rxz": 1.2, "tint": { "leafs": "#4c8a34", "*": "#44603a" } },
+      { "model": "plant_bush", "h": 1.0, "t": 0.7, "inset": 0.7, "rxz": 1.0, "tint": { "leafs": "#3f8b39", "*": "#44603a" } },
+      { "model": "grass_leafsLarge", "h": 0.8, "t": 0.62, "inset": 0.6, "tint": { "grass": "#4c8a3c", "*": "#4c8a3c" } },
+      { "car": true, "t": 0.5, "inset": -4.0, "rot": "along", "color": "#c2c4c6" },
+      { "car": true, "t": 0.25, "inset": -4.7, "rot": "along", "color": "#4a4d52" },
+      { "car": true, "t": 0.88, "inset": 2.0, "rot": "along", "flip": true, "color": "#b6a888" },
+      { "bin": true, "t": 0.66, "inset": -0.5, "rot": "along" }
+    ]
+  },
   "sky": { "top": "#5ea2db", "horizon": "#9fcfe4", "cloud": "#f4f6f6" },
-  "notes": "Two-storey villa in warm salmon/peach render (#e6b89a) under a red clay hipped roof (#c0392b). A projecting front entry porch carries its own small red gabled roof over the door. Rows of dark windows (#3f4650) with pale reveals. Frontage: low ashlar block wall (#c9bd9d) with an ornate pale-blue-grey metal vehicle gate (#8fa0ac) and clipped hedge, brick sidewalk beside a paver road. Colours pixel-sampled from the ref."
+  "notes": "Two-storey villa in warm salmon/peach render (#e6b89a) under a red clay hipped roof (#c0392b). A projecting front entry porch carries its own small red gabled roof over the door. Rows of dark windows (#3f4650) with pale reveals. Frontage: low ashlar block wall (#c9bd9d) with an ornate pale-blue-grey metal vehicle gate (#8fa0ac) and clipped hedge, brick sidewalk beside a paver road. Colours pixel-sampled from the ref. Environment: large foreground oak at right plus a rounder shrub-tree, background palms at left, a clipped green hedge along the wall, round bushes and foreground plants, a silver hatchback centre + charcoal car left parked at the kerb + a tan car inside the yard, green wheelie bin by the gate."
 }

@@ -21,6 +21,14 @@
   "frontage": {
     "sidewalk": { "material": "brick", "color": "#b5623f", "joint": "#96502f", "w": 3.0 }
   },
+  "environment": {
+    "props": [
+      { "model": "plant_bushLarge", "h": 2.6, "t": 0.42, "inset": 0.4, "rxz": 1.4, "tint": { "leafs": "#4a9e39", "*": "#3c7a30" } },
+      { "model": "plant_bush", "h": 1.4, "t": 0.5, "inset": 0.6, "rxz": 1.1, "tint": { "leafs": "#4c8a34", "*": "#44603a" } },
+      { "model": "grass_leafsLarge", "h": 0.8, "t": 0.46, "inset": 0.3, "tint": { "grass": "#5c9440", "*": "#5c9440" } },
+      { "model": "grass_leafs", "h": 0.6, "t": 0.37, "inset": 0.5, "tint": { "grass": "#4c8a3c", "*": "#4c8a3c" } }
+    ]
+  },
   "sky": { "top": "#5ea2db", "horizon": "#9fcfe4", "cloud": "#f4f6f6" },
-  "notes": "Facade close-up (same building family as 406278394): cream-plaster two-storey wall, red perforated breeze-block screen panels top and bottom, a white diamond-lattice security grille over a wide dark-glazed window with laundry lines, a wider low barred window at ground right, and a grey wall-mounted control box. Flat roof inferred. Colours estimated 2026-07-04."
+  "notes": "Facade close-up (same building family as 406278394): cream-plaster two-storey wall, red perforated breeze-block screen panels top and bottom, a white diamond-lattice security grille over a wide dark-glazed window with laundry lines, a wider low barred window at ground right, and a grey wall-mounted control box. Flat roof inferred. Colours estimated 2026-07-04. Environment: single bright-green leafy bush at the base (bottom-centre of ref) with a smaller shrub and grass tufts; no road/cars/trees visible in this tight facade crop."
 }

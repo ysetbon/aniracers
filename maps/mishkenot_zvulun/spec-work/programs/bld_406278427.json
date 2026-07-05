@@ -36,6 +36,25 @@
                "flowers": { "palette": ["#c73a33", "#e6d24a", "#f2f0e8"], "perM2": 0.1 } },
     "road": { "surface": "asphalt", "color": "#86898d" }
   },
+  "environment": {
+    "props": [
+      { "model": "tree_oak", "h": 9.5, "t": 0.02, "inset": 2.6, "rxz": 1.7, "tint": { "leafs": "#3f8b39", "wood": "#6e5138", "*": "#6e5138" } },
+      { "model": "tree_oak", "h": 9.0, "t": 0.2, "inset": 3.6, "rxz": 0.55, "tint": { "leafs": "#1e3a24", "wood": "#4a3a2a", "*": "#4a3a2a" } },
+      { "model": "tree_oak", "h": 8.5, "t": 0.26, "inset": 3.9, "rxz": 0.55, "tint": { "leafs": "#20402a", "wood": "#4a3a2a", "*": "#4a3a2a" } },
+      { "model": "tree_oak", "h": 9.2, "t": 0.32, "inset": 4.1, "rxz": 0.55, "tint": { "leafs": "#1e3a24", "wood": "#4a3a2a", "*": "#4a3a2a" } },
+      { "model": "tree_palmDetailedTall", "h": 8.0, "t": 0.3, "inset": 3.0, "rxz": 0.85, "tint": { "leafs": "#3f9b42", "wood": "#a08a67", "*": "#a08a67" } },
+      { "model": "tree_palmDetailedTall", "h": 9.0, "t": 0.45, "inset": 3.5, "rxz": 0.85, "tint": { "leafs": "#46a648", "wood": "#a08a67", "*": "#a08a67" } },
+      { "model": "tree_oak", "h": 4.5, "t": 0.72, "inset": 2.5, "rxz": 0.9, "tint": { "leafs": "#3f8b39", "wood": "#7a5c3e", "*": "#7a5c3e" } },
+      { "model": "plant_bushLarge", "h": 1.6, "t": 0.4, "inset": 2.0, "rxz": 1.1, "tint": { "leafs": "#c0327a", "*": "#4a7a34" } },
+      { "model": "plant_bushLarge", "h": 1.4, "t": 0.5, "inset": 2.2, "rxz": 1.0, "tint": { "leafs": "#4c8a34", "*": "#44603a" } },
+      { "model": "pot_large", "h": 0.8, "t": 0.55, "inset": 1.0, "tint": { "wood": "#b8683f", "*": "#a05a36" } },
+      { "model": "pot_large", "h": 0.8, "t": 0.6, "inset": 1.0, "tint": { "wood": "#c07a4a", "*": "#a05a36" } },
+      { "model": "pot_large", "h": 0.7, "t": 0.63, "inset": 0.9, "tint": { "wood": "#8a6a44", "*": "#6e5138" } },
+      { "car": true, "t": 0.78, "inset": -4.7, "rot": "along", "color": "#b23a2f" },
+      { "car": true, "t": 0.95, "inset": -4.7, "rot": "along", "flip": true, "color": "#b8ae9c" },
+      { "bin": true, "t": 0.82, "inset": -3.0, "rot": "along" }
+    ]
+  },
   "sky": { "top": "#4f9edd", "horizon": "#9fcfe4", "cloud": "#f4f6f6" },
-  "notes": "White-rendered house. Right-of-centre entry porch/tower capped by a prominent red clay-tile PYRAMID/hip roof (#b04a2f) over a dark blue-grey panelled door; twin wall lanterns flank the door. Main flat-roofed 2-storey block to the left with dark-glazed windows. Garden with palms, cypresses and potted plants in front. Frontage: ornate silver wrought-iron fence and sliding vehicle gate on a stone-rubble base wall, herringbone stone-slab sidewalk. Colours read from ref 2026-07-04."
+  "notes": "White-rendered house. Right-of-centre entry porch/tower capped by a prominent red clay-tile PYRAMID/hip roof (#b04a2f) over a dark blue-grey panelled door; twin wall lanterns flank the door. Main flat-roofed 2-storey block to the left with dark-glazed windows. Garden with palms, cypresses and potted plants in front. Frontage: ornate silver wrought-iron fence and sliding vehicle gate on a stone-rubble base wall, herringbone stone-slab sidewalk. Colours read from ref 2026-07-04. Environment: big foreground oak overhanging at left, a cluster of dark thin cypresses, two fan palms, red-flowered (bougainvillea) and green shrubs, terracotta pots/planter near the house, a red hatchback and a tan car parked at the kerb, blue wheelie bin."
 }
