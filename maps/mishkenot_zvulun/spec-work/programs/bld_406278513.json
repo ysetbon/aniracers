@@ -24,6 +24,87 @@
     "sidewalk": { "material": "stone-slabs", "color": "#c0b7a4", "joint": "#a89e88", "w": 3.0 },
     "verge": { "grass": "#6ba83f", "grassDark": "#4e7d2e" }
   },
+  "environment": {
+    "props": [
+      {
+        "model": "tree_oak",
+        "h": 9.0,
+        "t": 0.35,
+        "inset": 2.5,
+        "rxz": 0.6,
+        "tint": { "leafs": "#2f5d2a", "wood": "#6e5138", "*": "#6e5138" }
+      },
+      {
+        "model": "tree_oak",
+        "h": 5.0,
+        "t": 0.22,
+        "inset": 3.0,
+        "rxz": 1.1,
+        "tint": { "leafs": "#4e8a28", "wood": "#6e5138", "*": "#6e5138" }
+      },
+      {
+        "model": "tree_palmDetailedTall",
+        "h": 9.0,
+        "t": 0.92,
+        "inset": 3.0,
+        "rxz": 0.85,
+        "tint": { "leafs": "#3f9b42", "wood": "#a08a67", "*": "#a08a67" }
+      },
+      {
+        "model": "tree_oak",
+        "h": 4.0,
+        "t": 0.8,
+        "inset": 2.8,
+        "rxz": 0.9,
+        "tint": { "leafs": "#3c7031", "wood": "#6e5138", "*": "#6e5138" }
+      },
+      {
+        "model": "plant_bushLarge",
+        "h": 2.6,
+        "t": 0.86,
+        "inset": 1.6,
+        "rxz": 1.2,
+        "tint": { "leafs": "#4c8a34", "*": "#44603a" }
+      },
+      {
+        "model": "plant_bushLarge",
+        "h": 2.3,
+        "t": 0.9,
+        "inset": 1.3,
+        "rxz": 1.1,
+        "tint": { "leafs": "#5c9440", "*": "#44603a" }
+      },
+      {
+        "model": "flower_yellowA",
+        "h": 0.6,
+        "t": 0.88,
+        "inset": 1.1,
+        "tint": { "*": "#f2d24b" }
+      },
+      {
+        "model": "pot_large",
+        "h": 0.75,
+        "t": 0.72,
+        "inset": 0.7,
+        "tint": { "wood": "#b8683f", "woodBarkDark": "#a05a36" }
+      },
+      {
+        "car": true,
+        "t": 0.15,
+        "inset": -4.7,
+        "rot": "along",
+        "color": "#eceae4"
+      },
+      {
+        "car": true,
+        "t": 0.55,
+        "inset": -4.7,
+        "rot": "along",
+        "flip": true,
+        "color": "#3d5a82"
+      }
+    ]
+  },
   "sky": { "top": "#5ea2db", "horizon": "#9fcfe4", "cloud": "#f4f6f6" },
-  "notes": "Classic Jerusalem-stone house, ashlar sandstone blocks (#cfc3a8) with a steep gabled roof clad in tan clay tiles (#c9a86a). Small grilled ground/half-basement windows and larger upper windows (#4a5158); pale entry door under a small flat canopy reached by steps. Frontage: rubble-stone base wall (#c2b19a) with a grey panel vehicle gate and a black barred pedestrian gate, plus a red paved forecourt. Colours pixel-sampled from the ref."
+  "notes": "Classic Jerusalem-stone house, ashlar sandstone blocks (#cfc3a8) with a steep gabled roof clad in tan clay tiles (#c9a86a). Small grilled ground/half-basement windows and larger upper windows (#4a5158); pale entry door under a small flat canopy reached by steps. Frontage: rubble-stone base wall (#c2b19a) with a grey panel vehicle gate and a black barred pedestrian gate, plus a red paved forecourt. Colours pixel-sampled from the ref. Environment: tall dark cypress + rounded topiary oak by the gate, a detailed palm and a small topiary on the right with two large green bushes (one flowering yellow) and a terracotta pot; two cars added at the kerb for street richness. 2026-07-05."
 }

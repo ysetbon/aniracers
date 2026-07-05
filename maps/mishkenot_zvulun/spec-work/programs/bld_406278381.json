@@ -21,6 +21,21 @@
     "sidewalk": { "material": "stone-slabs", "color": "#7a5a4a", "joint": "#634638", "w": 3.0 },
     "verge": { "grass": "#7ba33f", "grassDark": "#586f3d" }
   },
+  "environment": {
+    "props": [
+      { "car": true, "t": 0.03, "inset": -4.7, "rot": "along", "color": "#b9bcc0" },
+      { "model": "tree_oak", "h": 9, "t": -0.05, "inset": 1.5, "rxz": 1.4, "tint": { "leafs": "#4a9a3a", "wood": "#6e5138", "*": "#6e5138" } },
+      { "model": "tree_palmDetailedTall", "h": 6.5, "t": 0.2, "inset": 2.0, "rxz": 0.85, "tint": { "leafs": "#3f9b42", "wood": "#a08a67", "*": "#a08a67" } },
+      { "model": "tree_palmDetailedTall", "h": 5.5, "t": 0.27, "inset": 2.3, "rxz": 0.85, "tint": { "leafs": "#46a648", "wood": "#a08a67", "*": "#a08a67" } },
+      { "model": "tree_oak", "h": 8, "t": 0.5, "inset": 2.6, "rxz": 0.6, "tint": { "leafs": "#24521f", "wood": "#6e5138", "*": "#6e5138" } },
+      { "model": "tree_oak", "h": 7.5, "t": 0.58, "inset": 2.9, "rxz": 0.6, "tint": { "leafs": "#24521f", "wood": "#6e5138", "*": "#6e5138" } },
+      { "model": "plant_bushLarge", "h": 4.0, "t": 0.92, "inset": 1.2, "rxz": 1.4, "tint": { "leafs": "#4c8a34", "*": "#3c7031" } },
+      { "model": "pot_large", "h": 0.75, "t": 0.34, "inset": 0.8, "tint": { "wood": "#b8683f", "woodBarkDark": "#a05a36" } },
+      { "model": "pot_large", "h": 0.7, "t": 0.4, "inset": 0.85, "tint": { "wood": "#b8683f", "woodBarkDark": "#a05a36" } },
+      { "bin": true, "t": 0.66, "inset": -0.6, "rot": "along" },
+      { "lamp": true, "t": -0.02, "inset": 0.4 }
+    ]
+  },
   "sky": { "top": "#5ea2db", "horizon": "#9fcfe4", "cloud": "#f4f6f6" },
-  "notes": "Cream ashlar-stone house with a red terracotta-tile gable roof. The street-facing gable end carries a large semicircular arched window (arch not expressible -- modelled as a wide upper window); ground floor has smaller windows with grey security bars. Side wall shows a stack of AC condenser units and barred windows. Frontage: low fieldstone/rubble wall, a grey metal sliding vehicle gate, cypress trees, terracotta paver walk, rubbish bags/bins at the gate. Colours estimated from ref."
+  "notes": "Cream ashlar-stone house with a red terracotta-tile gable roof. The street-facing gable end carries a large semicircular arched window (arch not expressible -- modelled as a wide upper window); ground floor has smaller windows with grey security bars. Side wall shows a stack of AC condenser units and barred windows. Frontage: low fieldstone/rubble wall, a grey metal sliding vehicle gate, cypress trees, terracotta paver walk, rubbish bags/bins at the gate. Colours estimated from ref. Environment: silver car at kerb, large green oak at left, two palms and terracotta pots mid-yard, two dark cypresses in front of the gable, a large multi-tone bush at right, green wheelie bin at the gate, street lamp at left. Sampled from ref 2026-07-05."
 }

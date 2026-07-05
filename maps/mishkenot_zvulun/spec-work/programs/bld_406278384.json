@@ -21,6 +21,22 @@
     "wall": { "type": "rubble", "color": "#c7a578", "mortar": "#a98a5f", "h": 1.4 },
     "sidewalk": { "material": "hex-pavers", "color": "#d3b47f", "joint": "#bd9a63", "w": 4.0 }
   },
+  "environment": {
+    "props": [
+      { "lamp": true, "t": 0.28, "inset": 0.2 },
+      { "model": "tree_palmDetailedTall", "h": 8.0, "t": 0.5, "inset": 2.8, "rxz": 0.85, "tint": { "leafs": "#43933f", "wood": "#8a7350", "*": "#8a7350" } },
+      { "model": "tree_oak", "h": 9.0, "t": 0.66, "inset": 3.2, "rxz": 0.6, "tint": { "leafs": "#2b5722", "wood": "#6e5138", "*": "#6e5138" } },
+      { "model": "plant_bushLarge", "h": 2.8, "t": 0.4, "inset": 1.6, "rxz": 1.2, "tint": { "leafs": "#3f8a34", "*": "#44603a" } },
+      { "model": "plant_bushDetailed", "h": 2.2, "t": 0.46, "inset": 1.4, "rxz": 1.1, "tint": { "leafs": "#4c8a3c", "*": "#44603a" } },
+      { "model": "plant_bushLarge", "h": 2.5, "t": 0.58, "inset": 1.8, "rxz": 1.1, "tint": { "leafs": "#46852f", "*": "#3c7031" } },
+      { "model": "pot_large", "h": 0.7, "t": 0.42, "inset": 0.6, "tint": { "wood": "#b8683f", "woodBarkDark": "#a05a36" } },
+      { "model": "flower_yellowA", "h": 0.5, "t": 0.45, "inset": 0.55 },
+      { "model": "rock_smallA", "h": 0.4, "t": 0.52, "inset": 0.5 },
+      { "model": "grass_leafs", "h": 0.6, "t": 0.5, "inset": 0.75, "tint": { "grass": "#5c9440", "*": "#5c9440" } },
+      { "model": "tree_oak", "h": 6.0, "t": 1.05, "inset": 4.0, "rxz": 1.2, "tint": { "leafs": "#5a9a3e", "wood": "#6e5138", "*": "#6e5138" } },
+      { "car": true, "t": 0.98, "inset": -4.7, "rot": "along", "flip": true, "color": "#7a3b34" }
+    ]
+  },
   "sky": { "top": "#5ea2db", "horizon": "#9fcfe4", "cloud": "#f4f6f6" },
-  "notes": "Warm sandstone ashlar two-storey house; barred/grilled small windows, vent-slat panels (grille field not in schema). Red-tile gable roof over the block. Ground floor rubble-stone base band. Frontage is a low rubble stone wall along a hex-paver sidewalk with grey electrical cabinets and a globe lamp (props pending). Colours estimated from ref pixels 2026-07-04."
+  "notes": "Warm sandstone ashlar two-storey house; barred/grilled small windows, vent-slat panels (grille field not in schema). Red-tile gable roof over the block. Ground floor rubble-stone base band. Frontage is a low rubble stone wall along a hex-paver sidewalk with grey electrical cabinets and a globe lamp (props pending). Colours estimated from ref pixels 2026-07-04. Environment: globe street lamp, a large palm and a tall dark cypress over a raised garden bed with medium bushes, terracotta pot, yellow flowers, rock and grass tufts; a small background oak and a maroon car parked down the street at right. Sampled from ref 2026-07-05."
 }
