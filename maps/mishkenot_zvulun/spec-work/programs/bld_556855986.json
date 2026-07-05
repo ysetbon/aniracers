@@ -30,6 +30,26 @@
     "sidewalk": { "material": "brick-pavers", "color": "#b5623f", "joint": "#9a5236", "w": 4.0 },
     "road": { "surface": "asphalt", "color": "#7d8084" }
   },
+  "environment": {
+    "props": [
+      { "model": "tree_palmDetailedTall", "h": 10.5, "t": 0.05, "inset": 2.6, "rxz": 0.85,
+        "tint": { "leafs": "#3f9b42", "wood": "#8a6f45", "*": "#8a6f45" } },
+      { "model": "tree_palmTall", "h": 9.0, "t": 0.12, "inset": 4.0, "rxz": 0.85,
+        "tint": { "leafs": "#46a648", "wood": "#8a6f45", "*": "#8a6f45" } },
+      { "model": "tree_oak", "h": 7.0, "t": 0.42, "inset": 2.0, "rxz": 0.6,
+        "tint": { "leafs": "#2c5228", "wood": "#5c4630", "*": "#5c4630" } },
+      { "model": "tree_oak", "h": 6.5, "t": 0.52, "inset": 1.7, "rxz": 0.6,
+        "tint": { "leafs": "#31602c", "wood": "#5c4630", "*": "#5c4630" } },
+      { "model": "plant_bushLarge", "h": 3.6, "t": 0.34, "inset": 1.5, "rxz": 1.6,
+        "tint": { "leafs": "#4c8a34", "*": "#44603a" } },
+      { "model": "tree_palmDetailedTall", "h": 11.0, "t": 0.86, "inset": 2.6, "rxz": 0.85,
+        "tint": { "leafs": "#3f9b42", "wood": "#8a6f45", "*": "#8a6f45" } },
+      { "model": "tree_palmTall", "h": 9.5, "t": 0.95, "inset": 3.6, "rxz": 0.85,
+        "tint": { "leafs": "#46a648", "wood": "#8a6f45", "*": "#8a6f45" } },
+      { "model": "tree_palmTall", "h": 8.5, "t": 1.02, "inset": 4.6, "rxz": 0.85,
+        "tint": { "leafs": "#3f9b42", "wood": "#8a6f45", "*": "#8a6f45" } }
+    ]
+  },
   "sky": { "top": "#5ea2db", "horizon": "#9fcfe4", "cloud": "#f4f6f6" },
-  "notes": "Two-storey cream (#e7dfc4) villa, flat roof; left stair block parapet steps slightly higher (taller fascia). Small dark square windows upper floor, brown door + window ground. Frontage: cream block wall with brushed stainless-steel sliding vehicle gate + matching pedestrian gate and glass-panel fence sections; red brick-paver sidewalk. Tall palms and cypress + a big round shrub occlude much of the front-right (neighbour house on right is a separate building)."
+  "notes": "Two-storey cream (#e7dfc4) villa, flat roof; left stair block parapet steps slightly higher (taller fascia). Small dark square windows upper floor, brown door + window ground. Frontage: cream block wall with brushed stainless-steel sliding vehicle gate + matching pedestrian gate and glass-panel fence sections; red brick-paver sidewalk. Tall palms and cypress + a big round shrub occlude much of the front-right (neighbour house on right is a separate building). Environment (2026-07-05): palms flank both ends of the frontage, two dark cypresses stand centre with a big rounded shrub bulging over the wall; no parked cars or bins visible."
 }

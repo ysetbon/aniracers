@@ -23,6 +23,18 @@
     "verge": { "grass": "#8fb060", "grassDark": "#66794f" },
     "road": { "surface": "asphalt", "color": "#8f9296" }
   },
+  "environment": {
+    "ground": { "lawn": "#8fb060", "size": [220, 180] },
+    "road": { "surface": "#8f9296", "kerb": "#b9bdc2", "halfW": 3.4, "len": 160 },
+    "driveway": { "at": 0.5, "w": 6.5, "color": "#9a6b4a" },
+    "props": [
+      { "model": "tree_oak", "h": 8.0, "t": 0.12, "inset": 2.5, "rxz": 1.6, "tint": { "leafs": "#1f4d22", "wood": "#6e5138", "*": "#6e5138" } },
+      { "model": "tree_oak", "h": 7.5, "t": 0.28, "inset": 2.8, "rxz": 1.5, "tint": { "leafs": "#245224", "wood": "#6e5138", "*": "#6e5138" } },
+      { "model": "tree_oak", "h": 7.0, "t": 0.42, "inset": 2.6, "rxz": 1.4, "tint": { "leafs": "#1f4d22", "wood": "#6e5138", "*": "#6e5138" } },
+      { "model": "tree_oak", "h": 6.5, "t": 0.75, "inset": 2.4, "rxz": 1.35, "tint": { "leafs": "#2f6b2b", "wood": "#6e5138", "*": "#6e5138" } },
+      { "bin": true, "t": 0.9, "inset": -0.8, "rot": "along" }
+    ]
+  },
   "sky": { "top": "#5ea2db", "horizon": "#9fcfe4", "cloud": "#f4f6f6" },
   "notes": "Building fully occluded: the frame is dominated by a long charcoal (#3d4147) metal sliding driveway gate with decorative square panels and a cut-out horse/animal figure, plus a small pedestrian gate, all on a tan sandstone-block (#d5b071) low wall. Big dark-green trees with red pomegranates and a grey utility cabinet in front. Massing inferred as a 2-floor cream villa with terracotta hipped roof (a small tiled roof is just visible far right). Multicolour brick pavers, red-white kerb. Colours sampled from ref 2026-07-04."
 }
