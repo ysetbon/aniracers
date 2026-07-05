@@ -26,6 +26,20 @@
     "sidewalk": { "material": "stone-cobble", "color": "#b0aca4", "joint": "#928d84", "w": 4.0 },
     "road": { "surface": "asphalt", "color": "#7d8084" }
   },
+  "environment": {
+    "props": [
+      { "model": "tree_oak", "h": 6, "t": 0.35, "inset": 2, "rxz": 0.6, "tint": { "leafs": "#2b5d2a", "wood": "#6e5138", "*": "#6e5138" } },
+      { "model": "tree_oak", "h": 6.5, "t": 0.6, "inset": 2.5, "rxz": 0.6, "tint": { "leafs": "#2f5d2a", "wood": "#6e5138", "*": "#6e5138" } },
+      { "model": "tree_oak", "h": 5.5, "t": 0.7, "inset": 2, "rxz": 1.2, "tint": { "leafs": "#4c8a34", "wood": "#6e5138", "*": "#6e5138" } },
+      { "model": "tree_oak", "h": 5, "t": 0.85, "inset": 3, "rxz": 1.2, "tint": { "leafs": "#3f7f30", "wood": "#6e5138", "*": "#6e5138" } },
+      { "hedge": true, "t0": 0.1, "t1": 0.62, "step": 1.2, "inset": 1.3, "h": 2, "d": 1.4, "colors": ["#57952c", "#4e8a28", "#3c7031"] },
+      { "bin": true, "t": 0.2, "inset": -0.8, "rot": "along" },
+      { "bin": true, "t": 0.9, "inset": -0.8, "rot": "along" },
+      { "bin": true, "t": 0.94, "inset": -0.8, "rot": "along" },
+      { "lamp": true, "t": 0.95, "inset": -6, "rot": 90 },
+      { "car": true, "t": 0.5, "inset": -4.7, "rot": "along", "color": "#f2f2f0" }
+    ]
+  },
   "sky": { "top": "#5ea2db", "horizon": "#9fcfe4", "cloud": "#f4f6f6" },
   "notes": "Small two-storey white (#eceae2) house with a red (#c0472e) hipped tile roof and light eaves fascia. Grey-glass windows with white frames, dark door, wall AC unit. Frontage is a clipped green hedge with a low dark bar gate; grey cobble/paver plaza sidewalk. Part of a cluster of similar red-roof houses; front largely fronts an open paved square."
 }

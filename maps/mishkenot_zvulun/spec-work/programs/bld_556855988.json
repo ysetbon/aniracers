@@ -31,6 +31,19 @@
     "sidewalk": { "material": "brick-pavers", "color": "#7a6a58", "joint": "#645648", "w": 4.0 },
     "road": { "surface": "asphalt", "color": "#7d8084" }
   },
+  "environment": {
+    "props": [
+      { "model": "tree_palmDetailedTall", "h": 10, "t": 0.05, "inset": 2.5, "rxz": 0.85, "tint": { "leafs": "#3f8a3c", "wood": "#8a7a52", "*": "#8a7a52" } },
+      { "model": "tree_palmDetailedTall", "h": 11, "t": 0.14, "inset": 3, "rxz": 0.85, "tint": { "leafs": "#46a648", "wood": "#9a8a62", "*": "#9a8a62" } },
+      { "model": "tree_palmDetailedTall", "h": 9.5, "t": 0.24, "inset": 2.6, "rxz": 0.85, "tint": { "leafs": "#3f9b42", "wood": "#a08a67", "*": "#a08a67" } },
+      { "model": "tree_oak", "h": 6.5, "t": 0.4, "inset": 2, "rxz": 1.3, "tint": { "leafs": "#4c8a35", "wood": "#6e5138", "*": "#6e5138" } },
+      { "hedge": true, "t0": 0.02, "t1": 0.5, "step": 1.2, "inset": 1.3, "h": 2, "d": 1.4, "colors": ["#57952c", "#4e8a28", "#3c7031"] },
+      { "model": "plant_bushLarge", "h": 2.2, "t": 0.55, "inset": 1, "rxz": 1.2, "tint": { "leafs": "#4c8a34", "*": "#44603a" } },
+      { "model": "plant_bushLarge", "h": 1.8, "t": 0.62, "inset": 1.2, "rxz": 1.1, "tint": { "leafs": "#57952c", "*": "#44603a" } },
+      { "car": true, "t": 0.75, "inset": -4.7, "rot": "along", "color": "#eceae4" },
+      { "car": true, "t": 0.95, "inset": -4.7, "rot": "along", "flip": true, "color": "#b9bcc0" }
+    ]
+  },
   "sky": { "top": "#5ea2db", "horizon": "#9fcfe4", "cloud": "#f4f6f6" },
   "notes": "Very long (82m) white (#edeeee) 4-storey apartment block, flat roof. Dark-glass windows with white frames; upper floors have white French-balcony rails; ground floor windows carry security grilles (approximated as lighter recessed windows -- no grille field). A cylindrical white water-heater/boiler tank is wall-mounted upper-right (prop pending). Frontage: light rubble-stone base wall (#cfc9bf) topped by a white picket/rail fence; brown brick-paver sidewalk. Tall palms occlude the near-left facade."
 }
