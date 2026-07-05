@@ -3140,8 +3140,12 @@ function stepKart(k, dt){
   const idx=nearestIdx(k.pos);
   const dCenter=distToCenter(k.pos,idx);
   const onRoad=dCenter<HALF_W+1;
+  // Grip falls off SMOOTHLY past the tarmac edge instead of a hard cliff, so
+  // clipping a verge or cutting a corner eases the kart down rather than
+  // slamming the brakes on. 0 while on-road → 1 once well into the rough.
+  const offT = THREE.MathUtils.clamp((dCenter-(HALF_W+1))/8, 0, 1);
 
-  let maxSp = (onRoad? 40 : 18) * k.boostMul;
+  let maxSp = (40 - 22*offT) * k.boostMul; // 40 on tarmac, ramps to ~18 off-road
   if(k.fly>0) maxSp=Math.max(maxSp,74); // flying ignores offroad
   if(k.grapple>0) maxSp=85;
 
@@ -3166,10 +3170,18 @@ function stepKart(k, dt){
         else if(k.speed<0) k.speed=Math.min(0,k.speed+14*dt);
       }
       // steering: keyboard is full-tilt; touch joystick is analog (-1..1, +left)
-      let steer = (keys.ArrowLeft||keys.KeyA?1:0) - (keys.ArrowRight||keys.KeyD?1:0) + tstate.steerX;
-      steer = THREE.MathUtils.clamp(steer, -1, 1);
-      const steerPow = 2.3 * Math.min(1, Math.abs(k.speed)/14) * (k.speed<0?-1:1);
-      k.rot += steerPow*dt*steer;
+      let steerIn = (keys.ArrowLeft||keys.KeyA?1:0) - (keys.ArrowRight||keys.KeyD?1:0) + tstate.steerX;
+      steerIn = THREE.MathUtils.clamp(steerIn, -1, 1);
+      // Ease the wheel toward the input so a key tap ramps in (and returns to
+      // centre) instead of snapping — this is what turns twitchy into smooth.
+      k.steer = k.steer||0;
+      k.steer += (steerIn - k.steer) * Math.min(1, (steerIn===0?9:6)*dt);
+      // Steering authority grows with speed, then eases off near top speed so
+      // the kart stays planted at pace rather than spinning out on small taps.
+      const sp = Math.abs(k.speed);
+      const authority = Math.min(1, sp/12) * (1 - .35*Math.min(1, sp/40));
+      const steerPow = 2.6 * authority * (k.speed<0?-1:1);
+      k.rot += steerPow*dt*k.steer;
       k.speed=THREE.MathUtils.clamp(k.speed,-16,maxSp);
     } else if(!k.isPlayer && (state==='race'||state==='done')){
       const look=(idx+(k.wallBack>0?6:9))%N;
