@@ -31,6 +31,23 @@
     "verge": { "grass": "#5f9a3f", "grassDark": "#4a7a34", "flowers": { "palette": ["#e08bbf", "#f6f3ea"], "perM2": 0.1 } },
     "road": { "surface": "asphalt", "color": "#8f9296" }
   },
+  "environment": {
+    "ground": { "lawn": "#5f9a3f", "size": [220, 180] },
+    "road": { "surface": "#8f9296", "kerb": "#b9bdc2", "halfW": 3.4, "len": 160 },
+    "props": [
+      { "model": "tree_oak", "h": 5.5, "t": 0.12, "inset": 1.8, "rxz": 1.2, "tint": { "leafs": "#4f9a34", "wood": "#6e5138", "*": "#6e5138" } },
+      { "model": "tree_oak", "h": 5.5, "t": 0.24, "inset": 2.0, "rxz": 1.2, "tint": { "leafs": "#4f9a34", "wood": "#6e5138", "*": "#6e5138" } },
+      { "model": "tree_oak", "h": 9, "t": 0.33, "inset": 2.6, "rxz": 1.35, "tint": { "leafs": "#3c7031", "wood": "#6e5138", "*": "#6e5138" } },
+      { "model": "tree_oak", "h": 8.5, "t": 0.56, "inset": 2.4, "rxz": 0.6, "tint": { "leafs": "#2f5d2a", "wood": "#6e5138", "*": "#6e5138" } },
+      { "model": "tree_oak", "h": 6.5, "t": 0.72, "inset": 2.4, "rxz": 1.2, "tint": { "leafs": "#e08bbf", "wood": "#6e5138", "*": "#6e5138" } },
+      { "model": "tree_oak", "h": 5, "t": 0.86, "inset": 2.2, "rxz": 1.15, "tint": { "leafs": "#4f9a34", "wood": "#6e5138", "*": "#6e5138" } },
+      { "hedge": true, "h": 1.6, "t0": 0.02, "t1": 0.98, "step": 1.2, "inset": 1.2, "d": 1.4, "colors": ["#57952c", "#4e8a28", "#3c7031"] },
+      { "bin": true, "t": 0.18, "inset": -0.9, "rot": "along" },
+      { "bin": true, "t": 0.78, "inset": -0.9, "rot": "along" },
+      { "lamp": true, "t": 0.6, "inset": -0.5, "rot": 90 },
+      { "lamp": true, "t": 1.15, "inset": -0.5, "rot": 90 }
+    ]
+  },
   "sky": { "top": "#4f97d8", "horizon": "#9fcfe4", "cloud": "#f4f6f6" },
-  "notes": "Large residential apartment block, occluded by street trees. Two flat-roofed volumes: warm cream left block (4 floors, ground-floor windows have grey security bars) and a white right block (4 floors). Red fabric awning (#c9433a) over the ground entrance. Roof water tanks visible. Windows are light reflective glass with white frames. Sampled from ref 2026-07-04."
+  "notes": "Large residential apartment block, occluded by street trees. Two flat-roofed volumes: warm cream left block (4 floors, ground-floor windows have grey security bars) and a white right block (4 floors). Red fabric awning (#c9433a) over the ground entrance. Roof water tanks visible. Windows are light reflective glass with white frames. Environment: dense screen of street trees — two clementine oaks, a tall green oak, a dark cypress (rxz0.6), a pink-blossom tree (#e08bbf), a continuous low green hedge, painted utility-box bins on the sidewalk and street lamps; no cars parked on this wide frontage. Sampled from ref 2026-07-04."
 }

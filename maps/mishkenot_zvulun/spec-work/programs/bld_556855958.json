@@ -24,6 +24,24 @@
     "verge": { "grass": "#5f9a3f", "grassDark": "#4a7a34" },
     "road": { "surface": "asphalt", "color": "#8f9296" }
   },
+  "environment": {
+    "ground": { "lawn": "#5f9a3f", "size": [220, 180] },
+    "road": { "surface": "#8f9296", "kerb": "#b9bdc2", "halfW": 3.4, "len": 160 },
+    "props": [
+      { "model": "tree_palmDetailedTall", "h": 10, "t": 0.28, "inset": 3.0, "rxz": 0.85, "tint": { "leafs": "#3f9b42", "wood": "#a08a67", "*": "#a08a67" } },
+      { "model": "tree_palmTall", "h": 8.5, "t": 0.38, "inset": 4.6, "rxz": 0.85, "tint": { "leafs": "#46a648", "wood": "#a08a67", "*": "#a08a67" } },
+      { "model": "tree_oak", "h": 7.5, "t": 0.17, "inset": 3.4, "rxz": 0.6, "tint": { "leafs": "#2f5d2a", "wood": "#6e5138", "*": "#6e5138" } },
+      { "model": "tree_oak", "h": 8, "t": 0.72, "inset": 3.2, "rxz": 0.6, "tint": { "leafs": "#2f5d2a", "wood": "#6e5138", "*": "#6e5138" } },
+      { "model": "tree_oak", "h": 8.5, "t": 0.55, "inset": 2.8, "rxz": 1.4, "tint": { "leafs": "#2f5d2a", "wood": "#6e5138", "*": "#6e5138" } },
+      { "model": "tree_oak", "h": 7.5, "t": 0.9, "inset": 0.2, "rxz": 1.3, "tint": { "leafs": "#33642c", "wood": "#6e5138", "*": "#6e5138" } },
+      { "model": "pot_large", "h": 0.7, "t": 0.06, "inset": 1.3, "tint": { "wood": "#8a5a36", "woodBarkDark": "#734829" } },
+      { "model": "grass_leafsLarge", "h": 0.8, "t": 0.06, "inset": 1.3, "y": 0.5, "tint": { "grass": "#4c8a3c", "*": "#4c8a3c" } },
+      { "bin": true, "t": 0.82, "inset": -0.8, "rot": "along" },
+      { "lamp": true, "t": 0.98, "inset": -15.5, "rot": 90 },
+      { "car": true, "t": 0.88, "inset": -4.7, "rot": "along", "flip": true, "color": "#c9bfa0" },
+      { "car": true, "t": 1.12, "inset": -4.85, "rot": "along", "flip": true, "color": "#4a6a8a" }
+    ]
+  },
   "sky": { "top": "#4f97d8", "horizon": "#9fcfe4", "cloud": "#f4f6f6" },
-  "notes": "Small white 2-storey private house with an orange terracotta hipped roof. Upper floor has a small front balcony with a cream metal bar rail. Dark blue-grey glass, white frames. White picket-fence frontage on a low concrete-block wall, blue porthole detail and a blue mailbox. Sampled from ref 2026-07-04."
+  "notes": "Small white 2-storey private house with an orange terracotta hipped roof. Upper floor has a small front balcony with a cream metal bar rail. Dark blue-grey glass, white frames. White picket-fence frontage on a low concrete-block wall, blue porthole detail and a blue mailbox. Environment: two palms, three dark cypress/oak columns and a big round oak fill the yard (basketball hoop + swing behind the fence), grass-filled planter by the fence, beige station-wagon + blue car parked at the kerb, green wheelie bin and a street/power lamp. Sampled from ref 2026-07-04."
 }
