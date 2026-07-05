@@ -30,6 +30,22 @@
     "sidewalk": { "material": "asphalt", "color": "#8f9296", "joint": "#7a7d80", "w": 3.0 },
     "verge": { "grass": "#5db63f", "grassDark": "#437c34" }
   },
+  "environment": {
+    "props": [
+      { "car": true, "t": 0.1, "inset": -4.7, "rot": "along", "color": "#c0342b" },
+      { "model": "tree_oak", "h": 9, "t": 0.05, "inset": 2.0, "rxz": 0.6, "tint": { "leafs": "#244f1e", "wood": "#6e5138", "*": "#6e5138" } },
+      { "model": "tree_palmDetailedTall", "h": 11, "t": 0.62, "inset": 2.6, "rxz": 0.85, "tint": { "leafs": "#3f9b42", "wood": "#a08a67", "*": "#a08a67" } },
+      { "model": "tree_palmTall", "h": 9.5, "t": 0.78, "inset": 3.5, "rxz": 0.85, "tint": { "leafs": "#46a648", "wood": "#a08a67", "*": "#a08a67" } },
+      { "model": "tree_palmDetailedTall", "h": 10, "t": 0.9, "inset": 4.2, "rxz": 0.85, "tint": { "leafs": "#3f9b42", "wood": "#a08a67", "*": "#a08a67" } },
+      { "model": "tree_oak", "h": 6, "t": 0.68, "inset": 2.0, "rxz": 1.3, "tint": { "leafs": "#4e8a34", "wood": "#6e5138", "*": "#6e5138" } },
+      { "model": "plant_bushLarge", "h": 3.0, "t": 0.72, "inset": 1.5, "rxz": 1.3, "tint": { "leafs": "#3c7031", "*": "#44603a" } },
+      { "model": "pot_large", "h": 0.75, "t": 0.5, "inset": 0.9, "tint": { "wood": "#b8683f", "woodBarkDark": "#a05a36" } },
+      { "model": "pot_large", "h": 0.7, "t": 0.42, "inset": 0.9, "tint": { "wood": "#b8683f", "woodBarkDark": "#a05a36" } },
+      { "model": "plant_bushLarge", "h": 2.0, "t": 0.95, "inset": 0.6, "rxz": 1.2, "tint": { "leafs": "#4c8a34", "*": "#44603a" } },
+      { "bin": true, "t": 0.06, "inset": -0.8, "rot": "along" },
+      { "bin": true, "t": 0.98, "inset": -0.8, "rot": "along" }
+    ]
+  },
   "sky": { "top": "#5ea2db", "horizon": "#9fcfe4", "cloud": "#f4f6f6" },
   "notes": "Two-storey white/cream house (#eceadd) with orange terracotta hip roof (#c05a34). Upper floor has a front balcony (light rail) with a timber pergola; wall-mounted AC units on both floors. A lower single-storey left wing with its own terracotta hip roof holds a white panel garage door. Frontage: a white sliding panel vehicle gate and a distinctive blue ornate-bar pedestrian gate marked house-number 38, with a wall-mounted mailbox and terracotta flower planters; white picket fence with sandstone base to the right. A pedestrian figure and red car on the street. Sampled colours 2026-07-04."
 }

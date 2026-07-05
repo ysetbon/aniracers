@@ -28,6 +28,21 @@
     "verge": { "grass": "#6bbb45", "grassDark": "#4e7c3c" },
     "road": { "surface": "asphalt", "color": "#8f9296" }
   },
+  "environment": {
+    "props": [
+      { "model": "tree_oak", "h": 8.5, "t": 0.13, "inset": 1.6, "rxz": 1.35, "tint": { "leafs": "#4e8a34", "wood": "#9a8a6e", "*": "#9a8a6e" } },
+      { "model": "tree_oak", "h": 9.5, "t": 0.4, "inset": 2.6, "rxz": 0.6, "tint": { "leafs": "#244f1e", "wood": "#6e5138", "*": "#6e5138" } },
+      { "model": "tree_oak", "h": 8.5, "t": 0.48, "inset": 2.9, "rxz": 0.6, "tint": { "leafs": "#2a5a24", "wood": "#6e5138", "*": "#6e5138" } },
+      { "model": "plant_bushLarge", "h": 2.8, "t": 0.33, "inset": 1.5, "rxz": 1.3, "tint": { "leafs": "#4c8a34", "*": "#44603a" } },
+      { "model": "plant_bushLarge", "h": 2.4, "t": 0.55, "inset": 1.4, "rxz": 1.2, "tint": { "leafs": "#57952c", "*": "#44603a" } },
+      { "hedge": true, "h": 2.0, "t0": 0.35, "t1": 0.62, "step": 1.2, "inset": 1.3, "d": 1.4, "colors": ["#57952c", "#4e8a28", "#3c7031"] },
+      { "model": "rock_smallA", "h": 0.7, "t": 0.16, "inset": 0.4 },
+      { "model": "rock_smallB", "h": 0.6, "t": 0.2, "inset": 0.6 },
+      { "bin": true, "t": 0.1, "inset": -0.8, "rot": "along" },
+      { "bin": true, "t": 0.14, "inset": -0.9, "rot": "along" },
+      { "car": true, "t": 0.86, "inset": -4.7, "rot": "along", "flip": true, "color": "#9a9ea3" }
+    ]
+  },
   "sky": { "top": "#5ea2db", "horizon": "#9fcfe4", "cloud": "#f4f6f6" },
   "notes": "Kindergarten. Two-storey: cream upper floor (#e6dcc2), grey-blue painted ground floor with a colourful children's mural (#a6c3c6, encoded as a floor-0 band 'mural'). Orange terracotta hip roof (#bd5834) with rooftop solar panels and a satellite dish (props pending). A large blue fabric shade awning/tent is stretched over the ground-floor front-right (not expressible; note only). Upper-floor balcony with light-grey rail on the left facade. Frontage is a white picket fence with green privacy-mesh backing and a white picket pedestrian gate over pink-grey stone-slab paving; low-poly trees at left. Sampled colours 2026-07-04."
 }
