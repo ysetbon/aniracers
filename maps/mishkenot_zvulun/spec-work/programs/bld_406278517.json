@@ -15,6 +15,24 @@
   ],
   "terraces": [],
   "props": [],
+  "environment": {
+    "props": [
+      { "model": "tree_palmDetailedTall", "h": 10, "t": 0.5, "inset": 3.5, "rxz": 0.85, "tint": { "leafs": "#3f8a34", "wood": "#9a8460", "*": "#9a8460" } },
+      { "model": "tree_oak", "h": 6, "t": 0.98, "inset": 2, "rxz": 1.4, "tint": { "leafs": "#46852c", "wood": "#6e5138", "*": "#6e5138" } },
+      { "model": "tree_oak", "h": 6, "t": 0.05, "inset": 2.5, "rxz": 1.3, "tint": { "leafs": "#4e8a2e", "wood": "#6e5138", "*": "#6e5138" } },
+      { "model": "tree_oak", "h": 5.5, "t": 0.18, "inset": 3.2, "rxz": 1.2, "tint": { "leafs": "#5f9e37", "wood": "#6e5138", "*": "#6e5138" } },
+      { "model": "tree_oak", "h": 8, "t": 0.82, "inset": 3, "rxz": 0.6, "tint": { "leafs": "#2f5d2a", "wood": "#6e5138", "*": "#6e5138" } },
+      { "hedge": true, "h": 2.5, "t0": 0.62, "t1": 1.05, "step": 1.2, "inset": 0.2, "d": 1.6, "colors": ["#6fa832", "#57952c", "#4e8a28"] },
+      { "model": "plant_bushLarge", "h": 2.2, "t": 0.12, "inset": -0.3, "rxz": 1.2, "tint": { "leafs": "#4c8a34", "*": "#44603a" } },
+      { "model": "plant_bushDetailed", "h": 1.5, "t": 0.34, "inset": 0.6, "rxz": 1, "tint": { "leafs": "#3f8a34", "*": "#44603a" } },
+      { "bin": true, "t": 0.4, "inset": 0.4, "rot": "along" },
+      { "lamp": true, "t": 0.56, "inset": -1.2, "rot": 90 },
+      { "car": true, "t": 0.45, "inset": -4.7, "rot": "along", "color": "#ededed" },
+      { "car": true, "t": 0.28, "inset": -4.7, "rot": "along", "flip": true, "color": "#e6e6e4" },
+      { "car": true, "t": 0.05, "inset": -4.85, "rot": "along", "color": "#b9bcc0" },
+      { "car": true, "t": -0.06, "inset": -4.85, "rot": "along", "flip": true, "color": "#3a3f45" }
+    ]
+  },
   "frontage": {
     "wall": { "type": "wood", "color": "#6b4327", "mortar": "#54341e", "h": 1.6 },
     "sidewalk": { "material": "brick", "color": "#b17a55", "joint": "#95653f", "w": 3.0 },

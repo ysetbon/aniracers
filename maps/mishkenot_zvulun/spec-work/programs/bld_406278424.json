@@ -26,6 +26,17 @@
                "flowers": { "palette": ["#b0459c", "#c73a33", "#f2f0e8"], "perM2": 0.2 } },
     "road": { "surface": "asphalt", "color": "#86898d" }
   },
+  "environment": {
+    "props": [
+      { "car": true, "t": 0.86, "inset": -4.7, "rot": "along", "color": "#b9bcc0" },
+      { "model": "tree_oak", "h": 8, "t": 0.45, "inset": 2.6, "rxz": 1.4, "tint": { "leafs": "#3c7031", "wood": "#6e5138", "*": "#6e5138" } },
+      { "model": "tree_oak", "h": 6, "t": 0.03, "inset": 2, "rxz": 1.2, "tint": { "leafs": "#5a9a3a", "wood": "#6e5138", "*": "#6e5138" } },
+      { "model": "tree_palmDetailedTall", "h": 9, "t": 0.95, "inset": 6, "rxz": 0.85, "tint": { "leafs": "#3f9b42", "wood": "#a08a67", "*": "#a08a67" } },
+      { "bin": true, "t": 0.5, "inset": -0.6, "rot": "along", "color": "#d97b2e" },
+      { "model": "plant_bushLarge", "h": 2, "t": 0.08, "inset": 0.9, "rxz": 1.2, "tint": { "leafs": "#4c8a34", "*": "#44603a" } },
+      { "model": "plant_bushDetailed", "h": 1.4, "t": 0.35, "inset": 0.8, "rxz": 1.1, "tint": { "leafs": "#b0459c", "*": "#7a5a3a" } }
+    ]
+  },
   "sky": { "top": "#4f9edd", "horizon": "#9fcfe4", "cloud": "#f4f6f6" },
   "notes": "Subject building almost entirely OCCLUDED by two large canopy trees and a compound wall; modelled as plausible modest 2-storey house with white-cream render (bg apartment with red roof visible at right). Frontage is the dominant visible content: low tan stone-rubble base wall (#8a7a60) topped by light-grey fence panels (some diagonal-slat), a white 'No 131' gatepost at left with cracked-tile motif (not encodable). Reddish-brick paved driveway/forecourt, orange wheelie bin, lamppost with tree-planter, garden bed with purple/red flowers. Colours read from cel-shaded ref 2026-07-04."
 }
