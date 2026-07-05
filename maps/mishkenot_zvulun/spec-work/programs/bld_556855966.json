@@ -26,6 +26,20 @@
     "verge": { "grass": "#5f9a3f", "grassDark": "#4a7a34" },
     "road": { "surface": "asphalt", "color": "#8b8e92" }
   },
+  "environment": {
+    "props": [
+      { "car": true, "t": 0.14, "inset": -4.7, "rot": "along", "color": "#b8a582" },
+      { "car": true, "t": -0.02, "inset": -4.7, "rot": "along", "color": "#2f5a9c" },
+      { "car": true, "t": 1.04, "inset": -3.6, "rot": "along", "flip": true, "color": "#c9ccce" },
+      { "model": "tree_oak", "h": 9, "t": 0.93, "inset": 0.6, "rxz": 1.7, "tint": { "leafs": "#3f8a34", "wood": "#6e5138", "*": "#6e5138" } },
+      { "model": "tree_oak", "h": 9, "t": 0.62, "inset": 2.2, "rxz": 0.55, "tint": { "leafs": "#22521f", "wood": "#5a4630", "*": "#5a4630" } },
+      { "model": "tree_palmDetailedTall", "h": 11, "t": 0.34, "inset": 2.6, "rxz": 0.85, "tint": { "leafs": "#3f9b42", "wood": "#a08a67", "*": "#a08a67" } },
+      { "model": "tree_oak", "h": 8, "t": 0.24, "inset": 3.2, "rxz": 0.6, "tint": { "leafs": "#2f5d2a", "wood": "#5a4630", "*": "#5a4630" } },
+      { "model": "tree_oak", "h": 7, "t": 0.02, "inset": 3.4, "rxz": 1.4, "tint": { "leafs": "#3f8a34", "wood": "#6e5138", "*": "#6e5138" } },
+      { "bin": true, "t": 0.86, "inset": -0.8, "rot": "along" },
+      { "bin": true, "t": 0.42, "inset": -0.6, "rot": "along" }
+    ]
+  },
   "sky": { "top": "#5ea2db", "horizon": "#9fcfe4", "cloud": "#f4f6f6" },
   "notes": "Two-storey white private house set back behind a tall compound wall, with an orange terracotta gable roof over the main block and a lower single-storey hip-roofed wing. Small windows upper floor. Beige stone-block compound wall with a dark-brown panelled vehicle gate and a thin barred pedestrian gate. Sampled from ref 2026-07-04."
 }

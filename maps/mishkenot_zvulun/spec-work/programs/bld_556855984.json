@@ -52,6 +52,28 @@
                "flowers": { "palette": ["#d94b45", "#e8863a", "#f2d24b"], "perM2": 0.08 } },
     "road": { "surface": "asphalt", "color": "#4b4e54" }
   },
+  "environment": {
+    "ground": { "lawn": "#6fa33f", "size": [220, 180] },
+    "road": { "surface": "#4b4e54", "kerb": "#b9bdc2", "halfW": 3.6, "len": 160 },
+    "props": [
+      { "model": "tree_oak", "h": 8.5, "t": 0.82, "inset": -0.5, "rxz": 1.9,
+        "tint": { "leafs": "#3f8a3a", "wood": "#b3a78c", "*": "#b3a78c" } },
+      { "model": "plant_bushLarge", "h": 3.2, "t": 0.5, "inset": 1.4, "rxz": 1.4,
+        "tint": { "leafs": "#c33a7c", "*": "#3a6b34" } },
+      { "model": "tree_oak", "h": 3.6, "t": 0.2, "inset": 1.6, "rxz": 0.7,
+        "tint": { "leafs": "#4fa03e", "wood": "#6e5138", "*": "#6e5138" } },
+      { "model": "tree_oak", "h": 3.4, "t": 0.32, "inset": 1.6, "rxz": 0.7,
+        "tint": { "leafs": "#4c9a3c", "wood": "#6e5138", "*": "#6e5138" } },
+      { "model": "tree_palmDetailedTall", "h": 8.0, "t": 0.02, "inset": 2.4, "rxz": 0.85,
+        "tint": { "leafs": "#3f9b42", "wood": "#a08a67", "*": "#a08a67" } },
+      { "model": "tree_oak", "h": 6.0, "t": 1.05, "inset": 1.2, "rxz": 1.3,
+        "tint": { "leafs": "#4a8a3e", "wood": "#6e5138", "*": "#6e5138" } },
+      { "hedge": true, "h": 1.2, "t0": 0.35, "t1": 0.72, "step": 1.2, "inset": 1.5,
+        "colors": ["#57952c", "#4e8a28", "#3c7031"] },
+      { "model": "plant_bushLarge", "h": 1.4, "t": 0.28, "inset": 1.3, "rxz": 1.1,
+        "tint": { "leafs": "#4c8a34", "*": "#44603a" } }
+    ]
+  },
   "sky": { "top": "#5ea2db", "horizon": "#9fcfe4", "cloud": "#f4f6f6" },
   "notes": "Large white/off-white residential apartment block, ~5 storeys, flat roof. Corner view shows two facades: a street-facing 'front' plane (with a central full-height recessed loggia/balcony strip, modelled as tall 'opening' type per floor) and a sunlit 'right' plane receding into the lot with a regular window grid. Massing reads as one big block with a slightly taller stepped section at the back-left (modelled as volume 'rear', +1 floor) that rises above the main parapet at top-left of the frame. All wall/frame greys are warm white sampled from the ref. Frontage: light ashlar STONE compound wall (block coursing not expressible; graffiti ignored) topped by a green metal railing/fence (no dedicated fence field in schema -- omitted, noted here). Brick-paver terracotta sidewalk, clipped low green hedges + grass verge, dark asphalt road band. Bougainvillea flower palette (reds/oranges) sampled from the foreground tree. Colours pixel-estimated from the scene ref 2026-07-04."
 }

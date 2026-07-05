@@ -23,6 +23,24 @@
     "verge": { "grass": "#8fb060", "grassDark": "#66794f" },
     "road": { "surface": "asphalt", "color": "#8f9296" }
   },
+  "environment": {
+    "ground": { "lawn": "#8fb060", "size": [200, 170] },
+    "road": { "surface": "#8f9296", "kerb": "#b9bdc2", "halfW": 3.4, "len": 150 },
+    "driveway": { "at": 0.22, "w": 6.0, "color": "#9a6b4a" },
+    "props": [
+      { "model": "tree_palmDetailedTall", "h": 9.0, "t": 0.08, "inset": 1.6, "rxz": 0.85,
+        "tint": { "leafs": "#2f6b2b", "wood": "#7d6f5a", "*": "#7d6f5a" } },
+      { "model": "tree_oak", "h": 6.5, "t": 0.46, "inset": 2.0, "rxz": 1.4,
+        "tint": { "leafs": "#89993d", "wood": "#6e5138", "*": "#6e5138" } },
+      { "model": "tree_oak", "h": 7.0, "t": 0.85, "inset": 2.6, "rxz": 1.6,
+        "tint": { "leafs": "#2c5527", "wood": "#6e5138", "*": "#6e5138" } },
+      { "hedge": true, "h": 2.0, "t0": 0.1, "t1": 0.5, "step": 1.2, "inset": 1.5,
+        "colors": ["#57952c", "#4e8a28", "#3c7031"] },
+      { "lamp": true, "t": 0.62, "inset": -0.8, "rot": 90 },
+      { "bin": true, "t": 0.88, "inset": -0.6, "rot": "along" },
+      { "bin": true, "t": 0.94, "inset": -0.6, "rot": "along" }
+    ]
+  },
   "sky": { "top": "#5ea2db", "horizon": "#9fcfe4", "cloud": "#f4f6f6" },
   "notes": "Same streetscape/style as bld_556855976 (shared p3Wc8cU restyle): building hidden behind a charcoal decorative sliding gate on a tan sandstone-block wall, with pomegranate trees. Massing inferred as a 2-floor cream villa with terracotta hipped roof. Colours sampled from ref 2026-07-04."
 }
