@@ -24,6 +24,35 @@
     "sidewalk": { "material": "brick", "color": "#b07048", "joint": "#8f5636", "w": 3.0 },
     "road": { "surface": "brick", "color": "#b07048" }
   },
+  "environment": {
+    "props": [
+      { "model": "tree_oak", "h": 5.5, "t": 0.02, "inset": 2, "rxz": 1.1,
+        "tint": { "leafs": "#4c8a34", "wood": "#6e5138", "*": "#6e5138" } },
+      { "model": "tree_oak", "h": 4.5, "t": 0.22, "inset": 2.5, "rxz": 1.1,
+        "tint": { "leafs": "#4c8a34", "wood": "#6e5138", "*": "#6e5138" } },
+      { "model": "tree_oak", "h": 4.5, "t": 0.33, "inset": 2.5, "rxz": 1.1,
+        "tint": { "leafs": "#4c8a34", "wood": "#6e5138", "*": "#6e5138" } },
+      { "model": "tree_palmDetailedTall", "h": 10, "t": 0.42, "inset": 3.5, "rxz": 0.85,
+        "tint": { "leafs": "#3f9b42", "wood": "#a08a67", "*": "#a08a67" } },
+      { "model": "tree_palmDetailedTall", "h": 9, "t": 0.6, "inset": 4, "rxz": 0.85,
+        "tint": { "leafs": "#46a648", "wood": "#a08a67", "*": "#a08a67" } },
+      { "model": "tree_palmTall", "h": 9, "t": 0.95, "inset": 3, "rxz": 0.85,
+        "tint": { "leafs": "#3f9b42", "wood": "#a08a67", "*": "#a08a67" } },
+      { "model": "flower_yellowA", "h": 0.6, "t": 0.24, "inset": 2.5, "rxz": 1,
+        "tint": { "*": "#f2d24b" } },
+      { "model": "plant_bushLarge", "h": 2, "t": 0.08, "inset": 0.7, "rxz": 1.2,
+        "tint": { "leafs": "#4c8a34", "*": "#44603a" } },
+      { "model": "plant_bushLarge", "h": 1.8, "t": 0.14, "inset": 0.7, "rxz": 1.15,
+        "tint": { "leafs": "#57952c", "*": "#44603a" } },
+      { "hedge": true, "t0": 0.16, "t1": 0.4, "step": 1.2, "inset": 1.2, "h": 1.6, "d": 1.2,
+        "colors": ["#57952c", "#4e8a28", "#3c7031"] },
+      { "bin": true, "t": 0.3, "inset": -0.9, "rot": "along" },
+      { "bin": true, "t": 0.33, "inset": -0.9, "rot": "along" },
+      { "car": true, "t": 0.08, "inset": -4.7, "rot": "along", "color": "#33373b" },
+      { "car": true, "t": 0.4, "inset": -4.7, "rot": "along", "color": "#eceae4" },
+      { "car": true, "t": 0.75, "inset": -4.7, "rot": "along", "flip": true, "color": "#f2f0ea" }
+    ]
+  },
   "sky": { "top": "#5ea2db", "horizon": "#9fcfe4", "cloud": "#f4f6f6" },
-  "notes": "White/off-white apartment block, 3 storeys, flat roof with parapet and a raised stair-head. Dark recessed windows; a wall AC unit at upper right. Frontage screened by palms and citrus (lemon) trees over a brown wooden-slat and lattice fence on a stone-rubble base wall; brick-paved street with red-white curb (curb striping not encodable). Colours sampled from ref 2026-07-04."
+  "notes": "White/off-white apartment block, 3 storeys, flat roof with parapet and a raised stair-head. Dark recessed windows; a wall AC unit at upper right. Frontage screened by palms and citrus (lemon) trees over a brown wooden-slat and lattice fence on a stone-rubble base wall; brick-paved street with red-white curb (curb striping not encodable). Colours sampled from ref 2026-07-04. Environment: tall palms + round citrus/oak trees over the slat fence, bush cluster near curb-left, blue+grey bins by the white sedan; dark car (far left) + white sedan (mid) + white delivery van (fg right) at kerb. 2026-07-05."
 }
