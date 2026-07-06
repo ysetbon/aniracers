@@ -249,6 +249,14 @@ const sceneRoads = ROADS.filter(rd => rd.pts && rd.pts.length >= 2 && rd.type !=
   })
   .filter(rd => rd.pts.length >= 2);
 console.log(`[${W.name}] v4: ${sceneRoads.length} roads in region`);
+// Woodland / park PATHS -> drivable DIRT tracks (brown, narrow, no kerb). Same region clip.
+const dirtRoads = ROADS.filter(rd => rd.pts && rd.pts.length >= 2 && rd.type === 'path'
+    && rd.pts.some(([x, z]) => inRegion(x, z)))
+  .map(rd => ({ id: rd.id, surface: 'dirt', color: '#9c7d54', halfW: 2.1, kerb: null,
+    generic: true, pts: clipToRegion(rd.pts) }))
+  .filter(rd => rd.pts.length >= 2);
+for (const d of dirtRoads) sceneRoads.push(d);
+console.log(`[${W.name}] v4: + ${dirtRoads.length} dirt paths`);
 
 // Keep aerial trees in-region and out of the roadway/kerb (island grass + parked-car strips
 // read as canopy from above). Done in node where nearestRoad + half-widths are available.
@@ -498,6 +506,8 @@ async function bakeAerialTrees(){
 // this furniture is rule-placed (deterministic hash, no Math.random). ----
 var CARCOLORS=['#eceae4','#3d5a82','#a5342c','#d8d8d8','#454649','#6b7f6b','#c9b08a','#8a2f2a','#b8b4ac'];
 function hsh(n){n=(n*2654435761)>>>0;return n/4294967296;}
+// woods = interior of the ring path 65418435 (centre ~(-197,218)); keep parked cars out of it
+function inWoods(x,z){var dx=(x+197)/236,dz=(z-218)/172;return dx*dx+dz*dz<=1;}
 function bakeStreetFurniture(){
   // dead-end endpoints = used by exactly one road
   var ep={};
@@ -505,6 +515,7 @@ function bakeStreetFurniture(){
     [p[0],p[p.length-1]].forEach(function(q){var k=Math.round(q[0])+'_'+Math.round(q[1]);ep[k]=(ep[k]||0)+1;});}
   var n=0;
   for(var r=0;r<SCENE.roads.length;r++){var rd=SCENE.roads[r];if(rd.pts.length<2)continue;
+    if(rd.surface==='dirt')continue;   // woodland dirt tracks: no parked cars / lamps / signs
     var segs=roadWalk(rd.pts),hw=rd.halfW||3.2;if(segs.total<10)continue;
     // globe lamps ~38m apart, alternating side, on the verge just past the kerb
     for(var s=16,li=0;s<segs.total-5;s+=38,li++){var f=atArc(segs,s),sd=(li%2)?1:-1;
@@ -513,7 +524,7 @@ function bakeStreetFurniture(){
     // parked cars ~15m apart, alternating side, ~55% density, hugging the kerb
     for(var s2=9,ci=0;s2<segs.total-5;s2+=15,ci++){if(hsh(r*131+ci*7)>0.55)continue;
       var f2=atArc(segs,s2),sd2=(ci%2)?1:-1;
-      var cx=f2.x+f2.nx*(hw+1.25)*sd2,cz=f2.z+f2.nz*(hw+1.25)*sd2;if(inCur(cx,cz))continue;   // curated zones have hand-authored cars
+      var cx=f2.x+f2.nx*(hw+1.25)*sd2,cz=f2.z+f2.nz*(hw+1.25)*sd2;if(inCur(cx,cz)||inWoods(cx,cz))continue;   // skip curated (hand cars) + the woods
       var rot=Math.atan2(-f2.uz,f2.ux)+(sd2<0?Math.PI:0);
       collectAll(mkCar({color:CARCOLORS[Math.floor(hsh(r*977+ci*13)*CARCOLORS.length)]},cx,cz,rot));n++;}
     // T-sign at each dead-end endpoint, facing back down the road
@@ -601,12 +612,15 @@ function bakeRoadPrepped(rd,segs){
           var col=new THREE.Color(isBand?rd.band:rd.color).offsetHSL(0,(jit-0.5)*0.02,(jit-0.5)*0.08);
           var tx=cx+g.ux*u-g.uz*a, tz=cz+g.uz*u+g.ux*a;
           collectAll(mkBox(tw,topH+0.006,tw,col,tx,y+0.004,tz,rot));}}
+    } else if(rd.surface==='dirt'){
+      // woodland dirt track: flat earthy brown, no lane seam, no kerb (added below-gated)
+      collectAll(mkBox(rd.halfW*2,topH,len,rd.color,cx,y,cz,rot));
     } else {
       collectAll(mkBox(rd.halfW*2,topH,len,rd.color,cx,y,cz,rot));
       // subtle asphalt lane seam down the centre
       collectAll(mkBox(0.12,topH+0.004,len,new THREE.Color(rd.color).offsetHSL(0,0,-0.06),cx,y+0.004,cz,rot));
     }
-    for(var sd=-1;sd<=1;sd+=2){
+    if(rd.surface!=='dirt') for(var sd=-1;sd<=1;sd+=2){
       var kcol=rd.kerb||'#b9bdc2';
       collectAll(mkBox(0.34,0.18,len,new THREE.Color(kcol).offsetHSL(0,0,-0.05),cx+g.nxn(sd),y+0.06,cz+g.nzn(sd),rot)); // kerb body (shaded face)
       collectAll(mkBox(0.24,0.05,len,new THREE.Color(kcol).offsetHSL(0,0,0.08),cx+g.nxn(sd),y+0.155,cz+g.nzn(sd),rot));}} // bevel cap highlight

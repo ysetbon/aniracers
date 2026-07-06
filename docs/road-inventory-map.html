@@ -1,0 +1,318 @@
+<title>Mishkenot road inventory</title>
+<style>
+  :root{
+    --paper:#eceae2; --panel:#f6f4ee; --panel2:#efece4; --ink:#23241f; --muted:#6f6d63;
+    --line:#d8d5c8; --grid:#dcd9cd; --drive:#2f7d32; --nodrive:#c85a24; --path:#bdb9aa;
+    --accent:#2a6f7a; --loop:#2a6f7a; --sel:#d4a017; --shadow:rgba(30,28,20,.14);
+  }
+  @media (prefers-color-scheme:dark){
+    :root{
+      --paper:#1a1c18; --panel:#22251f; --panel2:#1f221c; --ink:#ecebe3; --muted:#9a988c;
+      --line:#33362e; --grid:#2a2d26; --drive:#6cc06f; --nodrive:#e8894f; --path:#4a4d43;
+      --accent:#57b3c0; --loop:#57b3c0; --sel:#e9c14a; --shadow:rgba(0,0,0,.4);
+    }
+  }
+  :root[data-theme="light"]{
+    --paper:#eceae2; --panel:#f6f4ee; --panel2:#efece4; --ink:#23241f; --muted:#6f6d63;
+    --line:#d8d5c8; --grid:#dcd9cd; --drive:#2f7d32; --nodrive:#c85a24; --path:#bdb9aa;
+    --accent:#2a6f7a; --loop:#2a6f7a; --sel:#d4a017; --shadow:rgba(30,28,20,.14);
+  }
+  :root[data-theme="dark"]{
+    --paper:#1a1c18; --panel:#22251f; --panel2:#1f221c; --ink:#ecebe3; --muted:#9a988c;
+    --line:#33362e; --grid:#2a2d26; --drive:#6cc06f; --nodrive:#e8894f; --path:#4a4d43;
+    --accent:#57b3c0; --loop:#57b3c0; --sel:#e9c14a; --shadow:rgba(0,0,0,.4);
+  }
+  *{box-sizing:border-box}
+  html,body{height:100%}
+  body{
+    margin:0; background:var(--paper); color:var(--ink);
+    font-family:system-ui,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    font-size:14px; line-height:1.45; -webkit-font-smoothing:antialiased;
+    display:flex; flex-direction:column; height:100vh; overflow:hidden;
+  }
+  .mono{font-family:ui-monospace,"Cascadia Code","SFMono-Regular",Consolas,monospace; font-variant-numeric:tabular-nums}
+  header{
+    display:flex; align-items:baseline; gap:18px; flex-wrap:wrap;
+    padding:12px 20px; border-bottom:1px solid var(--line); background:var(--panel);
+  }
+  header h1{font-size:16px; font-weight:650; margin:0; letter-spacing:.2px}
+  header .sub{color:var(--muted); font-size:12.5px}
+  .counts{display:flex; gap:14px; margin-left:auto; align-items:center; flex-wrap:wrap}
+  .count{display:flex; align-items:center; gap:6px; font-size:12.5px; color:var(--muted)}
+  .count b{color:var(--ink); font-family:ui-monospace,Consolas,monospace}
+  .swatch{width:11px; height:11px; border-radius:2px; flex:none}
+  main{display:flex; flex:1; min-height:0}
+  #mapwrap{position:relative; flex:1; min-width:0; overflow:hidden; background:var(--paper)}
+  svg{display:block; width:100%; height:100%; touch-action:none; cursor:crosshair}
+  .road{fill:none; stroke-linecap:round; stroke-linejoin:round; cursor:pointer;
+    transition:stroke-width .1s ease, opacity .1s ease}
+  .road.drive{stroke:var(--drive); stroke-width:3}
+  .road.nodrive{stroke:var(--nodrive); stroke-width:3}
+  .road.path{stroke:var(--path); stroke-width:1.4; stroke-dasharray:2 4}
+  .road:hover{stroke-width:6}
+  .road.dim{opacity:.12}
+  .road.sel{stroke:var(--sel)!important; stroke-width:6}
+  .loop{fill:none; stroke:var(--loop); stroke-width:1.6; stroke-dasharray:7 6; opacity:.7}
+  .gridline{stroke:var(--grid); stroke-width:.6}
+  .axis{stroke:var(--muted); stroke-width:.8; opacity:.5}
+  .tick{fill:var(--muted); font-size:9px}
+  .lbl{fill:var(--ink); font-size:9.5px; paint-order:stroke; stroke:var(--paper);
+    stroke-width:2.6px; stroke-linejoin:round; pointer-events:none}
+  .readout{position:absolute; left:12px; bottom:12px; background:var(--panel);
+    border:1px solid var(--line); border-radius:7px; padding:6px 10px; font-size:12px;
+    box-shadow:0 2px 10px var(--shadow); pointer-events:none}
+  .readout b{color:var(--accent)}
+  .hint{position:absolute; right:12px; bottom:12px; color:var(--muted); font-size:11px;
+    background:var(--panel); border:1px solid var(--line); border-radius:7px; padding:5px 9px}
+  aside{width:310px; flex:none; border-left:1px solid var(--line); background:var(--panel);
+    display:flex; flex-direction:column; overflow-y:auto}
+  aside section{padding:14px 16px; border-bottom:1px solid var(--line)}
+  aside h2{font-size:11px; text-transform:uppercase; letter-spacing:.09em; color:var(--muted);
+    margin:0 0 10px}
+  .search{width:100%; padding:8px 10px; border:1px solid var(--line); border-radius:7px;
+    background:var(--panel2); color:var(--ink); font-size:13px}
+  .search:focus{outline:2px solid var(--accent); outline-offset:1px; border-color:transparent}
+  .toggles{display:flex; flex-direction:column; gap:9px}
+  .tog{display:flex; align-items:center; gap:9px; cursor:pointer; user-select:none; font-size:13px}
+  .tog input{accent-color:var(--accent); width:15px; height:15px}
+  .tog .swatch{width:13px; height:13px; border-radius:3px}
+  .insp .empty{color:var(--muted); font-size:12.5px; font-style:italic}
+  .insp .rname{font-size:15px; font-weight:600; margin:0 0 3px; direction:rtl; text-align:left}
+  .insp .rmeta{color:var(--muted); font-size:12px; margin-bottom:12px}
+  .kv{display:grid; grid-template-columns:auto 1fr; gap:4px 12px; font-size:12.5px; margin-bottom:12px}
+  .kv dt{color:var(--muted)}
+  .kv dd{margin:0; font-family:ui-monospace,Consolas,monospace; text-align:right}
+  .pill{display:inline-block; padding:1px 8px; border-radius:20px; font-size:11px; font-weight:600}
+  .pill.y{background:color-mix(in srgb,var(--drive) 20%,transparent); color:var(--drive)}
+  .pill.n{background:color-mix(in srgb,var(--nodrive) 22%,transparent); color:var(--nodrive)}
+  .btnrow{display:flex; gap:8px; flex-wrap:wrap}
+  button.act{flex:1; min-width:120px; padding:8px 10px; border:1px solid var(--line);
+    background:var(--panel2); color:var(--ink); border-radius:7px; cursor:pointer; font-size:12.5px;
+    transition:background .12s, border-color .12s}
+  button.act:hover{border-color:var(--accent); color:var(--accent)}
+  button.act:focus-visible{outline:2px solid var(--accent); outline-offset:1px}
+  .toast{position:fixed; left:50%; bottom:26px; transform:translateX(-50%) translateY(20px);
+    background:var(--ink); color:var(--paper); padding:9px 16px; border-radius:8px; font-size:13px;
+    opacity:0; transition:opacity .18s, transform .18s; pointer-events:none; z-index:9}
+  .toast.show{opacity:1; transform:translateX(-50%) translateY(0)}
+  .note{font-size:12px; color:var(--muted); line-height:1.5}
+  .note code{font-family:ui-monospace,Consolas,monospace; background:var(--panel2);
+    padding:1px 4px; border-radius:3px}
+  @media (max-width:760px){
+    main{flex-direction:column} aside{width:auto; border-left:none; border-top:1px solid var(--line); max-height:44%}
+    #mapwrap{min-height:300px}
+    @media (prefers-reduced-motion:no-preference){}
+  }
+  @media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+
+<header>
+  <div>
+    <h1>Mishkenot Zvulun — road inventory</h1>
+    <div class="sub">Every road the game knows, in world <span class="mono">(x, z)</span> coords. Green = the kart drives it now; rust = it's a real road you <em>can't</em> drive yet.</div>
+  </div>
+  <div class="counts" id="counts"></div>
+</header>
+
+<main>
+  <div id="mapwrap">
+    <svg id="map" preserveAspectRatio="xMidYMid meet" aria-label="Top-down road map"></svg>
+    <div class="readout mono" id="readout">x <b>—</b>&nbsp; z <b>—</b></div>
+    <div class="hint">hover a road to inspect · click to select &amp; copy</div>
+  </div>
+
+  <aside>
+    <section>
+      <h2>Find a road</h2>
+      <input class="search" id="search" type="text" placeholder="name or id (Hebrew or #number)…" autocomplete="off">
+    </section>
+    <section>
+      <h2>Layers</h2>
+      <div class="toggles" id="toggles"></div>
+    </section>
+    <section class="insp" style="flex:1">
+      <h2>Selected road</h2>
+      <div id="inspector"><div class="empty">Nothing selected. Click a road on the map.</div></div>
+    </section>
+    <section>
+      <h2>How to use this</h2>
+      <p class="note">This is the reference for step 1 — <b>what roads exist</b>. Rust roads are already real streets that the kart is locked out of because they're off the single race loop (teal dashes). Select any road to copy its centreline points; that's the data we'll feed the new drive system so you can drive it.</p>
+    </section>
+  </aside>
+</main>
+
+<div class="toast" id="toast"></div>
+
+<script>
+const ROADS = [{"id":"24672373","name":"","type":"avenue","len":119,"covered":true,"pts":[[-400,-345],[-403,-344],[-406,-342],[-409,-339],[-412,-336],[-414,-331],[-414,-327],[-414,-324],[-413,-320],[-409,-314],[-404,-310],[-397,-308],[-392,-308],[-389,-309],[-386,-310],[-382,-313],[-379,-317],[-377,-321],[-376,-326],[-377,-330],[-378,-335],[-381,-339],[-384,-342],[-387,-344],[-391,-345],[-395,-346],[-400,-345]]},{"id":"24672374","name":"הרטום","type":"street","len":479,"covered":true,"pts":[[-357,-307],[-332,-292],[-279,-273],[-253,-270],[-178,-263],[-154,-260],[-127,-258],[-88,-254],[-75,-253],[-21,-247],[43,-240],[71,-237],[98,-234],[105,-235],[110,-241]]},{"id":"24672375","name":"הרטום","type":"street","len":455,"covered":false,"pts":[[-440,-350],[-461,-361],[-497,-378],[-568,-407],[-584,-415],[-661,-436],[-740,-431],[-811,-425],[-863,-422],[-871,-422],[-878,-421]]},{"id":"24672376","name":"דגניה","type":"avenue","len":265,"covered":false,"pts":[[-413,-320],[-440,-187],[-441,-179],[-461,-60]]},{"id":"24672377","name":"כיכר האוניברסיטה","type":"avenue","len":123,"covered":true,"pts":[[-461,-60],[-467,-57],[-472,-52],[-475,-46],[-475,-39],[-472,-31],[-468,-26],[-463,-23],[-456,-21],[-449,-22],[-443,-26],[-439,-31],[-436,-37],[-436,-45],[-438,-50],[-442,-55],[-448,-59],[-454,-61],[-461,-60]]},{"id":"24672379","name":"דגניה","type":"avenue","len":346,"covered":true,"pts":[[-463,-23],[-474,32],[-519,319]]},{"id":"24672380","name":"האוניברסיטה","type":"avenue","len":551,"covered":true,"pts":[[115,-49],[-170,-47],[-303,-46],[-436,-45]]},{"id":"24672385","name":"הרב מכלוף","type":"street","len":137,"covered":false,"pts":[[-332,-292],[-355,-215],[-364,-159]]},{"id":"24672386","name":"הרב מכלוף","type":"street","len":90,"covered":false,"pts":[[-339,-154],[-364,-159],[-400,-163],[-428,-167]]},{"id":"24672388","name":"יעל אשת חבר הקיני","type":"street","len":65,"covered":false,"pts":[[-250,-343],[-293,-363],[-304,-377]]},{"id":"24672389","name":"","type":"service","len":127,"covered":false,"pts":[[-339,-154],[-334,-147],[-327,-135],[-309,-72],[-303,-46],[-302,-33]]},{"id":"24672409","name":"שפיגלמן","type":"street","len":414,"covered":false,"pts":[[-627,3],[-626,-8],[-611,-113],[-599,-197],[-568,-407]]},{"id":"24672450","name":"","type":"avenue","len":111,"covered":true,"pts":[[-515,344],[-521,343],[-527,344],[-533,349],[-537,354],[-538,361],[-537,367],[-535,371],[-530,376],[-525,378],[-516,378],[-509,375],[-505,370],[-504,366],[-503,360],[-504,354],[-505,351],[-510,347],[-515,344]]},{"id":"24672452","name":"אלונים","type":"avenue","len":521,"covered":true,"pts":[[-488,367],[-442,370],[-367,383],[-355,385],[-344,388],[-322,392],[-210,420],[-197,423],[-79,441],[-12,457],[23,463]]},{"id":"24672453","name":"דגניה","type":"avenue","len":306,"covered":false,"pts":[[-525,378],[-525,383],[-542,551],[-544,577],[-552,674],[-552,683]]},{"id":"24701955","name":"הפארק","type":"avenue","len":473,"covered":true,"pts":[[123,-13],[97,315],[96,331],[91,387],[87,417],[82,441],[79,457]]},{"id":"24703220","name":"דגניה","type":"avenue","len":262,"covered":true,"pts":[[-438,-50],[-428,-167],[-397,-308]]},{"id":"24703221","name":"דגניה","type":"avenue","len":165,"covered":true,"pts":[[-381,-339],[-321,-457],[-304,-485]]},{"id":"24956295","name":"דגניה","type":"avenue","len":311,"covered":false,"pts":[[-536,684],[-536,676],[-525,566],[-519,524],[-514,456],[-509,387],[-509,383],[-509,375]]},{"id":"25938008","name":"הגלעד","type":"street","len":214,"covered":false,"pts":[[-707,-237],[-670,-276],[-661,-436]]},{"id":"26121575","name":"הרב עובדיה יוסף","type":"avenue","len":339,"covered":false,"pts":[[-620,-604],[-612,-604],[-604,-604],[-596,-600],[-524,-568],[-486,-552],[-346,-495],[-329,-488],[-304,-485]]},{"id":"26145091","name":"הנופר","type":"street","len":281,"covered":false,"pts":[[-210,420],[-259,567],[-300,687]]},{"id":"26145092","name":"הפארק","type":"avenue","len":476,"covered":true,"pts":[[91,460],[89,450],[91,443],[97,404],[105,332],[105,329],[107,305],[124,127],[135,17],[141,-12]]},{"id":"26145093","name":"הפארק","type":"avenue","len":356,"covered":false,"pts":[[74,477],[76,490],[72,513],[60,559],[39,601],[4,652],[-91,771],[-100,778]]},{"id":"26145095","name":"","type":"avenue","len":76,"covered":true,"pts":[[74,460],[71,464],[70,468],[71,472],[73,475],[74,477],[78,480],[82,481],[88,480],[91,477],[93,474],[94,470],[94,466],[93,464],[93,462],[91,460],[88,457],[84,456],[79,457],[79,457],[75,458],[74,460]]},{"id":"26145096","name":"","type":"avenue","len":148,"covered":true,"pts":[[146,-55],[138,-58],[130,-58],[122,-55],[115,-49],[111,-41],[110,-36],[111,-27],[113,-22],[119,-16],[123,-13],[131,-11],[141,-12],[149,-16],[156,-25],[157,-33],[156,-42],[153,-49],[146,-55]]},{"id":"26145097","name":"האוניברסיטה","type":"avenue","len":546,"covered":false,"pts":[[-436,-37],[-302,-33],[-162,-34],[110,-36]]},{"id":"26145098","name":"הנשר","type":"street","len":166,"covered":false,"pts":[[156,-25],[200,-20],[321,-7]]},{"id":"26145099","name":"הנשר","type":"street","len":164,"covered":true,"pts":[[319,-23],[156,-42]]},{"id":"26145100","name":"ההשכלה","type":"avenue","len":405,"covered":false,"pts":[[146,-55],[146,-86],[153,-164],[155,-193],[161,-223],[180,-315],[202,-386],[218,-435],[220,-452]]},{"id":"26629415","name":"הפארק","type":"avenue","len":360,"covered":false,"pts":[[-85,788],[-80,780],[-77,774],[-53,744],[-24,706],[16,656],[47,617],[75,546],[86,491],[88,480]]},{"id":"26652371","name":"האורן","type":"street","len":69,"covered":true,"pts":[[-374,481],[-360,413]]},{"id":"26652379","name":"המורן","type":"street","len":107,"covered":false,"pts":[[-110,544],[-95,500],[-79,441]]},{"id":"27001761","name":"","type":"service","len":172,"covered":false,"pts":[[-489,-543],[-368,-488],[-367,-481],[-362,-479],[-356,-480],[-355,-485],[-358,-489],[-364,-490],[-368,-488]]},{"id":"27026301","name":"רות המואביה","type":"street","len":197,"covered":false,"pts":[[-243,-467],[-248,-392],[-250,-343],[-251,-313],[-253,-270]]},{"id":"27130389","name":"יציאה מחניון","type":"street","len":108,"covered":false,"pts":[[-253,-270],[-256,-196],[-257,-162]]},{"id":"27130390","name":"","type":"plaza","len":43,"covered":false,"pts":[[-297,-145],[-339,-154]]},{"id":"27130391","name":"","type":"plaza","len":31,"covered":false,"pts":[[-257,-162],[-271,-159],[-277,-157],[-275,-147]]},{"id":"27147186","name":"החינוך העברי","type":"street","len":214,"covered":true,"pts":[[-170,-47],[-164,-95],[-160,-177],[-160,-187],[-154,-260]]},{"id":"27147187","name":"הכהן דוד הנזיר","type":"street","len":114,"covered":true,"pts":[[54,-354],[43,-240]]},{"id":"27147188","name":"בוכנר","type":"street","len":130,"covered":true,"pts":[[-7,-376],[-21,-247]]},{"id":"27147189","name":"לוין","type":"street","len":147,"covered":true,"pts":[[-71,-400],[-88,-254]]},{"id":"27147190","name":"אסתר המלכה","type":"street","len":166,"covered":true,"pts":[[-154,-260],[-149,-308],[-141,-385],[-137,-425]]},{"id":"27147191","name":"הזמיר","type":"street","len":435,"covered":true,"pts":[[139,323],[168,325],[195,321],[215,316],[234,308],[256,296],[274,279],[278,274],[286,265],[295,246],[304,217],[308,197],[319,127],[324,86],[329,45],[334,25],[336,2]]},{"id":"27147192","name":"","type":"street","len":113,"covered":true,"pts":[[336,2],[341,1],[346,-1],[350,-5],[353,-9],[354,-15],[354,-20],[352,-25],[349,-30],[344,-33],[340,-34],[336,-34],[332,-34],[328,-32],[324,-30],[321,-26],[319,-23],[318,-17],[319,-12],[321,-7],[325,-2],[330,1],[336,2]]},{"id":"27147193","name":"הזמיר","type":"street","len":360,"covered":true,"pts":[[344,-33],[352,-45],[359,-55],[367,-63],[385,-76],[445,-112],[478,-128],[507,-143],[516,-148],[565,-175],[589,-195],[606,-222],[617,-251]]},{"id":"27147194","name":"הדרור","type":"street","len":710,"covered":true,"pts":[[367,-63],[349,-83],[338,-92],[332,-96],[325,-99],[315,-101],[240,-106],[224,-110],[216,-115],[210,-122],[207,-131],[207,-151],[211,-169],[219,-214],[223,-236],[228,-258],[234,-273],[244,-290],[255,-300],[276,-317],[289,-323],[305,-325],[320,-324],[347,-319],[390,-301],[402,-295],[411,-284],[434,-234],[467,-156],[472,-143],[478,-128]]},{"id":"27204869","name":"","type":"plaza","len":74,"covered":false,"pts":[[98,-234],[109,-215],[118,-208],[131,-209],[142,-226],[150,-224]]},{"id":"27204871","name":"הרב טולדנו","type":"street","len":91,"covered":true,"pts":[[110,-241],[120,-331]]},{"id":"27204874","name":"דוכיפת","type":"street","len":58,"covered":true,"pts":[[434,-234],[380,-213]]},{"id":"27204876","name":"דוכיפת","type":"street","len":61,"covered":true,"pts":[[278,-201],[219,-214]]},{"id":"27204878","name":"דוכיפת","type":"street","len":56,"covered":true,"pts":[[332,-96],[333,-152]]},{"id":"27204881","name":"הגוזל","type":"street","len":132,"covered":true,"pts":[[445,-112],[454,-100],[463,-91],[471,-88],[478,-88],[483,-89],[504,-98],[518,-108],[522,-114],[524,-123],[524,-135],[516,-148]]},{"id":"27204883","name":"הגוזל","type":"street","len":81,"covered":false,"pts":[[518,-108],[547,-82],[515,-55]]},{"id":"27204885","name":"הגוזל","type":"street","len":52,"covered":false,"pts":[[547,-82],[555,-108],[560,-132]]},{"id":"27204887","name":"","type":"plaza","len":90,"covered":true,"pts":[[334,25],[346,22],[355,14],[364,4],[364,-8],[364,-22],[362,-33],[352,-45]]},{"id":"27204889","name":"השחף","type":"street","len":108,"covered":false,"pts":[[329,45],[286,50],[258,43],[236,48],[228,58]]},{"id":"27204892","name":"השחף","type":"street","len":271,"covered":false,"pts":[[286,50],[280,61],[283,92],[279,130],[278,149],[281,160],[277,172],[275,197],[265,211],[263,227],[237,242],[231,268],[206,286]]},{"id":"27204893","name":"השחף","type":"street","len":35,"covered":false,"pts":[[279,130],[263,125],[246,129]]},{"id":"27204895","name":"החסידה","type":"street","len":203,"covered":false,"pts":[[308,197],[275,197],[245,201],[233,203],[220,222],[215,230],[202,249],[197,268],[206,286],[206,295],[215,316]]},{"id":"27204896","name":"נרי יצחק","type":"street","len":167,"covered":false,"pts":[[324,86],[382,94],[405,97],[426,104],[442,114],[453,127],[466,140],[472,146]]},{"id":"27204897","name":"התור","type":"street","len":363,"covered":false,"pts":[[295,246],[357,273],[387,277],[398,268],[418,255],[442,223],[446,200],[434,172],[416,147],[404,137],[362,137],[354,130],[319,127]]},{"id":"27204898","name":"הברבור","type":"street","len":404,"covered":true,"pts":[[168,325],[173,373],[177,405],[184,429],[203,445],[240,455],[280,457],[296,448],[311,420],[319,393],[310,373],[282,339],[269,319],[256,296]]},{"id":"27204909","name":"דוכיפת","type":"street","len":386,"covered":false,"pts":[[380,-213],[366,-236],[361,-242],[354,-246],[325,-256],[303,-265],[296,-261],[292,-254],[278,-201],[273,-163],[274,-158],[278,-155],[333,-152],[362,-153],[378,-157],[388,-163],[394,-169],[397,-174],[396,-179],[393,-186],[380,-213]]},{"id":"27273198","name":"","type":"service","len":227,"covered":false,"pts":[[-309,-72],[-329,-67],[-369,-66],[-396,-67],[-406,-82],[-410,-87],[-411,-92],[-414,-111],[-413,-143],[-410,-149],[-406,-150],[-403,-151],[-370,-148],[-368,-149],[-364,-159]]},{"id":"27274072","name":"ספורטק","type":"path","len":347,"covered":false,"pts":[[-655,-528],[-625,-527],[-620,-525],[-505,-486],[-492,-482],[-465,-473],[-457,-484],[-447,-489],[-422,-484],[-407,-476],[-396,-466],[-398,-455],[-391,-454],[-382,-454],[-374,-456],[-363,-461],[-359,-462],[-343,-461]]},{"id":"27274073","name":"","type":"plaza","len":830,"covered":false,"pts":[[-513,-477],[-573,-498],[-624,-496],[-625,-527],[-625,-567],[-623,-575],[-613,-583],[-599,-581],[-355,-474],[-359,-462],[-363,-447],[-412,-346],[-459,-369],[-498,-387],[-493,-421],[-493,-473],[-513,-477]]},{"id":"27339998","name":"","type":"path","len":87,"covered":false,"pts":[[-465,-473],[-463,-465],[-456,-457],[-448,-449],[-440,-442],[-418,-445],[-407,-447],[-398,-455]]},{"id":"27339999","name":"","type":"path","len":84,"covered":false,"pts":[[-440,-442],[-458,-372],[-459,-369],[-461,-361]]},{"id":"27578487","name":"","type":"plaza","len":169,"covered":false,"pts":[[-661,-436],[-659,-461],[-655,-528],[-653,-605]]},{"id":"27820054","name":"ההשכלה","type":"avenue","len":406,"covered":false,"pts":[[220,-452],[213,-437],[202,-405],[172,-318],[150,-224],[146,-194],[136,-84],[130,-58]]},{"id":"27820055","name":"","type":"plaza","len":53,"covered":true,"pts":[[120,-331],[172,-318]]},{"id":"30837964","name":"הרב עובדיה יוסף","type":"avenue","len":335,"covered":false,"pts":[[-304,-485],[-319,-505],[-351,-518],[-423,-548],[-515,-587],[-588,-619],[-594,-623],[-601,-631]]},{"id":"65418434","name":"","type":"path","len":117,"covered":false,"pts":[[-12,330],[12,327],[19,322],[28,324],[37,331],[52,340],[81,330],[96,331]]},{"id":"65418435","name":"","type":"path","len":1343,"covered":false,"pts":[[-417,141],[-419,155],[-427,226],[-423,242],[-412,264],[-401,273],[-388,285],[-344,302],[-312,303],[-278,312],[-242,315],[-217,326],[-195,327],[-152,359],[-77,374],[-23,382],[-13,363],[-12,330],[-10,288],[-3,272],[19,262],[33,142],[28,110],[7,80],[-37,59],[-97,58],[-205,56],[-257,55],[-337,54],[-370,71],[-400,99],[-411,116],[-417,141]]},{"id":"65418438","name":"","type":"path","len":154,"covered":false,"pts":[[-23,382],[21,397],[51,401],[67,421],[61,461],[59,471]]},{"id":"65418439","name":"","type":"path","len":376,"covered":false,"pts":[[-197,423],[-193,386],[-198,360],[-214,347],[-217,326],[-216,295],[-213,180],[-212,145],[-205,56]]},{"id":"65418441","name":"","type":"path","len":90,"covered":false,"pts":[[-322,392],[-315,352],[-312,303]]},{"id":"65418442","name":"","type":"path","len":112,"covered":false,"pts":[[-205,56],[-194,22],[-171,12],[-163,3],[-156,-11],[-162,-34]]},{"id":"65418444","name":"","type":"path","len":133,"covered":false,"pts":[[-505,351],[-499,345],[-480,325],[-463,305],[-423,281],[-401,273]]},{"id":"65418445","name":"","type":"path","len":154,"covered":false,"pts":[[7,80],[20,66],[39,59],[57,29],[69,9],[88,3],[113,-22]]},{"id":"65418446","name":"","type":"path","len":132,"covered":false,"pts":[[-370,71],[-404,42],[-432,1],[-436,-37]]},{"id":"98986135","name":"","type":"plaza","len":64,"covered":false,"pts":[[-275,-147],[-280,-140],[-285,-135],[-292,-138],[-297,-145],[-297,-153],[-291,-155],[-286,-152],[-284,-148],[-275,-147]]},{"id":"152968550","name":"נחלי עוז","type":"street","len":374,"covered":false,"pts":[[617,-251],[547,-282],[521,-293],[599,-460],[639,-443],[649,-449],[654,-459],[662,-475]]},{"id":"152968613","name":"בוסל","type":"street","len":862,"covered":false,"pts":[[-137,-425],[-124,-445],[-118,-460],[-115,-486],[-105,-549],[-85,-638],[-80,-666],[-23,-800],[-10,-824],[34,-904],[61,-942],[89,-972],[115,-993],[148,-1017],[181,-1038],[211,-1051],[257,-1064],[293,-1071],[323,-1073]]},{"id":"152968648","name":"שמואל דיין","type":"street","len":313,"covered":false,"pts":[[-115,-486],[-171,-491],[-178,-496],[-179,-505],[-146,-671],[-141,-676],[-135,-677],[-80,-666]]},{"id":"181443298","name":"","type":"path","len":157,"covered":false,"pts":[[-509,387],[-475,400],[-449,447],[-463,455],[-514,456]]},{"id":"181443312","name":"","type":"service","len":114,"covered":false,"pts":[[-182,521],[-168,484],[-95,500]]},{"id":"181443330","name":"","type":"service","len":95,"covered":false,"pts":[[-189,488],[-222,577]]},{"id":"181443361","name":"","type":"path","len":45,"covered":false,"pts":[[-475,400],[-442,370]]},{"id":"181443382","name":"","type":"service","len":127,"covered":false,"pts":[[-37,564],[-42,556],[-46,550],[-44,546],[-42,542],[-37,540],[-32,540],[-27,542],[-24,547],[-25,552],[-27,558],[-31,561],[-37,564],[-89,588]]},{"id":"181444785","name":"","type":"plaza","len":114,"covered":false,"pts":[[-659,-461],[-598,-457],[-576,-434],[-584,-415]]},{"id":"184648600","name":"","type":"path","len":320,"covered":false,"pts":[[272,501],[275,501],[277,502],[285,503],[289,507],[297,513],[302,516],[336,520],[371,527],[392,534],[467,547],[520,552],[560,555],[575,554],[584,554]]},{"id":"264961842","name":"הרב אונטרמן","type":"street","len":452,"covered":true,"pts":[[120,-331],[65,-350],[54,-354],[9,-371],[4,-372],[-7,-376],[-26,-383],[-71,-400],[-137,-425],[-243,-467],[-277,-478],[-304,-485]]},{"id":"264961844","name":"","type":"avenue","len":49,"covered":true,"pts":[[-277,-478],[-283,-486],[-285,-491],[-285,-498],[-286,-507],[-284,-515],[-283,-525]]},{"id":"264961848","name":"","type":"avenue","len":51,"covered":true,"pts":[[-321,-457],[-314,-465],[-305,-473],[-297,-476],[-290,-478],[-284,-478],[-277,-478]]},{"id":"264961850","name":"","type":"avenue","len":28,"covered":false,"pts":[[-346,-495],[-341,-491],[-338,-486],[-337,-482],[-338,-476],[-339,-470]]},{"id":"309204110","name":"","type":"path","len":125,"covered":false,"pts":[[-9,-505],[-17,-493],[-26,-426],[-26,-383]]},{"id":"309204117","name":"","type":"street","len":51,"covered":true,"pts":[[7,-423],[4,-372]]},{"id":"341607414","name":"דגניה","type":"avenue","len":179,"covered":false,"pts":[[-319,-505],[-329,-488],[-339,-470],[-343,-461],[-400,-345]]},{"id":"341607415","name":"דגניה","type":"avenue","len":907,"covered":false,"pts":[[-304,-485],[-283,-525],[-190,-696],[-151,-760],[-112,-812],[200,-1173],[225,-1201],[232,-1210]]},{"id":"383407951","name":"","type":"service","len":23,"covered":false,"pts":[[-506,-357],[-497,-378]]},{"id":"383407964","name":"","type":"service","len":131,"covered":false,"pts":[[-556,-381],[-506,-357],[-438,-324]]},{"id":"383409998","name":"","type":"service","len":28,"covered":false,"pts":[[-3,-136],[-4,-163]]},{"id":"383410001","name":"","type":"service","len":281,"covered":false,"pts":[[120,-152],[12,-162],[-4,-163],[-21,-165],[-39,-167],[-57,-168],[-73,-170],[-92,-171],[-147,-176],[-160,-177]]},{"id":"383410003","name":"","type":"service","len":29,"covered":false,"pts":[[-21,-136],[-21,-165]]},{"id":"383410004","name":"","type":"service","len":183,"covered":false,"pts":[[-146,-135],[-91,-136],[-72,-136],[-56,-136],[-40,-136],[-21,-136],[-3,-136],[12,-136],[12,-162]]},{"id":"383410005","name":"","type":"service","len":68,"covered":true,"pts":[[65,-169],[71,-237]]},{"id":"383410006","name":"","type":"service","len":282,"covered":false,"pts":[[122,-165],[65,-169],[-81,-181],[-160,-187]]},{"id":"383410008","name":"","type":"service","len":32,"covered":false,"pts":[[-56,-136],[-57,-168]]},{"id":"383410013","name":"","type":"service","len":35,"covered":false,"pts":[[-91,-136],[-92,-171]]},{"id":"383410017","name":"","type":"service","len":72,"covered":true,"pts":[[-81,-181],[-75,-253]]},{"id":"383410018","name":"הרב מכלוף","type":"street","len":161,"covered":false,"pts":[[-355,-215],[-324,-207],[-279,-199],[-256,-196],[-197,-189]]},{"id":"383410019","name":"","type":"service","len":31,"covered":false,"pts":[[-40,-136],[-39,-167]]},{"id":"383410021","name":"","type":"service","len":42,"covered":false,"pts":[[-146,-135],[-147,-176]]},{"id":"383410025","name":"","type":"service","len":34,"covered":false,"pts":[[-72,-136],[-73,-170]]},{"id":"383410028","name":"","type":"service","len":78,"covered":false,"pts":[[51,-141],[118,-141],[120,-152]]},{"id":"406278525","name":"","type":"path","len":210,"covered":false,"pts":[[200,-20],[202,20],[187,119],[186,124],[183,128],[172,131],[124,127]]},{"id":"407985868","name":"","type":"path","len":320,"covered":false,"pts":[[172,131],[174,167],[196,175],[203,212],[220,222],[237,242],[278,274],[374,354]]},{"id":"407985869","name":"","type":"plaza","len":64,"covered":true,"pts":[[244,-290],[303,-265]]},{"id":"407985870","name":"","type":"path","len":43,"covered":false,"pts":[[333,-152],[336,-195]]},{"id":"407985871","name":"","type":"path","len":106,"covered":false,"pts":[[380,-213],[336,-195],[322,-196],[278,-201]]},{"id":"407985872","name":"","type":"street","len":44,"covered":false,"pts":[[-251,-313],[-207,-311]]},{"id":"407985873","name":"","type":"street","len":36,"covered":false,"pts":[[-185,-310],[-149,-308]]},{"id":"407985874","name":"","type":"street","len":42,"covered":false,"pts":[[-248,-392],[-206,-389]]},{"id":"407985875","name":"","type":"street","len":43,"covered":false,"pts":[[-184,-388],[-141,-385]]},{"id":"407985876","name":"","type":"path","len":22,"covered":false,"pts":[[-206,-389],[-184,-388]]},{"id":"407985877","name":"","type":"path","len":22,"covered":false,"pts":[[-207,-311],[-185,-310]]},{"id":"407985878","name":"","type":"plaza","len":59,"covered":true,"pts":[[219,-214],[161,-223]]},{"id":"546326304","name":"","type":"path","len":60,"covered":false,"pts":[[325,-256],[323,-224],[322,-196]]},{"id":"546326305","name":"","type":"street","len":69,"covered":true,"pts":[[390,-301],[366,-236]]},{"id":"556598050","name":"","type":"path","len":168,"covered":false,"pts":[[426,104],[451,81],[458,68],[459,34],[470,23],[481,10],[490,-7],[488,-22],[476,-37]]},{"id":"699330771","name":"הרב טולדנו","type":"street","len":65,"covered":true,"pts":[[120,-331],[127,-395]]},{"id":"1009327702","name":"","type":"path","len":1808,"covered":false,"pts":[[607,-158],[609,-147],[475,252],[322,492],[329,501],[441,526],[524,539],[649,547],[665,549],[781,559],[961,629],[995,640],[1220,660],[1325,675],[1368,673],[1387,671]]},{"id":"1009611074","name":"","type":"path","len":1111,"covered":false,"pts":[[1257,-707],[1135,-746],[1098,-756],[1016,-752],[973,-739],[948,-687],[920,-613],[908,-577],[861,-448],[825,-338],[784,-201],[726,-222],[707,-221],[636,-244],[610,-182],[607,-158]]},{"id":"1060857695","name":"הזמיר","type":"street","len":35,"covered":true,"pts":[[105,329],[115,326],[139,323]]},{"id":"1060857696","name":"הזמיר","type":"street","len":39,"covered":true,"pts":[[139,323],[116,317],[107,305]]},{"id":"1060857697","name":"אלונים","type":"avenue","len":53,"covered":true,"pts":[[75,458],[61,461],[45,462],[23,463]]},{"id":"1060857698","name":"אלונים","type":"avenue","len":51,"covered":true,"pts":[[23,463],[59,471],[73,475]]},{"id":"1060857699","name":"אלונים","type":"street","len":138,"covered":true,"pts":[[135,477],[269,512]]},{"id":"1060857700","name":"אלונים","type":"street","len":45,"covered":true,"pts":[[91,477],[102,480],[135,477]]},{"id":"1060857701","name":"אלונים","type":"street","len":44,"covered":true,"pts":[[135,477],[105,469],[93,464]]},{"id":"1060857735","name":"האורן","type":"street","len":32,"covered":true,"pts":[[-360,413],[-354,394],[-344,388]]},{"id":"1060857736","name":"האורן","type":"street","len":32,"covered":true,"pts":[[-367,383],[-360,392],[-360,413]]},{"id":"1060857737","name":"דגניה","type":"avenue","len":27,"covered":true,"pts":[[-519,319],[-525,338],[-527,344]]},{"id":"1060857738","name":"דגניה","type":"avenue","len":26,"covered":true,"pts":[[-515,344],[-516,338],[-519,319]]},{"id":"1060857739","name":"אלונים","type":"avenue","len":17,"covered":true,"pts":[[-505,370],[-498,369],[-488,367]]},{"id":"1060857740","name":"אלונים","type":"avenue","len":16,"covered":true,"pts":[[-488,367],[-497,363],[-503,360]]},{"id":"1069899868","name":"הרטום","type":"street","len":33,"covered":true,"pts":[[-440,-350],[-418,-334],[-414,-331]]},{"id":"1069899869","name":"הרטום","type":"street","len":35,"covered":true,"pts":[[-406,-342],[-417,-344],[-440,-350]]},{"id":"1069899870","name":"הרטום","type":"street","len":28,"covered":false,"pts":[[-357,-307],[-372,-319],[-376,-326]]},{"id":"1069899871","name":"הרטום","type":"street","len":29,"covered":false,"pts":[[-386,-310],[-374,-311],[-357,-307]]},{"id":"1104456894","name":"","type":"path","len":244,"covered":false,"pts":[[-97,58],[-59,118],[-55,129],[-61,164],[-48,191],[-39,209],[-36,230],[-3,272]]},{"id":"1112310553","name":"","type":"path","len":361,"covered":false,"pts":[[-432,1],[-450,34],[-453,99],[-474,219],[-478,257],[-488,281],[-488,302],[-508,328],[-499,345]]},{"id":"1164573296","name":"נרי יצחק","type":"street","len":224,"covered":false,"pts":[[499,-14],[499,-3],[501,0],[503,1],[508,2],[531,3],[537,4],[539,7],[539,12],[495,142],[491,148],[486,151],[481,150],[472,146]]},{"id":"1312293682","name":"אלונים","type":"path","len":190,"covered":false,"pts":[[89,450],[120,461],[173,477],[191,482],[216,488],[272,501]]},{"id":"1312293683","name":"","type":"path","len":11,"covered":false,"pts":[[272,501],[269,512]]},{"id":"1361764133","name":"","type":"path","len":433,"covered":false,"pts":[[-61,164],[-68,164],[-94,175],[-105,184],[-122,189],[-130,190],[-139,188],[-148,182],[-157,177],[-213,180],[-224,178],[-248,179],[-299,179],[-299,154],[-292,128],[-317,134],[-324,133],[-335,137],[-357,138],[-366,145],[-395,155],[-419,155]]},{"id":"1361764134","name":"","type":"path","len":155,"covered":false,"pts":[[-388,285],[-354,277],[-328,266],[-306,221],[-299,179]]},{"id":"1361764135","name":"","type":"path","len":70,"covered":false,"pts":[[-357,138],[-364,125],[-362,103],[-363,82],[-370,71]]},{"id":"1361764136","name":"","type":"path","len":88,"covered":false,"pts":[[-292,128],[-285,91],[-263,82],[-257,55]]},{"id":"1361764137","name":"","type":"path","len":123,"covered":false,"pts":[[-328,266],[-323,273],[-279,266],[-255,283],[-216,295]]},{"id":"1361764138","name":"","type":"path","len":83,"covered":false,"pts":[[-292,128],[-279,133],[-264,135],[-252,134],[-236,143],[-223,145],[-212,145]]},{"id":"1361765407","name":"","type":"path","len":49,"covered":false,"pts":[[547,-282],[525,-238]]},{"id":"1361767333","name":"","type":"path","len":75,"covered":false,"pts":[[515,-212],[496,-166],[501,-154],[507,-143]]},{"id":"1361767334","name":"","type":"path","len":34,"covered":false,"pts":[[544,-229],[546,-224],[546,-219],[545,-213],[542,-209],[537,-206],[531,-204]]},{"id":"1361767335","name":"","type":"path","len":34,"covered":false,"pts":[[516,-210],[515,-212],[513,-215],[512,-221],[513,-227],[516,-232],[520,-235],[525,-238]]},{"id":"1361767336","name":"","type":"path","len":33,"covered":false,"pts":[[496,-166],[487,-167],[467,-156]]},{"id":"1361767337","name":"","type":"path","len":17,"covered":false,"pts":[[531,-204],[526,-204],[520,-206],[516,-210]]},{"id":"1361767338","name":"","type":"path","len":22,"covered":false,"pts":[[525,-238],[531,-238],[536,-237],[541,-234],[544,-229]]},{"id":"1448376571","name":"","type":"path","len":132,"covered":false,"pts":[[-458,-372],[-495,-393],[-489,-435],[-492,-482]]},{"id":"1448376572","name":"","type":"path","len":496,"covered":false,"pts":[[-620,-525],[-621,-559],[-618,-568],[-610,-575],[-367,-469],[-363,-461],[-366,-450],[-409,-359],[-417,-353],[-458,-372]]},{"id":"1482635834","name":"","type":"service","len":152,"covered":false,"pts":[[646,-221],[705,-188],[786,-166]]},{"id":"1482635835","name":"","type":"service","len":1004,"covered":false,"pts":[[646,-221],[586,-42],[520,160],[504,210],[470,315],[428,466],[417,503],[339,734]]},{"id":"1501821710","name":"יצחק בן חנן","type":"street","len":220,"covered":false,"pts":[[617,-251],[696,-422],[709,-451]]},{"id":"1521446908","name":"Merkaz David Bike Path","type":"path","len":288,"covered":false,"pts":[[-479,-30],[-479,-31],[-480,-44],[-480,-47],[-480,-56],[-478,-67],[-474,-72],[-465,-78],[-460,-83],[-458,-100],[-448,-157],[-444,-180],[-438,-216],[-434,-245],[-423,-287],[-419,-306]]},{"id":"1521623483","name":"","type":"path","len":133,"covered":false,"pts":[[-252,562],[-212,435]]},{"id":"1521623484","name":"","type":"path","len":210,"covered":false,"pts":[[95,450],[149,468],[192,481],[278,499],[277,502],[270,518]]}];
+const TYPE_COLOR = {avenue:'drive', street:'drive', service:'drive', plaza:'drive'};
+// race loop control points (the current fast path)
+const LOOP = [[-283,-525],[-321,-457],[-381,-339],[-391,-345],[-417,-344],[-440,-350],[-414,-331],[-413,-320],[-404,-310],[-428,-167],[-438,-50],[-436,-37],[-443,-26],[-456,-21],[-474,32],[-519,319],[-515,344],[-505,351],[-503,360],[-505,370],[-488,367],[-442,370],[-367,383],[-360,392],[-360,413],[-354,394],[-344,388],[-322,392],[-197,423],[-79,441],[73,475],[82,481],[91,477],[102,480],[135,477],[105,469],[93,464],[89,450],[97,404],[105,329],[115,326],[139,323],[168,325],[184,429],[203,445],[240,455],[280,457],[296,448],[311,420],[319,393],[310,373],[256,296],[286,265],[308,197],[319,127],[324,86],[336,2],[346,-1],[353,-9],[354,-20],[349,-30],[352,-45],[359,-55],[385,-76],[445,-112],[454,-100],[463,-91],[478,-88],[504,-98],[518,-108],[524,-123],[524,-135],[516,-148],[478,-128],[467,-156],[434,-234],[411,-284],[402,-295],[390,-301],[347,-319],[305,-325],[289,-323],[276,-317],[244,-290],[228,-258],[219,-214],[207,-131],[210,-122],[216,-115],[224,-110],[240,-106],[325,-99],[338,-92],[367,-63],[359,-55],[344,-33],[332,-34],[321,-26],[156,-42],[146,-55],[130,-58],[115,-49],[-170,-47],[-164,-95],[-160,-187],[-154,-260],[-75,-253],[-21,-247],[98,-234],[110,-241],[120,-331],[54,-354],[-26,-383],[-71,-400],[-137,-425],[-277,-478],[-283,-486],[-286,-507]];
+
+const svg = document.getElementById('map');
+const SVGNS = 'http://www.w3.org/2000/svg';
+// ---- view bounds from drivable roads (keeps neighbourhood centred) ----
+let minX=1e9,maxX=-1e9,minZ=1e9,maxZ=-1e9;
+ROADS.filter(r=>r.type!=='path').forEach(r=>r.pts.forEach(p=>{
+  if(p[0]<minX)minX=p[0]; if(p[0]>maxX)maxX=p[0]; if(p[1]<minZ)minZ=p[1]; if(p[1]>maxZ)maxZ=p[1];
+}));
+const PAD=40; minX-=PAD;maxX+=PAD;minZ-=PAD;maxZ+=PAD;
+const wW=maxX-minX, wH=maxZ-minZ;
+svg.setAttribute('viewBox', `${minX} ${minZ} ${wW} ${wH}`);
+
+// ---- grid (100 m) ----
+const gGrid=document.createElementNS(SVGNS,'g');
+for(let gx=Math.ceil(minX/100)*100; gx<maxX; gx+=100){
+  const l=document.createElementNS(SVGNS,'line');
+  l.setAttribute('x1',gx);l.setAttribute('y1',minZ);l.setAttribute('x2',gx);l.setAttribute('y2',maxZ);
+  l.setAttribute('class', gx===0?'axis':'gridline'); gGrid.appendChild(l);
+  const t=document.createElementNS(SVGNS,'text');
+  t.setAttribute('x',gx+3);t.setAttribute('y',minZ+12);t.setAttribute('class','tick');t.textContent=gx;
+  gGrid.appendChild(t);
+}
+for(let gz=Math.ceil(minZ/100)*100; gz<maxZ; gz+=100){
+  const l=document.createElementNS(SVGNS,'line');
+  l.setAttribute('x1',minX);l.setAttribute('y1',gz);l.setAttribute('x2',maxX);l.setAttribute('y2',gz);
+  l.setAttribute('class', gz===0?'axis':'gridline'); gGrid.appendChild(l);
+  const t=document.createElementNS(SVGNS,'text');
+  t.setAttribute('x',minX+3);t.setAttribute('y',gz-3);t.setAttribute('class','tick');t.textContent=gz;
+  gGrid.appendChild(t);
+}
+svg.appendChild(gGrid);
+
+// ---- race loop ----
+const loopEl=document.createElementNS(SVGNS,'polyline');
+loopEl.setAttribute('points', LOOP.map(p=>p[0]+','+p[1]).join(' ')+' '+LOOP[0][0]+','+LOOP[0][1]);
+loopEl.setAttribute('class','loop'); loopEl.id='loopEl';
+svg.appendChild(loopEl);
+
+// ---- roads (paths first, then nodrive, then drive so drivable sits on top) ----
+const gRoads=document.createElementNS(SVGNS,'g');
+const gLabels=document.createElementNS(SVGNS,'g');
+const order = r => r.type==='path'?0 : (r.covered?2:1);
+const els=[];
+[...ROADS].sort((a,b)=>order(a)-order(b)).forEach(r=>{
+  if(r.pts.length<2) return;
+  const el=document.createElementNS(SVGNS,'polyline');
+  el.setAttribute('points', r.pts.map(p=>p[0]+','+p[1]).join(' '));
+  const cls = r.type==='path'?'path':(r.covered?'drive':'nodrive');
+  el.setAttribute('class','road '+cls);
+  el.__road=r; els.push(el); gRoads.appendChild(el);
+  r.__el=el;
+});
+svg.appendChild(gRoads);
+svg.appendChild(gLabels);
+
+// ---- labels for named non-path roads over 120 m ----
+function buildLabels(){
+  gLabels.innerHTML='';
+  if(!layer.labels) return;
+  const seen={};
+  ROADS.filter(r=>r.type!=='path'&&r.name&&r.len>=120).forEach(r=>{
+    if(seen[r.name]) return; seen[r.name]=1;
+    const mid=r.pts[Math.floor(r.pts.length/2)];
+    const t=document.createElementNS(SVGNS,'text');
+    t.setAttribute('x',mid[0]);t.setAttribute('y',mid[1]);t.setAttribute('class','lbl');
+    t.setAttribute('text-anchor','middle'); t.textContent=r.name;
+    gLabels.appendChild(t);
+  });
+}
+
+// ---- layer toggles ----
+const layer={drive:true,nodrive:true,path:true,labels:false,loop:true};
+const togDefs=[
+  {k:'drive', label:'Drivable now', sw:'var(--drive)'},
+  {k:'nodrive', label:"Road, but can't drive", sw:'var(--nodrive)'},
+  {k:'path', label:'Footpaths', sw:'var(--path)'},
+  {k:'loop', label:'Current race loop', sw:'var(--loop)'},
+  {k:'labels', label:'Street names', sw:null},
+];
+const togWrap=document.getElementById('toggles');
+togDefs.forEach(d=>{
+  const lab=document.createElement('label'); lab.className='tog';
+  const cb=document.createElement('input'); cb.type='checkbox'; cb.checked=layer[d.k];
+  cb.onchange=()=>{layer[d.k]=cb.checked; applyLayers();};
+  lab.appendChild(cb);
+  if(d.sw){const s=document.createElement('span');s.className='swatch';s.style.background=d.sw;lab.appendChild(s);}
+  const sp=document.createElement('span'); sp.textContent=d.label; lab.appendChild(sp);
+  togWrap.appendChild(lab);
+});
+function applyLayers(){
+  els.forEach(el=>{
+    const r=el.__road; const on = r.type==='path'?layer.path:(r.covered?layer.drive:layer.nodrive);
+    el.style.display=on?'':'none';
+  });
+  loopEl.style.display=layer.loop?'':'none';
+  buildLabels();
+  filterSearch();
+}
+
+// ---- counts ----
+const nDrive=ROADS.filter(r=>r.type!=='path'&&r.covered).length;
+const nNo=ROADS.filter(r=>r.type!=='path'&&!r.covered).length;
+const nPath=ROADS.filter(r=>r.type==='path').length;
+document.getElementById('counts').innerHTML=
+  `<span class="count"><span class="swatch" style="background:var(--drive)"></span>drivable <b>${nDrive}</b></span>`+
+  `<span class="count"><span class="swatch" style="background:var(--nodrive)"></span>locked out <b>${nNo}</b></span>`+
+  `<span class="count"><span class="swatch" style="background:var(--path)"></span>paths <b>${nPath}</b></span>`;
+
+// ---- cursor readout (screen -> world) ----
+const readout=document.getElementById('readout');
+svg.addEventListener('pointermove',e=>{
+  const pt=svg.createSVGPoint(); pt.x=e.clientX; pt.y=e.clientY;
+  const w=pt.matrixTransform(svg.getScreenCTM().inverse());
+  readout.innerHTML=`x <b>${Math.round(w.x)}</b>&nbsp; z <b>${Math.round(w.y)}</b>`;
+});
+
+// ---- selection / inspector ----
+let selected=null;
+const inspector=document.getElementById('inspector');
+function selectRoad(r){
+  if(selected) selected.__el.classList.remove('sel');
+  selected=r; r.__el.classList.add('sel');
+  const c0=r.pts[0], c1=r.pts[r.pts.length-1];
+  inspector.innerHTML=
+    `<p class="rname">${r.name||'(unnamed)'}</p>`+
+    `<div class="rmeta">${r.type} · <span class="pill ${r.covered?'y':'n'}">${r.covered?'drivable':'locked out'}</span></div>`+
+    `<dl class="kv">`+
+      `<dt>id</dt><dd>${r.id}</dd>`+
+      `<dt>length</dt><dd>${r.len} m</dd>`+
+      `<dt>points</dt><dd>${r.pts.length}</dd>`+
+      `<dt>start</dt><dd>${c0[0]}, ${c0[1]}</dd>`+
+      `<dt>end</dt><dd>${c1[0]}, ${c1[1]}</dd>`+
+    `</dl>`+
+    `<div class="btnrow">`+
+      `<button class="act" id="cpPts">Copy centreline pts</button>`+
+      `<button class="act" id="cpId">Copy id</button>`+
+    `</div>`;
+  document.getElementById('cpPts').onclick=()=>copy(JSON.stringify(r.pts), r.pts.length+' points copied');
+  document.getElementById('cpId').onclick=()=>copy(String(r.id), 'id '+r.id+' copied');
+}
+gRoads.addEventListener('click',e=>{ if(e.target.__road) selectRoad(e.target.__road); });
+
+// ---- copy + toast ----
+const toast=document.getElementById('toast'); let toastT;
+function copy(text,msg){
+  navigator.clipboard.writeText(text).then(()=>flash(msg)).catch(()=>flash('copy blocked — select manually'));
+}
+function flash(msg){
+  toast.textContent=msg; toast.classList.add('show');
+  clearTimeout(toastT); toastT=setTimeout(()=>toast.classList.remove('show'),1600);
+}
+
+// ---- search ----
+const search=document.getElementById('search');
+search.addEventListener('input',filterSearch);
+function filterSearch(){
+  const q=search.value.trim().toLowerCase();
+  els.forEach(el=>{
+    if(el.style.display==='none') return;
+    const r=el.__road;
+    if(!q){el.classList.remove('dim');return;}
+    const hit=(r.name&&r.name.toLowerCase().includes(q))||String(r.id).includes(q.replace('#',''));
+    el.classList.toggle('dim',!hit);
+  });
+}
+
+applyLayers();
+</script>

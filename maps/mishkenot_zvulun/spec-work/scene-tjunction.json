@@ -68,7 +68,6 @@
       "color": "#8f9296",
       "halfW": 3.3,
       "kerb": "#b9bdc2",
-      "clipLen": 56,
       "extendStart": 4.5,
       "paint": [
         {
@@ -90,7 +89,6 @@
       "halfW": 2.1,
       "raise": 0.07,
       "kerb": "#c4bfb4",
-      "clipLen": 44,
       "startAt": 3,
       "paint": [
         {
@@ -100,6 +98,14 @@
         }
       ],
       "grout": "#7a4a34"
+    },
+    {
+      "id": 26145100,
+      "surface": "asphalt",
+      "color": "#8f9296",
+      "halfW": 3.7,
+      "kerb": "#b9bdc2",
+      "paint": []
     }
   ],
   "islands": [
