@@ -1731,8 +1731,11 @@ async function buildMishkenotWorld(){
     new THREE.MeshLambertMaterial({color:0x8aa86a}));
   base.rotation.x=-Math.PI/2; base.position.y=-0.6; base.receiveShadow=true; scene.add(base);
   try{
-    // ?gen3d = Meshy test bake (integrate-gen3d.mjs); ?v3 = scene-program bake (rebake-programs.mjs)
-    const mishGlb=location.search.includes('v3')?'/assets/mishkenot/world_v3.glb'
+    // ?gen3d = Meshy test bake (integrate-gen3d.mjs); ?v3 = scene-program bake (rebake-programs.mjs);
+    // ?test1 = one-house new-method pilot; ?test2 = scene-faithful refs version (bake-test-world.mjs)
+    const mishGlb=location.search.includes('test2')?'/assets/mishkenot/world_test2.glb'
+                 :location.search.includes('test1')?'/assets/mishkenot/world_test.glb'
+                 :location.search.includes('v3')?'/assets/mishkenot/world_v3.glb'
                  :location.search.includes('gen3d')?'/assets/mishkenot/world_gen3d.glb':'/assets/mishkenot/world.glb';
     const gltf=await new Promise((res,rej)=>new THREE.GLTFLoader().load(mishGlb,res,undefined,rej));
     const root=gltf.scene;
